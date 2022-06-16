@@ -1,0 +1,61 @@
+{
+    "workshoptitle":"Analyze, Query, and Visualize Property Graphs with Oracle Database",
+    "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Getting Started",
+            "description": "Register for a Free Tier account",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+            "title": "Introduction",
+            "description": "Introduction",
+            "filename":"../../intro/intro.md"
+        },
+        {
+            "title": "Lab 1: Create SSH Keys",
+            "description":"Create SSH Keys",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key/generate-ssh-keys.md"
+        },
+        {
+            "title": "Lab 2: Create an Autonomous Database",
+            "description":"Setup an Always Free autonomous database instance",
+            "filename":"../../provision-free-tier-adb/provision-free-tier-adb.md"
+        },
+        {
+            "title": "Lab 3: Create a Graph Server",
+            "description":"Deploy the Graph Server & Client Marketplace image",
+            "filename":"../../deploy-image/deploy-image.md"
+        },
+        {
+            "title": "Lab 4: Create and Enable a Graph User",
+            "description":"Create and enable a graph user using Database Actions",
+            "filename":"../../create-graph-user/create-graph-user.md"
+        },
+        {
+            "title": "Lab 5: Create and Populate Tables",
+            "description":"Create and populate tables with the Customer 360 dataset",
+            "filename":"../../create-and-populate-tables/create-and-populate-tables.md"
+        },
+        {
+            "title": "Lab 6: Create a Graph",
+            "description":"Create a graph",
+            "filename":"../../create-graph/create-graph.md"
+        },
+        {
+            "title": "Lab 7: Query and Analyze the Graph",
+            "description":"Query and Analyze the Graph",
+            "filename":"../../query-and-analyze-graphs/query-and-analyze-graphs.md"
+        },
+        {
+            "title": "Lab 8: Visualize the Graph",
+            "description":"Visualize the Graph",
+            "filename":"../../visualize-graphs/visualize-graphs.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}

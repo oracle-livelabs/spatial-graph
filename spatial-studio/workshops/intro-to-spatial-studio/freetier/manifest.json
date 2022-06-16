@@ -1,0 +1,42 @@
+{
+    "workshoptitle": "Introduction to Oracle Spatial Studio",
+      "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
+      "sample.json":"../../data-load/files/sample.json",
+      "step2.md":"../../data-load/files/step2.md"},
+      "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
+      "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../introduction/introduction.md",
+        "type": "freetier"
+      },  
+      {
+        "title": "Getting Started",
+        "description": "Login to Oracle Cloud",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+    }, 
+      {
+      "title": "Lab 1: Load Spatial Data",
+      "filename": "../../../load-spatial-data/load-spatial-data.md"
+  },
+  {
+    "title": "Lab 2: Create Project",
+    "filename": "../../../create-project/create-project.md"
+},
+{
+  "title": "Lab 3: Apply Map Styling and Interactivity",
+  "filename": "../../../apply-map-styling/apply-map-styling.md"
+},
+{
+  "title": "Lab 4: Perform Spatial Analyses",
+  "filename": "../../../spatial-analysis-intro/spatial-analysis-intro.md"
+},
+{
+    "title": "Need Help?",
+    "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+    "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+}
+    ]
+}
+
