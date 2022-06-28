@@ -58,24 +58,34 @@ You next  .....
    
    ![Image alt text](images/prep-data-01.png)  
 
-2. Observe that the dataset's icon changes from a table to a pin indicating that the dataset can be used for map visualization. Repeat the previous step for dataset **TRI_FACILITIES**.
+2. Populate the latitude and longitude columns for indexing and click **OK**.
 
    ![Image alt text](images/prep-data-02.png)  
+
+3. Repeat for **TRI\_FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and TRI\_FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization. 
+
+    
+4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **ANNUAL\_FLOOD\_2040\_10PCT** and click the link **Go to Dataset Columns**.
+
+   ![Image alt text](images/prep-data-03.png)  
+
+5.  Select **FID** as the key, click **Validate key**, and then **Apply**.
+
+   ![Image alt text](images/prep-data-04.png)  
+
+6. Repeat to add keys for your other datasets using the following columns:
    
-   
-3. The remaining warning badges indicate that keys need to be defined for your datasets. Although this is not needed for basic mapping, we will add keys since keys are required for analyses you'll perform in a later in the workshop. Click on the warning icon for SCHOOLS and then click the link **Go to Dataset Columns**.
+ | Dataset | Column to use as Key |
+ | --- | --- |
+ | ANNUAL\_FLOOD\_2060\_10PCT | FID |
+ | ANNUAL\_FLOOD\_2080\_10PCT	 |FID |
+ | PARCELS | PID\_LONG |
+ | SCHOOLS | OGR\_FID |
+ | TRI_FACILITIES | FACILITY\_ID |
 
-   ![Image alt text](images/xxx.png)
+7. Observe that all of your datasets are fully prepared for mapping and spatial analysis.
 
-4.  Select ... verify... apply
-
-   ![Image alt text](images/xxx.png)
-
-5. Repeat for other datasets...
-
-   ![Image alt text](images/xxx.png)
-
-
+   ![Image alt text](images/prep-data-05.png)  
 
 
 You may now [proceed to the next lab](#next).

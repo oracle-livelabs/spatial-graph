@@ -22,31 +22,47 @@ Estimated Lab Time: xx minutes
 
 You begin by   ..... 
 
-1. Create new project
+1. Navigate to the Projects page and click **Create Project**.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/vis-01.png)
 
-2. Add datasets > select all
+2. Click **Add Dataset**, select all of your datasets, and then click **OK**.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/vis-02.png)
 
-3. Drag and drop ANNUAL\_FLOOD\_2080\_10PCT into the map, then 2060, then 2040. 
+3. Drag and drop ANNUAL\_FLOOD\_2080\_10PCT into the map. 
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/vis-03.png)
 
-4. Toggle visibility, observe differences...
+4. Repeat for ANNUAL\_FLOOD\_2060\_10PCT and then ANNUAL\_FLOOD\_2040\_10PCT.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/vis-04.png)
 
-5. You will use 2060 for the following steps, so remove 2040 and 2080 from the map.
+   If your layers are in a different order, you may click-hold-drag layers up or down in the Layers panel to change their order.
 
-   ![Image alt text](images/xxx.png)
+5. Using your mouse wheel, zoom into an area of overlapping flood areas to observe the differences in the flood models over time. 
 
-6. Drop SCHOOLS onto the map. Style opaque green fill, white stroke.
+   ![Image alt text](images/vis-05.png)
+
+6. View individual flood models by clicking the eye icon to toggle layer visibility.  
+
+   ![Image alt text](images/vis-06.png)
+
+7. You will use the 2060 flood model for the following steps, so remove 2040 and 2080 from the map. Select **Remove** from the action menu for ANNUAL\_FLOOD\_2040\_10PCT.
+
+   ![Image alt text](images/vis-07.png)
+
+  Then repeat for ANNUAL\_FLOOD\_2080\_10PCT.
+
+8. Adjust the map to fit the 2060 flood model by selecting **Zoom to layer** from the action menu.
+
+   ![Image alt text](images/vis-08.png)
+
+9.  Drop SCHOOLS onto the map. Style opaque green fill, white stroke.
    
-7. Drop TRI_FACILITIES onto the map. Style opaque magenta fill, white stroke.
+10. Drop TRI_FACILITIES onto the map. Style opaque magenta fill, white stroke.
 
-8. Drop PARCELS onto the map. Drag to bottom of layers. Zoom in. Style lt grey fill, dark grey stroke.
+11. Drop PARCELS onto the map. Drag to bottom of layers. Zoom in. Style lt grey fill, dark grey stroke.
 
 ## Task 2: Configure map layers
    
