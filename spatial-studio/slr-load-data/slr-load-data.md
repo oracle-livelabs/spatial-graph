@@ -26,37 +26,41 @@ Estimated Lab Time: xx minutes
 
 You begin by loading  ..... 
 
-1. Download the zip file containing the data to a convenient location: <a href="xxx">  xxx.zip  </a>
+1. Download the zip file containing the data to a convenient location: <a href="xxx">  xxx.zip  </a> . Unzip the file and observe the files for upload along with a README file with data source info.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/load-data-01.png)
+
+2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, and select all of the files (except for README.txt). 
    
-2. Unzip the file and observe the files for upload (geojson, shp, csv)...
+   ![Image alt text](images/load-data-02.png)
 
-   ![Image alt text](images/xxx.png)
-
-3. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, and select all of the files (except for README.txt). Then click **Create**.
+3. Then click **Create**.
    
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/load-data-03.png)
 
-4. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. In this workshop we are using the SPATIAL_STUDIO connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
+4. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. In this workshop you select the **SPATIAL_STUDIO** connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
    
-  ![Image alt text](images/xxx.png)
+   ![Image alt text](images/load-data-04.png)
 
 5. Repeat for all datasets.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/load-data-05.png)
+
+6. When complete, the datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. You will perform those steps in the next task.
+
+   ![Image alt text](images/load-data-06.png)
 
 ## Task 2: Prepare Data
 
 You next  .....   
 
-1. The datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. Begin by clicking the warning badge for SCHOOLS. This dataset was loaded from a non-spatial format (csv) and require preparation for mapping visualization. The dataset includes latitude/longitude columns, so select **Create Latitude/Longitude Index** and then click **Ok**. Observe that the dataset's icon changes from a table to a pin indicating that the dataset can be used for map visualization.
+1. The datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. Begin by clicking the warning badge for **SCHOOLS**. This dataset was loaded from a non-spatial format (csv) and requires preparation for mapping visualization. The dataset includes latitude/longitude columns, so select **Create Latitude/Longitude Index** and then click **Ok**. 
    
-   ![Image alt text](images/xxx.png)  
+   ![Image alt text](images/prep-data-01.png)  
 
-2. Repeat for TRI_FACILITIES.
+2. Observe that the dataset's icon changes from a table to a pin indicating that the dataset can be used for map visualization. Repeat the previous step for dataset **TRI_FACILITIES**.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/prep-data-02.png)  
    
    
 3. The remaining warning badges indicate that keys need to be defined for your datasets. Although this is not needed for basic mapping, we will add keys since keys are required for analyses you'll perform in a later in the workshop. Click on the warning icon for SCHOOLS and then click the link **Go to Dataset Columns**.
