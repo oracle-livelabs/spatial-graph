@@ -19,7 +19,7 @@ Estimated time: 7 minutes
 
 1. Go to Oracle Cloud console > Networking > Virtual Cloud Networks
 
-    ![networking-vcn](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/networking-vcn.png)
+    ![networking-vcn](https://oracle-livelabs.github.io/common/images/console/networking-vcn.png)
 
 2. Start VCN Wizard > Create VCN with Internet Connectivity > Start VCN Wizard
 
@@ -94,7 +94,7 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
 1. Go to your Cloud console, under **Oracle Database**, select **Autonomous Transaction Processing**. If you don't see your instance, make sure the **Workload Type** is **Transaction Processing** or **All**.
 
-    ![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
+    ![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
 1. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **DB Connection**.
 

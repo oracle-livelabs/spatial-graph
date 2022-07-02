@@ -22,7 +22,7 @@ Login as the Admin user in Database Actions of the newly created ADB instance.
 
 Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
 
-![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
+![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
 In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your brower allow pop-up windows.
 

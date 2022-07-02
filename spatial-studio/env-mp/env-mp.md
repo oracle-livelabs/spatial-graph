@@ -23,7 +23,7 @@ In this lab, you will:
 
 1. Click the **Navigation Menu** in the upper left and select **Marketplace**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/marketplace.png " ")	
+	![](https://oracle-livelabs.github.io/common/images/console/marketplace.png " ")	
 
 2. Search for Spatial Studio and then click on the Oracle Spatial Studio app
 
@@ -205,7 +205,7 @@ Oracle Spatial Studio is now provisioned and tested. The following Lab provides 
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Developer Services**, and select **Stacks**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/developer-resmgr-stacks.png " ")
+	![](https://oracle-livelabs.github.io/common/images/console/developer-resmgr-stacks.png " ")
 
 2. Choose the Compartment and Name used in STEP 2. In the example shown below, a compartment named sandbox and Stack named Oracle Spatial Studio was used.
 
