@@ -1,5 +1,9 @@
 # Introduction
 
+to do:
+- intro:  not about creating flood models. they are created by...
+- here we analyze them
+- you could create models using ... in OCI
 
 ## About this Workshop
 

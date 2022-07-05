@@ -83,24 +83,94 @@ Next you add map layers and apply styling.
    ![Image alt text](images/vis-13.png)
 
 
- 6. Once collapsed, panels may be restored by hovering and clicking on the expand icon (right-facing arrowhead).
+ 6. Once collapsed, panels may be restored by hovering and clicking on the expand icon (right-facing arrowhead)
 
    ![Image alt text](images/vis-14.png)
 
-======
+   Next you will configure your other map layers.
+
+7. From the **SCHOOLS** layer action menu, select **Settings**.
+
+   ![Image alt text](images/vis-15.png)
+
+8. In the Settings dialog, scroll down to see sections on basic (fill) and stroke (outline) styles. Change the fill opacity to 100%. Change the stroke color to white and opacity to 100%.
+
+   ![Image alt text](images/vis-16.png)
+
+9. Scroll to the top of the Settings dialog, pull down the Configure menu, and select **Interaction**.
+
+   ![Image alt text](images/vis-17.png)
+
+10. Scroll down to the Tooltip section. Enable tooltips and select **NAME** as the tooltip column. Then mouse over schools to view the tooltips.
+
+   ![Image alt text](images/vis-18.png)
+
+    As you did in a previous step, scroll to the top of the Settings dialog and click **Back** to return to the Layers list.
+
+    Style can be either static or dynamic based on data. So far you can configured static styles. Next you configure styles dynamically driven by data.
+
+11. From the **TRI_FACILITIES** layer action menu, select **Settings**.
+
+   ![Image alt text](images/vis-19.png)
+
+12. Change the fill color to magenta and opacity to 100%. Change the stroke color to white and opacity to 100%.
+
+   ![Image alt text](images/vis-20.png)
 
 
-1.  Drop SCHOOLS onto the map. Style opaque green fill, white stroke.
-   
-2.  Drop TRI_FACILITIES onto the map. Style opaque magenta fill, white stroke.
+13. From the Radius menu, select the option **Based on data**.
 
-3.  Drop PARCELS onto the map. Drag to bottom of layers. Zoom in. Style lt grey fill, dark grey stroke.
-   
-4.  Style PARCELS by PCAT 
-    
-5.  Style TRI\_FACILITIES by risk score
-   
-6.  Configure SCHOOL and TRI\_FACILITY info windows
+   ![Image alt text](images/vis-21.png)
+
+14. From the column menu, select **RISK_SCORE** as the column to drive the map symbol size.
+
+   ![Image alt text](images/vis-22.png)
+
+15. Click the pencil button to create value bins for symbol sizing. Enter 0 for minimum, 1000 for maximum,  Interval for grouping, and 4 for number of ranges. Then click **Regenerate bin values**.
+
+   ![Image alt text](images/vis-23.png)
+
+16. Update the sizes for the bins to 4, 6, 8, 10.
+
+   ![Image alt text](images/vis-24.png)
+
+17. Next you configure pop-up windows. From the Configure menu, select **Interaction**.
+
+   ![Image alt text](images/vis-25.png)
+
+18. In the Settings dialog, scroll down to the Info window section. Enable info windows using the **Show info window** switch, and select columns of your choosing. Then click on a facility in the map to observe the info window pop-up.
+
+   ![Image alt text](images/vis-26.png)
+
+  As you have done in previous steps, scroll to the top of the Settings dialog and click **Back** to return to the Layers list.
+
+19. Move the PARCELS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer down, click-hold-drag the layer to the bottom of the list.  Then use your mouse wheel to zoom into an area with parcels along the flood boundary to observe the overlap.
+
+   ![Image alt text](images/vis-27.png)
+
+
+ The PARCELS layer includes non-commercial properties tagged as either RESIDENTIAL or APARTMENT.  You next style the parcels according to this attribute.
+
+20. As you have done in previous steps, navigate to the Settings dialog for the PARCELS layer by selecting **Settings** from the action menu. Then, under the Fill section change the Color menu selection to **Based on data**.
+
+   ![Image alt text](images/vis-28.png)
+
+21. In the Column menu select **PCAT** as the column to use for driving parcel fill color. Then update the fill colors for APARTMENT and RESIDENTIAL to colors of your choosing, for example dark and light grey.
+
+   ![Image alt text](images/vis-29.png)
+
+   Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
+
+   In the next lab you will perform spatial analyses to identify items that satisfy various spatial relationships with the flood model.  
+
+22. This is a good time to save your work. Click the Save button on the top right. Give your project a name such as SLR Project, then click **Save**.
+
+   ![Image alt text](images/vis-30.png)
+
+
+23. ......
+
+   ![Image alt text](images/vis-31.png)
 
 
 
