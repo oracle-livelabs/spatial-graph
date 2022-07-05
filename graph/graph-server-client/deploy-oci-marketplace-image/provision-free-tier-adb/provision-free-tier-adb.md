@@ -34,7 +34,7 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 3. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Transaction Processing (ATP) database. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
 
-	![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
+	![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
 4. Make sure your Workload Type is **Transaction Processing** or **All** to see your Autonomous Transaction Processing instances. You can use the **List Scope** drop-down menu to select a Compartment. Select your **root compartment**, or **another compartment of your choice** where you will create your new ATP instance. If you want to create a new compartment or learn more about them, click [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#three).
 
