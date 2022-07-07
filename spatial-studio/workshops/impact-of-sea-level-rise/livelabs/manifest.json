@@ -1,0 +1,43 @@
+{
+    "workshoptitle": "Assess the local impact of sea level rise with Oracle Spatial Studio",
+      "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
+      "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../introduction/introduction.md",
+        "type": "reservation"
+      },  
+      {
+        "title": "Getting Started",
+        "description": "Login to Oracle Cloud",
+        "filename": "../placeholder.md"
+    }, 
+   {
+      "title": "Lab 1: Access Spatial Studio",
+      "filename": "../placeholder.md"
+  },
+  {
+      "title": "Lab 2: Load and Prepare Data",
+      "filename": "../../../slr-load-data/slr-load-data.md"
+  },
+  {
+    "title": "Lab 3: Visualize",
+    "filename": "../../../slr-visualize/slr-visualize.md"
+},
+{
+  "title": "Lab 4: Analyze",
+  "filename": "../../../slr-analyze/slr-analyze.md"
+},
+{
+  "title": "Lab 5: Save and Share Results",
+  "filename": "../placeholder.md"
+},
+{
+    "title": "Need Help?",
+    "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+    "filename": "../placeholder.md"
+}
+    ]
+}
+
