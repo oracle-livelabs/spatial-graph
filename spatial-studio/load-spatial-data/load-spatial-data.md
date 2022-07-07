@@ -21,7 +21,7 @@ Estimated Lab Time: 15 minutes
 ### Prerequisites
 
 * This lab requires access to Spatial Studio and Oracle Database. 
-* Before you get started, complete the workshop [Install Oracle Spatial Studio from Cloud Marketplace ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=778)
+* To deploy these from the Oracle Cloud Marketplace, please navigate to the listing <a href="https://cloud.oracle.com/marketplace/application/71472162/overview"> here </a> (you will be prompted to log into to your Oracle Cloud account) and then follow instructions <a href="https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace"> here </a>.
 * No previous experience with Oracle Spatial is required.
 
 
