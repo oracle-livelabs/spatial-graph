@@ -40,7 +40,7 @@ In this lab, you will:
 
 Spatial queries in Oracle Database are just like any other traditional queries you are accustomed to. The only difference is a set of spatial functions and operators that are probably new to you.
 
-**Identify 5 closest STORES to the Dallas WAREHOUSE:**
+**Query 1: Identify the 5 closest STORES to the Dallas WAREHOUSE:**
 
 ```
 <copy> 
@@ -65,7 +65,7 @@ Notes:
 * When using the ```SDO_NUM_RES``` parameter, no other criteria are used in the ```WHERE``` clause. ```SDO_NUM_RES``` takes only proximity into account. For example, if you added a criterion to the ```WHERE``` clause because you wanted the five closest STORES having a specific zipcode, and four of the five closest STORES have a different zipcode, the query would return only one row. This behavior is specific to the ```SDO_NUM_RES``` parameter. In the following query you will include a distance operator to return the actual distances for the 5 nearest stores. 
 
 
-**Identify 5 closest STORES to the Dallas Warehouse with distance:**
+**Query 2: Identify the 5 closest STORES to the Dallas Warehouse with distance:**
 ```
 <copy>
 SELECT
@@ -92,7 +92,7 @@ Notes:
 * The ```ORDER BY DISTANCE``` clause ensures that the distances are returned in order, with the shortest distance first.
 
 
-**Identify 5 closest STORES of type WHOLESALE to the Dallas WAREHOUSE with distance:**
+**Query 3: Identify the 5 closest STORES of type WHOLESALE to the Dallas WAREHOUSE with distance:**
 
 ```
 <copy>
@@ -124,7 +124,7 @@ Notes:
 * The ```ORDER BY DISTANCE_KM``` clause ensures that the distances are returned in order, with the shortest distance first and the distances measured in kilometers.
 
 
-**Identify STORES within 50km of Houston WAREHOUSE:**
+**Query 4: Search for all STORES within 50km of Houston WAREHOUSE:**
 
 ```
 <copy>
@@ -150,7 +150,7 @@ Notes:
 * The UNIT parameter used within the ```SDO_WITHIN_DISTANCE``` operator specifies the unit of measure of the DISTANCE parameter. The default unit is the unit of measure associated with the data. For longitude and latitude data, the default is meters; in this example, it is miles.
 
 
-**Identify STORES within 50km of Houston WAREHOUSE with distance:**
+**Query 5: Search for all STORES within 50km of Houston WAREHOUSE with distance:**
 
 ```
 <copy>
@@ -185,7 +185,7 @@ Notes:
 * The ```ORDER BY DISTANCE_IN_MILES``` clause ensures that the distances are returned in order, with the shortest distance first and the distances measured in miles.
 
 
-**Identify STORES in the COASTAL ZONE:**
+**Query 6: Search for all STORES in the COASTAL ZONE:**
 
 ```
 <copy>
@@ -209,7 +209,7 @@ Notes:
 * In this example geometry1 is ```B.GEOMETRY```, the branch geometries, and geometry2 is ```C.GEOMETRY```, the coastal zone geometry. The COASTAL_ZONES table has only 1 row so no additional criteria is needed.
 
 
-**Identify STORES outside and within 10km of the COASTAL ZONE:**
+**Query 7: Search for all STORES outside and within 10km of the COASTAL ZONE:**
 
 ```
 <copy>
@@ -244,7 +244,7 @@ Notes:
 * The query uses ```MINUS``` to remove STORES inside the COASTAL ZONE, leaving only STORES within 10km and outside the COASTAL ZONE. 
 
 
-**Determine the topological relationship between all REGIONS and the COASTAL ZONE:**
+**Query 8: Determine the topological relationship between all REGIONS and the COASTAL ZONE:**
 
 ```
 <copy>
@@ -267,34 +267,93 @@ binary topological relationships between geometries (points, lines, and polygons
 
 ![Image alt text](images/topological_relationships.png)
 
-* Using the keyword ```DETERMINE``` as second parameter, the function returns the one relationship that best matches the geometries.
-* The fourth parameter is the tolerance value.
+* Using the keyword ```DETERMINE``` as second argument, the function returns the one relationship that best matches the geometries.
+* The fourth argument is the tolerance value.
 
 
-**Compute a minimum distance matrix for warehouses and stores**
+**Query 9: Compute a minimum distance matrix for warehouses and stores**
 
 ```
 <copy>
-
 </copy>
 ```
 
 ![Image alt text](images/query9.png)
 
-**Create buffers around earthquake locations with diameters related to the magnitude**
+**Query 10: Create buffers around earthquake locations with diameters related to their magnitude**
 
 ```
 <copy>
-
+SELECT
+    E.ID
+    , E.TIME
+    , E.MAG
+    , E.EQTYPE
+    , E.PLACE
+    , E.GEOMETRY
+    , SDO_GEOM.SDO_BUFFER(E.GEOMETRY, E.MAG*10, 0.05, 'unit=km') BUFFER_GEOMETRY
+FROM
+    EARTHQUAKES E
+WHERE
+    UPPER(E.EQTYPE) = 'EARTHQUAKE';
 </copy>
 ```
 
 ![Image alt text](images/query10.png)
 
+Note: For details about the meaning of the attributes, see [here](https://earthquake.usgs.gov/data/comcat/).
 
-**Identify stores that are potentially affected by earthquakes** 
-    + using the buffers created before
-    + using a colocation function
+The result of this query, the earthquake locations and their magnitude-dependent buffers visualized on a map would look like in the following image:
+
+![Image alt text](images/earthquakes_and_buffers.png)
+
+Notes:
+* The ```SDO_GEOM.SDO_BUFFER``` function generates a buffer polygon around or inside a geometry object. 
+* The first argument defines the geometries for which the buffer is created. 
+* The second argument is the size of the buffer around a geometry. Together with the unit specified as fourth argument it results the magnitude value multiplied by 10 in kilometers.
+* The third argument is the tolerance value.  
+
+
+**Query 11: Search for all STORES that were affected by EARTHQUAKES using the BUFFERS created before** 
+
+```
+<copy>
+WITH BUFFERS AS (
+SELECT
+    E.ID
+    , E.MAG
+    , E.PLACE
+    , E.TIME
+    , SDO_GEOM.SDO_BUFFER(E.GEOMETRY, E.MAG*10, 0.05, 'unit=km') BUFFER_GEOMETRY
+FROM
+    EARTHQUAKES E
+WHERE
+    UPPER(E.EQTYPE) = 'EARTHQUAKE')
+SELECT 
+    B.TIME
+    , S.STORE_NAME
+    , B.MAG
+    , B.PLACE
+FROM 
+    STORES S
+    , BUFFERS B
+WHERE    
+    SDO_RELATE(S.GEOMETRY, B.BUFFER_GEOMETRY, 'MASK=ANYINTERACT') = 'TRUE'
+ORDER BY
+    B.TIME
+    , S.STORE_NAME;
+</copy>
+```
+
+![Image alt text](images/query11.png)
+
+Notes:
+* The WITH clause dynamically creates the EARTHQUAKE BUFFERS.
+* The ```SDO_RELATE``` operator is used to identify the spatial interaction of STORES with the EARTHQUAKE BUFFERS. 
+* The mask ANINTERACT returns TRUE if the two compared geometries are not disjoint.
+
+
+**Query 12: Search for all stores that are potentially affected by earthquakes using a colocation function** 
 
 ```
 <copy>
@@ -305,7 +364,7 @@ binary topological relationships between geometries (points, lines, and polygons
 ![Image alt text](images/query11.png)
 
 
-**Aggregate stores per region and group them by store type**
+**Query 13: Aggregate stores per region and group them by store type**
 
 ```
 <copy>
@@ -316,7 +375,7 @@ binary topological relationships between geometries (points, lines, and polygons
 ![Image alt text](images/query.png)
 
 
-**Compute the centroid of each region**
+**Query 14: Compute the centroid of each region**
 
 ```
 <copy>
@@ -327,7 +386,7 @@ binary topological relationships between geometries (points, lines, and polygons
 ![Image alt text](images/query.png)
 
 
-**Cluster earthquakes including outlying values**
+**Query 15: Create earthquakes clusters including outlying values**
 
 ```
 <copy>
@@ -349,4 +408,4 @@ binary topological relationships between geometries (points, lines, and polygons
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Karin Patenge, June 2022
+* **Last Updated By/Date** - Karin Patenge, July 2022
