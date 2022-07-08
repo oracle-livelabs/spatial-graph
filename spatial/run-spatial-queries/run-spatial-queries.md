@@ -18,15 +18,15 @@ Oracle Database includes a robust library of functions and operators for spatial
 In this lab, you will:
 * Identify stores having proximity relationships to a warehouse
 * Identify stores having containment and proximity relationships to the coastal zone
-* Compute a minimum distance matrix for warehouses and stores  (SDO_CLOSEST_POINT)
 * Identify regions having a spatial relationship with the coastal zone
-* Cluster earthquakes including outlying values
+* Compute a minimum distance matrix for warehouses and stores
 * Create buffers around earthquake locations with diameters related to the magnitude
 * Identify stores that are potentially affected by earthquakes 
     + using the buffers created before
     + using a colocation function
 * Aggregate stores per region and group them by store type
 * Compute the centroid of each region
+* Cluster earthquakes including outlying values
 
 
 ### Prerequisites
@@ -40,16 +40,16 @@ In this lab, you will:
 
 Spatial queries in Oracle Database are just like any other traditional queries you are accustomed to. The only difference is a set of spatial functions and operators that are probably new to you.
 
-**Identify 5 closest STORES to the Dallas Warehouse:**
+**Identify 5 closest STORES to the Dallas WAREHOUSE:**
 
 ```
 <copy> 
 SELECT
-    BRANCH_NAME,
-    BRANCH_TYPE
+    STORE_NAME
+    , STORE_TYPE
 FROM
-    STORES    B,
-    WAREHOUSES  W
+    STORES B
+    , WAREHOUSES W
 WHERE
     W.WAREHOUSE_NAME = 'Dallas Warehouse'
     AND SDO_NN(
@@ -62,23 +62,19 @@ WHERE
 
 Notes: 
 * The ```SDO_NN``` operator returns the 'n nearest' STORES to the Dallas Warehouse, where 'n' is the value specificed for ```SDO_NUM_RES```. The first argument to ```SDO_NN``` (```B.GEOMETRY``` in the example above) is the column to search. The second argument (```W.GEOMETRY``` in the example above) is the location you want to find the neighbors nearest to. No assumptions should be made about the order of the returned results. For example, the first row returned is not guaranteed to be the closest. If two or more STORES are an equal distance from the warehouse, then either may be returned on subsequent calls to ```SDO_NN```.
-* When using the ```SDO_NUM_RES``` parameter, no other criteria are used in the ```WHERE``` clause. ```SDO_NUM_RES``` takes only proximity into account. For example, if you added a criterion to the ```WHERE``` clause because you wanted the five closest STORES having a specific zipcode, and four of the five closest STORES have a different zipcode, the query above would return one row. This behavior is specific to the ```SDO_NUM_RES``` parameter. In an query below you will use an alternative parameter for the scenario of additional query criteria. 
+* When using the ```SDO_NUM_RES``` parameter, no other criteria are used in the ```WHERE``` clause. ```SDO_NUM_RES``` takes only proximity into account. For example, if you added a criterion to the ```WHERE``` clause because you wanted the five closest STORES having a specific zipcode, and four of the five closest STORES have a different zipcode, the query would return only one row. This behavior is specific to the ```SDO_NUM_RES``` parameter. In the following query you will include a distance operator to return the actual distances for the 5 nearest stores. 
 
 
-**Identify 5 closest STORES to the the Dallas Warehouse with distance:**
+**Identify 5 closest STORES to the Dallas Warehouse with distance:**
 ```
 <copy>
 SELECT
-    BRANCH_NAME,
-    BRANCH_TYPE,
-    ROUND(
-        SDO_NN_DISTANCE(
-            1
-        ), 2
-    ) DISTANCE_KM
+    STORE_NAME
+    , STORE_TYPE
+    , ROUND(SDO_NN_DISTANCE(1), 2) DISTANCE_KM
 FROM
-    STORES    B,
-    WAREHOUSES  W
+    STORES B
+    , WAREHOUSES W
 WHERE
     W.WAREHOUSE_NAME = 'Dallas Warehouse'
     AND SDO_NN(
@@ -96,24 +92,20 @@ Notes:
 * The ```ORDER BY DISTANCE``` clause ensures that the distances are returned in order, with the shortest distance first.
 
 
-**Identify 5 closest WHOLESALE STORES to the the Dallas Warehouse with distance:**
+**Identify 5 closest STORES of type WHOLESALE to the Dallas WAREHOUSE with distance:**
 
 ```
 <copy>
 SELECT
-    BRANCH_NAME,
-    BRANCH_TYPE,
-    ROUND(
-        SDO_NN_DISTANCE(
-            1
-        ), 2
-    ) DISTANCE_KM
+    STORE_NAME
+    , STORE_TYPE
+    , ROUND(SDO_NN_DISTANCE(1), 2) DISTANCE_KM
 FROM
-    STORES    B,
-    WAREHOUSES  W
+    STORES B
+    , WAREHOUSES W
 WHERE
     W.WAREHOUSE_NAME = 'Dallas Warehouse'
-    AND B.BRANCH_TYPE = 'WHOLESALE'
+    AND B.STORE_TYPE = 'WHOLESALE'
     AND SDO_NN(
         B.GEOMETRY, W.GEOMETRY, 'sdo_batch_size=5 unit=km', 1
     ) = 'TRUE'
@@ -128,19 +120,20 @@ ORDER BY
 Notes:
 * ```SDO_BATCH_SIZE``` is a tunable parameter that may affect your query's performance. ```SDO_NN``` internally calculates that number of distances at a time. The initial batch of rows returned may not satisfy the constraints in the WHERE clause, so the number of rows specified by ```SDO_BATCH_SIZE``` is continuously returned until all the constraints in the WHERE clause are satisfied. You should choose a ```SDO_BATCH_SIZE``` that initially returns the number of rows likely to satisfy the constraints in your WHERE clause.
 * The ```UNIT``` parameter used within the ```SDO_NN``` operator specifies the unit of measure of the ```SDO_NN_DISTANCE``` parameter. The default unit is the unit of measure associated with the data. For longitude and latitude data, the default is meters.
-* ```B.BRANCH_TYPE = 'WHOLESALE' AND ROWNUM <= 5``` are the additional constraints in the ```WHERE``` clause. The rownum  clause is necessary to limit the number of results returned to 5.
-* The ```ORDER BY DISTANCE_KM``` clause ensures that the distances are returned in order, with the shortest distance first and the distances measured in miles.
+* ```B.STORE_TYPE = 'WHOLESALE' AND ROWNUM <= 5``` are the additional constraints in the ```WHERE``` clause. The rownum  clause is necessary to limit the number of results returned to 5.
+* The ```ORDER BY DISTANCE_KM``` clause ensures that the distances are returned in order, with the shortest distance first and the distances measured in kilometers.
 
-**Identify STORES within 50km of Houston Warehouse:**
+
+**Identify STORES within 50km of Houston WAREHOUSE:**
 
 ```
 <copy>
 SELECT
-    B.BRANCH_NAME,
-    B.BRANCH_TYPE
+    B.STORE_NAME
+    , B.STORE_TYPE
 FROM
-    STORES    B,
-    WAREHOUSES  W
+    STORES B
+    , WAREHOUSES W
 WHERE
     W.WAREHOUSE_NAME = 'Houston Warehouse'
     AND SDO_WITHIN_DISTANCE(
@@ -157,21 +150,21 @@ Notes:
 * The UNIT parameter used within the ```SDO_WITHIN_DISTANCE``` operator specifies the unit of measure of the DISTANCE parameter. The default unit is the unit of measure associated with the data. For longitude and latitude data, the default is meters; in this example, it is miles.
 
 
-**Identify STORES within 50km of Houston Warehouse with distance:**
+**Identify STORES within 50km of Houston WAREHOUSE with distance:**
 
 ```
 <copy>
 SELECT
-    B.BRANCH_NAME,
-    B.BRANCH_TYPE,
-    ROUND(
+    B.STORE_NAME
+    , B.STORE_TYPE
+    , ROUND(
         SDO_GEOM.SDO_DISTANCE(
             B.GEOMETRY, W.GEOMETRY, 0.05, 'unit=km'
         ), 2
     ) AS DISTANCE_KM
 FROM
-    STORES    B,
-    WAREHOUSES  W
+    STORES B
+    , WAREHOUSES  W
 WHERE
     W.WAREHOUSE_NAME = 'Houston Warehouse'
     AND SDO_WITHIN_DISTANCE(
@@ -192,16 +185,16 @@ Notes:
 * The ```ORDER BY DISTANCE_IN_MILES``` clause ensures that the distances are returned in order, with the shortest distance first and the distances measured in miles.
 
 
-**Identify STORES in the coastal zone:**
+**Identify STORES in the COASTAL ZONE:**
 
 ```
 <copy>
 SELECT
-    B.BRANCH_NAME,
-    B.BRANCH_TYPE
+    B.STORE_NAME
+    , B.STORE_TYPE
 FROM
-    STORES      B,
-    COASTAL_ZONES  C
+    STORES B
+    , COASTAL_ZONES C
 WHERE
     SDO_ANYINTERACT(
         B.GEOMETRY, C.GEOMETRY
@@ -215,42 +208,134 @@ Notes:
 * The ```SDO_ANYINTERACT``` operator accepts 2 arguments, geometry1 and geometry2. The operator returns ```TRUE``` for rows where geometry1 is inside or on the boundary of geometry2.
 * In this example geometry1 is ```B.GEOMETRY```, the branch geometries, and geometry2 is ```C.GEOMETRY```, the coastal zone geometry. The COASTAL_ZONES table has only 1 row so no additional criteria is needed.
 
-**Identify STORES outside and within 10km of coastal zone:**
+
+**Identify STORES outside and within 10km of the COASTAL ZONE:**
 
 ```
 <copy>
-
-( SELECT
-    B.BRANCH_NAME,
-    B.BRANCH_TYPE
+SELECT
+    B.STORE_NAME
+    , B.STORE_TYPE
 FROM
-    STORES      B,
-    COASTAL_ZONES  C
+    STORES B
+    , COASTAL_ZONES C
 WHERE
     SDO_WITHIN_DISTANCE(
         B.GEOMETRY, C.GEOMETRY, 'distance=10 unit=km'
     ) = 'TRUE'
-)
 MINUS
-( SELECT
-    B.BRANCH_NAME,
-    B.BRANCH_TYPE
+SELECT
+    B.STORE_NAME
+    , B.STORE_TYPE
 FROM
-    STORES      B,
-    COASTAL_ZONES  C
+    STORES B
+    , COASTAL_ZONES C
 WHERE
     SDO_ANYINTERACT(
         B.GEOMETRY, C.GEOMETRY
-    ) = 'TRUE'
-);
+    ) = 'TRUE';
 </copy>
 ```
 
 ![Image alt text](images/query7.png)
 
 Notes:
-* In the first part of this query, the ```SDO_WITHIN_DISTANCE``` operator identifies STORES within 10 km of the COASTAL_ZONES. This includes STORES inside the COASTAL\_ZONE.
-* The query uses ```MINUS``` to remove STORES inside the COASTAL_ZONES, leaving only BRACNCHES within 10km and outside the COASTAL\_ZONE. 
+* In the first part of this query, the ```SDO_WITHIN_DISTANCE``` operator identifies STORES within 10km of the COASTAL ZONE. This includes STORES inside the COASTAL ZONE.
+* The query uses ```MINUS``` to remove STORES inside the COASTAL ZONE, leaving only STORES within 10km and outside the COASTAL ZONE. 
+
+
+**Determine the topological relationship between all REGIONS and the COASTAL ZONE:**
+
+```
+<copy>
+SELECT
+    R.REGION_ID
+    , SDO_GEOM.RELATE (
+        R.GEOMETRY, 'DETERMINE', C.GEOMETRY, 0.05
+    ) RELATIONSHIP
+FROM
+    REGIONS R
+    , COASTAL_ZONES C;
+</copy>
+```
+
+![Image alt text](images/query8.png)
+
+Notes:
+* The ```SDO_GEOM.RELATE``` function uses a nine-intersection model for categorizing
+binary topological relationships between geometries (points, lines, and polygons). Each geometry has an interior, a boundary, and an exterior. Following relationships can be returned: 
+
+![Image alt text](images/topological_relationships.png)
+
+* Using the keyword ```DETERMINE``` as second parameter, the function returns the one relationship that best matches the geometries.
+* The fourth parameter is the tolerance value.
+
+
+**Compute a minimum distance matrix for warehouses and stores**
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query9.png)
+
+**Create buffers around earthquake locations with diameters related to the magnitude**
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query10.png)
+
+
+**Identify stores that are potentially affected by earthquakes** 
+    + using the buffers created before
+    + using a colocation function
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query11.png)
+
+
+**Aggregate stores per region and group them by store type**
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query.png)
+
+
+**Compute the centroid of each region**
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query.png)
+
+
+**Cluster earthquakes including outlying values**
+
+```
+<copy>
+
+</copy>
+```
+
+![Image alt text](images/query.png)
 
 
 ## Learn More

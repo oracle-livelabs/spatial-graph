@@ -1,9 +1,9 @@
 {
-    "workshoptitle": "Introduction to Oracle Spatial",
+    "workshoptitle": "How to Work with Spatial Data in Oracle Database",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
-        "title": "Introduction",
+        "title": "Introduction to Oracle Spatial",
         "filename": "../introduction/introduction.md"
       },
       {
