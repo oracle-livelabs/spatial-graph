@@ -76,11 +76,70 @@ You begin by   .....
 
 ## Task 2: Identify TRI Facilities near the projected flood area
 
-You begin by   ..... 
+You next identify TRI Facilities near the projected flood area. This is a spatial filter operation, where the facilities are  filtered based on by proximity to the projected flood area. This is referred to as a "within distance" operation.
 
 1. In the main navigation panel click on the button to return to your **Active Project**. Adjust layer visibility so that the projected flood area and facilities are visible. From the action menu for TRI\_FACILITIES, select **Spatial Analysis**.
 
    ![Image alt text](images/analyze-11.png)
+
+2. Click on the tab for **Filter** analyses and then click on the tile for **Return shapes within a specified distance of another**. 
+
+   ![Image alt text](images/analyze-12.png)
+
+
+3. In the analysis dialog, for analysis name enter **TRI_FACILITIES NEAR FLOOD\_2060\_10PCT**, for layer to be filtered select **TRI\_FACILITIES**, and for layer ot be used as the filter enter **ANNUAL\_FLOOD\_2060\_10PCT**.
+
+   ![Image alt text](images/analyze-13.png)
+
+   Scroll down and for distance enter **10** and unit select **Kilometer**. Then click **Run**.
+
+   ![Image alt text](images/analyze-14.png)
+
+4. Before adding the analysis results to the map, change the style of the original unfiltered TRI\_Facilities layer so that the analysis results are clearly visible. As you have done previously, from the action menu for TRI\_Facilities select **Settings**. Then change the radius to 6, color to black, and opacity to maximum. 
+
+   ![Image alt text](images/analyze-15.png)
+
+6. Drag and drop your **TRI_FACILITIES NEAR FLOOD\_2060\_10PCT** analysis onto the map. From its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke to black with weight. The results are clearly visible over the unfiltered TRI\_FACILITIES layer,
+
+   ![Image alt text](images/analyze-16.png)
+
+7. Spatial Studio allows you to modify the parameters of an analysis. From the action menu for TRI_FACILITIES NEAR FLOOD\_2060\_10PCT, select **Modify Parameters**.
+
+   ![Image alt text](images/analyze-17.png)
+
+8. Update the distance to 3, and then click **Run**.
+
+   ![Image alt text](images/analyze-18.png)
+
+   Observe the map refresh with the updated analysis results.
+
+   ![Image alt text](images/analyze-19.png)
+
+9. Next you will determine the distance of each facility in your analysis result to the projected flood area. To focus on your analysis results, turn off visibility for the unfiltered TRI\_FACILITIES layer. From the action menu for  TRI_FACILITIES NEAR FLOOD\_2060\_10PCT select **Spatial Analysis**.
+
+   ![Image alt text](images/analyze-20.png)
+
+10. Select the tab for **Measure** analyses. Then click the tile for **Calculate minimum distance between shapes**.
+    
+   ![Image alt text](images/analyze-21.png)
+
+11. For analysis name enter **TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE**, for column name for result enter **DISTANCE_KM**, for Geometry 1 select **TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT**, and for Geometry 2 select **ANNUAL\_FLOOD\_2060\_10PCT**. 
+
+   ![Image alt text](images/analyze-22.png)
+
+    Scroll down and from the units menu select **Kilometers**. Then click **Run**.
+
+    ![Image alt text](images/analyze-23.png)
+
+12. Hover over your analysis to see a tooltip showing the full name. Drag and drop TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE onto the map.
+
+    ![Image alt text](images/analyze-24.png)
+
+13. Go to Settings for the TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE layer. Set a style of you choosing. Then scroll down to the Info Window section. Enable info window and select columns to display including the analysis result column named DISTANCE\_KM. Then, in the map, click on a facility to view the item's information.
+
+    ![Image alt text](images/analyze-25.png)
+
+
 
 ## Task 2: Identify parcels in contact with the projected flood area
 
