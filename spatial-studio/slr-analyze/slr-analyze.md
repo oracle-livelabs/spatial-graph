@@ -141,15 +141,30 @@ You next identify TRI Facilities near the projected flood area. This is a spatia
 
 
 
-## Task 2: Identify parcels in contact with the projected flood area
+## Task 3: Identify parcels in contact with the projected flood area
 
 You begin by   ..... 
 
-1. ...
+1. In the layers list, turn on visibility for the PARCELS layer. While zoomed out you will only see a portion of the parcels since there are too many to display at such a small scale. As you zoom in, you will observe that all parcels are displayed. From the action menu for PARCELS, select **Spatial Analysis**.
 
-   ![Image alt text](images/xxx.png)
+   ![Image alt text](images/analyze-26.png)
+
+2. You will identify the parcels making any contact with the projected flood area. So select the tab for **Filter** analyses and then select the tile for **Return shapes having any spatial interaction with another**. 
+
+   ![Image alt text](images/analyze-27.png)
 
 
+3. For name, enter **PARCELS IN CONTACT WITH FLOOD\_2060\_10PCT**, for layer to be filtered select **PARCELS**, and for layer to be used as filter select **ANNUAL\_FLOOD\_2060\_10PCT**.
+   
+   ![Image alt text](images/analyze-28.png)   
+
+4. Drag and drop your new analysis onto the map. Then for the new map layer, go to Settings to update the style. In the Fill section, drag the opacity slider to 0 so no fill is shown. In the Outline section, change the color to red, opacity to maximum, and width to 2. This will effectively highlight the parcels in contact with the projected flood zone.
+   
+   ![Image alt text](images/analyze-29.png)   
+
+5. Zoom into an area of your choosing to see parcels with those in contact with the flood area outlined in red. You may experiment with adding a table listing of the results as well.
+   
+   ![Image alt text](images/analyze-30.png) 
 
 
 You may now [proceed to the next lab](#next).
