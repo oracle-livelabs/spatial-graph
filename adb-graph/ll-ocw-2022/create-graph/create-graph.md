@@ -25,33 +25,7 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Connect to your Autonomous Database using Graph Studio
-
-1.  Log in to the Oracle Cloud Console, choose the Autonomous Database instance, then Click the **Tools** tab on the details page menu on the   left.
-
-   ![Oracle Cloud Console](./images/atp-console-tools-tab.png)
-
-
-2. Click the **Open Graph Studio** card to open in a new page or tab in your browser.   
-
-3. Enter your Autonomous Database account credentials provided in your reservation information (for example, `GRAPHUSER`) into the login screen:
-
-    ![ALT text is not available for this image](./images/graphstudio-login-graphuser.png " ")
-
-4. Then click the **Sign In** button. You should see the studio home page.   
-
-    ![ALT text is not available for this image](./images/gs-graphuser-home-page.png " ")
-
-    Graph Studio consists of a set of pages accessed from the menu on the left.
-
-    The Home icon ![ALT text is not available for this image](images/home.svg "") takes you to the Home page.  
-    The Models icon ![ALT text is not available for this image](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
-    The Graph page ![ALT text is not available for this image](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-    The Notebook page ![ALT text is not available for this image](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
-    The Jobs page ![ALT text is not available for this image](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.  
-
-
-## Task 2: Create a graph of accounts and transactions from the corresponding tables
+## Task 1: Create a graph of accounts and transactions from the corresponding tables
 
 1. Click the **Models** icon to navigate to the start of the modeling workflow.  
    Then click **Create**.  
@@ -158,7 +132,7 @@ Learn how to
    You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
 
 
-Please **proceed to the next lab** to do so.
+This concludes this lab. *You may now proceed to the next lab.*
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

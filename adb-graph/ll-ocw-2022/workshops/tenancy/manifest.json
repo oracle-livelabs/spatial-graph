@@ -13,9 +13,9 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-            "title": "Lab 1: Provision an ADB Instance",
-            "description": "Provisioning an Autonomous Database Instance",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"
+            "title": "Setup",
+            "description": "Set up by running Stack",
+            "filename": "../../setup/setup.md"
         },
         {
             "title": "Lab 1: Create a graph",
@@ -37,6 +37,11 @@
         {
             "title": "Lab 2: Query and Visualize the RDF Graph",
             "filename": "../../query-and-visualize/query-and-visualize-the-rdf-graph.md"
+        },
+        {
+            "title": "Destroy Environment",
+            "description": "Destroyed environement created in setup ",
+            "filename": "../../destroy-environment/destroy-environment.md"
         },
         {
             "title": "Need Help?",

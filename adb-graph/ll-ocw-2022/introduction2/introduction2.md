@@ -34,7 +34,7 @@ In this workshop you will:
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->
 
-
+This concludes this lab. *You may now proceed to the next lab.*
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

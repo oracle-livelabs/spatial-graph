@@ -324,7 +324,7 @@ Learn how to
   ![ALT text is not available for this image](images/62-viz-account-4-and-380.png " ")  	  
 
 
-**Congratulations** on successfully completing this workshop.
+This concludes this lab. *You may now proceed to the next lab.*
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

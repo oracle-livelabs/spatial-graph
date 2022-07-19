@@ -548,7 +548,7 @@ SPARQL `FILTER` supports `EXISTS` and `NOT EXISTS` keywords to allow you to filt
 
   ![Executes the prior query in a RDF paragraph](./images/query10-part2.png)
 
-This concludes this lab. Thank you!
+This concludes this lab. *You may now proceed to the next lab.*
 
 ## Acknowledgements
 
