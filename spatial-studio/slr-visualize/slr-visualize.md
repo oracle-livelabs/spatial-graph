@@ -3,24 +3,25 @@
 
 ## Introduction
 
-.....
-
+In this lab you visually explore the projected flood regions and cultural features. You create an interactive map and apply data-driven styling to expose location relationships and patterns.
 
 Estimated Lab Time: xx minutes
 
 
 ### Objectives
 
-* .....
+* Learn how to create interactive maps based on the data you have prepared.
+* Learn how to configure the style and interactive behavior of your map.
+* Understand the use of Projects to save your work.
 
 ### Prerequisites
 
-* .....
+* Completion of Lab 2: Load and Prepare Data
 
 
 ## Task 1: Create Project
 
-You begin by   ..... 
+You begin by creating a Project. A Project is where you visualize and analyze your data, and then save your work.
 
 1. Navigate to the Projects page and click **Create Project**.
 
@@ -168,7 +169,7 @@ Next you add map layers and apply styling.
    ![Image alt text](images/vis-30.png)
 
 
-23. ......
+23. From the main navigation panel on the left, navigate to the Projects page. Observe the thumbnail of your project is displayed. You can revisit the project later by clicking on the thumbnail.
 
    ![Image alt text](images/vis-31.png)
 

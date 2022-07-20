@@ -3,7 +3,7 @@
 
 ## Introduction
 
-.....
+In this lab you perform a series of spatial analyses to identify the relationships between a projected flood region and cultural features. You create the analyses without coding and then visualize results in maps and tabular form.  
 
 
 Estimated Lab Time: xx minutes
@@ -11,16 +11,17 @@ Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* .....
+* Learn how to perform self-service spatial analyses, without the need to write code.
+* Learn how to access the underlying spatial query code if desired.
 
 ### Prerequisites
 
-* .....
+* Complete Lab 3: Visualize
 
 
 ## Task 1: Identify schools in the projected flood area
 
-You begin by   ..... 
+You begin by performing an analysis to filter schools based on containment in a projected flood region.
 
 1. To focus on schools and the projected flood area, turn visibility off for TRI\_FACILITIES and PARCELS. Then from the action menu for ANNUAL\_FLOOD\_2080\_10PCT, select **Zoom to layer**.
 
@@ -57,19 +58,19 @@ You begin by   .....
    ![Image alt text](images/analyze-07.png)
 
 
-7. While zoomed out, you will observe some items in the results that appear very close to the projected flood area boundary. Zoom into one of these areas and observe that the items in the results are indeed inside the projected flood area.
+8. While zoomed out, you will observe some items in the results that appear very close to the projected flood area boundary. Zoom into one of these areas and observe that the items in the results are indeed inside the projected flood area.
 
    Technical details behind analyses are available. From the action menu for you analysis, select Properties.
 
    ![Image alt text](images/analyze-08.png)
 
-8. In the Properties dialog, observe the section showing the analysis SQL.  In particular, note the SDO\_INSIDE operator which performs the spatial filter. The SQL is slightly more involved than the most generic example because it involves a function-based spatial index for schools instead of a geometry column, and also wraps the main query with an outer SELECT to de-duplicate schools in the event that a schools was inside multiple regions.
+9. In the Properties dialog, observe the section showing the analysis SQL.  In particular, note the SDO\_INSIDE operator which performs the spatial filter. The SQL is slightly more involved than the most generic example because it involves a function-based spatial index for schools instead of a geometry column, and also wraps the main query with an outer SELECT to de-duplicate schools in the event that a schools was inside multiple regions.
 
    Note also the automatically generated endpoint that streams the analysis results in GeoJSON format for consumption by any standards-based mapping client.
 
    ![Image alt text](images/analyze-09.png)
 
-8. In Spatial Studio, analyses are themselves Datasets. In the main navigation panel click on the button for the **Datasets** page. Observe your analysis is listed so that it could be used in other projects, exported, or saved as a table or view.
+10. In Spatial Studio, analyses are themselves Datasets. In the main navigation panel click on the button for the **Datasets** page. Observe your analysis is listed so that it could be used in other projects, exported, or saved as a table or view.
 
    ![Image alt text](images/analyze-10.png)
 
@@ -143,7 +144,7 @@ You next identify TRI Facilities near the projected flood area. This is a spatia
 
 ## Task 3: Identify parcels in contact with the projected flood area
 
-You begin by   ..... 
+You next identify parcels that have any spatial interaction with the projected flood region. This includes parcels contained in the region, overlapping the region, or touching the boundary.
 
 1. In the layers list, turn on visibility for the PARCELS layer. While zoomed out you will only see a portion of the parcels since there are too many to display at such a small scale. As you zoom in, you will observe that all parcels are displayed. From the action menu for PARCELS, select **Spatial Analysis**.
 

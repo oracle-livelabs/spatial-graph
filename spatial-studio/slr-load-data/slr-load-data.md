@@ -7,6 +7,13 @@ Spatial Studio operates on data stored in Oracle Databases. In Spatial Studio yo
 
 Users often need to incorporate data acquired from various sources. To support this, Spatial Studio provides features for loading data from standard formats to Oracle Database.  This includes loading the 2 most common formats for exchange of spatial data: Shapefiles and GeoJSON files. In addition to loading spatial formats, Spatial Studio supports loading spreadsheets and csv files. In that case, additional preparation is needed to derive geometries from spatial attributes such as addresses ("address geocoding") and latitude/longitude coordinates ("coordinate indexing"). This lab walks you through the steps to load and prepare data in these formats using Spatial Studio. 
 
+ **Please note the following important information about the data used in this workshop:**
+
+ * **Projected flood regions** are simplified from public data published at [https://data.boston.gov/group/geospatial?q=sea+level+rise+flood](https://data.boston.gov/group/geospatial?q=sea+level+rise+flood). Since they have been simplified from their published form, they are not meant to depict the precise extents of the published models
+ * **Parcels** are a subset of public data published at [https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016](https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016). Only residential parcels in the general vicinity of the projected flood regions are included.
+ * **Schools** are public data from OpenStreetMap fetched using [https://wiki.openstreetmap.org/wiki/Overpass_turbo](https://wiki.openstreetmap.org/wiki/Overpass_turbo)
+ * **TRI Facilities** are public data from the US EPA fetched using [https://edap.epa.gov/public/extensions/TRIToxicsTracker/TRIToxicsTracker.html](https://edap.epa.gov/public/extensions/TRIToxicsTracker/TRIToxicsTracker.html). The Toxics Release Inventory (TRI) is a resource for learning about toxic chemical releases and pollution prevention activities reported by industrial and federal facilities. 
+
 
 Estimated Lab Time: xx minutes
 
@@ -19,19 +26,11 @@ Estimated Lab Time: xx minutes
 
 * This lab requires access to Spatial Studio and Oracle Database. 
 * No previous experience with Oracle Spatial is required.
-* Before you get started ...
 
 
 ## Task 1: Load data
 
 You begin by loading projected flood regions, parcels, schools and facilities from common formats. 
-
- **Please note the following important information about the data used in this workshop:**
-
- * **Projected flood regions** are simplified from models published at [https://data.boston.gov/group/geospatial?q=sea+level+rise+flood](https://data.boston.gov/group/geospatial?q=sea+level+rise+flood). Since they have been simplified from their published form, they are not meant to depict the precise extents of the published models.
- * **Parcels** are a subset of data published at [https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016](https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016). Only residential parcels in the vicinity of the projected flood regions are included.
- *  
-
 
 1. Download the zip file containing the data to a convenient location: <a href="xxx">  xxx.zip  </a> . Unzip the file and observe the files for upload along with a README file with data source info.
 
