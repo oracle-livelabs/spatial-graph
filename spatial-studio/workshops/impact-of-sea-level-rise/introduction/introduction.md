@@ -1,15 +1,10 @@
 # Introduction
 
-to do:
-- intro:  not about creating flood models. they are created by...
-- here we analyze them
-- you could create models using ... in OCI
-
 ## About this Workshop
 
-In this workshop you will provision Spatial Studio to the Oracle Cloud from the OCI Cloud Marketplace and prepare a schema in Autonomous Database to be used as Spatial Studio's metadata repository.
+In this workshop you will explore the spatial relationships between cultural features of a coastal area and  projected flooding due to seal level rise. Given time limitations of this workshop, the modeling and creation of projected flood areas is not included. Simplified versions of existing published models are used for visualizations and analysis. The spatial features of Oracle Database in the Oracle Cloud could be used to develop such models.
 
-Estimated Workshop Time: 60 minutes
+Estimated Workshop Time: 90 minutes
 
 ### About Oracle Spatial Studio
 
@@ -21,23 +16,22 @@ Spatial Studio operates on spatial data in Oracle Database, meaning tables and v
 
 Spatial Studio is a Java EE application that may be deployed to Oracle Cloud from the Oracle Cloud Marketplace. Spatial Studio can also be deployed manually to Oracle WebLogic or Jetty, or as a self contained pre-deployed Quick Start for testing.
 
-For more information please visit [https://oracle.com/goto/spatialstudio] (https://oracle.com/goto/spatialstudio)
+For more information please visit the [Oracle Spatial Studio Guide] (https://docs.oracle.com/en/database/oracle/spatial-studio/19.1/spstu/intro-to-spatial-studio.html)
 
 ### Objectives
 
-- Learn how to create and assign a database schema for Spatial Studio's metadata repository
-- Learn how to use the Cloud Marketplace to install Spatial Studio
-- Learn how to uninstall Spatial Studio when no longer needed
+- Learn how to load and prepare data for spatial analysis and map visualization
+- Learn how to visually explore data using data-driven styling
+- Learn how to identify spatial relationships using spatial analysis
 
 
 ### Prerequisites
 
-- This workshop requires an Oracle Autonomous Database.  
-- SQL Developer Web is provided with Autonomous Database and is also used to create the Spatial Studio repository schema. 
-- If you already have access to these, then following this Introduction you may skip to the Lab 3. 
+- This workshop requires Oracle Spatial Studio and Oracle Autonomous Database.  
+- If you already have access to these, then following this Introduction you may skip to the Lab 2. 
 - Otherwise you should proceed to Lab 1.
 - No previous experience with Oracle Spatial is required.
-- An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
+
 
 *Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
 
@@ -45,6 +39,6 @@ For more information please visit [https://oracle.com/goto/spatialstudio] (https
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, January 2021
+* **Last Updated By/Date** - David Lapp, Database Product Management, xxxx
 
 

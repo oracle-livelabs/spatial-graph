@@ -24,7 +24,14 @@ Estimated Lab Time: xx minutes
 
 ## Task 1: Load data
 
-You begin by loading  ..... 
+You begin by loading projected flood regions, parcels, schools and facilities from common formats. 
+
+ **Please note the following important information about the data used in this workshop:**
+
+ * **Projected flood regions** are simplified from models published at [https://data.boston.gov/group/geospatial?q=sea+level+rise+flood](https://data.boston.gov/group/geospatial?q=sea+level+rise+flood). Since they have been simplified from their published form, they are not meant to depict the precise extents of the published models.
+ * **Parcels** are a subset of data published at [https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016](https://bostonopendata-boston.opendata.arcgis.com/datasets/boston-parcels-2016). Only residential parcels in the vicinity of the projected flood regions are included.
+ *  
+
 
 1. Download the zip file containing the data to a convenient location: <a href="xxx">  xxx.zip  </a> . Unzip the file and observe the files for upload along with a README file with data source info.
 
