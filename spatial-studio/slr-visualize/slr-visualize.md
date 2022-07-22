@@ -5,7 +5,7 @@
 
 In this lab you visually explore the projected flood regions and cultural features. You create an interactive map and apply data-driven styling to expose location relationships and patterns.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 20 minutes
 
 
 ### Objectives

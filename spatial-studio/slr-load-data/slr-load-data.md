@@ -15,7 +15,7 @@ Users often need to incorporate data acquired from various sources. To support t
  * **TRI Facilities** are public data from the US EPA fetched using [https://edap.epa.gov/public/extensions/TRIToxicsTracker/TRIToxicsTracker.html](https://edap.epa.gov/public/extensions/TRIToxicsTracker/TRIToxicsTracker.html). The Toxics Release Inventory (TRI) is a resource for learning about toxic chemical releases and pollution prevention activities reported by industrial and federal facilities. 
 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 10 minutes
 
 
 ### Objectives

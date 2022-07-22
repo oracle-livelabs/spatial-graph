@@ -5,7 +5,7 @@
 ....
 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 
 ### Objectives
