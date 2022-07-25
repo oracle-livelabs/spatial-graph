@@ -37,7 +37,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 4. Click **Import**.
    ![ALT text is not available for this image](images/notebook-file-selected.png " ")  
-5. Once imported it should open in Graph Studio.  
+5. Once imported, it should open in Graph Studio.  
 
    ![ALT text is not available for this image](images/notebook-imported.png " ")  
 
@@ -53,11 +53,11 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
   ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
 
-3. To add a paragraph, hover over the top of the bottom of an existing paragraph.
+3. To add a paragraph, hover over the top or the bottom of an existing paragraph.
 
   ![Hovering over paragraph](./images/paragraph-hover.png)
 
-  There's 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
+  There are 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
 
   ![Shows the different paragraphs and samples](./images/paragraphs.png)
 
