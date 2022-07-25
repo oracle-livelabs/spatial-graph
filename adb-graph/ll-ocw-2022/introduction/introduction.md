@@ -23,17 +23,16 @@ This video featured below is a demo example using a similar dataset that will be
 
 In this lab, a semantic graph will be built using SPARQL, which is a standardized methodology for integrating different data sources. This procedure will teach you how to analyze the data using graph-based queries and visualization.  
 
-Estimated Time: 35 minutes
+Estimated Time: 25 minutes
 
 ### Objectives
 - Get Started with RDF Graphs
 - Querying and Visualizing the RDF Graph
 
 ### Prerequisites
-  This lab assumes you have:
-  * An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
+- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
-  - Download the MOVIESTREAM file (moviestream\_rdf.nt) using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt)
 
 This concludes this lab. You may now *proceed to the next lab.*
 

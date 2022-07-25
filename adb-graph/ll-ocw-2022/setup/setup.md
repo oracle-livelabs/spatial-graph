@@ -17,21 +17,27 @@ Learn how to
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 
 1. Login to the Oracle Cloud.
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/orac[…]/oci-arch-graph/releases/latest/download/orm-graph-stack.zip) to create run the Stack.
+
+2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oracle-quickstart/oci-arch-graph/releases/latest/download/orm-graph-stack.zip) to create and run the Stack.
+  > Note: the link will open in a new tab or window.
+
 3. You will be directed to this page:
 
   ![The create stack page](./images/create-stack.png "")
 
-  - Check the "I have reviewed and accept the Oracle Terms of Use" box. Leave the rest as default. Click **Next**.
+4.  Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-4. Leave the Configure Variables settings as default. Click **Next**. After that you will be taken to the Review page, click **Create**.
-5. When the job has succeeded, You will see the status turn from orange to green.
+5. Select the compartment to create the Autonomous Database and leave the rest as default. Click **Next**. After that you will be taken to the Review page, click **Create**.
+
+  ![The create stack page](./images/configure-variables.png "")
+
+6. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
     ![Job has been successful](./images/successful-job.png "")
 
-    To see information about your application click on **Application Information**. Save the Graph Username and Password since you will be using it to login to Graph Studio.
+    To see information about your application click on **Application Information**. Save the Graph username and password since you will be using it to login to Graph Studio.
 
     ![How to see the graph username and password](./images/graph-username-password.png "")
 
@@ -47,15 +53,15 @@ The instructions below will show you how to run a stack that will automatically 
 
   Graph Studio consists of a set of pages accessed from the menu on the left.
 
-  The Home icon ![ALT text is not available for this image](images/home.svg "") takes you to the Home page.  
-  The Models icon ![ALT text is not available for this image](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
-  The Graph page ![ALT text is not available for this image](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-  The Notebook page ![ALT text is not available for this image](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
-  The Jobs page ![ALT text is not available for this image](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
+  The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
+  The Models icon ![Models icon](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
+  The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
+  The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
+  The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 
   This concludes this lab. *You may now proceed to the next lab.*  
 
   ## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-  * **Contributors** -  Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+  * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  

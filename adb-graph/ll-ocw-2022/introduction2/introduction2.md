@@ -2,15 +2,15 @@
 
 ## About This Workshop
 
-This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions. You will load data from CSV files containing (artificial) Account and Transaction information. Then create a graph and finally query it and visualize the results.
+This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions. You will load data from CSV files containing (artificial) Account and Transaction information. Then create a graph and finally query it and visualize the results. An optional section introduces semantic (RDF) graph concepts, how to load data from a standard RDF graph format such as N-Triple, and how to query it using SPARQL.
 
-Estimated Workshop Time: 65 minutes
+Estimated Workshop Time: 75 minutes
 
 
 <if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/Ymk9TE9Q2K4).</if>
 
 ### About Graph Studio
-Oracle Autonomous Database has features that enable it to function as a scalable property graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, and over 60 built-in graph algorithms, and many visualizations including native graph visualization.
+Oracle Autonomous Database has features that enable it to function as a scalable graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, and over 60 built-in graph algorithms, using Java or Python, and native graph visualization.
 
 Watch the following two videos for more information on Graph Studio. The first is an introduction to property graphs and their use cases. The second is a tour of the Graph Studio interface.
 
@@ -25,6 +25,7 @@ In this workshop you will:
 * Load the graph into memory for analysis
 * Create a notebook
 * Query and visualize the graph using PGQL notebook paragraphs
+* Execute graph algorithms and visualize the results
 
 ### Prerequisites
 
@@ -39,4 +40,4 @@ This concludes this lab. *You may now proceed to the next lab.*
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2022
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, July 2022

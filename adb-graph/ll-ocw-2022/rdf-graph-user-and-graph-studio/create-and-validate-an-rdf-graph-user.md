@@ -11,10 +11,10 @@ Estimated Time: 5 minutes
 - Execute SPARQL Queries on the Playground Page
 
 ### Prerequisites
-This lab assumes you have:
-  - An Oracle Free Tier or Paid Cloud Account
+- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
-## **Task 1:** Create RDF graph in Graph Studio
+## Task 1: Create RDF graph in Graph Studio
 
 Before we can create an RDF graph we will first create an environment and then import RDF data into Graph Studio.
 
@@ -102,7 +102,7 @@ Before we can create an RDF graph we will first create an environment and then i
     Started execution of task Graph Creation - MOVIESTREAM.
     ```
 
-## **Task 2:** Validate the RDF graph
+## Task 2: Validate the RDF graph
 
 You can explore and validate the newly created RDF graph on the **Graphs** page in Graph Studio as shown:
 
@@ -114,7 +114,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
   ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
 
-## **Task 3** Execute SPARQL queries on the playground page
+## Task 3: Execute SPARQL queries on the playground page
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 

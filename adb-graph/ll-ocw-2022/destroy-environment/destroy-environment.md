@@ -22,11 +22,11 @@ Learn how to
 
   ![Shows how to destroy the stack](./images/destroy-stack.png "")
 
-  Click **Destroy** in the pop up window
+  Click **Destroy** in the pop up window. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
   ![Shows how to destroy the stack final step](./images/destroy-final.png "")
 
-## Task 2: Delete Stack 
+## Task 2: Delete Stack
 
 1. When the job has succeeded the stack image will turn green. Click on **Stack Details**.
 
