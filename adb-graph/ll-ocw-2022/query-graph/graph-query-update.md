@@ -256,7 +256,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
   ![Shows end result from previous query](images/49-query-6-highlight-resulting-viz.png " ")
 
-## Task 3: More query features and the use of the Python API to execute graph algorithms   
+## Task 4: More query features and the use of the Python API to execute graph algorithms   
 
 1. This shows the use of bind parameters in a query. The account id value is entered at runtime.  
    **Enter 534 as the account id**, and then execute the paragraph.  
