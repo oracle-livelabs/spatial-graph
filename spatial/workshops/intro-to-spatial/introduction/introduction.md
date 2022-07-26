@@ -1,3 +1,11 @@
+to do:
+- explain context, why is spatial adding value > intro slides
+- include some optional/extra credit for those done quickly
+- lab or problem to solve/discuss
+- Lab 6 (optional): spatial operations that create new geoms > visualize i.e. aggr convex hull, buffer, intersect
+- pitfalls, i.e. failed spatial index, must fro artifacts;  geojson load
+
+
 # Introduction
 
 ## About Oracle Spatial

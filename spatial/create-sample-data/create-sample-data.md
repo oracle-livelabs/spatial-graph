@@ -72,11 +72,15 @@ SDO_GEOMETRY(
 )
 ```
 
+
+**... Add section here on built-in conversion fns ...**
+
+
 ### Objectives
 
 In this lab, you will:
 * Create tables with a geometry column
-* Populate geometries
+* Populate geometries directly and by converting from common formats
 * Create spatial metadata and indexes
 
 
@@ -122,27 +126,21 @@ The following instructions and screen shots refer to SQL Developer Web, however 
 
 ## Task 2: Create Point Geometries from Coordinates
 
-Geometries, as objects of type SDO_GEOMETRY, can be populated using SQL, for this case, by specifying the coordinates based on the given longitude and latitude values.
+Describe... create point geometries... 
 
-1. Add geometry columns to all tables:
+NOTE: This 1st example is meant to show how a point geometry is created. However a more efficient way is the next Task...
+
+
+1. Add geometry columns to WAREHOUSES table:
 
     ```
     <copy> 
     ALTER TABLE WAREHOUSES ADD (
         GEOMETRY SDO_GEOMETRY
     );
-
-    ALTER TABLE STORES ADD (
-        GEOMETRY SDO_GEOMETRY
-    );
-
-    ALTER TABLE EARTHQUAKES ADD (
-        GEOMETRY SDO_GEOMETRY
-    );
-    </copy> 
     ```
 
-2. Populate geometry columns by storing longitude and latitude values as SDO_GEOMETRY objects:
+2. Populate geometry column from longitude and latitude values:
 
     ```
     <copy> 
@@ -156,37 +154,27 @@ Geometries, as objects of type SDO_GEOMETRY, can be populated using SQL, for thi
             , NULL
         );
     COMMIT;
-
-    UPDATE STORES
-    SET
-        GEOMETRY = SDO_GEOMETRY(
-            2001
-            , 4326
-            , SDO_POINT_TYPE(LON, LAT, NULL)
-            , NULL
-            , NULL
-        );
-    COMMIT;
-
-    UPDATE EARTHQUAKES
-    SET
-        GEOMETRY = SDO_GEOMETRY(
-            2001
-            , 4326
-            , SDO_POINT_TYPE(LON, LAT, NULL)
-            , NULL
-            , NULL
-        );
-    COMMIT;
-    </copy>
     ```
+
+
+## Task 3: Create Point Geometries using Function-based Spatial Index
+
+Describe... in the case of points... 
+
+  ```
+  code for coord to point fn
+  ```
+    
+  ```
+  code for testing stores and earthquakes
+  ```
+
 
 ## Task 3: Create Tables with Polygons
 
-Lines and polygons can be created in the same way. While a point geometry requires one coordinate, lines and polygons need a list of coordinates that define the geometry. 
-Next, we create two tables to store polygons. The first one, COASTAL_ZONES, contains just one polygon that defines the coastal area of Texas. The second table, REGIONS, contains very simple polygons representing rectangles that fully cover the state of Texas.
+Describe...  first a direct geometry insert. Then from a common format.
 
-1. Create tables COASTAL_ZONES and REGIONS
+1. Create COASTAL_ZONES and REGIONS
    
 	```
     <copy>
