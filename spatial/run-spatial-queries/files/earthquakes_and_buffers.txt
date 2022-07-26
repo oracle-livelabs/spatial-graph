@@ -1,0 +1,1 @@
+Earthquake locations and their magnitude-dependent buffers

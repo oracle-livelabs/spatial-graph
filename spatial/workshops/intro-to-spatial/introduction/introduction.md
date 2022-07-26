@@ -14,7 +14,7 @@ Estimated Workshop Time: 60 minutes
 
 ### Workshop Overview
 
-In this workshop you will create and configure spatial data and perform some basic spatial queries.  The scenario involves WAREHOUSES, BRANCHES, and a COASTAL\_ZONE. The WAREHOUSES and BRANCHES are points, and the COASTAL\_ZONE is a polygon. You will create and configure these spatial tables, and then perform spatial queries to identify items on proximity and containment.
+In this workshop you will create and configure spatial data and perform some basic spatial queries.  The scenario involves STORES, WAREHOUSES, SALES\_REGIONS, and a COASTAL\_ZONE. You will create and configure these spatial tables, and then perform spatial queries to identify items on proximity and containment.
 
 
 ### Prerequisites
@@ -28,6 +28,6 @@ In this workshop you will create and configure spatial data and perform some bas
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Marion Smith, April 2022
+* **Last Updated By/Date** - Karin Patenge, June 2022
 
 
