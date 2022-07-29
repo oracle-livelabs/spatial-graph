@@ -40,6 +40,45 @@ If you have a Free Tier account, your compute quota is 2 cores of the Standard.E
 
  Note the availability domain having quota for your target compute shape, as you will need to select it when installing Spatial Studio from the Cloud Marketplace. 
 
+## Task 2: Create SSH Keys (Optional)
+
+**Please note: Adding a SSH key should only be skipped if the Spatial Studio instance will be temporary with no need for ongoing administration. For example an instance only needed for the duration of a workshop.**
+
+The deployment of Spatial Studio from the Cloud Marketplace allows you to add a SSH key. Administration of a Spatial Studio instance, such as restarting the service and accessing instance configuration and log files, requires a SSH key. 
+
+If you will be adding a SSH key, you may use an existing key pair (see requirements [here](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingkeypairs.htm)), or use the steps below to create a key pair.
+
+
+1. Navigate to **Compute > Instances**
+
+   ![Image alt text](images/ssh-01.png "Image title")
+
+2. Click **Create Instance**
+
+   ![Image alt text](images/ssh-02.png "Image title")
+
+
+2. Scroll down to the section **Add SSH Keys** and select **Generate a key pair for me**.
+
+   ![Image alt text](images/ssh-03.png "Image title")
+
+2. Click **Save Private Key** and then save the file when prompted.
+
+   ![Image alt text](images/ssh-04.png "Image title")
+
+2. Click **Save Public Key** and then save the file when prompted.
+
+   ![Image alt text](images/ssh-05.png "Image title")
+
+2. The download location will depend on your local system and is generally a Downloads folder in your home directory. Note the location of your key pair files. You will use them when deploying Spatial Studio with the Cloud Marketplace wizard. 
+
+   ![Image alt text](images/ssh-06.png "Image title")
+
+2. Click **Cancel** to dismiss the wizard.
+
+   ![Image alt text](images/ssh-07.png "Image title")
+
+
 ## Task 1: Select Spatial Studio from Marketplace
 
 1. Click the **Navigation Menu** in the upper left and select **Marketplace**.
