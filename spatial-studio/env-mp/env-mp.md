@@ -4,13 +4,12 @@
 
 This lab walks though the process of provisioning Oracle Spatial Studio (Spatial Studio) using the Oracle Cloud Marketplace.  The Oracle Cloud Marketplace provides apps and services provided by Oracle and 3rd parties. Details are available [here](https://docs.oracle.com/en/cloud/marketplace/marketplace-cloud/index.html). 
 
-Estimated Lab Time: 30 minutes
+Estimated Lab Time: xx minutes
 
 ### Objectives
 
 In this lab, you will:
-* Learn how to install Spatial Studio from the Oracle Cloud Marketplace
-* Learn how to set Spatial Studio repository schema on initial launch 
+* Learn how to deploy Spatial Studio to the Oracle Cloud from the Oracle Cloud Marketplace
 
 ### Prerequisites
 
@@ -18,6 +17,28 @@ In this lab, you will:
 * Repository schema created (Lab 3).
 
 <!-- *This is the "fold" - below items are collapsed by default* -->
+
+## Task 1: Verify Availability of Compute Resource
+
+If you have a Free Tier account, your compute quota is 2 cores of the Standard.E2.1.Micro VM shape. Before starting the Spatial Studio deployment it is necessary to verify the availability domain having quota for this shape. The same applies for other shapes if you have a paid account. 
+
+1. Navigate to **Governance & Administration > Limits, Quota, and Usage**
+
+   ![Image alt text](images/quota-01.png "Image title")
+
+2. The Scope menu lists availability domains. Select the first availability domain, type **micro** in the Resource menu, and select **Cores for Standard.E2.1.Micro VM Instances**. 
+
+   ![Image alt text](images/quota-02.png "Image title")
+
+3. The result listing shows the service limit (quota), usage, and availability of the selected shape in the selected availability domain. In the example below, there is no availability for the selected availability domain.
+
+  ![Image alt text](images/quota-03.png "Image title")
+
+4. If the selected availability domain does not have quota, change to the next availability domain and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case the second availability domain has quota.
+
+ ![Image alt text](images/quota-04.png "Image title")
+
+ Note the availability domain having quota for your target compute shape, as you will need to select it when installing Spatial Studio from the Cloud Marketplace. 
 
 ## Task 1: Select Spatial Studio from Marketplace
 
