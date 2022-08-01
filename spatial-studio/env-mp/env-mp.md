@@ -79,49 +79,88 @@ If you will be adding a SSH key, you may use an existing key pair (see requireme
    ![Image alt text](images/ssh-07.png "Image title")
 
 
-## Task 1: Select Spatial Studio from Marketplace
+## Task 1: Install Spatial Studio from Marketplace
 
-1. Click the **Navigation Menu** in the upper left and select **Marketplace**.
+1. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
 
-	![](https://oracle-livelabs.github.io/common/images/console/marketplace.png " ")	
+   ![Image alt text](images/mp-01.png "Image title")
 
-2. Search for Spatial Studio and then click on the Oracle Spatial Studio app
+2. Search for **spatial** and then click on the **Oracle Spatial Studio** app
 
-   ![Image alt text](images/env-marketplace-2.png "Image title")
+   ![Image alt text](images/mp-02.png "Image title")
 
-3. Review the Usage Instructions, then accept the terms and conditions and  click Launch Stack
+3. Review the Usage Instructions
 
-   ![Image alt text](images/env-marketplace-3.png "Image title")
+   ![Image alt text](images/mp-03.png "Image title")
+ 
+4. Select the compartment for the installation, accept the terms and conditions, and click **Launch Stack**
+
+   ![Image alt text](images/mp-04.png "Image title")
 
 
-## Task 2: Create Stack Wizard
+5. Accept defaults and click **Next**
 
-1. Optionally enter a custom name and description for the deployment stack. Then select the Compartment to use for the deployment and click Next
+   ![Image alt text](images/mp-05.png "Image title")
 
-  ![Image alt text](images/env-marketplace-4.png "Image title")
+2. Select Availability Domain having quota, as you identified in Task 1.  Select you desired instance shape. The Always Free shape will be VM.Standard.E2.1.Micro.
 
-2. Select Availability Domain and Shape for the Compute Instance.   
+   ![Image alt text](images/mp-06.png "Image title")
 
-   Details on compute shapes are [here](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm). Check for quota availability of your desired Shape in Availability Domains. This is particularly important when using an Always Free shape:
-      *  In the OCI Console, navigate to Governance > Limits, Quotas, and Usage
-      *  For Service select Compute and for Scope select an Availability Domain 
-      *  Confirm availability of your desired Shape
-      *  Change the Availability Domain selection if necessary to identify available quota
+     Then scroll down.
 
-    ![Image alt text](images/env-marketplace-4-1.png "Image title")
-
-      Having confirmed quota, make selections in Create Stack wizard.
-
-    ![Image alt text](images/env-marketplace-5.png "Image title")
-
-      Then scroll down.
-
-3. Optionally change the HTTPS port and Spatial Studio admin user name from the defaults. For Spatial Studio Admin authentication, you have the option to use OCI Vault Secrets or a password. The image below shows an example using a password. For production deployments you are encouraged to use OCI Vault Secrets. Scroll down to the the section on Configuring Networking.
-   
-   Note: By default the Spatial Studio admin user name is **admin**. This is an Spatial Studio application user and is distinct from the database user name (studio\_repo) created in Lab 3 for the repository schema.
+4. Leave the defaults and enter a password for the Spatial Studio admin user.
   
+   ![Image alt text](images/mp-07.png "Image title")
 
-  ![Image alt text](images/env-marketplace-6.png "Image title")
+    Then scroll down.
+
+5. SSH keys enable access to the Spatial Studio server for instance administration. 
+      
+   Option 1: If the Spatial Studio instance will be maintained then supply your SSH key. 
+
+   ![Image alt text](images/mp-08.png "Image title")
+   
+   Option 2: If the Spatial Studio instance is temporary, for example for the duration of a tutorial, then uncheck Add SSH key. 
+
+   ![Image alt text](images/mp-09.png "Image title")
+
+  Then scroll down.
+
+6. Spatial Studio requires access to an Oracle Database. The following options are available:
+
+   ![Image alt text](images/mp-10.png "Image title")
+
+   - **Create New Autonomous Database:**: Have an Autonomous Database created and configured for you.
+   - **Use Existing Autonomous Database**:  Configure an existing Autonomous Database for you.
+   - **Configure later**: Defer database configuration and do it yourself after Spatial Studio is installed.
+ 
+    The following shows the first option, where an Autonomous Database is created and configured for you.
+
+     ![Image alt text](images/mp-11.png "Image title")
+
+  Accept the defaults and scroll down. Enter a password for the Spatial Studio repository (i.e. metadata) user. Then click **Next**.
+
+      ![Image alt text](images/mp-12.png "Image title")
+
+
+
+
+
+
+
+
+
+7. 
+8.  
+9.  to keep the Spatial Studio instance is Leave the defaults and enter a password for the Spatial Studio admin user.
+  
+   ![Image alt text](images/mp-07.png "Image title")
+
+    Then scroll down.
+
+
+
+
 
 4. For networking, you have the option to automatically create a new VCN or an existing one. Select the Compartment for creating a new VCN or searching for existing VCNs. 
    
