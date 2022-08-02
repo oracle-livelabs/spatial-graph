@@ -21,7 +21,7 @@ Learn how to
 
 - Earlier labs of this workshop. That is, the graph user exists and you have logged into Graph Studio.
 
-## Task 1: Import the notebook
+## **Task 1:** Import the notebook
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
@@ -43,7 +43,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## Task 2: Create a Notebook in Graph Studio and Add a Paragraph (OPTIONAL if you haven't imported the notebook)
+## **Task 2:** Create a Notebook in Graph Studio and Add a Paragraph (OPTIONAL if you haven't imported the notebook)
 
 1. Go to the **Notebooks** page and click the **Create** button.
 
@@ -256,7 +256,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
   ![Shows end result from previous query](images/49-query-6-highlight-resulting-viz.png " ")
 
-## Task 4: More query features and the use of the Python API to execute graph algorithms   
+## **Task 4:** More query features and the use of the Python API to execute graph algorithms   
 
 1. This shows the use of bind parameters in a query. The account id value is entered at runtime.  
    **Enter 534 as the account id**, and then execute the paragraph.  
@@ -388,7 +388,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
     ![PageRank for account #4 and account #380 transfers](images/62-viz-account-4-and-380.png " ")  	  
 
 
-This concludes this lab. *You may now proceed to the next lab.*
+This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

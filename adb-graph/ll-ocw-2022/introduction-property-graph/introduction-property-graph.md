@@ -14,9 +14,9 @@ Oracle Autonomous Database has features that enable it to function as a scalable
 
 Watch the following two videos for more information on Graph Studio. The first is an introduction to property graphs and their use cases. The second is a tour of the Graph Studio interface.
 
-[](youtube:eCd-969hrak)   Simplify Graph Analytics with Autonomous Database   
+[Simplify Graph Analytics with Autonomous Database](youtube:eCd-969hrak)   Simplify Graph Analytics with Autonomous Database   
 
-[](youtube:S6Q-IJcBkU0)   Autonomous Database: A tour of the Graph Studio interface
+[Autonomous Database: A tour of the Graph Studio interface](youtube:S6Q-IJcBkU0)   Autonomous Database: A tour of the Graph Studio interface
 
 ### Objectives
 
@@ -35,7 +35,7 @@ In this workshop you will:
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->
 
-This concludes this lab. *You may now proceed to the next lab.*
+This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

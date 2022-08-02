@@ -19,7 +19,7 @@ SPARQL uses a **SELECT some elements WHERE some conditions** structure to specif
 
 This video featured below is a demo example using a similar dataset that will be utilized in this lab. This video emphasizes the structure of the ontology of the movie structure using RDF. The demo features RDF Graph using a staging table in combination with SQL Developer, which is distinctly different from this Autonomous Database version of the lab. However, the SPARQL language used to query and visualize the data is very similar for context.
 
-  [](youtube:e_EQjInas50)
+  [Demo example of using RDF](youtube:e_EQjInas50)
 
 In this lab, a semantic graph will be built using SPARQL, which is a standardized methodology for integrating different data sources. This procedure will teach you how to analyze the data using graph-based queries and visualization.  
 
@@ -34,7 +34,7 @@ Estimated Time: 25 minutes
 - And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
 
-This concludes this lab. You may now *proceed to the next lab.*
+This concludes this lab. You may now **proceed to the next lab.**
 
 ## Acknowledgements
 - **Author** -  Nicholas Cusato, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager

@@ -1,4 +1,4 @@
-# Lab 2: Querying and Visualizing the RDF Graph
+# Lab 2: Query and Visualize the RDF Graph
 
 ## Introduction
 
@@ -14,7 +14,7 @@ Estimated Time: 10 minutes
 ### Prerequisites
 - Lab 1: Create an RDF Graph
 
-## Task 1: Import the notebook
+## **Task 1:** Import the notebook
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
@@ -39,7 +39,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## Task 2: Use RDF Interpreter in Notebook Paragraph
+## **Task 2:** Use RDF Interpreter in Notebook Paragraph
 
 For a newly created notebook, the notebook page is displayed with an empty paragraph. You can run a notebook paragraph using one of the following supported interpreters:
 
@@ -350,7 +350,7 @@ SPARQL `DESCRIBE` queries also return an RDF graph instead of a set of variable 
 
   ![Executes the prior query in a RDF Paragraph](./images/query16-part2.png)
 
-## Task 3: (Optional) Continue to Query and analyze the RDF graph
+## **Task 3:** (Optional) Continue to Query and analyze the RDF graph
 
 **1. Executing a Concise SPARQL Query Using Shortcuts**
 
@@ -554,7 +554,7 @@ SPARQL `FILTER` supports `EXISTS` and `NOT EXISTS` keywords to allow you to filt
 
   ![Executes the prior query in a RDF paragraph](./images/query10-part2.png)
 
-This concludes this lab. *You may now proceed to the next lab.*
+This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 
