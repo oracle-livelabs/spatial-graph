@@ -2,24 +2,25 @@
 
 ## Introduction
 
-This lab walks though the process of deploying Oracle Spatial Studio (Spatial Studio) using the Oracle Cloud Marketplace.  The Oracle Cloud Marketplace provides apps and services provided by Oracle and 3rd parties. Details are available [here](https://docs.oracle.com/en/cloud/marketplace/marketplace-cloud/index.html). 
+In this lab you deploy Spatial Studio from the Cloud Marketplace using Always Free resources. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance that is created is meant to be temporary, for use during this workshop. 
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
 In this lab, you will:
-* Learn how to deploy Spatial Studio to the Oracle Cloud from the Oracle Cloud Marketplace
+* Deploy Spatial Studio from the Oracle Cloud Marketplace using Always Free resources.
 
 ### Prerequisites
 
 * An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+* You are an Admin in the cloud account. For example, your own Free Tier account.
 
 <!-- *This is the "fold" - below items are collapsed by default* -->
 
 ## Task 1: Verify Availability of Compute Resource
 
-If you have a Free Tier account, your compute quota is 2 cores of the Standard.E2.1.Micro VM shape. Before starting the Spatial Studio deployment it is necessary to verify the availability domain having quota for this shape. The same applies for other shapes if you have a paid account. 
+Before starting the Spatial Studio deployment it is necessary to verify the availability domain having quota for the Always Free compute shape. 
 
 1. Navigate to **Governance & Administration > Limits, Quota, and Usage**
 
@@ -39,46 +40,8 @@ If you have a Free Tier account, your compute quota is 2 cores of the Standard.E
 
  Note the availability domain having quota for your target compute shape, as you will need to select it when installing Spatial Studio from the Cloud Marketplace. 
 
-## Task 2: Create SSH Keys (Optional)
 
-**Please note: Adding a SSH key should only be skipped if the Spatial Studio instance will be temporary with no need for ongoing administration. For example an instance only needed for the duration of a workshop.**
-
-The deployment of Spatial Studio from the Cloud Marketplace allows you to add a SSH key. Administration of a Spatial Studio instance, such as restarting the service and accessing instance configuration and log files, requires a SSH key. 
-
-If you will be adding a SSH key, you may use an existing key pair (see requirements [here](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingkeypairs.htm)), or use the steps below to create a key pair.
-
-
-1. Navigate to **Compute > Instances**
-
-   ![Image alt text](images/ssh-01.png "Image title")
-
-2. Click **Create Instance**
-
-   ![Image alt text](images/ssh-02.png "Image title")
-
-
-2. Scroll down to the section **Add SSH Keys** and select **Generate a key pair for me**.
-
-   ![Image alt text](images/ssh-03.png "Image title")
-
-2. Click **Save Private Key** and then save the file when prompted.
-
-   ![Image alt text](images/ssh-04.png "Image title")
-
-2. Click **Save Public Key** and then save the file when prompted.
-
-   ![Image alt text](images/ssh-05.png "Image title")
-
-2. The download location will depend on your local system and is generally a Downloads folder in your home directory. Note the location of your key pair files. You will use them when deploying Spatial Studio with the Cloud Marketplace wizard. 
-
-   ![Image alt text](images/ssh-06.png "Image title")
-
-2. Click **Cancel** to dismiss the wizard.
-
-   ![Image alt text](images/ssh-07.png "Image title")
-
-
-## Task 3: Install Spatial Studio from Cloud Marketplace
+## Task 2: Install Spatial Studio from Cloud Marketplace
 
 1. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
 
@@ -87,10 +50,6 @@ If you will be adding a SSH key, you may use an existing key pair (see requireme
 2. Search for **spatial** and then click on the **Oracle Spatial Studio** app
 
    ![Image alt text](images/mp-02.png "Image title")
-
-3. Review the Usage Instructions
-
-   ![Image alt text](images/mp-03.png "Image title")
  
 4. Select the compartment for the installation, accept the terms and conditions, and click **Launch Stack**
 
@@ -101,48 +60,34 @@ If you will be adding a SSH key, you may use an existing key pair (see requireme
 
    ![Image alt text](images/mp-05.png "Image title")
 
-2. Select Availability Domain having quota, as you identified in Task 1.  Select your desired instance shape. The Always Free shape will be VM.Standard.E2.1.Micro.
+6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**.
 
    ![Image alt text](images/mp-06.png "Image title")
 
     Then scroll down.
 
 
-4. Under Advanced Configuration enter a password for the Spatial Studio admin user.
+7. Under Advanced Configuration accept the defaults and enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
   
    ![Image alt text](images/mp-07.png "Image title")
 
     Then scroll down.
 
-5. Under Configure Networking, you may leave the defaults to have a network created for you, or select an existing network.  
+8. Under Configure Networking, leave the defaults to have a network created for you.  
 
     Then scroll down.
 
-6. SSH keys enable access to the Spatial Studio server for instance administration. 
-      
-   Option 1: If the Spatial Studio instance is not temporary and will be maintained then supply your SSH key. 
-
-   ![Image alt text](images/mp-08.png "Image title")
-   
-   Option 2: If the Spatial Studio instance is temporary, for example for the duration of a tutorial, then uncheck Add SSH key. 
+9. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. In this case your Spatial Studio instance is temporary, meant for the duration of this workshop. So administration is not needed. Therefore **uncheck** the **Add SSH key** option. 
 
    ![Image alt text](images/mp-09.png "Image title")
 
   Then scroll down.
 
-6. Spatial Studio requires access to an Oracle Database. The following options are available:
-
-   ![Image alt text](images/mp-10.png "Image title")
-
-   - **Create New Autonomous Database:**: Have an Autonomous Database created and configured for you.
-   - **Use Existing Autonomous Database**:  Configure an existing Autonomous Database for you.
-   - **Configure later**: Defer database configuration and do it yourself after Spatial Studio is installed.
- 
-    The following shows the first option, where an Autonomous Database is created and configured for you.
+6. Spatial Studio requires access to an Oracle Database. Accept the defaults to have an Autonomous Database created and configured for you.
 
      ![Image alt text](images/mp-11.png "Image title")
 
-  Accept the defaults and scroll down. Enter a password for the Spatial Studio repository (i.e. metadata) user. Then click **Next**.
+  Scroll down and enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of your Spatial Studio instance and you will not need to use it during the workshop. Then click **Next**.
 
       ![Image alt text](images/mp-12.png "Image title")
 
@@ -156,7 +101,7 @@ If you will be adding a SSH key, you may use an existing key pair (see requireme
 
    After the status is SUCCEEDED, **wait an additional 3 min** for automated post-install steps to complete before proceeding. 
    
-## Task 4: Log in to Spatial Studio
+## Task 3: Log in to Spatial Studio
 
 1. Click on the **Application Information** tab, and then click **Open Spatial Studio**.
 
