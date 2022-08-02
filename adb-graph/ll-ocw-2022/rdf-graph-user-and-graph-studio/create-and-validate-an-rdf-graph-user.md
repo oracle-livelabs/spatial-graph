@@ -11,55 +11,39 @@ Estimated Time: 5 minutes
 - Execute SPARQL Queries on the Playground Page
 
 ### Prerequisites
-This lab assumes you have:
-  - An Oracle Free Tier or Paid Cloud Account
+- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
 ## **Task 1:** Create RDF graph in Graph Studio
 
-Before we can create an RDF graph we will first create an environment and then import RDF data into Graph Studio.
+Assuming that you have completed the previous labs and are currently logged in, execute the following steps:
 
-1. Navigate to your Autonomous Database in the Oracle Cloud Infrastructure Console and open Tools.
-
-  ![Autonomous Database details showing the link to Graph Studio, accessible under 'Tools'](./images/database-tools.png "")
-
-2. Open Graph Studio and log in with the user name and password you created in Lab 2, Task 1, Step 5.
-
-3. Click on your username in the left corner and select **Environment**.
-
-  ![Clicking on username to select environment](./images/username-to-create-environment.png "")
-
-4. Leave the settings as default (Graph server memory in GB = 8) and click **Create**.
-
-  ![Create environment screen](./images/create-environment.png "")
-
-  This will take you to the Jobs menu where you can track the status of the environment creation.
-
-5. Click on **Graphs** on the navigation menu from the left to navigate the Graphs page.
+1. Click on **Graphs** on the navigation menu from the left to navigate the Graphs page.
 
   ![The landing page after creating the environment is the jobs menu](./images/graph-studio-job-screen.png "")
 
-6. In the Graph Type dropdown menu select **RDF** and then click the **Create** button on the top-right corner of the interface.
+2. In the Graph Type dropdown menu select **RDF** and then click the **Create** button on the top-right corner of the interface.
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-7. Create RDF Graph Wizard opens as shown:
+3. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
-8. Enter the OCI Object Storage URI path:
+4. Enter the OCI Object Storage URI path:
 
     ```
       <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
     ```
 
-9. Click **No Credential**.
+5. Click **No Credential**.
 
-10. Click **Next**.
+6. Click **Next**.
     The following dialog should appear, enter "MOVIESTREAM" for Graph Name:
 
   ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
 
-11. Click **Create**.
+7. Click **Create**.
 
     The RDF graph creation job will be initiated. Since the RDF file contains 139461 records, the process may take 3 to 4 minutes. You can monitor the job on the **Jobs** page in Graph Studio.
 
@@ -114,7 +98,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
   ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
 
-## **Task 3** Execute SPARQL queries on the playground page
+## Task 3: Execute SPARQL queries on the playground page
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 
@@ -146,7 +130,7 @@ You can execute SPARQL Queries on the RDF Graph from the **Query Playground** pa
 
   ![Query playground displays the successful execution of a query on the MOVIESTREAM RDF graph and displays query results](./images/query-playground-script.png "")
 
-This concludes this lab. *You may now proceed to the next lab.*
+This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 

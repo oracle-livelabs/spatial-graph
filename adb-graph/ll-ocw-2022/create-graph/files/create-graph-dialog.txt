@@ -1,0 +1,1 @@
+Shows the create graph window where you assign the graph a name
