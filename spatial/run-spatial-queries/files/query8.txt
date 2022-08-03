@@ -1,0 +1,1 @@
+Determine the topological relationship between all REGIONS and the COASTAL ZONE
