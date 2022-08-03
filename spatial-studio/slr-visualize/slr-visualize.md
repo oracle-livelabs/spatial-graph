@@ -135,6 +135,8 @@ Next you add map layers and apply styling.
 
    ![Image alt text](images/vis-24.png)
 
+   Then click the Back link to return to Layer Settings.
+
 17. Next you configure pop-up windows. From the Configure menu, select **Interaction**.
 
    ![Image alt text](images/vis-25.png)

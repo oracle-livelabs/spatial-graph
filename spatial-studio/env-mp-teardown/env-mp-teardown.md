@@ -1,4 +1,4 @@
-# Undeploy Spatial Studio from Oracle Cloud
+# Clean-up
 
 ## Introduction
 

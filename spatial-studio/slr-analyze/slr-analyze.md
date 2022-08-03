@@ -1,3 +1,10 @@
+to do:
+* shorten names to avoid cut-off
+* task 3 - step 10 - screens show 2040, should be 2060
+
+------------------------------------------------------------
+
+
 # Analyze Spatial Relationships
 
 
