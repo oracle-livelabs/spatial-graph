@@ -9,10 +9,10 @@
         "type": "reservation"
       },  
       {
-        "title": "Getting Started",
-        "description": "Login to Oracle Cloud",
-        "filename": "../placeholder.md"
-    }, 
+        "title": "Get Started",
+        "description": "Login to the Oracle Cloud",
+        "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login.md"
+      },
    {
       "title": "Lab 1: Deploy Spatial Studio to Oracle Cloud",
       "filename": "../../../env-mp-ocw/env-mp-ocw.md"
@@ -34,8 +34,8 @@
   "filename": "../../../slr-save-share/slr-save-share.md"
 },
 {
-  "title": "Lab 6: Clean-up",
-  "filename": "../placeholder.md"
+  "title": "Lab 6: Undeploy Spatial Studio from Oracle Cloud",
+  "filename": "../../../env-mp-teardown/env-mp-teardown.md"
 },
 {
     "title": "Need Help?",
