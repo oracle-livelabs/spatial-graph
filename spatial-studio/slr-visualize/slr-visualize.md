@@ -1,4 +1,4 @@
-# Visualize
+# Visualize Spatial Data
 
 
 ## Introduction

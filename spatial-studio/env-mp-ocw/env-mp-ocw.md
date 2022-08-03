@@ -4,7 +4,7 @@
 
 In this lab you deploy Spatial Studio from the Cloud Marketplace using Always Free resources. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance that is created is meant to be temporary, for use during this workshop. 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
@@ -120,9 +120,15 @@ On a Windows PC, all common browsers provide a similar warning and option to con
 
    ![Image alt text](images/mp-17.png "Image title")
 
-4. You are now logged in and ready to start using Spatial Studio. 
+4. Once logged in, hover over the icons in the main navigation panel on the left to see tooltips with the page names.
 
-   ![Image alt text](images/mp-18.png "Image title")
+   ![Image alt text](images/mp-19.png "Image title")
+
+5. At any time you may also click on the "hamburger" icon at the top left to expand and collapse the main navigation panel. 
+
+   ![Image alt text](images/mp-20.png "Image title")   
+
+You are now logged in and ready to start using Spatial Studio.
 
 ## Learn More
 * [Spatial Studio product page](https://oracle.com/goto/spatial)

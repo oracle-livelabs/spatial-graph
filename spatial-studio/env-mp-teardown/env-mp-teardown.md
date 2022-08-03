@@ -4,7 +4,7 @@
 
 In this lab you undeploy the Spatial Studio instance created using the Cloud Marketplace. The permanently purges all resources created as part of the Spatial Studio deployment from the Cloud Marketplace. 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 

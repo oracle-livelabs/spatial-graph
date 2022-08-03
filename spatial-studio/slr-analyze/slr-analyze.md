@@ -1,4 +1,4 @@
-# Analyze
+# Analyze Spatial Relationships
 
 
 ## Introduction
@@ -16,7 +16,7 @@ Estimated Lab Time: 30 minutes
 
 ### Prerequisites
 
-* Complete Lab 3: Visualize
+* Complete Lab 3: Visualize Spatial Data
 
 
 ## Task 1: Identify schools in the projected flood area
