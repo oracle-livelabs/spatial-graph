@@ -63,7 +63,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
   In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
 
-## Task 3: Load and Query the `BANK_GRAPH` and visualize the results
+## **Task 3:** Load and Query the `BANK_GRAPH` and visualize the results
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
           If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
