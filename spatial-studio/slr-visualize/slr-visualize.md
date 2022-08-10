@@ -82,7 +82,7 @@ Next you add map layers and apply styling.
 
    ![Image alt text](images/vis-10.png)
 
-3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List.
+3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many time in this workshop. 
 
    ![Image alt text](images/vis-11.png)
 
@@ -91,15 +91,15 @@ Next you add map layers and apply styling.
    ![Image alt text](images/vis-12.png)
 
 
-7. Scroll down to see sections on basic (fill) and stroke (outline) styles. Change the fill opacity to 100%. Change the stroke color to white and opacity to 100%.
+5. Scroll down to see sections on basic (fill) and stroke (outline) styles. Change the fill opacity to 100%. Change the stroke color to white and opacity to 100%.
 
    ![Image alt text](images/vis-16.png)
 
-8. Scroll to the top of the Settings dialog, pull down the Configure menu, and select **Interaction**.
+6. Scroll to the top of the Settings dialog, pull down the Configure menu, and select **Interaction**.
 
    ![Image alt text](images/vis-17.png)
 
-9.  Scroll down to the Tooltip section. Enable tooltips and select **NAME** as the tooltip column. Then mouse over schools to view the tooltips.
+7.  Scroll down to the Tooltip section. Enable tooltips and select **NAME** as the tooltip column. Then mouse over schools to view the tooltips.
 
    ![Image alt text](images/vis-18.png)
 

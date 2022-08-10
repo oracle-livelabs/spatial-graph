@@ -57,7 +57,7 @@ You begin by loading projected flood regions, parcels, schools and facilities fr
 
 ## Task 2: Prepare Data
 
-You next  .....   
+Data preparation includes operations that allow datasets to be used for spatial analysis and map visualization. Examples include address geocoding, coordinate indexing, and identification of unique key columns. In this task you perform coordinate indexing and set dataset keys.
 
 1. The datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. Begin by clicking the warning badge for **SCHOOLS**. This dataset was loaded from a non-spatial format (csv) and requires preparation for mapping visualization. The dataset includes latitude/longitude columns, so select **Create Latitude/Longitude Index** and then click **Ok**. 
    

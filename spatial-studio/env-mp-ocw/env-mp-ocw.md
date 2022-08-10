@@ -51,7 +51,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
    ![Image alt text](images/mp-02.png "Image title")
  
-4. Select the compartment for the installation, accept the terms and conditions, and click **Launch Stack**
+4. If you have an existing preferred compartment then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
 
    ![Image alt text](images/mp-04.png "Image title")
 
@@ -60,24 +60,29 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
    ![Image alt text](images/mp-05.png "Image title")
 
-6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**.
+6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**.  If you have available cloud credits or a paid account you may select a paid shape instead.
 
    ![Image alt text](images/mp-06.png "Image title")
 
     Then scroll down.
 
 
-7. Under Advanced Configuration accept the defaults and enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
+7. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. For this workshop you are deploying a temporary instance that will not include any sensitive information. Therefore uncheck **HTTPS only** and read the help text to be sure you understand the intended usage. 
   
    ![Image alt text](images/mp-07.png "Image title")
 
     Then scroll down.
 
-8. Under Configure Networking, leave the defaults to have a network created for you.  
+8.  Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.    
+
+   ![Image alt text](images/mp-07a.png "Image title")
+
+
+9.  Under Configure Networking, leave the defaults to have a network created for you.  
 
     Then scroll down.
 
-9. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. In this case your Spatial Studio instance is temporary, meant for the duration of this workshop. So administration is not needed. Therefore **uncheck** the **Add SSH key** option. 
+10. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. In this case your Spatial Studio instance is temporary, meant for the duration of this workshop. So administration is not needed. Therefore **uncheck** the **Add SSH key** option. 
 
    ![Image alt text](images/mp-09.png "Image title")
 
@@ -87,7 +92,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
      ![Image alt text](images/mp-11.png "Image title")
 
-  Scroll down and enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of your Spatial Studio instance and you will not need to use it during the workshop. Then click **Next**.
+  Scroll down and enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of metadata fir your Spatial Studio instance. Then click **Next**.
 
       ![Image alt text](images/mp-12.png "Image title")
 
@@ -103,20 +108,12 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
    
 ## Task 3: Log in to Spatial Studio
 
-1. Click on the **Application Information** tab, and then click **Open Spatial Studio**.
+1. Click on the **Application Information** tab, and then click for **Spatial Studio HTTP URL**.
 
    ![Image alt text](images/mp-15.png "Image title")
 
 
-2. You will see a browser warning related to privacy and security. This is not a Spatial Studio issue; it is generic to  access of web sites not configured with a signed HTTPS certificate. Loading and configuring a signed certificate removes this warning. However the process of loading certificates is beyond the scope of this workshop. For this workshop you may bypass this warning. 
-
- The specific warning depends on your platform and browser. In the case of FireFox, click **Advanced** and then **Accept Risk and Continue**.
-
-   ![Image alt text](images/mp-16.png "Image title")
-
-On a Windows PC, all common browsers provide a similar warning and option to continue. On a Mac, you must use Safari or Firefox since Chrome for Mac does not allow you to bypass the warning. 
-  
-3. Log in with user name **admin** and the password you entered in the Step 7 above.
+2. Log in with user name **admin** and the password you entered in the Step 7 above.
 
    ![Image alt text](images/mp-17.png "Image title")
 
