@@ -26,7 +26,7 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* This lab requires access to Spatial Studio and Oracle Database. 
+* Complete Lab 1
 * No previous experience with Oracle Spatial is required.
 
 
@@ -34,29 +34,26 @@ Estimated Lab Time: 10 minutes
 
 You begin by loading projected flood regions, parcels, schools and facilities from common formats. 
 
-1. Download the zip file containing the data to a convenient location: <a href="xxx">  xxx.zip  </a> . Unzip the file and observe the files for upload along with a README file with data source info.
+1. Download the zip file containing the data to a convenient location: [SpatialStudioSlrData.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/SpatialStudioSlrData.zip). The zip file contains the following:
 
    ![Image alt text](images/load-data-01.png)
 
-2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, and select all of the files (except for README.txt). 
+2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, drag-and-drop or and select the zip file. Then click **Create**.
    
    ![Image alt text](images/load-data-02.png)
 
-3. Then click **Create**.
-   
-   ![Image alt text](images/load-data-03.png)
+
 
 4. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. In this workshop you select the **SPATIAL_STUDIO** connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
    
-   ![Image alt text](images/load-data-04.png)
+   ![Image alt text](images/load-data-03.png)
 
 5. Repeat for all datasets.
 
-   ![Image alt text](images/load-data-05.png)
 
 6. When complete, the datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. You will perform those steps in the next task.
 
-   ![Image alt text](images/load-data-06.png)
+   ![Image alt text](images/load-data-04.png)
 
 ## Task 2: Prepare Data
 
@@ -70,14 +67,14 @@ You next  .....
 
    ![Image alt text](images/prep-data-02.png)  
 
-3. Repeat for **TRI\_FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and TRI\_FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization. 
+3. Repeat for **FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization. 
 
     
-4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **ANNUAL\_FLOOD\_2040\_10PCT** and click the link **Go to Dataset Columns**.
+4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **FACILITIES** and click the link **Go to Dataset Columns**.
 
    ![Image alt text](images/prep-data-03.png)  
 
-5.  Select **FID** as the key, click **Validate key**, and then **Apply**.
+5.  Select **FACILITY\_ID** as the key, click **Validate key**, and then **Apply**.
 
    ![Image alt text](images/prep-data-04.png)  
 
@@ -85,11 +82,11 @@ You next  .....
    
  | Dataset | Column to use as Key |
  | --- | --- |
- | ANNUAL\_FLOOD\_2060\_10PCT | FID |
- | ANNUAL\_FLOOD\_2080\_10PCT	 |FID |
+ | FLOOD2060 | FID |
+ | FLOOD2060 | FID |
+ | FLOOD2080 |FID |
  | PARCELS | PID\_LONG |
  | SCHOOLS | OGR\_FID |
- | TRI_FACILITIES | FACILITY\_ID |
 
 7. Observe that all of your datasets are fully prepared for mapping and spatial analysis.
 

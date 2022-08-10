@@ -30,7 +30,7 @@ Estimated Lab Time: 30 minutes
 
 You begin by performing an analysis to filter schools based on containment in a projected flood region.
 
-1. To focus on schools and the projected flood area, turn visibility off for TRI\_FACILITIES and PARCELS. Then from the action menu for ANNUAL\_FLOOD\_2080\_10PCT, select **Zoom to layer**.
+1. To focus on schools and the projected flood area, turn visibility off for FACILITIES and PARCELS. Then from the action menu for FLOOD2060, select **Zoom to layer**.
 
    ![Image alt text](images/analyze-01.png)
 
@@ -42,38 +42,37 @@ You begin by performing an analysis to filter schools based on containment in a 
 
    ![Image alt text](images/analyze-03.png)
 
-4. For Analysis name, enter **SCHOOLS INSIDE FLOOD\_2060\_10PCT**. For Layer to be filtered select **SCHOOLS** and for Layer to use as teh flter select **ANNUAL\_FLOOD\_2060\_10PCT**. Then click **Run**.
+4. For Analysis name, enter **SCHOOLS IN FLOOD2060**. For Layer to be filtered select **SCHOOLS** and for Layer to use as the filter select **FLOOD2060**. Then click **Run**.
 
    ![Image alt text](images/analyze-04.png)
 
    As shown in Lab 3 > Task 2 > Step 6, click the right facing arrowhead to expand the Data/Visualizations panel.
 
-5. Observe your analysis listed under Analyses. Click and hold on your analysis, and then drag and drop onto the map. As you've previously, change the style of the layer: open the action menu for **SCHOOLS INSIDE FLOOD\_2060\_10PCT** , select **Settings** and change the color to red fill with white stroke (outline).
+5. Observe your analysis listed under Analyses. Click and hold on your analysis, and then drag and drop onto the map. As you've previously, change the style of the layer: open the action menu for **SCHOOLS IN FLOOD2060** , select **Settings** and change the color to red fill with white stroke (outline).
 
    ![Image alt text](images/analyze-05.png)
 
 
    **Note:** You can hover over a Layer, Dataset, or Analysis name that is truncated to see its full name in a tooltip.
    
-6. To view the results of your spatial analysis in tabular form, click on the Visualizations tab and then drag and drop a table next to the map. You may drop the table on any edge of the map.
+6. To view the results of your spatial analysis in tabular form, click on the **Visualizations** tab and then drag and drop a table next to the map. You may drop the table on any edge of the map.
 
    ![Image alt text](images/analyze-06.png)
 
 
-7. Click on the Data tab and then click and hold on your analysis, and then drag and drop into the table view. When done reviewing the results listing, click on the **X** to close the table view.
+7. Click on the **Data** tab and then click and hold on your analysis, and then drag and drop into the table view. 
 
    ![Image alt text](images/analyze-07.png)
 
-
-8. While zoomed out, you will observe some items in the results that appear very close to the projected flood area boundary. Zoom into one of these areas and observe that the items in the results are indeed inside the projected flood area.
-
-   Technical details behind analyses are available. From the action menu for you analysis, select Properties.
+8. Technical details behind analyses are available. From the action menu for you analysis, select Properties.
 
    ![Image alt text](images/analyze-08.png)
 
 9. In the Properties dialog, observe the section showing the analysis SQL.  In particular, note the SDO\_INSIDE operator which performs the spatial filter. The SQL is slightly more involved than the most generic example because it involves a function-based spatial index for schools instead of a geometry column, and also wraps the main query with an outer SELECT to de-duplicate schools in the event that a schools was inside multiple regions.
 
    Note also the automatically generated endpoint that streams the analysis results in GeoJSON format for consumption by any standards-based mapping client.
+
+   When done, click **Cancel** and then click on the **X** to close the table view.
 
    ![Image alt text](images/analyze-09.png)
 
@@ -82,11 +81,11 @@ You begin by performing an analysis to filter schools based on containment in a 
    ![Image alt text](images/analyze-10.png)
 
 
-## Task 2: Identify TRI Facilities near the projected flood area
+## Task 2: Identify facilities near the projected flood area
 
-You next identify TRI Facilities near the projected flood area. This is a spatial filter operation, where the facilities are  filtered based on by proximity to the projected flood area. This is referred to as a "within distance" operation.
+You next identify facilities near the projected flood area. This is a spatial filter operation, where the facilities are filtered based on proximity to the projected flood area. This is referred to as a "within distance" operation.
 
-1. In the main navigation panel click on the button to return to your **Active Project**. Adjust layer visibility so that the projected flood area and facilities are visible. From the action menu for TRI\_FACILITIES, select **Spatial Analysis**.
+1. In the main navigation panel click on the button to return to your **Active Project**. Adjust layer visibility so that the projected flood area and facilities are visible. From the action menu for FACILITIES, select **Spatial Analysis**.
 
    ![Image alt text](images/analyze-11.png)
 
@@ -95,7 +94,7 @@ You next identify TRI Facilities near the projected flood area. This is a spatia
    ![Image alt text](images/analyze-12.png)
 
 
-3. In the analysis dialog, for analysis name enter **TRI_FACILITIES NEAR FLOOD\_2060\_10PCT**, for layer to be filtered select **TRI\_FACILITIES**, and for layer ot be used as the filter enter **ANNUAL\_FLOOD\_2060\_10PCT**.
+3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer ot be used as the filter enter **FLOOD2060**.
 
    ![Image alt text](images/analyze-13.png)
 
@@ -103,49 +102,48 @@ You next identify TRI Facilities near the projected flood area. This is a spatia
 
    ![Image alt text](images/analyze-14.png)
 
-4. Before adding the analysis results to the map, change the style of the original unfiltered TRI\_Facilities layer so that the analysis results are clearly visible. As you have done previously, from the action menu for TRI\_Facilities select **Settings**. Then change the radius to 6, color to black, and opacity to maximum. 
+4. Before adding the analysis results to the map, change the style of the original unfiltered Facilities layer so that the analysis results are clearly visible. As you have done previously, from the action menu for Facilities select **Settings**. Then change the radius to 6, color to black, and opacity to maximum. 
 
    ![Image alt text](images/analyze-15.png)
 
-6. Drag and drop your **TRI_FACILITIES NEAR FLOOD\_2060\_10PCT** analysis onto the map. From its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke to black with weight. The results are clearly visible over the unfiltered TRI\_FACILITIES layer,
+6. Drag and drop your **FACILITIES NEAR FLOOD2060** analysis onto the map. 
+   
+   Then from its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke to black with weight. The results are clearly visible over the unfiltered FACILITIES layer,
 
    ![Image alt text](images/analyze-16.png)
 
-7. Spatial Studio allows you to modify the parameters of an analysis. From the action menu for TRI_FACILITIES NEAR FLOOD\_2060\_10PCT, select **Modify Parameters**.
+7. Spatial Studio allows you to modify the parameters of an analysis. From the action menu for **FACILITIES NEAR FLOOD2060**, select **Modify Parameters**.
 
    ![Image alt text](images/analyze-17.png)
 
-8. Update the distance to 3, and then click **Run**.
+8.  Update the distance to 3, and then click **Run**.
 
    ![Image alt text](images/analyze-18.png)
 
-   Observe the map refresh with the updated analysis results.
+9.  Observe the map refresh with the updated analysis results.
 
    ![Image alt text](images/analyze-19.png)
 
-9. Next you will determine the distance of each facility in your analysis result to the projected flood area. To focus on your analysis results, turn off visibility for the unfiltered TRI\_FACILITIES layer. From the action menu for  TRI_FACILITIES NEAR FLOOD\_2060\_10PCT select **Spatial Analysis**.
+11. Next you will determine the distance of each facility in your analysis result to the projected flood area. From the action menu for **FACILITIES NEAR FLOOD2060** select **Spatial Analysis**.
 
    ![Image alt text](images/analyze-20.png)
 
-10. Select the tab for **Measure** analyses. Then click the tile for **Calculate minimum distance between shapes**.
+11. Select the tab for **Measure** analyses. Then click the tile for **Calculate minimum distance between shapes**.
     
    ![Image alt text](images/analyze-21.png)
 
-11. For analysis name enter **TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE**, for column name for result enter **DISTANCE_KM**, for Geometry 1 select **TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT**, and for Geometry 2 select **ANNUAL\_FLOOD\_2060\_10PCT**. 
+11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060**, and for Geometry 2 select **FLOOD2060**. 
 
    ![Image alt text](images/analyze-22.png)
 
-    Scroll down and from the units menu select **Kilometers**. Then click **Run**.
+12. For items with a name that is truncated, hover to see a tooltip showing the full name.
 
     ![Image alt text](images/analyze-23.png)
 
-12. Hover over your analysis to see a tooltip showing the full name. Drag and drop TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE onto the map.
+    
+13.  Drag and drop **FACILITIES NEAR FLOOD2060 DISTANCE** onto the map and then go its Settings. Set a style of your choosing. Scroll down to the Info Window section. Enable info window and select columns to display including the analysis result column named DISTANCE\_KM. Then, in the map, click on a facility to view the item's information.
 
     ![Image alt text](images/analyze-24.png)
-
-13. Go to Settings for the TRI\_FACILITIES NEAR FLOOD\_2060\_10PCT WITH DISTANCE layer. Set a style of you choosing. Then scroll down to the Info Window section. Enable info window and select columns to display including the analysis result column named DISTANCE\_KM. Then, in the map, click on a facility to view the item's information.
-
-    ![Image alt text](images/analyze-25.png)
 
 
 
