@@ -141,7 +141,8 @@ You next identify facilities near the projected flood area. This is a spatial fi
     ![Image alt text](images/analyze-23.png)
 
     
-13.  Drag and drop **FACILITIES NEAR FLOOD2060 DISTANCE** onto the map and then go its Settings. Set a style of your choosing. Scroll down to the Info Window section. Enable info window and select columns to display including the analysis result column named DISTANCE\_KM. Then, in the map, click on a facility to view the item's information.
+    To focus on your analysis results, turn off visibility for all layers except FLOOD2060. 
+13.  Drag and drop the **FACILITIES NEAR FLOOD2060 DISTANCE** analysis onto the map and then go its Settings. Set a style of your choosing. Scroll down to the Info Window section. Enable info window and select columns to display including the analysis result column named DISTANCE\_KM. Then, in the map, click on a facility to view the item's information.
 
     ![Image alt text](images/analyze-24.png)
 
@@ -160,7 +161,7 @@ You next identify parcels that have any spatial interaction with the projected f
    ![Image alt text](images/analyze-27.png)
 
 
-3. For name, enter **PARCELS IN CONTACT WITH FLOOD\_2060\_10PCT**, for layer to be filtered select **PARCELS**, and for layer to be used as filter select **ANNUAL\_FLOOD\_2060\_10PCT**.
+3. For name, enter **PARCELS FLOOD CONTACT**, for layer to be filtered select **PARCELS**, and for layer to be used as filter select **FLOOD2060**.
    
    ![Image alt text](images/analyze-28.png)   
 
