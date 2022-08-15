@@ -91,6 +91,60 @@ Oracle Autonomous Database and Database Actions
 
 You begin by loading data for warehouses and stores from CSV files. These files include coordinates which will later be used to create geometries. You then load data for regions from a GeoJSON document. GeoJSON is ......
 
+1. Download the following files to a convenient location:
+   
+  - [stores.csv](files/stores.csv)
+  - [warehouses.csv](files/warehouses.csv)
+  - [regions.geojson](regions.geojson)
+  - [tornado_paths.geojson](tornado-paths.geojson)
+     
+   ![Image alt text](images/create-data-00.png)
+
+2. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
+   
+   ![Image alt text](images/create-data-01.png)
+
+3. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
+   
+   ![Image alt text](images/create-data-02.png)
+
+4. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
+   
+   ![Image alt text](images/create-data-03.png)
+
+5. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
+   
+   ![Image alt text](images/create-data-04.png)
+
+  
+6. Click **Finish**. The table will then be created.
+   
+   ![Image alt text](images/create-data-05.png)
+
+7. Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+
+   Enter and run following command to drop the errors table for STORES.
+
+      ```
+      <copy> 
+         DROP TABLE SDW$ERR$_STORES;
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-06.png)
+
+1. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. When complete, observe there are no failed rows. 
+
+   Enter and run following command to drop the errors table for WAREHOUSES.
+
+      ```
+      <copy> 
+         DROP TABLE SDW$ERR$_WAREHOUSES;
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-07.png)
+
 
 ## Task 2: Configure Warehouses Table using Geometry Column
 
@@ -106,7 +160,9 @@ Next ......
 Next ......
 
 
+## Task 5: Create Tornado Paths Table from GeoJSON Document
 
+Next ......
 
 
 
