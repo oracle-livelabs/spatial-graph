@@ -133,7 +133,11 @@ You begin by loading data for warehouses and stores from CSV files. These files 
 
    ![Image alt text](images/create-data-06.png)
 
-1. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. When complete, observe there are no failed rows. 
+1. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
+   
+  ![Image alt text](images/create-data-07.png)
+   
+2. When complete, observe there are no failed rows. 
 
    Enter and run following command to drop the errors table for WAREHOUSES.
 
@@ -143,7 +147,63 @@ You begin by loading data for warehouses and stores from CSV files. These files 
       </copy>
       ```
 
-   ![Image alt text](images/create-data-07.png)
+   ![Image alt text](images/create-data-08.png)
+
+
+3. Repeat the data load process, this time loading the file **REGIONS.geojson**.
+
+   ![Image alt text](images/create-data-09.png)
+
+
+1. Observe the data preview shows 2 columns, **type** and **features**, which are the top level keys in a GeoJSON document. ...expand on this...   Click **Next**.
+
+   ![Image alt text](images/create-data-10.png)
+
+2. Rename from destination table from to **REGIONS_GEOJSON**. ...expand on this...  Click **Next**.
+
+   ![Image alt text](images/create-data-11.png)
+
+
+2. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
+
+   ![Image alt text](images/create-data-12.png)
+
+2. When complete, observe there are no failed rows. 
+
+   Enter and run following command to drop the errors table for REGIONS_GEOJSON.
+
+      ```
+      <copy> 
+         DROP TABLE SDW$ERR$_REGIONS_GEOJSON;
+      </copy>
+      ```
+   ![Image alt text](images/create-data-13.png)
+
+1. Next load **TORNADO_PATHS.geojson**.
+   
+   ![Image alt text](images/create-data-14.png)
+
+2. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
+   
+    ![Image alt text](images/create-data-15.png)
+   
+1.   When complete, observe there are no failed rows. 
+
+   Enter and run following command to drop the errors table for REGIONS_GEOJSON.
+
+      ```
+      <copy> 
+         DROP TABLE SDW$ERR$_TORNADO_PATHS_GEOJSON;
+      </copy>
+      ```
+   ![Image alt text](images/create-data-16.png)
+
+2. All 4 tables are now created and ready to be configured for Spatial. 
+   
+    ![Image alt text](images/create-data-17.png)
+   
+
+
 
 
 ## Task 2: Configure Warehouses Table using Geometry Column
