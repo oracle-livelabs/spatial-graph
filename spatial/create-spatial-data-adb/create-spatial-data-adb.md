@@ -203,24 +203,145 @@ You begin by loading data for warehouses and stores from CSV files. These files 
     ![Image alt text](images/create-data-17.png)
    
 
-
-
-
 ## Task 2: Configure Warehouses Table using Geometry Column
 
 Next ......
 
+1. ...
+   
+      ```
+      <copy> 
+      ALTER TABLE WAREHOUSES ADD (
+          GEOMETRY SDO_GEOMETRY
+          );
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-18.png)
+
+2.  ... include check for valid coordinates...
+
+      ```
+      <copy> 
+      UPDATE WAREHOUSES
+      SET GEOMETRY = SDO_GEOMETRY(
+                       2001,
+                       4326,
+                       SDO_POINT_TYPE(LONGITUDE, LATITUDE, NULL),
+                       NULL, NULL);
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-19.png)
+
+3.  ...
+
+      ```
+      <copy> 
+        INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+            'WAREHOUSES',
+            'GEOMETRY',
+            SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
+                          SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
+            4326
+        );
+      </copy>
+      ```
+   ![Image alt text](images/create-data-20.png)
+
+3.  ...
+
+      ```
+      <copy> 
+        CREATE INDEX WAREHOUSES_SIDX ON
+            WAREHOUSES (
+                GEOMETRY
+            )
+                INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-21.png)
+
+      
 
 ## Task 3: Configure Stores Table using Function-based Spatial Index
 
 Next ......
+
+3.  ... ... include check for valid coordinates...
+
+      ```
+      <copy>
+        CREATE OR REPLACE FUNCTION GET_GEOMETRY (
+            IN_LONGITUDE NUMBER,
+            IN_LATITUDE  NUMBER
+        ) RETURN SDO_GEOMETRY
+            DETERMINISTIC PARALLEL_ENABLE
+        IS
+        BEGIN
+          RETURN 
+            SDO_GEOMETRY(
+              2001, 
+              4326, 
+              SDO_POINT_TYPE(IN_LONGITUDE, IN_LATITUDE, NULL), 
+              NULL, NULL);
+        END;
+        /
+      </copy>
+      ```
+     ![Image alt text](images/create-data-22.png)
+
+3.  ... ...change this to an object method...
+
+      ```
+      <copy>
+        SELECT
+            SDO_UTIL.TO_GEOJSON(
+                 GET_GEOMETRY(-90.123, 30.456)
+                 )
+        FROM
+            DUAL;
+      </copy>
+      ```
+   ![Image alt text](images/create-data-23.png)
+
+3.  ...
+
+      ```
+      <copy>
+          INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+            'STORES',
+            'ADMIN.GET_GEOMETRY(LONGITUDE,LATITUDE)',
+            SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
+                          SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
+            4326
+        );
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-24.png)
+
+3.  ...
+
+      ```
+      <copy>
+      CREATE INDEX STORES_SIDX ON
+        STORES (
+            GET_GEOMETRY(LONGITUDE,LATITUDE)
+        )
+            INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
+      </copy>
+      ```
+
+   ![Image alt text](images/create-data-25.png)
 
 ## Task 4: Create Regions Table from GeoJSON Document
 
 Next ......
 
 
-## Task 5: Create Tornado Paths Table from GeoJSON Document
+## Task 5: Create Tornado Paths Function-based Spatial Index from GeoJSON 
 
 Next ......
 
