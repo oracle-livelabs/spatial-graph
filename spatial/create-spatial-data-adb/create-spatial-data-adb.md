@@ -263,7 +263,13 @@ Next ......
 
    ![Image alt text](images/create-data-21.png)
 
+
+3.  ...MDRT tables...
+
       
+   ![Image alt text](images/create-data-21a.png)
+
+
 
 ## Task 3: Configure Stores Table using Function-based Spatial Index
 
@@ -304,6 +310,7 @@ Next ......
             DUAL;
       </copy>
       ```
+
    ![Image alt text](images/create-data-23.png)
 
 3.  ...
@@ -340,13 +347,131 @@ Next ......
 
 Next ......
 
+ ```
+  <copy>
+    SELECT *
+    FROM REGIONS_GEOJSON;
+  </copy>
+ ```
+
+ ```
+  <copy>
+    SELECT 
+      JSON_VALUE(features, '$.size()')
+    FROM 
+       REGIONS_GEOJSON;
+  </copy>
+ ```
+  
+ ```
+  <copy>
+   SELECT 
+      x.features.properties[0]
+   FROM
+      REGIONS_GEOJSON x;
+  </copy>
+ ``` 
+
+
+ ```
+  <copy>
+    SELECT 
+      json_value(features,'$[0].properties.REGION'),
+      json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY),
+      json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY).Get_WKT()
+    FROM
+        REGIONS_GEOJSON;
+  </copy>
+ ```
+
+ ```
+  <copy>
+    SELECT
+        JT.*
+    FROM
+        REGIONS_GEOJSON A,
+        JSON_TABLE ( A.FEATURES, '$[*]'
+                COLUMNS (
+                    REGION VARCHAR ( 30 ) PATH '$.properties.REGION',
+                    GEOMETRY SDO_GEOMETRY PATH '$.geometry'
+                )
+            )
+        AS JT;
+  </copy>
+  ```
+
+
+  ```
+  <copy>
+
+    CREATE TABLE REGIONS AS (
+        SELECT
+            JT.*
+        FROM
+            REGIONS_GEOJSON A,
+            JSON_TABLE ( A.FEATURES, '$[*]'
+                COLUMNS (
+                   REGION VARCHAR ( 30 ) PATH '$.properties.REGION',
+                   GEOMETRY SDO_GEOMETRY PATH '$.geometry'
+            ))
+              AS JT
+          );
+
+  </copy>
+  ```
+
+
 
 ## Task 5: Create Tornado Paths Function-based Spatial Index from GeoJSON 
 
 Next ......
 
 
+  ```
+  <copy>
 
+  </copy>
+  ```
+
+
+  ```
+  <copy>
+    SELECT
+        JSON_VALUE(FEATURES, '$.size()')
+    FROM
+        TORNADO_PATHS_GEOJSON;
+  </copy>
+  ```
+
+  ```
+  <copy>
+    SELECT
+        x.features.properties[0]
+    FROM
+        TORNADO_PATHS_GEOJSON x;
+  </copy>
+  ```
+
+
+  ```
+  <copy>
+    SELECT 
+        json_value(features,'$[0].properties.KEY'),
+        json_value(features,'$[0].properties.YR'),
+        json_value(features,'$[0].properties.LOSS'),
+        json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY),
+        json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY).Get_WKT()
+      FROM
+          TORNADO_PATHS_GEOJSON;
+  </copy>
+  ```
+
+  
+  ```
+  <copy>
+
+  </copy>
+  ```
 
 
 
