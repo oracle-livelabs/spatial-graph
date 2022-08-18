@@ -95,33 +95,50 @@ You begin by loading data for warehouses and stores from CSV files. These files 
    
   - [stores.csv](files/stores.csv)
   - [warehouses.csv](files/warehouses.csv)
-  - [regions.geojson](regions.geojson)
-  - [tornado_paths.geojson](tornado-paths.geojson)
+  - [regions.geojson](files/regions.geojson)
+  - [tornado_paths.geojson](files/tornado-paths.geojson)
      
    ![Image alt text](images/create-data-00.png)
 
-2. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
+2. ... see the data on map ...
+
+   geojson.io is a web site for viewing (as well as manually creating and editing) small spatial datasets. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab.
+
+   ![Image alt text](images/create-data-00a.png)
+
+   ![Image alt text](images/create-data-00b.png)
+
+   ![Image alt text](images/create-data-00c.png)
+
+   ![Image alt text](images/create-data-00d.png)
+
+   ![Image alt text](images/create-data-00e.png)
+
+   ![Image alt text](images/create-data-00f.png)
+
+
+3. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
    
    ![Image alt text](images/create-data-01.png)
 
-3. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
+4. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
    
    ![Image alt text](images/create-data-02.png)
 
-4. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
+5. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
    
    ![Image alt text](images/create-data-03.png)
 
-5. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
+6. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
    
    ![Image alt text](images/create-data-04.png)
 
   
-6. Click **Finish**. The table will then be created.
+7. Click **Finish**. The table will then be created.
    
    ![Image alt text](images/create-data-05.png)
 
-7. Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+8. Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
 
    Enter and run following command to drop the errors table for STORES.
 
@@ -133,7 +150,7 @@ You begin by loading data for warehouses and stores from CSV files. These files 
 
    ![Image alt text](images/create-data-06.png)
 
-1. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
+9.  Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
    
   ![Image alt text](images/create-data-07.png)
    
@@ -354,6 +371,10 @@ Next ......
   </copy>
  ```
 
+   ![Image alt text](images/create-data-26.png)
+
+   ![Image alt text](images/create-data-26a.png)
+
  ```
   <copy>
     SELECT 
@@ -362,6 +383,9 @@ Next ......
        REGIONS_GEOJSON;
   </copy>
  ```
+
+   ![Image alt text](images/create-data-27.png)
+
   
  ```
   <copy>
@@ -372,17 +396,30 @@ Next ......
   </copy>
  ``` 
 
+   ![Image alt text](images/create-data-28.png)
 
  ```
   <copy>
     SELECT 
-      json_value(features,'$[0].properties.REGION'),
-      json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY),
+      json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY)
+    FROM
+        REGIONS_GEOJSON;
+  </copy>
+ ```
+
+   ![Image alt text](images/create-data-29.png)
+
+ ```
+  <copy>
+    SELECT 
       json_value(features,'$[0].geometry' RETURNING SDO_GEOMETRY).Get_WKT()
     FROM
         REGIONS_GEOJSON;
   </copy>
  ```
+
+   ![Image alt text](images/create-data-30.png)
+
 
  ```
   <copy>
@@ -400,6 +437,7 @@ Next ......
   </copy>
   ```
 
+   ![Image alt text](images/create-data-31.png)
 
   ```
   <copy>
@@ -420,18 +458,36 @@ Next ......
   </copy>
   ```
 
-
-
-## Task 5: Create Tornado Paths Function-based Spatial Index from GeoJSON 
-
-Next ......
-
+   ![Image alt text](images/create-data-32.png)
 
   ```
   <copy>
-
+    INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+          'REGIONS',
+          'GEOMETRY',
+          SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
+                        SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
+          4326
+      );
   </copy>
   ```
+
+   ![Image alt text](images/create-data-33.png)
+
+  ```
+  <copy>
+    CREATE INDEX REGIONS_SIDX ON
+          REGIONS (
+              GEOMETRY
+          )
+              INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
+  </copy>
+  ```
+   ![Image alt text](images/create-data-34.png)
+
+## Task 5: Create Tornado Paths Table from GeoJSON Document
+
+Next ......
 
 
   ```
@@ -443,6 +499,8 @@ Next ......
   </copy>
   ```
 
+   ![Image alt text](images/create-data-35.png)
+
   ```
   <copy>
     SELECT
@@ -452,6 +510,7 @@ Next ......
   </copy>
   ```
 
+   ![Image alt text](images/create-data-36.png)
 
   ```
   <copy>
@@ -466,16 +525,82 @@ Next ......
   </copy>
   ```
 
+   ![Image alt text](images/create-data-37.png)
   
   ```
   <copy>
-
+    SELECT
+          JT.*
+      FROM
+          TORNADO_PATHS_GEOJSON A,
+          JSON_TABLE ( A.FEATURES, '$[*]'
+                  COLUMNS (
+                      KEY      NUMBER PATH '$.properties.KEY',
+                      YR       NUMBER PATH '$.properties.YR',
+                      LOSS     NUMBER PATH '$.properties.LOSS',
+                      GEOMETRY SDO_GEOMETRY PATH '$.geometry'
+                  )
+              )
+          AS JT;
   </copy>
   ```
 
-
-
-
+  ![Image alt text](images/create-data-38.png)
+  
+  ```
+  <copy>
+    CREATE TABLE TORNADO_PATHS AS
+    SELECT
+          JT.*
+      FROM
+          TORNADO_PATHS_GEOJSON A,
+          JSON_TABLE ( A.FEATURES, '$[*]'
+                  COLUMNS (
+                      KEY      NUMBER PATH '$.properties.KEY',
+                      YR       NUMBER PATH '$.properties.YR',
+                      LOSS     NUMBER PATH '$.properties.LOSS',
+                      GEOMETRY SDO_GEOMETRY PATH '$.geometry'
+                  )
+              )
+          AS JT;
+  </copy>
+  ```
+  
+  ![Image alt text](images/create-data-39.png)
+  
+  ```
+  <copy>
+    INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+          'TORNADO_PATHS',
+          'GEOMETRY',
+          SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
+                        SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
+          4326
+      );
+  </copy>
+  ```
+  
+  ![Image alt text](images/create-data-40.png)
+  
+  ```
+  <copy>
+    CREATE INDEX TORNADO_PATHS_SIDX ON
+          TORNADO_PATHS (
+              GEOMETRY
+          )
+              INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
+  </copy>
+  ```
+  
+  ![Image alt text](images/create-data-41.png)
+  
+  ```
+  <copy>
+    DROP TABLE REGIONS_GEOJSON;
+    DROP TABLE TORNADO_PATHS_GEOJSON;
+  </copy>
+  ```
+  ![Image alt text](images/create-data-42.png)
 
 ## Learn More
 
