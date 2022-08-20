@@ -201,13 +201,105 @@ stores with max loss within with dist
 
 Stores in region xx
 
+```
+<copy> 
+  SELECT
+      A.STORE_NAME,
+      A.STORE_TYPE
+  FROM
+      STORES  A,
+      REGIONS B
+  WHERE REGION = 'REGION-02'
+  AND SDO_ANYINTERACT(GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+                          B.GEOMETRY) = 'TRUE';
+ </copy>
+```
+
+![Image alt text](images/run-queries-09.png)
+
 Stores with region
 
-Number of tornados and avg mag in region x
+```
+<copy> 
+  SELECT
+      A.STORE_NAME,
+      A.STORE_TYPE,
+      B.REGION
+  FROM
+      STORES  A,
+      REGIONS B
+  WHERE SDO_ANYINTERACT(GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+                          B.GEOMETRY) = 'TRUE';
+ </copy>
+```
+
+![Image alt text](images/run-queries-10.png)
+
 
 Regions with number and avg mag of tornados
 
+```
+<copy> 
+SELECT
+    B.REGION,
+    COUNT(*),
+    MAX(LOSS)
+FROM
+    TORNADO_PATHS A,
+    REGIONS       B
+WHERE
+    SDO_ANYINTERACT(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+GROUP BY
+    REGION
+ORDER BY
+    REGION;
+</copy>
+```
 
+![Image alt text](images/run-queries-11.png)
+
+
+regions with a loss>100k
+
+```
+<copy> 
+  SELECT DISTINCT
+      A.REGION
+  FROM
+      REGIONS       A,
+      TORNADO_PATHS B
+  WHERE
+         SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+  AND 
+         B.LOSS > 100000
+  ORDER BY
+      REGION;
+</copy>
+```
+
+![Image alt text](images/run-queries-12.png)
+
+regions with a loss>100k and count
+
+```
+<copy> 
+  SELECT DISTINCT
+      A.REGION,
+      COUNT(B.KEY)
+  FROM
+      REGIONS       A,
+      TORNADO_PATHS B
+  WHERE
+          SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+      AND B.LOSS > 100000
+  GROUP BY
+      REGION
+  ORDER BY
+      REGION;
+</copy>
+```
+
+![Image alt text](images/run-queries-13.png)
 
 
 

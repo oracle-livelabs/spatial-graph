@@ -35,12 +35,12 @@
       {
         "title": "Lab 5: Return GeoJSON",
         "description":"Return GeoJSON",
-        "filename": "../../../geojson-integration/geojson-integration.md"
+        "filename": "../../../return-geojson/return-geojson.md"
       },
       {
         "title": "Lab x: teardown...",
-        "description":"Return GeoJSON",
-        "filename": "../../../geojson-integration/geojson-integration.md"
+        "description":"teardown",
+        "filename": "placeholder.md"
       },
       {
         "title": "Need Help?",
