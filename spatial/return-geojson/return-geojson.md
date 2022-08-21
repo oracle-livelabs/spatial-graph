@@ -16,8 +16,7 @@ WHERE
 SELECT
     JSON_ARRAYAGG(
         SDO_UTIL.TO_GEOJSON(GEOMETRY) 
-        FORMAT JSON
-        )
+        FORMAT JSON RETURNING CLOB )
 FROM
     TORNADO_PATHS
 WHERE
@@ -55,7 +54,8 @@ SELECT
         ||'","yr":"'|| YR
         ||'","loss":"'|| LOSS
         ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' FORMAT JSON)   
+        ||'}' 
+        FORMAT JSON RETURNING CLOB)   
 FROM
     TORNADO_PATHS
 WHERE
@@ -75,8 +75,10 @@ SELECT
         ||'","yr":"'|| YR
         ||'","loss":"'|| LOSS
         ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' FORMAT JSON)   
+        ||'}' 
+        FORMAT JSON RETURNING CLOB) 
     ||'}'
+    AS GEOJSON
 FROM
     TORNADO_PATHS
 WHERE
@@ -86,109 +88,25 @@ WHERE
 
 ![Image alt text](images/return-geojson-05.png)
 
+![Image alt text](images/return-geojson-06.png)
+
+![Image alt text](images/return-geojson-07.png)
 
 ```
 <copy> 
 SELECT
-  DUMP (
-    '{"type": "FeatureCollection", "features":'
-    || JSON_ARRAYAGG( 
-        '{"type": "Feature", "properties": {'
-        || '"key":"'|| KEY
-        ||'","yr":"'|| YR
-        ||'","loss":"'|| LOSS
-        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' FORMAT JSON)   
-    ||'}'
-  ) as DUMP
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-xx.png)
-
-```
-<copy> 
-SELECT
-  DUMP (
-    '{"type": "FeatureCollection", "features":'
-    || JSON_ARRAYAGG( 
-        '{"type": "Feature", "properties": {'
-        || '"key":"'|| KEY
-        ||'","yr":"'|| YR
-        ||'","loss":"'|| LOSS
-        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' FORMAT JSON RETURNING CLOB)   
-    ||'}'
-  ) as DUMP
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-xx.png)
-
-```
-<copy> 
-SELECT
-  DUMP (
-    TO_CLOB('{"type": "FeatureCollection", "features":')
-    || JSON_ARRAYAGG( 
-        '{"type": "Feature", "properties": {'
-        || '"key":"'|| KEY
-        ||'","yr":"'|| YR
-        ||'","loss":"'|| LOSS
-        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' FORMAT JSON RETURNING CLOB)   
-    ||TO_CLOB('}')
-  ) as DUMP
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-xx.png)
-
-```
-<copy> 
-SELECT
-   TO_CLOB('{"type": "FeatureCollection", "features":')
-   || JSON_ARRAYAGG( 
-       '{"type": "Feature", "properties": {'
-       || '"key":"'|| KEY
-       ||'","yr":"'|| YR        ||'","loss":"'|| LOSS
-       ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-       ||'}' FORMAT JSON RETURNING CLOB)   
-   ||TO_CLOB('}')  AS GEOJSON
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-xx.png)
-
-```
-<copy> 
-SELECT
-   TO_CLOB('{"type": "FeatureCollection", "features":')
+   '{"type": "FeatureCollection", "features":'
    || JSON_ARRAYAGG( 
        '{"type": "Feature", "properties": {'
        || '"key":"'|| KEY
        ||'","yr":"'|| YR
        ||'","loss":"'|| LOSS
        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(
-                              SDO_GEOM.SDO_BUFFER(GEOMETRY,5, 1,'unit=MILE'))
-       ||'}' FORMAT JSON RETURNING CLOB)   
-   ||TO_CLOB('}') AS GEOJSON
+                              SDO_GEOM.SDO_BUFFER(GEOMETRY, 5, 1, 'unit=MILE'))
+       ||'}' 
+       FORMAT JSON RETURNING CLOB)   
+   ||'}'
+   AS GEOJSON
 FROM
     TORNADO_PATHS
 WHERE
@@ -196,4 +114,6 @@ WHERE
 </copy>
 ```
 
-![Image alt text](images/return-geojson-xx.png)
+![Image alt text](images/return-geojson-08.png)
+
+![Image alt text](images/return-geojson-09.png)
