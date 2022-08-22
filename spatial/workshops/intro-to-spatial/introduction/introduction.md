@@ -19,7 +19,7 @@ Estimated Workshop Time: 60 minutes
 
 ### Workshop Overview
 
-In this workshop you will create and configure spatial data and perform some basic spatial queries.  The scenario involves STORES, WAREHOUSES, SALES\_REGIONS, and a historical TORNADO\_PATHS. You will create and configure these spatial tables, and then perform spatial queries to explore their relationships based on proximity and containment.
+In this workshop you will create and configure spatial data and perform some basic spatial queries.  The scenario involves STORES, WAREHOUSES, SALES\_REGIONS, and TORNADO\_PATHS. You will create and configure these spatial tables, and then perform spatial queries to explore their relationships based on proximity and containment.
 
 
 ### Prerequisites

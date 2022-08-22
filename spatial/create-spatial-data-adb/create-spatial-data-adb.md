@@ -3,7 +3,7 @@
 
 ## Introduction
 
-......
+Spatial data is commonly sourced from files having coordinates or place names, and files storing data in native spatial formats. In this lab you load and configure spatial data from such files and preview the content on a map.
 
 Estimated Lab Time: 20 minutes
 
@@ -75,13 +75,16 @@ SDO_GEOMETRY(
 ```
 
 
-**... Add section here on built-in conversion fns ...**
+ Oracle Spatial also includes a set of built-in functions to convert between this native spatial data type and other common formats. One such common format is GeoJSON which is the most common format for  integration with developer client libraries.
 
 
 ### Objectives
 
 In this lab, you will:
-* ....
+* Download files for STORES, WAREHOUSES, REGIONS, and TORNADO\_PATHS
+* View the content on a map
+* Load the files to database tables
+* Configure the tables for spatial analysis
 
 
 ### Prerequisites
@@ -91,7 +94,7 @@ Oracle Autonomous Database and Database Actions
 
 ## Task 1: Load Data from Files
 
-You begin by loading data for warehouses and stores from CSV files. These files include coordinates which will later be used to create geometries. You then load data for regions from a GeoJSON document. GeoJSON is ......
+You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. GeoJSON is an extremely popular native spatial data format, used for integration in myriad scenarios. GeoJSON supports points, lines and polygons. For more info please visit [https://geojson.org/](https://geojson.org/).
 
 1. Download the following files to a convenient location:
    
@@ -102,9 +105,11 @@ You begin by loading data for warehouses and stores from CSV files. These files 
      
    ![Image alt text](images/create-data-00.png)
 
-2. ... see the data on map ...
-
-   geojson.io is a web site for viewing (as well as manually creating and editing) small spatial datasets. You can use this site to render data in GeoJSON files as well as files that include longitude, latitude columns. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab. Then drag and drop **warehouses.csv** onto the map.
+2. Begin by viewing the data on map. 
+ 
+   Oracle Spatial Studio is a web tool for self-service (no code) spatial data loading, configuration, analysis, and map visualization. It is a separate web application that can be deployed from the Cloud Marketplace. As this workshop focuses exclusively on working with Spatial at the SQL level, Spatial Studio is not used. Instead you use a public web site to view the data.
+ 
+   [http://geojson.io](http://geojson.io) is a web site for viewing (as well as manually creating and editing) small spatial datasets. You can use this site to render data in GeoJSON files as well as files that include longitude, latitude columns. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab. Then drag and drop **warehouses.csv** onto the map.
 
    ![Image alt text](images/create-data-00a.png)
 
@@ -112,39 +117,44 @@ You begin by loading data for warehouses and stores from CSV files. These files 
 
    ![Image alt text](images/create-data-00b.png)
 
-
+   Click **New** at the top to open a fresh map in a new tab. Drag and drop **stores.csv** onto the map.
 
    ![Image alt text](images/create-data-00c.png)
 
    ![Image alt text](images/create-data-00d.png)
 
+   Repeat for **regions.geojson**.
+
    ![Image alt text](images/create-data-00e.png)
+
+   Repeat for **tornardo_paths.geojson**.
 
    ![Image alt text](images/create-data-00f.png)
 
+  These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the tabs.
 
-3. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
+   1. Next you load the files to database tables. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
    
    ![Image alt text](images/create-data-01.png)
 
-4. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
+   1. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
    
    ![Image alt text](images/create-data-02.png)
 
-5. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
+   1. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
    
    ![Image alt text](images/create-data-03.png)
 
-6. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
+   1. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
    
    ![Image alt text](images/create-data-04.png)
 
   
-7. Click **Finish**. The table will then be created.
+   1. Click **Finish**. The table will then be created.
    
    ![Image alt text](images/create-data-05.png)
 
-8. Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+   1.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
 
    Enter and run following command to drop the errors table for STORES.
 
@@ -156,7 +166,7 @@ You begin by loading data for warehouses and stores from CSV files. These files 
 
    ![Image alt text](images/create-data-06.png)
 
-9.  Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
+11. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
    
   ![Image alt text](images/create-data-07.png)
    
@@ -173,57 +183,57 @@ You begin by loading data for warehouses and stores from CSV files. These files 
    ![Image alt text](images/create-data-08.png)
 
 
-3. Repeat the data load process, this time loading the file **REGIONS.geojson**.
+   1. Repeat the data load process, this time loading the file **REGIONS.geojson**.
 
-   ![Image alt text](images/create-data-09.png)
-
-
-1. Observe the data preview shows 2 columns, **type** and **features**, which are the top level keys in a GeoJSON document. ...expand on this...   Click **Next**.
-
-   ![Image alt text](images/create-data-10.png)
-
-2. Rename from destination table from to **REGIONS_GEOJSON**. ...expand on this...  Click **Next**.
-
-   ![Image alt text](images/create-data-11.png)
+      ![Image alt text](images/create-data-09.png)
 
 
-2. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
+   2. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Developer Web automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
 
-   ![Image alt text](images/create-data-12.png)
+      ![Image alt text](images/create-data-10.png)
 
-2. When complete, observe there are no failed rows. 
+   3. Rename from destination table from to **REGIONS_GEOJSON** since you will be converting this from a GeoJSON document to a table that you will name **REGIONS**.   Click **Next**.
 
-   Enter and run following command to drop the errors table for REGIONS_GEOJSON.
+      ![Image alt text](images/create-data-11.png)
 
-      ```
-      <copy> 
-         DROP TABLE SDW$ERR$_REGIONS_GEOJSON;
-      </copy>
-      ```
-   ![Image alt text](images/create-data-13.png)
+   1. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
 
-1. Next load **TORNADO_PATHS.geojson**.
-   
-   ![Image alt text](images/create-data-14.png)
+      ![Image alt text](images/create-data-12.png)
 
-2. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
-   
-    ![Image alt text](images/create-data-15.png)
-   
-1.   When complete, observe there are no failed rows. 
+   2. When complete, observe there are no failed rows. 
 
-   Enter and run following command to drop the errors table for REGIONS_GEOJSON.
+      Enter and run following command to drop the errors table for REGIONS_GEOJSON.
 
       ```
       <copy> 
-         DROP TABLE SDW$ERR$_TORNADO_PATHS_GEOJSON;
+      DROP TABLE SDW$ERR$_REGIONS_GEOJSON;
+       </copy>
+      ```
+      ![Image alt text](images/create-data-13.png)
+
+   3. Next load **TORNADO_PATHS.geojson**.
+      
+      ![Image alt text](images/create-data-14.png)
+
+   4. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
+      
+       ![Image alt text](images/create-data-15.png)
+      
+   5. When complete, observe there are no failed rows. 
+
+      Enter and run following command to drop the errors table for REGIONS_GEOJSON.
+
+      ```
+      <copy> 
+      DROP TABLE SDW$ERR$_TORNADO_PATHS_GEOJSON;
       </copy>
       ```
-   ![Image alt text](images/create-data-16.png)
 
-2. All 4 tables are now created and ready to be configured for Spatial. 
-   
-    ![Image alt text](images/create-data-17.png)
+      ![Image alt text](images/create-data-16.png)
+
+   6.  All 4 tables are now created and ready to be configured for Spatial. 
+      
+     ![Image alt text](images/create-data-17.png)
    
 
 ## Task 2: Configure Warehouses Table using Geometry Column
