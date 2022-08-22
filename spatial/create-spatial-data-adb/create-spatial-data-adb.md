@@ -45,11 +45,12 @@ The following example is a point geometry with longitude,latitude coordinates:
 
 ```
 SDO_GEOMETRY( 
-    2001                                      -- 2D point
-    , 4326                                    -- Coordinate system
-    , SDO_POINT_TYPE(-100.123, 20.456, NULL)  -- lon/lat values
-    , NULL                                    -- Default NULL if not not needed
-    , NULL                                    -- Default NULL if not not needed
+    2001                       -- 2D point
+    , 4326                     -- Coordinate system
+    , SDO_POINT_TYPE(
+      -100.123, 20.456, NULL)  -- lon/lat values
+    , NULL                     -- Not used for points
+    , NULL                     -- Not used for points
 )
 ```
 
@@ -57,12 +58,13 @@ The following example is a polygon geometry with longitude,latitude coordinates:
 
 ```
 SDO_GEOMETRY( 
-    2003                                      -- 2D polygon
-    , 4326                                    -- Coordinate system
-    , NULL                                    -- Default NULL if not not needed 
-    , SDO_ELEM_INFO_ARRAY(1, 1003, 1)         -- Identifies a simple exterior polygon
-    , SDO_ORDINATE_ARRAY(                     -- list of lon/lat values
-        -98.789065,39.90973
+    2003                     -- 2D polygon
+    , 4326                   -- Coordinate system
+    , NULL                   -- Only used for points
+    , SDO_ELEM_INFO_ARRAY(
+              1, 1003, 1)    -- Signifies simple exterior polygon
+    , SDO_ORDINATE_ARRAY(    -- lon/lat values
+          -98.789065,39.90973
         , -101.2522,39.639537
         , -99.84374,37.160316
         , -96.67987,35.460699
@@ -102,11 +104,15 @@ You begin by loading data for warehouses and stores from CSV files. These files 
 
 2. ... see the data on map ...
 
-   geojson.io is a web site for viewing (as well as manually creating and editing) small spatial datasets. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab.
+   geojson.io is a web site for viewing (as well as manually creating and editing) small spatial datasets. You can use this site to render data in GeoJSON files as well as files that include longitude, latitude columns. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab. Then drag and drop **warehouses.csv** onto the map.
 
    ![Image alt text](images/create-data-00a.png)
 
+   The CSV data is converted to GeoJSON as shown on the right, and rendered on the map.
+
    ![Image alt text](images/create-data-00b.png)
+
+
 
    ![Image alt text](images/create-data-00c.png)
 
