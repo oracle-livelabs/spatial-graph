@@ -74,8 +74,13 @@ SDO_GEOMETRY(
 )
 ```
 
+The general workflow for creating spatial data is to generate geometries and then create a spatial index for optimal performance. Prior to creating a spatial index, a row of spatial metadata is inserted which is used by the spatial index to ensure data consistency.
 
- Oracle Spatial also includes a set of built-in functions to convert between this native spatial data type and other common formats. One such common format is GeoJSON which is the most common format for  integration with developer client libraries.
+For point data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity. 
+
+For lines and polygons, it is most common to load data from convert common formats (such as GeoJSON) to a table with a geometry column. You will do this for the regions and tornado paths.
+
+Oracle Spatial also includes a set of built-in functions to convert between this native spatial data type and other common formats. One such common format is GeoJSON which is the most common format for  integration with developer client libraries.
 
 
 ### Objectives
@@ -131,30 +136,30 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
    ![Image alt text](images/create-data-00f.png)
 
-  These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the tabs.
+  These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the geojson.io tabs.
 
-   1. Next you load the files to database tables. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
+3. Next you load the files to database tables. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
    
    ![Image alt text](images/create-data-01.png)
 
-   1. Drag and drop **stores.csv** into the data loading region. You may also click **Select files** to navigate to the files.
+4. Drag and drop **stores.csv** into the data loading region.  (You may also click **Select files** to navigate to the files. If you do so then you will need to select the option to **Show all files**.)
    
    ![Image alt text](images/create-data-02.png)
 
-   1. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
+5. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
    
    ![Image alt text](images/create-data-03.png)
 
-   1. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
+6. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
    
    ![Image alt text](images/create-data-04.png)
 
   
-   1. Click **Finish**. The table will then be created.
+7. Click **Finish**. The table will then be created.
    
    ![Image alt text](images/create-data-05.png)
 
-   1.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+8.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
 
    Enter and run following command to drop the errors table for STORES.
 
@@ -166,11 +171,11 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
    ![Image alt text](images/create-data-06.png)
 
-11. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
+9. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
    
   ![Image alt text](images/create-data-07.png)
    
-2. When complete, observe there are no failed rows. 
+10. When complete, observe there are no failed rows. 
 
    Enter and run following command to drop the errors table for WAREHOUSES.
 
@@ -183,24 +188,24 @@ You begin by loading data for warehouses and stores from CSV files that include 
    ![Image alt text](images/create-data-08.png)
 
 
-   1. Repeat the data load process, this time loading the file **REGIONS.geojson**.
+11. Repeat the data load process, this time loading the file **REGIONS.geojson**.
 
       ![Image alt text](images/create-data-09.png)
 
 
-   2. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Developer Web automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
+12. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Developer Web automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
 
       ![Image alt text](images/create-data-10.png)
 
-   3. Rename from destination table from to **REGIONS_GEOJSON** since you will be converting this from a GeoJSON document to a table that you will name **REGIONS**.   Click **Next**.
+13. Rename from destination table from to **REGIONS_GEOJSON** since you will be converting this from a GeoJSON document to a table that you will name **REGIONS**.   Click **Next**.
 
       ![Image alt text](images/create-data-11.png)
 
-   1. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
+14. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
 
       ![Image alt text](images/create-data-12.png)
 
-   2. When complete, observe there are no failed rows. 
+15. When complete, observe there are no failed rows. 
 
       Enter and run following command to drop the errors table for REGIONS_GEOJSON.
 
@@ -211,15 +216,15 @@ You begin by loading data for warehouses and stores from CSV files that include 
       ```
       ![Image alt text](images/create-data-13.png)
 
-   3. Next load **TORNADO_PATHS.geojson**.
+16. Next load **TORNADO_PATHS.geojson**.
       
       ![Image alt text](images/create-data-14.png)
 
-   4. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
+17. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
       
        ![Image alt text](images/create-data-15.png)
       
-   5. When complete, observe there are no failed rows. 
+18. When complete, observe there are no failed rows. 
 
       Enter and run following command to drop the errors table for REGIONS_GEOJSON.
 
@@ -231,16 +236,16 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
       ![Image alt text](images/create-data-16.png)
 
-   6.  All 4 tables are now created and ready to be configured for Spatial. 
+19.  All 4 tables are now created and ready to be configured for Spatial. 
       
      ![Image alt text](images/create-data-17.png)
    
 
 ## Task 2: Configure Warehouses Table using Geometry Column
 
-Next ......
+Next you configure the WAREHOUSES table for Spatial by generating a geometry column from the coordinate columns.
 
-1. ...
+1. Begin by adding a geometry column (column with type SDO_GEOMETRY).
    
       ```
       <copy> 
@@ -252,7 +257,7 @@ Next ......
 
    ![Image alt text](images/create-data-18.png)
 
-2.  ... include check for valid coordinates...
+2.  Next, populate the geometry column for rows with valid coordinates (all of the rows in this case).
 
       ```
       <copy> 
@@ -261,28 +266,32 @@ Next ......
                        2001,
                        4326,
                        SDO_POINT_TYPE(LONGITUDE, LATITUDE, NULL),
-                       NULL, NULL);
+                       NULL, NULL)
+      WHERE LONGITUDE IS NOT NULL 
+      AND LONGITUDE BETWEEN -180 AND 180
+      AND LATITUDE IS NOT NULL 
+      AND LATITUDE BETWEEN -90 AND 90 ;
       </copy>
       ```
 
    ![Image alt text](images/create-data-19.png)
 
-3.  ...
+3.  Insert spatial metadata for the WAREHOUSES table.
 
       ```
       <copy> 
         INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-            'WAREHOUSES',
-            'GEOMETRY',
+            'WAREHOUSES',  -- table name
+            'GEOMETRY',    -- geometry column name
             SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
                           SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-            4326
+            4326           -- indicates longitude/latitude coordinates
         );
       </copy>
       ```
    ![Image alt text](images/create-data-20.png)
 
-3.  ...
+3. Finally, create a spatial index for the WAREHOUSES table.
 
       ```
       <copy> 
@@ -297,8 +306,7 @@ Next ......
    ![Image alt text](images/create-data-21.png)
 
 
-3.  ...MDRT tables...
-
+3.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
       
    ![Image alt text](images/create-data-21a.png)
 
@@ -306,63 +314,74 @@ Next ......
 
 ## Task 3: Configure Stores Table using Function-based Spatial Index
 
-Next ......
+Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, instead of indexing a geometry column, you instead index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089).
 
-3.  ... ... include check for valid coordinates...
-
+1. The first step is to create a generic function that accepts coordinates and returns a geometry (i.e., a SDO\_GEOMETRY value). The function includes criteria so that a result is only returned for valid input coordinates.
+   
       ```
       <copy>
-        CREATE OR REPLACE FUNCTION GET_GEOMETRY (
+      CREATE OR REPLACE FUNCTION GET_GEOMETRY (
             IN_LONGITUDE NUMBER,
             IN_LATITUDE  NUMBER
         ) RETURN SDO_GEOMETRY
             DETERMINISTIC PARALLEL_ENABLE
         IS
         BEGIN
+         IF (IN_LONGITUDE IS NOT NULL 
+            AND IN_LONGITUDE BETWEEN -180 AND 180
+            AND IN_LATITUDE IS NOT NULL 
+            AND IN_LATITUDE BETWEEN -90 AND 90)
+         THEN
           RETURN 
             SDO_GEOMETRY(
               2001, 
               4326, 
               SDO_POINT_TYPE(IN_LONGITUDE, IN_LATITUDE, NULL), 
               NULL, NULL);
+          ELSE RETURN NULL;
+          END IF;
         END;
         /
       </copy>
       ```
      ![Image alt text](images/create-data-22.png)
 
-3.  ... ...change this to an object method...
+2.  Next, test the function using the STORES table. Since SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, call the function inside a call to convert the result to a GeoJSON string .
 
       ```
       <copy>
         SELECT
             SDO_UTIL.TO_GEOJSON(
-                 GET_GEOMETRY(-90.123, 30.456)
-                 )
+                GET_GEOMETRY(LONGITUDE, LATITUDE))
         FROM
-            DUAL;
+            STORES
+        WHERE 
+             ROWNUM<10;
       </copy>
       ```
 
-   ![Image alt text](images/create-data-23.png)
+       ![Image alt text](images/create-data-23.png)
 
-3.  ...
+   Instead of creating and indexing a new geometry column in the STORES table, you will create an index on the values returned by the GET\_GEOMETRY function for the STORES table.
+
+
+3.  Before creating a spatial index, a row of spatial metadata is inserted.  In the case of a function-based spatial index, instead of a geometry column name you insert the function call. Insert spatial metadata for the STORES table using the GET\_GEOMETRY function. The function must be prepended with the owner name, in this case ADMIN.
 
       ```
       <copy>
           INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-            'STORES',
-            'ADMIN.GET_GEOMETRY(LONGITUDE,LATITUDE)',
+            'STORES',  -- table name
+            'ADMIN.GET_GEOMETRY(LONGITUDE,LATITUDE)', -- function returning geometry
             SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
                           SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-            4326
+            4326  -- indicates longitude/latitude coordinates
         );
       </copy>
       ```
 
    ![Image alt text](images/create-data-24.png)
 
-3.  ...
+4.  Finally create the spatial index. In the case of a function-based spatial index, the "column" being indexed is actually the call to the GET\_GEOMETRY function.
 
       ```
       <copy>
