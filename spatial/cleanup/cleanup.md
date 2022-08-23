@@ -3,22 +3,22 @@
 
 ## Introduction
 
-...
+This lab is to remove everything created in the previous labs so that you can start over if needed.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 2 minutes
 
 
-### About ...
+### About 
 
+In this lab, all previously created artifacts are dropped.
 
 ### Objectives
 
-In this lab, you will....
-
+* Reset ADB to pre-workshop state.
 
 ### Prerequisites
 
-* ....
+* Completion of Lab 3; Prepare Spatial Data
 
 <!--  *This is the "fold" - below items are collapsed by default*  -->
 
@@ -27,41 +27,44 @@ In this lab, you will....
 ## Remove Everything Created in this Workshop
 
 
-...
+1. To remove tables and indexes created in this workshop, run the following.
 
-```
-<copy> 
-DROP TABLE WAREHOUSES;
-DROP TABLE STORES;
-DROP TABLE REGIONS;
-DROP TABLE TORNADO_PATHS;
-</copy>
-```
+      ```
+      <copy> 
+      DROP TABLE WAREHOUSES;
+      DROP TABLE STORES;
+      DROP TABLE REGIONS;
+      DROP TABLE TORNADO_PATHS;
+      </copy>
+      ```
 
 
-...
+2. To drop spatial metadata inserted in this workshop, run the following.
 
-```
-<copy> 
-DELETE FROM USER_SDO_GEOM_METADATA
-WHERE TABLE_NAME IN (
-    'WAREHOUSES', 
-    'STORES', 
-    'REGIONS', 
-    'TORNADO_PATHS');
-COMMIT;
-</copy>
-```
+      ```
+      <copy> 
+      DELETE FROM USER_SDO_GEOM_METADATA
+      WHERE TABLE_NAME IN (
+          'WAREHOUSES', 
+          'STORES', 
+          'REGIONS', 
+          'TORNADO_PATHS');
+      COMMIT;
+      </copy>
+      ```
 
-![Image alt text](images/cleanup-xx.png)
+3. To drop the function created in this workshop, run the following.
+
+      ```
+      <copy> 
+      DROP FUNCTION GET_GEOMETRY;
+      </copy>
+      ```
 
 
 ## Learn More
 
-* [Spatial product portal](https://oracle.com/goto/spatial)
-* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
-* [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
-* [Spatial blog posts on Medium.com](https://medium.com/oracledevs/tagged/spatial)
+* 
 
 
 ## Acknowledgements
