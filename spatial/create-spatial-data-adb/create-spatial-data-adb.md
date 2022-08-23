@@ -82,6 +82,8 @@ For lines and polygons, it is most common to load data from convert common forma
 
 Oracle Spatial also includes a set of built-in functions to convert between this native spatial data type and other common formats. One such common format is GeoJSON which is the most common format for  integration with developer client libraries.
 
+... add a quick description of GeoJSON structure ...
+
 
 ### Objectives
 
@@ -397,7 +399,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
 
 ## Task 4: Create Regions Table from GeoJSON Document
 
-Next ......
+Next you convert regions from GeoJSON format to a table with a geometry column. Start by viewing the content of REGIONS\_GEOJSON. As described earlier, loading JSON in SQL Worksheet creates a table with columns for the document's top-level keys. For GeoJSON that is **type** and **features**. Hover your mouse over the **features** value to see a pop-up of the features array. Since the features are polygons with many coordinates, you only see a portion of the first feature in the array.
 
  ```
   <copy>
@@ -408,7 +410,8 @@ Next ......
 
    ![Image alt text](images/create-data-26.png)
 
-   ![Image alt text](images/create-data-26a.png)
+Oracle Autonomous Database provides robust features for working with JSON data through SQL. For example, run the following statement to see the number of items in the features array (i.e., the number of regions).
+
 
  ```
   <copy>
@@ -419,10 +422,12 @@ Next ......
   </copy>
  ```
 
+
    ![Image alt text](images/create-data-27.png)
 
-  
- ```
+   To return the properties (i.e., attributes) of the first feature in the array, run the following. The result is key/value pair(s), in this case only one.
+
+   ```
   <copy>
    SELECT 
       x.features.properties[0]
@@ -432,6 +437,9 @@ Next ......
  ``` 
 
    ![Image alt text](images/create-data-28.png)
+
+
+To return the geometry of the first feature in the array as SDO\_GEOMETRY, run the following. As noted earlier, SQL Worksheet does not not display object type values such as SDO\_GEOMETRY, so you will see the result shown as [object Object].
 
  ```
   <copy>
@@ -444,6 +452,9 @@ Next ......
 
    ![Image alt text](images/create-data-29.png)
 
+
+To display the geometry in SQL Worksheet, use Spatial's ability to convert SDO\_GEOMETRY to other common string formats. Spatial supports format conversion with both SQL conversion functions and SDO\_GEOMETRY object type methods. Run the following to use an SDO\_GEOMETRY method to return the geometry of the first feature in WKT (Well Known Text) format.
+
  ```
   <copy>
     SELECT 
@@ -455,6 +466,7 @@ Next ......
 
    ![Image alt text](images/create-data-30.png)
 
+The JSON\_TABLE table function returns items in a JSON array as rows. This is exactly what we will need to convert the features array to a table. Run the following to return the contents of the features array as rows. Note that the arguments to COLUMNS are the property key(s), which is only REGION here, and geometry.
 
  ```
   <copy>
@@ -473,6 +485,8 @@ Next ......
   ```
 
    ![Image alt text](images/create-data-31.png)
+
+Create the REGIONS table from the results of the previous query.  
 
   ```
   <copy>
@@ -495,6 +509,10 @@ Next ......
 
    ![Image alt text](images/create-data-32.png)
 
+
+Insert spatial metadata for REGIONS.
+
+
   ```
   <copy>
     INSERT INTO USER_SDO_GEOM_METADATA VALUES (
@@ -509,6 +527,9 @@ Next ......
 
    ![Image alt text](images/create-data-33.png)
 
+
+ Create a spatial index for REGIONS.  
+
   ```
   <copy>
     CREATE INDEX REGIONS_SIDX ON
@@ -520,10 +541,11 @@ Next ......
   ```
    ![Image alt text](images/create-data-34.png)
 
+
+
 ## Task 5: Create Tornado Paths Table from GeoJSON Document
 
-Next ......
-
+Repeat the previous task steps to convert TORNADO\_PATHS\_GEOJSON. Start by getting the number of features.
 
   ```
   <copy>
@@ -536,6 +558,9 @@ Next ......
 
    ![Image alt text](images/create-data-35.png)
 
+
+Next, get the properties of the first feature.  This time there are several.
+
   ```
   <copy>
     SELECT
@@ -546,6 +571,8 @@ Next ......
   ```
 
    ![Image alt text](images/create-data-36.png)
+
+Run the following to see the property values, geometry, and geometry as WKT for the first feature.
 
   ```
   <copy>
@@ -561,6 +588,8 @@ Next ......
   ```
 
    ![Image alt text](images/create-data-37.png)
+
+Use the JSON\_TABLE function to return the content as rows.
   
   ```
   <copy>
@@ -581,6 +610,8 @@ Next ......
   ```
 
   ![Image alt text](images/create-data-38.png)
+
+  Create the TORNADO\_PATHS table from the results of the previous query.
   
   ```
   <copy>
@@ -602,6 +633,8 @@ Next ......
   ```
   
   ![Image alt text](images/create-data-39.png)
+
+  Insert spatial metadata for TORNADO\_PATHS.
   
   ```
   <copy>
@@ -616,6 +649,8 @@ Next ......
   ```
   
   ![Image alt text](images/create-data-40.png)
+
+  Create spatial index for TORNADO\_PATHS.
   
   ```
   <copy>
@@ -628,14 +663,20 @@ Next ......
   ```
   
   ![Image alt text](images/create-data-41.png)
-  
+
+Now that conversion from GeoJSON is complete you may drop the tables storing the uploaded GeoJSON documents. Then refresh the tables listing.
+
+
   ```
   <copy>
-    DROP TABLE REGIONS_GEOJSON;
-    DROP TABLE TORNADO_PATHS_GEOJSON;
+  DROP TABLE REGIONS_GEOJSON;
+  DROP TABLE TORNADO_PATHS_GEOJSON;
   </copy>
   ```
   ![Image alt text](images/create-data-42.png)
+
+
+ All data is now loaded and prepared for spatial analysis. 
 
 ## Learn More
 
@@ -648,4 +689,4 @@ Next ......
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Karin Patenge, June 2022
+* **Last Updated By/Date** - 

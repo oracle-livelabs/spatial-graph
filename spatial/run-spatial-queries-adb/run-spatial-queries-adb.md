@@ -3,24 +3,27 @@
 
 ## Introduction
 
-This lab walks you through basic spatial queries in Oracle Database. You will use the sample data created in the previous lab to identify items based on proximity and containment.
+This lab walks you through basic spatial queries in Oracle Autonomous Database. You will use the sample data created in the previous lab to identify items based on proximity and containment.
 
 Estimated Lab Time: 30 minutes
 
 
 ### About Spatial Queries
 
-Oracle Database includes a robust library of functions and operators for spatial analysis. This includes spatial relationships, measurements, aggregations, transformations, and much more. These operations are accessible through native SQL, PL/SQL, Java APIs, and any other lan
+Oracle Database includes a robust library of functions and operators for spatial analysis. This includes spatial relationships, measurements, aggregations, transformations, and more. These operations are accessible through native SQL, PL/SQL, Java APIs, and any other languages with connection modules to Oracle such as Python and Node.js.
+
+
+... explain spatial operators, spatial functions here ...  
 
 
 ### Objectives
 
-In this lab, you will....
+In this lab, you will perform spatial queries to identify the location relationships between stores, warehouses, sales regions, and tornado paths.
 
 
 ### Prerequisites
 
-* ....
+* Completion of Lab 3: Prepare Spatial Data
 
 <!--  *This is the "fold" - below items are collapsed by default*  -->
 
@@ -28,278 +31,286 @@ In this lab, you will....
 
 ## Proximity Queries 
 
-Stores within x mi of xx warehouse
+Proximity relates to how close items are to each other. The two main Spatial proximity operators are 
+* SDO\_WITH\_DISTANCE( ) returns items within a given distance of another item
+* SDO\_NN( ) returns the nearest items to another item.
 
-   ```
-   <copy> 
-    SELECT
-        STORE_NAME,
-        STORE_TYPE
-    FROM
-        STORES     A,
-        WAREHOUSES B
-    WHERE
-         B.WAREHOUSE_NAME = 'Dallas Warehouse'
-    AND SDO_WITHIN_DISTANCE(
-          GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-          B.GEOMETRY,
-          'distance=20 unit=mile') = 'TRUE'
-  </copy>
-  ```
+1. Begin by identifying stores within 20 miles of the Dallas Warehouse using **SDO\_WITHIN\_DISTANCE( )**. Notice that the first argument to **SDO\_WITHIN\_DISTANCE( )** is the function that returns geometry for STORES (instead of a geometry column). You are able to use this since you created an associated function-based spatial index.
+
+      ```
+      <copy> 
+       SELECT
+           STORE_NAME,
+           STORE_TYPE
+       FROM
+           STORES     A,
+           WAREHOUSES B
+       WHERE
+            B.WAREHOUSE_NAME = 'Dallas Warehouse'
+       AND SDO_WITHIN_DISTANCE(
+             GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+             B.GEOMETRY,
+             'distance=20 unit=mile') = 'TRUE'
+     </copy>
+     ```
 
    ![Image alt text](images/run-queries-01.png)
 
-n closest stores to xx warehouse
+2. Identifying items nearest to another item is accomplished with the Spatial operator **SDO\_NN( )**, where NN stands for Nearest Neighbor. Run the following query to identify the 5 closest stores to the Dallas Warehouse. Again, notice that the first argument to **SDO\_NN( )** is the function that returns geometry, which has a function-based spatial index.
 
-   ```
-   <copy> 
-    SELECT
-         STORE_NAME,
-         STORE_TYPE
-     FROM
-         STORES     A,
-         WAREHOUSES B
-     WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
-      AND SDO_NN(
-           GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-           B.GEOMETRY,
-           'sdo_batch_size=10') = 'TRUE'
-    AND ROWNUM <= 5;
-  </copy>
-  ```
+      ```
+      <copy> 
+       SELECT
+            STORE_NAME,
+            STORE_TYPE
+        FROM
+            STORES     A,
+            WAREHOUSES B
+        WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
+         AND SDO_NN(
+              GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+              B.GEOMETRY,
+              'sdo_batch_size=10') = 'TRUE'
+       AND ROWNUM <= 5;
+     </copy>
+     ```
 
    ![Image alt text](images/run-queries-02.png)
 
-n closest stores to xx warehouse with dist
+3. The **SDO\_NN( )** operator allows you to include distance. Run the following query to return the 5 closest stores to the Dallas Warehouse along with their distances in miles.
 
-   ```
-   <copy> 
-    SELECT
-         STORE_NAME,
-         STORE_TYPE,
-         ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
-     FROM
-         STORES     A,
-         WAREHOUSES B
-     WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
-      AND SDO_NN(
-           GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-           B.GEOMETRY,
-           'sdo_batch_size=10 unit=MILE', 1) = 'TRUE'
-    AND ROWNUM <= 5;
-  </copy>
-  ```
+      ```
+      <copy> 
+       SELECT
+            STORE_NAME,
+            STORE_TYPE,
+            ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
+        FROM
+            STORES     A,
+            WAREHOUSES B
+        WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
+         AND SDO_NN(
+              GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+              B.GEOMETRY,
+              'sdo_batch_size=10 unit=MILE', 1) = 'TRUE'
+       AND ROWNUM <= 5;
+     </copy>
+     ```
 
    ![Image alt text](images/run-queries-03.png)
 
 
-n closest retail stores to xx warehouse with dist
+4. Run the following query to return the 5 closest retail stores to the Dallas Warehouse along with their distances in miles. Notice that the result includes stores farther than the previous result since you re only looking for retail stores.
 
-   ```
-   <copy> 
-    SELECT
-         STORE_NAME,
-         STORE_TYPE,
-         ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
-     FROM
-         STORES     A,
-         WAREHOUSES B
-     WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
-     AND A.STORE_TYPE='RETAIL'
-      AND SDO_NN(
-           GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-           B.GEOMETRY,
-           'sdo_batch_size=10 unit=MILE', 1) = 'TRUE'
-    AND ROWNUM <= 5;
-  </copy>
-  ```
+      ```
+      <copy> 
+       SELECT
+            STORE_NAME,
+            STORE_TYPE,
+            ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
+        FROM
+            STORES     A,
+            WAREHOUSES B
+        WHERE B.WAREHOUSE_NAME = 'Dallas Warehouse'
+        AND A.STORE_TYPE='RETAIL'
+         AND SDO_NN(
+              GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+              B.GEOMETRY,
+              'sdo_batch_size=10 unit=MILE', 1) = 'TRUE'
+       AND ROWNUM <= 5;
+     </copy>
+     ```
    ![Image alt text](images/run-queries-04.png)
 
-  stores with closest warehouse
+4. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse. 
 
-  ```
-  <copy> 
-    SELECT a.store_name, b.warehouse_name
-    FROM stores a,warehouses b
-    WHERE SDO_NN(b.geometry,
-            get_geometry(a.longitude,a.latitude), 
-            'sdo_num_res=1') = 'TRUE';
-  </copy>
-  ```
+     ```
+     <copy> 
+       SELECT a.store_name, b.warehouse_name
+       FROM stores a,warehouses b
+       WHERE SDO_NN(b.geometry,
+               get_geometry(a.longitude,a.latitude), 
+               'sdo_num_res=1') = 'TRUE';
+     </copy>
+     ```
 
   ![Image alt text](images/run-queries-05.png)
 
-  stores with closest warehouse with distance
+4. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles. 
 
-  ```
-  <copy> 
-    SELECT
-        A.STORE_NAME,
-        B.WAREHOUSE_NAME,
-        ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
-    FROM
-        STORES     A,
-        WAREHOUSES B
-    WHERE
-        SDO_NN(B.GEOMETRY,
-               GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-               'sdo_num_res=1 unit=MILE', 1) = 'TRUE';
-  </copy>
-  ```
+     ```
+     <copy> 
+       SELECT
+           A.STORE_NAME,
+           B.WAREHOUSE_NAME,
+           ROUND( SDO_NN_DISTANCE(1) , 2) DISTANCE_MI
+       FROM
+           STORES     A,
+           WAREHOUSES B
+       WHERE
+           SDO_NN(B.GEOMETRY,
+                  GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+                  'sdo_num_res=1 unit=MILE', 1) = 'TRUE';
+     </copy>
+     ```
 
  ![Image alt text](images/run-queries-06.png)
 
+4. Proximity is useful for aggregate analysis. Run the following query to return the number of tornados and maximum loss within 20 miles of the Dallas Warehouse.
 
-store and max loss within dist x
+    ```
+    <copy> 
+       SELECT
+           COUNT(A.KEY),
+           MAX(A.LOSS)
+       FROM
+           TORNADO_PATHS A,
+           WAREHOUSES B
+       WHERE
+           B.WAREHOUSE_NAME = 'Dallas Warehouse'
+        AND SDO_WITHIN_DISTANCE( A.GEOMETRY,
+                                 B.GEOMETRY,
+              'distance=20 unit=mile') = 'TRUE'
+    </copy>
+      ```
 
- ```
- <copy> 
-    SELECT
-        COUNT(A.KEY),
-        MAX(A.LOSS)
-    FROM
-        TORNADO_PATHS A,
-        WAREHOUSES B
-    WHERE
-        B.WAREHOUSE_NAME = 'Dallas Warehouse'
-     AND SDO_WITHIN_DISTANCE( A.GEOMETRY,
-                              B.GEOMETRY,
-           'distance=20 unit=mile') = 'TRUE'
- </copy>
-   ```
+      ![Image alt text](images/run-queries-07.png)
 
-   ![Image alt text](images/run-queries-07.png)
+   1. Returning to the use of Spatial operators for joins, run the following query to return each warehouse with the number of tornados and maximum loss within 20 miles.
 
-
-
-
-stores with max loss within with dist
-
-
- ```
- <copy> 
-    SELECT
-        B.WAREHOUSE_NAME,
-        COUNT(A.KEY),
-        MAX(A.LOSS)
-    FROM
-        TORNADO_PATHS A,
-        WAREHOUSES B
-    WHERE SDO_WITHIN_DISTANCE( A.GEOMETRY,
-                              B.GEOMETRY,
-           'distance=20 unit=mile') = 'TRUE'
-    GROUP BY B.WAREHOUSE_NAME;  
- </copy>
-   ```
+    ```
+    <copy> 
+       SELECT
+           B.WAREHOUSE_NAME,
+           COUNT(A.KEY),
+           MAX(A.LOSS)
+       FROM
+           TORNADO_PATHS A,
+           WAREHOUSES B
+       WHERE SDO_WITHIN_DISTANCE( A.GEOMETRY,
+                                 B.GEOMETRY,
+              'distance=20 unit=mile') = 'TRUE'
+       GROUP BY B.WAREHOUSE_NAME;  
+    </copy>
+      ```
 
    ![Image alt text](images/run-queries-08.png)
 
-  increase to 50 mi
+  Increase the distance value in the query from 20 to 50 mi and observe the new result.
 
 
 ## Containment Queries 
 
-Stores in region xx
-
-```
-<copy> 
-  SELECT
-      A.STORE_NAME,
-      A.STORE_TYPE
-  FROM
-      STORES  A,
-      REGIONS B
-  WHERE REGION = 'REGION-02'
-  AND SDO_ANYINTERACT(GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-                          B.GEOMETRY) = 'TRUE';
- </copy>
-```
-
-![Image alt text](images/run-queries-09.png)
-
-Stores with region
-
-```
-<copy> 
-  SELECT
-      A.STORE_NAME,
-      A.STORE_TYPE,
-      B.REGION
-  FROM
-      STORES  A,
-      REGIONS B
-  WHERE SDO_ANYINTERACT(GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
-                          B.GEOMETRY) = 'TRUE';
- </copy>
-```
-
-![Image alt text](images/run-queries-10.png)
+Containment refers to identifying items that are contained by a specific region, and vice versa, identifying regions that contain specific items. The spatial main Spatial containment operators are 
+ * SDO\_INSIDE( ) returns items that are inside region(s). Items on the boundary are not returned.
+ * SDO_CONTAINS( ) returns regions that contain item(s). Items on the boundary are not considered to be contained.
+ * SDO\_ANYINTERACT( ) returns items having any spatial relationship to other item(s), including items on a boundary or items partially contained such as a line that crosses into a region.
 
 
-Regions with number and avg mag of tornados
 
-```
-<copy> 
-SELECT
-    B.REGION,
-    COUNT(*),
-    MAX(LOSS)
-FROM
-    TORNADO_PATHS A,
-    REGIONS       B
-WHERE
-    SDO_ANYINTERACT(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
-GROUP BY
-    REGION
-ORDER BY
-    REGION;
-</copy>
-```
+1. Use SDO_INSIDE( ) to return stores in REGION-02, not including stores on the boundary.
 
-![Image alt text](images/run-queries-11.png)
+      ```
+      <copy> 
+        SELECT
+            A.STORE_NAME,
+            A.STORE_TYPE
+        FROM
+            STORES  A,
+            REGIONS B
+        WHERE REGION = 'REGION-02'
+        AND SDO_INSIDE(
+               GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+               B.GEOMETRY) = 'TRUE';
+       </copy>
+      ```
+
+      ![Image alt text](images/run-queries-09.png)
+
+2. Use SDO_INSIDE( ) to return each store with the region it's contained by. This is another example of using a Spatial operator to perform a join, as you did previously with SDO\_NN( ). Note that stores on a region boundary are not included.  To include stores on the boundary you would use SDO\_ANYINTERACT( ).
+
+      ```
+      <copy> 
+      SELECT
+            A.STORE_NAME,
+            A.STORE_TYPE,
+            B.REGION
+        FROM
+            STORES  A,
+            REGIONS B
+        WHERE SDO_INSIDE(
+              GET_GEOMETRY(A.LONGITUDE, A.LATITUDE),
+              B.GEOMETRY) = 'TRUE';
+       </copy>
+      ```
+
+      ![Image alt text](images/run-queries-10.png)
 
 
-regions with a loss>100k
+3. Next use SDO\_ANYINTERACT( ) for the purpose of aggregation of tornadoes by region. Run the following to return the number of tornadoes and maximum loss for each region. Note that SDO\_ANYINTERACT( ) returns items having any spatial relationship such as tornado paths that are entirely or partially contained by a region.
 
-```
-<copy> 
-  SELECT DISTINCT
-      A.REGION
-  FROM
-      REGIONS       A,
-      TORNADO_PATHS B
-  WHERE
-         SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
-  AND 
-         B.LOSS > 100000
-  ORDER BY
-      REGION;
-</copy>
-```
+      ```
+      <copy> 
+      SELECT
+          B.REGION,
+          COUNT(*),
+          MAX(LOSS)
+      FROM
+          TORNADO_PATHS A,
+          REGIONS       B
+      WHERE
+          SDO_ANYINTERACT(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+      GROUP BY
+          REGION
+      ORDER BY
+          REGION;
+      </copy>
+      ```
 
-![Image alt text](images/run-queries-12.png)
+      ![Image alt text](images/run-queries-11.png)
 
-regions with a loss>100k and count
 
-```
-<copy> 
-  SELECT DISTINCT
-      A.REGION,
-      COUNT(B.KEY)
-  FROM
-      REGIONS       A,
-      TORNADO_PATHS B
-  WHERE
-          SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
-      AND B.LOSS > 100000
-  GROUP BY
-      REGION
-  ORDER BY
-      REGION;
-</copy>
-```
+4. Identify regions containing tornado(s) with loss above $100,000.
 
-![Image alt text](images/run-queries-13.png)
+      ```
+      <copy> 
+        SELECT DISTINCT
+            A.REGION
+        FROM
+            REGIONS       A,
+            TORNADO_PATHS B
+        WHERE
+               SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+        AND 
+               B.LOSS > 100000
+        ORDER BY
+            REGION;
+      </copy>
+      ```
+
+      ![Image alt text](images/run-queries-12.png)
+
+5. Identify regions containing tornado(s) with loss above $100,000 along with the total number of tornadoes.
+
+      ```
+      <copy> 
+        SELECT DISTINCT
+            A.REGION,
+            COUNT(B.KEY)
+        FROM
+            REGIONS       A,
+            TORNADO_PATHS B
+        WHERE
+                SDO_CONTAINS(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+            AND B.LOSS > 100000
+        GROUP BY
+            REGION
+        ORDER BY
+            REGION;
+      </copy>
+      ```
+
+      ![Image alt text](images/run-queries-13.png)
 
 
 
