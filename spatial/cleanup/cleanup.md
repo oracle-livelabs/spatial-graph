@@ -27,7 +27,9 @@ In this lab, all previously created artifacts are dropped.
 ## Remove Everything Created in this Workshop
 
 
-1. To remove tables and indexes created in this workshop, run the following.
+1. To remove tables and indexes created in this workshop, run the following using the run script button in SQL Worksheet.
+
+     ![Image alt text](images/run-script.png)
 
       ```
       <copy> 
@@ -39,7 +41,7 @@ In this lab, all previously created artifacts are dropped.
       ```
 
 
-2. To drop spatial metadata inserted in this workshop, run the following.
+2. To drop spatial metadata inserted in this workshop, run the following using the run script button in SQL Worksheet.
 
       ```
       <copy> 

@@ -103,12 +103,12 @@ Oracle Autonomous Database and Database Actions
 
 You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. GeoJSON is an extremely popular native spatial data format, used for integration in myriad scenarios. GeoJSON supports points, lines and polygons. For more info please visit [https://geojson.org/](https://geojson.org/).
 
-1. Download the following files to a convenient location:
+1. Download the following files to a convenient location. To download, right-click on the following links and select **Save link as...**.
    
   - [stores.csv](files/stores.csv)
   - [warehouses.csv](files/warehouses.csv)
   - [regions.geojson](files/regions.geojson)
-  - [tornado_paths.geojson](files/tornado-paths.geojson)
+  - [tornado_paths.geojson](files/tornado_paths.geojson)
      
    ![Image alt text](images/create-data-00.png)
 
