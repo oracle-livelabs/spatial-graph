@@ -1,119 +1,179 @@
-```
-<copy> 
-SELECT
-    SDO_UTIL.TO_GEOJSON(GEOMETRY)
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-01.png)
-
-```
-<copy> 
-SELECT
-    JSON_ARRAYAGG(
-        SDO_UTIL.TO_GEOJSON(GEOMETRY) 
-        FORMAT JSON RETURNING CLOB )
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
-
-![Image alt text](images/return-geojson-02.png)
+# Return GeoJSON
 
 
-```
-<copy> 
-SELECT
-    '{"type": "Feature", "properties": {'
-    || '"key":"'|| KEY
-    ||'","yr":"'|| YR
-    ||'","loss":"'|| LOSS
-    ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-    ||'}' AS features
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
+## Introduction
 
-![Image alt text](images/return-geojson-03.png)
+GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from Spatial operations as GeoJSON. 
 
-```
-<copy> 
-SELECT
-    JSON_ARRAYAGG( 
-        '{"type": "Feature", "properties": {'
-        || '"key":"'|| KEY
-        ||'","yr":"'|| YR
-        ||'","loss":"'|| LOSS
-        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' 
-        FORMAT JSON RETURNING CLOB)   
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
+... explain GeoJSON or point back to explanation in Lab 3 ...
 
-![Image alt text](images/return-geojson-04.png)
+... explain content; handler for ORDS, and option to usw Spatial Studio ...
 
-```
-<copy> 
-SELECT
-    '{"type": "FeatureCollection", "features":'
-    || JSON_ARRAYAGG( 
-        '{"type": "Feature", "properties": {'
-        || '"key":"'|| KEY
-        ||'","yr":"'|| YR
-        ||'","loss":"'|| LOSS
-        ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
-        ||'}' 
-        FORMAT JSON RETURNING CLOB) 
-    ||'}'
-    AS GEOJSON
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
 
-![Image alt text](images/return-geojson-05.png)
+### Objectives
 
-![Image alt text](images/return-geojson-06.png)
+In this lab, you will:
+*  Explore native JSON handing in Oracle Autonomous Database
+*  Convert tables with geometries to GeoJSON documents to support developer integration
 
-![Image alt text](images/return-geojson-07.png)
 
-```
-<copy> 
-SELECT
-   '{"type": "FeatureCollection", "features":'
-   || JSON_ARRAYAGG( 
-       '{"type": "Feature", "properties": {'
-       || '"key":"'|| KEY
-       ||'","yr":"'|| YR
-       ||'","loss":"'|| LOSS
-       ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(
-                              SDO_GEOM.SDO_BUFFER(GEOMETRY, 5, 1, 'unit=MILE'))
-       ||'}' 
-       FORMAT JSON RETURNING CLOB)   
-   ||'}'
-   AS GEOJSON
-FROM
-    TORNADO_PATHS
-WHERE
-    LOSS > 10000000;
-</copy>
-```
+### Prerequisites
 
-![Image alt text](images/return-geojson-08.png)
+* Completion of Lab 3: Prepare Spatial Data
 
-![Image alt text](images/return-geojson-09.png)
+## Task 1: Construct GeoJSON Document from Query Results
+
+1. Begin by returning a tornado path geometry as in GeoJSON format.
+
+      ```
+      <copy> 
+      SELECT
+          SDO_UTIL.TO_GEOJSON(GEOMETRY)
+      FROM
+          TORNADO_PATHS
+      WHERE
+          LOSS > 10000000;
+      </copy>
+      ```
+
+      ![Image alt text](images/return-geojson-01.png)
+
+2. Next, use the JSON_ARRAYAGG( ) function to convert rows of GeoJSON geometries into an array, as needed to build the GeoJSON document. Notice the argument **RETURNING CLOB** which is needed since geometries with many coordinates (like complex polygons) can result in very long strings. Hover your mouse over the result to see the JSON array.
+
+      ```
+      <copy> 
+      SELECT
+          JSON_ARRAYAGG(
+              SDO_UTIL.TO_GEOJSON(GEOMETRY) 
+              FORMAT JSON RETURNING CLOB )
+      FROM
+          TORNADO_PATHS
+      WHERE
+          LOSS > 10000000;
+      </copy>
+      ```
+
+      ![Image alt text](images/return-geojson-02.png)
+
+3. The feature array must include both geometries and properties. Run the following query to construct elements of the feature array. Hover your mouse over the result to see the JSON array now with properties.
+
+
+      ```
+      <copy> 
+      SELECT
+          '{"type": "Feature", "properties": {'
+          || '"key":"'|| KEY
+          ||'","yr":"'|| YR
+          ||'","loss":"'|| LOSS
+          ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
+          ||'}' AS features
+      FROM
+          TORNADO_PATHS
+      WHERE
+          LOSS > 10000000;
+      </copy>
+      ```
+
+      ![Image alt text](images/return-geojson-03.png)
+
+4.  Use JSON_ARRAYAGG( ) to compile the previous results into an array. This is now the actual features array. Hover your mouse over the result to see a popup with result.
+
+    ```
+    <copy> 
+    SELECT
+        JSON_ARRAYAGG( 
+            '{"type": "Feature", "properties": {'
+            || '"key":"'|| KEY
+            ||'","yr":"'|| YR
+            ||'","loss":"'|| LOSS
+            ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
+            ||'}' 
+            FORMAT JSON RETURNING CLOB)   
+    FROM
+        TORNADO_PATHS
+    WHERE
+        LOSS > 10000000;
+    </copy>
+    ```
+
+    ![Image alt text](images/return-geojson-04.png)
+
+
+5.  To complete the construction of a GeoJSON document, include the top level keys **type** and **features**, and a closing curly brace. This now returns a complete GeoJSON document. Hover your mouse over the result to see a popup with result.
+
+    ```
+    <copy> 
+    SELECT
+        '{"type": "FeatureCollection", "features":'
+        || JSON_ARRAYAGG( 
+            '{"type": "Feature", "properties": {'
+            || '"key":"'|| KEY
+            ||'","yr":"'|| YR
+            ||'","loss":"'|| LOSS
+            ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(GEOMETRY)
+            ||'}' 
+            FORMAT JSON RETURNING CLOB) 
+        ||'}'
+        AS GEOJSON
+    FROM
+        TORNADO_PATHS
+    WHERE
+        LOSS > 10000000;
+    </copy>
+    ```
+
+  ![Image alt text](images/return-geojson-05.png)
+
+ 6. Right-click in the results cell and select **Copy**.
+
+      ![Image alt text](images/return-geojson-06.png)
+
+ 7. Verify the result by rendering. Click [here](http://geojson.io) to open geojson.io in a new browser tab. Clear the content on the right panel under JSON (select all > delete) and then paste in your GeoJSON copied from the SQl Worksheet. Click on any of hte tornado lines to see a popup that includes its properties.
+
+       ![Image alt text](images/return-geojson-07.png)
+
+ 8. To make the result a bit more interesting, run the following to create a GeoJSON document with geometries that are 5 mile buffers surrounding the tornado paths.  Notice that a new property key is added to indicate the buffer distance. Run the query and then, as done previously, copy the result.
+
+       ```
+       <copy> 
+       SELECT
+          '{"type": "FeatureCollection", "features":'
+          || JSON_ARRAYAGG( 
+              '{"type": "Feature", "properties": {'
+              || '"key":"'|| KEY
+              ||'","yr":"'|| YR
+              ||'","loss":"'|| LOSS,
+              ||'","buffer":"5 MI"',
+              ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(
+                                     SDO_GEOM.SDO_BUFFER(GEOMETRY, 5, 1, 'unit=MILE'))
+              ||'}' 
+              FORMAT JSON RETURNING CLOB)   
+          ||'}'
+          AS GEOJSON
+       FROM
+           TORNADO_PATHS
+       WHERE
+           LOSS > 10000000;
+       </copy>
+       ```
+
+       ![Image alt text](images/return-geojson-08.png)
+
+9. Open a new geojson.io tab, clear the JSON panel on the right, and paste in the result copied from your SQL Worksheet. Observe the buffer geometries and click on one to see a popup with properties including the buffer key that was added.
+
+      ![Image alt text](images/return-geojson-09.png)
+
+
+...  summarize takeaway here ...
+
+
+
+## Learn More
+
+* 
+
+
+## Acknowledgements
+
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Last Updated By/Date** - 
