@@ -61,5 +61,4 @@ Finally, you open the shared map as it would be viewed by others.
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, April 2021
-* **Lab Expiry** - March 31, 2022
+* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022

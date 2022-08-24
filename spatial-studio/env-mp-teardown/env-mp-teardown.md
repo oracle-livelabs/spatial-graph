@@ -64,5 +64,5 @@ The stack is the set of instructions for deployment. It captures the settings yo
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2021
+* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
 

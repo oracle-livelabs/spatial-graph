@@ -132,5 +132,5 @@ You are now logged in and ready to start using Spatial Studio.
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2021
+* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
 

@@ -142,8 +142,8 @@ In this lab, you will:
               '{"type": "Feature", "properties": {'
               || '"key":"'|| KEY
               ||'","yr":"'|| YR
-              ||'","loss":"'|| LOSS,
-              ||'","buffer":"5 MI"',
+              ||'","loss":"'|| LOSS
+              ||'","buffer":"5 MI"'
               ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(
                                      SDO_GEOM.SDO_BUFFER(GEOMETRY, 5, 1, 'unit=MILE'))
               ||'}' 
