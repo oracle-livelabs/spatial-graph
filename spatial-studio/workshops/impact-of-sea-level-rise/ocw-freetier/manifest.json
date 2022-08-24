@@ -34,14 +34,16 @@
   "filename": "../../../slr-save-share/slr-save-share.md"
 },
 {
-  "title": "Lab 6: Clean-up",
+  "title": "Lab 6: Clean-up Option 1: Reset Spatial Studio and ADB to Pre-Workshop State",
+  "filename": "../../../reset/reset.md"
+},   
+{
+  "title": "Lab 7: Clean-up Option 2: Terminate Spatial Studio and ADB",
   "filename": "../../../env-mp-teardown/env-mp-teardown.md"
 },
-{
-    "title": "Need Help?",
-    "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-    "filename": "../placeholder.md"
+{ 
+  "title": "Oracle CloudWorld 2022 - Get Help",
+  "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
+  }
+   ]
 }
-    ]
-}
-
