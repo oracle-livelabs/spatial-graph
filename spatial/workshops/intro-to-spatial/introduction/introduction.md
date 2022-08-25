@@ -1,8 +1,3 @@
-to do:
-- optional lab: spatial operations that create new geoms > visualize i.e. aggr convex hull, buffer, intersect, problems to strategize/discuss
-- pitfalls, i.e. failed spatial index, must fro artifacts;  geojson load
-
-
 # Introduction
 
 ## About Oracle Spatial
@@ -19,7 +14,11 @@ Estimated Workshop Time: 60 minutes
 
 ### Workshop Overview
 
-In this workshop you will create and configure spatial data and perform some basic spatial queries.  The scenario involves STORES, WAREHOUSES, SALES\_REGIONS, and TORNADO\_PATHS. You will create and configure these spatial tables, and then perform spatial queries to explore their relationships based on proximity and containment.
+In this workshop you will create, configure, and analyze spatial data.  You will create and configure spatial tables for STORES, WAREHOUSES, REGIONS, and TORNADO\_PATHS from common formats, and then perform spatial queries to explore their relationships based on proximity and containment. You finally transform results using native JSON support in ADB, for developer integration. 
+
+The ability to relate information based on location, such as relating data based on spatial proximity and containment, is extremely valuable in myriad scenarios.  There is no pre-existing key that relates store locations to a warehouse. But Spatial enables such a relationship to be determined based on proximity. Similarly, there is no pre-existing relationship between store locations and regions, for example tax regions. But Spatial enables their relationship to be determined based on containment. Going further, Spatial enables location-based analytics such as summarizing information based on proximity; for example loss due to tornadoes within a distance from a location. Instead of performing these analyses in a separate system, you may leverage the built-in spatial features of ADB.
+
+You will gain experience with all of the aforementioned capabilities in this workshop. 
 
 
 ### Prerequisites

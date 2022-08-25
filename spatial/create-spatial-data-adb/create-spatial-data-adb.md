@@ -76,14 +76,30 @@ SDO_GEOMETRY(
 
 The general workflow for creating spatial data is to generate geometries and then create a spatial index for optimal performance. Prior to creating a spatial index, a row of spatial metadata is inserted which is used by the spatial index to ensure data consistency.
 
-For point data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity. 
+For **point** data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity. 
 
-For lines and polygons, it is most common to load data from convert common formats (such as GeoJSON) to a table with a geometry column. You will do this for the regions and tornado paths.
+For **lines** and **polygons**, it is most common to load from common formats, such as GeoJSON, and convert to a table with a geometry column. GeoJSON which is the most common format for developer integration, and since conversion from/to GeoJSON is included in this workshop, we provide the following brief introduction.
 
-Oracle Spatial also includes a set of built-in functions to convert between this native spatial data type and other common formats. One such common format is GeoJSON which is the most common format for  integration with developer client libraries.
+As stated at [https://geojson.org/](https://geojson.org/), "GeoJSON is a format for encoding a variety of geographic data structures". The geospatial industry has accepted GeoJSON as a defacto standard and, as such, it is consumable by virtually all spatial developer platforms, libraries, and toolkits. Therefore handling of GeoJSON is important for interoperability.  
 
-... add a quick description of GeoJSON structure ...
+A GeoJSON document is typically a JSON document with the top level structure 
 
+  ```
+   <code>
+    {
+        "type": "FeatureCollection",
+        "features": [
+          < ... array of GeoJSON features ... >
+        ]
+     }
+   </code>
+  ```
+
+The format of GeoJSON features is show below.
+
+   ![Image alt text](images/geojson-00.png)
+
+Oracle Spatial includes built-in functions to convert between the native spatial type (SDO\_GEOMETRY) and GeoJSON geometry format. Note that GeoJSON geometries are contained within a broader GeoJSON document format including non-spatial attributes and an array structure. In this lab you will load data from GeoJSON documents to tables with SDO\_GEOMETRY columns. In a later lab you will generate GeoJSON from tables with SDO\_GEOMETRY columns.
 
 ### Objectives
 
@@ -101,20 +117,25 @@ Oracle Autonomous Database and Database Actions
 
 ## Task 1: Load Data from Files
 
-You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. GeoJSON is an extremely popular native spatial data format, used for integration in myriad scenarios. GeoJSON supports points, lines and polygons. For more info please visit [https://geojson.org/](https://geojson.org/).
+You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. 
 
-1. Download the following files to a convenient location. To download, right-click on the following links and select **Save link as...**.
-   
+1. Download the following files using **right-click > Save link As...**.
+
+ 
   - [stores.csv](files/stores.csv)
   - [warehouses.csv](files/warehouses.csv)
   - [regions.geojson](files/regions.geojson)
   - [tornado_paths.geojson](files/tornado_paths.geojson)
+
+   ![Image alt text](images/save-link-as.png)
+
+   Then navigate your file system explorer to the downloaded files.
      
    ![Image alt text](images/create-data-00.png)
 
 2. Begin by viewing the data on map. 
  
-   Oracle Spatial Studio is a web tool for self-service (no code) spatial data loading, configuration, analysis, and map visualization. It is a separate web application that can be deployed from the Cloud Marketplace. As this workshop focuses exclusively on working with Spatial at the SQL level, Spatial Studio is not used. Instead you use a public web site to view the data.
+   Please note: Oracle Spatial Studio is a web tool for self-service (no code) spatial data loading, configuration, analysis, and map visualization. It is a separate web application that can be deployed from the Cloud Marketplace. As this workshop focuses exclusively on working with Spatial at the SQL level, Spatial Studio is not used. Instead you use a public web site to view the data.
  
    [http://geojson.io](http://geojson.io) is a web site for viewing (as well as manually creating and editing) small spatial datasets. You can use this site to render data in GeoJSON files as well as files that include longitude, latitude columns. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab. Then drag and drop **warehouses.csv** onto the map.
 
@@ -278,7 +299,9 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
 
    ![Image alt text](images/create-data-19.png)
 
-3.  Insert spatial metadata for the WAREHOUSES table.
+3.  Before creating a spatial index, you must insert a row of spatial metadata. Every user has an updatable view called USER\_SDO\_GEOM\_METADATA for their spatial metadata. This is a user view on a centralized table storing spatial metadata for the entire database instance. Spatial metadata tracks the coordinate system identifier (longitude/latitude is only one of many coordinate systems) and dimensionality (2D, 3D, etc) of every geometry column to be indexed. These items need to be consistent for all data in an indexed geometry column, so the index creation reads the values and enforces integrity of the index by rejecting any inconsistency. 
+   
+    Run the following to insert spatial metadata for the WAREHOUSES table.
 
       ```
       <copy> 
@@ -293,7 +316,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       ```
    ![Image alt text](images/create-data-20.png)
 
-3. Finally, create a spatial index for the WAREHOUSES table.
+4. Finally, create a spatial index for the WAREHOUSES table.
 
       ```
       <copy> 
@@ -307,8 +330,9 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
 
    ![Image alt text](images/create-data-21.png)
 
+      **Please note:** If a spatial index creation statement fails (for example because a previous step was not done correctly), then before retrying you must still drop the index since some index artifacts may have been created.  So for example, if the spatial index creation statement above were to fail, then before retrying you should run "DROP INDEX WAREHOUSES\_SIDX;".
 
-3.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
+5.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
       
    ![Image alt text](images/create-data-21a.png)
 

@@ -12,13 +12,55 @@ Estimated Lab Time: 30 minutes
 
 Oracle Database includes a robust library of functions and operators for spatial analysis. This includes spatial relationships, measurements, aggregations, transformations, and more. These operations are accessible through native SQL, PL/SQL, Java APIs, and any other languages with connection modules to Oracle such as Python and Node.js.
 
+The most common operations are Spatial Operators which perform spatial filtering and joining, and Spatial Functions which perform calculation and transformations.
 
-... explain spatial operators, spatial functions here ...  
+Spatial Operators test for a spatial relationship, such as INSIDE or WITHIN\_DISTANCE and return 'TRUE' when the relationship exists. Spatial Operators are used in the WHERE clause of a query. Generically as follows:
 
+```
+<code>
+SELECT [fields]
+FROM [tables]
+WHERE [Spatial Operator]='TRUE'
+AND [other conditions...]
+</code>
+```
+
+For example, to identify items in MY\_POINTS that are inside REGION-01 of MY\_REGIONS:
+
+```
+<code>
+SELECT *
+FROM MY_POINTS A, MY_REGIONS B
+WHERE SDO_INSIDE(A.GEOMETRY, B.GEOMETRY) = 'TRUE'
+AND B.NAME='MY_REGION-01';
+</code>
+```
+
+Spatial Functions return a value and can be in the SELECT list or used in the WHERE clause. Generically as follows:
+
+```
+<code>
+SELECT [Spatial Function], [other fields...]
+FROM [tables]
+WHERE [conditions]
+</code>
+```
+ 
+For example, to get the area of REGION-01 of MY\_REGIONS:
+
+```
+<code>
+SELECT SDO_GEOM.SDO_AREA(GEOMETRY)
+FROM MY_REGIONS
+WHERE NAME='MY_REGION-01';
+</code>
+```
+
+There are hundreds of Spatial SQL and PL/SQL operations available, as documented [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-reference-information.html). You will explore some of the most common ones in this lab.
 
 ### Objectives
 
-In this lab, you will perform spatial queries to identify the location relationships between stores, warehouses, sales regions, and tornado paths.
+In this lab, you will perform spatial queries to identify the location relationships between stores, warehouses, regions, and tornado paths.
 
 
 ### Prerequisites

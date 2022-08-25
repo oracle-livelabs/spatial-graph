@@ -3,11 +3,7 @@
 
 ## Introduction
 
-GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from Spatial operations as GeoJSON. 
-
-... explain GeoJSON or point back to explanation in Lab 3 ...
-
-... explain content; handler for ORDS, and option to usw Spatial Studio ...
+GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from Spatial as GeoJSON. Please refer to **Lab 3 - Introduction** for an explanation of GeoJSON. In this lab you will generate GeoJSON documents from tables with geometries. In practice, the value of generating GeoJSON in ADB is in returning GeoJSON to diverse clients and that then deliver the content from their framework. For example, SQL and PL/SQL returning GeoJSON can be leveraged by Oracle REST Data Services (ORDS) to publish location-based REST APIs returning GeoJSON documents, and Oracle Data Science to combine with popular open source spatial ML libraries that natively support GeoJSON.
 
 
 ### Objectives
@@ -164,9 +160,10 @@ In this lab, you will:
       ![Image alt text](images/return-geojson-09.png)
 
 
-...  summarize takeaway here ...
+  In a real-world scenario, the GeoJSON you have generated would be served to clients, such as mapping JavaScript libraries and Python notebooks, for example through JDBC or APIs published with Oracle REST Data Services.
 
 
+We hope you have enjoyed this workshop. We hope it has piqued your interest and that you will continue your Spatial journey!
 
 ## Learn More
 
