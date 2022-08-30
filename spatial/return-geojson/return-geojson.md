@@ -5,6 +5,8 @@
 
 GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from Spatial as GeoJSON. Please refer to **Lab 3 - Introduction** for an explanation of GeoJSON. In this lab you will generate GeoJSON documents from tables with geometries. In practice, the value of generating GeoJSON in ADB is in returning GeoJSON to diverse clients and that then deliver the content from their framework. For example, SQL and PL/SQL returning GeoJSON can be leveraged by Oracle REST Data Services (ORDS) to publish location-based REST APIs returning GeoJSON documents, and Oracle Data Science to combine with popular open source spatial ML libraries that natively support GeoJSON.
 
+Estimated Lab Time: 15 minutes
+
 
 ### Objectives
 
@@ -124,7 +126,7 @@ In this lab, you will:
 
       ![Image alt text](images/return-geojson-06.png)
 
- 7. Verify the result by rendering. Click [here](http://geojson.io) to open geojson.io in a new browser tab. Clear the content on the right panel under JSON (select all > delete) and then paste in your GeoJSON copied from the SQl Worksheet. Click on any of hte tornado lines to see a popup that includes its properties.
+ 7. Verify the result by rendering. Click [here](http://geojson.io) to open geojson.io in a new browser tab. Clear the content on the right panel under JSON (select all > delete) and then paste in your GeoJSON copied from the SQL Worksheet. Click on any of the tornado lines to see a popup that includes its properties.
 
        ![Image alt text](images/return-geojson-07.png)
 
@@ -139,7 +141,7 @@ In this lab, you will:
               || '"key":"'|| KEY
               ||'","yr":"'|| YR
               ||'","loss":"'|| LOSS
-              ||'","buffer":"5 MI"'
+              ||'","buffer":"5 MI'
               ||'"}, "geometry":'|| SDO_UTIL.TO_GEOJSON(
                                      SDO_GEOM.SDO_BUFFER(GEOMETRY, 5, 1, 'unit=MILE'))
               ||'}' 
@@ -167,10 +169,11 @@ We hope you have enjoyed this workshop. We hope it has piqued your interest and 
 
 ## Learn More
 
-* 
-
+* [Spatial product portal](https://oracle.com/goto/spatial)
+* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
+* [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - 
+* **Last Updated By/Date** - David Lapp, September 2022

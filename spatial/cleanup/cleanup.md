@@ -64,12 +64,7 @@ In this lab, all previously created artifacts are dropped.
       ```
 
 
-## Learn More
-
-* 
-
-
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** -
+* **Last Updated By/Date** - David Lapp, September 2022

@@ -5,7 +5,7 @@
 
 This lab walks you through basic spatial queries in Oracle Autonomous Database. You will use the sample data created in the previous lab to identify items based on proximity and containment.
 
-Estimated Lab Time: 30 minutes
+Estimated Lab Time: 20 minutes
 
 
 ### About Spatial Queries
@@ -362,10 +362,9 @@ Containment refers to identifying items that are contained by a specific region,
 * [Spatial product portal](https://oracle.com/goto/spatial)
 * [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
 * [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
-* [Spatial blog posts on Medium.com](https://medium.com/oracledevs/tagged/spatial)
-
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** -
+* **Contributors** - Karin Patenge, Database Product Management, Oracle
+* **Last Updated By/Date** - David Lapp, September 2022

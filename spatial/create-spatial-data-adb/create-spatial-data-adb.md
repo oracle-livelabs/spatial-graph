@@ -121,16 +121,14 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
 1. Download the following files using **right-click > Save link As...**.
 
- 
-  - [stores.csv](files/stores.csv)
-  - [warehouses.csv](files/warehouses.csv)
-  - [regions.geojson](files/regions.geojson)
-  - [tornado_paths.geojson](files/tornado_paths.geojson)
-
    ![Image alt text](images/save-link-as.png)
+      * [stores.csv](files/stores.csv)
+      * [warehouses.csv](files/warehouses.csv)
+      * [regions.geojson](files/regions.geojson)
+      * [tornado_paths.geojson](files/tornado_paths.geojson)
 
-   Then navigate your file system explorer to the downloaded files.
-     
+2. Then navigate your file system explorer to the downloaded files.
+
    ![Image alt text](images/create-data-00.png)
 
 2. Begin by viewing the data on map. 
@@ -161,28 +159,28 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
   These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the geojson.io tabs.
 
-3. Next you load the files to database tables. Navigate to SQL Developer Web. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
+2. Next you load the files to database tables. Navigate to SQL Worksheet. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
    
    ![Image alt text](images/create-data-01.png)
 
-4. Drag and drop **stores.csv** into the data loading region.  (You may also click **Select files** to navigate to the files. If you do so then you will need to select the option to **Show all files**.)
+3. Drag and drop **stores.csv** into the data loading region.  (You may also click **Select files** to navigate to the files. If you do so then you will need to select the option to **Show all files**.)
    
    ![Image alt text](images/create-data-02.png)
 
-5. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
+4. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
    
    ![Image alt text](images/create-data-03.png)
 
-6. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
+5. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
    
    ![Image alt text](images/create-data-04.png)
 
   
-7. Click **Finish**. The table will then be created.
+6. Click **Finish**. The table will then be created.
    
    ![Image alt text](images/create-data-05.png)
 
-8.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Developer Web automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+7.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Worksheet automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
 
    Enter and run following command to drop the errors table for STORES.
 
@@ -216,7 +214,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
       ![Image alt text](images/create-data-09.png)
 
 
-12. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Developer Web automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
+12. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Worksheet automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
 
       ![Image alt text](images/create-data-10.png)
 
@@ -224,7 +222,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
       ![Image alt text](images/create-data-11.png)
 
-14. Click **Finish** to create the table and load the GeoJSON content.   ...expand on this...   
+14. Click **Finish** to create the table and load the GeoJSON content. The table is automatically configured for JSON data. 
 
       ![Image alt text](images/create-data-12.png)
 
@@ -707,10 +705,9 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 * [Spatial product portal](https://oracle.com/goto/spatial)
 * [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
 * [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
-* [Spatial blog posts on Medium.com](https://medium.com/oracledevs/tagged/spatial)
-
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - 
+* **Contributors** - Karin Patenge, Database Product Management, Oracle
+* **Last Updated By/Date** - David Lapp, September 2022

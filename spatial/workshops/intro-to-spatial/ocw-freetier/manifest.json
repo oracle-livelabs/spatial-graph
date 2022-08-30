@@ -19,8 +19,8 @@
         "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-provision/adb-provision.md"
       },
       {
-        "title": "Lab 2: Connect to ADB with SQL Developer Web",
-        "description": "SQL Developer Web",
+        "title": "Lab 2: Connect to ADB with SQL Worksheet",
+        "description": " SQL Worksheet",
         "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-sqldevweb/adb-sqldevweb.md"
       },
       {

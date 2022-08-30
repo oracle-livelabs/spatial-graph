@@ -37,6 +37,7 @@ You will gain experience with all of the aforementioned capabilities in this wor
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - 
+* **Contributors** - Karin Patenge, Database Product Management, Oracle
+* **Last Updated By/Date** - David Lapp, September 2022
 
 
