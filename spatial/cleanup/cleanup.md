@@ -29,7 +29,7 @@ In this lab, all previously created artifacts are dropped.
 
 1. To remove tables and indexes created in this workshop, run the following using the run script button in SQL Worksheet.
 
-     ![Image alt text](images/run-script.png)
+     ![Run script](images/run-script.png)
 
       ```
       <copy> 

@@ -21,28 +21,28 @@ In this lab, you will:
 
 2. Navigate to the **Projects** page. From the action menu for Published Project(s), select the option to **Delete**. 
 
-   ![Image alt text](images/reset-01.png)
+   ![Reset](images/reset-01.png)
 
 3. From the action menu for Project(s), select the option to **Delete**. 
 
-   ![Image alt text](images/reset-02.png)
+   ![Reset](images/reset-02.png)
 
 
 ## Task 1: Delete Datasets
 
 1. Navigate to the **Datasets** page. From the action menu for **SCHOOLS IN FLOOD2060** analysis dataset, select the option to **Delete**. 
 
-   ![Image alt text](images/reset-03.png)
+   ![Reset](images/reset-03.png)
 
 2. Repeat the previous step for other analyses datasets in the following order: 1) PARCELS FLOOD CONTACT, 2) FACILITIES NEAR FLOOD2060 DISTANCE,  3) FACILITIES NEAR FLOOD2060
    
 3. From the action menu for the FACILITIES dataset, select the option to **Delete**.  
    
-   ![Image alt text](images/reset-04.png)
+   ![Reset](images/reset-04.png)
 
 4. In the confirmation popup, select the option to drop the associated database table.
    
-   ![Image alt text](images/reset-05.png)
+   ![Reset](images/reset-05.png)
 
 5. Repeat for all remaining datasets. 
 
