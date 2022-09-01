@@ -1,1 +1,0 @@
-Query Playground displays the successful execution of a query on the MOVIESTREAM RDF graph and displays query results.

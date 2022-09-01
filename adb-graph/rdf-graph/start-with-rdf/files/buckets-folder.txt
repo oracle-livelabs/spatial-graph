@@ -1,1 +1,0 @@
-Image describing where the buckets folder is selected from the menu

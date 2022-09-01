@@ -1,1 +1,0 @@
-﻿The Graph Studio page graph type dropdown menu displays PG and RDF graph options

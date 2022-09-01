@@ -1,1 +1,0 @@
-﻿Sample Statements from the RDF Graph ‘MOVIESTREAM’ are displayed in triplets

@@ -1,2 +1,0 @@
-    - Uses the `DESCRIBE WHERE` form to describe the director of Toy Story. 
-

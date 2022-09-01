@@ -1,1 +1,0 @@
-Finds movies with Jack Nicholson and optionally their rewards

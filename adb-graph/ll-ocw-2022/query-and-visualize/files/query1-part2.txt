@@ -1,1 +1,0 @@
-Executes the prior query in a RDF Paragraph 

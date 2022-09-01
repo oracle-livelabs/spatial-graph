@@ -1,1 +1,0 @@
-Clicking on username to select environment

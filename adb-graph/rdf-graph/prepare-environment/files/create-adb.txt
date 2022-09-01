@@ -1,1 +1,0 @@
-Image showing the button to create an autonomous database.

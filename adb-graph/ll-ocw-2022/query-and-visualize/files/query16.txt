@@ -1,2 +1,0 @@
-    - Uses the simple form describes the resource ms:movie_1216. 
-

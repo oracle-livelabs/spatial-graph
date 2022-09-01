@@ -1,1 +1,0 @@
- The Database users page highlighting the ‘Create User’ button

@@ -1,1 +1,0 @@
-Shows a simple sparql query to find titles and revenue in USD

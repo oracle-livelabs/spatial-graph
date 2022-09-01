@@ -1,1 +1,0 @@
-The database users page showing the created database user accessible under 'All Users'

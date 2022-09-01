@@ -1,1 +1,0 @@
-﻿The database actions launchpad highlighting SQL under the ‘Development’ section

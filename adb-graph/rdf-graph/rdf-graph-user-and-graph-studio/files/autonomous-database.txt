@@ -1,1 +1,0 @@
-﻿The autonomous database details screen highlighting the database actions button
