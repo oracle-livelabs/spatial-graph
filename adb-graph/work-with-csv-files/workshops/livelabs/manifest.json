@@ -12,6 +12,15 @@
             "filename": "../../introduction/introduction-ll.md"
         },
         {
+            "title": "Lab 1: Provision an ADB Instance",
+            "description": "Provisioning an Autonomous Database Instance",
+            "filename": "https://oracle-livelabs.github.io/adb/shared/adb-provision/adb-provision-conditional.md"
+        },
+        {
+            "title": "Lab 2: Load the Data",
+            "filename": "../../load-csv-files/load-csv-files.md"
+        },
+        {
             "title": "Lab 1: Create a graph",
             "filename": "../../create-graph/create-graph-ll.md"
         },

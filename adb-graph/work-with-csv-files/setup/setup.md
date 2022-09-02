@@ -29,7 +29,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the compartment to create the Autonomous Database and leave the rest as default. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous Database and the **Database Type as Always Free Oracle Autonomous Database Warehouse**. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
   ![The create stack page](./images/configure-variables.png "")
 

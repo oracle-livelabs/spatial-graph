@@ -1,4 +1,4 @@
-# Destroy Environment: Delete Stack and Environment created
+# Clean-up
 
 ## Introduction
 

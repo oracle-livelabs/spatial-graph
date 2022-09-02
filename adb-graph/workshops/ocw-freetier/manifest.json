@@ -3,9 +3,9 @@
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
-            "title": "Work with Property Graphs in Graph Studio",
+            "title": "Work with Graph Studio",
             "description": "The Introduction is always first. The title and contents menu title match for the Introduction.",
-            "filename": "https://ramumg.github.io/spatial-graph/adb-graph/graph-made-easy/introduction-property-graph/introduction-property-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/introduction-property-graph/introduction-property-graph.md"
         },
         {
             "title": "Get Started",
@@ -15,33 +15,33 @@
         {
             "title": "Create a Compartment (Optional if you already have one)",
             "description": "Helps users create a compartment in OCI",
-            "filename": "https://ramumg.github.io/spatial-graph/adb-graph/graph-made-easy/sprint-create-compartment/"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/sprint-create-compartment/sprint-create-compartment.md"
         },
         {
-            "title": "Setup",
+            "title": "Set-up",
             "description": "Set up by running Stack",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/graph-made-easy/setup/setup.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/setup/setup.md"
         },
         {
             "title": "Lab 1: Create a graph",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/graph-made-easy/create-graph/create-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/create-graph/create-graph.md"
         },
         {
             "title": "Lab 2: Query and visualize the graph",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
         },
         {
             "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
         },
         {
             "title": "Lab 4: Query and Visualize the RDF Graph OPTIONAL - part 2",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {
             "title": "Clean up",
             "description": "Destroyed environement created in setup ",
-            "filename": "https://ramumg.github.io/spatial-graph/spatial-graph/adb-graph/graph-made-easy/destroy-environment/destroy-environment.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/destroy-environment/destroy-environment.md"
         },
         {
         "title": "Oracle CloudWorld 2022 - Get Help",
