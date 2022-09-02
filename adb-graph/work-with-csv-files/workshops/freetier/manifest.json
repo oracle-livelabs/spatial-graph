@@ -13,9 +13,9 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
-            "title": "Lab 1: Load CSV files into the Autonomous Database",
-            "description": "Load data from CSV files using Database Actions Data Load.",
-            "filename": "../../load-csv-files/load-csv-files.md"
+            "title": "Lab 1: Set up",
+            "description": "Set up by running Stack.",
+            "filename": "../../setup/setup.md"
         },
         {
             "title": "Lab 2: Create a graph",
@@ -23,7 +23,7 @@
         },
         {
             "title": "Lab 3: Query and visualize the graph",
-            "filename": "../../query-graph/query-graph.md"
+            "filename": "../../query-graph-update/graph-query-update.md"
         },
         {
             "title": "Need Help?",
