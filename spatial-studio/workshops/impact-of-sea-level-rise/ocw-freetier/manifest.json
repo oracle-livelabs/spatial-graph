@@ -1,0 +1,49 @@
+{
+    "workshoptitle": "Assess the local impact of sea level rise with Oracle Spatial Studio",
+      "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
+      "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../introduction/introduction.md",
+        "type": "reservation"
+      },  
+      {
+        "title": "Get Started",
+        "description": "Login to the Oracle Cloud",
+        "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login.md"
+      },
+   {
+      "title": "Lab 1: Deploy Spatial Studio to Oracle Cloud",
+      "filename": "../../../env-mp-ocw/env-mp-ocw.md"
+  },
+  {
+      "title": "Lab 2: Load and Prepare Data",
+      "filename": "../../../slr-load-data/slr-load-data.md"
+  },
+  {
+    "title": "Lab 3: Visualize Spatial Data",
+    "filename": "../../../slr-visualize/slr-visualize.md"
+},
+{
+  "title": "Lab 4: Analyze Spatial Relationships",
+  "filename": "../../../slr-analyze/slr-analyze.md"
+},
+{
+  "title": "Lab 5: Save and Share Results",
+  "filename": "../../../slr-save-share/slr-save-share.md"
+},
+{
+  "title": "Lab 6: Clean-up Option 1: Reset Spatial Studio and ADB to Pre-Workshop State",
+  "filename": "../../../reset/reset.md"
+},   
+{
+  "title": "Lab 7: Clean-up Option 2: Terminate Spatial Studio and ADB",
+  "filename": "../../../env-mp-teardown/env-mp-teardown.md"
+},
+{ 
+  "title": "Oracle CloudWorld 2022 - Get Help",
+  "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
+  }
+   ]
+}
