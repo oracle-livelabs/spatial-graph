@@ -401,7 +401,7 @@ higher the risk.
 
   Change the graph visualization layout to **Grid**.
 
-  ![shows how to pick grid as layout](images/grid-setting.png " ")    
+  ![shows how to pick grid as layout](images/grid-setting.png.png " ")    
 
   >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 
@@ -442,7 +442,7 @@ higher the risk.
     ORDER BY hops</copy>
     ```
   Change the view to table.
-
+  
 	![We can list the accounts that have a hop distance <=2 from 934.](images/hop-distance-2.png " ")    	  
 
 This concludes this lab.
