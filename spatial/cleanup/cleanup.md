@@ -24,7 +24,7 @@ In this lab, all previously created artifacts are dropped.
 
 
 
-## Remove Everything Created in this Workshop
+## Task 1: Remove Everything Created in this Workshop
 
 
 1. To remove tables and indexes created in this workshop, run the following using the run script button in SQL Worksheet.

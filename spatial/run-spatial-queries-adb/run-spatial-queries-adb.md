@@ -71,7 +71,7 @@ In this lab, you will perform spatial queries to identify the location relations
 
 
 
-## Proximity Queries 
+## Task 1: Proximity Queries 
 
 Proximity relates to how close items are to each other. The two main Spatial proximity operators are 
 * SDO\_WITH\_DISTANCE( ) returns items within a given distance of another item
@@ -241,7 +241,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
   Increase the distance value in the query from 20 to 50 mi and observe the new result.
 
 
-## Containment Queries 
+## Task 2: Containment Queries 
 
 Containment refers to identifying items that are contained by a specific region, and vice versa, identifying regions that contain specific items. The spatial main Spatial containment operators are 
  * SDO\_INSIDE( ) returns items that are inside region(s). Items on the boundary are not returned.
