@@ -207,9 +207,9 @@ The Getting Started notebook folder also has a tutorial on PGQL.
 
   Here `/:TRANSFERS{4}/` is a [reachability path expression](https://pgql-lang.org/spec/1.3/#reachability). It only tests for the existence of the path.  
   `:TRANSFERS` specifies that all edges in the path must have the label `TRANSFERS`.  
-  While `{4}` specifies a path length of exactly 4 hops.  
+  While `{4}` specifies a path length of exactly 3 hops.  
 
-  We see there are circles **4** hops in length that start and end in account **934**.
+  We see there are circles **3** hops in length that start and end in account **934**.
 
 7. We can change the above query to check what the number of circles are if we choose **5** hops.  
   Execute the following query.
@@ -442,7 +442,7 @@ higher the risk.
     ORDER BY hops</copy>
     ```
   Change the view to table.
-  
+
 	![We can list the accounts that have a hop distance <=2 from 934.](images/hop-distance-2.png " ")    	  
 
 This concludes this lab.
