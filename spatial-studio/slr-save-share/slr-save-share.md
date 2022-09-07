@@ -1,4 +1,4 @@
-# Save and Share Results
+# Save and share results
 
 ## Introduction
 
@@ -17,7 +17,7 @@ Estimated Lab Time: 5 minutes
 * Completion of Lab 4
 
 
-## Task 1: Save and Publish Project
+## Task 1: Save and publish project
 
 You next save your work and publish your map for read-only access.
 
@@ -37,7 +37,7 @@ You next save your work and publish your map for read-only access.
 
    ![Image alt text](images/save-share-04.png)  
 
-## Task 2: Test Published Project
+## Task 2: Test published project
 
 Finally, you open the shared map as it would be viewed by others.
 
@@ -56,7 +56,7 @@ Finally, you open the shared map as it would be viewed by others.
 
  We hope you have found this workshop to be useful! There is more to learn about Spatial Studio and the Spatial platform in general. We hope you will continue this journey.
 
-## Learn More
+## Learn more
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)
 
 ## Acknowledgements

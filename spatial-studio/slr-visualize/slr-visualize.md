@@ -1,4 +1,4 @@
-# Visualize Spatial Data
+# Visualize spatial data
 
 
 ## Introduction
@@ -19,7 +19,7 @@ Estimated Lab Time: 20 minutes
 * Completion of Lab 2: Load and Prepare Data
 
 
-## Task 1: Create Project
+## Task 1: Create project
 
 You begin by creating a Project. A Project is where you visualize and analyze your data, and then save your work.
 
@@ -178,7 +178,7 @@ Next you add map layers and apply styling.
 
 You may now [proceed to the next lab](#next).
 
-## Learn More
+## Learn more
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)
 
 ## Acknowledgements

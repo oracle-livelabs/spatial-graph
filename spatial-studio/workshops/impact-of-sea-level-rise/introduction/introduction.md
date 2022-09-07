@@ -1,6 +1,6 @@
 # Introduction
 
-## About this Workshop
+## About this workshop
 
 In this workshop you will explore the spatial relationships between cultural features of a coastal area and  projected flooding due to seal level rise. Given time limitations of this workshop, the modeling and creation of projected flood areas is not included. Simplified versions of existing published models are used for visualizations and analysis. The spatial features of Oracle Database in the Oracle Cloud could be used to develop such models.
 

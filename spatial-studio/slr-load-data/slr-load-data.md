@@ -1,4 +1,4 @@
-# Load and Prepare Data
+# Load and prepare data
 
 
 ## Introduction
@@ -95,7 +95,7 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
 You may now [proceed to the next lab](#next).
 
-## Learn More
+## Learn more
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)
 
 ## Acknowledgements
