@@ -99,17 +99,17 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Spatial analysis](images/analyze-15.png)
 
-6. Drag and drop your **FACILITIES NEAR FLOOD2060** analysis onto the map. 
+5. Drag and drop your **FACILITIES NEAR FLOOD2060** analysis onto the map. 
    
    Then from its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke to black with weight. The results are clearly visible over the unfiltered FACILITIES layer,
 
    ![Spatial analysis](images/analyze-16.png)
 
-7. Spatial Studio allows you to modify the parameters of an analysis. From the action menu for **FACILITIES NEAR FLOOD2060**, select **Modify Parameters**.
+6. Spatial Studio allows you to modify the parameters of an analysis. From the action menu for **FACILITIES NEAR FLOOD2060**, select **Modify Parameters**.
 
    ![Spatial analysis](images/analyze-17.png)
 
-8.  Update the distance to 3, and then click **Run**.
+7.  Update the distance to 3, and then click **Run**.
 
    ![Spatial analysis](images/analyze-18.png)
 
