@@ -354,7 +354,7 @@ Containment refers to identifying items that are contained by a specific region,
 
       ![Image alt text](images/run-queries-13.png)
 
-
+You may now **proceed to the next lab**.
 
 
 ## Learn more

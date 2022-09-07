@@ -168,7 +168,7 @@ You next identify parcels that have any spatial interaction with the projected f
    ![Image alt text](images/analyze-30.png) 
 
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Learn More
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)

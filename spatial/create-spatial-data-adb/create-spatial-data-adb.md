@@ -700,6 +700,8 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 
  All data is now loaded and prepared for spatial analysis. 
 
+ You may now **proceed to the next lab**.
+
 ## Learn more
 
 * [Spatial product portal](https://oracle.com/goto/spatial)

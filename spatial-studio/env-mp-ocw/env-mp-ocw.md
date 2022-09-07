@@ -127,6 +127,8 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
 You are now logged in and ready to start using Spatial Studio.
 
+You may now **proceed to the next lab**.
+
 ## Learn More
 * [Spatial Studio product page](https://oracle.com/goto/spatial)
 

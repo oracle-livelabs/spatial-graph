@@ -176,7 +176,7 @@ Next you add map layers and apply styling.
    ![Image alt text](images/vis-32.png)
 
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Learn more
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)

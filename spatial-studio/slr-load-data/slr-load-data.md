@@ -92,8 +92,7 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
    ![Image alt text](images/prep-data-05.png)  
 
-
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Learn more
 * [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)
