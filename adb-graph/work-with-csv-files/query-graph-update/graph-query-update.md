@@ -207,9 +207,9 @@ The Getting Started notebook folder also has a tutorial on PGQL.
 
   Here `/:TRANSFERS{4}/` is a [reachability path expression](https://pgql-lang.org/spec/1.3/#reachability). It only tests for the existence of the path.  
   `:TRANSFERS` specifies that all edges in the path must have the label `TRANSFERS`.  
-  While `{4}` specifies a path length of exactly 4 hops.  
+  While `{4}` specifies a path length of exactly 3 hops.  
 
-  We see there are circles **4** hops in length that start and end in account **934**.
+  We see there are circles **3** hops in length that start and end in account **934**.
 
 7. We can change the above query to check what the number of circles are if we choose **5** hops.  
   Execute the following query.
@@ -429,14 +429,14 @@ higher the risk.
 
   ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 934.](images/shortestpath-algorithm.png " ")  
 
-  ```
-  <copy>%python-pgx
-  vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
+    ```
+    <copy>%python-pgx
+    vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
 
-  analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
-  ```
+    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
+    ```
 
-  ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 387.](images/shortestpath-algorithm-387.png " ")  
+  ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 387.](images/shortest-algorithm-387.png " ")  
 
 17. We can GROUP BY the number of hops, and rank them in descending order.  
 
