@@ -10,7 +10,7 @@ Estimated Workshop Time: 90 minutes
 
 Oracle Spatial Studio (Spatial Studio) is a web application providing self-service access to the spatial capabilities of Oracle Database. While these capabilities have historically required coding and/or use of 3rd party tools, Spatial Studio allows business users to create and share spatial analysis and interactive web maps using self-service GUIs. 
 
-  ![Image alt text](./images/spatial-studio.png "Spatial Studio")
+  ![Spatial Studio](./images/spatial-studio.png)
 
 Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. 
 
