@@ -32,10 +32,6 @@ For more information please visit the [Oracle Spatial Studio Guide] (https://doc
 - Otherwise you should proceed to Lab 1.
 - No previous experience with Oracle Spatial is required.
 
-
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
-
-
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle

@@ -13,8 +13,8 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
-* You are an Admin in the cloud account. For example, your own Free Tier account.
+* An Oracle Cloud Account
+* You are an Admin in the cloud account. 
 
 <!-- *This is the "fold" - below items are collapsed by default* -->
 
