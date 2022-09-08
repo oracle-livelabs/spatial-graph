@@ -41,7 +41,7 @@ You begin by performing an analysis to filter schools based on containment in a 
 
    As shown in Lab 3 > Task 2 > Step 6, click the right facing arrowhead to expand the Data/Visualizations panel.
 
-5. Observe your analysis listed under Analyses. Click and hold on your analysis, and then drag and drop onto the map. As you've previously, change the style of the layer: open the action menu for **SCHOOLS IN FLOOD2060** , select **Settings** and change the color to red fill with white stroke (outline).
+5. Observe your analysis listed under Analyses. Click and hold on your analysis, and then drag and drop onto the map. As you've done previously, change the style of the layer: open the action menu for **SCHOOLS IN FLOOD2060** , select **Settings** and change the color to red fill with white stroke (outline).
 
    ![Spatial analysis](images/analyze-05.png)
 
@@ -61,7 +61,7 @@ You begin by performing an analysis to filter schools based on containment in a 
 
    ![Spatial analysis](images/analyze-08.png)
 
-9. In the Properties dialog, observe the section showing the analysis SQL.  In particular, note the SDO\_INSIDE operator which performs the spatial filter. The SQL is slightly more involved than the most generic example because it involves a function-based spatial index for schools instead of a geometry column, and also wraps the main query with an outer SELECT to de-duplicate schools in the event that a schools was inside multiple regions.
+9. In the Properties dialog, observe the section showing the analysis SQL.  In particular, note the SDO\_INSIDE operator which performs the spatial filter. The SQL is slightly more involved than the most generic example because it involves a function-based spatial index for schools instead of a geometry column, and also wraps the main query with an outer SELECT to de-duplicate schools in the event that a school was inside multiple regions.
 
    Note also the automatically generated endpoint that streams the analysis results in GeoJSON format for consumption by any standards-based mapping client.
 
@@ -87,7 +87,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
    ![Spatial analysis](images/analyze-12.png)
 
 
-3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer ot be used as the filter enter **FLOOD2060**.
+3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer to be used as the filter enter **FLOOD2060**.
 
    ![Spatial analysis](images/analyze-13.png)
 
@@ -176,4 +176,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+
 

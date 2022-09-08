@@ -2,7 +2,7 @@
 
 ## About this workshop
 
-In this workshop you will explore the spatial relationships between cultural features of a coastal area and  projected flooding due to seal level rise. Given time limitations of this workshop, the modeling and creation of projected flood areas is not included. Simplified versions of existing published models are used for visualizations and analysis. The spatial features of Oracle Database in the Oracle Cloud could be used to develop such models.
+In this workshop you will explore the spatial relationships between cultural features of a coastal area and projected flooding due to seal level rise. Given the time limitations of this workshop, the modeling and creation of projected flood areas is not included. Simplified versions of existing published models are used for visualizations and analysis. The spatial features of Oracle Database in the Oracle Cloud could be used to develop such models.
 
 Estimated Workshop Time: 90 minutes
 
@@ -12,7 +12,7 @@ Oracle Spatial Studio (Spatial Studio) is a web application providing self-servi
 
   ![Spatial Studio](./images/spatial-studio.png)
 
-Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. 
+Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data can be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. 
 
 Spatial Studio is a Java EE application that may be deployed to Oracle Cloud from the Oracle Cloud Marketplace. Spatial Studio can also be deployed manually to Oracle WebLogic or Jetty, or as a self contained pre-deployed Quick Start for testing.
 
@@ -36,5 +36,6 @@ For more information please visit the [Oracle Spatial Studio Guide] (https://doc
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+
 
 

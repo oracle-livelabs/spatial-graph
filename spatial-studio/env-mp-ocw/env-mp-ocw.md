@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you deploy Spatial Studio from the Cloud Marketplace using Always Free resources. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance that is created is meant to be temporary, for use during this workshop. 
+In this lab, you deploy Spatial Studio from the Cloud Marketplace using Always Free resources. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance created is meant to be temporary for use during this workshop. 
 
 Estimated Lab Time: 15 minutes
 
@@ -20,7 +20,7 @@ In this lab, you will:
 
 ## Task 1: Verify availability of Compute resource
 
-Before starting the Spatial Studio deployment it is necessary to verify the availability domain having quota for the Always Free compute shape. 
+Before starting the Spatial Studio deployment, it is necessary to verify the availability domain having quota for the Always Free compute shape. 
 
 1. Navigate to **Governance & Administration > Limits, Quota, and Usage**
 
@@ -34,7 +34,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
   ![Deploy Spatial Studio](images/quota-03.png)
 
-4. If the selected availability domain does not have quota, change to the next availability domain and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case the second availability domain has quota.
+4. If the selected availability domain does not have quota, change to the next availability domain and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case, the second availability domain has quota.
 
  ![Deploy Spatial Studio](images/quota-04.png)
 
@@ -51,7 +51,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
    ![Deploy Spatial Studio](images/mp-02.png)
  
-4. If you have an existing preferred compartment then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
+4. If you have an existing preferred compartment, then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
 
    ![Deploy Spatial Studio](images/mp-04.png)
 
@@ -60,7 +60,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
    ![Deploy Spatial Studio](images/mp-05.png)
 
-6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**.  If you have available cloud credits or a paid account you may select a paid shape instead.
+6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**.  If you have available cloud credits or a paid account, you may select a paid shape instead.
 
    ![Deploy Spatial Studio](images/mp-06.png)
 
@@ -92,7 +92,7 @@ Before starting the Spatial Studio deployment it is necessary to verify the avai
 
      ![Deploy Spatial Studio](images/mp-11.png)
 
-  Scroll down and enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of metadata fir your Spatial Studio instance. Then click **Next**.
+  Scroll down and enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of metadata for your Spatial Studio instance. Then click **Next**.
 
       ![Deploy Spatial Studio](images/mp-12.png)
 
@@ -135,4 +135,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management
 * **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+
 

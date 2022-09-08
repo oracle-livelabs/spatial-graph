@@ -51,7 +51,7 @@ You begin by loading projected flood regions, parcels, schools and facilities fr
 5. Repeat for all datasets.
 
 
-6. When complete, the datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. You will perform those steps in the next task.
+6. When complete, the datasets are listed with a small warning icon to indicate that 1 or more preparation steps are needed. You will perform those steps in the next task.
 
    ![Load data](images/load-data-04.png)
 
@@ -100,3 +100,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+

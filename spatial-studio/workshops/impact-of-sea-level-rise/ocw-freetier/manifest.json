@@ -9,9 +9,8 @@
         "type": "reservation"
       },  
       {
-        "title": "Get started",
-        "description": "Login to the Oracle Cloud",
-        "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login.md"
+        "title": "Get Started",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
       },
    {
       "title": "Lab 1: Deploy Spatial Studio to Oracle Cloud",
