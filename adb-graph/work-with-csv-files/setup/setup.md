@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will run a slack that will generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
+In this lab you will create a stack that will run a terraform script to generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
@@ -61,7 +61,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   This concludes this lab. **You may now proceed to the next lab.**  
 
-  ## Acknowledgements
+## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  

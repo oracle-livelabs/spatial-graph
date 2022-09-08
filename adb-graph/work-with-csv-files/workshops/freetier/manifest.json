@@ -13,13 +13,13 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
-            "title": "Lab 1: Set up",
+            "title": "Lab 1: Setup",
             "description": "Set up by running Stack.",
             "filename": "../../setup/setup.md"
         },
         {
             "title": "Lab 2: Create a graph",
-            "filename": "../../create-graph/create-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/create-graph/create-graph.md"
         },
         {
             "title": "Lab 3: Query and visualize the graph",
