@@ -60,7 +60,7 @@ You begin by creating a Project. A Project is where you visualize and analyze yo
 
    ![Visualize data](images/vis-06.png)
 
-8. You will use the FLOOD2060 for the following steps, so remove FLOOD2040 and FLOOD2080 from the map. Select **Remove** from the action menu for FLOOD204010PCT.
+8. You will use the FLOOD2060 for the following steps, so remove FLOOD2040 and FLOOD2080 from the map. Select **Remove** from the action menu for FLOOD2040.
 
    ![Visualize data](images/vis-07.png)
 

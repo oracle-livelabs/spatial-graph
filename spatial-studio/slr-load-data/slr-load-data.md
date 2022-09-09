@@ -82,7 +82,7 @@ Data preparation includes operations that allow datasets to be used for spatial 
    
  | Dataset | Column to use as Key |
  | --- | --- |
- | FLOOD2060 | FID |
+ | FLOOD2040 | FID |
  | FLOOD2060 | FID |
  | FLOOD2080 |FID |
  | PARCELS | PID\_LONG |
