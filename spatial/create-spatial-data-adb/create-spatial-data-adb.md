@@ -1,4 +1,4 @@
-# Create Sample Data
+# Create sample data
 
 
 ## Introduction
@@ -8,7 +8,7 @@ Spatial data is commonly sourced from files having coordinates or place names, a
 Estimated Lab Time: 20 minutes
 
  
-### About Spatial Data
+### About spatial data
 
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called SDO_GEOMETRY. Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.
 
@@ -115,7 +115,7 @@ In this lab, you will:
 Oracle Autonomous Database and Database Actions 
 
 
-## Task 1: Load Data from Files
+## Task 1: Load data from files
 
 You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. 
 
@@ -262,7 +262,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
      ![Image alt text](images/create-data-17.png)
    
 
-## Task 2: Configure Warehouses Table using Geometry Column
+## Task 2: Configure warehouses table using geometry column
 
 Next you configure the WAREHOUSES table for Spatial by generating a geometry column from the coordinate columns.
 
@@ -336,7 +336,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
 
 
 
-## Task 3: Configure Stores Table using Function-based Spatial Index
+## Task 3: Configure stores table using function-based spatial index
 
 Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, instead of indexing a geometry column, you instead index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089).
 
@@ -419,7 +419,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
 
    ![Image alt text](images/create-data-25.png)
 
-## Task 4: Create Regions Table from GeoJSON Document
+## Task 4: Create regions table from GeoJSON document
 
 Next you convert regions from GeoJSON format to a table with a geometry column. Start by viewing the content of REGIONS\_GEOJSON. As described earlier, loading JSON in SQL Worksheet creates a table with columns for the document's top-level keys. For GeoJSON that is **type** and **features**. Hover your mouse over the **features** value to see a pop-up of the features array. Since the features are polygons with many coordinates, you only see a portion of the first feature in the array.
 
@@ -565,7 +565,7 @@ Insert spatial metadata for REGIONS.
 
 
 
-## Task 5: Create Tornado Paths Table from GeoJSON Document
+## Task 5: Create tornado paths table from GeoJSON document
 
 Repeat the previous task steps to convert TORNADO\_PATHS\_GEOJSON. Start by getting the number of features.
 
@@ -700,7 +700,9 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 
  All data is now loaded and prepared for spatial analysis. 
 
-## Learn More
+ You may now **proceed to the next lab**.
+
+## Learn more
 
 * [Spatial product portal](https://oracle.com/goto/spatial)
 * [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)

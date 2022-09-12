@@ -1,4 +1,4 @@
-# Clean-up
+# Reset Spatial Studio and ADB to pre-workshop state
 
 ## Introduction
 
