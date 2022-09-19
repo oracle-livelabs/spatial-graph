@@ -12,7 +12,7 @@ For more information please visit [https://oracle.com/goto/spatial] (https://ora
 
 Estimated Workshop Time: 60 minutes
 
-### Workshop Overview
+### Workshop overview
 
 In this workshop you will create, configure, and analyze spatial data.  You will create and configure spatial tables for STORES, WAREHOUSES, REGIONS, and TORNADO\_PATHS from common formats, and then perform spatial queries to explore their relationships based on proximity and containment. You finally transform results using native JSON support in ADB, for developer integration. 
 

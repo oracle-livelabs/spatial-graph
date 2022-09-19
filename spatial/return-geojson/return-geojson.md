@@ -19,7 +19,7 @@ In this lab, you will:
 
 * Completion of Lab 3: Prepare Spatial Data
 
-## Task 1: Construct GeoJSON Document from Query Results
+## Task 1: Construct GeoJSON document from query results
 
 1. Begin by returning a tornado path geometry as in GeoJSON format.
 
@@ -167,7 +167,7 @@ In this lab, you will:
 
 We hope you have enjoyed this workshop. We hope it has piqued your interest and that you will continue your Spatial journey!
 
-## Learn More
+## Learn more
 
 * [Spatial product portal](https://oracle.com/goto/spatial)
 * [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)

@@ -1,4 +1,4 @@
-# Create Sample Data
+# Create sample data
 
 
 ## Introduction
@@ -8,7 +8,7 @@ This lab walks you through the steps to create sample spatial data in Oracle Dat
 Estimated Lab Time: 10 minutes
 
 
-### About Spatial Data
+### About spatial data
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called  SDO_GEOMETRY.  Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.
 
 The SDO_GEOMETRY type has the following general format: 
@@ -88,7 +88,7 @@ As described in the workshop introduction, you need access to an Oracle Database
 
 
 
-## Task 1: Create Tables with Coordinates
+## Task 1: Create tables with coordinates
 
 We begin by creating tables with latitude, longitude coordinates. This is a common starting point for creating spatial data, for example coordinates from GPS, or from geocoding street address or IP address.
 
@@ -105,7 +105,7 @@ The instructions and screen shots refer to SQL Developer Web, however the same s
     ![Image alt text](images/refresh-tables-1.png)
 
 
-## Task 2: Create Geometries from Coordinates
+## Task 2: Create geometries from coordinates
 
 Geometries can be populated with SQL, for exathis case by specifying the coordinates of point geometries based on  latitude and longitude columns.
 
@@ -144,7 +144,7 @@ Geometries can be populated with SQL, for exathis case by specifying the coordin
     </copy>
     ```
 
-## Task 3: Create Table with Polygon
+## Task 3: Create table with polygon
 
 Lines and polygons can be created in the same way. While a point geometry requires one coordinate, lines and polygons require all of the coordinates that define the geometry. In this case we create a table to store a polygon.
 
@@ -186,7 +186,7 @@ Lines and polygons can be created in the same way. While a point geometry requir
     ![Image alt text](images/refresh-tables-2.png)
 
 
-## Task 4:  Add Spatial Metadata and Indexes 
+## Task 4:  Add spatial metadata and indexes 
 Oracle Database provides a native spatial index for high performance spatial operations. Our sample data is so small that a spatial index is not really needed. However we perform the following steps since they are important for typical production data volumes. A spatial index requires a row of metadata for the geometry being indexed. We create this metadata and then the spatial indexes.
 
 
@@ -277,7 +277,7 @@ Oracle Database provides a native spatial index for high performance spatial ope
 
 
 
-## Learn More
+## Learn more
 * [Spatial product portal] (https://oracle.com/goto/spatial)
 * [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
 * [Spatial blogs](https://blogs.oracle.com/oraclespatial/)
