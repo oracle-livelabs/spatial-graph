@@ -26,7 +26,7 @@ Learn how to
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/mBw7JnJMJwnOM0ltx-w2YuzfpSuCJatcMCJPD4S0nvQzKiOEvhtT_4m7xeqLnX09/n/oradbclouducm/b/bank_graph/o/NotebookBANK_GRAPH.dsnb)
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/2qn9I8UPte_UUOSzGqXrfHw7dSEtzth0eaDxRAI_hfg1KIUJVC1c-S422hMHUTJE/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 

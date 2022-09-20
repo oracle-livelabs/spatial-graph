@@ -39,7 +39,7 @@
             "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {
-            "title": "Clean up",
+            "title": "Clean-up",
             "description": "Destroyed environement created in setup ",
             "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/destroy-environment/destroy-environment.md"
         },

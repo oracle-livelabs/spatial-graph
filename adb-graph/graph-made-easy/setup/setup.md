@@ -1,4 +1,4 @@
-# Setup: Run Stack
+# Set-up: Run Stack
 
 ## Introduction
 
