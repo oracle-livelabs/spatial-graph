@@ -408,21 +408,16 @@ higher the risk.
   ![Executes the paragraph which queries and displays account 406 and its neighbors.n](images/406-neighbors.png " ")
 
 16. We can use another algorithm, the **``ShortestPathHopDist()``** analytics algorithm, to compute which accounts might be engaged in illegal activities because of their         proximity to accounts **934** and **387**.
-**``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away a account is from **934** and **387**,
+  **``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away a account is from **934** and **387**, and hence lower the risk.
+  We use the Python API again.
 
-and hence lower the risk.
+  The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier.
 
-We use the Python API again.
+  It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object.   It first obtains the vertex object corresponding to account **934** and then executes the algorithm.  Instead of using the default property name it specifies **hop_dist_from_934** or **hop_dist_from_387** as the respective properties to store the hop distances from these accounts.
 
-The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier.
+  We repeat the same steps for account **387**.
 
-It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object.   It first obtains the vertex object
-corresponding to account **934** and then executes the algorithm.  Instead of using the default property name it specifies
-**hop_dist_from_934** or **hop_dist_from_387** as the respective properties to store the hop distances from these accounts.
-
-We repeat the same steps for account **387**.
-
-Execute the paragraphs containing the following code snippet.  
+  Execute the paragraphs containing the following code snippet.  
 
     ```
     <copy>%python-pgx
@@ -490,11 +485,11 @@ Execute the paragraphs containing the following code snippet.
 
 19. We see account **406** appearing again with a high number of transactions and close to both accounts **934** and **387**.
 
-It also had a high **personalized pagerank** value.
+  It also had a high **personalized pagerank** value.
 
-Now let's look at a graph showing 2-hops accounts from **934** and **387**.
+  Now let's look at a graph showing 2-hops accounts from **934** and **387**.
 
-Execute the paragraph which queries and displays how accounts **934** and **387** are directly trasnferring to **406**.
+  Execute the paragraph which queries and displays how accounts **934** and **387** are directly trasnferring to **406**.
 
     ```
     <copy>%pgql-pgx
@@ -502,11 +497,11 @@ Execute the paragraph which queries and displays how accounts **934** and **387*
     SELECT * FROM MATCH (a) -[e]-> (m)-[e1]->(d) ON BANK_GRAPH
     WHERE a.acct_id IN (934, 387)</copy>
     ```
-    Steps required for customizing the visualization:  
+  Steps required for customizing the visualization:  
 
-    Change the graph visualization layout to **Hierarchical**.
+  Change the graph visualization layout to **Hierarchical**.
 
-![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
+  ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
 
 This concludes this lab.
 
