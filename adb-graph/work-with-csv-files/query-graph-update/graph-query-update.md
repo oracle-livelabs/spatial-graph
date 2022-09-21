@@ -443,20 +443,18 @@ higher the risk.
     ```
     <copy>%pgql-pgx
     /* show the number of accounts with a certain number of hops in descending order for #934*/
-    SELECT COUNT(a.acct_id), a.hop_dist_from_934 AS hops FROM MATCH (a) ON bank_graph
-    WHERE hops > 0
-    GROUP BY hops
-    ORDER BY hops</copy>
+    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
   Change the view to table.
 
     ```
     <copy>%pgql-pgx
     /* show the number of accounts with a certain number of hops in descending order for #387*/
-    SELECT COUNT(a.acct_id), a.hop_dist_from_387 AS hops FROM MATCH (a) ON bank_graph
-    WHERE hops > 0
-    GROUP BY hops
-    ORDER BY hops</copy>
+    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
   Change the view to table.
 
@@ -466,17 +464,17 @@ higher the risk.
 
     ```
     <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_distance as hops, in_degree(a) + out_degree(a) as Num_Txns FROM MATCH (a) ON BANK_GRAPH
-    WHERE hops > 0 and hops <=2
-    ORDER BY hops, Num_Txns </copy>
+    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
       ```
   Change the view to table.
 
     ```
     <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_from_387 as hops, in_degree(a) + out_degree(a) as Num_Txns FROM MATCH (a) ON BANK_GRAPH
-    WHERE hops > 0 and hops <=2
-    ORDER BY hops, Num_Txns </copy>
+    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
 
   Change the view to table.
