@@ -362,7 +362,7 @@ SPARQL `DESCRIBE` queries also return an RDF graph instead of a set of variable 
 
   ![Executes the prior query in a RDF Paragraph](./images/query16-part2.png)
 
-## **Task 3:** (Optional) Continue to Query and analyze the RDF graph
+## **Task 4:** Continue to Query and analyze the RDF graph (Optional)
 
 **1. Executing a Concise SPARQL Query Using Shortcuts**
 
