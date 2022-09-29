@@ -1,0 +1,1 @@
+Query displays the 6-hop circular payment chains originating at account 934
