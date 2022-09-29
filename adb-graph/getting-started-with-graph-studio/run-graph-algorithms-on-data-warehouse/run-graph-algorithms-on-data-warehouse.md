@@ -20,11 +20,11 @@ Estimated Time: 20 minutes.
 
 - The following lab requires an Autonomous Database account.
 
-- This lab assumes you have completed the previous lab (Lab 2) where we created the **SH** graph.
+- This lab assumes you have completed the previous lab (Lab 2) where we created the **SH\_PGVIEW\_GRAPH** graph.
 
 ## Task 1: Make sure the SH Graph is Loaded into Memory.
 
-Before graphs can be analyzed in a notebook, we need to make sure the graph is loaded into memory. In the Graph Studio user interface, navigate to the **Graphs** page, verify whether the **SH** graph is loaded into memory or not.  
+Before graphs can be analyzed in a notebook, we need to make sure the graph is loaded into memory. In the Graph Studio user interface, navigate to the **Graphs** page, verify whether the **SH\_PGVIEW\_GRAPH** graph is loaded into memory or not.  
 
 ![SH Graph is in memory](./images/graphs-sh-is-in-memory.png " ")
 

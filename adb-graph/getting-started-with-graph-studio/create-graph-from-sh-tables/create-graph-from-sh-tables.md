@@ -237,7 +237,7 @@ Estimated Time: 30 minutes.
 
 1. Click on the **Graphs** menu icon.
 
-2. Click on the **SH** graph that we just created.
+2. Click on the **SH\_PGVIEW\_GRAPH** graph that we just created.
 
     ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details.png" ")
 
@@ -247,7 +247,7 @@ Estimated Time: 30 minutes.
 
 4. Click on the **SH Model** that we just created:
 
-    ![View model details of the SH model in the models pageimage](./images/models-sh-model-details.png " ")
+    ![View model details of the SH model in the models page image](./images/models-sh-model-details.png " ")
 
     Just like the graph, the model is stored as well. You can see the source code of this model, share it with others, edit its meta data or delete it.
     You can also kick off another graph creation job from the same model.
