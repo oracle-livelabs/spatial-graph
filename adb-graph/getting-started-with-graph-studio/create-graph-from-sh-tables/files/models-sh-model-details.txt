@@ -1,0 +1,1 @@
+View model details of the SH model in the models page

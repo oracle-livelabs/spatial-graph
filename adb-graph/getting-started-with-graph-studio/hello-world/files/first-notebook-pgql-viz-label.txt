@@ -1,0 +1,1 @@
+Select vertex label for visualization

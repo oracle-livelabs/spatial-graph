@@ -1,0 +1,1 @@
+View the properties of a vertex

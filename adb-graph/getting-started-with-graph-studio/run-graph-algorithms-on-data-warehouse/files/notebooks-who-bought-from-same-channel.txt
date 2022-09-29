@@ -1,0 +1,1 @@
+Run query to find who bought from the same channel

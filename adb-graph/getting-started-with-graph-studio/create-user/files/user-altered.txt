@@ -1,0 +1,1 @@
+The user will show as altered in the script output
