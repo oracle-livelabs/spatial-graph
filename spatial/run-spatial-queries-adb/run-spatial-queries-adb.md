@@ -5,8 +5,10 @@
 
 This lab walks you through basic spatial queries in Oracle Autonomous Database. You will use the sample data created in the previous lab to identify items based on proximity and containment.
 
-Estimated Lab Time: 20 minutes
+Estimated Time: 20 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Prepare spatial data](videohub:1_feaq2eu8)
 
 ### About spatial queries
 
