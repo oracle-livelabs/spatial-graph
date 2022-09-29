@@ -26,7 +26,7 @@ Learn how to
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/mBw7JnJMJwnOM0ltx-w2YuzfpSuCJatcMCJPD4S0nvQzKiOEvhtT_4m7xeqLnX09/n/oradbclouducm/b/bank_graph/o/NotebookBANK_GRAPH.dsnb)
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/2qn9I8UPte_UUOSzGqXrfHw7dSEtzth0eaDxRAI_hfg1KIUJVC1c-S422hMHUTJE/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 
@@ -407,14 +407,13 @@ higher the risk.
 
   ![Executes the paragraph which queries and displays account 406 and its neighbors.n](images/406-neighbors.png " ")
 
-16. We can use another algorithm, the **``ShortestPathHopDist()``** analytics algorithm, to compute which accounts might be engaged in illegal activities because of their  proximity to accounts **934** and **387**.
+16. We can use another algorithm, the **``ShortestPathHopDist()``** analytics algorithm, to compute which accounts might be engaged in illegal activities because of their         proximity to accounts **934** and **387**.
   **``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away a account is from **934** and **387**, and hence lower the risk.
-
   We use the Python API again.
 
   The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier.
 
-  It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object.   It first obtains the vertex object corresponding to account **934** and then executes the algorithm.
+  It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object.   It first obtains the vertex object corresponding to account **934** and then executes the algorithm.  Instead of using the default property name it specifies **hop_dist_from_934** or **hop_dist_from_387** as the respective properties to store the hop distances from these accounts.
 
   We repeat the same steps for account **387**.
 
@@ -422,9 +421,10 @@ higher the risk.
 
     ```
     <copy>%python-pgx
+    #By default this is property refers to account #934
     vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
 
-    analyst.shortest_path_hop_distance(graph, vertex)</copy>
+    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_934")</copy>
     ```
 
   ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 934.](images/shortestpath-algorithm.png " ")  
@@ -443,67 +443,49 @@ higher the risk.
     ```
     <copy>%pgql-pgx
     /* show the number of accounts with a certain number of hops in descending order for #934*/
-    SELECT count(a.acct_id), a.hop_dist_distance as hops FROM MATCH (a) ON BANK_GRAPH
-    where hops > 0
-    GROUP BY hops
-    ORDER BY hops</copy>
+    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
   Change the view to table.
 
     ```
     <copy>%pgql-pgx
     /* show the number of accounts with a certain number of hops in descending order for #387*/
-    SELECT count(a.acct_id), a.hop_dist_from_387 as hops FROM MATCH (a) ON BANK_GRAPH
-    where hops > 0
-    GROUP BY hops
-    ORDER BY hops</copy>
+    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
   Change the view to table.
 
   ![Table showing number of hops in descending order](images/table-with-hops.png " ")    
 
-18. We can list the accounts that have a hop distance <=2 from **934** and **387**.
+18. Let's take a look at the number of transactions for accounts that have two hops or less from 932 or 387.
 
     ```
     <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_distance as hops FROM MATCH (a) ON BANK_GRAPH
-    WHERE hops <=2
-    ORDER BY hops</copy>
-    ```
+    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
+      ```
   Change the view to table.
 
     ```
     <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_distance as hops FROM MATCH (a) ON BANK_GRAPH
-    WHERE hops <=2
-    ORDER BY hops</copy>
+    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+    WHERE hops > 0 AND hops <=2
+    ORDER BY num_transactions DESC</copy>
     ```
+
   Change the view to table.
 
-	![We can list the accounts that have a hop distance <=2 from 934.](images/hop-distance-2.png " ")    	  
+  ![Shows the number of transactions based on hops for 943 and 387.](images/hop-transaction-tables.png " ")   
 
-  19. Let's take a look at the number of transactions for accounts that have <=2 from **934** and **387**.
+19. We see account **406** appearing again with a high number of transactions and close to both accounts **934** and **387**.
 
-      ```
-      <copy>%pgql-pgx
-      SELECT a.acct_id, a.hop_dist_distance as hops, in_degree(a) + out_degree(a) as Num_Txns FROM MATCH (a) ON BANK_GRAPH
-      WHERE hops > 0 and hops <=2
-      ORDER BY hops, Num_Txns </copy>
-      ```
-    Change the view to table.
+  It also had a high **personalized pagerank** value.
 
-      ```
-      <copy>%pgql-pgx
-      SELECT a.acct_id, a.hop_dist_from_387 as hops, in_degree(a) + out_degree(a) as Num_Txns FROM MATCH (a) ON BANK_GRAPH
-      WHERE hops > 0 and hops <=2
-      ORDER BY hops, Num_Txns </copy>
-      ```
-    Change the view to table.
-
-  	![Shows the number of transactions based on hops for 943 and 387.](images/hop-transaction-tables.png " ")   
-
-20. We see account **406** appearing again with a high number of transactions in both accounts **932** and **387**. This also explains why **403** has a high **Personalized  PageRank** because it has a large number of transactions linked to these main accounts.  
-  Let's  look at a graph showing 2-hops accounts from **934** and **387**.
+  Now let's look at a graph showing 2-hops accounts from **934** and **387**.
 
   Execute the paragraph which queries and displays how accounts **934** and **387** are directly trasnferring to **406**.
 
@@ -511,13 +493,13 @@ higher the risk.
     <copy>%pgql-pgx
     /* show 2-hop accounts from 934 and 387 */
     SELECT * FROM MATCH (a) -[e]-> (m)-[e1]->(d) ON BANK_GRAPH
-    WHERE a.acct_id in (934, 387)</copy>
+    WHERE a.acct_id IN (934, 387)</copy>
     ```
-    Steps required for customizing the visualization:  
+  Steps required for customizing the visualization:  
 
-    Change the graph visualization layout to **Hierarchical**.
+  Change the graph visualization layout to **Hierarchical**.
 
-![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
+  ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
 
 This concludes this lab.
 

@@ -12,7 +12,7 @@ Estimated Time: 10 minutes
 - Query and Analyze the RDF Graph
 
 ### Prerequisites
-- Lab 1: Create an RDF Graph
+- Lab 3: Create an RDF Graph
 
 ## **Task 1:** Import the notebook
 
@@ -39,7 +39,19 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## **Task 2:** Use RDF Interpreter in Notebook Paragraph
+## **Task 2:** Create a Notebook in Graph Studio
+
+You can perform the following steps to create a notebook in Graph Studio.
+
+1. Go to the Notebooks page and click the Create button.
+
+  ![Shows navigation to create notebook](./images/create-notebook.png)
+
+2. Enter the notebook Name. Optionally, you can enter Description and Tags. Click Create.
+
+  ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
+
+## **Task 3:** Use RDF Interpreter in Notebook Paragraph
 
 For a newly created notebook, the notebook page is displayed with an empty paragraph. You can run a notebook paragraph using one of the following supported interpreters:
 
@@ -350,7 +362,7 @@ SPARQL `DESCRIBE` queries also return an RDF graph instead of a set of variable 
 
   ![Executes the prior query in a RDF Paragraph](./images/query16-part2.png)
 
-## **Task 3:** (Optional) Continue to Query and analyze the RDF graph
+## **Task 4:** Continue to Query and analyze the RDF graph (Optional)
 
 **1. Executing a Concise SPARQL Query Using Shortcuts**
 

@@ -31,24 +31,28 @@ Assuming that you have completed the previous labs and are currently logged in, 
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-3. Create RDF Graph Wizard opens as shown:
+3. Select **RDF graph** and then click the **Confirm** button.
+
+  ![confirm button to select rdf graph option](./images/click-confirm-rdf.png "")
+
+4. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
-4. Enter the OCI Object Storage URI path:
+5. Enter the OCI Object Storage URI path:
 
     ```
       <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
     ```
 
-5. Click **No Credential**.
+6. Click **No Credential**.
 
-6. Click **Next**.
+7. Click **Next**.
     The following dialog should appear, enter "MOVIESTREAM" for Graph Name:
 
   ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
 
-7. Click **Create**.
+8. Click **Create**.
 
     The RDF graph creation job will be initiated. Since the RDF file contains 139461 records, the process may take 3 to 4 minutes. You can monitor the job on the **Jobs** page in Graph Studio.
 

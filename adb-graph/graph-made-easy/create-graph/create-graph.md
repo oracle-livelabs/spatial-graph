@@ -31,8 +31,6 @@ Learn how to
    Then click **Create**.  
    ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
-   >**Note**: If you clicked on `Start Modeling` button instead then you'll see the screen shown in the next step.
-
 2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.   
   ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/select-tables.png " ")
 
@@ -65,7 +63,7 @@ Learn how to
 6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
     In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
 
-    >**Note:** the `Source Vertex` and `Destination Vertex` information on the left.  
+    >**Note:** The `Source Vertex` and `Destination Vertex` information on the left.  
 
     ![Shows how the direction of the vertex is wrong](images/wrong-edge-direction.png " ")  
 
@@ -73,7 +71,7 @@ Learn how to
 
     Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.  
 
-    >**Note:** that the `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
+    >**Note:** The `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
 
     ![Shows how the direction is correct](images/reverse-edge-result.png " ")
 
