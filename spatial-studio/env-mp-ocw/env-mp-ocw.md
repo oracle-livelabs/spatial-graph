@@ -67,7 +67,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify the ava
     Then scroll down.
 
 
-7. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. For this workshop you are deploying a temporary instance that will not include any sensitive information. Therefore uncheck **HTTPS only** and read the help text to be sure you understand the intended usage. 
+7. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. For this workshop you are deploying a temporary instance that will not include any sensitive information. Therefore uncheck **HTTPS only** and read the help text to be sure you understand the intended usage. For Spatial Studio Admin User Name enter **admin** (lower case). This user name will be case sensitive.
   
    ![Deploy Spatial Studio](images/mp-07.png)
 
@@ -133,7 +133,8 @@ You may now **proceed to the next lab**.
 * [Spatial Studio product page](https://oracle.com/goto/spatial)
 
 ## Acknowledgements
-* **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Jesus Vizcarra
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 
 
