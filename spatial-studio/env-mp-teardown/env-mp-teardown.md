@@ -63,6 +63,7 @@ The stack is the set of instructions for deployment. It captures the settings yo
 * [Spatial Studio product page](https://oracle.com/goto/spatial)
 
 ## Acknowledgements
-* **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Jesus Vizcarra
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 
