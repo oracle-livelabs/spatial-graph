@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will run a slack that will generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
+In this lab you will run a stack that will generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
