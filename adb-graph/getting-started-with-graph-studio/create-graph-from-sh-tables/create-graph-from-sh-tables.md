@@ -186,7 +186,7 @@ Estimated Time: 30 minutes.
     ![Model Source View](./images/model-source-view.png " ")
 
     You see the source code for this model. The source code is written in PGQL Data Definition Language (DDL) syntax. You can find more information about the language in the
-    [PGQL 1.3 specification](https://pgql-lang.org/spec/1.3/#create-property-graph).
+    [latest PGQL specification](https://pgql-lang.org/spec/latest/#create-property-graph).
 
     Advanced users can edit the source code directly. Changes will be reflected immediately in the designer view and vice versa.
 
