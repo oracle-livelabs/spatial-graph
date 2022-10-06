@@ -39,8 +39,6 @@ You begin by performing an analysis to filter schools based on containment in a 
 
    ![Spatial analysis](images/analyze-04.png)
 
-   As shown in Lab 3 > Task 2 > Step 6, click the right facing arrowhead to expand the Data/Visualizations panel.
-
 5. Observe your analysis listed under Analyses. Click and hold on your analysis, and then drag and drop onto the map. As you've done previously, change the style of the layer: open the action menu for **SCHOOLS IN FLOOD2060** , select **Settings** and change the color to red fill with white stroke (outline).
 
    ![Spatial analysis](images/analyze-05.png)
@@ -101,7 +99,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
 5. Drag and drop your **FACILITIES NEAR FLOOD2060** analysis onto the map. 
    
-   Then from its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke to black with weight. The results are clearly visible over the unfiltered FACILITIES layer,
+   Then from its action menu select Settings, and then update its size to 3, color to yellow, opacity to maximum, and stroke (outline) to black. The results are clearly visible over the unfiltered FACILITIES layer,
 
    ![Spatial analysis](images/analyze-16.png)
 
@@ -175,6 +173,7 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Contributors** - Ramu Murakami Gutierrez, Anand Kannan
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 
 

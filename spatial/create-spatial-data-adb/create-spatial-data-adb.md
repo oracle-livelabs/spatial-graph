@@ -77,6 +77,38 @@ SDO_GEOMETRY(
 
 The general workflow for creating spatial data is to generate geometries and then create a spatial index for optimal performance. Prior to creating a spatial index, a row of spatial metadata is inserted which is used by the spatial index to ensure data consistency.
 
+Spatial metadata is inserted as follows:
+
+```
+<copy> 
+  INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+  <table name>,
+  <geometry column name>,
+  SDO_DIM_ARRAY(
+    SDO_DIM_ELEMENT('X',<min x>,<max x>,<tolerance>),
+    SDO_DIM_ELEMENT('Y',<min y>,<max y>,<tolerance>)),
+  <coordinate system id>   
+  );
+</copy>
+```
+
+In this workshop you work with longitude,latitude coordinates so the metadata inserts will be as follows:
+
+```
+<copy> 
+  INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+  <table name>,
+  <geometry column name>,
+  SDO_DIM_ARRAY(
+    SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+    SDO_DIM_ELEMENT('Y',-90, 90, 0.005)),
+  4326 
+  );
+</copy>
+```
+
+
+
 For **point** data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity. 
 
 For **lines** and **polygons**, it is most common to load from common formats, such as GeoJSON, and convert to a table with a geometry column. GeoJSON which is the most common format for developer integration, and since conversion from/to GeoJSON is included in this workshop, we provide the following brief introduction.
@@ -100,7 +132,11 @@ The format of GeoJSON features is show below.
 
    ![Image alt text](images/geojson-00.png)
 
-Oracle Spatial includes built-in functions to convert between the native spatial type (SDO\_GEOMETRY) and GeoJSON geometry format. Note that GeoJSON geometries are contained within a broader GeoJSON document format including non-spatial attributes and an array structure. In this lab you will load data from GeoJSON documents to tables with SDO\_GEOMETRY columns. In a later lab you will generate GeoJSON from tables with SDO\_GEOMETRY columns.
+Oracle Spatial includes built-in functions to convert between the native spatial type (SDO\_GEOMETRY) and GeoJSON geometry format. Note that GeoJSON geometries are contained within a broader GeoJSON document format including non-spatial attributes and an array structure. 
+
+In this lab you will load data from GeoJSON documents to tables with SDO\_GEOMETRY columns. In a later lab you will generate GeoJSON from tables with SDO\_GEOMETRY columns.
+
+**Note:** In this workshop you use Autonomous Database tools and SQL to load and configure GeoJSON documents. This is useful for understanding the native JSON capabilities of Autonomous Database. However there are also simple tools and utilities available for loading GeoJSON to Oracle Spatial that require no coding. For example [Oracle Spatial Studio](https://www.oracle.com/database/technologies/spatial-studio/get-started.html) and [GDAL](https://gdal.org/). The most appropriate approach depends on your scenario.
 
 ### Objectives
 
@@ -304,13 +340,14 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
 
       ```
       <copy> 
-        INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-            'WAREHOUSES',  -- table name
-            'GEOMETRY',    -- geometry column name
-            SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
-                          SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-            4326           -- indicates longitude/latitude coordinates
-        );
+       INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+        'WAREHOUSES',  -- table name
+        'GEOMETRY',    -- geometry column name
+        SDO_DIM_ARRAY(
+          SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+          SDO_DIM_ELEMENT('Y', -90, 90, 0.005)),
+         4326           -- indicates longitude/latitude coordinates
+       );
       </copy>
       ```
    ![Image alt text](images/create-data-20.png)
@@ -371,7 +408,22 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
      ![Image alt text](images/create-data-22.png)
 
-2.  Next, test the function using the STORES table. Since SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, call the function inside a call to convert the result to a GeoJSON string .
+2.  Next, test the function using the STORES table. SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, so the result is displayed as **[object Object]**.
+
+      ```
+      <copy>
+        SELECT
+            GET_GEOMETRY(LONGITUDE, LATITUDE)
+        FROM
+            STORES
+        WHERE 
+             ROWNUM<10;
+      </copy>
+      ```
+
+       ![Image alt text](images/create-data-22b.png)
+
+3.  Since SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, call the function inside the built-in function to convert the result to a GeoJSON string.
 
       ```
       <copy>
@@ -394,13 +446,14 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
 
       ```
       <copy>
-          INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-            'STORES',  -- table name
-            'ADMIN.GET_GEOMETRY(LONGITUDE,LATITUDE)', -- function returning geometry
-            SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
-                          SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-            4326  -- indicates longitude/latitude coordinates
-        );
+      INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+       'STORES',  -- table name
+       'ADMIN.GET_GEOMETRY(LONGITUDE,LATITUDE)', -- function returning geometry
+       SDO_DIM_ARRAY(
+        SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+        SDO_DIM_ELEMENT('Y', -90, 90, 0.005)),
+       4326  -- indicates longitude/latitude coordinates
+      );
       </copy>
       ```
 
@@ -539,11 +592,12 @@ Insert spatial metadata for REGIONS.
   ```
   <copy>
     INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-          'REGIONS',
-          'GEOMETRY',
-          SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
-                        SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-          4326
+     'REGIONS',
+     'GEOMETRY',
+     SDO_DIM_ARRAY(
+      SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+      SDO_DIM_ELEMENT('Y', -90, 90, 0.005)),
+     4326
       );
   </copy>
   ```
@@ -662,11 +716,12 @@ Use the JSON\_TABLE function to return the content as rows.
   ```
   <copy>
     INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-          'TORNADO_PATHS',
-          'GEOMETRY',
-          SDO_DIM_ARRAY(SDO_DIM_ELEMENT('X', 0, 0, 0.005),
-                        SDO_DIM_ELEMENT('Y', 0, 0, 0.005)),
-          4326
+     'TORNADO_PATHS',
+     'GEOMETRY',
+     SDO_DIM_ARRAY(
+      SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+      SDO_DIM_ELEMENT('Y', -90, 90, 0.005)),
+    4326
       );
   </copy>
   ```
