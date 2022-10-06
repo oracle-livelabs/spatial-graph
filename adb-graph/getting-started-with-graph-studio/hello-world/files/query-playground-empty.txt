@@ -1,1 +1,1 @@
-Graph Query Playground in Graph Studio
+Empty query playground

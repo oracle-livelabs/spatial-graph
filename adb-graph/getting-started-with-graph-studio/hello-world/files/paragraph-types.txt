@@ -1,0 +1,1 @@
+Paragraph types in Graph Studio

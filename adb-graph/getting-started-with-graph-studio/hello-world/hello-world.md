@@ -64,11 +64,11 @@ Learn how to
 
 2. Click on the `Graphs` menu icon:
 
-    ![Graph menu screen in Graph Studio](./images/graphs-menu-blank.png " ")
+    ![Notebook menu screen in Graph Studio](./images/graphs-menu-blank.png " ")
 
 3. Next click the `</> Query` button on the page. You should see a page titled  **</> Query Playground**
 
-    ![Graph Query Playground in Graph Studio](./images/query-playground-empty.png " ")
+    ![Empty query playground](./images/query-playground-empty.png " ")
 4. Copy and paste the following DDL code into the PGQL input text area:
 
     ```
@@ -100,49 +100,48 @@ Learn how to
 
     This will create a very simple graph with 7 vertices and 8 edges. For more information about the syntax, please refer to the [PGQL specification](https://pgql-lang.org/spec/1.3/#inserting-vertices)
 
-5. Click the Execute button on the top left.
+    5. Click the Execute button on the top left.
 
-    ![ALT text is not available for this image](./images/query-playground-create-graph-statement.png " ")
+        ![Query playground create graph statement](./images/query-playground-create-graph-statement.png " ")
 
 ## Task 3: Load the Graph into Memory
 
 1. Navigate to the Graphs page:
 
-    ![ALT text is not available for this image](./images/graph-menu-my-first-graph.png " ")
+    ![Graphs page](./images/graph-menu-my-first-graph.png " ")
 
 2. Click on `MY_FIRST_GRAPH`:
 
-    ![ALT text is not available for this image](./images/graph-first-graph-click-load-into-memory.png " ")
+    ![Click graph to load it into memory in Graph Studio](./images/graph-first-graph-click-load-into-memory.png " ")
 
 3. Click on the **Load into memory** icon on the right of the details section:
 
-    ![ALT text is not available for this image](./images/graph-click-load-into-memory.png " ")
+    ![Click load into memory in Graph Studio](./images/graph-click-load-into-memory.png " ")
 
     In the resulting dialog, click **Yes**.
 
-    ![ALT text is not available for this image](./images/my-first-graph-load-into-memory.png " ")
+    ![Load graph into memory dialog](./images/my-first-graph-load-into-memory.png " ")
 
 5. You get redirected to the Jobs page. Wait for the job to complete.
 
-    ![ALT text is not available for this image](./images/jobs-first-graph-load-into-memory.png " ")
+    ![Load first graph into memory](./images/jobs-first-graph-load-into-memory.png " ")
+
 
 ## Task 4: Create your First Notebook
 
 1. Navigate to the Notebooks page:
 
-    ![ALT text is not available for this image](./images/notebooks-menu.png " ")
+    ![Graph Studio notebooks menu](./images/notebooks-menu.png " ")
 
 2. Click the **Create** button on the right.  
 
 3. Name the notebook **Learn/My First Notebook**, then click **Create**. That will create a folder named `Learn` and the note `My First Notebook` within it.
 
-    ![ALT text is not available for this image](./images/notebooks-create-first-notebook.png " ")
+    ![Create first notebook](./images/notebooks-create-first-notebook.png " ")
 
-4. Each notebook is organized into a set of **paragraphs**. Each paragraph has an input (called *Code*) and an output (called **Result**). In Graph Studio, there are 3 types of paragraphs:
+4. Each notebook is organized into a set of **paragraphs**. Each paragraph has an input (called *Code*) and an output (called **Result**). In Graph Studio, there are 7 types of paragraphs:
 
-- Markdown paragraphs start with `%md`
-- PGQL paragraphs start with `%pgql-px`
-- PGX Java paragraphs start with `%java-pgx`
+    ![Paragraph types in Graph Studio](./images/paragraph-types.png " ")
 
   Enter the following text into the first paragraph.
 
@@ -173,16 +172,16 @@ This is my first paragraph
 
    ![Select the plus button to add a paragraph](./images/first-notebook-add-para.png)
 
-2. Then enter the following code in the new paragraph.
+3. Then enter the following code in the new paragraph.
 
-```
-<copy>
-%java-pgx
-var graph = session.getGraph("MY_FIRST_GRAPH")
-</copy>
-```
+    ```
+    <copy>
+    %java-pgx
+    var graph = session.getGraph("MY_FIRST_GRAPH", GraphSource.PG_VIEW)
+    </copy>
+    ```
 
-3. Execute that paragraph, you will see we successfully referenced our graph that we just created from scratch via the PGX Java APIs.
+4. Execute that paragraph, you will see we successfully referenced our graph that we just created from scratch via the PGX Java APIs.
 
     ![Execute get graph statement](./images/first-notebook-pgx-get-graph.png " ")
 
@@ -192,16 +191,15 @@ The following screenshot shows the error message some, but not all, have encount
     ![No interpreter found error](./images/no-interpreter-found-error.png " ")
 
 
-
 4. Modify the paragraph to run a graph algorithm. For example:
 
-```
-<copy>
-%java-pgx
-var graph = session.getGraph("MY_FIRST_GRAPH")
-analyst.countTriangles(graph, true)
-</copy>
-```
+    ```
+    <copy>
+    %java-pgx
+    var graph = session.getGraph("MY_FIRST_GRAPH")
+    analyst.countTriangles(graph, true)
+    </copy>
+    ```
 
 5. Execute the updated paragraph again. Upon completion it displays the result, i.e. the graph contains exactly one triangle.
 
