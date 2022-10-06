@@ -1,6 +1,10 @@
 {
     "workshoptitle": "Graphs Made Easy: Find New Insights in your Data",
     "help": "livelabs-help-db_us@oracle.com",
+    "include": {
+     "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md"
+    },
+    "variables": ["./variables.json"],
     "tutorials": [
         {
             "title": "Work with Graph Studio",
@@ -13,14 +17,9 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
-            "title": "Create a Compartment (Optional if you already have one)",
-            "description": "Helps users create a compartment in OCI",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/sprint-create-compartment/sprint-create-compartment.md"
-        },
-        {
             "title": "Set-up",
             "description": "Set up by running Stack",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/setup/setup.md"
+            "filename": "../../graph-made-easy/setup/setup.md"
         },
         {
             "title": "Lab 1: Create a property graph in Graph Studio",

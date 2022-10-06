@@ -107,7 +107,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
   ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
 
-## Task 3: Execute SPARQL queries on the playground page
+## **Task 3:** Execute SPARQL queries on the playground page
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 
