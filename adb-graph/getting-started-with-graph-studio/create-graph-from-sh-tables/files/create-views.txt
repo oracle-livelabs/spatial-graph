@@ -1,0 +1,1 @@
+Run the copied code to create views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS
