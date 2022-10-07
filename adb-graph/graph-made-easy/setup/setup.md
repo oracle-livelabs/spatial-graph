@@ -13,13 +13,13 @@ Learn how to
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
-## **Task 1:** Create an OCI Compartment (OPTIONAL)
+## Task 1: Create an OCI Compartment (OPTIONAL)
 
 >**Note:** *This lab is optional if you already have a compartment.*
 
 [](include:iam-compartment-create-body.md)
 
-## **Task 2:** Run Stack
+## Task 2: Run Stack
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 
@@ -48,7 +48,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![How to see the graph username and password](./images/graph-username-password.png "")
 
-## **Task 3:** Login to Graph studio
+## Task 3: Login to Graph studio
 
 1. Click the **Open Graph Studio** under the Application Information. This will open a new page. Enter your graph username and password provided under Application Information, into the login screen.
 
@@ -68,7 +68,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   This concludes this lab. **You may now proceed to the next lab.**  
 
-  ## Acknowledgements
+## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  

@@ -23,24 +23,24 @@
         },
         {
             "title": "Lab 1: Create a property graph in Graph Studio",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/create-graph/create-graph.md"
+            "filename": "../../graph-made-easy/create-graph/create-graph.md"
         },
         {
             "title": "Lab 2: Query and visualize the property graph",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
+            "filename": "../../work-with-csv-files/query-graph-update/graph-query-update.md"
         },
         {
             "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
+            "filename": "../../graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
         },
         {
             "title": "Lab 4: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
+            "filename": "../../graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {
             "title": "Clean-up",
             "description": "Destroyed environement created in setup ",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/destroy-environment/destroy-environment.md"
+            "filename": "../../graph-made-easy/destroy-environment/destroy-environment.md"
         },
         {
         "title": "Oracle CloudWorld 2022 - Get Help",
