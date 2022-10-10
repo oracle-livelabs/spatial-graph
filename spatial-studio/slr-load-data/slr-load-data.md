@@ -38,7 +38,7 @@ You begin by loading projected flood regions, parcels, schools and facilities fr
 
    ![Load data](images/load-data-01.png)
 
-2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, drag-and-drop or and select the zip file. Then click **Create**.
+2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, and select the zip file. You may also drag and drop the file onto the upload region. Then click **Create**.
    
    ![Load data](images/load-data-02.png)
 
@@ -99,5 +99,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 

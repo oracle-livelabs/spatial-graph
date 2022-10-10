@@ -35,7 +35,8 @@ For more information please visit the [Oracle Spatial Studio Guide] (https://doc
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Anand Kannan
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 
 
 

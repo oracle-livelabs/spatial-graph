@@ -19,7 +19,7 @@ Estimated Time: 5 minutes
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
-## **Task 1:** Create RDF graph in Graph Studio
+## Task 1: Create RDF graph in Graph Studio
 
 Assuming that you have completed the previous labs and are currently logged in, execute the following steps:
 
@@ -95,7 +95,7 @@ Assuming that you have completed the previous labs and are currently logged in, 
     Started execution of task Graph Creation - MOVIESTREAM.
     ```
 
-## **Task 2:** Validate the RDF graph
+## Task 2: Validate the RDF graph
 
 You can explore and validate the newly created RDF graph on the **Graphs** page in Graph Studio as shown:
 

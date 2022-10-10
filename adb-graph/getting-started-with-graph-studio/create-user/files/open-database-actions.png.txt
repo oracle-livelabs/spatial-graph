@@ -1,0 +1,1 @@
+Autonomous Database home page pointing to the Database Actions button

@@ -25,7 +25,7 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## **Task 1:** Create a graph of accounts and transactions from the corresponding tables
+## Task 1: Create a graph of accounts and transactions from the corresponding tables
 
 1. Click the **Graph** icon to navigate to create your graph.  
    Then click **Create**.  

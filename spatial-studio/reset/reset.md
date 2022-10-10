@@ -53,6 +53,6 @@ Spatial Studio and ADB are now reset to their pre-workshop state.
 * [Spatial Studio product page](https://oracle.com/goto/spatial)
 
 ## Acknowledgements
-* **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, August 2022
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Last Updated By/Date** - David Lapp, Database Product Management, September 2022
 
