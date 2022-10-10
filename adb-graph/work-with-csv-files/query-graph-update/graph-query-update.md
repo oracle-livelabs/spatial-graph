@@ -6,9 +6,8 @@ In this lab you will query the newly create graph (that is, `bank_graph`) in PGQ
 
 Estimated Time: 30 minutes.
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:XnE1yw2k5IU)
+Watch the video below for a quick walk-through of the lab.
+[Query and visualize the property graph](videohub:1_e7nc0l1w)
 
 ### Objectives
 

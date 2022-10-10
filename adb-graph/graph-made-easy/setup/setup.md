@@ -6,6 +6,9 @@ In this lab you will run a stack that will generate an Autonomous Database, crea
 
 Estimated Time: 5 minutes.
 
+Watch the video below for a quick walk-through of the lab.
+[Set up](videohub:1_8z5ze0pe)
+
 ### Objectives
 
 Learn how to
