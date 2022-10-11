@@ -6,6 +6,9 @@ You can analyze, query, and visualize the RDF graph built from the Moviestream R
 
 Estimated Time: 10 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Query and Visualize the RDF Graph](videohub:1_g8kbgt4v)
+
 ### Objectives
 - Create a Notebook in Graph Studio
 - Use RDF Interpreter in Notebook paragraph
