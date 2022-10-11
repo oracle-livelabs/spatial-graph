@@ -6,7 +6,7 @@ Compartments allow you to organize and control access to your cloud resources.
 ### Prerequisites
 * An Oracle Cloud Account.
 
-## **Task 1:** Create an OCI Compartment
+## Task 1: Create an OCI Compartment
 
 1. Log in to your Oracle Cloud account using another browser tab or window if you are not already logged in.
 

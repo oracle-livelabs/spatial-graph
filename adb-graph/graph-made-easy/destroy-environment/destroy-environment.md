@@ -6,13 +6,16 @@ In this lab you will destroy the environment created by the stack.
 
 Estimated Time: 5 minutes.
 
+Watch the video below for a quick walk-through of the lab.
+[Clean up](videohub:1_oc7filj5)
+
 ### Objectives
 
 Learn how to
 - Destroy the job created by the stack
 - Delete the Stack
 
-## **Task 1:** Destroy job created by Stack
+## Task 1: Destroy job created by Stack
 
 1. Click the navigation menu in the upper left to show navigation choices. Select **Development Services** and then click on **Stack**.
 
@@ -26,7 +29,7 @@ Learn how to
 
   ![Shows how to destroy the stack final step](./images/destroy-final.png "")
 
-## **Task 2:** Delete Stack
+## Task 2: Delete Stack
 
 1. When the job has succeeded the stack image will turn green. Click on **Stack Details**.
 

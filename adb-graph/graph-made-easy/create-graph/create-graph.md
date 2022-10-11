@@ -11,9 +11,8 @@ The following video shows the steps you will execute in this lab.
 
 Estimated Time: 15 minutes.
 
-Watch the video below for a quick walk through of the lab.
-
-[Video on how to create a graph](youtube:tNPY4xmVFMk)
+Watch the video below for a quick walk-through of the lab.
+[Create a property graph in Graph Studio](videohub:1_cz3cwg3h)
 
 ### Objectives
 
@@ -25,7 +24,7 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## **Task 1:** Create a graph of accounts and transactions from the corresponding tables
+## Task 1: Create a graph of accounts and transactions from the corresponding tables
 
 1. Click the **Graph** icon to navigate to create your graph.  
    Then click **Create**.  
