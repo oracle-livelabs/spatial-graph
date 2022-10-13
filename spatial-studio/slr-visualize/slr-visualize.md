@@ -7,6 +7,8 @@ In this lab you visually explore the projected flood regions and cultural featur
 
 Estimated Lab Time: 20 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Visualize spatial data](videohub:1_a06nh2ck)
 
 ### Objectives
 
