@@ -1,0 +1,1 @@
+Load first graph into memory

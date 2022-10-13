@@ -6,6 +6,9 @@ You can analyze, query, and visualize the RDF graph built from the Moviestream R
 
 Estimated Time: 10 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Query and Visualize the RDF Graph](videohub:1_g8kbgt4v)
+
 ### Objectives
 - Create a Notebook in Graph Studio
 - Use RDF Interpreter in Notebook paragraph
@@ -14,7 +17,7 @@ Estimated Time: 10 minutes
 ### Prerequisites
 - Lab 3: Create an RDF Graph
 
-## **Task 1:** Import the notebook
+## Task 1: Import the notebook
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
@@ -39,7 +42,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## **Task 2:** Create a Notebook in Graph Studio
+## Task 2: Create a Notebook in Graph Studio
 
 You can perform the following steps to create a notebook in Graph Studio.
 
@@ -51,7 +54,7 @@ You can perform the following steps to create a notebook in Graph Studio.
 
   ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
 
-## **Task 3:** Use RDF Interpreter in Notebook Paragraph
+## Task 3: Use RDF Interpreter in Notebook Paragraph
 
 For a newly created notebook, the notebook page is displayed with an empty paragraph. You can run a notebook paragraph using one of the following supported interpreters:
 
@@ -362,7 +365,7 @@ SPARQL `DESCRIBE` queries also return an RDF graph instead of a set of variable 
 
   ![Executes the prior query in a RDF Paragraph](./images/query16-part2.png)
 
-## **Task 4:** Continue to Query and analyze the RDF graph (Optional)
+## Task 4: Continue to Query and analyze the RDF graph (Optional)
 
 **1. Executing a Concise SPARQL Query Using Shortcuts**
 

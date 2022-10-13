@@ -1,0 +1,1 @@
+Get vertex and edge labels from the next three paragraphs

@@ -6,6 +6,9 @@ In this lab you undeploy the Spatial Studio instance created using the Cloud Mar
 
 Estimated Lab Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Clean-up option 2: Terminate Spatial Studio and ADB](videohub:1_7rhuy59k)
+
 ### Objectives
 
 In this lab, you will:

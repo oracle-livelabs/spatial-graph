@@ -1,0 +1,1 @@
+Notebook settings modal to change the number of hops

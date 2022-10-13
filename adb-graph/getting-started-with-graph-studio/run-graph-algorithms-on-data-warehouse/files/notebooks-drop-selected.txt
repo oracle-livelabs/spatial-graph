@@ -1,0 +1,1 @@
+Drop element from visualization

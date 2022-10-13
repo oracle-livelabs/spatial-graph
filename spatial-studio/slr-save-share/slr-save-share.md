@@ -5,8 +5,10 @@
 Spatial Studio allows you to share your results in several ways. One of these ways is to publish your interactive maps for read-only access. 
 
 
-Estimated Lab Time: 5 minutes
+Estimated Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Save and share results](videohub:1_2xm5fy9b)
 
 ### Objectives
 

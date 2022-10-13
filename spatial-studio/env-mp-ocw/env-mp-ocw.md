@@ -6,6 +6,9 @@ In this lab, you deploy Spatial Studio from the Cloud Marketplace using Always F
 
 Estimated Lab Time: 15 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Deploy Spatial Studio to Oracle Cloud](videohub:1_uun7p8f1)
+
 ### Objectives
 
 In this lab, you will:
