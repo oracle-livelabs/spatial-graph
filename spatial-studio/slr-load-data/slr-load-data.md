@@ -19,6 +19,8 @@ Users often need to incorporate data acquired from various sources. To support t
 
 Estimated Lab Time: 10 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Load and prepare data](videohub:1_tad5vspe)
 
 ### Objectives
 
