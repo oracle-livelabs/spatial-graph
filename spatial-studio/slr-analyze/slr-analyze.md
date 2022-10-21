@@ -6,8 +6,10 @@
 In this lab you perform a series of spatial analyses to identify the relationships between a projected flood region and cultural features. You create the analyses without coding and then visualize results in maps and tabular form.  
 
 
-Estimated Lab Time: 30 minutes
+Estimated Time: 30 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Analyze spatial relationships](videohub:1_b3k5ebni)
 
 ### Objectives
 

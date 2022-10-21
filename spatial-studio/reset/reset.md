@@ -6,6 +6,9 @@ This lab is to remove everything created in the previous labs so that you can st
 
 Estimated Lab Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Reset Spatial Studio and ADB to pre-workshop state](videohub:1_h9jwq8iq)
+
 ### Objectives
 
 In this lab, you will:
