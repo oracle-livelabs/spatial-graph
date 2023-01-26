@@ -19,7 +19,7 @@
         },
         {
             "title": "Lab 2: Create a graph",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/create-graph/create-graph.md"
+            "filename": "../../../graph-made-easy/create-graph/create-graph.md"
         },
         {
             "title": "Lab 3: Query and visualize the graph",
@@ -27,7 +27,7 @@
         },
         {
             "title": "Lab 4: Clean-up: Terminate Graph Studio and ADB",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/destroy-environment/destroy-environment.md"
+            "filename": "../../../graph-made-easy/destroy-environment/destroy-environment.md"
         },
         {
             "title": "Need Help?",
