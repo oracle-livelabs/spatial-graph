@@ -121,4 +121,4 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development
 * **Contributors** -  Jayant Sharma, Rahul Tasker, Product Management
-* **Last Updated By/Date** - Rahul Tasker, September 2022
+* **Last Updated By/Date** - Jayant Sharma, January 2023

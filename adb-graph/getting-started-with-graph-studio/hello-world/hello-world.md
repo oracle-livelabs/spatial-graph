@@ -28,33 +28,23 @@ Learn how to
 
 1. If you have the Graph Studio URL then proceed to step 3.
 
-    Log in to the OCI Console, choose the Autonomous Database instance, then click on the Tools tab on the details page menu on the left.
+    Log in to the OCI Console, choose the Autonomous Database instance, then click on the Tools Configuration tab on the details page menu on the left.  
+    Locate the Graph Studio link and copy and paste it into a new browser tab or window.
 
    ![Autonomous Database instance tools page in the OCI Console](./images/oci-console-adb-tools-graph-studio-link.png)
 
 
-2. Click on the Graph Studio card to open in a new page or tab in your browser.
+2. Alternatively, if you still have Database Actions open, click on the Graph Studio card to open in a new page or tab in your browser.  
+   
+   ![Database Actions landing page with Graph Studio card](./images/db-actions-graph-studio-link.png)  
 
-3. If you prefer to connect directly and know the database, tenancy OCID, and region details then use the URL pattern shown below.
 
-    ```
-    https://adb.<region_identifier>.oraclecloud.com/graphstudio/?tenant=<tenancy_ocid>&database=<database_name>
-    ```
-
-    For example, to access Graph Studio of database `ADW1` belonging to tenant `TENANT1` with OCID `ocid1.tenancy.oc1..thisisadecidedlybogusvalue` in the US Ashburn (IAD) region, open
-
-    ```
-    https://adb.us-ashburn-1.oraclecloud.com/graphstudio/?tenant=ocid1.tenancy.oc1..thisisadecidedlybogusvalue&database=ADW1
-    ```
-
-    in your browser. You can find the [region identifier for all regions here](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm).
-
-4. Enter the Autonomous Database account credentials or the Graph-enabled user (e.g. `GRAPHUSER`) into the login screen.   
+3. Enter the Autonomous Database account credentials or the Graph-enabled user (e.g. `GRAPHUSER`) into the login screen.   
    Do **not** use `ADMIN`.
 
     ![Graph Studio login screen](./images/graph-studio-login.png " ")
 
-5. Then click the "Sign In" button.
+4. Then click the "Sign In" button.
 
 ## Task 2: Create a Simple Graph using PGQL
 
@@ -255,4 +245,4 @@ Please **proceed to the next lab** to see more complex examples of how to create
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development
 * **Contributors** -  Jayant Sharma, Rahul Tasker, Product Management
-* **Last Updated By/Date** - Rahul Tasker, September 2022
+* **Last Updated By/Date** - Jayant Sharma, January 2023
