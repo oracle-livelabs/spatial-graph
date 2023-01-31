@@ -76,38 +76,44 @@ Note: The password should meet the following requirements:
 
 Before we can create an RDF graph we must first import RDF data into Graph Studio.
 
-1. Navigate to your Autonomous Database in the Oracle Cloud Infrastructure Console and open Tools.
+1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
-  ![Autonomous Database details showing the link to Graph Studio, accessible under 'Tools'](./images/database-tools.png "")
+  ![Click the Database Actions button](images/click-database-actions.png " ")
 
-2. Open Graph Studio and log in with the user name and password you created in Lab 2, Task 9.
+2. On the Database Actions panel, click **Graph Studio**.
 
-3. Click on Graphs on the navigation menu from the left to navigate the Graphs page.
+  ![Click Open Graph Studio](images/graphstudiofixed.png " ")
+
+3. Log in to Graph Studio. Use the credentials for the database user MOVIESTREAM.
+
+  ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
+
+4. Click on Graphs on the navigation menu from the left to navigate the Graphs page.
 
   ![The 'get started' page for Graph Studio. On the left-hand navigation bar, the button for 'Graphs' is highlighted](./images/graph-studio-home.png "")
 
-4. In the Graph Type dropdown menu select RDF and then click the Create button on the top-right corner of the interface.
+5. In the Graph Type dropdown menu select RDF and then click the Create button on the top-right corner of the interface.
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-5. Create RDF Graph Wizard opens as shown:
+6. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
-6. Enter the OCI Object Storage URI path:
+7. Enter the OCI Object Storage URI path:
 
     ```
       <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
     ```
 
-7. Click **No Credential**.
+8. Click **No Credential**.
 
-8. Click **Next**.
+9. Click **Next**.
     The follow dialog should appear, enter "MOVIESTREAM" for Graph Name:
 
   ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
 
-9. Click **Create**.
+10. Click **Create**.
 
     The RDF graph creation job will be initiated. Since the RDF file contains 139461 records, the process may take 3 to 4 minutes. You can monitor the job on the **Jobs** page in Graph Studio.
 
