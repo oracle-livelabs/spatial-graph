@@ -1,17 +1,10 @@
-# Create a Graph
+# Create Graph
+
 ## Introduction
 
-In this lab you will create a graph from the `bank_accounts` and `bank_txns` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
-
-<!-- COMMENTED THE FOLLOWING OUT FOR DATABSE WORLD:
-The following video shows the steps you will execute in this lab.
-
-[](youtube:5g9i9HA_cn0) Graph Studio: Create a graph. -->
+In this lab you will create a graph from the `MOVIE, CUSTOMER\_PROMOTIONS`, and `CUSTSALES\_PROMOTIONS` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
 
 Estimated Time: 15 minutes.
-
-Watch the video below for a quick walk-through of the lab.
-[Create a property graph in Graph Studio](videohub:1_cz3cwg3h)
 
 ### Objectives
 
@@ -21,62 +14,43 @@ Learn how to
 ### Prerequisites
 
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
-- And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
+- And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Create a graph of accounts and transactions from the corresponding tables
+## Task 1: Create Graph
 
 1. Click the **Graph** icon to navigate to create your graph.  
    Then click **Create**.  
    ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
-2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.   
-  ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/select-tables.png " ")
+2. Then select the `CUSTOMER_PROMOTIONS`, `CUSTSALES_PROMOTIONS` and `MOVIE` tables.
+
+    Click to expand list of available items and then select the tables
+
+  ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/selected-tables.png " ")
 
 3. Move them to the right, that is, click the first icon on the shuttle control.   
 
-  ![Shows the selected tables](./images/selected-tables.png " ")
+  ![Shows the selected tables](./images/select-tables.png " ")
 
 4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge and a vertex label.  
 
-    The suggested model has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
+    The suggested model has the `MOVIE` and `CUSTOMER_PROMOTIONS`, as a vertex table since there are foreign key constraints specified on `CUSTSALES_PROMOTIONS` that reference it.   
 
-    And `BANK_TXNS` is a suggested edge table.
+    And `CUSTSALES_PROMOTIONS` is a suggested edge table.
 
   ![Shows the vertex and edge table](./images/create-graph-suggested-model.png " ")    
 
 
-5.  Now let's change the default Vertex and Edge labels.  
+5.  Now let's change the default Edge label.   
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click outside the input box on confirm label and save the update.  
-
-    ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")  
-
-    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**.  
+    Click the `MOVIE` edge table and rename the Edge Label from `MOVIE` to **WATCHED**.  
     Then click outside the input box on confirm label and save the update.  
 
     ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")  
 
     This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
 
-6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
-    In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
-
-    >**Note:** The `Source Vertex` and `Destination Vertex` information on the left.  
-
-    ![Shows how the direction of the vertex is wrong](images/wrong-edge-direction.png " ")  
-
-    **Notice** that the direction is wrong. The Source Key is `to_acct_id` instead of what we want, which is `from_acct_id`.  
-
-    Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.  
-
-    >**Note:** The `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
-
-    ![Shows how the direction is correct](images/reverse-edge-result.png " ")
-
-
-
-
-7. Click the **Source** tab to verify that the edge direction, and hence the generated CREATE PROPERTY GRAPH statement, is correct.
+6. Click the **Source** tab to verify that the edge direction, and hence the generated CREATE PROPERTY GRAPH statement, is correct.
 
 
    ![Verifies that the direction of the edge is correct in the source](images/generated-cpg-statement.png " ")  
@@ -113,11 +87,11 @@ Learn how to
 
 8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
-   Enter `bank_graph` as the graph name.  
+   Enter `MOVIE_RECOMMENDATIONS` as the graph name.  
    That graph name is used throughout the next lab.  
    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
 
-   Enter a model name (for example, `bank_graph_model`), and other optional information and then click Create.
+   Enter a model name (for example, `movie_recommendations_model`), and other optional information and then click Create.
    ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
 
 9. Graph Studio modeler will now save the metadata and start a job to create the graph.  
@@ -127,10 +101,43 @@ Learn how to
 
    You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
 
+   <!---
+   ## Task 2: Load a graph into memory
 
-This concludes this lab. **You may now proceed to the next lab.**
+   The MOVIE_RECOMMENDATIONS graph has been created for you from the tables CUSTOMER\_PROMOTIONS, CUSTSALES\_PROMOTIONS, and MOVIE (as explained earlier).  You will now load this graph from the database into the in-memory graph server.  
+
+   1. Click the **Graphs** icon.
+
+       ![Click the Graphs icon](images/task2step1.png " ")
+
+       You will see that the MOVIE_RECOMMENDATIONS graph is available.
+
+       ![See the list of graphs](images/task2step2.png " ")
+
+   2. Click the **3 dots** on the right and click **Load Graph Into Memory**.
+
+       ![Expand the 3 dots on the right](images/task2step3.png " ")
+
+   3. Accept the defaults and click **Yes**.  
+
+       ![Click Yes](images/task2step4.png " ")
+
+       Next see that the load into memory is in progress:  
+
+       ![See the load into memory In Progress](images/task2step5.png " ")
+
+       About two minutes later the load job should complete successfully.
+
+       ![See the load job completed](images/task2step6.png " ")
+
+       **Note:** If the load into memory fails, retry Steps 2 and 3.
+
+    Click the Graphs icon again to see that the graph is now in memory.  
+
+       ![See the graph loaded into memory](images/task2step7.png " ")
+--->
 
 ## Acknowledgements
-* **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  
+* **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
+* **Contributors** -  Jayant Sharma
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, February 2023

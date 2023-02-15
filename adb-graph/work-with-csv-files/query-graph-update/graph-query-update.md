@@ -1,4 +1,4 @@
-# Graph Studio: Query, visualize, and analyze a graph using PGQL and Python
+# Query and Visualize the Graph
 
 ## Introduction
 
@@ -22,8 +22,8 @@ Learn how to
 
 ## Task 1: Import the notebook
 
-The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
-First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
+  The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
+  First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
 1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/2qn9I8UPte_UUOSzGqXrfHw7dSEtzth0eaDxRAI_hfg1KIUJVC1c-S422hMHUTJE/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
 
