@@ -1,4 +1,5 @@
-# Create a Graph
+# Create a graph
+
 ## Introduction
 
 In this lab you will create a graph from the `bank_accounts` and `bank_txns` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.

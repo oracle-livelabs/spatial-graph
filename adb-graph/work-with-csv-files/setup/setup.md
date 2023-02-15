@@ -1,4 +1,4 @@
-# Setup: Run Stack
+# Setup: Run stack
 
 ## Introduction
 
@@ -12,7 +12,7 @@ Learn how to
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
-## Task 1: Run Stack
+## Task 1: Run stack
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 

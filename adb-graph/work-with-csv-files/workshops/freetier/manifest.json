@@ -8,7 +8,7 @@
             "filename": "../../introduction/introduction.md"
         },
         {
-            "title": "Get Started",
+            "title": "Get started",
             "description": "Prerequisites for this workshop",
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
@@ -26,7 +26,7 @@
             "filename": "../../query-graph-update/graph-query-update.md"
         },
         {
-            "title": "Lab 4: Clean-up: Terminate Graph Studio and ADB",
+            "title": "Lab 4: Clean-up",
             "filename": "../../../graph-made-easy/destroy-environment/destroy-environment.md"
         },
         {
