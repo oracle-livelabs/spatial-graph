@@ -1,11 +1,11 @@
 {
-    "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Autonomous Database",
+    "workshoptitle": "Use graph analytics and visualization to detect potentially fraudulent money transfers",
       "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
             "title": "Introduction",
             "description": "Overview of this workshop.",
-            "filename": "../../introduction/introduction.md"
+            "filename": "../../../../introduction/introduction.md"
         },
         {
             "title": "Get Started",
@@ -15,19 +15,19 @@
         {
             "title": "Lab 1: Setup",
             "description": "Set up by running Stack.",
-            "filename": "../../setup/setup.md"
+            "filename": "../../../../setup/setup.md"
         },
         {
             "title": "Lab 2: Create a graph",
-            "filename": "../../../graph-made-easy/create-graph/create-graph.md"
+            "filename": "../../../../create-graph/create-graph-me.md"
         },
         {
             "title": "Lab 3: Query and visualize the graph",
-            "filename": "../../query-graph-update/graph-query-update.md"
+            "filename": "../../../../query-graph-update/graph-query-update.md"
         },
         {
             "title": "Lab 4: Clean-up: Terminate Graph Studio and ADB",
-            "filename": "../../../graph-made-easy/destroy-environment/destroy-environment.md"
+            "filename": "../../../../destroy-environment/destroy-environment.md"
         },
         {
             "title": "Need Help?",

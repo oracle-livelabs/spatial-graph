@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Autonomous Database",
+  "workshoptitle": "Use graph analytics and visualization to detect potentially fraudulent money transfers",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
     {
@@ -9,15 +9,15 @@
     {
         "title": "Introduction",
         "description": "About this workshop",
-        "filename": "../../introduction/introduction.md"
+        "filename": "../../../../introduction/introduction.md"
     },
     {
         "title": "Lab 1: Create a property graph in Graph Studio",
-        "filename": "../../create-graph/create-graph.md"
+        "filename": "../../../../create-graph/create-graph.md"
     },
     {
         "title": "Lab 2: Query and visualize the property graph",
-        "filename": "../../query-graph-update/graph-query-update.md"
+        "filename": "../../../../query-graph-update/graph-query-update.md"
     },
     {
         "title": "Need Help?",
