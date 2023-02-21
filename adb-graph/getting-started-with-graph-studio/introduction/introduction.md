@@ -33,4 +33,4 @@ In this workshop you will:
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Korbi Schmidt, Product Development
-* **Last Updated By/Date** - Jayant Sharma, April 2022
+* **Last Updated By/Date** - Jayant Sharma, February 2023
