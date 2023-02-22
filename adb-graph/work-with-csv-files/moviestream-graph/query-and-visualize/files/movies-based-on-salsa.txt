@@ -1,0 +1,1 @@
+movies that have the highest personalized salsa scores and were not previously rented by emilio.

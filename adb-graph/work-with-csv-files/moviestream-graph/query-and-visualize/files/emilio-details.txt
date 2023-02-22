@@ -1,0 +1,1 @@
+some details about Emilio in a table view.

@@ -1,0 +1,1 @@
+Use the credentials for database user MOVIESTREAM.

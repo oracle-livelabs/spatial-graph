@@ -25,87 +25,97 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Log into Graph Studio
+## Task 1: Access the Autonomous Database 
 
-Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. When you created the MOVIESTREAM user in Lab 2, you had graph-enabled that user.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+
+    ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
+
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**. 
+
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
+
+## Task 2: Log into Graph Studio
+
+Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a     graph-enabled user to log into Graph Studio. When you created the MOVIESTREAM user in Lab 2, you had graph-enabled that user.
 
 1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
-  ![Click the Database Actions button](images/click-database-actions.png " ")    
+    ![Click the Database Actions button](images/click-database-actions.png " ")    
 
 2. On the Database Actions panel, click **Graph Studio**.
 
-  ![Click Open Graph Studio](images/graphstudiofixed.png " ")
+    ![Click Open Graph Studio](images/graphstudiofixed.png " ")
 
 3. Log in to Graph Studio. Use the credentials for the database user MOVIESTREAM.
 
-  ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
+    ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
 
-  Graph Studio consists of a set of pages accessed from the menu on the left.
+    Graph Studio consists of a set of pages accessed from the menu on the left.
 
-  The Home icon ![ALT text is not available for this image](images/home.svg "") takes you to the Home page.  
-  The Models icon ![ALT text is not available for this image](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
-  The Graph page ![ALT text is not available for this image](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-  The Notebook page ![ALT text is not available for this image](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
-  The Jobs page ![ALT text is not available for this image](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.  
+    The Home icon ![ALT text is not available for this image](images/home.svg "") takes you to the Home page.  
+    The Models icon ![ALT text is not available for this image](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
+    The Graph page ![ALT text is not available for this image](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
+    The Notebook page ![ALT text is not available for this image](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
+    The Jobs page ![ALT text is not available for this image](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.  
 
 
 ## Task 2: Create a graph of accounts and transactions from the corresponding tables
 
 1. Click the **Models** icon to navigate to the start of the modeling workflow.  
-  Then click **Create**.  
-  ![ALT text is not available for this image](images/modeler-create-button.png " ")  
+    Then click **Create**.  
+    
+    ![ALT text is not available for this image](images/modeler-create-button.png " ")  
 
-  >**Note: If you clicked on `Start Modeling` button instead then you'll see the screen shown in the next step.**
+    >**Note: If you clicked on `Start Modeling` button instead then you'll see the screen shown in the next step.**
 
 2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.   
 
-  ![ALT text is not available for this image](./images/select-tables.png " ")
+    ![ALT text is not available for this image](./images/select-tables.png " ")
 
 3. Move them to the right, that is, click the first icon on the shuttle control.   
 
-  ![ALT text is not available for this image](./images/selected-tables.png " ")
+    ![ALT text is not available for this image](./images/selected-tables.png " ")
 
 4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge and a vertex label.  
 
-  The suggested model has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
+    The suggested model has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
 
-  And `BANK_TXNS` is a suggested edge table.
+    And `BANK_TXNS` is a suggested edge table.
 
-  ![ALT text is not available for this image](./images/create-graph-suggested-model.png " ")    
-
+    ![ALT text is not available for this image](./images/create-graph-suggested-model.png " ")    
 
 5.  Now let's change the default Vertex and Edge labels.  
 
-  Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click outside the input box on confirm label and save the update.  
+    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click outside the input box on confirm label and save the update.  
 
-  ![ALT text is not available for this image](images/edit-accounts-vertex-label.png " ")  
+    ![ALT text is not available for this image](images/edit-accounts-vertex-label.png " ")  
 
-  Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**.  
-  Then click outside the input box on confirm label and save the update.  
+    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**.  
+    Then click outside the input box on confirm label and save the update.  
 
-  ![ALT text is not available for this image](images/edit-edge-label.png " ")  
+    ![ALT text is not available for this image](images/edit-edge-label.png " ")  
 
-  This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
+    This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
 
 6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
-  In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
+    In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
 
-  Note the `Source Vertex` and `Destination Vertex` information on the left.  
+    Note the `Source Vertex` and `Destination Vertex` information on the left.  
 
-  ![ALT text is not available for this image](images/wrong-edge-direction.png " ")  
+    ![ALT text is not available for this image](images/wrong-edge-direction.png " ")  
 
-  **Notice** that the direction is wrong. The Source Key is `to_acct_id` instead of what we want, which is `from_acct_id`.  
+    **Notice** that the direction is wrong. The Source Key is `to_acct_id` instead of what we want, which is `from_acct_id`.  
 
-  Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.  
+    Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.  
 
-  Note that the `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
+    Note that the `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
 
-  ![ALT text is not available for this image](images/reverse-edge-result.png " ")
+    ![ALT text is not available for this image](images/reverse-edge-result.png " ")
 
 7. Click the **Source** tab to verify that the edge direction, and hence the generated CREATE PROPERTY GRAPH statement, is correct.
 
-  ![ALT text is not available for this image](images/generated-cpg-statement.png " ")  
+    ![ALT text is not available for this image](images/generated-cpg-statement.png " ")  
 
   <!---
   **An alternate approach:** In the earlier Step 5 you could have just updated the CREATE PROPERTY GRAPH statement and saved the updates. That is, you could have just replaced the existing statement with the following one which specifies that the SOURCE KEY is  `from_acct_id`  and the DESTINATION KEY is `to_acct_id`.  
@@ -139,20 +149,20 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
-  Enter `bank_graph` as the graph name.  
-  That graph name is used throughout the next lab.  
-  Do not enter a different name because then the queries and code snippets in the next lab will fail.  
+    Enter `bank_graph` as the graph name.  
+    That graph name is used throughout the next lab.  
+    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
 
-  Enter a model name (for example, `bank_graph_model`), and other optional information and then click Create.
+    Enter a model name (for example, `bank_graph_model`), and other optional information and then click Create.
 
-  ![ALT text is not available for this image](./images/create-graph-dialog.png " ")
+    ![ALT text is not available for this image](./images/create-graph-dialog.png " ")
 
 9. Graph Studio modeler will now save the metadata and start a job to create the graph.  
   The Jobs page shows the status of this job.
 
-  ![ALT text is not available for this image](./images/23-jobs-create-graph.png " ")  
+    ![ALT text is not available for this image](./images/23-jobs-create-graph.png " ")  
 
-  You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
+    You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
 
 
 Please **proceed to the next lab** to do so.

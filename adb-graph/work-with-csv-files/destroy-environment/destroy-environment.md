@@ -37,13 +37,13 @@ Learn how to
 
 2. Click on **More actions**, and **Delete Stack**. Then select **Delete** to permanently delete the Stack.
 
-  ![Steps on how to delete Stack](./images/delete-stack.png "")
+    ![Steps on how to delete Stack](./images/delete-stack.png "")
 
-  After this your Autonomous database containing the graph user and the datasets will be deleted.
+    After this your Autonomous database containing the graph user and the datasets will be deleted.
 
-This concludes this lab. Thank you!
+    This concludes this lab. Thank you!
 
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
 * **Contributors** - Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, July 2022    
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, February 2023  

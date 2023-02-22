@@ -5,7 +5,7 @@
         {
             "title": "Introduction",
             "description": "Overview of this workshop.",
-            "filename": "../../../../introduction/introduction.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/introduction/introduction.md"
         },
         {
             "title": "Get Started",
@@ -15,19 +15,19 @@
         {
             "title": "Lab 1: Setup",
             "description": "Set up by running Stack.",
-            "filename": "../../../../setup/setup.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/setup/setup.md"
         },
         {
             "title": "Lab 2: Create a graph",
-            "filename": "../../../../create-graph/create-graph-me.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/create-graph/create-graph.md"
         },
         {
             "title": "Lab 3: Query and visualize the graph",
-            "filename": "../../../../query-graph-update/graph-query-update.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
         },
         {
             "title": "Lab 4: Clean-up: Terminate Graph Studio and ADB",
-            "filename": "../../../../destroy-environment/destroy-environment.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/destroy-environment/destroy-environment.md"
         },
         {
             "title": "Need Help?",

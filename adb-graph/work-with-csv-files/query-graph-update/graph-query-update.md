@@ -29,41 +29,43 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 
-  ![ALT text is not available for this image](images/import-notebook-button.png " ")  
+    ![ALT text is not available for this image](images/import-notebook-button.png " ")  
 
 3. Drag the downloaded file or navigate to the correct folder and select it for upload.  
-  ![ALT text is not available for this image](images/choose-exported-file.png " ")  
+    
+    ![ALT text is not available for this image](images/choose-exported-file.png " ")  
 
 4. Click **Import**.
-  ![Shows the notebook file selected](images/notebook-file-selected.png " ")  
+  
+    ![Shows the notebook file selected](images/notebook-file-selected.png " ") 
+
 5. Once imported, it should open in Graph Studio.  
 
-  ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")  
+    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")  
 
-  You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
 ## Task 2: Create a notebook in Graph Studio and add a paragraph (optional if you haven't imported the notebook)
 
 1. Go to the **Notebooks** page and click the **Create** button.
 
-  ![Shows navigation to create notebook](./images/create-notebook.png)
+    ![Shows navigation to create notebook](./images/create-notebook.png)
 
 2. Enter the notebook Name. Optionally, you can enter Description and Tags. Click **Create**.
 
-  ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
+    ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
 
 3. To add a paragraph, hover over the top or the bottom of an existing paragraph.
 
-  ![Hovering over paragraph](./images/paragraph-hover.png)
+    ![Hovering over paragraph](./images/paragraph-hover.png)
 
-  There are 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
+    There are 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
 
-  ![Shows the different paragraphs and samples](./images/paragraphs.png)
+    ![Shows the different paragraphs and samples](./images/paragraphs.png)
 
-  In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
+    In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
 
 ## Task 3: Load and query the `BANK_GRAPH` and visualize the results
-
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
 If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
@@ -76,32 +78,32 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     The code snippet in that paragraph is:  
 
-    ```
-    <copy>%python-pgx
+     ```
+     <copy>%python-pgx
 
-    GRAPH_NAME="BANK_GRAPH"
-    # try getting the graph from the in-memory graph server
-    graph = session.get_graph(GRAPH_NAME);
-    # if it does not exist read it into memory
-    if (graph == None) :
-        session.read_graph_by_name(GRAPH_NAME, "pg_view")
-        print("Graph "+ GRAPH_NAME + " successfully loaded")
-        graph = session.get_graph(GRAPH_NAME)
-    else :
-        print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
-    ```
+     GRAPH_NAME="BANK_GRAPH"
+     # try getting the graph from the in-memory graph server
+     graph = session.get_graph(GRAPH_NAME);
+     # if it does not exist read it into memory
+     if (graph == None) :
+         session.read_graph_by_name(GRAPH_NAME, "pg_view")
+         print("Graph "+ GRAPH_NAME + " successfully loaded")
+         graph = session.get_graph(GRAPH_NAME)
+     else :
+         print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
+     ```
 
     ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
 
 2. Next, execute the paragraph which queries and displays 100 elements of the graph.    
 
-    ```
-    <copy>%pgql-pgx
-    /* Query and visualize 100 elements (nodes and edges) of BANK_GRAPH */
-    SELECT *
-    FROM match (s)-[t]->(d) on bank_graph
-    LIMIT 100</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* Query and visualize 100 elements (nodes and edges) of BANK_GRAPH */
+     SELECT *
+     FROM match (s)-[t]->(d) on bank_graph
+     LIMIT 100</copy>
+     ```
 
     The above PGQL query fetches the first 100 elements of the graph and displays them.  
     The MATCH clause specifies a graph pattern.  
@@ -146,12 +148,12 @@ If the compute environment is not ready as yet and the code cannot be executed t
 4. This shows the use of bind parameters in a query. The account id value is entered at runtime.
     Enter **534** as the account id, and execute the paragraph.
 
-    ```
-    <copy>%pgql-pgx
-    /* Check if there are any circular payment chains of between 1 and 5 hops starting from the user-supplied account # */
-    SELECT v,e,v2
-    FROM MATCH ANY (a)-[:TRANSFERS]->{1,5}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=${account_id} AND id(a) = id(b)</copy>
+     ```
+     <copy>%pgql-pgx
+     /* Check if there are any circular payment chains of between 1 and 5 hops starting from the user-supplied account # */
+     SELECT v,e,v2
+     FROM MATCH ANY (a)-[:TRANSFERS]->{1,5}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+      WHERE a.acct_id=${account_id} AND id(a) = id(b)</copy>
     ```
 
     ![circular payments chains of between 1 and 5 hops](images/circular-payments-1-5.png " ")
@@ -161,14 +163,14 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Run the paragraph with the following query.
 
-    ```
-    <copy>%pgql-pgx
-    /* List 10 accounts with the most number of transactions (that is, incoming + outgoing edges) */
-    SELECT a.acct_id, (in_degree(a) + out_degree(a)) AS num_transactions
-    FROM MATCH (a) ON bank_graph
-    ORDER BY num_transactions DESC
-    LIMIT 10</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* List 10 accounts with the most number of transactions (that is, incoming + outgoing edges) */
+     SELECT a.acct_id, (in_degree(a) + out_degree(a)) AS num_transactions
+     FROM MATCH (a) ON bank_graph
+     ORDER BY num_transactions DESC
+     LIMIT 10</copy>
+     ```
 
     Change the view to table.
 
@@ -180,16 +182,16 @@ If the compute environment is not ready as yet and the code cannot be executed t
     We start with the **number of hops equals 4** as specified as **[:TRANSFERS]->{4}**.
     **ONE ROW PER STEP** enables us to see all the vertices in the circles.  
 
-    Execute the following query.
+     Execute the following query.
 
-    ```
-    <copy>%pgql-pgx
-    /* Check if there are any circular payment chains of length 4 from acct 934 */
-    SELECT v,e,v2
-    FROM MATCH ALL (a)-[:TRANSFERS]->{4}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=934 AND id(a) = id(b)
-    LIMIT 100</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* Check if there are any circular payment chains of length 4 from acct 934 */
+     SELECT v,e,v2
+     FROM MATCH ALL (a)-[:TRANSFERS]->{4}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE a.acct_id=934 AND id(a) = id(b)
+     LIMIT 100</copy>
+     ```
 
     >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
 
@@ -215,14 +217,14 @@ If the compute environment is not ready as yet and the code cannot be executed t
 7. We can change the above query to check what the number of circles are if we choose **5** hops.  
     Execute the following query.
 
-    ```
-    <copy>%pgql-pgx
-    /* Check if there are any circular payment chains of length 5 from acct 934 */
-    SELECT v,e,v2
-    FROM MATCH ALL (a)-[:TRANSFERS]->{5}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=934 AND id(a) = id(b)
-    LIMIT 100</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* Check if there are any circular payment chains of length 5 from acct 934 */
+     SELECT v,e,v2
+     FROM MATCH ALL (a)-[:TRANSFERS]->{5}(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE a.acct_id=934 AND id(a) = id(b)
+     LIMIT 100</copy>
+     ```
 
     ![Query checks if there are any circular payment chains of length 5 from acct 934](images/payment-chain-5.png " ")  
 
@@ -234,25 +236,25 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Execute the paragraph containing the following code snippet.
 
-    ```
-    <copy>%python-pgx
-    graph = session.get_graph("BANK_GRAPH")
-    analyst.pagerank(graph);</copy>
-    ```
+     ```
+     <copy>%python-pgx
+     graph = session.get_graph("BANK_GRAPH")
+     analyst.pagerank(graph);</copy>
+     ```
 
     ![Query executing pagerank using python](images/pagerank-algorithm.png " ")  
 
 9. Now let's list the PageRank values in descending order to find the accounts with high **PageRank** values.   
     A high PageRank value indicates that that account is 'important,' which in the context of BANK_GRAPH means a high number of transfers have flown through that account, **or** the account is connected to accounts that have a high number of transfers flowing through them.
 
-    ```
-    <copy>%pgql-pgx
-    /* List accounts in descending order of pagerank values*/
-    SELECT a.acct_id, a.pagerank as pageRank
-    FROM MATCH (a) ON bank_graph
-    ORDER BY PageRank DESC
-    LIMIT 10</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* List accounts in descending order of pagerank values*/
+     SELECT a.acct_id, a.pagerank as pageRank
+     FROM MATCH (a) ON bank_graph
+     ORDER BY PageRank DESC
+     LIMIT 10</copy>
+     ```
 
     Change the view to table.
 
@@ -263,15 +265,15 @@ If the compute environment is not ready as yet and the code cannot be executed t
     Now let's use the computed PageRank value in visualizing the result of a PGQL query.  We use highlights to display the accounts with a high PageRank value with larger circles and red in color.
     Execute the paragraph with the following query, which finds the 6-hop payment chains starting at account #934.
 
-    ```
-    <copy>%pgql-pgx
-    /* Add highlights to symbolize account nodes by PageRank values. This shows that 934 and highlights accounts with high PageRank values that are connected to 934.
-    Choose the hierarchical view. */
-    SELECT v,e,v2
-    FROM MATCH ANY (n)-[:Transfers]->{6}(m) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE n.acct_id = 934
-    LIMIT 100</copy>
-    ```  
+     ```
+     <copy>%pgql-pgx
+     /* Add highlights to symbolize account nodes by PageRank values. This shows that 934 and highlights accounts with high PageRank  values that are connected to 934.
+     Choose the hierarchical view. */
+     SELECT v,e,v2
+     FROM MATCH ANY (n)-[:Transfers]->{6}(m) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE n.acct_id = 934
+     LIMIT 100</copy>
+     ```  
 
     >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
 
@@ -290,27 +292,28 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![finds the 6-hop payment chains starting at account #934.](images/6-hop-payment.png " ")
 
 11. Now let us compare the **PageRank** values of accounts with the **number of transactions** going through those accounts (that we had looked at earlier).
+    
     Change the view to table.
 
-    ```
-    <copy>%pgql-pgx
-    /* List accounts in descending order of pagerank values*/
-    SELECT a.acct_id, a.pagerank as pageRank
-    FROM MATCH (a) ON bank_graph
-    ORDER BY PageRank DESC
-    LIMIT 5</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* List accounts in descending order of pagerank values*/
+     SELECT a.acct_id, a.pagerank as pageRank
+     FROM MATCH (a) ON bank_graph
+     ORDER BY PageRank DESC
+     IMIT 5</copy>
+     ```
 
     To display a table with the PageRank values.
 
-    ```
-    <copy>%pgql-pgx
-    /* List 10 accounts with the most number of transactions (that is, incoming + outgoing edges) */
-    SELECT a.acct_id, (in_degree(a) + out_degree(a)) as num_transactions
-    FROM MATCH (a) ON bank_graph
-    ORDER BY num_transactions DESC
-    LIMIT 5</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* List 10 accounts with the most number of transactions (that is, incoming + outgoing edges) */
+     SELECT a.acct_id, (in_degree(a) + out_degree(a)) as num_transactions
+     FROM MATCH (a) ON bank_graph
+     ORDER BY num_transactions DESC
+     LIMIT 5</copy>
+     ```
 
     To display a table with the number of transactions.
 
@@ -322,34 +325,34 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
 12. Let us examine the paths that exist between **934** and **387**.   Other accounts on those paths might have to be investigated too.
 
-    ```
-    <copy>%pgql-pgx
-    /* Check the shortest path between account 934 and account 387 */
-    SELECT v,e,v2
-    FROM MATCH SHORTEST (a)-[:TRANSFERS]->+(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=934 AND b.acct_id=387</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* Check the shortest path between account 934 and account 387 */
+     SELECT v,e,v2
+     FROM MATCH SHORTEST (a)-[:TRANSFERS]->+(b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE a.acct_id=934 AND b.acct_id=387</copy>
+     ```
 
     ![examine the paths that exist between 934, and the account with the highest PageRank value, 387.](images/path-between-934-387.png " ")
 
 13. If you arrange the paths in ascending order by number of hops, these are the **top 3** and **top 5** paths.
 
-    ```
-    <copy>%pgql-pgx
-    /* Find the top 3 shortest paths between account 934 and account 387 */
-    SELECT v,e,v2
-    FROM MATCH TOP 3 SHORTEST (a)-[:TRANSFERS]->+ (b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=934 AND b.acct_id=387</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* Find the top 3 shortest paths between account 934 and account 387 */
+     SELECT v,e,v2
+     FROM MATCH TOP 3 SHORTEST (a)-[:TRANSFERS]->+ (b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE a.acct_id=934 AND b.acct_id=387</copy>
+     ```
 
     ![Find the top 3 shortest paths between account 934 and account 387.](images/top-3-shortest.png " ")
 
-    ```
-    <copy>%pgql-pgx
-    /* Find the top 5 shortest path between account 934 and account 387 */
-    SELECT v,e,v2
-    FROM MATCH TOP 5 shortest (a)-[:TRANSFERS]->+ (b) ON bank_graph ONE ROW PER STEP (v,e,v2)
-    WHERE a.acct_id=934 AND b.acct_id=387</copy>
+     ```
+     <copy>%pgql-pgx
+     /* Find the top 5 shortest path between account 934 and account 387 */
+     SELECT v,e,v2
+     FROM MATCH TOP 5 shortest (a)-[:TRANSFERS]->+ (b) ON bank_graph ONE ROW PER STEP (v,e,v2)
+     WHERE a.acct_id=934 AND b.acct_id=387</copy>
     ```
 
     ![Find the top 5 shortest paths between account 934 and account 387.](images/top-5-shortest.png " ")
@@ -364,22 +367,22 @@ If the compute environment is not ready as yet and the code cannot be executed t
     The code snippet uses the PgxGraph object **graph** containing a handle to the BANK_GRAPH that we got earlier.
     It invokes the **Personalized PageRank algorithm** algorithm with the built-in analyst python object.
 
-    ```
-    <copy>%python-pgx
+     ```
+     <copy>%python-pgx
 
-    vertices = graph.create_vertex_set()
-    vertices.add_all([graph.get_vertex("BANK_ACCOUNTS(934)"),graph.get_vertex("BANK_ACCOUNTS(387)")])
+     vertices = graph.create_vertex_set()
+     vertices.add_all([graph.get_vertex("BANK_ACCOUNTS(934)"),graph.get_vertex("BANK_ACCOUNTS(387)")])
 
-    analyst.personalized_pagerank(graph, vertices)</copy>
-    ```
+     analyst.personalized_pagerank(graph, vertices)</copy>
+     ```
 
     ![computes **PageRank** values relative to a collection of vertices.](images/personalized-pagerank-algorithm.png " ")
 
-    ```
-    <copy>%pgql-pgx
-    SELECT a.acct_id, a.personalized_pagerank as risk FROM MATCH (a) ON bank_graph
-    ORDER BY risk DESC</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     SELECT a.acct_id, a.personalized_pagerank as risk FROM MATCH (a) ON bank_graph
+     ORDER BY risk DESC</copy>
+     ```
 
     Change the view to table.
 
@@ -390,13 +393,13 @@ If the compute environment is not ready as yet and the code cannot be executed t
 15. Let us look at the immediate neighbors of account **406**.
     Execute the paragraph which queries and displays account **406** and its neighbors.  
 
-    ```
-    <copy>%pgql-pgx
-    /* show the transactions for acct id 406 */
-    SELECT *
-    FROM MATCH (v1)-[e1]->(a)-[e2]->(v2) ON bank_graph
-    WHERE a.acct_id=406</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* show the transactions for acct id 406 */
+     SELECT *
+     FROM MATCH (v1)-[e1]->(a)-[e2]->(v2) ON bank_graph
+     WHERE a.acct_id=406</copy>
+     ```
 
     >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
 
@@ -422,65 +425,65 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Execute the paragraphs containing the following code snippet.  
 
-    ```
-    <copy>%python-pgx
-    #By default this is property refers to account #934
-    vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
+     ```
+     <copy>%python-pgx
+     #By default this is property refers to account #934
+     vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
 
-    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_934")</copy>
-    ```
+     analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_934")</copy>
+     ```
 
     ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 934.](images/shortestpath-algorithm.png " ")  
 
-    ```
-    <copy>%python-pgx
-    vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
+     ```
+     <copy>%python-pgx
+     vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
 
-    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
-    ```
+     analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
+     ```
 
     ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 387.](images/shortest-algorithm-387.png " ")  
 
 17. We can GROUP BY the number of hops, and rank them in descending order.  
 
-    ```
-    <copy>%pgql-pgx
-    /* show the number of accounts with a certain number of hops in descending order for #934*/
-    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
-    WHERE hops > 0 AND hops <=2
-    ORDER BY num_transactions DESC</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* show the number of accounts with a certain number of hops in descending order for #934*/
+     SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+     WHERE hops > 0 AND hops <=2
+     ORDER BY num_transactions DESC</copy>
+     ```
 
     Change the view to table.
 
-    ```
-    <copy>%pgql-pgx
-    /* show the number of accounts with a certain number of hops in descending order for #387*/
-    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
-    WHERE hops > 0 AND hops <=2
-    ORDER BY num_transactions DESC</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* show the number of accounts with a certain number of hops in descending order for #387*/
+     SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+     WHERE hops > 0 AND hops <=2
+     ORDER BY num_transactions DESC</copy>
+     ```
     Change the view to table.
 
     ![Table showing number of hops in descending order](images/table-with-hops.png " ")    
 
 18. Let's take a look at the number of transactions for accounts that have two hops or less from 932 or 387.
 
-    ```
-    <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
-    WHERE hops > 0 AND hops <=2
-    ORDER BY num_transactions DESC</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     SELECT a.acct_id, a.hop_dist_from_934 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+     WHERE hops > 0 AND hops <=2
+     ORDER BY num_transactions DESC</copy>
+     ```
 
     Change the view to table.
 
-    ```
-    <copy>%pgql-pgx
-    SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
-    WHERE hops > 0 AND hops <=2
-    ORDER BY num_transactions DESC</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     SELECT a.acct_id, a.hop_dist_from_387 AS hops, in_degree(a) + out_degree(a) AS num_transactions FROM MATCH (a) ON bank_graph
+     WHERE hops > 0 AND hops <=2
+     ORDER BY num_transactions DESC</copy>
+     ```
 
     Change the view to table.
 
@@ -494,12 +497,12 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Execute the paragraph which queries and displays how accounts **934** and **387** are directly trasnferring to **406**.
 
-    ```
-    <copy>%pgql-pgx
-    /* show 2-hop accounts from 934 and 387 */
-    SELECT * FROM MATCH (a) -[e]-> (m)-[e1]->(d) ON BANK_GRAPH
-    WHERE a.acct_id IN (934, 387)</copy>
-    ```
+     ```
+     <copy>%pgql-pgx
+     /* show 2-hop accounts from 934 and 387 */
+     SELECT * FROM MATCH (a) -[e]-> (m)-[e1]->(d) ON BANK_GRAPH
+     WHERE a.acct_id IN (934, 387)</copy>
+     ```
 
     Steps required for customizing the visualization:  
 
