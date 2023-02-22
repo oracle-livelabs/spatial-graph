@@ -1,29 +1,29 @@
 {
-  "workshoptitle": "Use graph analytics and visualization to detect potentially fraudulent money transfers",
-    "help": "livelabs-help-db_us@oracle.com",
-	"tutorials": [
-    {
-        "title": "Get Started",
-        "description": "Prerequisites for this workshop",
-        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"        
-    },
-    {
-        "title": "Introduction",
-        "description": "About this workshop",
-        "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/introduction/introduction.md"
-    },
-    {
-        "title": "Lab 1: Create a property graph in Graph Studio",
-        "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/create-graph/create-graph-me.md"
-    },
-    {
-        "title": "Lab 2: Query and visualize the property graph",
-        "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
-    },
-    {
-        "title": "Need Help?",
-        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-        "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
-    }
-    ]
-}
+    "workshoptitle": "Use graph analytics and visualization to detect potentially fraudulent money transfers",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+      {
+          "title": "Introduction",
+          "description": "About this workshop",
+          "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/introduction/introduction.md"
+      },
+      {
+          "title": "Get Started",
+          "description": "Prerequisites for this workshop",
+          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"        
+      },
+      {
+          "title": "Lab 1: Create a property graph in Graph Studio",
+          "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/create-graph/create-graph.md"
+      },
+      {
+          "title": "Lab 2: Query and visualize the property graph",
+          "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/work-with-csv-files/query-graph-update/graph-query-update.md"
+      },
+      {
+          "title": "Need Help?",
+          "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+          "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+      }
+      ]
+  }
