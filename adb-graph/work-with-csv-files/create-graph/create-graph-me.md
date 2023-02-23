@@ -60,6 +60,7 @@ Learn how to
 
     This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
 
+<!---
 6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
     In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
 
@@ -79,7 +80,7 @@ Learn how to
 
     ![Verifies that the direction of the edge is correct in the source](images/generated-cpg-statement.png " ")  
 
-<!---
+
   **An alternate approach:** In the earlier Step 5 you could have just updated the CREATE PROPERTY GRAPH statement and saved the updates. That is, you could have just replaced the existing statement with the following one which specifies that the SOURCE KEY is  `from_acct_id`  and the DESTINATION KEY is `to_acct_id`.  
 
     ```
@@ -109,7 +110,7 @@ Learn how to
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
+6. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
     Enter `bank_graph` as the graph name.  
     That graph name is used throughout the next lab.  
@@ -119,7 +120,7 @@ Learn how to
     
     ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
 
-9. Graph Studio modeler will now save the metadata and start a job to create the graph.  
+7. Graph Studio modeler will now save the metadata and start a job to create the graph.  
    The Jobs page shows the status of this job.
 
     ![Shows the job tab with the job status as successful](./images/23-jobs-create-graph.png " ")  
@@ -132,4 +133,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023
