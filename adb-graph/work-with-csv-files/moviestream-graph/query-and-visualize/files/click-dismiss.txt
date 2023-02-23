@@ -1,1 +1,0 @@
-Click Dismiss to cloes the Environment Attaching dialog.

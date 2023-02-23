@@ -1,1 +1,0 @@
-Displays all the intermediate nodes accounts through which the money was transferred

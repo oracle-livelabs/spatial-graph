@@ -1,1 +1,0 @@
-Select the notebook to import and click on Import.

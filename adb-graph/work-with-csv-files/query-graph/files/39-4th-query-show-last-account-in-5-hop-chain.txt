@@ -1,1 +1,0 @@
-Query including the node which made the deposit into account 934

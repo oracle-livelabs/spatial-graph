@@ -1,1 +1,0 @@
-shows the use of bind parameters in a query

@@ -1,1 +1,0 @@
-compare the PageRank values of vertices with the number of transactions to and from the vertices.

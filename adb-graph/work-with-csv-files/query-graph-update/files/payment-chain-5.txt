@@ -1,1 +1,0 @@
-Query checks if there are any circular payment chains of length 5 from acct 934

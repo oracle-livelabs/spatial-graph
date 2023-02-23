@@ -1,1 +1,0 @@
-Shows comparison the top ten accounts by PageRank and number of transaction
