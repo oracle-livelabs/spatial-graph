@@ -31,7 +31,7 @@ Learn how to
    
     ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
-2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.   
+2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables. 
 
     ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/select-tables.png " ")
 
