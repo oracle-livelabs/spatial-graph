@@ -1,1 +1,0 @@
-Result of query showing dotted lines with indicates path of length one or more from note to account 934 to itself

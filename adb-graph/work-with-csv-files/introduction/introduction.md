@@ -25,8 +25,6 @@ Autonomous Database: A tour of the Graph Studio interface
 ### Objectives
 
 In this workshop you will:
-* Connect to your Autonomous Database using Database Actions and load two CSV files
-* Connect to your Autonomous Database using **Graph Studio**
 * Create a graph using PGQL's (a graph query language) CREATE PROPERTY GRAPH statement
 * Load the graph into memory for analysis
 * Create a notebook
@@ -37,10 +35,10 @@ In this workshop you will:
 * Oracle Cloud Account
 * Provisioned Autonomous Database-Shared instance
 <!---
-* A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user) 
+* A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Arabella Yao, Database Product Manager, March 2022
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023

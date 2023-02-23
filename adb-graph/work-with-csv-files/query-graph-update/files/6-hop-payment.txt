@@ -1,1 +1,0 @@
-finds the 6-hop payment chains starting at account #934.

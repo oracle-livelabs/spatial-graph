@@ -1,1 +1,0 @@
-Executes the paragraph which queries and displays account 406 and its neighbors.
