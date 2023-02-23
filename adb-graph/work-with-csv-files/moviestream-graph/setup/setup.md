@@ -64,4 +64,4 @@ The instructions below will show you how to run a stack that will automatically 
 ## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-  * **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2022  
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023

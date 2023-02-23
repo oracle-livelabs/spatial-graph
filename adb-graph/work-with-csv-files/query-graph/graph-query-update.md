@@ -398,4 +398,4 @@ First **import** the sample notebook and then execute the relevant paragraph for
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Rahul Tasker, Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, July 2022  
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023
