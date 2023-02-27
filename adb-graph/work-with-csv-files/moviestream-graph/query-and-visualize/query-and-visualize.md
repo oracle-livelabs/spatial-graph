@@ -111,7 +111,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      limit 10</copy>
      ```
 
-    ![10 movies watched by emilio.](images/ten-movies-watched-by-emilio.png " ")
+     ![10 movies watched by emilio.](images/ten-movies-watched-by-emilio.png " ")
 
 3. This shows the movies that both customers Emilio and Floy have watched.
 
