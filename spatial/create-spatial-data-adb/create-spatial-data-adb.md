@@ -6,9 +6,6 @@ Spatial data is commonly sourced from files having coordinates or place names, a
 
 Estimated Time: 20 minutes
 
-Watch the video below for a quick walk-through of the lab.
-[Prepare spatial data](videohub:1_lxp1d572)
-
 ### About spatial data
 
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called SDO_GEOMETRY. Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.
@@ -196,105 +193,29 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
   These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the geojson.io tabs.
 
-2. Next you load the files to database tables. Navigate to SQL Worksheet. From the action menu next to Search, select **Data Loading > Upload Data Into New Table** . 
-   
-   ![Image alt text](images/create-data-01.png)
+1. Next you load the files to database tables. In Database Actions, click on the main hamburger icon at the top left and then click **Data Load**.
 
-3. Drag and drop **stores.csv** into the data loading region.  (You may also click **Select files** to navigate to the files. If you do so then you will need to select the option to **Show all files**.)
-   
-   ![Image alt text](images/create-data-02.png)
+ ![Image alt text](images/create-data-01.png)
 
-4. Preview the data, observing that the data contains longitude, latitude coordinates for each store. Click **Next** to continue.
-   
-   ![Image alt text](images/create-data-03.png)
+2. Accept the defaults (LOAD DATA and LOCAL FILE) click **Next**.
 
-5. Update the column type for POSTAL_CODE to **VARCHAR2** and then click **Next** to continue.
-   
-   ![Image alt text](images/create-data-04.png)
+ ![Image alt text](images/create-data-02.png)
 
-  
-6. Click **Finish**. The table will then be created.
-   
-   ![Image alt text](images/create-data-05.png)
+3. Select all 4 of the files you downloaded, then drag and drop onto the Data Load page.
 
-7.  Observe that data is loaded with no failed rows (i.e., no errors). SQL Worksheet automatically creates a table for each data load to store loading errors. In this workshop you can drop these tables since the data will load without errors.
+ ![Image alt text](images/create-data-03.png)
 
-   Enter and run following command to drop the errors table for STORES.
+4. You now see the 4 files listed for loading. Click the action menu icon for tornado_paths.geojson and select **Settings**.
 
-      ```
-      <copy> 
-         DROP TABLE SDW$ERR$_STORES;
-      </copy>
-      ```
-
-   ![Image alt text](images/create-data-06.png)
-
-9. Repeat the previous steps to upload **warehouses.csv**, accepting all defaults. Observe that the data contains longitude, latitude coordinates for each warehouse. 
-   
-  ![Image alt text](images/create-data-07.png)
-   
-10. When complete, observe there are no failed rows. 
-
-   Enter and run following command to drop the errors table for WAREHOUSES.
-
-      ```
-      <copy> 
-         DROP TABLE SDW$ERR$_WAREHOUSES;
-      </copy>
-      ```
-
-   ![Image alt text](images/create-data-08.png)
+ ![Image alt text](images/create-data-04.png)
 
 
-11. Repeat the data load process, this time loading the file **REGIONS.geojson**.
-
-      ![Image alt text](images/create-data-09.png)
+5.  By default, tables are create with the same name as the input files. This is fine for STORES and WAREHOUSES. For REGIONS and TORNADO_PATHS you will be creating new tables by converting from GeoJSON, so before loading you override the those default names.
 
 
-12. Observe the data preview shows two columns, **type** and **features**. As a JSON format, GeoJSON is comprised of key:value pairs. Loading JSON from a SQL Worksheet in SQL Worksheet automatically creates columns for the top level keys. In the case of GeoJSON, the top level keys are **type** and **features**, where **features** contains ar array of all the individual spatial items.  Click **Next**.
 
-      ![Image alt text](images/create-data-10.png)
 
-13. Rename from destination table from to **REGIONS_GEOJSON** since you will be converting this from a GeoJSON document to a table that you will name **REGIONS**.   Click **Next**.
-
-      ![Image alt text](images/create-data-11.png)
-
-14. Click **Finish** to create the table and load the GeoJSON content. The table is automatically configured for JSON data. 
-
-      ![Image alt text](images/create-data-12.png)
-
-15. When complete, observe there are no failed rows. 
-
-      Enter and run following command to drop the errors table for REGIONS_GEOJSON.
-
-      ```
-      <copy> 
-      DROP TABLE SDW$ERR$_REGIONS_GEOJSON;
-       </copy>
-      ```
-      ![Image alt text](images/create-data-13.png)
-
-16. Next load **TORNADO_PATHS.geojson**.
-      
-      ![Image alt text](images/create-data-14.png)
-
-17. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**. 
-      
-       ![Image alt text](images/create-data-15.png)
-      
-18. When complete, observe there are no failed rows. 
-
-      Enter and run following command to drop the errors table for REGIONS_GEOJSON.
-
-      ```
-      <copy> 
-      DROP TABLE SDW$ERR$_TORNADO_PATHS_GEOJSON;
-      </copy>
-      ```
-
-      ![Image alt text](images/create-data-16.png)
-
-19.  All 4 tables are now created and ready to be configured for Spatial. 
+5.   All 4 tables are now created and ready to be configured for Spatial. 
       
      ![Image alt text](images/create-data-17.png)
    
