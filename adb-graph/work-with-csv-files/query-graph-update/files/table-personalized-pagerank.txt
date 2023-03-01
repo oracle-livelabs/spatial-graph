@@ -1,1 +1,0 @@
-shows personalized pagerank in a table.

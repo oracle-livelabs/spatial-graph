@@ -1,1 +1,0 @@
-shows the settings for the pagerank highlight

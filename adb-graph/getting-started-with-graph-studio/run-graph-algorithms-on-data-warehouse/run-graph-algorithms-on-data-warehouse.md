@@ -231,4 +231,4 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development
 * **Contributors** -  Jayant Sharma, Rahul Tasker, Product Management
-* **Last Updated By/Date** - Rahul Tasker, September 2022
+* **Last Updated By/Date** - Jayant Sharma, February 2023

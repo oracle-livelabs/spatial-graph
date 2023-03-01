@@ -1,1 +1,0 @@
-Shows the number of transactions based on hops for 943 and 387.

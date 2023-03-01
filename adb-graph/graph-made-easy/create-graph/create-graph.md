@@ -1,4 +1,4 @@
-# Graph Studio: Create a graph using PGQL CREATE PROPERTY GRAPH statement
+# Create a graph
 
 ## Introduction
 

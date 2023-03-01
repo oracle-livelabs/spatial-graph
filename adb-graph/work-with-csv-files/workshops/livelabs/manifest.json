@@ -2,27 +2,28 @@
   "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
-        {
-            "title": "Get Started",
-            "description": "Prerequisites for this workshop",
-            "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"        },
-        {
-            "title": "Introduction",
-            "description": "About this workshop",
-            "filename": "../../introduction/introduction-ll.md"
-        },
-        {
-            "title": "Lab 1: Create a property graph in Graph Studio",
-            "filename": "../../create-graph/create-graph.md"
-        },
-        {
-            "title": "Lab 2: Query and visualize the property graph",
-            "filename": "../../../work-with-csv-files/query-graph-update/graph-query-update.md"
-        },
-        {
-            "title": "Need Help?",
-            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-            "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
-        }
+    {
+        "title": "Introduction",
+        "description": "About this workshop",
+        "filename": "../../introduction/introduction.md"
+    },
+    {
+        "title": "Get Started",
+        "description": "Prerequisites for this workshop",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"        
+    },
+    {
+        "title": "Lab 1: Create a property graph in Graph Studio",
+        "filename": "../../create-graph/create-graph.md"
+    },
+    {
+        "title": "Lab 2: Query and visualize the property graph",
+        "filename": "../../query-graph-update/graph-query-update.md"
+    },
+    {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+    }
     ]
 }

@@ -1,1 +1,0 @@
-Shows graph with 2 hops accounts from 943 and 387.

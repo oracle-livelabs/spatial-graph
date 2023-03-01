@@ -1,6 +1,6 @@
 {
     "workshoptitle": "Get Started with Graph Studio",
-    "help": "livelabs-help-db_us@oracle.com",
+    "help": "jayant.sharma@oracle.com",
     "include": {
       "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md"
@@ -10,7 +10,7 @@
         {
           "title": "Get Started",
           "description": "Prerequisites for this workshop",
-          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"
+          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
         },
         {
             "title": "Introduction",
