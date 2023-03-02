@@ -347,12 +347,12 @@ If the compute environment is not ready as yet and the code cannot be executed t
      WHERE LABEL(m) = 'MOVIE'
      AND NOT EXISTS (
      SELECT *
-     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
      WHERE c.cust_id = 1010303
      )
      AND EXISTS (
      SELECT *
-     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
      WHERE c.first_name = 'Timmy' and c.last_name = 'Gardner'
      )
      ORDER BY m.personalized_salsa DESC
