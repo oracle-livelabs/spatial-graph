@@ -34,24 +34,19 @@
       "filename": "../../../run-spatial-queries-adb/run-spatial-queries-adb.md"
     },
     {
-      "title": "Lab 5: Return GeoJSON",
+      "title": "Lab 5 (Optional):  Return GeoJSON",
       "description":"Return GeoJSON",
       "filename": "../../../return-geojson/return-geojson.md"
     },
     {
-      "title": "Lab 6: Cleanup option 1: Reset ADB to pre-workshop state",
+      "title": "Lab 6 (Optional): Cleanup - Reset ADB to pre-workshop state",
       "description":"Cleanup",
       "filename": "../../../cleanup/cleanup.md"
     },
     {
-      "title": "Lab 7: Cleanup option 2: Terminate ADB instance",
-      "description":"Cleanup",
-      "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/terminate-adb/terminate-adb.md"
-    },
-      {
         "title": "Need Help?",
         "description": "Solutions to Common Problems and Directions for Receiving Live Help",
         "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
-      }
+    }
   ]
 }
