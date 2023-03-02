@@ -17,25 +17,25 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
-            "title": "Create an OCI Compartment",
+            "title": "Lab 1: Create an OCI Compartment",
             "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
             "filename": "https://oracle-livelabs.github.io/sprints/oci/sprint-create-compartment/sprint-create-compartment.md"
         },        
         {
-            "title": "Lab 1: Setup",
+            "title": "Lab 2: Setup",
             "description": "Set up by running Stack.",
             "filename": "../../moviestream-graph/setup/setup.md"
         },
         {
-            "title": "Lab 1: Create a property graph in Graph Studio",
+            "title": "Lab 3: Create a property graph in Graph Studio",
             "filename": "../../moviestream-graph/create-graph/create-graph-tenancy.md"
         },
         {
-            "title": "Lab 2: Query and visualize the graph",
+            "title": "Lab 4: Query and visualize the graph",
             "filename": "../../moviestream-graph/query-and-visualize/query-and-visualize.md"
         },
         {
-            "title": "Lab 2: Clean-up",
+            "title": "Lab 5: Clean-up",
             "description": "Destroyed environement created in setup ",
             "filename": "../../destroy-environment/destroy-environment.md"
         },

@@ -88,69 +88,101 @@ If the compute environment is not ready as yet and the code cannot be executed t
      # try getting the graph from the in-memory graph server
      graph = session.get_graph(GRAPH_NAME);
      # if it does not exist read it into memory
-     if (graph == None) :
+     IF (graph == None) :
          session.read_graph_by_name(GRAPH_NAME, "pg_view")
          print("Graph "+ GRAPH_NAME + " successfully loaded")
          graph = session.get_graph(GRAPH_NAME)
-     else :
+     ELSE :
          print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
     ![Uploading graph in memory if it's not loaded yet.](images/pythonquery1.png " ")  
 
-2. Next, execute the paragraph which queries and displays 10 movies connected to a specific customer.    
+2. Next, execute the paragraph which queries and displays 100 movies connected to a specific customer.    
 
      ```
      <copy>%pgql-pgx
 
      /* Pick a customer to movie connection */
-     select c1, e1, m.title
-     from match (c1)-[e1]->(m)
-     on MOVIE_RECOMMENDATIONS
-     where c1.FIRST_NAME = 'Emilio' and c1.LAST_NAME = 'Welch'
-     limit 10</copy>
+     SELECT c1, e1, m.title
+     FROM MATCH (c1)-[e1]->(m)
+     ON MOVIE_RECOMMENDATIONS
+     WHERE c1.FIRST_NAME = 'Emilio' and c1.LAST_NAME = 'Welch'
+     LIMIT 100</copy>
      ```
 
-     ![10 movies watched by emilio.](images/ten-movies-watched-by-emilio.png " ")
+    ![100 movies watched by emilio.](images/ten-movies-watched-by-emilio.png " ")
 
-3. This shows the movies that both customers Emilio and Floy have watched.
+3. This shows the number of movies Emilio has watched.
 
      ```
      <copy>%pgql-pgx
 
-     /* Find movies that both customers are connecting to */
-     select c1, e1, m.title, e2, c2
-     from match (c1)-[e1]->(m)<-[e2]-(c2) 
-     on MOVIE_RECOMMENDATIONS
-     where c1.FIRST_NAME = 'Floyd' and c1.LAST_NAME = 'Bryant' and
-     c2.FIRST_NAME = 'Emilio' and c2.LAST_NAME = 'Welch'
-     limit 20)</copy>
+     /* Number of movies Emilio has watched */
+     SELECT COUNT(distinct m.title) AS Num_Watched 
+     FROM MATCH (c) -[e]-> (m) 
+     ON MOVIE_RECOMMENDATIONS 
+     WHERE c.cust_id = 1010303</copy>
      ```
 
-    ![movies that both customers are connecting to.](images/emilio-floyd-movies-in-common.png " ")
+    Change the view to table.
 
-4. Let's get some details about Emilio   
+    ![number of movies Emilio has watched.](images/number-of-movies-emilio-wacthed.png " ")
+
+4. Let's get some details on the movies Emilio has watched ordered by number of times he has watched the movies  
 
     Run the paragraph with the following query.
 
      ```
      <copy>%pgql-pgx
 
+    /* Pick a customer to movie connection */
+     SELECT c1, e1, m.title
+     FROM MATCH (c1)-[e1]->(m)
+     ON MOVIE_RECOMMENDATIONS
+     WHERE c1.FIRST_NAME = 'Emilio' AND c1.LAST_NAME = 'Welch'
+     ORDER BY in_degree(m) desc
+     LIMIT 100</copy>
+     ```
+
+    ![some details about Emilio in a table view.](images/emilio-details.png " ") 
+
+5. It would be interesting to see the movies that Emilio and Floyd have both watched. 
+
+    Run the paragraph with the following query. 
+
+     ```
+     <copy>%pgql-pgx
+
+     /* Find movies that both customers are connecting to */
+     SELECT c1, e1, m.title, e2, c2
+     FROM MATCH (c1)-[e1]->(m)<-[e2]-(c2) 
+     ON MOVIE_RECOMMENDATIONS
+     WHERE c1.FIRST_NAME = 'Floyd' AND c1.LAST_NAME = 'Bryant' AND
+     c2.FIRST_NAME = 'Emilio' AND c2.LAST_NAME = 'Welch'
+     LIMIT 100</copy>
+     ```
+
+    ![movies Emilio and Floyed have watched.](images/emilio-and-floyed-watched.png " ") 
+
+6. Let's get some details about Emilio by executing the next paragraph.
+ 
+     ```
+     <copy>%pgql-pgx
+
      /* Get some details about Emilio */
-     select  v.first_name, 
+     SELECT  v.first_name, 
          v.last_name,
          v.income_level,
          v.gender,
          v.city
-     from match(v) on MOVIE_RECOMMENDATIONS 
-     where v.cust_id = 1010303</copy>
+     FROM MATCH(v) ON MOVIE_RECOMMENDATIONS 
+     WHERE v.cust_id = 1010303</copy>
      ```
 
-    Change the view to table.
+    ![Emilios properties.](images/emilios-properties.png " ") 
 
-    ![some details about Emilio in a table view.](images/emilio-details.png " ")  
-
-5.  Now let's use python with graph algorithms to recommend movies.
+7.  Now let's use python with graph algorithms to recommend movies.
     Let's list the graphs in memory before running some algorithms.
 
     Execute the following query.
@@ -164,7 +196,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
 
-6. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
+8. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
     
     Execute the following query.
 
@@ -180,14 +212,14 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![create a bipartite graph BIP_GRAPH from MOVIE_RECOMMENDATIONS so that we can run algorithms, such as Personalized SALSA, which take a bipartite graph as input.](images/create-bipartite-graph.png " ")  
 
-7. Let's apply the Personlized SALSA algorithm to recommend movies to Emilio
+9. Let's apply the Personlized SALSA algorithm to recommend movies to Emilio
 
     Execute the paragraph containing the following code snippet.
  
      ```
      <copy>%python-pgx
      # Query the graph to get Emilio's vertex.
-     rs = bgraph.query_pgql("select v from match(v) where v.cust_id = 1010303")
+     rs = bgraph.query_pgql("SELECT v FROM MATCH(v) WHERE v.cust_id = 1010303")
 
      # set the cursor to the first row then get the vertex (element)
      rs.first()
@@ -201,7 +233,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![applying personalized salsa to recommen movies to emilio.](images/emilio-movie-recommendation.png " ")  
 
-8. The following query will display the movies that have the highest personlized salsa scores and have not been previously watched by Emilio.
+10. The following query will display the movies that have the highest personlized salsa scores and have not been previously watched by Emilio.
 
      ```
      <copy>%pgql-pgx
@@ -224,7 +256,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![movies that have the highest personalized salsa scores and were not previously rented by emilio.](images/movies-based-on-salsa.png " ")  
 
-10. Lastly we will save the recommendations to the database.
+11. Lastly we will save the recommendations to the database.
 
      ```
      <copy>%python-pgx
@@ -253,6 +285,81 @@ If the compute environment is not ready as yet and the code cannot be executed t
      ```  
 
     ![saving the movie recommendations in the database.](images/save-recommendations-database.png " ")  
+
+12. By running this query we are listing the top 20 customers with similar viewing habits to Emilio based on the highest personalized salsa score.
+
+     ```
+     <copy>%%pgql-pgx
+
+     /* List top 20 customers with similar viewing habits to Emilio, i.e. those with the highest score/rank */
+     SELECT c.first_name, c.last_name, c.personalized_salsa 
+     FROM MATCH (c) on BIP_GRAPH
+     WHERE c.cust_id <> 1010303 
+     ORDER BY c.personalized_salsa DESC 
+     LIMIT 20</copy>
+     ```
+
+    Change the view to table.
+
+    ![lists top 20 customers similar to Emilio.](images/20-customers.png " ") 
+
+13. Let's take a look at the movies Emilio has watched most often. 
+
+    Execute the paragraph containing the following code snippet.
+ 
+     ```
+     <copy>%pgql-pgx
+
+     /* Movies Emilio has watched most often */
+     SELECT m.title, count (m.title) AS NumTimesWatched 
+     FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
+     WHERE c.cust_id = 1010303 
+     GROUP BY m.title 
+     ORDER BY NumTimesWatched DESC )</copy>
+     ```
+
+    ![most watched movies by Emilio.](images/most-watched-movie.png " ") 
+
+14. Now, let's take a look at the movies Timmy has watched more often. 
+
+     ```
+     <copy>%pgql-pgx
+
+     /* Movies Emilio has watched most often */
+     SELECT m.title, COUNT (m.title) AS NumTimesWatched 
+     FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
+     WHERE c.cust_id = 1010303 
+     GROUP BY m.title 
+     ORDER BY NumTimesWatched DESC)</copy>
+     ```
+
+    ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
+
+15. Let's find the movies that have the highest personalized salsa score which Emilio haven't watched previously. 
+
+     ```
+     <copy>%pgql-pgx
+
+     /* Select the movies that have the highest personalized salsa scores
+     and were not previously watched by Emilio */
+     SELECT m.title, m.personalized_salsa
+     FROM MATCH (m) ON BIP_GRAPH
+     WHERE LABEL(m) = 'MOVIE'
+     AND NOT EXISTS (
+     SELECT *
+     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     WHERE c.cust_id = 1010303
+     )
+     AND EXISTS (
+     SELECT *
+     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     WHERE c.first_name = 'Timmy' and c.last_name = 'Gardner'
+     )
+     ORDER BY m.personalized_salsa DESC
+     LIMIT 20</copy>
+     ```
+
+    ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
 
     This concludes this lab.
 
