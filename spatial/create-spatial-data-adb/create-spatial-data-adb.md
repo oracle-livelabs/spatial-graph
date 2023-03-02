@@ -238,7 +238,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
  ![Image alt text](images/create-data-11.png) 
 
-12. Click the main hamburger icon at teh top left, and then select **SQL**.
+12. Click the main hamburger icon at the top left, and then select **SQL**.
 
  ![Image alt text](images/create-data-12.png) 
 
@@ -718,4 +718,4 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, September 2022
+* **Last Updated By/Date** - David Lapp, March 2023
