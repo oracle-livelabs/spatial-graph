@@ -197,11 +197,11 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
  ![Image alt text](images/create-data-01.png)
 
-2. Accept the defaults (LOAD DATA and LOCAL FILE) click **Next**.
+2. Accept the defaults (LOAD DATA and LOCAL FILE) and click **Next**.
 
  ![Image alt text](images/create-data-02.png)
 
-3. Select all 4 of the files you downloaded, then drag and drop onto the Data Load page.
+3. Select all 4 of the files you downloaded, then drag and drop them onto the Data Load page.
 
  ![Image alt text](images/create-data-03.png)
 
@@ -210,12 +210,41 @@ You begin by loading data for warehouses and stores from CSV files that include 
  ![Image alt text](images/create-data-04.png)
 
 
-5.  By default, tables are create with the same name as the input files. This is fine for STORES and WAREHOUSES. For REGIONS and TORNADO_PATHS you will be creating new tables by converting from GeoJSON, so before loading you override the those default names.
+5.  By default, tables are create with the same name as the input files. This is fine for STORES and WAREHOUSES. However you will be creating REGIONS and TORNADO\_PATHS tables after data loading by converting from GeoJSON. So you need to override the default names. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**.
+
+ ![Image alt text](images/create-data-05.png)
+
+6.  Observe that 2 columns will be created, which correspond to the top level keys in the GeoJSON file. Then click **Close**.
+
+ ![Image alt text](images/create-data-06.png)
+
+7. Repeat for regions.geojson. Click the action menu icon and then **Settings**.
+
+ ![Image alt text](images/create-data-07.png)
+
+8. Update the target table name to **REGIONS\_GEOJSON**. Observe the same structure will be created as the other GeoJSON file, with columns for the top level keys. Click **Close**.
+
+ ![Image alt text](images/create-data-08.png)
+
+9. Click **Start** to initiate the data load.
+
+ ![Image alt text](images/create-data-09.png)
+
+10. When prompted with confirmation popup, click **Run**. 
+
+ ![Image alt text](images/create-data-10.png) 
+
+11. Wait for loading to complete for all 4 files, then click **Done**.
+
+ ![Image alt text](images/create-data-11.png) 
+
+12. Click the main hamburger icon at teh top left, and then select **SQL**.
+
+ ![Image alt text](images/create-data-12.png) 
 
 
 
-
-5.   All 4 tables are now created and ready to be configured for Spatial. 
+8.   All 4 tables are now created and ready to be configured for Spatial. 
       
      ![Image alt text](images/create-data-17.png)
    
