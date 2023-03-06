@@ -18,7 +18,7 @@ Estimated Time: 10 minutes
   - Provisioned Autonomous Database-Shared instance
   - A database user with the correct roles and privileges for working with Graph Studio, which can be achieved with successfully completing Lab 2
 
-## **Task 1:** Import the notebook
+## Task 1: Import the notebook
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
@@ -47,7 +47,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
   You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## **Task 2:** Create a Notebook in Graph Studio
+## Task 2: Create a Notebook in Graph Studio
 
 You can perform the following steps to create a notebook in Graph Studio.
 
@@ -63,7 +63,7 @@ You can perform the following steps to create a notebook in Graph Studio.
 
   ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
 
-## **Task 3:** Use RDF Interpreter in Notebook Paragraph
+## Task 3: Use RDF Interpreter in Notebook Paragraph
 
 For a newly created notebook, the notebook page is displayed with an empty paragraph. You can run a notebook paragraph using one of the following supported interpreters:
 

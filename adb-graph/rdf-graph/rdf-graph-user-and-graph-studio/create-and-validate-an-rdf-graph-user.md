@@ -18,7 +18,7 @@ This lab assumes you have:
   - You have completed:
       - Lab 1: Provision an ADB Instance
 
-## **Task 1:** Create a graph user to access RDF in Graph Studio
+## Task 1: Create a graph user to access RDF in Graph Studio
 
 To work with RDF Graphs in Graph Studio, you must create graph users with granted roles. You can create Graph users with the correct set of roles and privileges using Oracle Database Actions.
 
@@ -72,7 +72,7 @@ Note: The password should meet the following requirements:
 
   ![The database users page showing the created database user accessible under 'all users'](./images/graph-user-created.png "")
 
-## **Task 2:** Create RDF graph in Graph Studio
+## Task 2: Create RDF graph in Graph Studio
 
 Before we can create an RDF graph we must first import RDF data into Graph Studio.
 
@@ -156,7 +156,7 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
     Started execution of task Graph Creation - MOVIESTREAM.
     ```
 
-## **Task 3:** Validate the RDF graph
+## Task 3: Validate the RDF graph
 
 You can explore and validate the newly created RDF graph on the **Graphs** page in Graph Studio as shown:
 
@@ -168,7 +168,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
   ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
 
-## **Task 4** Execute SPARQL queries on the playground page
+## Task 4: Execute SPARQL queries on the playground page
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 
