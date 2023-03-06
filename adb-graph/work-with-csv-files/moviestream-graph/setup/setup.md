@@ -12,24 +12,27 @@ Learn how to
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
-## Task 1: Run Stack
+## Task 1: Create OCI compartment
+[](include:iam-compartment-create-body.md)
+
+## Task 2: Run Stack
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 
 1. Login to the Oracle Cloud.
 
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oracle-quickstart/oci-arch-graph/releases/latest/download/orm-graph-stack.zip) to create and run the Stack.
+2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/ViRQisTk4E8eutjgkVQd7YBVhjUUqH0wGo0RB9IKAPr6g5nY2Ov_L-E-JN6OJYcZ/n/oradbclouducm/b/moviestream_livelab/o/MovieStream_live_lab_7.zip) to create and run the Stack.
   > Note: the link will open in a new tab or window.
 
 3. You will be directed to this page:
 
   ![The create stack page](./images/create-stack.png "")
 
-4.  Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
+4.  Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your **compartment**. Leave the rest as default. Click **Next**.
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the **Database Type as Always Free Oracle Autonomous Database Warehouse**. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous Database and the **region** where all resources will be created. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
   ![The create stack page](./images/configure-variables.png "")
 

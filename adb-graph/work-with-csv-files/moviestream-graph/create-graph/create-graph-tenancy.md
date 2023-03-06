@@ -16,7 +16,33 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Create Graph
+## Task 1: Access the Autonomous Database 
+
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+
+    ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
+
+2. Select your **compartment**, and click on the **Display Name** for the **Autonomous Database**. 
+
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
+
+## Task 2: Log into Graph Studio
+
+Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. When you created the MOVIESTREAM user in Lab 2, you had graph-enabled that user.
+
+1. In your **Autonomous Database Details page** page, click the **Database Actions**.
+
+    ![Click the Database Actions button.](images/click-database-actions.png " ")    
+
+2. On the Database Actions panel, click **Graph Studio**.
+
+    ![Click Open Graph Studio.](images/graphstudiofixed.png " ")
+
+3. Log in to Graph Studio. Use the credentials for the graph user. **Username: MOVIESTREAM** and **password: watchS0meM0vies#**.
+
+    ![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
+
+## Task 3: Create Graph
 
 1. Click the **Graph** icon to navigate to create your graph.  
     Then click **Create**.  
@@ -86,7 +112,7 @@ Learn how to
 
 8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
-    Enter `MOVIE_RECOMMENDATIONS` as the graph name.  
+    Enter **`MOVIE_RECOMMENDATIONS`** as the graph name.  
     That graph name is used throughout the next lab.  
     Do not enter a different name because then the queries and code snippets in the next lab will fail.  
 
