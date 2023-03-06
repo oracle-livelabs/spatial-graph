@@ -96,6 +96,10 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
+  Then, in the pop-up window select RDF Graph, and click Confirm. 
+
+  ![Pop up windows asking to select rdf graph or collections](./images/select-rdf-graph.png "")
+
 6. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
@@ -206,4 +210,4 @@ This concludes this lab. *You may now proceed to the next lab.*
 
 - **Author** -  Malia German, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager
 - **Technical Contributor** -  Melliyal Annamalai Distinguished Product Manager, Joao Paiva Consulting Member of Technical Staff, Lavanya Jayapalan Principal User Assistance Developer
-- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, April 14th 2022
+- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, March 2023
