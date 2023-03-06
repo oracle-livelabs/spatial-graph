@@ -12,7 +12,7 @@ The following video shows the steps you will execute in this lab.
 Estimated Time: 15 minutes.
 
 Watch the video below for a quick walk-through of the lab.
-[Create a property graph in Graph Studio](videohub:1_cz3cwg3h)
+[Create a property graph in Graph Studio](videohub:1_6lnhul6b)
 
 ### Objectives
 
