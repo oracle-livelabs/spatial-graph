@@ -256,6 +256,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![movies that have the highest personalized salsa scores and were not previously rented by emilio.](images/movies-based-on-salsa.png " ")  
 
+<!---
 11. Lastly we will save the recommendations to the database.
 
      ```
@@ -285,8 +286,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
      ```  
 
     ![saving the movie recommendations in the database.](images/save-recommendations-database.png " ")  
+--->
 
-12. By running this query we are listing the top 20 customers with similar viewing habits to Emilio based on the highest personalized salsa score.
+11. By running this query we are listing the top 20 customers with similar viewing habits to Emilio based on the highest personalized salsa score.
 
      ```
      <copy>%%pgql-pgx
@@ -303,7 +305,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![lists top 20 customers similar to Emilio.](images/20-customers.png " ") 
 
-13. Let's take a look at the movies Emilio has watched most often. 
+12. Let's take a look at the movies Emilio has watched most often. 
 
     Execute the paragraph containing the following code snippet.
  
@@ -320,7 +322,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![most watched movies by Emilio.](images/most-watched-movie.png " ") 
 
-14. Now, let's take a look at the movies Timmy has watched more often. 
+13. Now, let's take a look at the movies Timmy has watched more often. 
 
      ```
      <copy>%pgql-pgx
@@ -335,7 +337,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
 
-15. Let's find the movies that have the highest personalized salsa score which Emilio haven't watched previously. 
+14. Lastly, let's find the movies that have the highest personalized salsa score which Emilio haven't watched previously. 
 
      ```
      <copy>%pgql-pgx

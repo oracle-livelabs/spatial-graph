@@ -4,7 +4,7 @@
     "include": {
      "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md"
     },
-    "variables": ["./variables.json"],
+    "variables": ["/common/building-blocks/variables/variables.json"],
     "tutorials": [
         {
             "title": "Use Graph Analytics to Recommend Movies",
@@ -15,12 +15,7 @@
             "title": "Get Started",
             "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
-        },
-        {
-            "title": "Lab 1: Create an OCI Compartment",
-            "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
-            "filename": "https://oracle-livelabs.github.io/sprints/oci/sprint-create-compartment/sprint-create-compartment.md"
-        },        
+        },      
         {
             "title": "Lab 2: Setup",
             "description": "Set up by running Stack.",
