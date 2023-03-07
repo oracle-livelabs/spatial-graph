@@ -13,13 +13,13 @@ Oracle Database stores spatial data (points, lines, polygons) in a native data t
 The SDO_GEOMETRY type has the following general format:
 
 ```
-SDO_GEOMETRY( 
-    [geometry type]              -- ID for points/lines/polygons
-    , [coordinate system]        -- ID of coordinate system
-    , [point coordinate]         -- used for points only
-    , [line/polygon info]        -- used for lines/polygons only
-    , [line/polygon coordinates] -- used for lines/polygons only
-)
+    SDO_GEOMETRY( 
+        [geometry type]              -- ID for points/lines/polygons
+        , [coordinate system]        -- ID of coordinate system
+        , [point coordinate]         -- used for points only
+        , [line/polygon info]        -- used for lines/polygons only
+        , [line/polygon coordinates] -- used for lines/polygons only
+    )
  ```
 
 The most common geometry types are 2-dimensional:
@@ -42,34 +42,34 @@ When using latitude and longitude, note that latitude is the Y coordinate and lo
 The following example is a point geometry with longitude,latitude coordinates:
 
 ```
-SDO_GEOMETRY( 
-    2001                       -- 2D point
-    , 4326                     -- Coordinate system
-    , SDO_POINT_TYPE(
-      -100.123, 20.456, NULL)  -- lon/lat values
-    , NULL                     -- Not used for points
-    , NULL                     -- Not used for points
-)
+    SDO_GEOMETRY( 
+        2001                       -- 2D point
+        , 4326                     -- Coordinate system
+        , SDO_POINT_TYPE(
+          -100.123, 20.456, NULL)  -- lon/lat values
+        , NULL                     -- Not used for points
+        , NULL                     -- Not used for points
+    )
 ```
 
 The following example is a polygon geometry with longitude,latitude coordinates:
 
 ```
-SDO_GEOMETRY( 
-    2003                     -- 2D polygon
-    , 4326                   -- Coordinate system
-    , NULL                   -- Only used for points
-    , SDO_ELEM_INFO_ARRAY(
-              1, 1003, 1)    -- Signifies simple exterior polygon
-    , SDO_ORDINATE_ARRAY(    -- lon/lat values
-          -98.789065,39.90973
-        , -101.2522,39.639537
-        , -99.84374,37.160316
-        , -96.67987,35.460699
-        , -94.21875,39.639537
-        , -98.789025,39.90973
+    SDO_GEOMETRY( 
+        2003                     -- 2D polygon
+        , 4326                   -- Coordinate system
+        , NULL                   -- Only used for points
+        , SDO_ELEM_INFO_ARRAY(
+                  1, 1003, 1)    -- Signifies simple exterior polygon
+        , SDO_ORDINATE_ARRAY(    -- lon/lat values
+              -98.789065,39.90973
+            , -101.2522,39.639537
+            , -99.84374,37.160316
+            , -96.67987,35.460699
+            , -94.21875,39.639537
+            , -98.789025,39.90973
+        )
     )
-)
 ```
 
 The general workflow for creating spatial data is to generate geometries and then create a spatial index for optimal performance. Prior to creating a spatial index, a row of spatial metadata is inserted which is used by the spatial index to ensure data consistency.
@@ -77,31 +77,28 @@ The general workflow for creating spatial data is to generate geometries and the
 Spatial metadata is inserted as follows:
 
 ```
-<copy> 
-  INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-  <table name>,
-  <geometry column name>,
-  SDO_DIM_ARRAY(
-    SDO_DIM_ELEMENT('X',<min x>,<max x>,<tolerance>),
-    SDO_DIM_ELEMENT('Y',<min y>,<max y>,<tolerance>)),
-  <coordinate system id>   
-  );
-</copy>
+    INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+    [table name],
+    [geometry column name],
+    SDO_DIM_ARRAY(
+      SDO_DIM_ELEMENT('X',[min x],[max x],[tolerance]),
+      SDO_DIM_ELEMENT('Y',[min y],[max y],[tolerance])),
+    [coordinate system id]   
+    );
 ```
+
 
 In this workshop you work with longitude,latitude coordinates so the metadata inserts will be as follows:
 
 ```
-<copy> 
-  INSERT INTO USER_SDO_GEOM_METADATA VALUES (
-  <table name>,
-  <geometry column name>,
-  SDO_DIM_ARRAY(
-    SDO_DIM_ELEMENT('X', -180, 180, 0.005),
-    SDO_DIM_ELEMENT('Y',-90, 90, 0.005)),
-  4326 
-  );
-</copy>
+    INSERT INTO USER_SDO_GEOM_METADATA VALUES (
+    [table name],
+    [geometry column name],
+    SDO_DIM_ARRAY(
+      SDO_DIM_ELEMENT('X', -180, 180, 0.005),
+      SDO_DIM_ELEMENT('Y',-90, 90, 0.005)),
+    4326 
+    );
 ```
 
 
@@ -115,14 +112,12 @@ As stated at [https://geojson.org/](https://geojson.org/), "GeoJSON is a format 
 A GeoJSON document is typically a JSON document with the top level structure 
 
   ```
-   <code>
     {
         "type": "FeatureCollection",
         "features": [
-          < ... array of GeoJSON features ... >
+           ... array of GeoJSON features ... 
         ]
      }
-   </code>
   ```
 
 The format of GeoJSON features is show below.
