@@ -238,11 +238,27 @@ You begin by loading data for warehouses and stores from CSV files that include 
  ![Image alt text](images/create-data-12.png) 
 
 
-
-8.   All 4 tables are now created and ready to be configured for Spatial. 
+13. Confirm that all 4 tables are now created. 
       
-     ![Image alt text](images/create-data-17.png)
-   
+ ![Image alt text](images/create-data-17.png)
+
+14. To prepare for working with the GeoJSON content, add check constraints on the FEATURES columns defining them as JSON.
+
+       ```
+       <copy> 
+        ALTER TABLE REGIONS_GEOJSON 
+            ADD CHECK (FEATURES IS JSON);
+
+        ALTER TABLE TORNADO_PATHS_GEOJSON 
+            ADD CHECK (FEATURES IS JSON);
+        </copy>
+        ```
+
+ ![Image alt text](images/create-data-17b.png)
+
+
+The tables are now ready to be configured for Spatial.
+
 
 ## Task 2: Configure warehouses table using geometry column
 
