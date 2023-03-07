@@ -12,7 +12,11 @@ Learn how to
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
-## Task 1: Run stack
+## Task 1: Create OCI compartment
+
+[](include:iam-compartment-create-body.md)
+
+## Task 2: Run stack
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 
@@ -29,7 +33,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the **Database Type as Always Free Oracle Autonomous Database Warehouse**. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous Database and the **Paid Oracle Autonomous Database**. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
     ![Configurating the settings for the stack](./images/configure-variables.png "")
 
@@ -41,7 +45,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![How to see the graph username and password](./images/graph-username-password.png "")
 
-## Task 2: Login to Graph studio
+## Task 3: Login to Graph studio
 
 1. Click the **Open Graph Studio** under the Application Information. This will open a new page. Enter your graph username and password provided under Application Information, into the login screen.
 
