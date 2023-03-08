@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will create a graph from the `MOVIE, CUSTOMER\_PROMOTIONS`, and `CUSTSALES\_PROMOTIONS` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
+In this lab you will create a graph from the `MOVIE, CUSTOMER_PROMOTIONS`, and `CUSTSALES_PROMOTIONS` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
 
 Estimated Time: 15 minutes.
 
