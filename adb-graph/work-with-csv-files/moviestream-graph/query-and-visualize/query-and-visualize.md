@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will query the newly create graph (that is, `moviestream`) in PGQL paragraphs of a notebook.
+In this lab you will query the newly create graph (that is, `moviestream_recommendations`) in PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
@@ -31,7 +31,7 @@ Learn how to
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
 
-    A dialog pops up named **Environment Attaching"**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
+    A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
     ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
 
@@ -317,51 +317,50 @@ If the compute environment is not ready as yet and the code cannot be executed t
      FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
      WHERE c.cust_id = 1010303 
      GROUP BY m.title 
-     ORDER BY NumTimesWatched DESC )</copy>
+     ORDER BY NumTimesWatched DESC</copy>
      ```
 
     ![most watched movies by Emilio.](images/most-watched-movie.png " ") 
 
-13. Now, let's take a look at the movies Timmy has watched more often. 
+13. Timmy had the highest personalized salsa score based on similar viewing habits to Emilio, so let's look at the movies Timmy has watched more often. 
 
      ```
      <copy>%pgql-pgx
 
-     /* Movies Emilio has watched most often */
-     SELECT m.title, COUNT (m.title) AS NumTimesWatched 
+     /* Movies Timmy (with a top personalized_salsa score has watched most often) */
+     SELECT m.title, count (m.title) as NumTimesWatched 
      FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
-     WHERE c.cust_id = 1010303 
+     WHERE c.first_name='Timmy'  and c.last_name='Gardner' 
      GROUP BY m.title 
-     ORDER BY NumTimesWatched DESC)</copy>
+     ORDER BY NumTimesWatched DESC </copy>
      ```
 
     ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
 
-14. Lastly, let's find the movies that have the highest personalized salsa score which Emilio haven't watched previously. 
+14. Lastly, let's find the movies with the highest personalized salsa score Emilio hasn't watched. We can recommend movies that Timmy has watched that Emilio hasn't. 
 
      ```
      <copy>%pgql-pgx
 
-     /* Select the movies that have the highest personalized salsa scores
-     and were not previously watched by Emilio */
+     /* Select the movies that Timmy has watched but Emilio has not, ranked by their psalsa score. */
      SELECT m.title, m.personalized_salsa
      FROM MATCH (m) ON BIP_GRAPH
      WHERE LABEL(m) = 'MOVIE'
      AND NOT EXISTS (
      SELECT *
-     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
      WHERE c.cust_id = 1010303
-     )
+      )
      AND EXISTS (
      SELECT *
-     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
      WHERE c.first_name = 'Timmy' and c.last_name = 'Gardner'
      )
      ORDER BY m.personalized_salsa DESC
      LIMIT 20</copy>
      ```
 
-    ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
+    ![most watched movies by Timmy.](images/not-watched-by-emilio.png " ") 
 
     This concludes this lab.
 

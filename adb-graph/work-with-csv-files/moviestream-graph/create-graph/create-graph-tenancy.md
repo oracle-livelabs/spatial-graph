@@ -28,7 +28,20 @@ Learn how to
 
 ## Task 2: Log into Graph Studio
 
-Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. When you created the MOVIESTREAM user in Lab 2, you had graph-enabled that user.
+Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. In this workshop, the graph user has already been created for you.
+
+The graph user credentials are: 
+
+**Username:** 
+
+
+     <copy>MOVIESTREAM</copy>
+
+
+**password:**
+
+
+     <copy>watchS0meM0vies#</copy>
 
 1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
@@ -38,7 +51,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     ![Click Open Graph Studio.](images/graphstudiofixed.png " ")
 
-3. Log in to Graph Studio. Use the credentials for the graph user. **Username: MOVIESTREAM** and **password: watchS0meM0vies#**.
+3. Log in to Graph Studio. Use the credentials for the graph user "MOVIESTREAM".
 
     ![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
 
@@ -52,7 +65,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     Click to expand list of available items and then select the tables
 
-    ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/selected-tables.png " ")
+    ![Shows how to select tables](./images/selected-tables.png " ")
 
 3. Move them to the right, that is, click the first icon on the shuttle control.   
 
