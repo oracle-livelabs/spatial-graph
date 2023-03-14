@@ -36,7 +36,6 @@ Learn how to
     ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
 
     You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
-
 <!---
  2. Review the description before each paragraph.   Review the graph queries and analytics.   You can then run the query by clicking on the triangle on the top right if you would like to do so.  Below is an example of running a query in a paragraph.  
 
