@@ -210,7 +210,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Query that checks if there are any circular payment chains of length 4 from acct 934](images/payment-chain-4.png " ")
 
-    Here `/:TRANSFERS{4}/` is a [reachability path expression](https://pgql-lang.org/spec/1.3/#reachability). It only tests for the existence of the path.  
+    Here `[:TRANSFERS]->{4}` is a [reachability path expression](https://pgql-lang.org/spec/1.3/#reachability). It only tests for the existence of the path.  
     `:TRANSFERS` specifies that all edges in the path must have the label `TRANSFERS`.  
     While `{4}` specifies a path length of exactly 3 hops.  
 
@@ -247,7 +247,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![Query executing pagerank using python](images/pagerank-algorithm.png " ")  
 
 9. Now let's list the PageRank values in descending order to find the accounts with high **PageRank** values.   
-    A high PageRank value indicates that that account is 'important,' which in the context of BANK_GRAPH means a high number of transfers have flown through that account, **or** the account is connected to accounts that have a high number of transfers flowing through them.
+    A high PageRank value indicates that the account is 'important,' which in the context of BANK_GRAPH means a high number of transfers have flown through that account, **or** the account is connected to accounts that have a high number of transfers flowing through them.
 
      ```
      <copy>%pgql-pgx
@@ -303,7 +303,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      SELECT a.acct_id, a.pagerank as pageRank
      FROM MATCH (a) ON bank_graph
      ORDER BY PageRank DESC
-     IMIT 5</copy>
+     LIMIT 5</copy>
      ```
 
     To display a table with the PageRank values.
@@ -367,7 +367,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 14. We use the **Personalized PageRank algorithm**, which computes **PageRank** values _relative_ to a collection of vertices, which in this case is **934** and **387**.
     We use the Python API again.
     The code snippet uses the PgxGraph object **graph** containing a handle to the BANK_GRAPH that we got earlier.
-    It invokes the **Personalized PageRank algorithm** algorithm with the built-in analyst python object.
+    It invokes the **Personalized PageRank algorithm** with the built-in analyst python object.
 
      ```
      <copy>%python-pgx
@@ -416,7 +416,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![Executes the paragraph which queries and displays account 406 and its neighbors.n](images/406-neighbors.png " ")
 
 16. We can use another algorithm, the **``ShortestPathHopDist()``** analytics algorithm, to compute which accounts might be engaged in illegal activities because of their proximity to accounts **934** and **387**.
-    **``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away a account is from **934** and **387**, and hence lower the risk.
+    **``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away an account is from **934** and **387**, and hence lower the risk.
     We use the Python API again.
 
     The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier.
@@ -497,7 +497,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Now let's look at a graph showing 2-hops accounts from **934** and **387**.
 
-    Execute the paragraph which queries and displays how accounts **934** and **387** are directly trasnferring to **406**.
+    Execute the paragraph which queries and displays how accounts **934** and **387** are directly transferring to **406**.
 
      ```
      <copy>%pgql-pgx
@@ -517,4 +517,4 @@ If the compute environment is not ready as yet and the code cannot be executed t
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Rahul Tasker, Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, July 2022  
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, March 2023 

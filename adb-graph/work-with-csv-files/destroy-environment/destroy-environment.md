@@ -17,7 +17,7 @@ Learn how to
 
 ## Task 1: Destroy job created by Stack
 
-1. Click the navigation menu in the upper left to show navigation choices. Select **Development Services** and then click on **Stack**.
+1. Click the navigation menu in the upper left to show navigation choices. Select **Developer Services** and then click on **Stacks**.
 
   ![Steps on how to get to Stack in the OCI navigation menu](./images/stack-in-oci.png "")
 
@@ -31,7 +31,7 @@ Learn how to
 
 ## Task 2: Delete Stack
 
-1. When the job has succeeded the stack image will turn green. Click on **Stack Details**.
+1. Click on **Stack Details**.
 
   ![How to get back to Stack Details](./images/stack-details.png "")
 
