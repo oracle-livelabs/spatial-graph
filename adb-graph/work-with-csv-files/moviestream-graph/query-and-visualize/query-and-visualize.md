@@ -21,13 +21,13 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
 
-  [Click here to download the notebook.](https://objectstorage.us-ashburn-1.oraclecloud.com/p/AcUfoqvJ_Tr0RuDLyojQCaak_IpD0q1LFYFfmMvcNLteRBg8krhWe3lbwrDMn8mh/n/c4u04/b/livelabsfiles/o/Movie%20Recommendations%20-%20Personalized-SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](https://objectstorage.us-ashburn-1.oraclecloud.com/p/AcUfoqvJ_Tr0RuDLyojQCaak_IpD0q1LFYFfmMvcNLteRBg8krhWe3lbwrDMn8mh/n/c4u04/b/livelabsfiles/o/Movie%20Recommendations%20-%20Personalized-SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
  1. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
     ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
     
-    Select or drag and drop the noteboook and click **Import**.
+     Select or drag and drop the noteboook and click **Import**.
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
 
@@ -35,7 +35,9 @@ Learn how to
 
     ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
 
-
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
+    
+<!---
  2. Review the description before each paragraph.   Review the graph queries and analytics.   You can then run the query by clicking on the triangle on the top right if you would like to do so.  Below is an example of running a query in a paragraph.  
 
     ![Click Execute.](images/task3step4.png " ")
@@ -45,8 +47,7 @@ Learn how to
     ![Click Execute.](images/task3step6.png " ")
 
     ![Click Execute.](images/task3step7.png " ")
-
-    >**Note:** You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
+--->
 
 ## Task 2: Create a notebook and add paragraphs (optional if you haven't imported the notebook)
 
@@ -71,7 +72,7 @@ Learn how to
 ## Task 3: Load and query the "Moviestream" and visualize the results
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
+If the compute environment is not ready and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
 
 ![The environment is loading because it's not ready.](images/env-not-ready.png " ")
 
@@ -197,6 +198,8 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
 
 8. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
+
+    >**Note:** A bipartite graph is a graph whose vertices can be partitioned into two sets such that all edges connect a vertex in one set to a vertex in the other set.
     
     Execute the following query.
 
@@ -348,12 +351,12 @@ If the compute environment is not ready as yet and the code cannot be executed t
      WHERE LABEL(m) = 'MOVIE'
      AND NOT EXISTS (
      SELECT *
-     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
      WHERE c.cust_id = 1010303
       )
      AND EXISTS (
      SELECT *
-     FROM MATCH (c)-[:custsales_promotions]->(m) ON BIP_GRAPH
+     FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
      WHERE c.first_name = 'Timmy' and c.last_name = 'Gardner'
      )
      ORDER BY m.personalized_salsa DESC
