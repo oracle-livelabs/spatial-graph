@@ -30,20 +30,6 @@ Learn how to
 
 Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. In this workshop, the graph user has already been created for you.
 
-The graph user credentials are: 
-
-**Username:** 
-
-
-     <copy>MOVIESTREAM</copy>
-
-
-**password:**
-
-
-     <copy>watchS0meMovies#</copy>
-
-
 1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
     ![Click the Database Actions button.](images/click-database-actions.png " ")    
@@ -52,9 +38,20 @@ The graph user credentials are:
 
     ![Click Open Graph Studio.](images/graphstudiofixed.png " ")
 
-3. Log in to Graph Studio. Use the credentials for the graph user "MOVIESTREAM".
+3. Log in to Graph Studio. Use the credentials for the graph user:
 
-    ![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
+    The graph user credentials are: 
+
+**Username:** 
+    
+     <copy>MOVIESTREAM</copy>
+
+
+**password:** 
+    
+     <copy>watchS0meMovies#</copy>
+
+![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
 
 ## Task 3: Create Graph
 
@@ -62,7 +59,7 @@ The graph user credentials are:
     Then click **Create**.  
     ![Shows where the create button modeler is.](images/graph-create-button.png " ")  
 
-2. Then select the `CUSTOMER_PROMOTIONS`, `CUSTSALES_PROMOTIONS` and `MOVIE` tables.
+2. Then select the `CUSTOMER_PROMOTIONS`, `CUSTSALES_PROMOTIONS` and `MOVIE` tables under MOVIESTREAM.
 
     Click to expand list of available items and then select the tables
 
@@ -72,9 +69,9 @@ The graph user credentials are:
 
     ![Shows the selected tables.](./images/select-tables.png " ")
 
-4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge and a vertex label.  
+4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge label.  
 
-    The suggested model has the `MOVIE` and `CUSTOMER_PROMOTIONS`, as a vertex table since there are foreign key constraints specified on `CUSTSALES_PROMOTIONS` that reference it.   
+    The suggested model has the `MOVIE` and `CUSTOMER_PROMOTIONS` as vertex tables since there are foreign key constraints specified on `CUSTSALES_PROMOTIONS` that reference it.   
 
     And `CUSTSALES_PROMOTIONS` is a suggested edge table.
 
@@ -83,14 +80,14 @@ The graph user credentials are:
 
 5.  Now let's change the default Edge label.   
 
-    Click the `MOVIE` edge table and rename the Edge Label from `MOVIE` to **WATCHED**.  
+    Click the `CUSTSALES_PROMOTIONS` edge table and rename the Edge Label from `CUSTSALES_PROMOTIONS` to **WATCHED**.  
     Then click outside the input box on confirm label and save the update.  
 
     ![Changed the label name of the edge to Transfers.](images/edit-edge-label.png " ")  
 
     This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
 
-6. Click the **Source** tab to verify that the edge direction, and hence the generated CREATE PROPERTY GRAPH statement, is correct.
+6. Click the **Source** tab observe the edge direction. The source key is cust\_id and the destination key is movie\_id.
 
     ![Verifies that the direction of the edge is correct in the source.](images/generated-cpg-statement.png " ")  
 
@@ -124,17 +121,17 @@ The graph user credentials are:
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
+7. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
     Enter `MOVIE_RECOMMENDATIONS` as the graph name.  
     That graph name is used throughout the next lab.  
     Do not enter a different name because then the queries and code snippets in the next lab will fail.  
 
-    Enter a model name (for example, `movie_recommendations_model`), and other optional information and then click Create.
+    Enter a model name (for example, `movie_recommendations_model`), and other optional information and then click **Create**.
   
     ![Shows the create graph window where you assign the graph a name.](./images/create-graph-dialog.png " ")
 
-9. Graph Studio modeler will now save the metadata and start a job to create the graph.  
+8. Graph Studio modeler will now save the metadata and start a job to create the graph.  
     The Jobs page shows the status of this job.
 
     ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
@@ -176,6 +173,8 @@ The graph user credentials are:
 
        ![See the graph loaded into memory](images/task2step7.png " ")
 --->
+
+Please **proceed to the next lab** to do so.
 
 ## Acknowledgements
 * **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
