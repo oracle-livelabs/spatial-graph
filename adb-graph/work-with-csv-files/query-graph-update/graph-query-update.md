@@ -14,18 +14,18 @@ Watch the video below for a quick walk-through of the lab.
 Learn how to
 - Import a notebook
 - Create a notebook and add paragraphs
-- use Graph Studio notebooks and PGQL and Python paragraphs to query, analyze, and visualize a graph.
+- Use Graph Studio notebooks and PGQL and Python paragraphs to query, analyze, and visualize a graph
 
 ### Prerequisites
 
-- Earlier labs of this workshop. That is, the graph user exists and you have logged into Graph Studio.
+- Earlier labs of this workshop. That is, the graph user exists, you have logged into Graph Studio, and created a graph
 
 ## Task 1: Import the notebook
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp-[…]4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 
@@ -66,6 +66,8 @@ First **import** the sample notebook and then execute the relevant paragraph for
     In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
 
 ## Task 3: Load and query the `BANK_GRAPH` and visualize the results
+
+In this task, we will run the graph queries and use the settings tool to customize the graphs. If you have imported the notebook in task 1, you do not need to customize the visualizations to achieve the end result. However, you can manipulate the settings to explore different available options.
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
 If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
@@ -120,7 +122,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 3. The result utilizes some features of the visualization component.
     The `acct_id` property is used for the node (or vertex) labels and the graph is rendered using a selected graph layout algorithm.  
 
-    >**Note:***You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*  
+    >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*  
 
     Steps required for customizing the visualization:  
 
