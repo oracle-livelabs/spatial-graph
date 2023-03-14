@@ -21,7 +21,7 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
 
-  [Click here to download the notebook](https://objectstorage.us-ashburn-1.oraclecloud.com/p/AcUfoqvJ_Tr0RuDLyojQCaak_IpD0q1LFYFfmMvcNLteRBg8krhWe3lbwrDMn8mh/n/c4u04/b/livelabsfiles/o/Movie%20Recommendations%20-%20Personalized-SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](files/movie_recommendations_psalsa.dsnb " ") and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
  1. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
@@ -36,7 +36,7 @@ Learn how to
     ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
 
     You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
-    
+
 <!---
  2. Review the description before each paragraph.   Review the graph queries and analytics.   You can then run the query by clicking on the triangle on the top right if you would like to do so.  Below is an example of running a query in a paragraph.  
 
