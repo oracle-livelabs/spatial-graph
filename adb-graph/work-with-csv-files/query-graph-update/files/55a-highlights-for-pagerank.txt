@@ -1,1 +1,0 @@
-Query computing PageRank and using Highlights customization

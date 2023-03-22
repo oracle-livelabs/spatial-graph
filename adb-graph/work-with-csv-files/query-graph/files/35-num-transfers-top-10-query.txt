@@ -1,1 +1,0 @@
-Number of transfers top 10 query
