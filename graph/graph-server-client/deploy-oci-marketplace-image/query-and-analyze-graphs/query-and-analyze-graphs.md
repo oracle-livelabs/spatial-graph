@@ -128,7 +128,8 @@ Let's find which accounts are influential in the network. There are various algo
 
     ```
     <copy>
-    graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'")); graph2
+    graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'"));
+    graph2
     </copy>
 
     PgxGraph(name: sub-graph_16, v: 6, e: 8, directed: True, memory(Mb): 0)
@@ -281,4 +282,4 @@ You may now proceed to the next Lab.
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, April 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023

@@ -35,7 +35,7 @@ Estimated time: 7 minutes
     - Destination Port Range: **7007**
     - Description: e.g. **For Graph Server**
 
-    ![ingress-rule](images/ingress-rule.jpg)
+    ![ingress-rule](images/ingress-rule.png)
 
 
 ## Task 2: Locate the Graph Server and Client in the Marketplace
@@ -48,20 +48,20 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
     ![marketplace](images/marketplace.jpg)
 
-2. Select the stack and then review the System Requirements and Usage Instructions. Then select the version **21.4.x** (18-month patch release) and choose a compartment and click on **Launch Stack**.
+2. Select the stack and then review the System Requirements and Usage Instructions. Then select the version **22.4.x** (18-month patch release) and choose a compartment and click on **Launch Stack**.
 
     ![launch-stack](images/launch-stack.png)
 
 3. **Stack Information**: You do not need to change. Proceed with **Next**.
 
-    ![create-stack](images/create-stack.jpg)
+    ![create-stack](images/create-stack.png)
 
 4. **Configure Variables**: You will need to choose or provide the following:
 
     - Oracle Graph Server Shape: an always free eligible shape is **VM.Standard.E2.1.Micro**
     - SSH Public Key: This is used when you ssh into the provisioned instance later.
 
-    ![configure-variables-1](images/configure-variables-1.jpg)
+    ![configure-variables-1](images/configure-variables-1.png)
 
     - Existing Virtual cloud network: The one created above, **vcn1**
     - Existing Subnet: The one created above, **Public Subnet-vcn1**
@@ -182,5 +182,5 @@ You may now proceed to the next lab.
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 * **Contributors** - Thanks to Jenny Tsai for helpful, constructive feedback that improved this workshop. Arabella Yao, Product Manager Intern, Database Management.
-* **Last Updated By/Date** - Ryota Yamanaka, January 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023
 

@@ -45,7 +45,7 @@ You should see the following if the client shell starts up successfully.
 ```
 password:
 
-Oracle Graph Client Shell 21.4.2
+Oracle Graph Client Shell 22.4.0
 >>>
 ```
 
@@ -204,4 +204,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Ryota Yamanaka, January 2022
+- **Last Updated By/Date** - Ryota Yamanaka, March 2023
