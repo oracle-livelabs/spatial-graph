@@ -126,7 +126,7 @@ scp -i <private_key> <Wallet_database_name>.zip opc@<public_ip_for_compute>:/etc
 ```
 
 Example:
-```
+```sh
 scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/graph/wallets
 ```
 
