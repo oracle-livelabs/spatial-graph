@@ -119,7 +119,7 @@ In this step, you need the shell tool to run **scp** and **ssh** commands, e.g. 
 
 Copy the wallet from your local machine to the Graph Server instance on OCI.
 
-```
+```sh
 <copy>
 scp -i <private_key> <Wallet_database_name>.zip opc@<public_ip_for_compute>:/etc/oracle/graph/wallets
 </copy>
@@ -147,7 +147,7 @@ scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/grap
 
 1. Unzip the ADB wallet to the **/etc/oracle/graph/wallets/** directory and change the group permission.
 
-    ```
+    ```sh
     <copy>
     cd /etc/oracle/graph/wallets/
     unzip Wallet_ATPGRAPH.zip
@@ -157,14 +157,14 @@ scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/grap
 
 1. Optionally, check that you used the right service name in the JDBC URL you entered when configuring the OCI stack.
 
-    ```
+    ```sh
     <copy>
     cat /etc/oracle/graph/wallets/tnsnames.ora
     </copy>
     ```
 
     You will see the entry `atpgraph_low` similar to:
-    ``` 
+    ```text
     atpgraph_low =
         (description=
             (address=

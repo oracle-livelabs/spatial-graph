@@ -20,7 +20,7 @@ Learn how to create a graph from relational data sources by:
 
 Connect to the compute instance via SSH as **opc** user, using the private key you created earlier.
 
-```
+```sh
 <copy>
 ssh -i <private_key> opc@<public_ip_for_compute>
 </copy>
@@ -28,13 +28,13 @@ ssh -i <private_key> opc@<public_ip_for_compute>
 
 Example:
 
-```
+```sh
 ssh -i key.pem opc@203.0.113.14
 ```
 
 Start a Python client shell instance that connects to the server.
 
-```
+```sh
 <copy>
 opg4py -b https://localhost:7007 -u customer_360
 </copy>
@@ -42,7 +42,7 @@ opg4py -b https://localhost:7007 -u customer_360
 
 You should see the following if the client shell starts up successfully.
 
-```
+```sh
 password:
 
 Oracle Graph Client Shell 22.4.0
@@ -53,7 +53,7 @@ Oracle Graph Client Shell 22.4.0
 
 Set up the create property graph statement, which creates a graph from the existing tables.
 
-```    
+```python  
 <copy>
 statement = '''
 CREATE PROPERTY GRAPH "customer_360"
@@ -85,7 +85,7 @@ For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec
 
 Now execute the PGQL DDL to create the graph.
 
-```
+```python
 >>> <copy>session.prepare_pgql(statement).execute()</copy>
 False   # This is the expected result
 ```
@@ -96,20 +96,20 @@ Check that the graph was created. Copy, paste, and run the following statements 
 
 Attach the graph.
 
-```
+```python
 >>> <copy>graph = session.get_graph("customer_360")</copy>
 ```
 
 Check that the graph was created.
 
-```
+```python
 >>> <copy>graph</copy>
 PgxGraph(name: customer_360, v: 15, e: 24, directed: True, memory(Mb): 0)
 ```
 
 Run some PGQL queries. E.g. the list of the vertex labels:
 
-```
+```python
 <copy>
 graph.query_pgql("""
   SELECT DISTINCT LABEL(v) FROM MATCH (v)
@@ -126,7 +126,7 @@ graph.query_pgql("""
 ```
 
 How many vertices with each label:
-```
+```python
 <copy>
 graph.query_pgql("""
   SELECT COUNT(v), LABEL(v) FROM MATCH (v) GROUP BY LABEL(v)
@@ -143,7 +143,7 @@ graph.query_pgql("""
 ```
 
 The list of the edge labels:
-```
+```python
 <copy>
 graph.query_pgql("""
   SELECT DISTINCT LABEL(e) FROM MATCH ()-[e]->()
@@ -161,7 +161,7 @@ graph.query_pgql("""
 ```
 
 How many edges with each label:
-```
+```python
 <copy>
 graph.query_pgql("""
   SELECT COUNT(e), LABEL(e) FROM MATCH ()-[e]->() GROUP BY LABEL(e)
@@ -183,14 +183,14 @@ graph.query_pgql("""
 The newly created graph is "private" by default, and is accessible only from the current session. To access the graph from new sessions in future, you can "publish" the graph.
 
 Then create the graph again following the procedure above, then publish it.
-```
+```python
 <copy>
 graph.publish()
 </copy>
 ```
 
 Next time you connect you can access the graph kept on memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
-```
+```python
 <copy>
 graph = session.get_graph("customer_360")
 </copy>
