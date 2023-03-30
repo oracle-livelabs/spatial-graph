@@ -65,7 +65,7 @@ The graph should now look like
 
     The general structure of a PGQL query is:
 
-    ```
+    ```sql
     SELECT <select_list>
     FROM MATCH <graph_pattern> ON <graph_name>
     WHERE <condition>
@@ -84,7 +84,7 @@ The graph should now look like
 
     The PGQL query for this is:
 
-    ```
+    ```sql
     <copy>
     SELECT *
     FROM MATCH (a)-[t1:transfer]->(a1)
@@ -106,7 +106,7 @@ The graph should now look like
 4. The next query finds patterns of transfers to and from the same two accounts, i.e. from a1->a2 and back a2->a1.
 
     The PGQL query for this is:
-    ```
+    ```sql
     <copy>
     SELECT *
     FROM MATCH (a1)-[t1:transfer]->(a2)-[t2:transfer]->(a1)
@@ -123,7 +123,7 @@ The graph should now look like
 6. Let's add one more account to that query to find a circular transfer pattern between 3 accounts.
 
     The PGQL query becomes:
-    ```
+    ```sql
     <copy>
     SELECT *
     FROM MATCH (a1)-[t1:transfer]->(a2)-[t2:transfer]->(a3)-[t3:transfer]->(a1)
@@ -142,4 +142,4 @@ The graph should now look like
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, April 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023
