@@ -134,14 +134,14 @@ scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/grap
 
 1. Connect to the compute instance via SSH as **opc** user, using the private key you created earlier.
 
-    ```
+    ```sh
     <copy>
     ssh -i <private_key> opc@<public_ip_for_compute>
     </copy>
     ```
 
     Example:
-    ```
+    ```sh
     ssh -i key.pem opc@203.0.113.14
     ```
 
