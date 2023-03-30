@@ -46,7 +46,7 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
 1. Go to your Cloud Console. Navigate to the **Marketplace** tab and enter "Graph Server and Client" in the serach bar. Click on the Oracle Graph Server and Client stack.
 
-    ![marketplace](images/marketplace.jpg)
+    ![marketplace](images/marketplace.png)
 
 2. Select the stack and then review the System Requirements and Usage Instructions. Then select the version **22.4.x** (18-month patch release) and choose a compartment and click on **Launch Stack**.
 
@@ -65,28 +65,28 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
     - Existing Virtual cloud network: The one created above, **vcn1**
     - Existing Subnet: The one created above, **Public Subnet-vcn1**
-    - JDBC URL for authentication: **`jdbc:oracle:thin:@atpgraph_low?TNS_ADMIN=/etc/oracle/graph/wallets`**
+    - JDBC URL for authentication: **`jdbc:oracle:thin:@adb1_low?TNS_ADMIN=/etc/oracle/graph/wallets`**
 
     ![configure-variables-2](images/configure-variables-2.png)
 
     About the JDBC URL above:
 
     - This is the TNS_ADMIN entry points to the directory where you **will** have uploaded and unzipped the wallet **on the Compute instance** which will be created in this process
-    - If you named your database something else, e.g. **myatpgraph** then replace **`@atpgraph_low`** with **`@myatpgraph_low`** in the JDBC URL
+    - If you named your database something else, e.g. **adb2** then replace **`@adb1_low`** with **`@adb2_low`** in the JDBC URL
     - This JDBC URL is stored in **/etc/oracle/graph/pgx.conf** which can be updated later if necessary
     
 
 5. Click **Next** to initiate the Resource Manager Job for the stack. The job will take 2-3 minutes to complete.
 
-    ![rmj-1](images/rmj-1.jpg)
+    ![rmj-1](images/rmj-1.png)
 
     You'll see the progress in the log output.
 
-    ![rmj-2](images/rmj-2.jpg)
+    ![rmj-2](images/rmj-2.png)
 
     Once the job has successfully completed the status will change from "In Progess" to "Succeeded". If you get **"shape VM.Standard.E2.1.Micro not found"** error, the availability domain cannot provide the selected shape. Please edit the job and change the availability domain and retry. (An always-free compute VM can only be created in your home region. If you have previously created an always-free compute VM then this new VM.Standard.E2.1.Micro instance can only be created in the same availability domain as the previous one.)
 
-    ![rmj-3](images/rmj-3.jpg)
+    ![rmj-3](images/rmj-3.png)
 
     ***NOTE:*** *On completion please make a note of **public_ip** and **graphviz_public_url**, so that you can SSH into the running instance and access the graph viz later in this lab.*
 
@@ -96,18 +96,18 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
     ![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
-1. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **DB Connection**.
+1. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **Database Connection**.
 
-    ![wallet-1](images/wallet-1.jpg)
+    ![wallet-1](images/wallet-1.png)
 
 1. In Database Connection window, select **Instance Wallet** as your Wallet Type, click **Download Wallet**.
 
-    ![wallet-2](images/wallet-2.jpg)
+    ![wallet-2](images/wallet-2.png)
 
 1. In the Download Wallet dialog, enter a (new) wallet password in the Password fields. This password protects the downloaded client credentials wallet.
 
     Click **Download** to save the client security credentials zip file.
-    ![wallet-3](images/wallet-3.jpg)
+    ![wallet-3](images/wallet-3.png)
 
     By default, the filename is: **Wallet_<database_name>.zip**
 
@@ -127,7 +127,7 @@ scp -i <private_key> <Wallet_database_name>.zip opc@<public_ip_for_compute>:/etc
 
 Example:
 ```sh
-scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/graph/wallets
+scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wallets
 ```
 
 ## Task 5: Unzip ADB Wallet
@@ -150,7 +150,7 @@ scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/grap
     ```sh
     <copy>
     cd /etc/oracle/graph/wallets/
-    unzip Wallet_ATPGRAPH.zip
+    unzip Wallet_adb1.zip
     chgrp oraclegraph *
     </copy>
     ```
@@ -163,9 +163,9 @@ scp -i key.pem ~/Downloads/Wallet_ATPGRAPH.zip opc@203.0.113.14:/etc/oracle/grap
     </copy>
     ```
 
-    You will see the entry `atpgraph_low` similar to:
+    You will see the entry `adb1_low` similar to:
     ```text
-    atpgraph_low =
+    adb1_low =
         (description=
             (address=
                 (https_proxy=proxyhostname)(https_proxy_port=80)(protocol=tcps)(port=1521)
@@ -180,7 +180,7 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Thanks to Jenny Tsai for helpful, constructive feedback that improved this workshop. Arabella Yao, Product Manager Intern, Database Management.
+* **Author** - Jayant Sharma
+* **Contributors** - Arabella Yao, Jenny Tsai
 * **Last Updated By/Date** - Ryota Yamanaka, March 2023
 
