@@ -127,7 +127,9 @@ scp -i <private_key> <Wallet_database_name>.zip opc@<public_ip_for_compute>:/etc
 
 Example:
 ```sh
+<copy>
 scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wallets
+</copy>
 ```
 
 ## Task 5: Unzip ADB Wallet
@@ -142,7 +144,9 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
 
     Example:
     ```sh
+    <copy>
     ssh -i key.pem opc@203.0.113.14
+    </copy>
     ```
 
 1. Unzip the ADB wallet to the **/etc/oracle/graph/wallets/** directory and change the group permission.
@@ -165,6 +169,7 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
 
     You will see the entry `adb1_low` similar to:
     ```text
+    <copy>
     adb1_low =
         (description=
             (address=
@@ -174,6 +179,7 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
             (connect_data=(service_name=adwc1_low.adwc.oraclecloud.com))
             (security=(ssl_server_cert_dn="adwc.example.oraclecloud.com,OU=Oracle BMCS US,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))
     )
+    </copy>
     ```
 
 You may now proceed to the next lab.

@@ -29,7 +29,9 @@ ssh -i <private_key> opc@<public_ip_for_compute>
 Example:
 
 ```sh
+<copy>
 ssh -i key.pem opc@203.0.113.14
+</copy>
 ```
 
 Start a Python client shell instance that connects to the server.
@@ -43,10 +45,12 @@ opg4py -b https://localhost:7007 -u customer_360
 You should see the following if the client shell starts up successfully.
 
 ```sh
+<copy>
 password:
 
 Oracle Graph Client Shell 22.4.0
 >>>
+</copy>
 ```
 
 ## Task 2: Create a graph

@@ -66,9 +66,11 @@ The graph should now look like
     The general structure of a PGQL query is:
 
     ```sql
+    <copy>
     SELECT <select_list>
     FROM MATCH <graph_pattern> ON <graph_name>
     WHERE <condition>
+    </copy>
     ```
 
     PGQL provides a specific construct known as the **MATCH** clause for matching graph patterns. A graph pattern matches vertices and edges that satisfy the given conditions and constraints.  
