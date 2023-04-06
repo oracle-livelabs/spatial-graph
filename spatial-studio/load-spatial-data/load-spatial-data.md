@@ -21,7 +21,7 @@ Estimated Lab Time: 15 minutes
 ### Prerequisites
 
 * This lab requires access to Spatial Studio and Oracle Database. 
-* To deploy these from the Oracle Cloud Marketplace, please navigate to the listing <a href="https://cloud.oracle.com/marketplace/application/71472162/overview"> here </a> (you will be prompted to log into to your Oracle Cloud account) and then follow instructions <a href="https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace"> here</a>.
+* To deploy these from the Oracle Cloud Marketplace, please navigate to the listing [here](https://cloud.oracle.com/marketplace/application/71472162/overview) (you will be prompted to log into to your Oracle Cloud account) and then follow instructions [here](https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace).
 * No previous experience with Oracle Spatial is required.
 
 
@@ -29,7 +29,7 @@ Estimated Lab Time: 15 minutes
 
 You begin by loading a set of traffic accident data from a GeoJSON file. The data are fictitious and were generated for random locations along roadways in South Africa. 
 
-1. Download GeoJSON file to a convenient location: <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson">  accidents.geojson  </a>
+1. Download GeoJSON file to a convenient location: [accidents.geojson](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson).
 
 2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and drag-and-drop accidents.geojson. You can also click on the upload region and navigate to select the file.
 ![Image alt text](images/load-data-1.png)
@@ -49,7 +49,7 @@ Observe the ACCIDENTS dataset now listed with no warnings, meaning that is prepa
 ## Task 2: Load Police Station data
 Next you load South African Police Servce (SAPS) Stations and Station Boundaries from Shapefiles stored in a single zip file. 
 
-1. Download zip file containing Shapefiles to a convenient location: <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/SAPS_police.zip"> SAPS_police.zip </a>  
+1. Download zip file containing Shapefiles to a convenient location: [SAPS_police.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/SAPS_police.zip).
 
 2. Navigate to the Datasets page, click **Create Dataset**, and drag-and-drop SAPS_police.zip. Spatial Studio will extract the Shapefiles from the zip file and process them individually. 
 ![Image alt text](images/load-data-6.png)
