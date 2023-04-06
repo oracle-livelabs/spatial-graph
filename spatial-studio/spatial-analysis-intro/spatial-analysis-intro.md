@@ -55,15 +55,15 @@ In this step you use a spatial filter to identify accidents within a specified d
 
  ![Image alt text](images/spatial-analysis-1.png "Image title")  
    
-1. Open the action menu for the ACCIDENTS layer and select **Spatial Analysis**
+2. Open the action menu for the ACCIDENTS layer and select **Spatial Analysis**
 
    ![Image alt text](images/spatial-analysis-2.png "Image title")  
 
-2. Click on the **Filter** tab select **Return shapes within a specific distance of another**
+3. Click on the **Filter** tab select **Return shapes within a specific distance of another**
 
    ![Image alt text](images/spatial-analysis-3.png "Image title")  
 
-3. In the analysis dialog, you may enter a name for the result or leave the default. We are filtering ACCIDENTS based on distance from a selected item in POLICE_POINTS. In the example show below, I have used a distance of 150 kilometers. 
+4. In the analysis dialog, you may enter a name for the result or leave the default. We are filtering ACCIDENTS based on distance from a selected item in POLICE_POINTS. In the example show below, I have used a distance of 150 kilometers. 
    
    **Note:** The analysis includes switches to **•	Include only selected items in the layer above** for the layers involved. We are only interested in including the 1 selected police station for proximity analysis in this example. Therefore **•	Include only selected items in the layer above** should be **On** for POLICE_POINTS. 
 
@@ -71,13 +71,13 @@ In this step you use a spatial filter to identify accidents within a specified d
 
    ![Image alt text](images/spatial-analysis-4.png "Image title")  
 
-4. The analysis result is listed under Analyses in the Data Elements panel. Drag and drop the analysis result onto the map. This creates a new map layer displaying only the accidents within the specified distance of the selected police station.
+5. The analysis result is listed under Analyses in the Data Elements panel. Drag and drop the analysis result onto the map. This creates a new map layer displaying only the accidents within the specified distance of the selected police station.
 
    ![Image alt text](images/spatial-analysis-5.png "Image title") 
 
    **Note:** Analysis results are just another type of Dataset in Spatial Studio. As you'll see in a later Lab, analysis results may be added to other maps/tables, used in other projects, accessed programmatically via REST or SQL, or exported as a file. 
 
-5. You no longer need this analysis result in the map. So to avoid clutter, you next remove it from the map. Right click on the analysis result in the Layers List and select **Remove**
+6. You no longer need this analysis result in the map. So to avoid clutter, you next remove it from the map. Right click on the analysis result in the Layers List and select **Remove**
    
    ![Image alt text](images/spatial-analysis-6.png "Image title")  
 
@@ -87,19 +87,19 @@ In this step you use a spatial filter to identify accidents within a specified d
 
 In this step you use a spatial filter to identify accidents inside a selected police region.
 
-6. Begin by clicking in a region in the POLICE\_BOUNDS layer. The selected region will be used as to filter accidents. In the image below, the region in the red box was selected.
+1. Begin by clicking in a region in the POLICE\_BOUNDS layer. The selected region will be used as to filter accidents. In the image below, the region in the red box was selected.
 
    ![Image alt text](images/spatial-analysis-7.png "Image title")  
    
-7. As you did for the previous analysis in Step 1, open the action menu for the ACCIDENTS layer and select Spatial Analysis. This time we are filtering by containment. So select the tile **Return shapes that are inside another**  
+2. As you did for the previous analysis in Step 1, open the action menu for the ACCIDENTS layer and select Spatial Analysis. This time we are filtering by containment. So select the tile **Return shapes that are inside another**  
 
    ![Image alt text](images/spatial-analysis-8.png "Image title")  
 
-8. You may enter a name for the results or leave the default. The layer to be filtered is ACCIDENTS and the layer used as the filter is POLICE\_BOUNDS. The option to **Include only items that have been selected** should be selected for POLICE\_BOUNDS since we are only filtering for accidents contained in the single selected police region.
+3. You may enter a name for the results or leave the default. The layer to be filtered is ACCIDENTS and the layer used as the filter is POLICE\_BOUNDS. The option to **Include only items that have been selected** should be selected for POLICE\_BOUNDS since we are only filtering for accidents contained in the single selected police region.
 
    ![Image alt text](images/spatial-analysis-9.png "Image title")  
    
-9. Drag and drop the analysis result into the map. Observe the new layer containing the accidents inside the selected police region.
+4. Drag and drop the analysis result into the map. Observe the new layer containing the accidents inside the selected police region.
 
    ![Image alt text](images/spatial-analysis-10.png "Image title")  
    
@@ -107,27 +107,27 @@ In this step you use a spatial filter to identify accidents inside a selected po
 
    ![Image alt text](images/spatial-analysis-11.png "Image title")  
    
- 10.  Before moving on to the next analysis, zoom to the full extent of your data by opening the action menu for the POLICE\_BOUNDS layer and selecting **Zoom to layer** and remove the containment analysis from the map. 
+ 5.  Before moving on to the next analysis, zoom to the full extent of your data by opening the action menu for the POLICE\_BOUNDS layer and selecting **Zoom to layer** and remove the containment analysis from the map. 
    
 ## Task 3: Join by Containment
 
 Here you join Datasets based on a spatial relationship. You will join ACCIDENTS to POLICE\_BOUNDS based on containment. You may think of this as enriching or tagging each accident with the police region that contains it. 
 
-11. As you did for previous analyses, Open the action menu for the ACCIDENTS layer in the Layers List and select Spatial Analysis. Select the **Combine** tab and then the tile **Spatial Join**  
+1. As you did for previous analyses, Open the action menu for the ACCIDENTS layer in the Layers List and select Spatial Analysis. Select the **Combine** tab and then the tile **Spatial Join**  
 
    ![Image alt text](images/spatial-analysis-12.png "Image title")
 
-12. In the Spatial Join dialog, enter the name ACCIDENTS\_JOIN\_POLICE\_BOUNDS for the result. For the additional entries, you are joining items in ACCIDENTS based on the spatial relationship Inside to items in POLICE\_BOUNDS. This operation will result in a new Dataset containing ACCIDENTS enriched with the unique id of the POLICE\_BOUNDS region containing each item. The unique id (i.e., key column) for POLICE\_BOUNDS is COMPNT\_NM, therefore we expect to see that column in the result. Click **Run**.
+2. In the Spatial Join dialog, enter the name ACCIDENTS\_JOIN\_POLICE\_BOUNDS for the result. For the additional entries, you are joining items in ACCIDENTS based on the spatial relationship Inside to items in POLICE\_BOUNDS. This operation will result in a new Dataset containing ACCIDENTS enriched with the unique id of the POLICE\_BOUNDS region containing each item. The unique id (i.e., key column) for POLICE\_BOUNDS is COMPNT\_NM, therefore we expect to see that column in the result. Click **Run**.
 
      **Note:** The Advanced option allows you to include all columns from the secondary Dataset (POLICE\_BOUNDS in this case) in the result, instead of just the unique id.
 
    ![Image alt text](images/spatial-analysis-13.png "Image title")
    
-13. The result is listed under Analyses in the Data Elements panel. Expand the result to see its columns; all original columns from ACCIDENTS, plus COMPNT\_NM (i.e., police region name) as expected.
+3. The result is listed under Analyses in the Data Elements panel. Expand the result to see its columns; all original columns from ACCIDENTS, plus COMPNT\_NM (i.e., police region name) as expected.
 
    ![Image alt text](images/spatial-analysis-14.png "Image title")
 
-14. Drag and drop the analysis ACCIDENTS\_JOIN\_POLICE\_BOUNDS into the map. In the Layers List, Open the action menu for the ACCIDENTS\_JOIN\_POLICE\_BOUNDS layer and select Settings to set Style as desired and enable Interaction. For Interaction, enable an Info Window including the column COMPNT\_NM. Click on a crash item in the map and observe the COMPNT\_NM (i.e., police region name) in the info window.
+4. Drag and drop the analysis ACCIDENTS\_JOIN\_POLICE\_BOUNDS into the map. In the Layers List, Open the action menu for the ACCIDENTS\_JOIN\_POLICE\_BOUNDS layer and select Settings to set Style as desired and enable Interaction. For Interaction, enable an Info Window including the column COMPNT\_NM. Click on a crash item in the map and observe the COMPNT\_NM (i.e., police region name) in the info window.
 
    ![Image alt text](images/spatial-analysis-15.png "Image title")
 
