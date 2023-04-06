@@ -10,7 +10,7 @@ Estimated Workshop Time: 65 minutes
 
 ### About Graph Studio
 
-Oracle Autonomous Database has features that enable it to function as a scalable property graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, and over 60 built-in graph algorithms, and many visualizations including native graph visualization.
+Oracle Autonomous Database has features that enable it to function as a scalable property graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, over 60 built-in graph algorithms, and many visualizations including native graph visualization.
 
 Watch the following two videos for more information on Graph Studio. The first is an introduction to property graphs and their use cases. The second is a tour of the Graph Studio interface.
 
@@ -25,7 +25,7 @@ Autonomous Database: A tour of the Graph Studio interface
 ### Objectives
 
 In this workshop you will:
-* Create a graph using PGQL's (a graph query language) CREATE PROPERTY GRAPH statement
+* Create a graph using PGQLs (a graph query language) CREATE PROPERTY GRAPH statement
 * Load the graph into memory for analysis
 * Create a notebook
 * Query and visualize the graph using PGQL notebook paragraphs

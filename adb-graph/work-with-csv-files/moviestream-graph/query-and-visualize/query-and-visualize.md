@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will query the newly create graph (that is, `moviestream`) in PGQL paragraphs of a notebook.
+In this lab you will query the newly create graph (that is, `moviestream_recommendations`) in PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
@@ -21,21 +21,22 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
 
-  [Click here to download the notebook.](files/movie_recommendations_psalsa.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/Movie%20Recommendations%20-%20Personalized%20SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
  1. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
     ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
     
-    Select or drag and drop the noteboook and click **Import**.
+     Select or drag and drop the noteboook and click **Import**.
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
 
-    A dialog pops up named **Environment Attaching"**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
+    A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
     ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
 
-
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
+<!---
  2. Review the description before each paragraph.   Review the graph queries and analytics.   You can then run the query by clicking on the triangle on the top right if you would like to do so.  Below is an example of running a query in a paragraph.  
 
     ![Click Execute.](images/task3step4.png " ")
@@ -45,8 +46,7 @@ Learn how to
     ![Click Execute.](images/task3step6.png " ")
 
     ![Click Execute.](images/task3step7.png " ")
-
-    >**Note:** You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
+--->
 
 ## Task 2: Create a notebook and add paragraphs (optional if you haven't imported the notebook)
 
@@ -71,7 +71,7 @@ Learn how to
 ## Task 3: Load and query the "Moviestream" and visualize the results
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
+If the compute environment is not ready and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
 
 ![The environment is loading because it's not ready.](images/env-not-ready.png " ")
 
@@ -197,6 +197,8 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
 
 8. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
+
+    >**Note:** A bipartite graph is a graph whose vertices can be partitioned into two sets such that all edges connect a vertex in one set to a vertex in the other set.
     
     Execute the following query.
 
@@ -317,33 +319,32 @@ If the compute environment is not ready as yet and the code cannot be executed t
      FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
      WHERE c.cust_id = 1010303 
      GROUP BY m.title 
-     ORDER BY NumTimesWatched DESC )</copy>
+     ORDER BY NumTimesWatched DESC</copy>
      ```
 
     ![most watched movies by Emilio.](images/most-watched-movie.png " ") 
 
-13. Now, let's take a look at the movies Timmy has watched more often. 
+13. Timmy had the highest personalized salsa score based on similar viewing habits to Emilio, so let's look at the movies Timmy has watched more often. 
 
      ```
      <copy>%pgql-pgx
 
-     /* Movies Emilio has watched most often */
-     SELECT m.title, COUNT (m.title) AS NumTimesWatched 
+     /* Movies Timmy (with a top personalized_salsa score has watched most often) */
+     SELECT m.title, count (m.title) as NumTimesWatched 
      FROM MATCH (c) -[e]-> (m) ON MOVIE_RECOMMENDATIONS
-     WHERE c.cust_id = 1010303 
+     WHERE c.first_name='Timmy'  and c.last_name='Gardner' 
      GROUP BY m.title 
-     ORDER BY NumTimesWatched DESC)</copy>
+     ORDER BY NumTimesWatched DESC </copy>
      ```
 
     ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
 
-14. Lastly, let's find the movies that have the highest personalized salsa score which Emilio haven't watched previously. 
+14. Lastly, let's find the movies with the highest personalized salsa score Emilio hasn't watched. We can recommend movies that Timmy has watched that Emilio hasn't. 
 
      ```
      <copy>%pgql-pgx
 
-     /* Select the movies that have the highest personalized salsa scores
-     and were not previously watched by Emilio */
+     /* Select the movies that Timmy has watched but Emilio has not, ranked by their psalsa score. */
      SELECT m.title, m.personalized_salsa
      FROM MATCH (m) ON BIP_GRAPH
      WHERE LABEL(m) = 'MOVIE'
@@ -351,7 +352,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      SELECT *
      FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
      WHERE c.cust_id = 1010303
-     )
+      )
      AND EXISTS (
      SELECT *
      FROM MATCH (c)-[:WATCHED]->(m) ON BIP_GRAPH
@@ -361,7 +362,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      LIMIT 20</copy>
      ```
 
-    ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
+    ![most watched movies by Timmy.](images/not-watched-by-emilio.png " ") 
 
     This concludes this lab.
 

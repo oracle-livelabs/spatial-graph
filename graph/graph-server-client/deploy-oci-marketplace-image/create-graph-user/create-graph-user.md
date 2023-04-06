@@ -44,7 +44,7 @@ Go to **SQL** menu once you logged in as the **ADMIN** user.
 
 Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and run it while connected as the Admin user.
 
-```
+```sql
 <copy>
 DECLARE
   PRAGMA AUTONOMOUS_TRANSACTION;
@@ -86,7 +86,7 @@ END;
 ```
 
 Assign the default permissions to the roles, **GRAPH_ADMINISTRATOR** and **GRAPH_DEVELOPER**, to group multiple permissions together.
-```
+```sql
 <copy>
 GRANT PGX_SESSION_CREATE TO GRAPH_ADMINISTRATOR;
 GRANT PGX_SERVER_GET_INFO TO GRAPH_ADMINISTRATOR;
@@ -131,4 +131,4 @@ You may now proceed to the next lab.
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, April 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023

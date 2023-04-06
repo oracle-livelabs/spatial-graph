@@ -31,7 +31,7 @@ Login as `CUSTOMER_360` using the password you entered when creating the user. T
 
 To ensure a clean slate, drop any existing tables. Copy, paste, and execute the following commands into the SQL Worksheet.
 
-```
+```sql
 <copy>
 DROP TABLE account;
 DROP TABLE customer;
@@ -49,7 +49,7 @@ DROP TABLE transfer;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE account (
   id NUMBER NOT NULL
@@ -76,7 +76,7 @@ COMMIT;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE customer (
   id NUMBER NOT NULL,
@@ -100,7 +100,7 @@ COMMIT;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE merchant (
   id NUMBER NOT NULL
@@ -121,7 +121,7 @@ COMMIT;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE parent_of (
   customer_id_parent NUMBER
@@ -138,7 +138,7 @@ COMMIT;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE purchased (
   id NUMBER
@@ -167,7 +167,7 @@ COMMIT;
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
-```
+```sql
 <copy>
 CREATE TABLE transfer (
   id NUMBER
@@ -196,4 +196,4 @@ You may now proceed to the next lab.
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 * **Contributors** - Jenny Tsai, Arabella Yao
-* **Last Updated By/Date** - Ryota Yamanaka, April 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023
