@@ -21,20 +21,20 @@ Estimated Lab Time: 15 minutes
 ### Prerequisites
 
 * This lab requires access to Spatial Studio and Oracle Database. 
-* To deploy these from the Oracle Cloud Marketplace, please navigate to the listing <a href="https://cloud.oracle.com/marketplace/application/71472162/overview"> here </a> (you will be prompted to log into to your Oracle Cloud account) and then follow instructions <a href="https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace"> here </a>.
+* To deploy these from the Oracle Cloud Marketplace, please navigate to the listing <a href="https://cloud.oracle.com/marketplace/application/71472162/overview"> here </a> (you will be prompted to log into to your Oracle Cloud account) and then follow instructions <a href="https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace"> here</a>.
 * No previous experience with Oracle Spatial is required.
 
 
 ## Task 1: Load Accidents data
 
-You begin by loading a set of traffic accident data from a GeoJSON file. The data are  are fictitious and were generated for random locations along roadways in South Africa.. 
+You begin by loading a set of traffic accident data from a GeoJSON file. The data are fictitious and were generated for random locations along roadways in South Africa. 
 
 1. Download GeoJSON file to a convenient location: <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson">  accidents.geojson  </a>
 
 2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and drag-and-drop accidents.geojson. You can also click on the upload region and navigate to select the file.
 ![Image alt text](images/load-data-1.png)
 
-3. A preview of the GeoJSON data will be displayed. Select the destination Connection for this upload. In this workshop we are using the SPATIAL_STUDIO connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the upload.
+3. A preview of the GeoJSON data will be displayed. Select the destination Connection for this upload. In this workshop we are using the SPATIAL\_STUDIO connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Set the data types for NR\_VEHICLES and SEVERITY to NUMERIC. Click **Submit** to initiate the upload.
 ![Image alt text](images/load-data-2.png)
 
 4. The uploaded ACCIDENTS Dataset will be listed with a small warning icon to indicate that a preparation step is needed. In this case we need to add a Dataset key. Although this is not needed for basic mapping, we will add the key now since we'll need it for analyses in later workshop sections. Click on the warning icon and then click the link **Go to Dataset Columns**
@@ -51,7 +51,7 @@ Next you load South African Police Servce (SAPS) Stations and Station Boundaries
 
 1. Download zip file containing Shapefiles to a convenient location: <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/SAPS_police.zip"> SAPS_police.zip </a>  
 
-2. Navigate to the Datasets page, click **Create Dataset**, and drag-and-drop SAPS_police.zip  Spatial Studio will extract the Shapefiles from the zip file and process them individually. 
+2. Navigate to the Datasets page, click **Create Dataset**, and drag-and-drop SAPS_police.zip. Spatial Studio will extract the Shapefiles from the zip file and process them individually. 
 ![Image alt text](images/load-data-6.png)
 
 3. The first Shapefile extracted will be Police Station Boundaries, i.e., the geographical areas patrolled by stations. Select the destination Connection, and set the table and Dataset names to POLICE_BOUNDS.

@@ -15,7 +15,7 @@ Estimated Workshop Time: 2 hours
 
   ![img alt text](./images/spatial-studio.png)
 
-Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. The end user features of Spatial Studio can be summarized as follows:
+Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. The end user features of Spatial Studio can be summarized as follows:
 
 Access and prepare spatial data:
   - Access spatial/non-spatial data in Oracle Database
@@ -44,7 +44,7 @@ Understanding Spatial Studio capabilities to
 ### Prerequisites
 
  <if type="freetier"> 
-   - This workshop requires access to Spatial Studio and Oracle Database. These can be provisioned by completing the workshop [Install Oracle Spatial Studio from Cloud Marketplace ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=778).  
+   - This workshop requires access to Spatial Studio and Oracle Database.  
 </if>
 <if type="reservation">  
   - This workshop requires access to Spatial Studio and Oracle Database. These are created for you as part of your LiveLabs Reservation.  

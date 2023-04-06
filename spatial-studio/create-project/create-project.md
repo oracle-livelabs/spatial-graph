@@ -23,7 +23,7 @@ Estimated Lab Time: 30 minutes
 1. From the left-panel menu, navigate to the Projects page and click **Create Project**.
 ![Image alt text](images/create-proj-1.png)
 
-2. Click the **+** icon and select **Add Dataset**.
+2. Click the **Add Dataset** button and select **Add Dataset**.
 ![Image alt text](images/create-proj-2.png)
 
 3. Select Accidents and click **OK**.
@@ -46,10 +46,10 @@ Estimated Lab Time: 30 minutes
 
 ## Task 2: Add Datasets
 
-1. Next you add your 2 police Datasets to the Project.  Click the **+** icon at the top of the Data Elements panel, select **Add Dataset**, use shift-enter to select both police Datasets and click **OK**.
+1. Next you add your 2 police Datasets to the Project.  Click the **Add Dataset** button at the top of the Data Elements panel, select **Add Dataset**, use shift-enter to select both police Datasets and click **OK**.
  ![Image alt text](images/create-proj-7.png)
 
-2. As you did previously with ACCIDENTS, drag and drop the POLICE\_POINTS Dataset from the Data Elements panel onto the, click the POLICE\_POINT layer's hamburger menu and select Settings. Update Radius, Color, Opacity. Then click the **Back** link at the top of the Layers panel.
+2. As you did previously with ACCIDENTS, drag and drop the POLICE\_POINTS Dataset from the Data Elements panel onto the, click the POLICE\_POINT layer's action menu and select Settings. Update Radius, Color, Opacity. Then click the **Back** link at the top of the Layers panel.
  ![Image alt text](images/create-proj-8.png)
 
 3. As Layers are added to the map, they are rendered on top of the existing Layers. Therefore POLICE\_POINTS are currently on top of ACCIDENTS. To reorder  the layers such that POLICE\_POINTS are underneath ACCIDENTS, move the mouse over POLICE\_POINTS in the Layer's list, click and hold (you'll see the cursor change to cross-hair), and drag under ACCIDENTS. 
@@ -69,7 +69,7 @@ Estimated Lab Time: 30 minutes
 
 ## Task 3: Add Visualizations
 
-1. Spatial Studio allows you to display your Datasets as maps and tables. To add visualizations click on the **Visualizations** button on the left and then drag-and-drop **Table** to the edge of the exiting map view. You will see a grey bar appear when the table can be dropped in.
+1. Spatial Studio allows you to display your Datasets as maps and tables. To add visualizations click on the **Visualizations** tab on the left and then drag-and-drop **Table** to the edge of the exiting map view. You will see a grey bar appear when the table can be dropped in.
 
  ![Image alt text](images/add-viz-1.png)   
 
@@ -103,7 +103,7 @@ Estimated Lab Time: 30 minutes
 1. Click the **Save** button at the top right to save the Project and supply a name, for example **LiveLabs Spatial Intro**.
  ![Image alt text](images/create-proj-12.png)
 
-2. Navigate to the Projects page from the left navigation bar and observe our Project now listed.
+2. Navigate to the Projects page from the left navigation bar and observe your Project is now listed.
  ![Image alt text](images/create-proj-13.png)
 
 You may now [proceed to the next lab](#next).
