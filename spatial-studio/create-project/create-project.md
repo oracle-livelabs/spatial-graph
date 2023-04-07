@@ -57,7 +57,7 @@ Estimated Lab Time: 30 minutes
  
 4. Drag and drop the POLICE\_BOUNDS Dataset onto the map. As you did with POLICE\_POINTS, re-order the layers so that POLICE\_BOUNDS are at the bottom (i.e., rendered beneath the other layers). You now have your 3 datasets added as map layers in our project.
 
-  **Note:** Individual layers may be turned off/on by clicking the blue eyeball icon next to the layer name.
+  **Note:** Individual layers may be turned off/on by clicking the eyeball icon next to the layer name.
   
  ![Image alt text](images/create-proj-10.png)  
 
