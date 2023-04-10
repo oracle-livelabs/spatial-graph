@@ -4,7 +4,7 @@
 
 In this workshop you will explore the features of Spatial Studio for self-service spatial analysis and visualization. Using datasets of traffic accidents, police stations, and police station service areas, you will load and visualize spatial data, and analyze their spatial relationships as shown below. 
 
-![](./images/spatial-studio-project.png " ")
+![Oracle Spatial Studio](./images/spatial-studio-project.png)
 
 Estimated Workshop Time: 2 hours
 
@@ -13,7 +13,7 @@ Estimated Workshop Time: 2 hours
 
  Oracle Spatial Studio (Spatial Studio) provides no-code access to the spatial capabilities of Oracle Database. While these capabilities have historically required coding and/or use of 3rd party tools, Spatial Studio allows business users to create and share spatial analysis and interactive web maps using self-service GUIs. 
 
-  ![img alt text](./images/spatial-studio.png)
+  ![Oracle Spatial Studio](./images/spatial-studio.png)
 
 Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. The end user features of Spatial Studio can be summarized as follows:
 
