@@ -7,6 +7,17 @@ This lab walks you through the steps to create sample spatial data in Oracle Dat
 
 Estimated Lab Time: 10 minutes
 
+### Objectives
+
+In this lab, you will:
+*  Learn about spatial data management in Oracle Database
+*  Prepare spatial data in Oracle Database from common file formats
+
+
+### Prerequisites
+
+* Completion of Lab 2
+
 
 ### About spatial data
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called  SDO_GEOMETRY.  Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.

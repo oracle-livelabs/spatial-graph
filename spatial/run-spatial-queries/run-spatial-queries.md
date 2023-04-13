@@ -43,7 +43,7 @@ WHERE
     ) = 'TRUE';
 </copy>
 ```
-![Image alt text](images/query1.png)
+![Run spatial query](images/query1.png)
 Notes:
     
 * The ```SDO_NN``` operator returns the 'n nearest' branches to the Dallas Warehouse, where 'n' is the value specificed for ```SDO_NUM_RES```. The first argument to ```SDO_NN``` (```B.GEOMETRY``` in the example above) is the column to search. The second argument (```W.GEOMETRY``` in the example above) is the location you want to find the neighbors nearest to. No assumptions should be made about the order of the returned results. For example, the first row returned is not guaranteed to be the closest. If two or more branches are an equal distance from the warehouse, then either may be returned on subsequent calls to ```SDO_NN```.
@@ -73,7 +73,7 @@ ORDER BY
     DISTANCE_KM;
 </copy>
 ```
-![Image alt text](images/query2.png)
+![Run spatial query](images/query2.png)
 Notes:
 
 * The ```SDO_NN_DISTANCE``` operator is an ancillary operator to the ```SDO_NN``` operator; it can only be used within the ```SDO_NN``` operator. The argument for this operator is a number that matches the number specified as the last argument of ```SDO_NN```; in this example it is 1. There is no hidden meaning to this argument, it is simply a tag. If ```SDO_NN_DISTANCE()``` is specified, you can order the results by distance and guarantee that the first row returned is the closest. If the data you are querying is stored as longitude and latitude, the default unit for ```SDO_NN_DISTANCE``` is meters.
@@ -107,7 +107,7 @@ ORDER BY
 </copy>
 ```
 
-![Image alt text](images/query3.png)
+![Run spatial query](images/query3.png)
 Notes:
 * ```SDO_BATCH_SIZE``` is a tunable parameter that may affect your query's performance. ```SDO_NN``` internally calculates that number of distances at a time. The initial batch of rows returned may not satisfy the constraints in the WHERE clause, so the number of rows specified by ```SDO_BATCH_SIZE``` is continuously returned until all the constraints in the WHERE clause are satisfied. You should choose a ```SDO_BATCH_SIZE``` that initially returns the number of rows likely to satisfy the constraints in your WHERE clause.
 * The ```UNIT``` parameter used within the ```SDO_NN``` operator specifies the unit of measure of the ```SDO_NN_DISTANCE``` parameter. The default unit is the unit of measure associated with the data. For longitude and latitude data, the default is meters.
@@ -130,7 +130,7 @@ WHERE
     ) = 'TRUE';
 </copy>
 ```
-![Image alt text](images/query4.png)
+![Run spatial query](images/query4.png)
 Notes:
 * The first argument to ```SDO_WITHIN_DISTANCE``` is the column to search. The second argument is the location you want to determine the distances from. No assumptions should be made about the order of the returned results. For example, the first row returned is not guaranteed to be the customer closest to warehouse 3.
 * The DISTANCE parameter used within the ```SDO_WITHIN_DISTANCE``` operator specifies the distance value; in this example it is 100.
@@ -161,7 +161,7 @@ ORDER BY
     DISTANCE_KM;
 </copy>
 ```
-![Image alt text](images/query5.png)
+![Run spatial query](images/query5.png)
 Notes:
 * The ```SDO_GEOM.SDO_DISTANCE``` function computes the distance between branch locations and the Houston Warehouse. 
 * The first 2 arguments to ```SDO_GEOM.SDO_DISTANCE``` are BRANCH and WAREHOUSE locations for distance computation.
@@ -186,7 +186,7 @@ WHERE
     ) = 'TRUE';
 </copy>
 ```
-![Image alt text](images/query6.png)
+![Run spatial query](images/query6.png)
 Notes:
 * The ```SDO_ANYINTERACT``` operator accepts 2 arguments, geometry1 and geometry2. The operator returns ```TRUE``` for rows where geometry1 is inside or on the boundary of geometry2.
 * In this example geometry1 is ```B.GEOMETRY```, the branch geometries, and geometry2 is ```C.GEOMETRY```, the coastal zone geometry. The COASTAL_ZONE table has only 1 row so no additional criteria is needed.
@@ -221,7 +221,7 @@ WHERE
 );
 </copy>
 ```
-![Image alt text](images/query7.png)
+![Run spatial query](images/query7.png)
 Notes:
 * In the first part of this query, the ```SDO_WITHIN_DISTANCE``` operator identifies BRANCHES within 10 km of the COASTAL_ZONE. This includes BRANCHES inside the COASTAL\_ZONE.
 * The query uses ```MINUS``` to remove BRANCHES inside the COASTAL_ZONE, leaving only BRACNCHES within 10km and outside the COASTAL\_ZONE. 

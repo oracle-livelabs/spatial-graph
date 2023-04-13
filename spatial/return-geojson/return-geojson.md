@@ -36,7 +36,7 @@ In this lab, you will:
       </copy>
       ```
 
-      ![Image alt text](images/return-geojson-01.png)
+      ![Return GeoJSON](images/return-geojson-01.png)
 
 2. Next, use the JSON_ARRAYAGG( ) function to convert rows of GeoJSON geometries into an array, as needed to build the GeoJSON document. Notice the argument **RETURNING CLOB** which is needed since geometries with many coordinates (like complex polygons) can result in very long strings. Hover your mouse over the result to see the JSON array.
 
@@ -53,7 +53,7 @@ In this lab, you will:
       </copy>
       ```
 
-      ![Image alt text](images/return-geojson-02.png)
+      ![Return GeoJSON](images/return-geojson-02.png)
 
 3. The feature array must include both geometries and properties. Run the following query to construct elements of the feature array. Hover your mouse over the result to see the JSON array now with properties.
 
@@ -74,7 +74,7 @@ In this lab, you will:
       </copy>
       ```
 
-      ![Image alt text](images/return-geojson-03.png)
+      ![Return GeoJSON](images/return-geojson-03.png)
 
 4.  Use JSON_ARRAYAGG( ) to compile the previous results into an array. This is now the actual features array. Hover your mouse over the result to see a popup with result.
 
@@ -96,7 +96,7 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Image alt text](images/return-geojson-04.png)
+    ![Return GeoJSON](images/return-geojson-04.png)
 
 
 5.  To complete the construction of a GeoJSON document, include the top level keys **type** and **features**, and a closing curly brace. This now returns a complete GeoJSON document. Hover your mouse over the result to see a popup with result.
@@ -122,15 +122,15 @@ In this lab, you will:
     </copy>
     ```
 
-  ![Image alt text](images/return-geojson-05.png)
+  ![Return GeoJSON](images/return-geojson-05.png)
 
  6. Right-click in the results cell and select **Copy**.
 
-      ![Image alt text](images/return-geojson-06.png)
+      ![Return GeoJSON](images/return-geojson-06.png)
 
  7. Verify the result by rendering. Click [here](http://geojson.io) to open geojson.io in a new browser tab. Clear the content on the right panel under JSON (select all > delete) and then paste in your GeoJSON copied from the SQL Worksheet. Click on any of the tornado lines to see a popup that includes its properties.
 
-       ![Image alt text](images/return-geojson-07.png)
+       ![Return GeoJSON](images/return-geojson-07.png)
 
  8. To make the result a bit more interesting, run the following to create a GeoJSON document with geometries that are 5 mile buffers surrounding the tornado paths.  Notice that a new property key is added to indicate the buffer distance. Run the query and then, as done previously, copy the result.
 
@@ -157,17 +157,17 @@ In this lab, you will:
        </copy>
        ```
 
-       ![Image alt text](images/return-geojson-08.png)
+       ![Return GeoJSON](images/return-geojson-08.png)
 
 9. Open a new geojson.io tab, clear the JSON panel on the right, and paste in the result copied from your SQL Worksheet. Observe the buffer geometries and click on one to see a popup with properties including the buffer key that was added.
 
-      ![Image alt text](images/return-geojson-09.png)
+      ![Return GeoJSON](images/return-geojson-09.png)
 
 
   In a real-world scenario, the GeoJSON you have generated would be served to clients, such as mapping JavaScript libraries and Python notebooks, for example through JDBC or APIs published with Oracle REST Data Services.
 
 
-We hope you have enjoyed this workshop. We hope it has piqued your interest and that you will continue your Spatial journey!
+You may now **proceed to the next lab**.
 
 ## Learn more
 
