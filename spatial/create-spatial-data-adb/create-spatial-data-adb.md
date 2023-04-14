@@ -6,6 +6,18 @@ Spatial data is commonly sourced from files having coordinates or place names, a
 
 Estimated Time: 20 minutes
 
+### Objectives
+
+In this lab, you will:
+*  Learn about spatial data management in Oracle Database
+*  Prepare spatial data in Oracle Database from common file formats
+
+
+### Prerequisites
+
+* Completion of Lab 2: Connect to ADB with SQL Worksheet
+
+
 ### About spatial data
 
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called SDO_GEOMETRY. Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.
@@ -122,7 +134,7 @@ A GeoJSON document is typically a JSON document with the top level structure
 
 The format of GeoJSON features is show below.
 
-   ![Image alt text](images/geojson-00.png)
+   ![GeoJSON](images/geojson-00.png)
 
 Oracle Spatial includes built-in functions to convert between the native spatial type (SDO\_GEOMETRY) and GeoJSON geometry format. Note that GeoJSON geometries are contained within a broader GeoJSON document format including non-spatial attributes and an array structure. 
 
@@ -150,7 +162,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
 1. Download the following files using **right-click > Save link As...**.
 
-   ![Image alt text](images/save-link-as.png)
+   ![Prepare spatial data](images/save-link-as.png)
       * [stores.csv](files/stores.csv)
       * [warehouses.csv](files/warehouses.csv)
       * [regions.geojson](files/regions.geojson)
@@ -158,7 +170,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
 
 2. Then navigate your file system explorer to the downloaded files.
 
-   ![Image alt text](images/create-data-00.png)
+   ![Prepare spatial data](images/create-data-00.png)
 
 2. Begin by viewing the data on map. 
  
@@ -166,81 +178,81 @@ You begin by loading data for warehouses and stores from CSV files that include 
  
    [http://geojson.io](http://geojson.io) is a web site for viewing (as well as manually creating and editing) small spatial datasets. You can use this site to render data in GeoJSON files as well as files that include longitude, latitude columns. To view the downloaded data on a map, click [here](http://geojson.io) to open geojson.io in a new browser tab. Then drag and drop **warehouses.csv** onto the map.
 
-   ![Image alt text](images/create-data-00a.png)
+   ![View data](images/create-data-00a.png)
 
    The CSV data is converted to GeoJSON as shown on the right, and rendered on the map.
 
-   ![Image alt text](images/create-data-00b.png)
+   ![Prepare spatial data](images/create-data-00b.png)
 
    Click **New** at the top to open a fresh map in a new tab. Drag and drop **stores.csv** onto the map.
 
-   ![Image alt text](images/create-data-00c.png)
+   ![Prepare spatial data](images/create-data-00c.png)
 
-   ![Image alt text](images/create-data-00d.png)
+   ![Prepare spatial data](images/create-data-00d.png)
 
    Repeat for **regions.geojson**.
 
-   ![Image alt text](images/create-data-00e.png)
+   ![Prepare spatial data](images/create-data-00e.png)
 
    Repeat for **tornardo_paths.geojson**.
 
-   ![Image alt text](images/create-data-00f.png)
+   ![Prepare spatial data](images/create-data-00f.png)
 
   These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the geojson.io tabs.
 
 1. Next you load the files to database tables. In Database Actions, click on the main hamburger icon at the top left and then click **Data Load**.
 
- ![Image alt text](images/create-data-01.png)
+ ![Prepare spatial data](images/create-data-01.png)
 
 2. Accept the defaults (LOAD DATA and LOCAL FILE) and click **Next**.
 
- ![Image alt text](images/create-data-02.png)
+ ![Prepare spatial data](images/create-data-02.png)
 
 3. Select all 4 of the files you downloaded, then drag and drop them onto the Data Load page.
 
- ![Image alt text](images/create-data-03.png)
+ ![Prepare spatial data](images/create-data-03.png)
 
 4. You now see the 4 files listed for loading. Click the action menu icon for tornado_paths.geojson and select **Settings**.
 
- ![Image alt text](images/create-data-04.png)
+ ![Prepare spatial data](images/create-data-04.png)
 
 
 5.  By default, tables are create with the same name as the input files. This is fine for STORES and WAREHOUSES. However you will be creating REGIONS and TORNADO\_PATHS tables after data loading by converting from GeoJSON. So you need to override the default names. Change the destination table name to **TORNADO\_PATHS\_GEOJSON**.
 
- ![Image alt text](images/create-data-05.png)
+ ![Prepare spatial data](images/create-data-05.png)
 
 6.  Observe that 2 columns will be created, which correspond to the top level keys in the GeoJSON file. Then click **Close**.
 
- ![Image alt text](images/create-data-06.png)
+ ![Prepare spatial data](images/create-data-06.png)
 
 7. Repeat for regions.geojson. Click the action menu icon and then **Settings**.
 
- ![Image alt text](images/create-data-07.png)
+ ![Prepare spatial data](images/create-data-07.png)
 
 8. Update the target table name to **REGIONS\_GEOJSON**. Observe the same structure will be created as the other GeoJSON file, with columns for the top level keys. Click **Close**.
 
- ![Image alt text](images/create-data-08.png)
+ ![Prepare spatial data](images/create-data-08.png)
 
 9. Click **Start** to initiate the data load.
 
- ![Image alt text](images/create-data-09.png)
+ ![Prepare spatial data](images/create-data-09.png)
 
 10. When prompted with confirmation popup, click **Run**. 
 
- ![Image alt text](images/create-data-10.png) 
+ ![Prepare spatial data](images/create-data-10.png) 
 
 11. Wait for loading to complete for all 4 files, then click **Done**.
 
- ![Image alt text](images/create-data-11.png) 
+ ![Prepare spatial data](images/create-data-11.png) 
 
 12. Click the main hamburger icon at the top left, and then select **SQL**.
 
- ![Image alt text](images/create-data-12.png) 
+ ![Prepare spatial data](images/create-data-12.png) 
 
 
 13. Confirm that all 4 tables are now created. 
       
- ![Image alt text](images/create-data-17.png)
+ ![Prepare spatial data](images/create-data-17.png)
 
 14. To prepare for working with the GeoJSON content, add check constraints on the FEATURES columns defining them as JSON.
 
@@ -254,7 +266,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
         </copy>
         ```
 
- ![Image alt text](images/create-data-17b.png)
+ ![Prepare spatial data](images/create-data-17b.png)
 
 
 The tables are now ready to be configured for Spatial.
@@ -274,7 +286,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       </copy>
       ```
 
-   ![Image alt text](images/create-data-18.png)
+   ![Prepare spatial data](images/create-data-18.png)
 
 2.  Next, populate the geometry column for rows with valid coordinates (all of the rows in this case).
 
@@ -293,7 +305,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       </copy>
       ```
 
-   ![Image alt text](images/create-data-19.png)
+   ![Prepare spatial data](images/create-data-19.png)
 
 3.  Before creating a spatial index, you must insert a row of spatial metadata. Every user has an updatable view called USER\_SDO\_GEOM\_METADATA for their spatial metadata. This is a user view on a centralized table storing spatial metadata for the entire database instance. Spatial metadata tracks the coordinate system identifier (longitude/latitude is only one of many coordinate systems) and dimensionality (2D, 3D, etc) of every geometry column to be indexed. These items need to be consistent for all data in an indexed geometry column, so the index creation reads the values and enforces integrity of the index by rejecting any inconsistency. 
    
@@ -311,7 +323,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
        );
       </copy>
       ```
-   ![Image alt text](images/create-data-20.png)
+   ![Prepare spatial data](images/create-data-20.png)
 
 4. Finally, create a spatial index for the WAREHOUSES table.
 
@@ -325,19 +337,19 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       </copy>
       ```
 
-   ![Image alt text](images/create-data-21.png)
+   ![Prepare spatial data](images/create-data-21.png)
 
       **Please note:** If a spatial index creation statement fails (for example because a previous step was not done correctly), then before retrying you must still drop the index since some index artifacts may have been created.  So for example, if the spatial index creation statement above were to fail, then before retrying you should run "DROP INDEX WAREHOUSES\_SIDX;".
 
 5.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
       
-   ![Image alt text](images/create-data-21a.png)
+   ![Prepare spatial data](images/create-data-21a.png)
 
 
 
 ## Task 3: Configure stores table using function-based spatial index
 
-Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, instead of indexing a geometry column, you instead index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089).
+Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, you index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089).
 
 1. The first step is to create a generic function that accepts coordinates and returns a geometry (i.e., a SDO\_GEOMETRY value). The function includes criteria so that a result is only returned for valid input coordinates.
    
@@ -367,7 +379,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
         /
       </copy>
       ```
-     ![Image alt text](images/create-data-22.png)
+     ![Prepare spatial data](images/create-data-22.png)
 
 2.  Next, test the function using the STORES table. SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, so the result is displayed as **[object Object]**.
 
@@ -382,7 +394,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       </copy>
       ```
 
-       ![Image alt text](images/create-data-22b.png)
+       ![Prepare spatial data](images/create-data-22b.png)
 
 3.  Since SQL Worksheet does not display object types such as SDO\_GEOMETRY in query results, call the function inside the built-in function to convert the result to a GeoJSON string.
 
@@ -398,7 +410,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       </copy>
       ```
 
-       ![Image alt text](images/create-data-23.png)
+       ![Prepare spatial data](images/create-data-23.png)
 
    Instead of creating and indexing a new geometry column in the STORES table, you will create an index on the values returned by the GET\_GEOMETRY function for the STORES table.
 
@@ -418,7 +430,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       </copy>
       ```
 
-   ![Image alt text](images/create-data-24.png)
+   ![Prepare spatial data](images/create-data-24.png)
 
 4.  Finally create the spatial index. In the case of a function-based spatial index, the "column" being indexed is actually the call to the GET\_GEOMETRY function.
 
@@ -432,7 +444,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       </copy>
       ```
 
-   ![Image alt text](images/create-data-25.png)
+   ![Prepare spatial data](images/create-data-25.png)
 
 ## Task 4: Create regions table from GeoJSON document
 
@@ -445,7 +457,7 @@ Next you convert regions from GeoJSON format to a table with a geometry column. 
   </copy>
  ```
 
-   ![Image alt text](images/create-data-26.png)
+   ![Prepare spatial data](images/create-data-26.png)
 
 Oracle Autonomous Database provides robust features for working with JSON data through SQL. For example, run the following statement to see the number of items in the features array (i.e., the number of regions).
 
@@ -460,7 +472,7 @@ Oracle Autonomous Database provides robust features for working with JSON data t
  ```
 
 
-   ![Image alt text](images/create-data-27.png)
+   ![Prepare spatial data](images/create-data-27.png)
 
    To return the properties (i.e., attributes) of the first feature in the array, run the following. The result is key/value pair(s), in this case only one.
 
@@ -473,7 +485,7 @@ Oracle Autonomous Database provides robust features for working with JSON data t
   </copy>
  ``` 
 
-   ![Image alt text](images/create-data-28.png)
+   ![Prepare spatial data](images/create-data-28.png)
 
 
 To return the geometry of the first feature in the array as SDO\_GEOMETRY, run the following. As noted earlier, SQL Worksheet does not not display object type values such as SDO\_GEOMETRY, so you will see the result shown as [object Object].
@@ -487,7 +499,7 @@ To return the geometry of the first feature in the array as SDO\_GEOMETRY, run t
   </copy>
  ```
 
-   ![Image alt text](images/create-data-29.png)
+   ![Prepare spatial data](images/create-data-29.png)
 
 
 To display the geometry in SQL Worksheet, use Spatial's ability to convert SDO\_GEOMETRY to other common string formats. Spatial supports format conversion with both SQL conversion functions and SDO\_GEOMETRY object type methods. Run the following to use an SDO\_GEOMETRY method to return the geometry of the first feature in WKT (Well Known Text) format.
@@ -501,7 +513,7 @@ To display the geometry in SQL Worksheet, use Spatial's ability to convert SDO\_
   </copy>
  ```
 
-   ![Image alt text](images/create-data-30.png)
+   ![Prepare spatial data](images/create-data-30.png)
 
 The JSON\_TABLE table function returns items in a JSON array as rows. This is exactly what we will need to convert the features array to a table. Run the following to return the contents of the features array as rows. Note that the arguments to COLUMNS are the property key(s), which is only REGION here, and geometry.
 
@@ -521,7 +533,7 @@ The JSON\_TABLE table function returns items in a JSON array as rows. This is ex
   </copy>
   ```
 
-   ![Image alt text](images/create-data-31.png)
+   ![Prepare spatial data](images/create-data-31.png)
 
 Create the REGIONS table from the results of the previous query.  
 
@@ -544,7 +556,7 @@ Create the REGIONS table from the results of the previous query.
   </copy>
   ```
 
-   ![Image alt text](images/create-data-32.png)
+   ![Prepare spatial data](images/create-data-32.png)
 
 
 Insert spatial metadata for REGIONS.
@@ -563,7 +575,7 @@ Insert spatial metadata for REGIONS.
   </copy>
   ```
 
-   ![Image alt text](images/create-data-33.png)
+   ![Prepare spatial data](images/create-data-33.png)
 
 
  Create a spatial index for REGIONS.  
@@ -577,7 +589,7 @@ Insert spatial metadata for REGIONS.
               INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
   </copy>
   ```
-   ![Image alt text](images/create-data-34.png)
+   ![Prepare spatial data](images/create-data-34.png)
 
 
 
@@ -594,7 +606,7 @@ Repeat the previous task steps to convert TORNADO\_PATHS\_GEOJSON. Start by gett
   </copy>
   ```
 
-   ![Image alt text](images/create-data-35.png)
+   ![Prepare spatial data](images/create-data-35.png)
 
 
 Next, get the properties of the first feature.  This time there are several.
@@ -608,7 +620,7 @@ Next, get the properties of the first feature.  This time there are several.
   </copy>
   ```
 
-   ![Image alt text](images/create-data-36.png)
+   ![Prepare spatial data](images/create-data-36.png)
 
 Run the following to see the property values, geometry, and geometry as WKT for the first feature.
 
@@ -625,7 +637,7 @@ Run the following to see the property values, geometry, and geometry as WKT for 
   </copy>
   ```
 
-   ![Image alt text](images/create-data-37.png)
+   ![Prepare spatial data](images/create-data-37.png)
 
 Use the JSON\_TABLE function to return the content as rows.
   
@@ -647,7 +659,7 @@ Use the JSON\_TABLE function to return the content as rows.
   </copy>
   ```
 
-  ![Image alt text](images/create-data-38.png)
+  ![Prepare spatial data](images/create-data-38.png)
 
   Create the TORNADO\_PATHS table from the results of the previous query.
   
@@ -670,7 +682,7 @@ Use the JSON\_TABLE function to return the content as rows.
   </copy>
   ```
   
-  ![Image alt text](images/create-data-39.png)
+  ![Prepare spatial data](images/create-data-39.png)
 
   Insert spatial metadata for TORNADO\_PATHS.
   
@@ -687,7 +699,7 @@ Use the JSON\_TABLE function to return the content as rows.
   </copy>
   ```
   
-  ![Image alt text](images/create-data-40.png)
+  ![Prepare spatial data](images/create-data-40.png)
 
   Create spatial index for TORNADO\_PATHS.
   
@@ -701,7 +713,7 @@ Use the JSON\_TABLE function to return the content as rows.
   </copy>
   ```
   
-  ![Image alt text](images/create-data-41.png)
+  ![Prepare spatial data](images/create-data-41.png)
 
 Now that conversion from GeoJSON is complete you may drop the tables storing the uploaded GeoJSON documents. Then refresh the tables listing.
 
@@ -712,7 +724,7 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
   DROP TABLE TORNADO_PATHS_GEOJSON;
   </copy>
   ```
-  ![Image alt text](images/create-data-42.png)
+  ![Prepare spatial data](images/create-data-42.png)
 
 
  All data is now loaded and prepared for spatial analysis. 
