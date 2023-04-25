@@ -15,15 +15,15 @@
     {
       "title": "Lab 1: Install Sample Maps Application",
       "filename": "../../../install-sample-maps-app/install-sample-maps-app.md"
-    },    
+    },
     {
       "title": "Lab 2: Create Map with Wizard",
       "filename": "../../../create-map-with-wizard/create-map-with-wizard.md"
-    }, 
+    },
     {
       "title": "Lab 3: Create Map from Scratch",
       "filename": "../../../create-map-from-scratch/create-map-from-scratch.md"
-    },  
+    },
     {
       "title": "Lab 4: Incorporate Spatial Analysis",
       "filename": "../../../add-spatial-analysis/add-spatial-analysis.md"

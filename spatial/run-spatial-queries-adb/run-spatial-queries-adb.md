@@ -10,6 +10,17 @@ Estimated Time: 20 minutes
 Watch the video below for a quick walk-through of the lab.
 [Prepare spatial data](videohub:1_feaq2eu8)
 
+### Objectives
+
+In this lab, you will:
+*  Learn about and perform spatial queries in Oracle Database
+
+### Prerequisites
+
+* Completion of Lab 3: Prepare spatial data
+
+
+
 ### About spatial queries
 
 Oracle Database includes a robust library of functions and operators for spatial analysis. This includes spatial relationships, measurements, aggregations, transformations, and more. These operations are accessible through native SQL, PL/SQL, Java APIs, and any other languages with connection modules to Oracle such as Python and Node.js.
@@ -98,7 +109,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
-   ![Image alt text](images/run-queries-01.png)
+   ![Proximity query](images/run-queries-01.png)
 
 2. Identifying items nearest to another item is accomplished with the Spatial operator **SDO\_NN( )**, where NN stands for Nearest Neighbor. Run the following query to identify the 5 closest stores to the Dallas Warehouse. Again, notice that the first argument to **SDO\_NN( )** is the function that returns geometry, which has a function-based spatial index.
 
@@ -119,7 +130,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
-   ![Image alt text](images/run-queries-02.png)
+   ![Proximity query](images/run-queries-02.png)
 
 3. The **SDO\_NN( )** operator allows you to include distance. Run the following query to return the 5 closest stores to the Dallas Warehouse along with their distances in miles.
 
@@ -141,7 +152,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
-   ![Image alt text](images/run-queries-03.png)
+   ![Proximity query](images/run-queries-03.png)
 
 
 4. Run the following query to return the 5 closest retail stores to the Dallas Warehouse along with their distances in miles. Notice that the result includes stores farther than the previous result since you re only looking for retail stores.
@@ -164,7 +175,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
        AND ROWNUM <= 5;
      </copy>
      ```
-   ![Image alt text](images/run-queries-04.png)
+   ![Proximity query](images/run-queries-04.png)
 
 4. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse. 
 
@@ -178,7 +189,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
-  ![Image alt text](images/run-queries-05.png)
+  ![Proximity query](images/run-queries-05.png)
 
 4. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles. 
 
@@ -198,7 +209,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
- ![Image alt text](images/run-queries-06.png)
+ ![Proximity query](images/run-queries-06.png)
 
 4. Proximity is useful for aggregate analysis. Run the following query to return the number of tornados and maximum loss within 20 miles of the Dallas Warehouse.
 
@@ -218,7 +229,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
     </copy>
       ```
 
-      ![Image alt text](images/run-queries-07.png)
+      ![Proximity query](images/run-queries-07.png)
 
    1. Returning to the use of Spatial operators for joins, run the following query to return each warehouse with the number of tornados and maximum loss within 20 miles.
 
@@ -238,7 +249,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
     </copy>
       ```
 
-   ![Image alt text](images/run-queries-08.png)
+   ![Proximity query](images/run-queries-08.png)
 
   Increase the distance value in the query from 20 to 50 mi and observe the new result.
 
@@ -269,7 +280,7 @@ Containment refers to identifying items that are contained by a specific region,
        </copy>
       ```
 
-      ![Image alt text](images/run-queries-09.png)
+      ![Containment query](images/run-queries-09.png)
 
 2. Use SDO_INSIDE( ) to return each store with the region it's contained by. This is another example of using a Spatial operator to perform a join, as you did previously with SDO\_NN( ). Note that stores on a region boundary are not included.  To include stores on the boundary you would use SDO\_ANYINTERACT( ).
 
@@ -288,7 +299,7 @@ Containment refers to identifying items that are contained by a specific region,
        </copy>
       ```
 
-      ![Image alt text](images/run-queries-10.png)
+      ![Containment query](images/run-queries-10.png)
 
 
 3. Next use SDO\_ANYINTERACT( ) for the purpose of aggregation of tornadoes by region. Run the following to return the number of tornadoes and maximum loss for each region. Note that SDO\_ANYINTERACT( ) returns items having any spatial relationship such as tornado paths that are entirely or partially contained by a region.
@@ -311,7 +322,7 @@ Containment refers to identifying items that are contained by a specific region,
       </copy>
       ```
 
-      ![Image alt text](images/run-queries-11.png)
+      ![Containment query](images/run-queries-11.png)
 
 
 4. Identify regions containing tornado(s) with loss above $100,000.
@@ -332,7 +343,7 @@ Containment refers to identifying items that are contained by a specific region,
       </copy>
       ```
 
-      ![Image alt text](images/run-queries-12.png)
+      ![Containment query](images/run-queries-12.png)
 
 5. Identify regions containing tornado(s) with loss above $100,000 along with the total number of tornadoes.
 
@@ -354,7 +365,7 @@ Containment refers to identifying items that are contained by a specific region,
       </copy>
       ```
 
-      ![Image alt text](images/run-queries-13.png)
+      ![Containment query](images/run-queries-13.png)
 
 You may now **proceed to the next lab**.
 
