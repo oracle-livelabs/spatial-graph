@@ -68,19 +68,19 @@ CREATE PROPERTY GRAPH "customer_360"
   )
   EDGE TABLES (
     account
-      SOURCE KEY(id) REFERENCES account
-      DESTINATION KEY(customer_id) REFERENCES customer
+      SOURCE KEY(id) REFERENCES account (id)
+      DESTINATION KEY(customer_id) REFERENCES customer (id)
       LABEL owned_by PROPERTIES (id)
   , parent_of
-      SOURCE KEY(customer_id_parent) REFERENCES customer
-      DESTINATION KEY(customer_id_child) REFERENCES customer
+      SOURCE KEY(customer_id_parent) REFERENCES customer (id)
+      DESTINATION KEY(customer_id_child) REFERENCES customer (id)
   , purchased
-      SOURCE KEY(account_id) REFERENCES account
-      DESTINATION KEY(merchant_id) REFERENCES merchant
+      SOURCE KEY(account_id) REFERENCES account (id)
+      DESTINATION KEY(merchant_id) REFERENCES merchant (id)
   , transfer
-      SOURCE KEY(account_id_from) REFERENCES account
-      DESTINATION KEY(account_id_to) REFERENCES account
-  )
+      SOURCE KEY(account_id_from) REFERENCES account (id)
+      DESTINATION KEY(account_id_to) REFERENCES account (id)
+  ) 
 '''
 </copy>
 ```

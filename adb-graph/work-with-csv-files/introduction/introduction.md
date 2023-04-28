@@ -2,7 +2,7 @@
 
 ## About This Workshop
 
-This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions. You will be querying data containing (artificial) Account and Transaction information. Then create a graph and finally query it and visualize the results.
+This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions. You will be querying data containing (artificial) accounts and transactions information. You will start by creating a graph and finally querying it and visualize the results.
 
 Estimated Workshop Time: 65 minutes
 
