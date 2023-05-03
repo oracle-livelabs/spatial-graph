@@ -39,3 +39,16 @@ Estimated Lab Time: xx minutes
 7. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, paste your compute IP address. Then click **Create Autonomous Database**.
  ![Create ADW](images/adb-07.png) 
 
+8. ADB provisioning will begin.
+ ![Create ADW](images/adb-08.png) 
+
+9. When provisioning is complete your ADB is ready.
+ ![Create ADW](images/adb-09.png) 
+
+You may now proceed to the next lab.
+
+## Learn More
+* 
+
+## Acknowledgements
+* **Author** - 

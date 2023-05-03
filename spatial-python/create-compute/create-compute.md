@@ -15,5 +15,6 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: ... 
- 
+## Task 1: Marketplace deployment
+
+## Task 2: VCN open port 8001
