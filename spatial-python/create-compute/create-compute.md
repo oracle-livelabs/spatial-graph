@@ -99,3 +99,13 @@ Your compute instance is created and you have verified SSH access.
 
 6. Scroll down and observe the new Ingress Rule allowing inbound access to port 8001.
  ![Create instances](images/compute-21.png) 
+
+ Your compute and network are now configured.
+
+ You may now proceed to the next lab.
+
+## Learn More
+* 
+
+## Acknowledgements
+* **Author** - 
