@@ -36,14 +36,19 @@ Estimated Lab Time: xx minutes
 
 4. Start JupyterLab with the following command.
 
-   ```
-   <copy>
-    jupyter-lab --ip=0.0.0.0 --port=8001 --no-browser
-   </copy>
-   ```
+      ```
+      <copy>
+       jupyter-lab --ip=0.0.0.0 --port=8001 --no-browser
+      </copy>
+      ```
+    ![Start JupyterLab](images/start-jupyter-04.png) 
 
-5. Observe the JupyterLab URL including authentication token. Copy this URL and paste to browser.
+5. Observe the JupyterLab URL including authentication token. Copy this URL and paste into a text editor.
+    ![Start JupyterLab](images/start-jupyter-05.png) 
 
-6. In the URL, replace localhost with your compute instance IP address and enter. 
 
-7. 
+6. In Cloud Shell, scroll up to your SSH command and copy your compute IP address. Then paste it into the URL in your text editor, replacing 127.0.0. 
+    ![Start JupyterLab](images/start-jupyter-06.png) 
+
+7. Open a new browser tab. Then copy the URL from your text editor and paste into the new tab and run. This will open JupyterLab where you will be creating and running Python notebooks in the following Labs.
+    ![Start JupyterLab](images/start-jupyter-07.png) 
