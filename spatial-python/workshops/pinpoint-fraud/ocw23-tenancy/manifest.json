@@ -33,10 +33,15 @@
           "filename": "../../../start-jupyterlab/start-jupyterlab.md"
         },
         {
-          "title": "Lab x: spatial-python exercise  ...",
+          "title": "Lab 5: Connect to ADB from Python",
           "description": "...",
-          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
-        },        {
+          "filename": "../../../connect-to-adb/connect-to-adb.md"
+        }, 
+        {
+          "title": "Lab 6: Prepare Data",
+          "description": "...",
+          "filename": "../../../prepare-data/prepare-data.md"
+        },      {
           "title": "Lab x: Clean-up",
           "description": "...",
           "filename": "../../../cleanup-placeholder/cleanup-placeholder.md"
