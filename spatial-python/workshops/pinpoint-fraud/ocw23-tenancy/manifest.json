@@ -41,7 +41,13 @@
           "title": "Lab 6: Prepare Data",
           "description": "...",
           "filename": "../../../prepare-data/prepare-data.md"
-        },      {
+        },   
+        {
+          "title": "Lab 7: Explore Data",
+          "description": "...",
+          "filename": "../../../explore-data/explore-data.md"
+        },   
+        {
           "title": "Lab x: Clean-up",
           "description": "...",
           "filename": "../../../cleanup-placeholder/cleanup-placeholder.md"

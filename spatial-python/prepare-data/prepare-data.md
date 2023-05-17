@@ -17,6 +17,9 @@ Estimated Lab Time: xx minutes
 
 ## Task 1: ... 
 
+
+... insert step for oracledb.defaults.fetch_lobs = False ...
+
 1. Click to download sample data.....
    
 2. Click the **Upload** icon to load the data files.
@@ -209,6 +212,114 @@ Estimated Lab Time: xx minutes
      ```
 
      ![Navigate to Oracle Database](images/prepare-data-12.png)
+
+
+8. Run the following to create a function to convert coordinates to geometry.
+   
+     ```
+     <copy>
+      # Create function to convert lon/lat coordinates to world mercator geometry
+      cursor.execute("""
+       create or replace function lonlat_to_proj_geom (longitude in number, latitude in number)
+       return SDO_GEOMETRY deterministic is
+       begin
+         if latitude is NULL or longitude is NULL 
+         or latitude not between -90 and 90 
+         or longitude not between -180 and 180
+         then
+           return NULL;
+         else
+            return sdo_cs.transform(
+              sdo_geometry(2001, 4326,
+                           sdo_point_type(longitude, latitude, NULL),NULL, NULL),
+              3857);
+         end if;
+      end;
+      """)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-13.png)
+
+
+9. Run the following to test the function.
+   
+     ```
+     <copy>
+     # test the function
+     cursor.execute("""
+      with x as (
+         select location_id, lonlat_to_proj_geom(lon,lat) as geom from locations)
+      select location_id, geom, (geom).get_wkt()
+      from x
+      """)
+     for row in cursor.fetchone():
+         print(row)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-14.png)
+
+
+
+1. Run the following to create spatial metadata for the location geometry.
+   
+     ```
+     <copy>
+     cursor.execute("""
+      insert into user_sdo_geom_metadata values (
+         'LOCATIONS', 'ADMIN.LONLAT_TO_PROJ_GEOM(LON,LAT)',
+          SDO_DIM_ARRAY(SDO_DIM_ELEMENT('LON', 0, 0, 0.05), 
+                        SDO_DIM_ELEMENT('LAT', 0, 0, 0.05)), 
+          3857)
+                 """)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-15.png)
+
+2. Run the following to create spatial index for the location geometry.
+   
+     ```
+     <copy>
+     cursor.execute("""
+      create index locations_sidx
+      on locations(LONLAT_TO_PROJ_GEOM(LON,LAT))
+      indextype is mdsys.spatial_index_v2
+                 """)
+     </copy>
+     ```
+
+3.  Run the following to verify valid spatial index.
+   
+    ```
+    <copy>
+    cursor.execute("select index_name, sdo_index_status from user_sdo_index_info")
+    for row in cursor.fetchmany(size=10):
+        print(row)
+    </copy>
+    ```
+
+     ![Navigate to Oracle Database](images/prepare-data-16.png)
+
+4.   Run the following example spatial query.
+
+    ```
+    <copy>
+    cursor.execute("""
+     select location_id, round(sdo_nn_distance(1), 2) from locations 
+     where sdo_nn(
+       LONLAT_TO_PROJ_GEOM(LON,LAT),
+       LONLAT_TO_PROJ_GEOM( -97.6, 30.3),
+       'sdo_num_res=5 unit=mile', 1) = 'TRUE' """)
+    for row in cursor.fetchmany():
+        print(row)  
+    </copy>
+    ```
+
+     ![Navigate to Oracle Database](images/prepare-data-16.png)
+
+
 
 
 You may now proceed to the next lab.
