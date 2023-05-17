@@ -30,6 +30,16 @@ Learn how to
 
 Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. In this workshop, the graph user has already been created for you.
 
+1. In your **Autonomous Database Details page** page, click the **Database Actions**.
+
+    ![Click the Database Actions button.](images/click-database-actions.png " ")    
+
+2. On the Database Actions panel, click **Graph Studio**.
+
+    ![Click Open Graph Studio.](images/graphstudiofixed.png " ")
+
+3. Log in to Graph Studio. Use the credentials for the graph user.
+
 The graph user credentials are: 
 
 **Username:** 
@@ -41,19 +51,10 @@ The graph user credentials are:
 **password:**
 
 
-     <copy>watchS0meM0vies#</copy>
+     <copy>watchS0meMovies#</copy>
 
-1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
-    ![Click the Database Actions button.](images/click-database-actions.png " ")    
-
-2. On the Database Actions panel, click **Graph Studio**.
-
-    ![Click Open Graph Studio.](images/graphstudiofixed.png " ")
-
-3. Log in to Graph Studio. Use the credentials for the graph user "MOVIESTREAM".
-
-    ![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
+![Use the credentials for database user MOVIESTREAM.](images/graph-login.png " ")
 
 ## Task 3: Create Graph
 
@@ -71,7 +72,7 @@ The graph user credentials are:
 
     ![Shows the selected tables.](./images/select-tables.png " ")
 
-4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge and a vertex label.  
+4.  Click **Next** to get a suggested model.  
 
     The suggested model has the `MOVIE` and `CUSTOMER_PROMOTIONS`, as a vertex table since there are foreign key constraints specified on `CUSTSALES_PROMOTIONS` that reference it.   
 
@@ -82,7 +83,7 @@ The graph user credentials are:
 
 5.  Now let's change the default Edge label.   
 
-    Click the `MOVIE` edge table and rename the Edge Label from `MOVIE` to **WATCHED**.  
+    Click the `CUSTSALES_PROMOTIONS` edge table and rename the Edge Label from `CUSTSALES_PROMOTIONS` to **WATCHED**.  
     Then click outside the input box on confirm label and save the update.  
 
     ![Changed the label name of the edge to Transfers.](images/edit-edge-label.png " ")  

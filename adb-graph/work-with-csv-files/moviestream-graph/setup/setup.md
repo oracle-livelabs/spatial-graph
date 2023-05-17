@@ -32,7 +32,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the **region** where all resources will be created. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous Database and the **region** you are currenlty creating the stack on to create all resources. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
   ![The create stack page](./images/configure-variables.png "")
 
@@ -43,26 +43,6 @@ The instructions below will show you how to run a stack that will automatically 
     To see information about your application click on **Application Information**. Save the Graph username and password since you will be using it to login to Graph Studio.
 
     ![How to see the graph username and password](./images/graph-username-password.png "")
-
-## Task 2: Login to Graph studio
-
-1. Click the **Open Graph Studio** under the Application Information. This will open a new page. Enter your graph username and password provided under Application Information, into the login screen.
-
-  ![Open graph studio under Application Information](./images/login-page.png " ")
-
-2. Then click the **Sign In** button. You should see the studio home page.   
-
-  ![ALT text is not available for this image](./images/gs-graphuser-home-page.png " ")
-
-  Graph Studio consists of a set of pages accessed from the menu on the left.
-
-  The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
-  The Models icon ![Models icon](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
-  The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-  The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
-  The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
-
-  This concludes this lab. **You may now proceed to the next lab.**  
 
 ## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
