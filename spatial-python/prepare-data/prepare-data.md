@@ -145,7 +145,7 @@ Estimated Lab Time: xx minutes
 
      ```
      <copy>
-     # Preview locations data
+     # Preview transactions data
      cursor.execute("select * from transactions")
      for row in cursor.fetchmany(size=10):
          print(row)
@@ -153,6 +153,62 @@ Estimated Lab Time: xx minutes
      ```
      ![Navigate to Oracle Database](images/prepare-data-09.png)
 
+7. Run the following to add and populate a column for epoch date.
+   
+     ```
+     <copy>
+     # add column for epoch date
+     cursor.execute("alter table transactions add (trans_epoch_date integer)")
+     </copy>
+     ```
+
+     ```
+     <copy>
+     # add column for epoch date
+     cursor.execute("""update transactions 
+                       set trans_epoch_date = (trans_date - date'1970-01-01') * 86400""")
+     connection.commit()
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-10.png)
+
+
+7. Run the following to again preview the transactions data. Observe the epoch date column is added..
+   
+     ```
+     <copy>
+     # Preview transactions data
+     cursor.execute("select * from transactions")
+     for row in cursor.fetchmany(size=10):
+         print(row)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-11.png)
+
+8. Run the following to create a view of transactions with locations and preview the data.
+   
+     ```
+     <copy>
+     # Create view
+     cursor.execute("""create or replace view v_transactions as
+                         select a.cust_id, a.trans_id,a. trans_epoch_date, b.lon, b.lat
+                         from transactions a, locations b
+                         where a.location_id = b.location_id""")
+     </copy>
+     ```
+
+     ```
+     <copy>
+     # Preview the view data
+     cursor.execute("select * from v_transactions")
+     for row in cursor.fetchmany(size=10):
+         print(row)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-12.png)
 
 
 You may now proceed to the next lab.
