@@ -124,7 +124,7 @@ The graph user credentials are:
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-8. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
+7. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
 
     Enter **`MOVIE_RECOMMENDATIONS`** as the graph name.  
     That graph name is used throughout the next lab.  
@@ -134,7 +134,7 @@ The graph user credentials are:
   
     ![Shows the create graph window where you assign the graph a name.](./images/create-graph-dialog.png " ")
 
-9. Graph Studio modeler will now save the metadata and start a job to create the graph.  
+8. Graph Studio modeler will now save the metadata and start a job to create the graph.  
     The Jobs page shows the status of this job.
 
     ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
