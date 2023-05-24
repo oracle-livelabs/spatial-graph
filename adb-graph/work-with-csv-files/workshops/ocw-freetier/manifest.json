@@ -17,24 +17,24 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
-            "title": "Setup",
+            "title": "Lab 1: Setup",
             "description": "Set up by running Stack",
             "filename": "../../setup/setup.md"
         },
         {
-            "title": "Lab 1: Create a property graph in Graph Studio",
+            "title": "Lab 2: Create a property graph in Graph Studio",
             "filename": "../../create-graph/create-graph-me.md"
         }, 
         {
-            "title": "Lab 2: Query and visualize the property graph",
+            "title": "Lab 3: Query and visualize the property graph",
             "filename": "../../query-graph-update/graph-query-update.md"
         },
         {
-            "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
+            "title": "Lab 4: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
             "filename": "../../../graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
         },
         {
-            "title": "Lab 4: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
+            "title": "Lab 5: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
             "filename": "../../../graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {

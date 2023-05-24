@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will create a stack that will run a terraform script to generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
+In this lab you will create a stack that will run a terraform script to generate an Autonomous Database, create a graph user, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
@@ -36,7 +36,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the **Paid Oracle Autonomous Database**. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous Database and the Database Type. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
     ![Configurating the settings for the stack](./images/configure-variables.png "")
 
@@ -44,13 +44,13 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Job has been successful](./images/successful-job.png "")
 
-    To see information about your application click on **Application Information**. Save the Graph username and password since you will be using it to login to Graph Studio.
+    To see information about your application click on **Application Information**. Save the graph username and password since you will be using it to login to Graph Studio.
 
     ![How to see the graph username and password](./images/graph-username-password.png "")
 
 ## Task 3: Login to Graph studio
 
-1. Click the **Open Graph Studio** under the Application Information. This will open a new page. Enter your graph username and password provided under Application Information, into the login screen.
+1. Click on **Open Graph Studio** under the Application Information. This will open a new page. Enter your graph username and password provided under Application Information, into the login screen.
 
     ![Open graph studio under Application Information](./images/login-page.png " ")
 
