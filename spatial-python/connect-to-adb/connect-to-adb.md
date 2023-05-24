@@ -50,6 +50,7 @@ Estimated Lab Time: xx minutes
      <copy>
      import oracledb
      import csv
+     oracledb.defaults.fetch_lobs = False
      </copy>
      ```
      ![Navigate to Oracle Database](images/connect-to-adb-10.png)
@@ -83,7 +84,7 @@ Estimated Lab Time: xx minutes
      # Run a test query
      cursor.execute("select object_type, count(*) from all_objects group by object_type")
      for row in cursor.fetchmany(size=10):
-     print(row)
+       print(row)
      </copy>
      ```
      ![Navigate to Oracle Database](images/connect-to-adb-13.png)

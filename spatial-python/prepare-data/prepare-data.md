@@ -51,9 +51,8 @@ Estimated Lab Time: xx minutes
      <copy>
      # Create table for locations data
      cursor.execute("""create table locations (
-                          location_id varchar2(30), 
-                          type varchar2(30), 
-                          owner varchar2(100),  
+                          location_id integer, 
+                          owner integer,  
                           lon number, 
                           lat number)""")
      </copy>
@@ -72,10 +71,10 @@ Estimated Lab Time: xx minutes
              #skip header
              next(csv_reader) 
              #load data
-             sql = "insert into locations values (:1, :2, :3, :4, :5)"
+             sql = "insert into locations values (:1, :2, :3, :4)"
              data = []
              for line in csv_reader:
-                 data.append((line[0], line[1], line[2], line[3], line[4]))
+                 data.append((line[0], line[1], line[2], line[3]))
                  if len(data) % BATCH_SIZE == 0:
                      cursor.executemany(sql, data)
                      data = []
@@ -107,7 +106,7 @@ Estimated Lab Time: xx minutes
      # Create table for transactions data
      cursor.execute("""create table transactions (
                           trans_id integer,
-                          location_id varchar2(30), 
+                          location_id integer, 
                           trans_date date, 
                           cust_id integer)""")
      </copy>
@@ -120,7 +119,7 @@ Estimated Lab Time: xx minutes
 
      ```
      <copy>
-     # Load the locations data
+     # Load the transactions data
      BATCH_SIZE = 1000
      with connection.cursor() as cursor:
          with open('transactions.csv', 'r') as csv_file:
@@ -128,10 +127,10 @@ Estimated Lab Time: xx minutes
              #skip header
              next(csv_reader) 
              #load data
-             sql = "insert into locations values (:1, :2, :3, TO_DATE(:4,'YYYY-MM-DD:HH24:MI:SS'))"
+             sql = "insert into transactions values (:1, :2, TO_DATE(:3,'YYYY-MM-DD:HH24:MI:SS'), :4)"
              data = []
              for line in csv_reader:
-                 data.append((line[0], line[1], line[2], line[3], line[4]))
+                 data.append((line[0], line[1], line[2], line[3]))
                  if len(data) % BATCH_SIZE == 0:
                      cursor.executemany(sql, data)
                      data = []
@@ -190,52 +189,27 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database](images/prepare-data-11.png)
 
-8. Run the following to create a view of transactions with locations and preview the data.
-   
-     ```
-     <copy>
-     # Create view
-     cursor.execute("""create or replace view v_transactions as
-                         select a.cust_id, a.trans_id,a. trans_epoch_date, b.lon, b.lat
-                         from transactions a, locations b
-                         where a.location_id = b.location_id""")
-     </copy>
-     ```
-
-     ```
-     <copy>
-     # Preview the view data
-     cursor.execute("select * from v_transactions")
-     for row in cursor.fetchmany(size=10):
-         print(row)
-     </copy>
-     ```
-
-     ![Navigate to Oracle Database](images/prepare-data-12.png)
-
-
 8. Run the following to create a function to convert coordinates to geometry.
    
      ```
      <copy>
-      # Create function to convert lon/lat coordinates to world mercator geometry
-      cursor.execute("""
-       create or replace function lonlat_to_proj_geom (longitude in number, latitude in number)
-       return SDO_GEOMETRY deterministic is
-       begin
-         if latitude is NULL or longitude is NULL 
-         or latitude not between -90 and 90 
-         or longitude not between -180 and 180
-         then
-           return NULL;
-         else
-            return sdo_cs.transform(
-              sdo_geometry(2001, 4326,
-                           sdo_point_type(longitude, latitude, NULL),NULL, NULL),
-              3857);
-         end if;
-      end;
-      """)
+     # Create function to convert lon/lat coordinates to world mercator geometry
+     cursor.execute("""
+      create or replace function lonlat_to_proj_geom (longitude in number, latitude in number)
+      return SDO_GEOMETRY deterministic is
+      begin
+        if latitude is NULL or longitude is NULL 
+        or latitude not between -90 and 90 
+        or longitude not between -180 and 180
+        then
+          return NULL;
+        else
+           return sdo_cs.transform(
+             sdo_geometry(2001, 4326,
+                          sdo_point_type(longitude, latitude, NULL),NULL, NULL),
+             3857);
+        end if;
+     end;""")
      </copy>
      ```
 
@@ -319,7 +293,29 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database](images/prepare-data-16.png)
 
+8. Run the following to create a view of transactions with locations and preview the data.
+   
+     ```
+     <copy>
+     # Create view
+     cursor.execute("""create or replace view v_transactions as
+                         select a.cust_id, a.location_id, a.trans_id,a. trans_epoch_date, b.lon, b.lat,
+                         lonlat_to_proj_geom(lon,lat) as proj_geom
+                         from transactions a, locations b
+                         where a.location_id = b.location_id""")
+     </copy>
+     ```
 
+     ```
+     <copy>
+     # Preview the view data
+     cursor.execute("select * from v_transactions")
+     for row in cursor.fetchmany(size=10):
+         print(row)
+     </copy>
+     ```
+
+     ![Navigate to Oracle Database](images/prepare-data-12.png)
 
 
 You may now proceed to the next lab.

@@ -38,15 +38,20 @@
           "filename": "../../../connect-to-adb/connect-to-adb.md"
         }, 
         {
-          "title": "Lab 6: Prepare Data",
+          "title": "Lab 6: Prepare data",
           "description": "...",
           "filename": "../../../prepare-data/prepare-data.md"
         },   
         {
-          "title": "Lab 7: Explore Data",
+          "title": "Lab 7: Explore data",
           "description": "...",
           "filename": "../../../explore-data/explore-data.md"
-        },   
+        },  
+        {
+          "title": "Lab 8: Detect suspicious anomalies",
+          "description": "...",
+          "filename": "../../../detect-anomalies/detect-anomalies.md"
+        },  
         {
           "title": "Lab x: Clean-up",
           "description": "...",

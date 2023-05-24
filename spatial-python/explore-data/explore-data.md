@@ -22,7 +22,7 @@ Estimated Lab Time: xx minutes
 
      ```
      <copy>
-     import geopandas
+     import geopandas as gpd
      import shapely
      import folium
      </copy>
@@ -30,12 +30,25 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database]()
 
+1.  Import libraries for ...
+
+     ```
+     <copy>
+     cust = 3
+     </copy>
+     ```
+
+
 1.  Create GeoDataFrame ...
 
     ```
     <copy>
-    cursor.execute("SELECT location_id, (lonlat_to_proj_geom(lon,lat)).get_wkt() FROM locations")
-    gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['location_id', 'geometry'])
+    cursor.execute("""
+     SELECT cust_id, location_id, trans_id, trans_epoch_date, (proj_geom).get_wkt() 
+     from v_transactions
+     where cust_id=:cust
+     """, cust=cust)
+    gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'location_id', 'trans_id', 'trans_epoch_date', 'geometry'])
     gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
     gdf = gdf.set_crs(3857)
     gdf.head()
@@ -44,7 +57,7 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database]()
 
-1.  Map viz ...
+2.  Map viz ...  
 
     ```
     <copy>
@@ -53,6 +66,8 @@ Estimated Lab Time: xx minutes
     ```
 
      ![Navigate to Oracle Database]()
+
+
 
 
 ... add exploration ...
