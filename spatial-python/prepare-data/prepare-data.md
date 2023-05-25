@@ -52,7 +52,7 @@ Estimated Lab Time: xx minutes
      # Create table for locations data
      cursor.execute("""create table locations (
                           location_id integer, 
-                          owner integer,  
+                          owner varchar2,  
                           lon number, 
                           lat number)""")
      </copy>
@@ -292,30 +292,6 @@ Estimated Lab Time: xx minutes
     ```
 
      ![Navigate to Oracle Database](images/prepare-data-16.png)
-
-8. Run the following to create a view of transactions with locations and preview the data.
-   
-     ```
-     <copy>
-     # Create view
-     cursor.execute("""create or replace view v_transactions as
-                         select a.cust_id, a.location_id, a.trans_id,a. trans_epoch_date, b.lon, b.lat,
-                         lonlat_to_proj_geom(lon,lat) as proj_geom
-                         from transactions a, locations b
-                         where a.location_id = b.location_id""")
-     </copy>
-     ```
-
-     ```
-     <copy>
-     # Preview the view data
-     cursor.execute("select * from v_transactions")
-     for row in cursor.fetchmany(size=10):
-         print(row)
-     </copy>
-     ```
-
-     ![Navigate to Oracle Database](images/prepare-data-12.png)
 
 
 You may now proceed to the next lab.

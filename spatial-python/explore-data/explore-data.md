@@ -30,25 +30,19 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database]()
 
-1.  Import libraries for ...
-
-     ```
-     <copy>
-     cust = 3
-     </copy>
-     ```
-
 
 1.  Create GeoDataFrame ...
 
     ```
     <copy>
+    cursor = connection.cursor()
     cursor.execute("""
-     SELECT cust_id, location_id, trans_id, trans_epoch_date, (proj_geom).get_wkt() 
-     from v_transactions
-     where cust_id=:cust
-     """, cust=cust)
-    gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'location_id', 'trans_id', 'trans_epoch_date', 'geometry'])
+     SELECT a.cust_id, a.trans_id, a.trans_epoch_date, 
+      (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
+     from transactions a, locations b
+     where a.location_id=b.location_id
+     """)
+    gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'trans_id', 'trans_epoch_date', 'geometry'])
     gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
     gdf = gdf.set_crs(3857)
     gdf.head()

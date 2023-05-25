@@ -18,6 +18,7 @@ Estimated Lab Time: xx minutes
 ## Task 1: ... 
 
 
+
 1.  Import libraries for ...
 
      ```
@@ -30,14 +31,24 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database]()
 
+1.  ...
+
+     ```
+     <copy>
+     cust=1
+     </copy>
+     ```
+
 1. ...
 
       ```
       <copy>
       cursor.execute("""
-       SELECT cust_id, trans_id, trans_epoch_date, (proj_geom).get_wkt() 
-       FROM v_transactions 
-       where cust_id=:cust""",cust=cust)
+       SELECT a.cust_id,  a.trans_id, a.trans_epoch_date, 
+        (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
+       from transactions a, locations b
+       where a.location_id=b.location_id
+       and cust_id=:cust""", cust=cust)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'trans_id', 'epoch_date', 'geometry'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
       gdf.head()
@@ -104,8 +115,7 @@ Estimated Lab Time: xx minutes
 
      ```
      <copy>
-     #cursor.execute("create table transaction_labels (trans_id integer, label integer)")
-     cursor.execute("delete from transaction_labels")
+     cursor.execute("create table transaction_labels (trans_id integer, label integer)")
      </copy>
      ```
 
@@ -125,45 +135,19 @@ Estimated Lab Time: xx minutes
       <copy>
       # labelled transactions for customer
       cursor.execute("""
-       SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, (proj_geom).get_wkt(), b.label
-       from v_transactions a, transaction_labels b
-       where a.trans_id=b.trans_id
-       """, cust=cust)
-      gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'location_id', 'trans_id', 'trans_epoch_date', 'geometry','label'])
-      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
-      gdf = gdf.set_crs(3857)
-      gdf.head()
-      </copy>
-      ```
-
-
-      ```
-      <copy>
-      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4}) 
-      </copy>
-      ```
-
-      ```
-      <copy>
-      # create view of Labelled transactions for customer
-      cursor.execute("""
-       create or replace view v_transactions_labelled as
-       SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, proj_geom , b.label
-       from v_transactions a, transaction_labels b
-       where a.trans_id=b.trans_id
+       SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
+       (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt(), c.label
+       from transactions a, locations b, transaction_labels c
+       where a.location_id=b.location_id
+       and a.trans_id=c.trans_id
        """)
-      </copy>
-      ```
-
-      ```
-      <copy>
-      cursor.execute("select cust_id, location_id, trans_id, trans_epoch_date, (proj_geom).get_wkt(),label from v_transactions_labelled")
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'location_id', 'trans_id', 'trans_epoch_date', 'geometry','label'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
       gdf = gdf.set_crs(3857)
       gdf.head()
       </copy>
       ```
+
 
       ```
       <copy>
@@ -176,13 +160,16 @@ Estimated Lab Time: xx minutes
 
       ```
       <copy>
+      # st cluster centroids for customer
       cursor = connection.cursor()
       cursor.execute("""
-             SELECT b.label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
-             (SDO_AGGR_CENTROID(SDOAGGRTYPE(proj_geom, 0.005))).get_wkt() as geometry, count(*) as trans_count
-             FROM v_transactions a, transaction_labels b
-             where a.trans_id=b.trans_id
-             and b.label != -1
+             SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
+             SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry, 
+             count(*) as trans_count
+             FROM transactions a, locations b, transaction_labels c
+             where a.location_id=b.location_id
+             and a.trans_id=c.trans_id
+             and c.label != -1
              group by label
              """)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['label','min_time','max_time','geometry','trans_count'])
@@ -212,20 +199,38 @@ Estimated Lab Time: xx minutes
    <copy>
    cursor = connection.cursor()
    cursor.execute("""
-    select a.trans_epoch_date, (a.proj_geom).get_wkt(), a.trans_id, a.label, b.label,
-    sdo_geom.sdo_distance(a.proj_geom,b.proj_geom,0.05)
-    from v_transactions_labelled a, v_st_cluster_centroids b
-    where a.trans_epoch_date between b.min_time and b.max_time
-    and a.label!=b.label
-   and a.label=-1
-    and sdo_within_distance(a.proj_geom, b.proj_geom, 'distance=1000 unit=KM') = 'FALSE'
-    """)
-   for row in cursor.fetchmany(size=10):
-   print(row)
+   with 
+      x as (
+          SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
+           lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
+          from transactions a, locations b, transaction_labels c
+          where a.location_id=b.location_id
+          and a.trans_id=c.trans_id ),
+      y as (
+          SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
+           SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
+           count(*) as trans_count
+          FROM transactions a, locations b, transaction_labels c
+          where a.location_id=b.location_id
+          and a.trans_id=c.trans_id
+          and c.label != -1
+          group by label)
+    select x.cust_id, x.trans_epoch_date, (x.proj_geom).get_wkt(), x.trans_id, x.label, y.label,
+         sdo_geom.sdo_distance(x.proj_geom, y.proj_geom, 0.05)
+    from x, y
+    where x.trans_epoch_date between y.min_time and y.max_time
+    and x.label!=y.label
+    and x.label=-1
+    and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=1000 unit=KM') = 'FALSE'
+          """)
+   gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
+   gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+   gdf = gdf.set_crs(3857)
+   gdf.head()
    </copy>
    ```
 
-
+... repeat for other cust_id...
 
 
 You may now proceed to the next lab.
