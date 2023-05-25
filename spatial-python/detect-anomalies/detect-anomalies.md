@@ -15,11 +15,9 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: ... 
+## Task 1: Prepare for spatiotemporal cluster detection
 
-
-
-1.  Import libraries for ...
+1.  Import additional libraries needed for detecting spatiotemporal clusters.
 
      ```
      <copy>
@@ -31,7 +29,20 @@ Estimated Lab Time: xx minutes
 
      ![Navigate to Oracle Database]()
 
-1.  ...
+
+5. Create table that will store cluster labels.
+
+     ```
+     <copy>
+     cursor.execute("create table transaction_labels (trans_id integer, label integer)")
+     </copy>
+     ```
+
+
+## Task 2: Detect spatiotemporal clusters 
+
+
+2.  Set the customer id for analysis.
 
      ```
      <copy>
@@ -39,7 +50,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-1. ...
+3. Create GeoDataframe of customer's transactions.
 
       ```
       <copy>
@@ -76,8 +87,7 @@ Estimated Lab Time: xx minutes
      ```
 
 
-
-1. ...
+1. Run spatiotemporal cluster model, where parameters are distance threshold (m), time threshold (sec), and number of items threshold.
 
      ```
      <copy>
@@ -86,7 +96,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-1. ...
+2. Review the resulting labels, where -1 is assigned to items not in a cluster.
 
      ```
      <copy>
@@ -94,7 +104,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-1. ...
+3. Add cluster labels to transactions.
 
      ```
      <copy>
@@ -103,23 +113,8 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-1. ...
 
-     ```
-     <copy>
-      df.query("trans_id == 819")
-     </copy>
-     ```
-
-1. ...
-
-     ```
-     <copy>
-     cursor.execute("create table transaction_labels (trans_id integer, label integer)")
-     </copy>
-     ```
-
-1. ...
+6. Insert labelled transactions to table.
 
      ```
      <copy>
@@ -129,7 +124,7 @@ Estimated Lab Time: xx minutes
      ```
 
 
-1. ...
+1. Explore labelled transactions.
 
       ```
       <copy>
@@ -155,8 +150,9 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
+## Task 3: Detect anomalies
 
-2. ...
+2. Create centroids for clusters with attributes for label and time range.
 
       ```
       <copy>
@@ -179,56 +175,42 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
+3. Detect transactions within time range of cluster and located at a distance greater than a threshold.
+
       ```
       <copy>
-      # Create view
-      cursor.execute("""create or replace view v_st_cluster_centroids as
-             SELECT b.label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
-             (SDO_AGGR_CENTROID(SDOAGGRTYPE(proj_geom, 0.005))) as proj_geom, count(*) as trans_count
-             FROM v_transactions a, transaction_labels b
-             where a.trans_id=b.trans_id
-             and b.label != -1
-             group by label""")
+      cursor = connection.cursor()
+      cursor.execute("""
+      with 
+         x as (
+             SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
+              lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
+             from transactions a, locations b, transaction_labels c
+             where a.location_id=b.location_id
+             and a.trans_id=c.trans_id ),
+         y as (
+             SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
+              SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
+              count(*) as trans_count
+             FROM transactions a, locations b, transaction_labels c
+             where a.location_id=b.location_id
+             and a.trans_id=c.trans_id
+             and c.label != -1
+             group by label)
+       select x.cust_id, x.trans_epoch_date, (x.proj_geom).get_wkt(), x.trans_id, x.label, y.label,
+            sdo_geom.sdo_distance(x.proj_geom, y.proj_geom, 0.05)
+       from x, y
+       where x.trans_epoch_date between y.min_time and y.max_time
+       and x.label!=y.label
+       and x.label=-1
+       and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=1000 unit=KM') = 'FALSE'
+             """)
+      gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
+      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+      gdf = gdf.set_crs(3857)
+      gdf.head()
       </copy>
       ```
-
-
-3. ...
-
-   ```
-   <copy>
-   cursor = connection.cursor()
-   cursor.execute("""
-   with 
-      x as (
-          SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
-           lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
-          from transactions a, locations b, transaction_labels c
-          where a.location_id=b.location_id
-          and a.trans_id=c.trans_id ),
-      y as (
-          SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
-           SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
-           count(*) as trans_count
-          FROM transactions a, locations b, transaction_labels c
-          where a.location_id=b.location_id
-          and a.trans_id=c.trans_id
-          and c.label != -1
-          group by label)
-    select x.cust_id, x.trans_epoch_date, (x.proj_geom).get_wkt(), x.trans_id, x.label, y.label,
-         sdo_geom.sdo_distance(x.proj_geom, y.proj_geom, 0.05)
-    from x, y
-    where x.trans_epoch_date between y.min_time and y.max_time
-    and x.label!=y.label
-    and x.label=-1
-    and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=1000 unit=KM') = 'FALSE'
-          """)
-   gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
-   gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
-   gdf = gdf.set_crs(3857)
-   gdf.head()
-   </copy>
-   ```
 
 ... repeat for other cust_id...
 

@@ -15,37 +15,23 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: ... 
+## Task 1: Upload data files
 
-
-... insert step for oracledb.defaults.fetch_lobs = False ...
-
-1. Click to download sample data.....
+1. Use the following links to download the data files:
+ * [locations.csv](./data/locations.csv)
+ * [transactions.csv](./data/transactions.csv)
    
-2. Click the **Upload** icon to load the data files.
-   ![Navigate to Oracle Database](images/prepare-data-01.png)
+1. Click the **Upload** icon to load the data files.
+   ![Upload data](images/prepare-data-xxx.png)
 
-3. Observe the data files in the left panel.  Click a new Jupyter tab by clicking **+**  and then select **Terminal**.
-   ![Navigate to Oracle Database](images/prepare-data-02.png)
+3. In the left panel, click on locations.csv and transactions.csv to preview the data files.
 
-4.  In the terminal tab, enter the following command to unzip the transactions data. Then close the terminal tab by clicking the **x**.
+   ![Preview files](images/prepare-data-xxx.png)
 
-     ```
-     <copy>
-     unzip transactions.zip 
-     </copy>
-     ```
 
-     Then enter the following command to remove the zip file.
+## Task 1: Create and load tables
 
-     ```
-     <copy>
-     rm transactions.zip 
-     </copy>
-     ```
-     ![Navigate to Oracle Database](images/prepare-data-03.png)
-
-5. In the next cell, paste the following statement and then click the **run** button. This creates the table for the locations data. 
+4. In the next cell, paste the following statement and then click the **run** button. This creates the table for the locations data. 
 
      ```
      <copy>
@@ -57,7 +43,7 @@ Estimated Lab Time: xx minutes
                           lat number)""")
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-04.png)
+     ![Desc here...](images/prepare-data-04.png)
 
 5. Run the following to load the locations data.
 
@@ -83,7 +69,7 @@ Estimated Lab Time: xx minutes
              connection.commit()
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-05.png)
+     ![Desc here...](images/prepare-data-05.png)
 
 
 6. Run the following to preview the locations data.
@@ -96,7 +82,7 @@ Estimated Lab Time: xx minutes
          print(row)
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-06.png)
+     ![Desc here...](images/prepare-data-06.png)
 
 
 5. In the next cell, paste the following statement and then click the **run** button. This creates the table for the transaction data. 
@@ -111,7 +97,7 @@ Estimated Lab Time: xx minutes
                           cust_id integer)""")
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-07.png)
+     ![Desc here...](images/prepare-data-07.png)
 
 
 
@@ -139,7 +125,7 @@ Estimated Lab Time: xx minutes
              connection.commit()
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-08.png)
+     ![Desc here...](images/prepare-data-08.png)
 
 
 
@@ -153,7 +139,9 @@ Estimated Lab Time: xx minutes
          print(row)
      </copy>
      ```
-     ![Navigate to Oracle Database](images/prepare-data-09.png)
+     ![Desc here...](images/prepare-data-09.png)
+
+## Task 3: Add epoch date
 
 7. Run the following to add and populate a column for epoch date.
    
@@ -173,7 +161,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database](images/prepare-data-10.png)
+     ![Desc here...](images/prepare-data-10.png)
 
 
 7. Run the following to again preview the transactions data. Observe the epoch date column is added..
@@ -187,7 +175,10 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database](images/prepare-data-11.png)
+     ![Desc here...](images/prepare-data-11.png)
+
+
+## Task 5: Configure data for spatial operations    
 
 8. Run the following to create a function to convert coordinates to geometry.
    
@@ -213,7 +204,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database](images/prepare-data-13.png)
+     ![Desc here...](images/prepare-data-13.png)
 
 
 9. Run the following to test the function.
@@ -232,7 +223,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database](images/prepare-data-14.png)
+     ![Desc here...](images/prepare-data-14.png)
 
 
 
@@ -250,7 +241,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database](images/prepare-data-15.png)
+     ![Desc here...](images/prepare-data-15.png)
 
 2. Run the following to create spatial index for the location geometry.
    
@@ -274,7 +265,7 @@ Estimated Lab Time: xx minutes
     </copy>
     ```
 
-     ![Navigate to Oracle Database](images/prepare-data-16.png)
+     ![Desc here...](images/prepare-data-16.png)
 
 4.   Run the following example spatial query.
 
@@ -291,7 +282,7 @@ Estimated Lab Time: xx minutes
     </copy>
     ```
 
-     ![Navigate to Oracle Database](images/prepare-data-16.png)
+     ![Desc here...](images/prepare-data-16.png)
 
 
 You may now proceed to the next lab.

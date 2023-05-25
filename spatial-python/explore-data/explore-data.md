@@ -15,7 +15,9 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: ... 
+## Task 1: Spatial data handling in Python
+
+... insert a locations hello world example here...
 
 
 1.  Import libraries for ...
@@ -28,7 +30,10 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database]()
+     ![Desc here...]()
+
+
+## Task 2: Explore transactions data
 
 
 1.  Create GeoDataFrame ...
@@ -49,7 +54,7 @@ Estimated Lab Time: xx minutes
     </copy>
     ```
 
-     ![Navigate to Oracle Database]()
+     ![Desc here...]()
 
 2.  Map viz ...  
 
@@ -59,7 +64,7 @@ Estimated Lab Time: xx minutes
     </copy>
     ```
 
-     ![Navigate to Oracle Database]()
+     ![Desc here...]()
 
 
 

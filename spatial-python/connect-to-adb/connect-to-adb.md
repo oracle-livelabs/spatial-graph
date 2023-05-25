@@ -15,34 +15,36 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: ... 
+## Task 1: Create files with connection parameters
 
 1. In JupyterLab, click on the Text File tile to create a new text file. 
-  ![Navigate to Oracle Database](images/connect-to-adb-01.png)
+  ![Desc here...](images/connect-to-adb-01.png)
 
 2. Enter your ADB ADMIN user password. Then from the File menu select **Save Text**. When prompted enter **my-pwd.txt** as your file name.
-  ![Navigate to Oracle Database](images/connect-to-adb-02.png)
+  ![Desc here...](images/connect-to-adb-02.png)
 
 3. When prompted enter **my-pwd.txt** as your file name.
-  ![Navigate to Oracle Database](images/connect-to-adb-03.png)
+  ![Desc here...](images/connect-to-adb-03.png)
 
 4.  Close the text file tab to return to the Launcher.
-   ![Navigate to Oracle Database](images/connect-to-adb-04.png)
+   ![Desc here...](images/connect-to-adb-04.png)
 
 5. Return to your Oracle Cloud browser tab and minimize Cloud Shell.
-  ![Navigate to Oracle Database](images/connect-to-adb-05.png)
+  ![Desc here...](images/connect-to-adb-05.png)
 
 1. Click on **Database Connection**.
-  ![Navigate to Oracle Database](images/connect-to-adb-06.png)
+  ![Desc here...](images/connect-to-adb-06.png)
 
 1. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
-  ![Navigate to Oracle Database](images/connect-to-adb-07.png)
+  ![Desc here...](images/connect-to-adb-07.png)
 
 1. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from yor ADB. Then save the file as **my-dsn.txt**. Then close the text file tab to return to the Launcher.
-  ![Navigate to Oracle Database](images/connect-to-adb-08.png)
+  ![Desc here...](images/connect-to-adb-08.png)
+
+## Task 2: Create notebook and connect to ADB
 
 1. From the Launcher, click the **Python 3** tile to create a new notebook.
-  ![Navigate to Oracle Database](images/connect-to-adb-09.png)
+  ![Desc here...](images/connect-to-adb-09.png)
 
 1. In the first cell, paste the following statement and then click the **run** button. This loads the python-oracedb module which handles interaction with Oracle Database.
 
@@ -53,7 +55,7 @@ Estimated Lab Time: xx minutes
      oracledb.defaults.fetch_lobs = False
      </copy>
      ```
-     ![Navigate to Oracle Database](images/connect-to-adb-10.png)
+     ![Desc here...](images/connect-to-adb-10.png)
 
 2. In the next cell, paste the following statements and then click the **run** button. This loads your ADB password and DSN into variables
 
@@ -64,7 +66,7 @@ Estimated Lab Time: xx minutes
      my_dsn = open('./my-dsn.txt','r').readline().strip()
      </copy>
      ```
-     ![Navigate to Oracle Database](images/connect-to-adb-11.png)
+     ![Desc here...](images/connect-to-adb-11.png)
 
 3. In the next cell, paste the following statements and then click the **run** button. This creates a connection to your ADB.
 
@@ -75,7 +77,7 @@ Estimated Lab Time: xx minutes
      cursor = connection.cursor()
      </copy>
      ```
-     ![Navigate to Oracle Database](images/connect-to-adb-12.png)
+     ![Desc here...](images/connect-to-adb-12.png)
 
 3. In the next cell, paste the following statements and then click the **run** button. This runs a test query to verify successful connection to ADB.
 
@@ -87,17 +89,17 @@ Estimated Lab Time: xx minutes
        print(row)
      </copy>
      ```
-     ![Navigate to Oracle Database](images/connect-to-adb-13.png)
+     ![Desc here...](images/connect-to-adb-13.png)
 
 
 4. Right-click on your notebook in the left panel and select **Rename**.
 
-     ![Navigate to Oracle Database](images/connect-to-adb-14.png)
+     ![Desc here...](images/connect-to-adb-14.png)
 
 
 5. Enter **my-notebook** (or a name of your choosing). Observe the notebook name is changed.
 
-     ![Navigate to Oracle Database](images/connect-to-adb-15.png)
+     ![Desc here...](images/connect-to-adb-15.png)
 
 You may now proceed to the next lab.
 
