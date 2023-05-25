@@ -15,7 +15,8 @@ Estimated Lab Time: xx minutes
 
 * 
 
-## Task 1: Prepare for spatiotemporal cluster detection
+## Task 1: Prep for cluster detection
+
 
 1.  Import additional libraries needed for detecting spatiotemporal clusters.
 
@@ -38,9 +39,7 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-
 ## Task 2: Detect spatiotemporal clusters 
-
 
 2.  Set the customer id for analysis.
 
@@ -175,6 +174,13 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
+      ```
+      <copy>
+      gdf.explore(tiles="CartoDB positron", marker_kwds={"radius":4})
+      </copy>
+      ```
+
+
 3. Detect transactions within time range of cluster and located at a distance greater than a threshold.
 
       ```
@@ -203,16 +209,26 @@ Estimated Lab Time: xx minutes
        where x.trans_epoch_date between y.min_time and y.max_time
        and x.label!=y.label
        and x.label=-1
-       and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=1000 unit=KM') = 'FALSE'
+       and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=500 unit=KM') = 'FALSE'
              """)
-      gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
-      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
-      gdf = gdf.set_crs(3857)
-      gdf.head()
+      gdfAnomaly = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
+      gdfAnomaly['geometry'] = shapely.from_wkt(gdfAnomaly['geometry'])
+      gdfAnomaly = gdfAnomaly.set_crs(3857)
+      gdfAnomaly.head()
       </copy>
       ```
 
-... repeat for other cust_id...
+
+      ```
+      <copy>
+      m = gdf.explore(tiles="CartoDB positron", marker_type='circle_marker', marker_kwds={"radius":"5"}, style_kwds={"color":"blue","fillColor":"blue", "fillOpacity":"1"})
+      m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"}, style_kwds={"color":"red","fillColor":"red", "fillOpacity":"1"} )
+      m
+      </copy>
+      ```
+
+
+1. Scroll up in notebook and repeat for other customers.
 
 
 You may now proceed to the next lab.
