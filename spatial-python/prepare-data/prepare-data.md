@@ -38,7 +38,7 @@ Estimated Lab Time: xx minutes
      # Create table for locations data
      cursor.execute("""create table locations (
                           location_id integer, 
-                          owner varchar2,  
+                          owner varchar2(30),  
                           lon number, 
                           lat number)""")
      </copy>

@@ -1,5 +1,5 @@
 # Explore Data
-
+ ... explain why all this spatial stuff in py... use spatial back end...
 
 ## Introduction
 
