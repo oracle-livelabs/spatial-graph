@@ -2,7 +2,7 @@
 
 ## About This Workshop
 
-This workshop introduces key graph data modeling and analytics concepts using the Graph Studio features in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions, and graph analytics algorithms to identify accounts through which a lot of transactions flow. You will be querying data containing (artificial) accounts and transactions information. You will start by creating a graph querying the graph, run an analytics algorithm, and visualize the results. An optional section introduces semantic (RDF) graph concepts, commonly used for Knowledge Graphs, and shows you how to load data from a standard RDF graph format such as the n-triple format, and how to query it using SPARQL, the query language for RDF graphs.
+This workshop introduces key graph data modeling and analytics concepts using the Graph Studio features in an Autonomous Database. It shows you how to use graph queries to find circular payments which may indicate fraudulent transactions, and graph analytics algorithms to identify accounts through which a lot of transactions flow. You will be querying data containing (artificial) accounts and transactions information. You will start by creating a graph, querying the graph, running an analytics algorithm, and visualizing the results. An optional section introduces semantic (RDF) graph concepts, commonly used for Knowledge Graphs, and shows you how to load data from a standard RDF graph format such as the n-triple format, and how to query it using SPARQL, the query language for RDF graphs.
 
 Estimated Workshop Time: 75 minutes
 

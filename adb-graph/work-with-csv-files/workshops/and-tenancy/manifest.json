@@ -17,20 +17,20 @@
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },      
         {
-            "title": "Lab 2: Setup",
+            "title": "Lab 1: Setup",
             "description": "Set up by running Stack.",
             "filename": "../../moviestream-graph/setup/setup.md"
         },
         {
-            "title": "Lab 3: Create a property graph in Graph Studio",
+            "title": "Lab 2: Create a property graph in Graph Studio",
             "filename": "../../moviestream-graph/create-graph/create-graph-tenancy.md"
         },
         {
-            "title": "Lab 4: Query and visualize the graph",
+            "title": "Lab 3: Query and visualize the graph",
             "filename": "../../moviestream-graph/query-and-visualize/query-and-visualize.md"
         },
         {
-            "title": "Lab 5: Clean-up",
+            "title": "Lab 4: Clean-up",
             "description": "Destroyed environement created in setup ",
             "filename": "../../destroy-environment/destroy-environment.md"
         },

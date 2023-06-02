@@ -25,7 +25,7 @@ Learn how to
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/KmTb9tbRVUUxgbPOoqbuMd4uWmZLUEvg251Q5vJ08JPOmhDdjxOxQ-4y7Q9Or89f/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 
@@ -59,7 +59,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
     ![Hovering over paragraph](./images/paragraph-hover.png)
 
-    There are 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
+    There are 9 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
 
     ![Shows the different paragraphs and samples](./images/paragraphs.png)
 
@@ -74,9 +74,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
-1. First, load the graph into the in-memory graph server if it is not already loaded since we will execute some graph algorithms.
+1. First, load the graph into the in-memory graph server if it still needs to be loaded since we will execute some graph algorithms.
 
-    Run the first **%python-pgx** paragraph which uses the built-in session object to read the graph into memory from the database and creates a PgXGraph object which is a handle to the loaded graph.
+    Run the first **%python-pgx** paragraph, which uses the built-in session object to read the graph into memory from the database and creates a PgXGraph object that handles the loaded graph.
 
     The code snippet in that paragraph is:  
 
@@ -97,7 +97,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
 
-2. Next, execute the paragraph which queries and displays 100 elements of the graph.    
+2. Next, execute the paragraph that queries and displays 100 graph elements.   
 
      ```
      <copy>%pgql-pgx
@@ -108,7 +108,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      ```
 
     The above PGQL query fetches the first 100 elements of the graph and displays them.  
-    The MATCH clause specifies a graph pattern.  
+    The **MATCH** clause specifies a graph pattern.  
     - `(s)` is the source node
     - `[t]` is an edge
     - `->` indicates the edge direction, that is, from the source `s` to a destination `d`
@@ -160,7 +160,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![circular payments chains of between 1 and 5 hops](images/circular-payments-1-5.png " ")
 
-5. Next let's use PGQL to find the top 10 accounts in terms of number of transfers.  
+5. Next let's use PGQL to find the top 10 accounts regarding of number of transfers.  
     PGQL has built-in functions `IN_DEGREE` and `OUT_DEGREE`, which return the number of incoming and outgoing edges of a node. So we can use them in this query.   
 
     Run the paragraph with the following query.
@@ -182,7 +182,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
 6.  Now check if there are any **circular** transfers originating and terminating at account **934**.
     We start with the **number of hops equals 4** as specified as **[:TRANSFERS]->{4}**.
-    **ONE ROW PER STEP** enables us to see all the vertices in the circles.  
+    **ONE ROW PER STEP** lets us see all the circles' vertices.  
 
      Execute the following query.
 
@@ -216,7 +216,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     We see there are circles **3** hops in length that start and end in account **934**.
 
-7. We can change the above query to check what the number of circles are if we choose **5** hops.  
+7. We can change the above query to check what the number of circular payment chains are if we choose **5** hops.  
     Execute the following query.
 
      ```
@@ -230,11 +230,11 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Query checks if there are any circular payment chains of length 5 from acct 934](images/payment-chain-5.png " ")  
 
-    The number of circular payment chains that start and end in **934** make that account look suspicious.
+    The number of circular payment chains that start and end in **934** makes that account look suspicious.
 
-8. Let us continue our investigation using another algorithm, the **PageRank** graph algorithm. A **%python-pgx** paragraph lets you execute python code snippets.
+8. Let us continue our investigation using another algorithm, the **PageRank** graph algorithm. A **%python-pgx** paragraph lets you execute Python code snippets.
     We will use the Python API to execute the **PageRank** algorithm.
-    The code snippet below creates a PgxGraph object containing a handle to the BANK_GRAPH loaded into the in-memory graph server. Then it executes the PageRank algorithm using the built-in **analyst** python object. The **session** and **analyst** objects are created when the in-memory graph server is instantiated and when a notebook is opened.
+    The code snippet below creates a PgxGraph object containing a handle to the BANK_GRAPH loaded into the in-memory graph server. Then it executes the PageRank algorithm using the built-in **analyst** Python object. The **session** and **analyst** objects are created when the in-memory graph server is instantiated and when a notebook is opened.
 
     Execute the paragraph containing the following code snippet.
 
@@ -246,8 +246,8 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Query executing pagerank using python](images/pagerank-algorithm.png " ")  
 
-9. Now let's list the PageRank values in descending order to find the accounts with high **PageRank** values.   
-    A high PageRank value indicates that the account is 'important,' which in the context of BANK_GRAPH means a high number of transfers have flown through that account, **or** the account is connected to accounts that have a high number of transfers flowing through them.
+9. Now let's list the PageRank values in descending order to find the accounts with high PageRank values.
+A high PageRank value indicates that that account is important, which in the context of BANK_GRAPH means a high number of transfers have flown through that account, or the account is connected to accounts that have a high number of transfers flowing through them.
 
      ```
      <copy>%pgql-pgx
@@ -263,7 +263,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![finds the 6-hop payment chains starting at account #934.](images/table-with-pagerank.png " ")  
 
 10. We see that **934** is in the top 5. This metric also indicates that a large number of transactions flow through **934**.
-    **387** is on the top of the list.
+    **387** is at the top of the list.
     Now let's use the computed PageRank value in visualizing the result of a PGQL query.  We use highlights to display the accounts with a high PageRank value with larger circles and red in color.
     Execute the paragraph with the following query, which finds the 6-hop payment chains starting at account #934.
 
@@ -491,13 +491,13 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Shows the number of transactions based on hops for 943 and 387.](images/hop-transaction-tables.png " ")   
 
-19. We see account **406** appearing again with a high number of transactions and close to both accounts **934** and **387**.
+19. We see account **406** reappearing with a high number of transactions and close to accounts **934** and **387**. 
 
-    It also had a high **personalized pagerank** value.
+    It also had a high **personalized PageRank** value.
 
-    Now let's look at a graph showing 2-hops accounts from **934** and **387**.
+    Now let's look at a graph showing 2-hops accounts from **934** and **387**. 
 
-    Execute the paragraph which queries and displays how accounts **934** and **387** are directly transferring to **406**.
+    Execute the paragraph that queries and displays how accounts **934** and **387** transfer directly to **406**.
 
      ```
      <copy>%pgql-pgx
