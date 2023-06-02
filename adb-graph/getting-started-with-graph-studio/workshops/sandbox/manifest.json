@@ -1,6 +1,6 @@
 {
     "workshoptitle": "Get Started with Graph Studio",
-    "help": "jayant.sharma@oracle.com",
+    "help": "livelabs-help-sg_us@oracle.com",
     "include": {
       "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md"
