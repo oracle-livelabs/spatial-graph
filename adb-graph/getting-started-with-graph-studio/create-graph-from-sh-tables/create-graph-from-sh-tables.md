@@ -22,16 +22,16 @@ Estimated Time: 30 minutes.
 
 1. From your Autonomous Database Details page in OCI, select Database Actions
 
-    ![Select Database Actions from the autonomous Database Details page](./images/select-database-actions.png)
+    ![Select Database Actions from the autonomous Database Details page](./images/select-database-actions.png "Select Database Actions from the autonomous Database Details page")
 
 2. By default you will be logged in as the Admin user. Sign out, and sign in again as the Graph User.
 
-  ![Sign Out of Database Actions](./images/sign-out-database-actions.png)
-  ![Sign In to Database Actions as the Graph User](./images/sign-in-db-actions.png)
+  ![Sign Out of Database Actions](./images/sign-out-database-actions.png "Sign Out of Database Actions")
+  ![Sign In to Database Actions as the Graph User](./images/sign-in-db-actions.png "Sign In to Database Actions as the Graph User")
 
 3. Select SQL
 
-  ![Select SQL from Database Actions](./images/select-sql-db-actions.png)
+  ![Select SQL from Database Actions](./images/select-sql-db-actions.png "Select SQL from Database Actions")
 
 4. In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. Create Views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS from the SH tables, using only a subset of the columns from those tables.
 
@@ -59,7 +59,7 @@ Estimated Time: 30 minutes.
   </copy>
   ```
 
-  ![Run the copied code to create views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS](./images/create-views.png)
+  ![Run the copied code to create views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS](./images/create-views.png "Create views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS")
 
 5. Add the relevant Primary Keys to the Views
 
@@ -79,7 +79,7 @@ Estimated Time: 30 minutes.
   </copy>
   ```
 
-  ![Add the relevant Primary Keys to the Views](./images/add-view-pks.png)
+  ![Add the relevant Primary Keys to the Views](./images/add-view-pks.png "Add the relevant Primary Keys to the Views")
 
 6. Add the relevant Foreign Keys for the Sales View
 
@@ -97,21 +97,21 @@ Estimated Time: 30 minutes.
   </copy>
   ```
 
-  ![Add the relevant Foreign Keys for SH_SALES_VIEW](./images/add-view-fks.png)
+  ![Add the relevant Foreign Keys for SH_SALES_VIEW](./images/add-view-fks.png "Add the relevant Foreign Keys for SH_SALES_VIEW")
 
 7. Now that you have created the necessary views, you can create a Graph in Graph Studio. So, navigate back to your Autonomous Database Details page in OCI, select tools, then "Open Graph Studio"
 
-  ![Open Graph Studio](./images/open-graph-studio.png)
+  ![Open Graph Studio](./images/open-graph-studio.png "Open Graph Studio")
 
 8. Log in to Graph Studio with your Graph user
 
-  ![Log in to Graph Studio with your Graph user](./images/graph-studio-login.png)
+  ![Log in to Graph Studio with your Graph user](./images/graph-studio-login.png "Log in to Graph Studio with your Graph user")
 
 ## Task 2: Select the Tables to Create the Graph From
 
 1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They navigate to the Home, Models, Graphs, Notebooks, and Jobs pages respectively.
 
-    ![Home page with content](./images/home-page-with-content.png " ")
+    ![Home page with content](./images/home-page-with-content.png "Graphs Page ")
 
 2. Click on the **Graphs** menu icon, and click create.
 
@@ -123,7 +123,7 @@ Estimated Time: 30 minutes.
 
     You see some details about this table, like all the columns it has and their types, as well as which column is the primary key:
 
-    ![Modeler view of SH_PRODUCTS_VIEW](./images/modeler-view-products-view-info.png " ")
+    ![Modeler view of SH_PRODUCTS_VIEW](./images/modeler-view-products-view-info.png "Modeler view of SH_PRODUCTS_VIEW ")
 
 4. On the bottom left, click on the **GRAPHUSER.SH\_PRODUCTS\_VIEW - Data** tab.
 
@@ -131,11 +131,11 @@ Estimated Time: 30 minutes.
 
 5. For this lab, we choose all views we created earlier as input for our graph model. If your Graph user only contains those views, you can select *GRAPHUSER* and then click the button in the middle to move all views to the selected section on the right. Otherwise, select the relevant views, and then click the button in the middle to move all views to the selected section on the right.
 
-    ![Select all relevant views for the graph](./images/modeler-views-selected.png " ")
+    ![Select all relevant views for the graph](./images/modeler-views-selected.png "Select all relevant views for the graph ")
 
 6. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right.  
 
-    ![Modeler output of graph model from inputted views](./images/modeler-sh-model.png " ")
+    ![Modeler output of graph model from inputted views](./images/modeler-sh-model.png "Modeler output of graph model from inputted views ")
 
     This model can be modified if necessary.
 
@@ -149,7 +149,7 @@ Estimated Time: 30 minutes.
 
 2. Rename the vertex label to **CHANNELS**:
 
-    ![Rename the CHANNELS vertex label](./images/model-rename-vertex.png " ")
+    ![Rename the CHANNELS vertex label](./images/model-rename-vertex.png "Rename the CHANNELS vertex label ")
 
 3. Repeat for all other vertex tables:
 
@@ -170,7 +170,7 @@ Estimated Time: 30 minutes.
 
 5. Rename the edge label to **TO\_CUSTOMER**:
 
-    ![End result of changes to TO_CUSTOMER edge table](./images/model-to-customer.png " ")
+    ![End result of changes to TO_CUSTOMER edge table](./images/model-to-customer.png "End result of changes to TO_CUSTOMER edge table")
 
 6. Repeat for the other all other edge tables:
 
@@ -183,7 +183,7 @@ Estimated Time: 30 minutes.
 
 7. Click on the **Source** tab on the upper left.
 
-    ![Model Source View](./images/model-source-view.png " ")
+    ![Model Source View](./images/model-source-view.png "Model Source View")
 
     You see the source code for this model. The source code is written in PGQL Data Definition Language (DDL) syntax. You can find more information about the language in the
     [latest PGQL specification](https://pgql-lang.org/spec/latest/#create-property-graph).
@@ -192,16 +192,16 @@ Estimated Time: 30 minutes.
 
 8. Click the **Preview** tab on the upper left.
 
-    ![Model source page, pointing to preview tab](./images/model-source-choose-preview.png " ")
+    ![Model source page, pointing to preview tab](./images/model-source-choose-preview.png "Model source page, pointing to preview tab")
 
     You see a visual representation of our graph model so far. Each circle in the graph represents a vertex type (label). And edge relationship in the graph represents an edge type (label)
     in between the circles. You can rearrange the graph by clicking and dragging elements around. You can also right click on each element to see the list of properties it will contain.
 
-    ![Model preview](./images/model-preview.png " ")
+    ![Model preview](./images/model-preview.png "Model preview")
 
 9. Click **Next** on the top right.
 
-    ![Model summary page](./images/model-summary-page.png " ")
+    ![Model summary page](./images/model-summary-page.png "Model summary page")
 
     You see a summary of the model we created. All the input tables and how we want to map those to a property graph.
 
@@ -211,24 +211,24 @@ Estimated Time: 30 minutes.
 
 2. Enter **SH\_PGVIEW\_GRAPH** as graph name, **SH\_MODEL** as the model name,  and optionally give the graph a description and some tags to identify it easier later. Leave the **Load into memory** option checked. Then click **Create**.
 
-    ![Create Graph Dialog](./images/model-create-graph-dialog.png " ")
+    ![Create Graph Dialog](./images/model-create-graph-dialog.png "Create Graph Dialog")
 
     You get redirected to the jobs page where you see your graph creation job.
 
-    ![Jobs page, after the graph is created](./images/jobs-after-create-graph.png)
+    ![Jobs page, after the graph is created](./images/jobs-after-create-graph.png "Jobs page, after the graph is created")
 
 3. Click on the running job. In the details section, click on the **Logs** icon on the top right.
 
-    ![Job logs page where you can see the logs for sh graph](./images/jobs-sh-graph-see-log.png)
+    ![Job logs page where you can see the logs for sh graph](./images/jobs-sh-graph-see-log.png "Job logs page where you can see the logs for sh graph")
 
     That brings up a dialog with the log.  
 
-    ![jobs log for sh graph](./images/jobs-log-for-sh-graph.png " ")
+    ![jobs log for sh graph](./images/jobs-log-for-sh-graph.png "jobs log for sh graph")
 
     You can leave the resulting logs dialog open to monitor the progress of the graph creation. Graph Studio automatically refreshes the logs once every few seconds.
     The graph creation job should succeed after a few minutes. After completion, another **Load into memory** job is started automatically.
 
-    ![See that the load into memory job has started](./images/jobs-sh-load-into-memory-started.png)
+    ![See that the load into memory job has started](./images/jobs-sh-load-into-memory-started.png "See that the load into memory job has started")
 
 4. Wait for both jobs to complete successfully.
 
@@ -239,7 +239,7 @@ Estimated Time: 30 minutes.
 
 2. Click on the **SH\_PGVIEW\_GRAPH** graph that we just created.
 
-    ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details.png" ")
+    ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details.png "Preview of graph after selecting it in Graphs page")
 
     You can see a preview of the graph, edit its name or meta data, share it with others, load it into memory or delete it.
 
@@ -247,7 +247,7 @@ Estimated Time: 30 minutes.
 
 4. Click on the **SH Model** that we just created:
 
-    ![View model details of the SH model in the models page image](./images/models-sh-model-details.png " ")
+    ![View model details of the SH model in the models page image](./images/models-sh-model-details.png "View model details of the SH model in the models page image")
 
     Just like the graph, the model is stored as well. You can see the source code of this model, share it with others, edit its meta data or delete it.
     You can also kick off another graph creation job from the same model.
@@ -259,4 +259,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development
 * **Contributors** -  Jayant Sharma, Rahul Tasker, Product Management
-* **Last Updated By/Date** - Rahul Tasker, September 2022
+* **Last Updated By/Date** - Jayant Sharma, June 2023
