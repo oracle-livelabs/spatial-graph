@@ -1,10 +1,10 @@
 {
-    "workshoptitle": "ocw23 spatial-python title...",
+    "workshoptitle": "When \"Where\" Matters: How to Be in Two Places at Once",
       "help": "livelabs-help-db_us@oracle.com",
       "tutorials": [
         {
-          "title": "Introduction ...",
-          "description":"Introduction to ...",
+          "title": "Introduction",
+          "description":"Introduction",
           "filename": "../introduction/introduction.md"
         },
         {
