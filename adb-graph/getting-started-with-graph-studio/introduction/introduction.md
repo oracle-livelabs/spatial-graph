@@ -11,9 +11,9 @@ Oracle Autonomous Database contains features that enable it to function as a sca
 
 Watch the following two videos for more information. The first is an introduction to property graphs and their use cases. The second is a tour of the Graph Studio interface.
 
-[](youtube:v55hU30Mb0s)   Simplify Graph Analytics with Autonomous Database   
+[Link to video titled Simply Graph Analytics](youtube:v55hU30Mb0s)   Simplify Graph Analytics with Autonomous Database   
 
-[](youtube:URdchKSsy3E)   A tour of the Graph Studio interface
+[Link to video titled A tour of the Graph Studio interface](youtube:URdchKSsy3E)   A tour of the Graph Studio interface
 
 ### Objectives
 
