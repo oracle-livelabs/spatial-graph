@@ -1,23 +1,23 @@
-# Create adb
+# Create Autonomous Database
 
 
 ## Introduction
 
-...
+Oracle Autonomous Database is a self-driving, self-securing, self-repairing database service, including Oracle Spatial, with offerings for data warehousing and transaction processing workloads. You do not need to configure or manage any hardware, or install any software. Oracle Cloud Infrastructure handles creating the database, as well as backing up, patching, upgrading, and tuning the database. As this workshop focuses on an analytic use case, you create an Autonomous Date Warehouse (ADW).
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* 
+* Create an Autonomous Database instance 
 
 ### Prerequisites
 
-* 
+* Completion of the previous lab
 
-## Task 1: ... 
+## Task 1: Create Autonomous Database
 
-1. Navigate to Oracle Database...
+1. From the main navigation panel select **Oracle Database**, then select **Autonomous Database**.
   ![Navigate to Oracle Database](images/adb-01.png)
 
 2. Select root or other compartment, then click **Create Autonomous Database**...
@@ -29,7 +29,7 @@ Estimated Lab Time: xx minutes
 4. For database version select **19c**.
    ![Create ADW](images/adb-04.png) 
 
-5. Enter and confirm a password for the database ADMIN user. In the next step you will need the IP address of your compute instance. Click on the restore link to expand Cloud Shell.
+5. Enter and confirm a password for the database ADMIN user. In the next step you will need the IP address of your compute instance. This is because you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the Python host compute. Click on the restore button to expand Cloud Shell.
    ![Create ADW](images/adb-05.png) 
 
 6. Copy the IP address from your SSH command. Then collapse the Cloud Shell.
@@ -45,10 +45,9 @@ Estimated Lab Time: xx minutes
 9. When provisioning is complete your ADB is ready.
  ![Create ADW](images/adb-09.png) 
 
-You may now proceed to the next lab.
-
-## Learn More
-* 
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - 
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
