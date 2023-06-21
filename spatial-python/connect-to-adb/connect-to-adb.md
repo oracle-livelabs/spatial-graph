@@ -1,32 +1,32 @@
-# Connect to ADB
+# Connect to  Autonomous Database from Python
 
 
 ## Introduction
 
-...
+To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous Database. The python-oracledb driver supports this connection and all subsequent database interactions.  You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle Database and does not need Oracle Client libraries. 
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* 
+* Connect to Autonomous Database from Python
 
 ### Prerequisites
 
-* 
+* Completion of previous lab.
 
-## Task 1: Create files with connection parameters
+## Task 1: Create connection parameter files
 
-1. In JupyterLab, click on the Text File tile to create a new text file. 
+1. To avoid including database connection information directly in your notebook, you create files with this information which your notebook can reference. In JupyterLab, click on the Text File tile to create a new text file. 
   ![Desc here...](images/connect-to-adb-01.png)
 
-2. Enter your ADB ADMIN user password. Then from the File menu select **Save Text**. When prompted enter **my-pwd.txt** as your file name.
+2. Enter your ADB ADMIN user password. Then from the File menu select **Save Text**. 
   ![Desc here...](images/connect-to-adb-02.png)
 
-3. When prompted enter **my-pwd.txt** as your file name.
+3. When prompted enter **my-pwd.txt** as your file name and click **Rename**.
   ![Desc here...](images/connect-to-adb-03.png)
 
-4.  Close the text file tab to return to the Launcher.
+4. Close the text file tab to return to the Launcher page.
    ![Desc here...](images/connect-to-adb-04.png)
 
 5. Return to your Oracle Cloud browser tab and minimize Cloud Shell.
@@ -35,13 +35,15 @@ Estimated Lab Time: xx minutes
 1. Click on **Database Connection**.
   ![Desc here...](images/connect-to-adb-06.png)
 
-1. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
+1. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
   ![Desc here...](images/connect-to-adb-07.png)
 
-1. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from yor ADB. Then save the file as **my-dsn.txt**. Then close the text file tab to return to the Launcher.
+1. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from your Autonomous Database. Then save the file and rename to **my-dsn.txt**. 
   ![Desc here...](images/connect-to-adb-08.png)
 
-## Task 2: Create notebook and connect to ADB
+  As done previously, close the text file tab to return to the Launcher page.
+
+## Task 2: Create notebook and connect to Autonomous Database
 
 1. From the Launcher, click the **Python 3** tile to create a new notebook.
   ![Desc here...](images/connect-to-adb-09.png)
@@ -92,7 +94,7 @@ Estimated Lab Time: xx minutes
      ![Desc here...](images/connect-to-adb-13.png)
 
 
-4. Right-click on your notebook in the left panel and select **Rename**.
+4. Right-click on your notebook file Untitled.ipynb in the left panel and select **Rename**.
 
      ![Desc here...](images/connect-to-adb-14.png)
 
@@ -101,10 +103,12 @@ Estimated Lab Time: xx minutes
 
      ![Desc here...](images/connect-to-adb-15.png)
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 ## Learn More
-* 
+* For more info on python-oracledb connections to Autonomous Database, please see the [documentation](https://python-oracledb.readthedocs.io/en/latest/user_guide/connection_handling.html#connecting-to-oracle-cloud-autonomous-databases).
 
 ## Acknowledgements
-* **Author** - 
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023

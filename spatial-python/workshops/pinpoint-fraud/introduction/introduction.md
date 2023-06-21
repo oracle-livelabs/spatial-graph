@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-In this workshop you will identify suspicious financial transactions based on analysis involving location and time ("spatiotemporal"). Python has emerged as a platform of choice for data analysis involving a combination of back-end database and specialized open source libraries. This is especially true in the area of geospatial analysis and AI, where a robust ecosystem of Python modules dovetails with the native spatial capabilities of Oracle Database.
+In this workshop you will identify suspicious financial transactions based on analysis involving location and time ("spatiotemporal"). Both the spatial features of Oracle Database (i.e., "Oracle Spatial") and Python libraries are used. Oracle Spatial performs back-end large scale location analysis and enrichment  based on relationships and measurements such as proximity, containment, distance and area. Python provides an environment for data analysis and machine learning leveraging a vast ecosystem of mature specialized libraries, including spatiotemporal analysis. The python-oracledb driver enables connectivity and robust access to Oracle Database, so that the strengths of both the Oracle back-end and Python client are optimally leveraged.
 
 Estimated Workshop Time: xx minutes
 

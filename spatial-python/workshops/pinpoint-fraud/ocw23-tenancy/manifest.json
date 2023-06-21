@@ -33,7 +33,7 @@
           "filename": "../../../start-jupyterlab/start-jupyterlab.md"
         },
         {
-          "title": "Lab 5: Connect to ADB from Python",
+          "title": "Lab 5: Connect to Autonomous Database from Python",
           "description": "...",
           "filename": "../../../connect-to-adb/connect-to-adb.md"
         }, 
