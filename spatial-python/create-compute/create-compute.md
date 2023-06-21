@@ -75,7 +75,7 @@ Estimated Lab Time: xx minutes
        ssh -i ~/.ssh/my-ssh-key opc@[IP address]
       </copy>
       ```
-      When propted to add to the list of known hosts, reply with **yes**.
+      When prompted to add to the list of known hosts, reply with **yes**.
     ![Create instances](images/compute-15.png) 
 
 Your compute instance is created and you have verified SSH access.

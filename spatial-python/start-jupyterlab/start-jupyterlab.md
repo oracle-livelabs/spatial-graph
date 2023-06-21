@@ -1,26 +1,33 @@
 # Start JupyterLab
 
-
 ## Introduction
 
-...
+Notebooks are interactive documents for code, descriptive text, and visualizations. In this workshop you use open source JupyterLab which provides a web-based notebook environment with many user-friendly features such as file uploading.
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* 
+* Start JupyterLab
+* Verify access to JupyterLab
 
 ### Prerequisites
 
-* 
+* Completion of previous lab 
 
-## Task 1: ... 
+## Task 1: Start JupyterLab 
    
 1. Expand Cloud Shell.
     ![Expand Cloud Shell](images/start-jupyter-01.png) 
 
-2. Create SSH connection to your compute instance.
+2. You should still be connected with SSH to your compute instance. If not, then enter the following command to connect to your compute instance. 
+
+      ```
+      <copy>
+       ssh -i ~/.ssh/my-ssh-key opc@[IP address]
+      </copy>
+      ```
+
     ![Expand Cloud Shell](images/start-jupyter-02.png) 
 
 3. Your compute instance has a virtual environment with Python libraries loaded. Activate the virtual environment with the following command.
@@ -34,7 +41,7 @@ Estimated Lab Time: xx minutes
       ![Expand Cloud Shell](images/start-jupyter-03.png) 
 
 
-4. Start JupyterLab with the following command.
+4. Enter the following command to start JupyterLab. 
 
       ```
       <copy>
@@ -43,7 +50,11 @@ Estimated Lab Time: xx minutes
       ```
     ![Start JupyterLab](images/start-jupyter-04.png) 
 
-5. Observe the JupyterLab URL including authentication token. Copy this URL and paste into a text editor.
+    The startup process is complete when you see "To access the server ..." followed by a file path and  URL.
+
+## Task 2: Verify access to JupyterLab 
+
+1. Observe the JupyterLab URL including authentication token. Copy this URL and paste into a text editor.
     ![Start JupyterLab](images/start-jupyter-05.png) 
 
 
@@ -52,3 +63,10 @@ Estimated Lab Time: xx minutes
 
 7. Open a new browser tab. Then copy the URL from your text editor and paste into the new tab and run. This will open JupyterLab where you will be creating and running Python notebooks in the following Labs.
     ![Start JupyterLab](images/start-jupyter-07.png) 
+
+ You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
