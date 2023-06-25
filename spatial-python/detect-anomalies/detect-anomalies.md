@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that clusters data based on both space and time, or in other words spatiotemporal clusters. This is useful for the purpose of detecting suspicious financial transactions.
+The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. You will identify such occurrences in this lab.
 
 
 Estimated Lab Time: xx minutes
@@ -12,7 +12,7 @@ Estimated Lab Time: xx minutes
 
 * Load transactions data from Oracle Spatial to Python
 * Detect spatiotemporal clusters representing expected behavior
-* Identify spatiotemporal outliers that represent suspicious behavior
+* Identify outliers that represent suspicious behavior
 
 ### Prerequisites
 
@@ -179,7 +179,9 @@ Estimated Lab Time: xx minutes
 
 ## Task 3: Detect anomalies
 
-2. Create centroids for clusters with attributes for label and time range.
+In this task you represent each spatiotemporal cluster as a point with attributes for the time range, and then identify transactions that occurred within the same time range but far enough away to be considered suspicious.
+
+2. Oracle Spatial provides many operations to aggregate and summarize data. One of these operations is called "aggregate centroid" which accepts a set of points and returns a single point in the middle. Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label and time range.
 
       ```
       <copy>
@@ -190,10 +192,10 @@ Estimated Lab Time: xx minutes
              SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry, 
              count(*) as trans_count
              FROM transactions a, locations b, transaction_labels c
-             where a.location_id=b.location_id
-             and a.trans_id=c.trans_id
-             and c.label != -1
-             group by label
+             WHERE a.location_id=b.location_id
+             AND a.trans_id=c.trans_id
+             AND c.label != -1
+             GROUP BY label
              """)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['label','min_time','max_time','geometry','trans_count'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
@@ -202,6 +204,8 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
+2. Run the following to visualize the spatiotemporal cluster centroid.
+   
       ```
       <copy>
       gdf.explore(tiles="CartoDB positron", marker_kwds={"radius":4})
@@ -218,26 +222,26 @@ Estimated Lab Time: xx minutes
       with 
          x as (
              SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
-              lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
-             from transactions a, locations b, transaction_labels c
-             where a.location_id=b.location_id
-             and a.trans_id=c.trans_id ),
+                    lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
+             FROM transactions a, locations b, transaction_labels c
+             WHERE a.location_id=b.location_id
+             AND a.trans_id=c.trans_id ),
          y as (
              SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
               SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
               count(*) as trans_count
              FROM transactions a, locations b, transaction_labels c
-             where a.location_id=b.location_id
-             and a.trans_id=c.trans_id
-             and c.label != -1
-             group by label)
-       select x.cust_id, x.trans_epoch_date, (x.proj_geom).get_wkt(), x.trans_id, x.label, y.label,
-            sdo_geom.sdo_distance(x.proj_geom, y.proj_geom, 0.05)
-       from x, y
-       where x.trans_epoch_date between y.min_time and y.max_time
-       and x.label!=y.label
-       and x.label=-1
-       and sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=500 unit=KM') = 'FALSE'
+             WHERE a.location_id=b.location_id
+             AND a.trans_id=c.trans_id
+             AND c.label != -1
+             GROUP BY label)
+       SELECT x.cust_id, x.trans_epoch_date, (x.proj_geom).get_wkt(), x.trans_id, x.label, y.label,
+              round(sdo_geom.sdo_distance(x.proj_geom, y.proj_geom, 0.05, 'unit=KM'))
+       FROM x, y
+       WHERE x.trans_epoch_date between y.min_time and y.max_time
+       AND x.label!=y.label
+       AND x.label=-1
+       AND sdo_within_distance(x.proj_geom, y.proj_geom, 'distance=500 unit=KM') = 'FALSE'
              """)
       gdfAnomaly = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id','trans_epoch_date','geometry', 'trans_id','label','outlier_to_label','distance'])
       gdfAnomaly['geometry'] = shapely.from_wkt(gdfAnomaly['geometry'])
@@ -246,17 +250,32 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
-
+2. Run the following to visualize the spatiotemporal cluster and associated suspicious outlier(s).
+   
       ```
       <copy>
-      m = gdf.explore(tiles="CartoDB positron", marker_type='circle_marker', marker_kwds={"radius":"5"}, style_kwds={"color":"blue","fillColor":"blue", "fillOpacity":"1"})
-      m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"}, style_kwds={"color":"red","fillColor":"red", "fillOpacity":"1"} )
+      m = gdf.explore(tiles="CartoDB positron", marker_type='circle_marker',marker_kwds={"radius":"5"}, 
+                      style_kwds={"color":"blue","fillColor":"blue", "fillOpacity":"1"})
+      m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"}, 
+                             style_kwds={"color":"red","fillColor":"red", "fillOpacity":"1"} )
+      m.fit_bounds([ [25,-125], [50,-70] ])
       m
       </copy>
       ```
 
 
+4. Prior to analyzing a different customer's transactions, run the following to empty the TRANSACTION\_LABELS table as a new set of labels will be created and saved for the next customer analyzed. 
+
+      ```
+      <copy>
+      cursor.execute("truncate table transaction_labels")
+      </copy>
+      ```
+
 1. Scroll up in notebook and repeat for other customers.
+
+
+
 
 
 You may now proceed to the next lab.
