@@ -1,24 +1,27 @@
-# Detect Anomalies
+# Detect suspicious transactions
 
 
 ## Introduction
 
-...
+The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that clusters data based on both space and time, or in other words spatiotemporal clusters. This is useful for the purpose of detecting suspicious financial transactions.
+
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* 
+* Load transactions data from Oracle Spatial to Python
+* Detect spatiotemporal clusters representing expected behavior
+* Identify spatiotemporal outliers that represent suspicious behavior
 
 ### Prerequisites
 
-* 
+* Completion of previous lab
 
 ## Task 1: Prep for cluster detection
 
 
-1.  Import additional libraries needed for detecting spatiotemporal clusters.
+1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan. 
 
      ```
      <copy>
@@ -28,10 +31,10 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-     ![Navigate to Oracle Database]()
+     ![desc here](images/detect-anomalies-01.png)
 
 
-5. Create table that will store cluster labels.
+5. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
 
      ```
      <copy>
@@ -39,17 +42,20 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
+    ![desc here](images/detect-anomalies-02.png)
+
 ## Task 2: Detect spatiotemporal clusters 
 
-2.  Set the customer id for analysis.
+1.  In this workshop you will analyze transactions for one customer at a time. Run the following to set a variable for the customer id for analysis. You will return to this cell to switch to a different customer for analysis.
 
      ```
      <copy>
      cust=1
      </copy>
      ```
+     ![desc here](images/detect-anomalies-03.png)
 
-3. Create GeoDataframe of customer's transactions.
+2. Create a GeoDataframe of customer's transactions. Notice the binding syntax in the WHERE clause (cust\_id=:cust) supported by the python-oracledb driver.
 
       ```
       <copy>
@@ -65,12 +71,13 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
+     ![desc here](images/detect-anomalies-04.png)
 
-2.   Convert to np array for st_dbscan
+2.   The st\_dbscan library requires input in numpy format, where numpy is a library for handling arrays.  Run the following two steps to convert your GeoDataFrame to a numpy array.
     
      ```
      <copy>
-     # first convert to pd dataframe
+     # first convert to pandas dataframe
      df = pd.DataFrame(data={'time': gdf.epoch_date, 'x': gdf.geometry.x, 'y': gdf.geometry.y, 'trans_id':  gdf.trans_id, 'cust_id':gdf.cust_id})
      df.head()
      </copy>
@@ -78,15 +85,16 @@ Estimated Lab Time: xx minutes
 
      ```
      <copy>
-     #then convert to np array
+     # then convert to numpy array
      data = df.values
      data = np.int_(data)
      data[1:10]
      </copy>
      ```
 
+     ![desc here](images/detect-anomalies-05.png)
 
-1. Run spatiotemporal cluster model, where parameters are distance threshold (m), time threshold (sec), and number of items threshold.
+3. You are now ready to detect spatiotemporal clusters for the current customer's transactions. The operation accepts three threshold parameters: distance, time, and minimum number of items. Items with neighbors within the distance and time thresholds are considered part of a cluster, and there most be at least the minimum number of items to qualify as a cluster. Distance is in the units of the coordinate system, which in this case is meters. Time is in seconds. Run the following to detect clusters where the thresholds are 5 or more items within 5KM and roughly 1 month.
 
      ```
      <copy>
@@ -95,7 +103,9 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-2. Review the resulting labels, where -1 is assigned to items not in a cluster.
+    ![desc here](images/detect-anomalies-06.png)
+
+4. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was one cluster detected. 
 
      ```
      <copy>
@@ -103,7 +113,9 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
-3. Add cluster labels to transactions.
+    ![desc here](images/detect-anomalies-07.png)
+
+5. Run the following to add the cluster labels to transactions and print the first several rows. Each transaction is labelled with either -1 (meaning not part of a cluster) or an integer >=0 (meaning the cluster the item belongs to).
 
      ```
      <copy>
@@ -112,8 +124,9 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
+    ![desc here](images/detect-anomalies-08.png)
 
-6. Insert labelled transactions to table.
+6. Detecting anomalies will require database queries involving the cluster labels. So run the following to insert the the current customer's labelled transactions to the TRANSACTION\_LABELS table created in the previous task.
 
      ```
      <copy>
@@ -122,8 +135,9 @@ Estimated Lab Time: xx minutes
      </copy>
      ```
 
+    ![desc here](images/detect-anomalies-09.png)
 
-1. Explore labelled transactions.
+1. Run the following to retrieve current customer's transactions with their cluster labels.
 
       ```
       <copy>
@@ -141,13 +155,27 @@ Estimated Lab Time: xx minutes
       gdf.head()
       </copy>
       ```
+    ![desc here](images/detect-anomalies-10.png)
 
+1. Run the following to visualize the current customer's labelled transactions. In this case you include the parameter for color coding the items based on cluster label. You may also mouse over an item to see its attributes including the cluster label.
 
       ```
       <copy>
       gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4}) 
       </copy>
       ```
+    ![desc here](images/detect-anomalies-11.png)
+
+
+1. Zooming into the area of Austin, TX where the current customer's transaction locations are concentrated, observe the color coding indicating which are part of the spatiotemporal cluster.
+
+      ```
+      <copy>
+      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4}) 
+      </copy>
+      ```
+    ![desc here](images/detect-anomalies-12.png)
+
 
 ## Task 3: Detect anomalies
 
@@ -234,7 +262,10 @@ Estimated Lab Time: xx minutes
 You may now proceed to the next lab.
 
 ## Learn More
-* 
+
+* For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](https://github.com/eren-ck/st_dbscan)
 
 ## Acknowledgements
-* **Author** - 
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
