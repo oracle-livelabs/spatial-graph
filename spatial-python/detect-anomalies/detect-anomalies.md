@@ -179,9 +179,9 @@ Estimated Lab Time: xx minutes
 
 ## Task 3: Detect anomalies
 
-In this task you represent each spatiotemporal cluster as a point with attributes for the time range, and then identify transactions that occurred within the same time range but far enough away to be considered suspicious.
+In this task you represent the current customer's spatiotemporal clusters as points with attributes for the time range, and then identify transactions that occurred within the same time range but far enough away to be considered suspicious.
 
-2. Oracle Spatial provides many operations to aggregate and summarize data. One of these operations is called "aggregate centroid" which accepts a set of points and returns a single point in the middle. Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label and time range.
+1. Oracle Spatial provides many operations to aggregate and summarize data. One of these operations is called "aggregate centroid" which accepts a set of points and returns a single point in the middle. Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label, time range, and number of transactions in the cluster. Observe the first customer has only 1 cluster (label = 0).
 
       ```
       <copy>
@@ -204,6 +204,8 @@ In this task you represent each spatiotemporal cluster as a point with attribute
       </copy>
       ```
 
+    ![desc here](images/detect-anomalies-13.png)
+
 2. Run the following to visualize the spatiotemporal cluster centroid.
    
       ```
@@ -212,8 +214,9 @@ In this task you represent each spatiotemporal cluster as a point with attribute
       </copy>
       ```
 
+    ![desc here](images/detect-anomalies-14.png)
 
-3. Detect transactions within time range of cluster and located at a distance greater than a threshold.
+3. Run the following to detect current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold. The query returns the suspicious transactions along with the associated cluster label and distance from the cluster. These transactions are considered suspicious.
 
       ```
       <copy>
@@ -250,7 +253,9 @@ In this task you represent each spatiotemporal cluster as a point with attribute
       </copy>
       ```
 
-2. Run the following to visualize the spatiotemporal cluster and associated suspicious outlier(s).
+    ![desc here](images/detect-anomalies-15.png)
+
+4. Run the following to visualize the spatiotemporal cluster(s) and associated suspicious outlier(s). Hover over the suspicious transaction(s) to see their attributes.
    
       ```
       <copy>
@@ -263,6 +268,8 @@ In this task you represent each spatiotemporal cluster as a point with attribute
       </copy>
       ```
 
+    ![desc here](images/detect-anomalies-16.png)
+
 
 4. Prior to analyzing a different customer's transactions, run the following to empty the TRANSACTION\_LABELS table as a new set of labels will be created and saved for the next customer analyzed. 
 
@@ -272,13 +279,31 @@ In this task you represent each spatiotemporal cluster as a point with attribute
       </copy>
       ```
 
-1. Scroll up in notebook and repeat for other customers.
+    ![desc here](images/detect-anomalies-17.png)
+    
+5. Then right-click in the notebook and select 'Clear All Outputs' from the notebook'.
+   
+    ![desc here](images/detect-anomalies-18.png)
+
+    You are now ready to analyze another customer's transactions.
+
+6. Scroll up in your notebook to the cell where the customer ID variable (i.e., "cust") is set, update the customer ID to 2, and run.
+   
+    ![desc here](images/detect-anomalies-19.png)
+
+7. Re-run the subsequent cells to identify spatiotemporal clusters, finishing with the cell that returns the distinct set of cluster labels. Observe that customer 2 has two spatiotemporal clusters.
+
+    ![desc here](images/detect-anomalies-20.png)
+
+8. Re-run the subsequent cells finishing with the cell that renders clusters and suspicious anomalies. 
+
+    ![desc here](images/detect-anomalies-21.png)
 
 
+Repeat for other customer IDs.
 
+... add narrative ... 
 
-
-You may now proceed to the next lab.
 
 ## Learn More
 
