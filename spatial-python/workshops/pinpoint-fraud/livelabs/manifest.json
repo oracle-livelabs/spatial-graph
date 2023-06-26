@@ -18,9 +18,9 @@
           "filename": "../../../create-ssh-keys-in-cloud-shell/create-ssh-keys-in-cloud-shell.md"
         },
         {
-          "title": "Lab 2: Create compute instance",
+          "title": "Lab 2: <placeholder for compute from reservation>",
           "description": "...",
-          "filename": "../../../create-compute/create-compute.md"
+          "filename": "../../../create-compute-res/create-compute-res.md"
         },
         {
           "title": "Lab 3: Create Autonomous Database",
