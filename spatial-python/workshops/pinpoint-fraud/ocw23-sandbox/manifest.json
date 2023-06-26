@@ -10,17 +10,12 @@
         {
           "title": "Get started",
           "description": "Login to the Oracle Cloud",
-          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
+          "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-          "title": "Lab 1: Create SSH keys in Cloud Shell",
+          "title": "Lab 2: Connect to Compute",
           "description": "...",
-          "filename": "../../../create-ssh-keys-in-cloud-shell/create-ssh-keys-in-cloud-shell.md"
-        },
-        {
-          "title": "Lab 2: <placeholder for compute from reservation>",
-          "description": "...",
-          "filename": "../../../create-compute-res/create-compute-res.md"
+          "filename": "../../../connect-to-compute-res/connect-to-compute-res.md"
         },
         {
           "title": "Lab 3: Create Autonomous Database",
