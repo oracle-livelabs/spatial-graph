@@ -24,41 +24,46 @@ Learn how to
 - The following lab requires an Autonomous Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Create a graph of accounts and transactions from the corresponding tables
+## Task 1: Create a graph of accounts and transactions
 
 1. Click the **Graph** icon to navigate to create your graph.  
-    Then click **Create**.  
+    Then click **Create Graph**.  
    
     ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
-2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables. 
+2. Enter `bank_graph` as the graph name, then click **next**. The description and tags fields are optional.   
+    That graph name is used throughout the next lab.  
+    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
+    
+    ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
+
+3. Expand **GRAPHUSER** and select the `BANK_ACCOUNTS` and `BANK_TXNS` tables. 
 
     ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/select-tables.png " ")
 
-3. Move them to the right, that is, click the first icon on the shuttle control.   
+4. Move them to the right, that is, click the first icon on the shuttle control.   
 
     ![Shows the selected tables](./images/selected-tables.png " ")
 
-4.  Click **Next** to get a suggested model. We will edit and update this model to add an edge and a vertex label.  
+5. Click **Next**. We will edit and update this graph to add an edge and a vertex label.  
 
-    The suggested model has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
+    The suggested graph has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
 
     And `BANK_TXNS` is a suggested edge table.
 
     ![Shows the vertex and edge table](./images/create-graph-suggested-model.png " ")    
 
-5.  Now let's change the default Vertex and Edge labels.  
+6. Now let's change the default Vertex and Edge labels.  
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click outside the input box on confirm label and save the update.  
+    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click the checkmark to confirm label and save the update.  
 
     ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")  
 
-    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**.  
-    Then click outside the input box on confirm label and save the update.  
+    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click the checkmark to confirm label and save the update. 
 
     ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")  
 
-    This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph.  
+    This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph. Click **Next**.   
 
 <!---
 6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
@@ -110,22 +115,15 @@ Learn how to
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-6. Click **Next** and then click **Create Graph** to move on to the next step in the flow.   
+7. In the Summary step, click on **Create Graph**. This will open a Create Graph tab, click on **Create Graph. 
 
-    Enter `bank_graph` as the graph name.  
-    That graph name is used throughout the next lab.  
-    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
+    ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
 
-    Enter a model name (for example, `bank_graph_model`), and other optional information and then click Create.
-    
-    ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
+    This will open a Create Graph tab, click on **Create Graph**. 
 
-7. Graph Studio modeler will now save the metadata and start a job to create the graph.  
-   The Jobs page shows the status of this job.
+    ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
-    ![Shows the job tab with the job status as successful](./images/23-jobs-create-graph.png " ")  
-
-    You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
+    After this, you will be taken to the Jobs page where the graph will be create it. Refresh the page to see how the status of the Graph is doing. 
 
     
     This concludes this lab. **You may now proceed to the next lab.**
