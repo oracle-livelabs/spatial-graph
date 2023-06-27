@@ -27,7 +27,7 @@
         }, 
         {
             "title": "Lab 3: Query and visualize the property graph",
-            "filename": "../../query-graph-update/graph-query-update.md"
+            "filename": "../../query-graph/query-graph.md"
         },
         {
             "title": "Lab 4: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",

@@ -22,7 +22,7 @@
         },
         {
             "title": "Lab 2: Query and visualize the graph",
-            "filename": "../../query-graph-update/graph-query-update.md"
+            "filename": "../../query-graph/query-graph.md"
         },
         {
             "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
