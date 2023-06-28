@@ -78,4 +78,4 @@ This concludes this lab. **You may now proceed to the next lab.**
 ## Acknowledgements
   * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
   * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
