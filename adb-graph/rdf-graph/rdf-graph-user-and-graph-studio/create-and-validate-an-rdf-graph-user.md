@@ -82,7 +82,7 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
 
 2. On the Database Actions panel, click **Graph Studio**.
 
-  ![Click Open Graph Studio](images/graphstudiofixed.png " ")
+  ![Click Open Graph Studio](images/graph-studio-fixed.png " ")
 
 3. Log in to Graph Studio. Use the credentials for the database user MOVIESTREAM.
 
@@ -206,4 +206,4 @@ This concludes this lab. *You may now proceed to the next lab.*
 
 - **Author** -  Malia German, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager
 - **Technical Contributor** -  Melliyal Annamalai Distinguished Product Manager, Joao Paiva Consulting Member of Technical Staff, Lavanya Jayapalan Principal User Assistance Developer
-- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, March 2023
+- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, June 2023
