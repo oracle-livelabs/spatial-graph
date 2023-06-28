@@ -46,4 +46,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
 * **Contributors** - Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, February 2023  
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2023  
