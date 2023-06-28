@@ -92,11 +92,11 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
 
   ![The 'get started' page for Graph Studio. On the left-hand navigation bar, the button for 'Graphs' is highlighted](./images/graph-studio-home.png "")
 
-5. In the Graph Type dropdown menu select RDF and then click the Create button on the top-right corner of the interface.
+5. Select **RDF GRAPH** as the graph type, and click on **Create Graph**.
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-  Then, in the pop-up window select RDF Graph, and click Confirm. 
+  Then, in the pop-up window select **RDF Graph**, and click **Confirm**. 
 
   ![Pop up windows asking to select rdf graph or collections](./images/select-rdf-graph.png "")
 
@@ -167,10 +167,6 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 1. Navigate to the **Graphs** page and set the **Graph Type** to RDF using the dropdown menu. Select the MOVIESTREAM graph row from the available RDF graphs, sample statements (triples or quads should appear), use the three horizontal dots to resize these statements, and bring them into view. Sample statements (triples or quads) from the RDF Graph are displayed on the bottom panel as shown:
 
   ![Sample statements from the RDF graph 'MOVIESTREAM' are displayed in triplets](./images/graph-sample-statements.png "")
-
-2. After selecting the MOVIESTREAM Graph, scroll to the bottom of the page and verify that you see 500 rows of RDF triples have been retrieved.
-
-  ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
 
 ## Task 4: Execute SPARQL queries on the playground page
 

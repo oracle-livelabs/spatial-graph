@@ -61,9 +61,9 @@ The instructions below will show you how to run a stack that will automatically 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
-    The Models icon ![Models icon](images/code-fork.svg "") takes you to the Models page where you start modeling your existing tables and views as a graph and then create, or instantiate, a graph.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-    The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one.  
+    The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one. 
+    The Templates page ![Template icon](images/template.svg "")  let's you create templates for the graph visualizations.
     The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 
     This concludes this lab. **You may now proceed to the next lab.**  
