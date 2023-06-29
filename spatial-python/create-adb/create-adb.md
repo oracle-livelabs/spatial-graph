@@ -20,19 +20,25 @@ Estimated Lab Time: xx minutes
 1. From the main navigation panel select **Oracle Database**, then select **Autonomous Database**.
   ![Navigate to Oracle Database](images/adb-01.png)
 
-2. Select root or other compartment, then click **Create Autonomous Database**...
+<if type="freetier">
+2. Select root or other compartment, then click **Create Autonomous Database**.
+</if>
+<if type="ocw23-sandbox">
+2. Select your Compartment, then click **Create Autonomous Database**. If needed, click **View Login Info** at the top left of this page to see your Compartment name. 
+</if>
+
   ![Select compartment](images/adb-02.png) 
 
-3. For display name enter **my-adw** and for database name enter **myadw**. Leave workload type as Data Warehouse.
+1. For display name enter **my-adw** and for database name enter **myadw**. Leave workload type as Data Warehouse.
    ![Create ADW](images/adb-03.png) 
 
-4. For database version select **19c**.
+2. For database version select **19c**.
    ![Create ADW](images/adb-04.png) 
 
-5. Enter and confirm a password for the database ADMIN user. In the next step you will need the IP address of your compute instance. This is because you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the Python host compute. Click on the restore button to expand Cloud Shell.
+3. Enter and confirm a password for the database ADMIN user. In the next step you will need the IP address of your compute instance. This is because you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the Python host compute. Click on the restore button to expand Cloud Shell.
    ![Create ADW](images/adb-05.png) 
 
-6. Copy the IP address from your SSH command. Then collapse the Cloud Shell.
+4. Copy the IP address from your SSH command. Then collapse the Cloud Shell.
 
  ![Create ADW](images/adb-06.png) 
 

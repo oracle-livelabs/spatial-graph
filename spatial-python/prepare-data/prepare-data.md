@@ -41,7 +41,7 @@ Estimated Lab Time: xx minutes
      # Create table for locations data
      cursor.execute("""create table locations (
                           location_id integer, 
-                          owner varchar2(30),  
+                          owner varchar2(100),  
                           lon number, 
                           lat number)""")
      </copy>
@@ -80,6 +80,7 @@ Estimated Lab Time: xx minutes
      ```
      <copy>
      # Preview locations data
+     cursor = connection.cursor()
      cursor.execute("select * from locations")
      for row in cursor.fetchmany(size=10):
          print(row)
@@ -137,6 +138,7 @@ Estimated Lab Time: xx minutes
      ```
      <copy>
      # Preview transactions data
+     cursor = connection.cursor()
      cursor.execute("select * from transactions")
      for row in cursor.fetchmany(size=10):
          print(row)

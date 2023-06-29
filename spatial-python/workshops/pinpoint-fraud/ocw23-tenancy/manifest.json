@@ -24,6 +24,7 @@
         },
         {
           "title": "Lab 3: Create Autonomous Database",
+          "type": "freetier",
           "description": "...",
           "filename": "../../../create-adb/create-adb.md"
         },

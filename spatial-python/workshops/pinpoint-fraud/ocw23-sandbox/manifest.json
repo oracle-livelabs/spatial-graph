@@ -13,42 +13,44 @@
           "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-          "title": "Lab 2: Connect to Compute",
+          "title": "Lab 1: Connect to Compute",
           "description": "...",
           "filename": "../../../connect-to-compute-res/connect-to-compute-res.md"
         },
         {
-          "title": "Lab 3: Create Autonomous Database",
+          "title": "Lab 2: Create Autonomous Database",
+          "type": "ocw23-sandbox",
           "description": "...",
           "filename": "../../../create-adb/create-adb.md"
         },
         {
-          "title": "Lab 4: Start JupyterLab",
+          "title": "Lab 3: Start JupyterLab",
+          "type": "ocw23-sandbox",
           "description": "...",
           "filename": "../../../start-jupyterlab/start-jupyterlab.md"
         },
         {
-          "title": "Lab 5: Connect to Autonomous Database from Python",
+          "title": "Lab 4: Connect to Autonomous Database from Python",
           "description": "...",
           "filename": "../../../connect-to-adb/connect-to-adb.md"
         }, 
         {
-          "title": "Lab 6: Prepare data",
+          "title": "Lab 5: Prepare data",
           "description": "...",
           "filename": "../../../prepare-data/prepare-data.md"
         },   
         {
-          "title": "Lab 7: Explore data",
+          "title": "Lab 6: Explore data",
           "description": "...",
           "filename": "../../../explore-data/explore-data.md"
         },  
         {
-          "title": "Lab 8: Detect suspicious transactions",
+          "title": "Lab 7: Detect suspicious transactions",
           "description": "...",
           "filename": "../../../detect-anomalies/detect-anomalies.md"
         },  
         {
-          "title": "Lab 9: Clean-up",
+          "title": "Lab 8: Clean-up",
           "description": "...",
           "filename": "../../../cleanup/cleanup.md"
         },

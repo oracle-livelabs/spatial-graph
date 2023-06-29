@@ -22,11 +22,20 @@ Estimated Lab Time: xx minutes
 
 2. You should still be connected with SSH to your compute instance. If not, then enter the following command to connect to your compute instance. 
 
+<if type="freetier">
       ```
       <copy>
        ssh -i ~/.ssh/my-ssh-key opc@[IP address]
       </copy>
       ```
+</if>
+<if type="ocw23-sandbox">
+      ```
+      <copy>
+       ssh -i ~/.ssh/ocw23-rsa opc@[IP address]
+      </copy>
+      ```
+</if>
 
     ![Expand Cloud Shell](images/start-jupyter-02.png) 
 

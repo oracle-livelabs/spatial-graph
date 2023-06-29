@@ -1,12 +1,120 @@
-# connect to compute in cloud shell 
+# Connect to compute
 
-- ocw23 sandbox reservation creates compute from custom image
-- port opened
-- python configured
-- should have preconfigured key pair, user retrieves 
-  
-Steps
-- open cloud shell
-- retrieve common key pair (wget)
-- unzip into ~/.ssh
-- ssh to compute
+## Introduction
+
+In order to access your Python host compute, you need a SSH key pair. Oracle Cloud Infrastructure (OCI) Cloud Shell is a web browser-based terminal accessible from the Oracle Cloud Console providing access to a Linux shell. You will will retrieve a SSH key pair and connect to your Python host in OCI Cloud Shell.
+
+Estimated Lab Time: xx minutes
+
+### Objectives
+
+* Retrieve compute IP address
+* Retrieve SSH key pair
+* Create SSH connection to compute
+
+### Prerequisites
+
+* You must be logged in to the OCI console
+
+## Task 1: Retrieve IP address of compute instance
+
+1. From the main menu, navigate to Compute > Instances
+
+  ![Open Cloud Shell](images/compute-01.png)
+
+ 2. To select your Compartment, start typing your user name and type-ahead will display your Compartment.
+
+  ![Open Cloud Shell](images/compute-02.png)
+
+
+ 4. Note the Public IP of your compute instance. You will use this later in this an other Labs. 
+
+  ![Open Cloud Shell](images/compute-03.png)
+
+## Task 2: Retrieve SSH keys
+   
+1. Open cloud shell.
+
+   ![Open Cloud Shell](images/compute-04.png)
+
+1. If prompted to run tutorial, type N and enter.
+
+   ![Open Cloud Shell](images/compute-05.png)
+   
+3. At the command line, run each of following to create and navigate to your SSH folder.
+   
+     ```
+    <copy>
+     mkdir ~/.ssh
+    </copy>
+    ```
+         ```
+    <copy>
+    cd ~/.ssh
+    </copy>
+    ```
+ 
+  ![Create keys](images/compute-06.png)
+
+
+1. At the command line, run the following to retrieve and list a zip file containing SSH keys.  
+
+     ```
+    <copy>
+    wget https://bit.ly/ocw23-keys
+    </copy>
+    ```
+
+    ```
+    <copy>
+    ls
+    </copy>
+    ```
+   ![Create keys](images/compute-07.png)
+
+
+2. At the command line, run the following to unzip and list the zip file contents.  
+
+     ```
+    <copy>
+    unzip ocw23-keys
+    </copy>
+    ```
+
+    ```
+    <copy>
+    ls
+    </copy>
+    ```
+ 
+  ![Create keys](images/compute-08.png)
+
+## Task 3: Connect to compute instance
+
+2. At the command line, run the following to connect to your Python compute instance, where IP Address is the compute IP Address from Task 1.  
+
+      ```
+      <copy>
+       ssh -i ~/.ssh/ocw23-rsa opc@[IP address]
+      </copy>
+      ```
+      If prompted to add to the list of known hosts, reply with **yes**.
+    
+     ![Create keys](images/compute-09.png)
+
+
+3. Click the collapse icon to minimize Cloud Shell.
+
+   ![Collapse Cloud Shell](images/compute-10.png)
+
+4. Observe the Restore button to reopen Cloud Shell. You will reopen Cloud Shell in a subsequent Lab.
+
+   ![Restore Cloud Shell](images/compute-11.png)
+
+
+You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
