@@ -23,28 +23,17 @@ Estimated Time: 10 minutes
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook from the Object Store.
-    Use the following Pre-authenticated Request, or PAR, to download the exported notebook onto your machine.   
-    Copy the URL below and paste it into your browser's address bar.  
-    Note the location of the downloaded file.
-
-    ```
-  	<copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/uaOb7jHZFcCWy4Y-OPjS3MYydBdIWL8OY2qAq5OUDmUUOZ8L-h8fggF_mjP4H0_e/n/c4u04/b/livelabsfiles/o/data-management-library-files/INTRO_SPARQL.dsnb</copy>
-  	```
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/uaOb7jHZFcCWy4Y-OPjS3MYydBdIWL8OY2qAq5OUDmUUOZ8L-h8fggF_mjP4H0_e/n/c4u04/b/livelabsfiles/o/data-management-library-files/INTRO_SPARQL.dsnb).
 
 2. Click the **Notebooks** menu icon and then on the **Import Notebook** icon on the top right.  
 
     ![Import button to import the notebook](images/import-notebook.png " ")  
 
-3. Drag the downloaded file or navigate to the correct folder and select it for upload.  
-  
+3. Drag the downloaded file or navigate to the correct folder and select it for upload. Click **Import**. 
+      
     ![ALT text is not available for this image](images/choose-exported-file.png " ")  
 
-4. Click **Import**.
-  
-    ![Import notebook selected and clicking import](images/import-notebook-selected.png " ")  
-
-5. Once imported it should open in Graph Studio.  
+4. Once imported it should open in Graph Studio.  
 
     ![The imported notebook will open](images/open-notebook.png " ")  
 
@@ -54,15 +43,11 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 You can perform the following steps to create a notebook in Graph Studio.
 
-1. Log in to Graph Studio with user credentials.
-
-    ![This screen prompts for log-in credentials](./images/login-credential.png)
-
-2. Go to the Notebooks page and click the Create button.
+1. Go to the Notebooks page and click the Create button.
 
     ![Shows navigation to create notebook](./images/create-notebook.png)
 
-3. Enter the notebook Name. Optionally, you can enter Description and Tags. Click Create.
+2. Enter the notebook Name. Optionally, you can enter Description and Tags. Click **Create**.
 
     ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
 
@@ -70,13 +55,16 @@ You can perform the following steps to create a notebook in Graph Studio.
 
 For a newly created notebook, the notebook page is displayed with an empty paragraph. You can run a notebook paragraph using one of the following supported interpreters:
 
+- Conda
+- SQL
 - Markdown
 - Java
 - Python
 - PGQL
+- RDF
 - SPARQL
 
-A Markdown paragraph begins with %md and an RDF paragraph begins with %sparql-rdf. See [Available Notebook Interpreters](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/inspect-environment.html) for more information on the other Graph Studio Interpreters.
+A Markdown paragraph begins with %md and an RDF paragraph begins with %sparql-rdf. See [Available Notebook Interpreters](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/available-notebook-interpreters.html) for more information on the other Graph Studio Interpreters.
 You can execute a paragraph by clicking the Run Paragraph icon, which is shown highlighted in the preceding figure. Graph Studio will start to build the interpreter environment in the background if there is not one created. Paragraphs will run after the environment creation. See Inspect the Environment for more information to view the interpreter memory configuration.
 
 You can execute a paragraph by clicking the Run Paragraph icon.
@@ -124,7 +112,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF Paragraph](./images/query1-part2.png)
+    ![Executes the prior query in a RDF Paragraph](./images/patterns-query.png)
 
 2. Using a SPARQL DESCRIBE WHERE Query
 
@@ -148,7 +136,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query17-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/describe-query.png)
 
 3. Using Dataset Descriptions in a SPARQL Query
 
@@ -173,7 +161,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query5-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/where-query.png)
 
 4. Using OPTIONAL Clause in a SPARQL Query
 
@@ -204,7 +192,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query8-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/optional-query.png)
 
 5. Using Subqueries in a SPARQL Query
 
@@ -238,7 +226,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF Paragraph](./images/query11-part2.png)
+    ![Executes the prior query in a RDF Paragraph](./images/subquery.png)
 
 6. Using a SPARQL CONSTRUCT Query
 
@@ -269,7 +257,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query15-part2.png)  
+    ![Executes the prior query in a RDF paragraph](./images/construct-query.png)  
 
 7. Using Property Paths in a SPARQL Query
 
@@ -301,7 +289,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query12-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/property-query.png)
 
 8. Using a Property Path Syntax in a SPARQL Query
 
@@ -326,7 +314,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query13-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/property-path-query.png)
 
 9. Using a SPARQL ASK Query
 
@@ -352,7 +340,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query14-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/ask-query.png)
 
 10. Using a SPARQL DESCRIBE Query
 
@@ -374,7 +362,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF Paragraph](./images/query16-part2.png)
+    ![Executes the prior query in a RDF Paragraph](./images/describe-movie-query.png)
 
 ## Task 4: (Optional) Continue to Query and analyze the RDF graph
 
@@ -406,7 +394,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF Paragraph](./images/query2-part2.png)
+    ![Executes the prior query in a RDF Paragraph](./images/concise-query.png)
 
 2. Using Grouping and Aggregation in a SPARQL Query
 
@@ -436,7 +424,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query3-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/aggregation-query.png)
 
 3. Using LIMIT Clause in a SPARQL Query
 
@@ -465,7 +453,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query4-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/limit-query.png)
 
 4. Using Class Membership in a SPARQL Query
 
@@ -488,7 +476,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query6-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/class-membership-query.png)
 
 5. Using FILTER Clause in a SPARQL Query
 
@@ -517,7 +505,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query7-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/filter-query.png)
 
 6. Using UNION Clause in a SPARQL Query
 
@@ -549,7 +537,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query9-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/union-query.png)
 
 7. Using Negation in a SPARQL Query
 
@@ -578,7 +566,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     The query output is as shown:
 
-    ![Executes the prior query in a RDF paragraph](./images/query10-part2.png)
+    ![Executes the prior query in a RDF paragraph](./images/negation-query.png)
 
 This concludes this lab. Thank you!
 
@@ -586,4 +574,4 @@ This concludes this lab. Thank you!
 
 - **Author**- Bronze Martin Solution Engineer, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager
 - **Technical Contributor** -  Melliyal Annamalai Distinguished Product Manager, Joao Paiva Consulting Member of Technical Staff, Lavanya Jayapalan Principal User Assistance Developer
-- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, March 2023
+- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, June 2023

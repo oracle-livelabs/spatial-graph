@@ -1,6 +1,6 @@
 {
-  "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Autonomous Database",
-    "help": "livelabs-help-db_us@oracle.com",
+  "workshoptitle": "Graph Studio: Find Circular Payment Chains with Graph Queries in Autonomous Database",
+    "help": "livelabs-help-sg_us@oracle.com",
 	"tutorials": [
     {
         "title": "Introduction",
