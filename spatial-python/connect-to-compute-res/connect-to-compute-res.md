@@ -4,7 +4,7 @@
 
 In order to access your Python host compute, you need a SSH key pair. Oracle Cloud Infrastructure (OCI) Cloud Shell is a web browser-based terminal accessible from the Oracle Cloud Console providing access to a Linux shell. You will will retrieve a SSH key pair and connect to your Python host in OCI Cloud Shell.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -22,7 +22,12 @@ Estimated Lab Time: xx minutes
 
   ![Open Cloud Shell](images/compute-01.png)
 
- 2. To select your Compartment, start typing your user name and type-ahead will display your Compartment.
+2. In the workshop instructions page, click **View Login Info** at the top left and copy your Compartment name.
+
+  ![Open Cloud Shell](images/compartment.png)
+ 
+ 
+ 1. In the OCI console, paste in your Compartment name and select it from the pull-down. 
 
   ![Open Cloud Shell](images/compute-02.png)
 

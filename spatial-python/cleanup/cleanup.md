@@ -1,21 +1,21 @@
-# Clean-up placeholder
+# Clean-up
 
 ## Introduction
 
-...
+You may clean-up your workshop environment by resetting your Autonomous Database to pre-workshop state.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 2 minutes
 
 ### Objectives
 
-* 
+* Reset Autonomous Database to pre-workshop state
 
 ### Prerequisites
 
-* 
+* Active Autonomous Database instance
 
-## Option 1: Reset ADB to pre-workshop state
 
+## Reset Autonomous Database to pre-workshop state
 
 1. 
 
@@ -31,7 +31,4 @@ Estimated Lab Time: xx minutes
       </copy>
       ```
 
-## Option 2: Terminate resources
 
-
-1.  

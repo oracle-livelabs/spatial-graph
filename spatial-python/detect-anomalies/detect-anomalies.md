@@ -6,7 +6,7 @@
 The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. You will identify such occurrences in this lab.
 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 

@@ -4,7 +4,7 @@
 
 Notebooks are interactive documents for code, descriptive text, and visualizations. In this workshop you use open source JupyterLab which provides a web-based notebook environment with many user-friendly features such as file uploading.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 

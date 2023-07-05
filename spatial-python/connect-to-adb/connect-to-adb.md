@@ -5,7 +5,7 @@
 
 To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous Database. The python-oracledb driver supports this connection and all subsequent database interactions.  You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle Database and does not need Oracle Client libraries. 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -48,13 +48,11 @@ Estimated Lab Time: xx minutes
 1. From the Launcher, click the **Python 3** tile to create a new notebook.
   ![Desc here...](images/connect-to-adb-09.png)
 
-1. In the first cell, paste the following statement and then click the **run** button. This loads the python-oracedb module which handles interaction with Oracle Database.
+1. In the first cell, paste the following statement and then click the **run** button. This loads the python-oracedb module which handles interaction with Oracle Database. 
 
      ```
      <copy>
      import oracledb
-     import csv
-     oracledb.defaults.fetch_lobs = False
      </copy>
      ```
      ![Desc here...](images/connect-to-adb-10.png)

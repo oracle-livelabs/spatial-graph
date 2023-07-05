@@ -51,6 +51,7 @@
         },  
         {
           "title": "Lab 8: Clean-up",
+          "type": "ocw23-sandbox",
           "description": "...",
           "filename": "../../../cleanup/cleanup.md"
         },

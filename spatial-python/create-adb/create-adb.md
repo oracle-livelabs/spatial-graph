@@ -5,7 +5,7 @@
 
 Oracle Autonomous Database is a self-driving, self-securing, self-repairing database service, including Oracle Spatial, with offerings for data warehousing and transaction processing workloads. You do not need to configure or manage any hardware, or install any software. Oracle Cloud Infrastructure handles creating the database, as well as backing up, patching, upgrading, and tuning the database. As this workshop focuses on an analytic use case, you create an Autonomous Date Warehouse (ADW).
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -24,7 +24,8 @@ Estimated Lab Time: xx minutes
 2. Select root or other compartment, then click **Create Autonomous Database**.
 </if>
 <if type="ocw23-sandbox">
-2. Select your Compartment, then click **Create Autonomous Database**. If needed, click **View Login Info** at the top left of this page to see your Compartment name. 
+1. Your Compartment should still be selected. If not then re-select it. Then click **Create Autonomous Database**. 
+2. 
 </if>
 
   ![Select compartment](images/adb-02.png) 
@@ -42,14 +43,17 @@ Estimated Lab Time: xx minutes
 
  ![Create ADW](images/adb-06.png) 
 
-7. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, paste your compute IP address. Then click **Create Autonomous Database**.
+7. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, paste your compute IP address.
  ![Create ADW](images/adb-07.png) 
 
+8. In the next section select **Bring your own license (BYOL)** and **Oracle Database Enterprise Edition (EE)**.  For contacts, enter your email address. Then click **Create Autonomous Database**.
+ ![Create ADW](images/adb-08.png)
+
 8. ADB provisioning will begin.
- ![Create ADW](images/adb-08.png) 
+ ![Create ADW](images/adb-09.png) 
 
 9. When provisioning is complete your ADB is ready.
- ![Create ADW](images/adb-09.png) 
+ ![Create ADW](images/adb-10.png) 
 
 You may now **proceed to the next lab**.
 

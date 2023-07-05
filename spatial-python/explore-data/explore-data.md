@@ -4,7 +4,7 @@
 
 You now explore the locations and transactions data prepared in the previous lab. By managing the data in Autonomous Database, you are able to perform back-end processing and analysis operations and then bring appropriate data subsets into Python for specialized analyses. 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 

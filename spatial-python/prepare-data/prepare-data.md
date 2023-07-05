@@ -5,7 +5,7 @@
 
 In this lab, fictitious financial transactions data are loaded to your Autonomous Database and configured for spatial and temporal ("spatiotemporal") analysis. 
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 
