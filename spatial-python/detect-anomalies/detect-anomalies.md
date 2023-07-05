@@ -38,7 +38,7 @@ Estimated Lab Time: 15 minutes
 
      ```
      <copy>
-     cursor.execute("create table transaction_labels (trans_id integer, label integer)")
+     cursor.execute("CREATE TABLE transaction_labels (trans_id integer, label integer)")
      </copy>
      ```
 
@@ -61,10 +61,10 @@ Estimated Lab Time: 15 minutes
       <copy>
       cursor.execute("""
        SELECT a.cust_id,  a.trans_id, a.trans_epoch_date, 
-        (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
-       from transactions a, locations b
-       where a.location_id=b.location_id
-       and cust_id=:cust""", cust=cust)
+             (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
+       FROM transactions a, locations b
+       WHERE a.location_id=b.location_id
+       AND cust_id=:cust""", cust=cust)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'trans_id', 'epoch_date', 'geometry'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
       gdf.head()
@@ -130,7 +130,10 @@ Estimated Lab Time: 15 minutes
 
      ```
      <copy>
-     cursor.executemany("insert into transaction_labels values (:1, :2)", list(df[['trans_id','label']].itertuples(index=False, name=None)))
+     cursor.executemany("""
+      INSERT INTO transaction_labels 
+      VALUES (:1, :2)""", 
+      list(df[['trans_id','label']].itertuples(index=False, name=None)))
      connection.commit()
      </copy>
      ```
@@ -144,10 +147,10 @@ Estimated Lab Time: 15 minutes
       # labelled transactions for customer
       cursor.execute("""
        SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
-       (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt(), c.label
-       from transactions a, locations b, transaction_labels c
-       where a.location_id=b.location_id
-       and a.trans_id=c.trans_id
+              (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt(), c.label
+       FROM transactions a, locations b, transaction_labels c
+       WHERE a.location_id=b.location_id
+       AND a.trans_id=c.trans_id
        """)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'location_id', 'trans_id', 'trans_epoch_date', 'geometry','label'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
@@ -179,23 +182,112 @@ Estimated Lab Time: 15 minutes
 
 ## Task 3: Detect anomalies
 
-In this task you represent the current customer's spatiotemporal clusters as points with attributes for the time range, and then identify transactions that occurred within the same time range but far enough away to be considered suspicious.
+In this task you identify suspicious transactions based on spatiotemporal criteria. Specifically, a transaction that occurred within the time range of a spatiotemporal cluster but at a distance greater than a threshold from the cluster is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. 
 
-1. Oracle Spatial provides many operations to aggregate and summarize data. One of these operations is called "aggregate centroid" which accepts a set of points and returns a single point in the middle. Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label, time range, and number of transactions in the cluster. Observe the first customer has only 1 cluster (label = 0).
+To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry, with an attribute for the overall time range of the cluster. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose.   
+
+The first steps of this task are meant to familiarize you with spatial aggregation. 
+
+1. Begin by creating a GeoDataFrame of locations near a coordinate in Austin, TX.
+
+      ```
+      <copy>
+      cursor = connection.cursor()
+      cursor.execute("""
+       SELECT (lonlat_to_proj_geom(lon,lat)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfPoints = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfPoints['geometry'] = shapely.from_wkt(gdfPoints['geometry'])
+      gdfPoints = gdfPoints.set_crs(3857)
+      gdfPoints.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-00.png)
+
+2. Next create a GeoDataFrame containing the location in the center of the locations near the coordinate in Austin, TX. This location is referred to as an "aggregate centroid", hence the geoDataFrame is named gdfAggCent.
+   
+      ```
+      <copy>
+      cursor.execute("""
+       SELECT SDO_AGGR_CENTROID(
+                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfAggCent = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfAggCent['geometry'] = shapely.from_wkt(gdfAggCent['geometry'])
+      gdfAggCent = gdfAggCent.set_crs(3857)
+      gdfAggCent.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-01.png)
+
+3. Next create a GeoDataFrame containing the shape that bounds the locations near the coordinate in Austin, TX. This is referred to as a "aggregate convex hull", hence the GeoDataFrame is gdfAggHull.
+
+      ```
+      <copy>
+      cursor.execute("""
+       SELECT SDO_AGGR_CONVEXHULL(
+                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfAggHull = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfAggHull['geometry'] = shapely.from_wkt(gdfAggHull['geometry'])
+      gdfAggHull = gdfAggHull.set_crs(3857)
+      gdfAggHull.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-02.png)
+
+4. Now you may visualize the points and the two aggregates. The original locations are shown in blue, and the aggregate centroid and aggregate convex hull are shown in red.
+
+      ```
+      <copy>
+      m = gdfPoints.explore(tiles="CartoDB positron",
+                             style_kwds={"color":"blue","fillColor":"blue"})
+      m = gdfAggHull.explore(m=m, 
+                             style_kwds={"color":"red","fillOpacity":"0"} )
+      m = gdfAggCent.explore(m=m, 
+                             marker_kwds={"radius":"8"},
+                            style_kwds={"color":"red","fillColor":"red","fillOpacity":".7"} )
+      m
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-03.png)
+
+
+5. ... explain approach ... Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label, time range, and number of transactions in the cluster. Observe the first customer has only 1 cluster (label = 0).
 
       ```
       <copy>
       # st cluster centroids for customer
       cursor = connection.cursor()
       cursor.execute("""
-             SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
-             SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry, 
-             count(*) as trans_count
-             FROM transactions a, locations b, transaction_labels c
-             WHERE a.location_id=b.location_id
-             AND a.trans_id=c.trans_id
-             AND c.label != -1
-             GROUP BY label
+       SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
+               SDO_AGGR_CENTROID(
+                SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry, 
+               count(*) as trans_count
+       FROM transactions a, locations b, transaction_labels c
+       WHERE a.location_id=b.location_id
+       AND a.trans_id=c.trans_id
+       AND c.label != -1
+       GROUP BY label
              """)
       gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['label','min_time','max_time','geometry','trans_count'])
       gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
@@ -206,7 +298,7 @@ In this task you represent the current customer's spatiotemporal clusters as poi
 
     ![desc here](images/detect-anomalies-13.png)
 
-2. Run the following to visualize the spatiotemporal cluster centroid.
+6. Run the following to visualize the spatiotemporal cluster centroid.
    
       ```
       <copy>
@@ -216,7 +308,7 @@ In this task you represent the current customer's spatiotemporal clusters as poi
 
     ![desc here](images/detect-anomalies-14.png)
 
-3. Run the following to detect current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold. The query returns the suspicious transactions along with the associated cluster label and distance from the cluster. These transactions are considered suspicious.
+7. Run the following to detect current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold. The query returns the suspicious transactions along with the associated cluster label and distance from the cluster. These transactions are considered suspicious.
 
       ```
       <copy>
@@ -231,8 +323,9 @@ In this task you represent the current customer's spatiotemporal clusters as poi
              AND a.trans_id=c.trans_id ),
          y as (
              SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
-              SDO_AGGR_CENTROID(SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
-              count(*) as trans_count
+                    SDO_AGGR_CENTROID(
+                        SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
+                    count(*) as trans_count
              FROM transactions a, locations b, transaction_labels c
              WHERE a.location_id=b.location_id
              AND a.trans_id=c.trans_id
@@ -255,7 +348,7 @@ In this task you represent the current customer's spatiotemporal clusters as poi
 
     ![desc here](images/detect-anomalies-15.png)
 
-4. Run the following to visualize the spatiotemporal cluster(s) and associated suspicious outlier(s). Hover over the suspicious transaction(s) to see their attributes.
+8. Run the following to visualize the spatiotemporal cluster(s) and associated suspicious outlier(s). Hover over the suspicious transaction(s) to see their attributes.
    
       ```
       <copy>
@@ -275,7 +368,7 @@ In this task you represent the current customer's spatiotemporal clusters as poi
 
       ```
       <copy>
-      cursor.execute("truncate table transaction_labels")
+      cursor.execute("TRUNCATE TABLE transaction_labels")
       </copy>
       ```
 
@@ -307,6 +400,7 @@ Repeat for other customer IDs.
 
 ## Learn More
 
+* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html)
 * For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](https://github.com/eren-ck/st_dbscan)
 
 ## Acknowledgements
