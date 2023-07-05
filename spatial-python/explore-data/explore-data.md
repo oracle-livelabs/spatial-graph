@@ -69,14 +69,14 @@ The most common Python library for data handling is Pandas, which provides DataF
     <copy>
     cursor = connection.cursor()
     cursor.execute("""
-      with x as (
-        select sdo_geometry(2001,4326,sdo_point_type(-100.12, 22.34,null),null,null) 
+      WITH x AS (
+        SELECT sdo_geometry(2001,4326,sdo_point_type(-100.12, 22.34,null),null,null) 
                as geometry
-        from dual)
-      select geometry, 
+        FROM dual)
+      SELECT geometry, 
              (geometry).get_wkt(), 
              (geometry).get_geojson()
-      from x
+      FROM x
       """)
     for row in cursor.fetchone():
        print(row)
@@ -90,8 +90,8 @@ The most common Python library for data handling is Pandas, which provides DataF
     <copy>
     cursor = connection.cursor()
     cursor.execute("""
-      select lon, lat, (lonlat_to_proj_geom(lon,lat)).get_wkt()
-      from locations
+      SELECT lon, lat, (lonlat_to_proj_geom(lon,lat)).get_wkt()
+      FROM locations
       """)
     for row in cursor.fetchmany(10):
        print(row)
@@ -105,7 +105,7 @@ The most common Python library for data handling is Pandas, which provides DataF
      <copy>
      cursor.execute("""
       SELECT location_id, owner, (lonlat_to_proj_geom(lon,lat)).get_wkt()
-      from locations
+      FROM locations
       """)
      gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['location_id', 'owner', 'geometry'])
      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
@@ -136,8 +136,8 @@ The most common Python library for data handling is Pandas, which provides DataF
     cursor.execute("""
      SELECT a.cust_id, a.trans_id, a.trans_epoch_date, 
       (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
-     from transactions a, locations b
-     where a.location_id=b.location_id
+     FROM transactions a, locations b
+     WHERE a.location_id=b.location_id
      """)
     gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['cust_id', 'trans_id', 'trans_epoch_date', 'geometry'])
     gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
