@@ -25,11 +25,11 @@ Estimated Lab Time: 10 minutes
 1. Click the **Upload** icon to load the data files.
    ![Upload data](images/prepare-data-01.png)
 
-3. In the left panel, click on locations.csv and transactions.csv to preview the data files.
+3. In the left panel, double-click on locations.csv and transactions.csv to preview the data files in new tabs. 
 
-   -->> insert pic <<---
+   ![Preview files](images/prepare-data-02.png)
 
-   ![Preview files](images/prepare-data-xxx.png)
+  Observe that locations.csv has one row per ATM location, and transactions has one row per financial transaction. Then close tabs with the data preview and return to your notebook.
 
 
 ## Task 2: Create and load tables
@@ -39,11 +39,12 @@ Estimated Lab Time: 10 minutes
      ```
      <copy>
      # Create table for locations data
-     cursor.execute("""create table locations (
-                          location_id integer, 
-                          owner varchar2(100),  
-                          lon number, 
-                          lat number)""")
+     cursor.execute("""
+      CREATE TABLE locations (
+                location_id INTEGER, 
+                owner VARCHAR2(100),  
+                lon NUMBER, 
+                lat NUMBER)""")
      </copy>
      ```
      ![Desc here...](images/prepare-data-04.png)
@@ -53,6 +54,7 @@ Estimated Lab Time: 10 minutes
      ```
      <copy>
      # Load the locations data
+     import csv
      BATCH_SIZE = 1000
      with connection.cursor() as cursor:
          with open('locations.csv', 'r') as csv_file:
@@ -60,7 +62,7 @@ Estimated Lab Time: 10 minutes
              #skip header
              next(csv_reader) 
              #load data
-             sql = "insert into locations values (:1, :2, :3, :4)"
+             sql = "INSERT INTO locations VALUES (:1, :2, :3, :4)"
              data = []
              for line in csv_reader:
                  data.append((line[0], line[1], line[2], line[3]))
@@ -81,7 +83,7 @@ Estimated Lab Time: 10 minutes
      <copy>
      # Preview locations data
      cursor = connection.cursor()
-     cursor.execute("select * from locations")
+     cursor.execute("SELECT * FROM locations")
      for row in cursor.fetchmany(size=10):
          print(row)
      </copy>
@@ -94,18 +96,19 @@ Estimated Lab Time: 10 minutes
      ```
      <copy>
      # Create table for transactions data
-     cursor.execute("""create table transactions (
-                          trans_id integer,
-                          location_id integer, 
-                          trans_date date, 
-                          cust_id integer)""")
+     cursor.execute("""
+        CREATE TABLE transactions (
+                       trans_id INTEGER,
+                       location_id INTEGER, 
+                       trans_date DATE, 
+                       cust_id INTEGER)""")
      </copy>
      ```
      ![Desc here...](images/prepare-data-07.png)
 
 
 
-5. Run the following to load the transactions data.
+6. Run the following to load the transactions data.
 
      ```
      <copy>
@@ -117,7 +120,7 @@ Estimated Lab Time: 10 minutes
              #skip header
              next(csv_reader) 
              #load data
-             sql = "insert into transactions values (:1, :2, TO_DATE(:3,'YYYY-MM-DD:HH24:MI:SS'), :4)"
+             sql = "INSERT INTO transactions VALUES (:1, :2, TO_DATE(:3,'YYYY-MM-DD:HH24:MI:SS'), :4)"
              data = []
              for line in csv_reader:
                  data.append((line[0], line[1], line[2], line[3]))
@@ -139,7 +142,7 @@ Estimated Lab Time: 10 minutes
      <copy>
      # Preview transactions data
      cursor = connection.cursor()
-     cursor.execute("select * from transactions")
+     cursor.execute("SELECT * FROM transactions")
      for row in cursor.fetchmany(size=10):
          print(row)
      </copy>
@@ -155,15 +158,15 @@ Temporal calculations are a key component of this workshop, and are best perform
      ```
      <copy>
      # add column for epoch date
-     cursor.execute("alter table transactions add (trans_epoch_date integer)")
+     cursor.execute("ALTER TABLE transactions ADD (trans_epoch_date integer)")
      </copy>
      ```
 
      ```
      <copy>
      # add column for epoch date
-     cursor.execute("""update transactions 
-                       set trans_epoch_date = (trans_date - date'1970-01-01') * 86400""")
+     cursor.execute("""UPDATE transactions 
+                       SET trans_epoch_date = (trans_date - date'1970-01-01') * 86400""")
      connection.commit()
      </copy>
      ```
@@ -176,7 +179,7 @@ Temporal calculations are a key component of this workshop, and are best perform
      ```
      <copy>
      # Preview transactions data
-     cursor.execute("select * from transactions")
+     cursor.execute("SELECT * FROM transactions")
      for row in cursor.fetchmany(size=10):
          print(row)
      </copy>
@@ -196,26 +199,36 @@ Spatial calculations are an additional key component of this workshop. In this t
      <copy>
      # Create function to convert lon/lat coordinates to world mercator geometry
      cursor.execute("""
-      create or replace function lonlat_to_proj_geom (longitude in number, latitude in number)
-      return SDO_GEOMETRY deterministic is
-      begin
-        if latitude is NULL or longitude is NULL 
-        or latitude not between -90 and 90 
-        or longitude not between -180 and 180
-        then
-          return NULL;
-        else
-           return sdo_cs.transform(
-             sdo_geometry(2001, 4326,
+      CREATE OR REPLACE FUNCTION lonlat_to_proj_geom (longitude IN NUMBER, latitude IN NUMBER)
+      RETURN SDO_GEOMETRY DETERMINISTIC IS
+      BEGIN
+        IF latitude IS NULL OR longitude IS NULL 
+        OR latitude NOT BETWEEN -90 AND 90 
+        OR longitude NOT BETWEEN -180 AND 180
+        THEN
+          RETURN NULL;
+        ELSE
+           RETURN sdo_cs.transform(
+             SDO_GEOMETRY(2001, 4326,
                           sdo_point_type(longitude, latitude, NULL),NULL, NULL),
              3857);
-        end if;
-     end;""")
+        END IF;
+     END;""")
      </copy>
      ```
 
      ![Desc here...](images/prepare-data-13.png)
 
+2. Querying for geometries and geometries converted to string representations involve "Large Objects", or "LOBs". Apply the following setting to python-oracledb so that LOBs are fetched directly instead of fetching a LOB locator and then fetching the LOB content in a second round trip.
+
+     ```
+     <copy>
+     # return LOBs directly as strings or bytes
+     oracledb.defaults.fetch_lobs = False  
+     </copy>
+     ```
+
+     ![Desc here...](images/fetch-lobs.png)
 
 9. Run the following to test the function.
    
@@ -224,9 +237,9 @@ Spatial calculations are an additional key component of this workshop. In this t
      # test the function
      cursor.execute("""
       with x as (
-         select location_id, lonlat_to_proj_geom(lon,lat) as geom from locations)
-      select location_id, geom, (geom).get_wkt()
-      from x
+         SELECT location_id, lonlat_to_proj_geom(lon,lat) as geom FROM locations)
+      SELECT location_id, geom, (geom).get_wkt()
+      FROM x
       """)
      for row in cursor.fetchone():
          print(row)
@@ -242,7 +255,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      ```
      <copy>
      cursor.execute("""
-      insert into user_sdo_geom_metadata values (
+      INSERT INTO user_sdo_geom_metadata VALUES (
          'LOCATIONS', 'ADMIN.LONLAT_TO_PROJ_GEOM(LON,LAT)',
           SDO_DIM_ARRAY(SDO_DIM_ELEMENT('LON', 0, 0, 0.05), 
                         SDO_DIM_ELEMENT('LAT', 0, 0, 0.05)), 
@@ -258,9 +271,9 @@ Spatial calculations are an additional key component of this workshop. In this t
      ```
      <copy>
      cursor.execute("""
-      create index locations_sidx
-      on locations(LONLAT_TO_PROJ_GEOM(LON,LAT))
-      indextype is mdsys.spatial_index_v2
+      CREATE INDEX locations_sidx
+      ON locations(LONLAT_TO_PROJ_GEOM(LON,LAT))
+      INDEXTYPE IS mdsys.spatial_index_v2
                  """)
      </copy>
      ```
@@ -271,7 +284,7 @@ Spatial calculations are an additional key component of this workshop. In this t
    
     ```
     <copy>
-    cursor.execute("select index_name, sdo_index_status from user_sdo_index_info")
+    cursor.execute("SELECT index_name, sdo_index_status FROM user_sdo_index_info")
     for row in cursor.fetchmany(size=10):
         print(row)
     </copy>
@@ -284,8 +297,8 @@ Spatial calculations are an additional key component of this workshop. In this t
     ```
     <copy>
     cursor.execute("""
-     select location_id, round(sdo_nn_distance(1), 2) from locations 
-     where sdo_nn(
+     SELECT location_id, round(sdo_nn_distance(1), 2) FROM locations 
+     WHERE sdo_nn(
        LONLAT_TO_PROJ_GEOM(LON,LAT),
        LONLAT_TO_PROJ_GEOM( -97.6, 30.3),
        'sdo_num_res=5 unit=mile', 1) = 'TRUE' """)
