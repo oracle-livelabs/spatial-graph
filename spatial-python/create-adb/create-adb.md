@@ -30,7 +30,12 @@ Estimated Lab Time: 5 minutes
 
   ![Select compartment](images/adb-02.png) 
 
-1. For display name enter **my-adw** and for database name enter **myadw**. Leave workload type as Data Warehouse.
+1. For display name enter **my-adw** and for database name enter **myadw**. Leave workload type as Data Warehouse. 
+
+   <if type="ocw23-sandbox">
+   **Note:** You must select workload type Data Warehouse. Selecting Transaction Processing will result in a quota error. 
+   </if>
+
    ![Create ADW](images/adb-03.png) 
 
 2. For database version select **19c**.

@@ -3,8 +3,7 @@
 
 ## Introduction
 
-The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. You will identify such occurrences in this lab.
-
+The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. You will identify such occurrences in this lab.
 
 Estimated Lab Time: 15 minutes
 
@@ -18,7 +17,99 @@ Estimated Lab Time: 15 minutes
 
 * Completion of previous lab
 
-## Task 1: Prep for cluster detection
+## Task 1: Experiment with spatial aggregation 
+
+To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose. This task is meant to familiarize you with spatial aggregation. 
+
+1. Begin by creating a GeoDataFrame of locations within 10 miles of a longitude/latitude coordinate.
+
+      ```
+      <copy>
+      cursor = connection.cursor()
+      cursor.execute("""
+       SELECT (lonlat_to_proj_geom(lon,lat)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfPoints = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfPoints['geometry'] = shapely.from_wkt(gdfPoints['geometry'])
+      gdfPoints = gdfPoints.set_crs(3857)
+      gdfPoints.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-00.png)
+
+2. Next create a GeoDataFrame containing the location in the center of the previously selected locations. This location is referred to as an "aggregate centroid", hence the GeoDataFrame is named gdfAggCent.
+   
+      ```
+      <copy>
+      cursor.execute("""
+       SELECT SDO_AGGR_CENTROID(
+                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfAggCent = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfAggCent['geometry'] = shapely.from_wkt(gdfAggCent['geometry'])
+      gdfAggCent = gdfAggCent.set_crs(3857)
+      gdfAggCent.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-01.png)
+
+3. Next create a GeoDataFrame containing the shape that bounds the locations near the coordinate in Austin, TX. This is referred to as a "aggregate convex hull", hence the GeoDataFrame is named gdfAggHull.
+
+      ```
+      <copy>
+      cursor.execute("""
+       SELECT SDO_AGGR_CONVEXHULL(
+                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
+       FROM locations 
+       WHERE sdo_within_distance(
+                 lonlat_to_proj_geom(lon,lat),
+                 lonlat_to_proj_geom(-97.7431,30.2672),
+                 'distance=10 unit=MILE') = 'TRUE'
+             """)
+      gdfAggHull = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
+      gdfAggHull['geometry'] = shapely.from_wkt(gdfAggHull['geometry'])
+      gdfAggHull = gdfAggHull.set_crs(3857)
+      gdfAggHull.head()
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-02.png)
+
+    There are several other spatial aggregate functions that follow the same pattern.
+
+4. Now you may visualize the points and the two spatial aggregates you've created. The original locations are shown in blue, and the aggregate centroid and aggregate convex hull are shown in red.
+
+      ```
+      <copy>
+      m = gdfPoints.explore(tiles="CartoDB positron",
+                             style_kwds={"color":"blue","fillColor":"blue"})
+      m = gdfAggHull.explore(m=m, 
+                             style_kwds={"color":"red","fillOpacity":"0"} )
+      m = gdfAggCent.explore(m=m, 
+                             marker_kwds={"radius":"8"},
+                            style_kwds={"color":"red","fillColor":"red","fillOpacity":".7"} )
+      m
+      </copy>
+      ```
+
+    ![desc here](images/spatial-agg-03.png)
+
+ You will next identify suspicious transactions that occur during the time range of a spatiotemporal cluster but at a distance greater than a threshold. Since the area covered by a spatiotemporal cluster is insignificant compared to the distance threshold for a suspicious transaction, you will use the aggregate centroid to represent the location of a spatiotemporal cluster. 
+
+
+## Task 2: Prep for cluster detection
 
 
 1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan. 
@@ -44,7 +135,7 @@ Estimated Lab Time: 15 minutes
 
     ![desc here](images/detect-anomalies-02.png)
 
-## Task 2: Detect spatiotemporal clusters 
+## Task 3: Detect spatiotemporal clusters 
 
 1.  In this workshop you will analyze transactions for one customer at a time. Run the following to set a variable for the customer id for analysis. You will return to this cell to switch to a different customer for analysis.
 
@@ -140,7 +231,7 @@ Estimated Lab Time: 15 minutes
 
     ![desc here](images/detect-anomalies-09.png)
 
-1. Run the following to retrieve current customer's transactions with their cluster labels.
+1. Run the following to retrieve the current customer's transactions with their cluster labels.
 
       ```
       <copy>
@@ -180,99 +271,9 @@ Estimated Lab Time: 15 minutes
     ![desc here](images/detect-anomalies-12.png)
 
 
-## Task 3: Detect anomalies
+## Task 4: Detect anomalies
 
-In this task you identify suspicious transactions based on spatiotemporal criteria. Specifically, a transaction that occurred within the time range of a spatiotemporal cluster but at a distance greater than a threshold from the cluster is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. 
-
-To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry, with an attribute for the overall time range of the cluster. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose.   
-
-The first steps of this task are meant to familiarize you with spatial aggregation. 
-
-1. Begin by creating a GeoDataFrame of locations near a coordinate in Austin, TX.
-
-      ```
-      <copy>
-      cursor = connection.cursor()
-      cursor.execute("""
-       SELECT (lonlat_to_proj_geom(lon,lat)).get_wkt() as geometry
-       FROM locations 
-       WHERE sdo_within_distance(
-                 lonlat_to_proj_geom(lon,lat),
-                 lonlat_to_proj_geom(-97.7431,30.2672),
-                 'distance=10 unit=MILE') = 'TRUE'
-             """)
-      gdfPoints = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
-      gdfPoints['geometry'] = shapely.from_wkt(gdfPoints['geometry'])
-      gdfPoints = gdfPoints.set_crs(3857)
-      gdfPoints.head()
-      </copy>
-      ```
-
-    ![desc here](images/spatial-agg-00.png)
-
-2. Next create a GeoDataFrame containing the location in the center of the locations near the coordinate in Austin, TX. This location is referred to as an "aggregate centroid", hence the geoDataFrame is named gdfAggCent.
-   
-      ```
-      <copy>
-      cursor.execute("""
-       SELECT SDO_AGGR_CENTROID(
-                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
-       FROM locations 
-       WHERE sdo_within_distance(
-                 lonlat_to_proj_geom(lon,lat),
-                 lonlat_to_proj_geom(-97.7431,30.2672),
-                 'distance=10 unit=MILE') = 'TRUE'
-             """)
-      gdfAggCent = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
-      gdfAggCent['geometry'] = shapely.from_wkt(gdfAggCent['geometry'])
-      gdfAggCent = gdfAggCent.set_crs(3857)
-      gdfAggCent.head()
-      </copy>
-      ```
-
-    ![desc here](images/spatial-agg-01.png)
-
-3. Next create a GeoDataFrame containing the shape that bounds the locations near the coordinate in Austin, TX. This is referred to as a "aggregate convex hull", hence the GeoDataFrame is gdfAggHull.
-
-      ```
-      <copy>
-      cursor.execute("""
-       SELECT SDO_AGGR_CONVEXHULL(
-                SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
-       FROM locations 
-       WHERE sdo_within_distance(
-                 lonlat_to_proj_geom(lon,lat),
-                 lonlat_to_proj_geom(-97.7431,30.2672),
-                 'distance=10 unit=MILE') = 'TRUE'
-             """)
-      gdfAggHull = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
-      gdfAggHull['geometry'] = shapely.from_wkt(gdfAggHull['geometry'])
-      gdfAggHull = gdfAggHull.set_crs(3857)
-      gdfAggHull.head()
-      </copy>
-      ```
-
-    ![desc here](images/spatial-agg-02.png)
-
-4. Now you may visualize the points and the two aggregates. The original locations are shown in blue, and the aggregate centroid and aggregate convex hull are shown in red.
-
-      ```
-      <copy>
-      m = gdfPoints.explore(tiles="CartoDB positron",
-                             style_kwds={"color":"blue","fillColor":"blue"})
-      m = gdfAggHull.explore(m=m, 
-                             style_kwds={"color":"red","fillOpacity":"0"} )
-      m = gdfAggCent.explore(m=m, 
-                             marker_kwds={"radius":"8"},
-                            style_kwds={"color":"red","fillColor":"red","fillOpacity":".7"} )
-      m
-      </copy>
-      ```
-
-    ![desc here](images/spatial-agg-03.png)
-
-
-5. ... explain approach ... Run the following to create centroids for the current customer's spatiotemporal clusters with attributes for cluster label, time range, and number of transactions in the cluster. Observe the first customer has only 1 cluster (label = 0).
+5. Run the following to create aggregate centroids for the current customer's spatiotemporal clusters with attributes for cluster label, time range, and number of transactions in the cluster. Observe the first customer has only 1 cluster (label = 0).
 
       ```
       <copy>
@@ -308,13 +309,26 @@ The first steps of this task are meant to familiarize you with spatial aggregati
 
     ![desc here](images/detect-anomalies-14.png)
 
-7. Run the following to detect current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold. The query returns the suspicious transactions along with the associated cluster label and distance from the cluster. These transactions are considered suspicious.
+7. To identify current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold, you will run a query using the WITH ... AS ... SELECT .. WHERE... syntax as follows.
+   
+    ```
+    WITH 
+        x as ( [transactions] ),
+        y as ( [spatiotemporal cluster aggregate centroids] )
+    SELECT [transaction, cluster label, distance from cluster aggregate centroid, ...]
+    FROM x, y
+    WHERE [transaction time within cluster time frame]
+    AND [distance from cluster > threshold]
+    ```
+   
+   Run the following query to return suspicious transactions along with the associated cluster label and distance from the cluster.
+
 
       ```
       <copy>
       cursor = connection.cursor()
       cursor.execute("""
-      with 
+      WITH 
          x as (
              SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
                     lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
@@ -356,7 +370,7 @@ The first steps of this task are meant to familiarize you with spatial aggregati
                       style_kwds={"color":"blue","fillColor":"blue", "fillOpacity":"1"})
       m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"}, 
                              style_kwds={"color":"red","fillColor":"red", "fillOpacity":"1"} )
-      m.fit_bounds([ [25,-125], [50,-70] ])
+      m.fit_bounds(m.get_bounds())
       m
       </copy>
       ```
@@ -368,6 +382,7 @@ The first steps of this task are meant to familiarize you with spatial aggregati
 
       ```
       <copy>
+      cursor = connection.cursor()
       cursor.execute("TRUNCATE TABLE transaction_labels")
       </copy>
       ```
@@ -380,7 +395,7 @@ The first steps of this task are meant to familiarize you with spatial aggregati
 
     You are now ready to analyze another customer's transactions.
 
-6. Scroll up in your notebook to the cell where the customer ID variable (i.e., "cust") is set, update the customer ID to 2, and run.
+6. Return to Task 3, to the cell where the customer ID variable (i.e., "cust") is set. Update the customer ID to 2, and run.
    
     ![desc here](images/detect-anomalies-19.png)
 
@@ -393,9 +408,9 @@ The first steps of this task are meant to familiarize you with spatial aggregati
     ![desc here](images/detect-anomalies-21.png)
 
 
-Repeat for other customer IDs.
+Repeat this process for other customer IDs (customer ID's are 1-10). You may also experiment with the cluster thresholds to see the effect on outlier detection.
 
-... add narrative ... 
+We hope this workshop has been informative and that you further explore the spatial features of Oracle Database and their use in machine learning and AI workflows.
 
 
 ## Learn More

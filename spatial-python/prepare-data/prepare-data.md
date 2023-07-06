@@ -149,6 +149,22 @@ Estimated Lab Time: 10 minutes
      ```
      ![Desc here...](images/prepare-data-09.png)
 
+6. Run the following to list the distinct customer ID's. 
+
+     ```
+     <copy>
+     # Customer ID's
+     cursor = connection.cursor()
+     cursor.execute("SELECT DISTINCT cust_id FROM transactions ORDER BY cust_id")
+     for row in cursor.fetchall():
+         print(row[0])
+     </copy>
+     ```
+     ![Desc here...](images/prepare-data-09a.png)
+
+
+
+
 ## Task 3: Add epoch date
 
 Temporal calculations are a key component of this workshop, and are best performed on an integer representation of date and time. This integer representation is generally referred to as epoch time or more specifically UNIX time. In this task you add epoch time for all transactions.
