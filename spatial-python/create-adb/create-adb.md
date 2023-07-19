@@ -25,7 +25,7 @@ Estimated Lab Time: 5 minutes
 </if>
 <if type="ocw23-sandbox">
 1. Your Compartment should still be selected. If not then re-select it. Then click **Create Autonomous Database**. 
-2. 
+   
 </if>
 
   ![Select compartment](images/adb-02.png) 
