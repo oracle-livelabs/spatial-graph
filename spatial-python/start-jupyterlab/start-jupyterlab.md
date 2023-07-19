@@ -73,9 +73,63 @@ Estimated Lab Time: 5 minutes
 7. Open a new browser tab. Then copy the URL from your text editor and paste into the new tab and run. This will open JupyterLab where you will be creating and running Python notebooks in the following Labs.
     ![Start JupyterLab](images/start-jupyter-07.png) 
 
+## Task 3: Explore Jupyter Notebooks
+
+Jupyter Notebook is an interactive web-based tool that allows you to create and share documents that contain live code, equations, visualizations, and text. It is widely used in the data science community for prototyping and data analysis.
+
+In this task, we will walk through the basics of using Jupyter Notebook.
+
+1. Create a new notebook.
+
+   When your Jupyter environment loads, you should see a launcher tab open.
+
+   ![Launcher Tab is open](./images/launcher1.png)
+
+   If you do not see the launcher window, select file at the top left of the window, and select 'New Launcher'.
+
+   ![Open new Launcher Tab](./images/launcher2.png) 
+
+   From the launcher window, select  "Python 3" to create a new notebook using the Python programming language. A new notebook will be created, and you can start working on it by entering code in the code cells or adding markdown text in the markdown cells.
+
+   ![create a new Python notebook](./images/launcher3.png) 
+
+
+2. Add some markdown Text.
+
+   Click on the code cell and use the use the cell type drop down to select 'Markdown'
+
+   ![Add Markdown cell](./images/notebook1.png)
+
+   Paste the following in the cell and click the play button on the tool bar, or press Shift+Enter to run the cell.
+
+   	```
+   	<copy>
+   	# My First Notebook
+   	This is my first Jupyter notebook
+   	</copy>
+   	``` 
+
+   ![Result of markdown](./images/notebook2.png)
+
+3. Write some Python code. Paste the following into the next cell and run it. The phrase, 'Hello, World!' should appear below the cell.
+
+	```
+	<copy>
+	print('Hello, World!')
+	</copy>
+	
+	```
+
+   ![hello world example](./images/notebook3.png)
+
+4. To save a Jupyter Notebook, click on the "Save" icon on the toolbar, or press Ctrl+S (or Cmd+S on macOS).The notebook will be saved with the .ipynb file extension.
+
+
+
+
  You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
+- **Author** - Rahul Tasker, Database Product Management, Oracle
 - **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
