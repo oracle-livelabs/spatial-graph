@@ -1,7 +1,7 @@
 {
     "workshoptitle": "Assess the local impact of sea level rise with Oracle Spatial Studio",
       "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
-      "help": "livelabs-help-db_us@oracle.com",
+      "help": "livelabs-help-sg_us@oracle.com",
     "tutorials": [
       {
         "title": "Introduction",
@@ -41,11 +41,11 @@
   "filename": "../../../env-mp-teardown/env-mp-teardown.md"
 },
 {
-  "title": "Learn more while at Oracle CloudWorld 2022",
+  "title": "Learn more while at Oracle CloudWorld 2023",
   "filename": "../../../../spatial/ocw2022-learn-more/ocw2022-learn-more.md"
   },
 { 
-  "title": "Oracle CloudWorld 2022 - Get help",
+  "title": "Oracle CloudWorld 2023 - Get help",
   "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
   }
    ]
