@@ -32,7 +32,7 @@ Estimated Lab Time: 5 minutes
   ![Open Cloud Shell](images/compute-02.png)
 
 
- 4. Note the Public IP of your compute instance. You will use this later in this an other Labs. 
+ 4. Note the Public IP of your compute instance. You will use this later in this and other Labs. 
 
   ![Open Cloud Shell](images/compute-03.png)
 

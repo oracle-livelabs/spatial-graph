@@ -362,7 +362,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![desc here](images/detect-anomalies-15.png)
 
-8. Run the following to visualize the spatiotemporal cluster(s) and associated suspicious outlier(s). Hover over the suspicious transaction(s) to see their attributes.
+8. Run the following to visualize the spatiotemporal cluster(s) as blue markers and associated suspicious outlier(s) as red markers. The Hover over the suspicious transaction(s) to see their attributes.
    
       ```
       <copy>

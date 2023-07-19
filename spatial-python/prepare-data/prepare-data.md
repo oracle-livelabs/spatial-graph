@@ -22,7 +22,7 @@ Estimated Lab Time: 10 minutes
  * [locations.csv](./data/locations.csv)
  * [transactions.csv](./data/transactions.csv)
    
-1. Click the **Upload** icon to load the data files.
+2. Click the **Upload** icon to load the data files.
    ![Upload data](images/prepare-data-01.png)
 
 3. In the left panel, double-click on locations.csv and transactions.csv to preview the data files in new tabs. 
@@ -34,7 +34,7 @@ Estimated Lab Time: 10 minutes
 
 ## Task 2: Create and load tables
 
-4. In the next cell of your notebook, paste the following statement and then click the **run** button. This creates the table for the locations data. 
+1. In the next cell of your notebook, paste the following statement and then click the **run** button. This creates the table for the locations data. 
 
      ```
      <copy>
@@ -49,7 +49,7 @@ Estimated Lab Time: 10 minutes
      ```
      ![Desc here...](images/prepare-data-04.png)
 
-5. Run the following to load the locations data.
+2. Run the following to load the locations data.
 
      ```
      <copy>
@@ -77,7 +77,7 @@ Estimated Lab Time: 10 minutes
      ![Desc here...](images/prepare-data-05.png)
 
 
-6. Run the following to preview the locations data, which contains one row for each for each ATM location including coordinates and a unique location ID.
+3. Run the following to preview the locations data, which contains one row for each for each ATM location including coordinates and a unique location ID.
 
      ```
      <copy>
@@ -91,7 +91,7 @@ Estimated Lab Time: 10 minutes
      ![Desc here...](images/prepare-data-06.png)
 
 
-5. In the next cell, paste the following statement and then click the **run** button. This creates the table for the transaction data. 
+4. In the next cell, paste the following statement and then click the **run** button. This creates the table for the transaction data. 
 
      ```
      <copy>
@@ -108,7 +108,7 @@ Estimated Lab Time: 10 minutes
 
 
 
-6. Run the following to load the transactions data.
+5. Run the following to load the transactions data.
 
      ```
      <copy>
@@ -149,7 +149,7 @@ Estimated Lab Time: 10 minutes
      ```
      ![Desc here...](images/prepare-data-09.png)
 
-6. Run the following to list the distinct customer ID's. 
+7. Run the following to list the distinct customer ID's. 
 
      ```
      <copy>
@@ -246,7 +246,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Desc here...](images/fetch-lobs.png)
 
-9. Run the following to test the function.
+3. Run the following to test the function.
    
      ```
      <copy>
@@ -266,7 +266,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
 
 
-1. Before creating a spatial index, it is necessary to insert a row of metadata describing the geometry to be indexed. Run the following to create spatial metadata for the location geometry.
+4. Spatial queries rely on a spatial index for optimal performance. A spatial index can only be created on data having uniform dimensionality (i.e., 2D or 3D) and coordinate system. Before creating a spatial index, it is necessary to insert a row of metadata describing these properties for the geometry to be indexed. This includes the table name, geometry column name (or in this case a function returning geometry), dimensionality , and a coordinate system code. When creating a spatial index, the data are first verified to conform to the metadata. Spatial indexing completes successfully only if the data conform to the metadata. Run the following to create spatial metadata for the location geometry.
    
      ```
      <copy>
@@ -282,7 +282,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Desc here...](images/prepare-data-15.png)
 
-2. Run the following to create spatial index for the location geometry.
+5. Run the following to create a spatial index for the location geometry.
    
      ```
      <copy>
@@ -296,19 +296,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Desc here...](images/prepare-data-16.png)
 
-3.  Run the following to verify that the spatial index was successfully created.
-   
-    ```
-    <copy>
-    cursor.execute("SELECT index_name, sdo_index_status FROM user_sdo_index_info")
-    for row in cursor.fetchmany(size=10):
-        print(row)
-    </copy>
-    ```
-
-     ![Desc here...](images/prepare-data-17.png)
-
-4.   Run the following example spatial query, which leverages the spatial index.
+6.  To verify the spatial index, run the following example spatial query. This query returns the 5 nearest items from the **locations** table to a longitude, latitude coordinate, along with the distances.  This is referred to as a "nearest neighbor" query and uses the **sdo\_nn( )** operator which uses the spatial index. For more info on nearest neighbor queries, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-operators-reference.html#GUID-41E6B1FA-1A03-480B-996F-830E8566661D).
 
     ```
     <copy>

@@ -8,7 +8,7 @@ Estimated Workshop Time: 60 minutes
 
 ### About Oracle Spatial and python-oracledb
 
-Oracle Spatial is a set of geospatial data management, analysis, and processing capabilities within Oracle Database. With a native spatial data type and analysis operations, location-based analysis is mainstream and co-located with all other database operations. More at [Oracle Spatial Product homepage](https://www.oracle.com/database/spatial)
+Oracle Spatial is a set of geospatial data management, analysis, and processing capabilities within Oracle Database. With a native spatial data type and analysis operations, location-based analysis is mainstream and co-located with all other database operations. More at [Oracle Spatial product homepage](https://www.oracle.com/database/spatial)
 
 The python-oracledb driver is an open source Python module that enables programs to access Oracle Database. python-oracledb makes it easy to access Oracle Database (including Oracle Autonomous Database)from Python and leverage features such as large object types, Advanced Queuing, Continuous Query Notification, and much more. More at [python-oracledb on GitHub](https://oracle.github.io/python-oracledb/)
 
