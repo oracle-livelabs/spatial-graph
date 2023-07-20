@@ -9,7 +9,7 @@
         {
             "title": "Work with Graph Studio",
             "description": "The Introduction is always first. The title and contents menu title match for the Introduction.",
-            "filename": "../../../graph-made-easy/introduction-property-graph/introduction-property-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/introduction-property-graph/introduction-property-graph.md"
         },
         {
             "title": "Get Started",
@@ -25,12 +25,12 @@
             "filename": "../../query-graph/query-graph.md"
         },
         {
-            "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
-            "filename": "../../../graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
+            "title": "Lab 4: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
         },
         {
-            "title": "Lab 4: Query and Visualize the RDF Graph OPTIONAL - part 2",
-            "filename": "../../../graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
+            "title": "Lab 5: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {
             "title": "Need Help?",
