@@ -21,7 +21,7 @@ Estimated Lab Time: 15 minutes
 
 To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose. This task is meant to familiarize you with spatial aggregation. 
 
-1. Begin by creating a GeoDataFrame of locations within 10 miles of a longitude/latitude coordinate.
+1. Begin by creating a GeoDataFrame of items from the **LOCATIONS** table locations within 10 miles of a longitude/latitude coordinate in Austin, TX (-97.7431,30.2672).
 
       ```
       <copy>
@@ -59,7 +59,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       gdfAggCent = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
       gdfAggCent['geometry'] = shapely.from_wkt(gdfAggCent['geometry'])
       gdfAggCent = gdfAggCent.set_crs(3857)
-      gdfAggCent.head()
+      gdfAggCent
       </copy>
       ```
 
@@ -81,7 +81,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       gdfAggHull = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
       gdfAggHull['geometry'] = shapely.from_wkt(gdfAggHull['geometry'])
       gdfAggHull = gdfAggHull.set_crs(3857)
-      gdfAggHull.head()
+      gdfAggHull
       </copy>
       ```
 
