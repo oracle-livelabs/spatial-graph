@@ -1,6 +1,11 @@
 {
     "workshoptitle": "Use Graph Analytics to Recommend Movies",
     "help": "livelabs-help-db_us@oracle.com",
+    "include": {
+        "adb-goto-graph-studio.md":"/common/building-blocks/tasks/adb/goto-graph-studio.md",
+        "adb-create-graph.md":"/common/building-blocks/tasks/adb/create-graph.md"     
+      },
+    "variables": ["./variables.json"],
     "tutorials": [
         {
             "title": "Use Graph Analytics to Recommend Movies",
