@@ -125,6 +125,74 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      ![desc here](images/detect-anomalies-01.png)
 
 
+2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with with some locations, time and an ID associated with each.
+```
+<copy>
+gdf = gpd.GeoDataFrame({
+    "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "epoch_date": [1704096000, 1687881600, 1687968000, 1688054400, 1688140800, 1688227200, 1672656000, 1672742400, 1672828800, 1672915200, 1673001600],
+    "geometry": ["POINT(36.2650 -115.2368)",
+                "POINT(36.1823 -115.1367)",
+                "POINT(36.1779 -115.1492)",
+                "POINT(36.1910 -115.1385)",
+                "POINT(36.1804 -115.1256)",
+                "POINT(36.1735 -115.1329)",
+                "POINT(36.1212 -115.1711)",
+                "POINT(36.1228 -115.1656)",
+                "POINT(36.1221 -115.1782)",
+                "POINT(36.1176 -115.1669)",
+                "POINT(36.1199 -115.1755)"
+    ],})
+</copy>
+```
+​
+3. Run the following to create geometric objects from the Well-Known Text (WKT) representation in our dataframe. Then convert to numpy array.
+```
+<copy>
+gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+data = df.values
+data = np.int_(data)
+data[1:10]
+</copy>
+```
+​
+4. From here, we can run ST_DBSCAN on our sample data. ST_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data.
+```
+<copy>
+st_cluster = ST_DBSCAN(eps1 = 5000, eps2 = 3000000, min_samples = 5)
+st_cluster.fit(data)
+</copy>
+```
+​
+5. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was two clusters detected
+​
+```
+<copy>
+np.unique(st_cluster.labels)
+</copy>
+```
+​
+6. Add the integer label to the GeoDataFrame.
+​
+```
+<copy>
+df = pd.DataFrame(data={'id': df.id, 'label': st_cluster.labels})
+label_mapping_dict = dict(zip(df["id"], df["label"]))
+gdf["label"] = gdf["id"].map(label_mapping_dict)
+</copy>
+```
+​
+7. Run the following to visualize the clusters. Notice that there are two clusters with one point that is not associated with either cluster
+​
+```
+<copy>
+gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
+</copy>
+```
+
+
+
+
 5. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
 
      ```
