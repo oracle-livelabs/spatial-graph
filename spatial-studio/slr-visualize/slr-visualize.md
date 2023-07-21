@@ -140,23 +140,27 @@ Next you add map layers and apply styling.
 
   Scroll to the top of the Settings dialog and click **back arrow** to return to the Layers list.
 
-15. Drag and drop the **PARCELS** dataset onto the map. Then move the PARCELS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
+15. Drag and drop the **BOSTON_BLDGS_POLY_2D** dataset onto the map. Then move the PARCELS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
 
    ![Drag another dataset as layer onto the map](images/vis-27.png)
 
-16. Zoom into an area with parcels along the flood boundary to observe the overlap.
+16. Zoom into an area with buildings along the flood boundary to observe the overlap.
 
    ![Zoom into the dataset (layer)](images/vis-28.png)
 
-   The PARCELS layer includes non-commercial properties tagged as either RESIDENTIAL or APARTMENT.  You next style the parcels according to this attribute.
+   The BOSTON_BLDGS_POLY_2D layer includes an attribute for square footage.  You next style the parcels according to this attribute.
 
-17. As you have done in previous steps, from the PARCELS layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
+17. As you have done in previous steps, from the BOSTON_BLDGS_POLY_2D layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
 
    ![Define color coding based on data](images/vis-29.png)
 
-18. In the Column menu select **PCAT** as the column to use for driving parcel fill color. Then update the fill colors for APARTMENT and RESIDENTIAL to colors of your choosing, for example dark and light grey.
+18. In the Column menu select **AREA_SQ_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
 
    ![Select column that contains the data for color coding](images/vis-30.png)
+
+Click "Set Palette" and then choose one.   
+
+   ![Choose a color palette](images/vis-30a.png)
 
    Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
 
@@ -179,4 +183,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Contributors** - Jayant Sharma
+* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023

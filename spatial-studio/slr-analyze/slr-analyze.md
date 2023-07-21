@@ -23,7 +23,7 @@ Watch the video below for a quick walk-through of the lab.
 
 You begin by performing an analysis to filter schools based on containment in a projected flood region.
 
-1. To focus on schools and the projected flood area, turn visibility off for FACILITIES and PARCELS. Then from the action menu for FLOOD2060, select **Zoom to layer**.
+1. To focus on schools and the projected flood area, turn visibility off for FACILITIES and BOSTON_BLDGS_POLY_2D. Then from the action menu for FLOOD2060, select **Zoom to layer**.
 
    ![Zoom to layer](images/analyze-01.png)
 
@@ -81,13 +81,12 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Select Spatial Analysis Operation](images/analyze-12.png)
 
-3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer to be used as the filter enter **FLOOD2060**.
+3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer to be used as the filter enter **FLOOD2060**.  
+   Enter **10** for the distance and select **Kilometer** as the unit. Then click **Run**.
 
    ![Define Spatial Analysis parameters](images/analyze-13.png)
 
-   Scroll down and for distance enter **10** and unit select **Kilometer**. Then click **Run**.
 
-   ![Define Spatial Analysis parameters](images/analyze-14.png)
 
 4. Before adding the analysis results to the map, change the style of the original unfiltered Facilities layer so that the analysis results are clearly visible. As you have done previously, from the action menu for Facilities select **Settings**. Then change the radius to 6, color to black, and opacity to maximum.
 
@@ -133,27 +132,27 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Drag result of spatial analysis onto the map](images/analyze-24.png)
 
-## Task 3: Identify parcels in contact with the projected flood area
+## Task 3: Identify buildings in contact with the projected flood area
 
-You next identify parcels that have any spatial interaction with the projected flood region. This includes parcels contained in the region, overlapping the region, or touching the boundary.
+You next identify buildings that have any spatial interaction with the projected flood region. This includes buildings contained in the region, overlapping the region, or touching the boundary.
 
-1. In the layers list, turn on visibility for the PARCELS layer. While zoomed out you will only see a portion of the parcels since there are too many to display at such a small scale. As you zoom in, you will observe that all parcels are displayed. From the action menu for PARCELS, select **Spatial Analysis**.
+1. In the layers list, turn on visibility for the BOSTON_BLDGS_POLY_2D layer. While zoomed out you will only see a portion of the buildings since there are too many to display at such a small scale. From the action menu for BOSTON_BLDGS_POLY_2D, select **Spatial Analysis**.
 
    ![Start new Spatial Analysis](images/analyze-26.png)
 
-2. You will identify the parcels making any contact with the projected flood area. So select the tab for **Filter** analyses and then select the tile for **Return shapes having any spatial interaction with another**.
+2. You will identify the buildings making any contact with the projected flood area. So select the tab for **Filter** analyses and then select the tile for **Return shapes having any spatial interaction with another**.
 
    ![Select Spatial Analysis Operation](images/analyze-27.png)
 
-3. For name, enter **PARCELS FLOOD CONTACT**, for layer to be filtered select **PARCELS**, and for layer to be used as filter select **FLOOD2060**. Then click **Run**.
+3. For name, enter **BUILDINGS FLOOD CONTACT**, for layer to be filtered select **BOSTON_BLDGS_POLY_2D**, and for layer to be used as filter select **FLOOD2060**. Then click **Run**.
 
    ![Set Spatial Analysis parameters](images/analyze-28.png)
 
-4. Drag and drop your new analysis onto the map. Then for the new map layer, go to Settings to update the style. In the Fill section, drag the opacity slider to 0 so no fill is shown. In the Outline section, change the color to red, opacity to maximum, and width to 2. This will effectively highlight the parcels in contact with the projected flood zone.
+4. Drag and drop your new analysis onto the map. Then for the new map layer, go to Settings to update the style. In the Fill section, drag the opacity slider to 0 so no fill is shown. In the Outline section, change the color to red, opacity to maximum, and width to 2. This will effectively highlight the buildings in contact with the projected flood zone.
 
    ![Drag result of spatial analysis onto the map](images/analyze-29.png)
 
-5. Zoom into an area of your choosing to see parcels with those in contact with the flood area outlined in red. You may experiment with adding a table listing of the results as well.
+5. Zoom into an area of your choosing to see buildings with those in contact with the flood area outlined in red. You may experiment with adding a table listing of the results as well.
 
    ![Zoom into result of Spatial Analysis](images/analyze-30.png)
 
@@ -166,5 +165,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Ramu Murakami Gutierrez, Anand Kannan
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Contributors** - Ramu Murakami Gutierrez, Anand Kannan, Jayant Sharma
+* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023
