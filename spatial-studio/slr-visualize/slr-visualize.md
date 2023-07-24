@@ -140,7 +140,7 @@ Next you add map layers and apply styling.
 
   Scroll to the top of the Settings dialog and click **back arrow** to return to the Layers list.
 
-15. Drag and drop the **BOSTON_BLDGS_POLY_2D** dataset onto the map. Then move the PARCELS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
+15. Drag and drop the **BOSTON\_BLDGS\_POLY\_2D** dataset onto the map. Then move the BOSTON\_BLDGS\_POLY_2D layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
 
    ![Drag another dataset as layer onto the map](images/vis-27.png)
 

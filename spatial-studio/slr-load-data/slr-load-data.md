@@ -66,16 +66,16 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
 3. Repeat for **FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization.
 
-4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **BOSTON_BLDGS_POLY_2D** (or whatever you named the buildings dataset). Click on the **Go to Dataset Columns** link.  
+4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **BOSTON\_BLDGS\_POLY_2D** (or whatever you named the buildings dataset). Click on the **Go to Dataset Columns** link.  
    
-Click  the **Create Key Column** button.  
-   ![Create a key column](images/prep-data-bldgs-01.png)  
+   Click  the **Create Key Column** button.  
+      ![Create a key column](images/prep-data-bldgs-01.png)  
 
-Name the key column (e.g. `BLDG_ID`).   
-   ![Name the key column](images/prep-data-bldgs-02.png)  
+   Name the key column (e.g. `BLDG_ID`).   
+      ![Name the key column](images/prep-data-bldgs-02.png)  
 
-Finally, click the checkbox to use this newly created column as the key for the dataset.  
-   ![Specify the key column for the dataset](images/prep-data-bldgs-03.png)  
+   Finally, click the checkbox to use this newly created column as the key for the dataset.  
+      ![Specify the key column for the dataset](images/prep-data-bldgs-03.png)  
 
 5. Click on the warning icon for **FACILITIES** and click the link **Go to Dataset Columns**.
 
