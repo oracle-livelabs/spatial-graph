@@ -213,7 +213,7 @@ Spatial calculations are an additional key component of this workshop. In this t
    
      ```
      <copy>
-     # Create function to return lon/lat coordinates as a geometry
+     # Create function to return lon/lat coordinates as a geometry.
      cursor.execute("""
       CREATE OR REPLACE FUNCTION lonlat_to_proj_geom (longitude IN NUMBER, latitude IN NUMBER)
       RETURN SDO_GEOMETRY DETERMINISTIC IS
