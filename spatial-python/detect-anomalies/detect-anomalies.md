@@ -17,9 +17,9 @@ Estimated Lab Time: 15 minutes
 
 * Completion of previous lab
 
-## Task 1: Experiment with spatial aggregation 
+## Task 1: Experiment with spatial aggregation
 
-To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose. This task is meant to familiarize you with spatial aggregation. 
+To calculate the distance of transactions from a spatiotemporal cluster, it is convenient to represent the cluster as a single geometry. This is a use case for spatial aggregation, where a set of geometries is represented by a single aggregate. Oracle Spatial provides a package of spatial aggregate functions for just this purpose. This task is meant to familiarize you with spatial aggregation.
 
 1. Begin by creating a GeoDataFrame of items from the **LOCATIONS** table locations within 10 miles of a longitude/latitude coordinate in Austin, TX (-97.7431,30.2672).
 
@@ -28,7 +28,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       cursor = connection.cursor()
       cursor.execute("""
        SELECT (lonlat_to_proj_geom(lon,lat)).get_wkt() as geometry
-       FROM locations 
+       FROM locations
        WHERE sdo_within_distance(
                  lonlat_to_proj_geom(lon,lat),
                  lonlat_to_proj_geom(-97.7431,30.2672),
@@ -44,13 +44,13 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     ![desc here](images/spatial-agg-00.png)
 
 2. Next create a GeoDataFrame containing the location in the center of the previously selected locations. This location is referred to as an "aggregate centroid", hence the GeoDataFrame is named gdfAggCent.
-   
+
       ```
       <copy>
       cursor.execute("""
        SELECT SDO_AGGR_CENTROID(
                 SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
-       FROM locations 
+       FROM locations
        WHERE sdo_within_distance(
                  lonlat_to_proj_geom(lon,lat),
                  lonlat_to_proj_geom(-97.7431,30.2672),
@@ -72,7 +72,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       cursor.execute("""
        SELECT SDO_AGGR_CONVEXHULL(
                 SDOAGGRTYPE(lonlat_to_proj_geom(lon,lat), 0.005)).get_wkt() as geometry
-       FROM locations 
+       FROM locations
        WHERE sdo_within_distance(
                  lonlat_to_proj_geom(lon,lat),
                  lonlat_to_proj_geom(-97.7431,30.2672),
@@ -95,9 +95,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       <copy>
       m = gdfPoints.explore(tiles="CartoDB positron",
                              style_kwds={"color":"blue","fillColor":"blue"})
-      m = gdfAggHull.explore(m=m, 
+      m = gdfAggHull.explore(m=m,
                              style_kwds={"color":"red","fillOpacity":"0"} )
-      m = gdfAggCent.explore(m=m, 
+      m = gdfAggCent.explore(m=m,
                              marker_kwds={"radius":"8"},
                             style_kwds={"color":"red","fillColor":"red","fillOpacity":".7"} )
       m
@@ -106,13 +106,13 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![desc here](images/spatial-agg-03.png)
 
- You will next identify suspicious transactions that occur during the time range of a spatiotemporal cluster but at a distance greater than a threshold. Since the area covered by a spatiotemporal cluster is insignificant compared to the distance threshold for a suspicious transaction, you will use the aggregate centroid to represent the location of a spatiotemporal cluster. 
+ You will next identify suspicious transactions that occur during the time range of a spatiotemporal cluster but at a distance greater than a threshold. Since the area covered by a spatiotemporal cluster is insignificant compared to the distance threshold for a suspicious transaction, you will use the aggregate centroid to represent the location of a spatiotemporal cluster.
 
 
 ## Task 2: Prep for cluster detection
 
 
-1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan. 
+1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan.
 
      ```
      <copy>
@@ -126,71 +126,90 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
 
 2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with with some locations, time and an ID associated with each.
-```
-<copy>
-gdf = gpd.GeoDataFrame({
-    "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-    "epoch_date": [1704096000, 1687881600, 1687968000, 1688054400, 1688140800, 1688227200, 1672656000, 1672742400, 1672828800, 1672915200, 1673001600],
-    "geometry": ["POINT(36.2650 -115.2368)",
-                "POINT(36.1823 -115.1367)",
-                "POINT(36.1779 -115.1492)",
-                "POINT(36.1910 -115.1385)",
-                "POINT(36.1804 -115.1256)",
-                "POINT(36.1735 -115.1329)",
-                "POINT(36.1212 -115.1711)",
-                "POINT(36.1228 -115.1656)",
-                "POINT(36.1221 -115.1782)",
-                "POINT(36.1176 -115.1669)",
-                "POINT(36.1199 -115.1755)"
-    ],})
-</copy>
-```
+    ```
+    <copy>
+    gdf = gpd.GeoDataFrame({
+        "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "epoch_date": [1704096000, 1687881600, 1687968000, 1688054400, 1688140800, 1688227200, 1672656000, 1672742400, 1672828800, 1672915200, 1673001600],
+        "geometry": ["POINT(36.2650 -115.2368)",
+                    "POINT(36.1823 -115.1367)",
+                    "POINT(36.1779 -115.1492)",
+                    "POINT(36.1910 -115.1385)",
+                    "POINT(36.1804 -115.1256)",
+                    "POINT(36.1735 -115.1329)",
+                    "POINT(36.1212 -115.1711)",
+                    "POINT(36.1228 -115.1656)",
+                    "POINT(36.1221 -115.1782)",
+                    "POINT(36.1176 -115.1669)",
+                    "POINT(36.1199 -115.1755)"
+        ],})
+    </copy>
+    ```
+
+    ![desc here](images/detect-simple-01.png)
+
 ​
 3. Run the following to create geometric objects from the Well-Known Text (WKT) representation in our dataframe. Then convert to numpy array.
-```
-<copy>
-gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
-data = df.values
-data = np.int_(data)
-data[1:10]
-</copy>
-```
+    ```
+    <copy>
+    # Create geometric object
+    gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+    # Convert to pandas dataframe
+    df = pd.DataFrame(data={'time': gdf.epoch_date, 'x': gdf.geometry.x, 'y': gdf.geometry.y, 'id':  gdf.id})
+    data = df.values
+    # Convert to numpy array
+    data = np.int_(data)
+    data[1:10]
+    </copy>
+    ```
+
+    ![desc here](images/detect-simple-02.png)
+
 ​
-4. From here, we can run ST_DBSCAN on our sample data. ST_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data.
-```
-<copy>
-st_cluster = ST_DBSCAN(eps1 = 5000, eps2 = 3000000, min_samples = 5)
-st_cluster.fit(data)
-</copy>
-```
+4. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data.
+    ```
+    <copy>
+    st_cluster = ST_DBSCAN(eps1 = 5000, eps2 = 3000000, min_samples = 5)
+    st_cluster.fit(data)
+    </copy>
+    ```
+
+    ![desc here](images/detect-simple-03.png)
+
 ​
 5. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was two clusters detected
 ​
-```
-<copy>
-np.unique(st_cluster.labels)
-</copy>
-```
+    ```
+    <copy>
+    np.unique(st_cluster.labels)
+    </copy>
+    ```
+
+    ![desc here](images/detect-simple-04.png)
+
 ​
 6. Add the integer label to the GeoDataFrame.
 ​
-```
-<copy>
-df = pd.DataFrame(data={'id': df.id, 'label': st_cluster.labels})
-label_mapping_dict = dict(zip(df["id"], df["label"]))
-gdf["label"] = gdf["id"].map(label_mapping_dict)
-</copy>
-```
+    ```
+    <copy>
+    df = pd.DataFrame(data={'id': df.id, 'label': st_cluster.labels})
+    label_mapping_dict = dict(zip(df["id"], df["label"]))
+    gdf["label"] = gdf["id"].map(label_mapping_dict)
+    </copy>
+    ```
+
+    ![desc here](images/detect-simple-05.png)
+
 ​
 7. Run the following to visualize the clusters. Notice that there are two clusters with one point that is not associated with either cluster
 ​
-```
-<copy>
-gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
-</copy>
-```
+    ```
+    <copy>
+    gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
+    </copy>
+    ```
 
-
+    ![desc here](images/detect-simple-06.png)
 
 
 5. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
@@ -201,9 +220,9 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
      </copy>
      ```
 
-    ![desc here](images/detect-anomalies-02.png)
+    ![desc here](images/detect-simple-07.png)
 
-## Task 3: Detect spatiotemporal clusters 
+## Task 3: Detect spatiotemporal clusters
 
 1.  In this workshop you will analyze transactions for one customer at a time. Run the following to set a variable for the customer id for analysis. You will return to this cell to switch to a different customer for analysis.
 
@@ -219,8 +238,8 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
       ```
       <copy>
       cursor.execute("""
-       SELECT a.cust_id,  a.trans_id, a.trans_epoch_date, 
-             (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt() 
+       SELECT a.cust_id,  a.trans_id, a.trans_epoch_date,
+             (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt()
        FROM transactions a, locations b
        WHERE a.location_id=b.location_id
        AND cust_id=:cust""", cust=cust)
@@ -233,7 +252,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
      ![desc here](images/detect-anomalies-04.png)
 
 2.   The st\_dbscan library requires input in numpy format, where numpy is a library for handling arrays.  Run the following two steps to convert your GeoDataFrame to a numpy array.
-    
+
      ```
      <copy>
      # first convert to pandas dataframe
@@ -264,7 +283,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
 
     ![desc here](images/detect-anomalies-06.png)
 
-4. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was one cluster detected. 
+4. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was one cluster detected.
 
      ```
      <copy>
@@ -290,8 +309,8 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
      ```
      <copy>
      cursor.executemany("""
-      INSERT INTO transaction_labels 
-      VALUES (:1, :2)""", 
+      INSERT INTO transaction_labels
+      VALUES (:1, :2)""",
       list(df[['trans_id','label']].itertuples(index=False, name=None)))
      connection.commit()
      </copy>
@@ -305,7 +324,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
       <copy>
       # labelled transactions for customer
       cursor.execute("""
-       SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
+       SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date,
               (lonlat_to_proj_geom(b.lon,b.lat)).get_wkt(), c.label
        FROM transactions a, locations b, transaction_labels c
        WHERE a.location_id=b.location_id
@@ -323,7 +342,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
 
       ```
       <copy>
-      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4}) 
+      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
       </copy>
       ```
     ![desc here](images/detect-anomalies-11.png)
@@ -333,7 +352,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
 
       ```
       <copy>
-      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4}) 
+      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
       </copy>
       ```
     ![desc here](images/detect-anomalies-12.png)
@@ -350,7 +369,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
       cursor.execute("""
        SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
                SDO_AGGR_CENTROID(
-                SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry, 
+                SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)).get_wkt() as geometry,
                count(*) as trans_count
        FROM transactions a, locations b, transaction_labels c
        WHERE a.location_id=b.location_id
@@ -368,7 +387,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
     ![desc here](images/detect-anomalies-13.png)
 
 6. Run the following to visualize the spatiotemporal cluster centroid.
-   
+
       ```
       <copy>
       gdf.explore(tiles="CartoDB positron", marker_kwds={"radius":4})
@@ -378,9 +397,9 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
     ![desc here](images/detect-anomalies-14.png)
 
 7. To identify current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold, you will run a query using the WITH ... AS ... SELECT .. WHERE... syntax as follows.
-   
+
     ```
-    WITH 
+    WITH
         x as ( [transactions] ),
         y as ( [spatiotemporal cluster aggregate centroids] )
     SELECT [transaction, cluster label, distance from cluster aggregate centroid, ...]
@@ -388,7 +407,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
     WHERE [transaction time within cluster time frame]
     AND [distance from cluster > threshold]
     ```
-   
+
    Run the following query to return suspicious transactions along with the associated cluster label and distance from the cluster.
 
 
@@ -396,9 +415,9 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
       <copy>
       cursor = connection.cursor()
       cursor.execute("""
-      WITH 
+      WITH
          x as (
-             SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date, 
+             SELECT a.cust_id, a.location_id, a.trans_id, a.trans_epoch_date,
                     lonlat_to_proj_geom(b.lon,b.lat) as proj_geom, c.label
              FROM transactions a, locations b, transaction_labels c
              WHERE a.location_id=b.location_id
@@ -406,7 +425,7 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
          y as (
              SELECT label, min(trans_epoch_date) as min_time, max(trans_epoch_date) as max_time,
                     SDO_AGGR_CENTROID(
-                        SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom, 
+                        SDOAGGRTYPE(lonlat_to_proj_geom(b.lon,b.lat), 0.005)) as proj_geom,
                     count(*) as trans_count
              FROM transactions a, locations b, transaction_labels c
              WHERE a.location_id=b.location_id
@@ -431,12 +450,12 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
     ![desc here](images/detect-anomalies-15.png)
 
 8. Run the following to visualize the spatiotemporal cluster(s) as blue markers and associated suspicious outlier(s) as red markers. The Hover over the suspicious transaction(s) to see their attributes.
-   
+
       ```
       <copy>
-      m = gdf.explore(tiles="CartoDB positron", marker_type='circle_marker',marker_kwds={"radius":"5"}, 
+      m = gdf.explore(tiles="CartoDB positron", marker_type='circle_marker',marker_kwds={"radius":"5"},
                       style_kwds={"color":"blue","fillColor":"blue", "fillOpacity":"1"})
-      m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"}, 
+      m = gdfAnomaly.explore(m=m, marker_type='circle_marker', marker_kwds={"radius":"5"},
                              style_kwds={"color":"red","fillColor":"red", "fillOpacity":"1"} )
       m.fit_bounds(m.get_bounds())
       m
@@ -446,37 +465,31 @@ gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={
     ![desc here](images/detect-anomalies-16.png)
 
 
-4. Prior to analyzing a different customer's transactions, run the following to empty the TRANSACTION\_LABELS table as a new set of labels will be created and saved for the next customer analyzed. 
+9. Let's analyze a different customer's transactions. Run the following to run the create\_connection, get\_cluster\_centroids and get\_anomalies functions. These will run the previous steps starting from Task 3 after emptying the TRANSACTION\_LABELS table as a new set of labels will be created and saved for the next customer analyzed.
 
       ```
       <copy>
-      cursor = connection.cursor()
-      cursor.execute("TRUNCATE TABLE transaction_labels")
+      from anomaly_detection import *
+      cust = 2
+      create_connection()
+      gdf = get_cluster_centroids(cust)
+      gdfAnomaly = get_anomalies(cust)
+      m = get_map()
       </copy>
       ```
 
     ![desc here](images/detect-anomalies-17.png)
-    
-5. Then right-click in the notebook and select 'Clear All Outputs' from the notebook'.
-   
+
+10. Then run the following to return suspicious transactions along with the associated cluster label and distance from the cluster.
+
     ![desc here](images/detect-anomalies-18.png)
 
-    You are now ready to analyze another customer's transactions.
+11. Run the following to visualize the spatiotemporal cluster(s) as blue markers and associated suspicious outlier(s) as red markers. The Hover over the suspicious transaction(s) to see their attributes.
 
-6. Return to Task 3, to the cell where the customer ID variable (i.e., "cust") is set. Update the customer ID to 2, and run.
-   
     ![desc here](images/detect-anomalies-19.png)
 
-7. Re-run the subsequent cells to identify spatiotemporal clusters, finishing with the cell that returns the distinct set of cluster labels. Observe that customer 2 has two spatiotemporal clusters.
 
-    ![desc here](images/detect-anomalies-20.png)
-
-8. Re-run the subsequent cells finishing with the cell that renders clusters and suspicious anomalies. 
-
-    ![desc here](images/detect-anomalies-21.png)
-
-
-Repeat this process for other customer IDs (customer ID's are 1-10). You may also experiment with the cluster thresholds to see the effect on outlier detection.
+Repeat this process for other customer IDs (customer ID's are 1-10), starting on step 9.
 
 We hope this workshop has been informative and that you further explore the spatial features of Oracle Database and their use in machine learning and AI workflows.
 
