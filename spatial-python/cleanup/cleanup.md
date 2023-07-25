@@ -21,13 +21,13 @@ Estimated Lab Time: 2 minutes
 
       ```
       <copy>
-      cursor.execute("drop view v_transactions_labelled")
-      cursor.execute("drop view v_st_cluster_centroids")
+      cursor = connection.cursor()
       cursor.execute("drop table transactions")
       cursor.execute("drop table locations")
       cursor.execute("drop table transaction_labels")
       cursor.execute("drop function lonlat_to_proj_geom")
       cursor.execute("delete from user_sdo_geom_metadata")
+      connection.commit()
       </copy>
       ```
 

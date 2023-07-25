@@ -109,6 +109,7 @@ The most common Python library for data handling is Pandas, which provides DataF
       """)
      gdf = gpd.GeoDataFrame(cursor.fetchall(), columns = ['location_id', 'owner', 'geometry'])
      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+     gdf.crs="EPSG:3857"
      gdf.head()
      </copy>
      ```
@@ -118,7 +119,7 @@ The most common Python library for data handling is Pandas, which provides DataF
 6.  Run the following to visualize the GeoDataFrame.
      ```
      <copy>
-     gdf.explore(tiles="CartoDB positron", marker_kwds={"radius":4})
+     gdf.explore(tiles="CartoDB positron")
      </copy>
      ```
 

@@ -36,7 +36,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
              """)
       gdfPoints = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
       gdfPoints['geometry'] = shapely.from_wkt(gdfPoints['geometry'])
-      gdfPoints = gdfPoints.set_crs(3857)
+      gdfPoints.crs = "EPSG:3857"
       gdfPoints.head()
       </copy>
       ```
@@ -58,7 +58,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
              """)
       gdfAggCent = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
       gdfAggCent['geometry'] = shapely.from_wkt(gdfAggCent['geometry'])
-      gdfAggCent = gdfAggCent.set_crs(3857)
+      gdfAggCent.crs = "EPSG:3857"
       gdfAggCent
       </copy>
       ```
@@ -80,7 +80,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
              """)
       gdfAggHull = gpd.GeoDataFrame(cursor.fetchall(), columns = ['geometry'])
       gdfAggHull['geometry'] = shapely.from_wkt(gdfAggHull['geometry'])
-      gdfAggHull = gdfAggHull.set_crs(3857)
+      gdfAggHull.crs = "EPSG:3857"
       gdfAggHull
       </copy>
       ```
@@ -125,48 +125,66 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      ![desc here](images/detect-anomalies-01.png)
 
 
-2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with with some locations, time and an ID associated with each.
-    ```
-    <copy>
-    gdf = gpd.GeoDataFrame({
-        "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-        "epoch_date": [1704096000, 1687881600, 1687968000, 1688054400, 1688140800, 1688227200, 1672656000, 1672742400, 1672828800, 1672915200, 1673001600],
-        "geometry": ["POINT(36.2650 -115.2368)",
-                    "POINT(36.1823 -115.1367)",
-                    "POINT(36.1779 -115.1492)",
-                    "POINT(36.1910 -115.1385)",
-                    "POINT(36.1804 -115.1256)",
-                    "POINT(36.1735 -115.1329)",
-                    "POINT(36.1212 -115.1711)",
-                    "POINT(36.1228 -115.1656)",
-                    "POINT(36.1221 -115.1782)",
-                    "POINT(36.1176 -115.1669)",
-                    "POINT(36.1199 -115.1755)"
-        ],})
-    </copy>
-    ```
+2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with some locations each having epoch time and an ID.
+      ```
+      <copy>
+      gdf = gpd.GeoDataFrame({
+          "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "epoch_date": [1704096000, 1687881600, 1687968000, 1688054400, 1688140800, \
+                         1688227200, 1672656000, 1672742400, 1672828800,  1016730016, \
+                         1673001600, 1673001600, 1672915200, 673001600, 1688054400],
+          "geometry": ["POINT(-115.2368 36.2650)",
+                      "POINT(-115.1356 36.1823)",
+                      "POINT(-115.1492 36.1779)",
+                      "POINT(-115.1385 36.1910)",
+                      "POINT(-115.1256 36.1804)",
+                      "POINT(-115.1329 36.1735)",
+                      "POINT(-115.1711 36.1212)",
+                      "POINT(-115.1656 36.1228)",
+                      "POINT(-115.1782 36.1221)",
+                      "POINT(-115.1695 36.1253)",
+                      "POINT(-115.1790 36.1254)",
+                      "POINT(-115.1388 36.1858)",
+                      "POINT(-115.1669 36.1176)",
+                      "POINT(-115.1755 36.1199)",
+                      "POINT(-115.1297 36.1900)",
+          ],})
+      # convert to Shapely geometries
+      gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
+      # assign longitude/latitude coordinate system
+      gdf = gdf.set_crs(4326)
+      gdf
+      </copy>
+      ```
 
     ![desc here](images/detect-simple-01.png)
 
 ​
-3. Run the following to create geometric objects from the Well-Known Text (WKT) representation in our dataframe. Then convert to numpy array.
+1. The ST\_DBSCAN library requires that coordinates be in the same unit as distance measurement. Therefore, run the following to convert the coordinate system from longitude/latitude to projected x/y coordinates based on meters.
     ```
     <copy>
-    # Create geometric object
-    gdf['geometry'] = shapely.from_wkt(gdf['geometry'])
-    # Convert to pandas dataframe
-    df = pd.DataFrame(data={'time': gdf.epoch_date, 'x': gdf.geometry.x, 'y': gdf.geometry.y, 'id':  gdf.id})
-    data = df.values
-    # Convert to numpy array
-    data = np.int_(data)
-    data[1:10]
+    # convert to projected x/y coordinates as required for st_dbscan
+    gdf = gdf.to_crs(3857)
+    gdf
     </copy>
     ```
 
     ![desc here](images/detect-simple-02.png)
 
 ​
-4. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data.
+1. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
+     ```
+     <copy>
+     # Convert to pandas dataframe
+     df = pd.DataFrame(data={'time': gdf.epoch_date, 'x': gdf.geometry.x, 'y': gdf.geometry.y, 'id':  gdf.id})
+     data = df.values
+     # Convert to numpy array
+     data = np.int_(data)
+     data
+     </copy>
+     ```
+
+2. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data. The parameters are the thresholds for clusters; eps1 is the distance threshold, eps2 is the time threshold, and min-samples is the threshold for minimum of items.
     ```
     <copy>
     st_cluster = ST_DBSCAN(eps1 = 5000, eps2 = 3000000, min_samples = 5)
@@ -195,24 +213,27 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     df = pd.DataFrame(data={'id': df.id, 'label': st_cluster.labels})
     label_mapping_dict = dict(zip(df["id"], df["label"]))
     gdf["label"] = gdf["id"].map(label_mapping_dict)
+    gdf
     </copy>
     ```
 
     ![desc here](images/detect-simple-05.png)
 
+7. Run the following to visualize the clusters. Notice that some items are within the distance threshold but not the temporal threshold.  
 ​
-7. Run the following to visualize the clusters. Notice that there are two clusters with one point that is not associated with either cluster
-​
-    ```
-    <copy>
-    gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
-    </copy>
-    ```
+      ```
+      <copy>
+      gdf.explore(column="label", categorical="True", tiles="CartoDB positron", \
+                  cmap=['sienna','blue','limegreen'], marker_kwds={"radius":4}, \
+                  style_kwds={"fillOpacity":1})
+      </copy>
+      ```
 
     ![desc here](images/detect-simple-06.png)
 
+   In the next steps you use this approach to detect suspicious financial transactions.
 
-5. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
+8. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
 
      ```
      <copy>
@@ -342,19 +363,16 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
       ```
       <copy>
-      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
+      gdf.explore(column="label", categorical="True", tiles="CartoDB positron", \
+                  cmap=['sienna','blue','limegreen'], marker_kwds={"radius":4}, \
+                  style_kwds={"fillOpacity":1})
       </copy>
       ```
     ![desc here](images/detect-anomalies-11.png)
 
 
-1. Zooming into the area of Austin, TX where the current customer's transaction locations are concentrated, observe the color coding indicating which are part of the spatiotemporal cluster.
+2. Zooming into the area of Austin, TX where the current customer's transaction locations are concentrated, observe the color coding indicating which are part of the spatiotemporal cluster.
 
-      ```
-      <copy>
-      gdf.explore("label", categorical="True", tiles="CartoDB positron", marker_kwds={"radius":4})
-      </copy>
-      ```
     ![desc here](images/detect-anomalies-12.png)
 
 
