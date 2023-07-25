@@ -120,7 +120,7 @@ Next you add map layers and apply styling.
 
    ![Define color coding based on data](images/vis-21.png)
 
-11. From the column menu, select **RISK_SCORE** as the column to drive the map symbol size. Click the **pencil button** to create value bins for symbol sizing. Enter **0** for minimum, **1000** for maximum,  **Interval** for grouping, and **4** for number of ranges. Then click **Regenerate bin values**.
+11. From the column menu, select **RISK\_SCORE** as the column to drive the map symbol size. Click the **pencil button** to create value bins for symbol sizing. Enter **0** for minimum, **1000** for maximum,  **Interval** for grouping, and **4** for number of ranges. Then click **Regenerate bin values**.
 
    ![Select column that contains the data for color coding](images/vis-23.png)
 
@@ -140,7 +140,7 @@ Next you add map layers and apply styling.
 
   Scroll to the top of the Settings dialog and click **back arrow** to return to the Layers list.
 
-15. Drag and drop the **BOSTON\_BLDGS\_POLY\_2D** dataset onto the map. Then move the BOSTON\_BLDGS\_POLY_2D layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
+15. Drag and drop the **BUILDINGS** dataset onto the map. Then move the BUILDINGS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
 
    ![Drag another dataset as layer onto the map](images/vis-27.png)
 
@@ -148,13 +148,13 @@ Next you add map layers and apply styling.
 
    ![Zoom into the dataset (layer)](images/vis-28.png)
 
-   The BOSTON_BLDGS_POLY_2D layer includes an attribute for square footage.  You next style the parcels according to this attribute.
+   The BUILDINGS layer includes an attribute for square footage.  You next style the parcels according to this attribute.
 
-17. As you have done in previous steps, from the BOSTON_BLDGS_POLY_2D layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
+17. As you have done in previous steps, from the BUILDINGS layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
 
    ![Define color coding based on data](images/vis-29.png)
 
-18. In the Column menu select **AREA_SQ_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
+18. In the Column menu select **AREA\_SQ\_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
 
    ![Select column that contains the data for color coding](images/vis-30.png)
 

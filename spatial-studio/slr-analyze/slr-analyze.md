@@ -23,7 +23,7 @@ Watch the video below for a quick walk-through of the lab.
 
 You begin by performing an analysis to filter schools based on containment in a projected flood region.
 
-1. To focus on schools and the projected flood area, turn visibility off for FACILITIES and BOSTON_BLDGS_POLY_2D. Then from the action menu for FLOOD2060, select **Zoom to layer**.
+1. To focus on schools and the projected flood area, turn visibility off for FACILITIES and BUILDINGS. Then from the action menu for FLOOD2060, select **Zoom to layer**.
 
    ![Zoom to layer](images/analyze-01.png)
 
@@ -118,7 +118,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Select Spatial Analysis Operation](images/analyze-21.png)
 
-11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060**, and for Geometry 2 select **FLOOD2060**.
+11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE\_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060**, and for Geometry 2 select **FLOOD2060**.
 
    ![Set Spatial Analysis parameters](images/analyze-22.png)
 
@@ -136,7 +136,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
 You next identify buildings that have any spatial interaction with the projected flood region. This includes buildings contained in the region, overlapping the region, or touching the boundary.
 
-1. In the layers list, turn on visibility for the BOSTON_BLDGS_POLY_2D layer. While zoomed out you will only see a portion of the buildings since there are too many to display at such a small scale. From the action menu for BOSTON_BLDGS_POLY_2D, select **Spatial Analysis**.
+1. In the layers list, turn on visibility for the BUILDINGS layer. While zoomed out you will only see a portion of the buildings since there are too many to display at such a small scale. From the action menu for BUILDINGS, select **Spatial Analysis**.
 
    ![Start new Spatial Analysis](images/analyze-26.png)
 
@@ -144,7 +144,7 @@ You next identify buildings that have any spatial interaction with the projected
 
    ![Select Spatial Analysis Operation](images/analyze-27.png)
 
-3. For name, enter **BUILDINGS FLOOD CONTACT**, for layer to be filtered select **BOSTON_BLDGS_POLY_2D**, and for layer to be used as filter select **FLOOD2060**. Then click **Run**.
+3. For name, enter **BUILDINGS FLOOD CONTACT**, for layer to be filtered select **BUILDINGS**, and for layer to be used as filter select **FLOOD2060**. Then click **Run**.
 
    ![Set Spatial Analysis parameters](images/analyze-28.png)
 
