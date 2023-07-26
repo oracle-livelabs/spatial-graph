@@ -247,7 +247,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
 ## Task 3: Detect spatiotemporal clusters
 
-1.  In this workshop you will analyze transactions for one customer at a time. Run the following to set a variable for the customer id for analysis. You will return to this cell to switch to a different customer for analysis.
+1.  In this workshop you will analyze transactions for one customer at a time. Run the following to set a variable for the customer id for analysis. You can return to this cell to switch to a different customer for analysis.
 
      ```
      <copy>
