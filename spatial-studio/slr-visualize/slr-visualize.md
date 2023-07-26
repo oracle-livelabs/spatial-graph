@@ -158,13 +158,13 @@ Next you add map layers and apply styling.
 
    ![Select column that contains the data for color coding](images/vis-30.png)
 
-Click "Set Palette" and then choose one.   
+    Click "Set Palette" and then choose one.   
 
-   ![Choose a color palette](images/vis-30a.png)
+       ![Choose a color palette](images/vis-30a.png)
 
-   Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
+       Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
 
-   In the next lab you will perform spatial analyses to identify items that satisfy various spatial relationships with the flood model.
+       In the next lab you will perform spatial analyses to identify items that satisfy various spatial relationships with the flood model.
 
 19. This is a good time to save your work. Click the **Save** button on the top right. Give your project a name such as SLR Project, then click **Save**.
 
