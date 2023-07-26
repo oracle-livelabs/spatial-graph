@@ -488,13 +488,13 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
 5. Use the following link to download a script to run all the steps for anomaly detection.
 
-     * [anomaly_detection.py](./data/anomaly_detection.py)
+     * [anomaly_detection.py](./files/anomaly_detection.py)
 
-     ![desc here](images/detect-anomalies-xx.png)
+     ![desc here](images/detect-anomalies-17.png)
 
 6. Upload the script file.
 
-     ![desc here](images/detect-anomalies-xx.png)
+     ![desc here](images/detect-anomalies-18.png)
 
 7. Run the following to import the script.
 
@@ -504,7 +504,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-    ![desc here](images/detect-anomalies-xx.png)
+    ![desc here](images/detect-anomalies-19.png)
 
     You can now analyze other customer's transactions using functions in the script. These will reproduce the previous steps starting from Task 3 after emptying the TRANSACTION\_LABELS table as a new set of labels.
 
@@ -530,7 +530,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-     ![desc here](images/detect-anomalies-xx.png)
+     ![desc here](images/detect-anomalies-20.png)
 
 9. Run the following to list the spatiotemporal clusters.
 
@@ -540,7 +540,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-    ![desc here](images/detect-anomalies-xx.png)
+    ![desc here](images/detect-anomalies-21.png)
 
  10. Run the following to list the associated anomalies..
 
@@ -550,7 +550,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-     ![desc here](images/detect-anomalies-xx.png)  
+     ![desc here](images/detect-anomalies-22.png)  
 
  11. Run the following to visualize the clusters and and associated anomalies.
 
@@ -561,7 +561,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-    ![desc here](images/detect-anomalies-xx.png)  
+    ![desc here](images/detect-anomalies-23.png)  
 
     To detect suspicious for other customers, scroll up to step 8, set a different customer id, and re-run the the subsequent cells to call the functions in the script.
 
