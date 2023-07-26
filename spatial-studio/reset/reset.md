@@ -38,7 +38,7 @@ In this lab, you will:
 
    ![Delete spatial analysis dataset](images/reset-03.png)
 
-2. Repeat the previous step for other analyses datasets in the following order: 1) PARCELS FLOOD CONTACT, 2) FACILITIES NEAR FLOOD2060 DISTANCE,  3) FACILITIES NEAR FLOOD2060
+2. Repeat the previous step for other analyses datasets in the following order: 1) BUILDINGS FLOOD CONTACT, 2) FACILITIES NEAR FLOOD2060 DISTANCE,  3) FACILITIES NEAR FLOOD2060
 
 3. From the action menu for the FACILITIES dataset, select the option to **Delete**.
 
