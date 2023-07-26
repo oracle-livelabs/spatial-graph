@@ -184,6 +184,8 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
+     ![desc here](images/detect-simple-03.png)
+
 5. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data. The parameters are the thresholds for clusters; eps1 is the distance threshold, eps2 is the time threshold, and min-samples is the threshold for minimum of items.
     ```
     <copy>
@@ -192,7 +194,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     </copy>
     ```
 
-    ![desc here](images/detect-simple-03.png)
+    ![desc here](images/detect-simple-04.png)
 
 ​
 6. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was two clusters detected
@@ -203,7 +205,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     </copy>
     ```
 
-    ![desc here](images/detect-simple-04.png)
+    ![desc here](images/detect-simple-05.png)
 
 ​
 7. Add the integer label to the GeoDataFrame.
@@ -217,7 +219,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     </copy>
     ```
 
-    ![desc here](images/detect-simple-05.png)
+    ![desc here](images/detect-simple-06.png)
 
 8. Run the following to visualize the clusters. Notice that some items are within the distance threshold but not the temporal threshold.  
 ​
@@ -229,7 +231,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       </copy>
       ```
 
-    ![desc here](images/detect-simple-06.png)
+    ![desc here](images/detect-simple-07.png)
 
    In the next steps you use this approach to detect suspicious financial transactions.
 
@@ -241,7 +243,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      </copy>
      ```
 
-    ![desc here](images/detect-simple-07.png)
+    ![desc here](images/detect-simple-08.png)
 
 ## Task 3: Detect spatiotemporal clusters
 
@@ -482,15 +484,15 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![desc here](images/detect-anomalies-16.png)
 
-      To repeat the process for the other customer's transactions you could scroll up to the cell where customer ID is set, update to a different customer ID, and rerun the subsequent cells. However it is more convenient to use a script that runs all of the steps. 
+      To repeat the process for the other customer's transactions you could scroll up to the cell where customer ID is set, update to a different customer ID, and rerun the subsequent cells. However it is more convenient to use a script that runs all of the steps.
 
-5. Use the following link to download a script to run all the steps for anomaly detection. 
-    
+5. Use the following link to download a script to run all the steps for anomaly detection.
+
      * [anomaly_detection.py](./data/anomaly_detection.py)
 
      ![desc here](images/detect-anomalies-xx.png)
 
-6. Upload the script file. 
+6. Upload the script file.
 
      ![desc here](images/detect-anomalies-xx.png)
 
@@ -518,7 +520,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      cust = 2
      </copy>
      ```
- 
+
      ```
      <copy>
      create_connection()
