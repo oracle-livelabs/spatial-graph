@@ -21,6 +21,10 @@ Estimated Lab Time: 2 minutes
 
       ```
       <copy>
+      import oracledb
+      my_pwd = open('./my-pwd.txt','r').readline().strip()
+      my_dsn = open('./my-dsn.txt','r').readline().strip()
+      connection = oracledb.connect(user="admin", password=my_pwd, dsn=my_dsn)
       cursor = connection.cursor()
       cursor.execute("drop table transactions")
       cursor.execute("drop table locations")

@@ -186,7 +186,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
      ![desc here](images/detect-simple-03.png)
 
-5. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data. The parameters are the thresholds for clusters; eps1 is the distance threshold, eps2 is the time threshold, and min-samples is the threshold for minimum of items.
+5. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data. The parameters are the thresholds for clusters; eps1 is the distance threshold in the units of the coordinate system (meters), eps2 is the time threshold in seconds, and min-samples is the threshold for minimum of items. Run the following to detect clusters where the thresholds are 5 or more items within 5KM and roughly 1 month.
     ```
     <copy>
     st_cluster = ST_DBSCAN(eps1 = 5000, eps2 = 3000000, min_samples = 5)
@@ -197,7 +197,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     ![desc here](images/detect-simple-04.png)
 
 ​
-6. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that there was two clusters detected
+6. The result is an integer label for each input item. Each label >=0 represents a cluster. The label -1 indicates the item is not part of a cluster. Review the distinct set of resulting labels. Observe that two clusters were detected.
 ​
     ```
     <copy>
@@ -366,8 +366,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       ```
       <copy>
       gdf.explore(column="label", categorical="True", tiles="CartoDB positron", \
-                  cmap=['sienna','blue','limegreen'], marker_kwds={"radius":4}, \
-                  style_kwds={"fillOpacity":1})
+                  marker_kwds={"radius":4}, style_kwds={"fillOpacity":1})
       </copy>
       ```
     ![desc here](images/detect-anomalies-11.png)
@@ -486,13 +485,12 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
       To repeat the process for the other customer's transactions you could scroll up to the cell where customer ID is set, update to a different customer ID, and rerun the subsequent cells. However it is more convenient to use a script that runs all of the steps.
 
-5. Use the following link to download a script to run all the steps for anomaly detection.
-
+5. Use the following link to download a script that includes all the steps for anomaly detection: 
      * [anomaly_detection.py](./files/anomaly_detection.py)
 
-     ![desc here](images/detect-anomalies-17.png)
+    ![desc here](images/detect-anomalies-17.png)
 
-6. Upload the script file.
+6. Click the upload button, navigate to the script you downloaded, and upload the script file.
 
      ![desc here](images/detect-anomalies-18.png)
 
@@ -532,7 +530,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
      ![desc here](images/detect-anomalies-20.png)
 
-9. Run the following to list the spatiotemporal clusters.
+9.  Run the following to list the spatiotemporal clusters.
 
      ```
      <copy>
