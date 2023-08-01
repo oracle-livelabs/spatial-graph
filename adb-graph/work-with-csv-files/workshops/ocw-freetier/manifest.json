@@ -35,7 +35,12 @@
         },
         {
             "title": "Lab 5: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
-            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/rdf-graph/query-and-visualize/query-and-visualize-the-rdf-graph.md"
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
+        },
+        {
+            "title": "Lab 5: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
+            "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
+
         },
         {
             "title": "Clean-up",
