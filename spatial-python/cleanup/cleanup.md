@@ -15,9 +15,9 @@ Estimated Lab Time: 2 minutes
 * Active Autonomous Database instance
 
 
-## Reset Autonomous Database to pre-workshop state
+## Task 1: Reset Autonomous Database to pre-workshop state
 
-1. 
+1. Run the following to remove all database artifacts created in this workshop.
 
       ```
       <copy>
@@ -35,4 +35,7 @@ Estimated Lab Time: 2 minutes
       </copy>
       ```
 
+## Acknowledgements
 
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023

@@ -47,7 +47,7 @@ Estimated Lab Time: 10 minutes
                 lat NUMBER)""")
      </copy>
      ```
-     ![Desc here...](images/prepare-data-04.png)
+     ![Load data](images/prepare-data-04.png)
 
 2. Run the following to load the locations data.
 
@@ -74,7 +74,7 @@ Estimated Lab Time: 10 minutes
              connection.commit()
      </copy>
      ```
-     ![Desc here...](images/prepare-data-05.png)
+     ![Load data](images/prepare-data-05.png)
 
 
 3. Run the following to preview the locations data, which contains one row for each for each ATM location including coordinates and a unique location ID.
@@ -88,7 +88,7 @@ Estimated Lab Time: 10 minutes
          print(row)
      </copy>
      ```
-     ![Desc here...](images/prepare-data-06.png)
+     ![Preview data](images/prepare-data-06.png)
 
 
 4. In the next cell, paste the following statement and then click the **run** button. This creates the table for the transaction data.
@@ -104,7 +104,7 @@ Estimated Lab Time: 10 minutes
                        cust_id INTEGER)""")
      </copy>
      ```
-     ![Desc here...](images/prepare-data-07.png)
+     ![Create table](images/prepare-data-07.png)
 
 
 
@@ -132,7 +132,7 @@ Estimated Lab Time: 10 minutes
              connection.commit()
      </copy>
      ```
-     ![Desc here...](images/prepare-data-08.png)
+     ![Load data](images/prepare-data-08.png)
 
 
 
@@ -147,7 +147,7 @@ Estimated Lab Time: 10 minutes
          print(row)
      </copy>
      ```
-     ![Desc here...](images/prepare-data-09.png)
+     ![Preview data](images/prepare-data-09.png)
 
 7. Run the following to list the distinct customer ID's.
 
@@ -160,7 +160,7 @@ Estimated Lab Time: 10 minutes
          print(row[0])
      </copy>
      ```
-     ![Desc here...](images/prepare-data-09a.png)
+     ![List IDs](images/prepare-data-09a.png)
 
 
 
@@ -187,7 +187,7 @@ Temporal calculations are a key component of this workshop, and are best perform
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-10.png)
+     ![Add epoch date](images/prepare-data-10.png)
 
 
 2. Run the following to again preview the transactions data. Observe the epoch date column is added..
@@ -201,7 +201,7 @@ Temporal calculations are a key component of this workshop, and are best perform
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-11.png)
+     ![Preview epoch date](images/prepare-data-11.png)
 
 
 ## Task 4: Configure data for spatial operations  
@@ -233,7 +233,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-13.png)
+     ![Create function](images/prepare-data-13.png)
 
 2. Querying for geometries and geometries converted to string representations involve "Large Objects", or "LOBs". Apply the following setting to python-oracledb so that LOBs are fetched directly instead of fetching a LOB locator and then fetching the LOB content in a second round trip.
 
@@ -244,7 +244,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      </copy>
      ```
 
-     ![Desc here...](images/fetch-lobs.png)
+     ![Set LOB option](images/fetch-lobs.png)
 
 3. Run the following to test the function.
 
@@ -262,7 +262,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-14.png)
+     ![Test the function](images/prepare-data-14.png)
 
 
 
@@ -280,7 +280,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-15.png)
+     ![Insert metadata](images/prepare-data-15.png)
 
 5. Run the following to create a spatial index for the location geometry.
 
@@ -294,7 +294,7 @@ Spatial calculations are an additional key component of this workshop. In this t
      </copy>
      ```
 
-     ![Desc here...](images/prepare-data-16.png)
+     ![Create index](images/prepare-data-16.png)
 
 6.  To verify the spatial index, run the following example spatial query. This query returns the 5 nearest items from the **locations** table to a longitude, latitude coordinate, along with the distances.  This is referred to as a "nearest neighbor" query and uses the **sdo\_nn( )** operator which uses the spatial index. For more info on nearest neighbor queries, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-operators-reference.html#GUID-41E6B1FA-1A03-480B-996F-830E8566661D).
 
@@ -311,7 +311,7 @@ Spatial calculations are an additional key component of this workshop. In this t
     </copy>
     ```
 
-     ![Desc here...](images/prepare-data-18.png)
+     ![Run spatial query](images/prepare-data-18.png)
 
 
 You may now **proceed to the next lab**.
