@@ -1,4 +1,4 @@
-# Lab 3: Create an RDF graph in Graph Studio
+# Create an RDF graph in Graph Studio
 
 ## Introduction
 Graph Studio in Oracle Autonomous Database enables users to model, create, query, and analyze graph data. It includes notebooks, developer APIs for executing graph queries using PGQL, 60+ built-in graph algorithms, and offers dozens of visualizations including native graph visualization.
@@ -28,7 +28,7 @@ Assuming that you have completed the previous labs and are currently logged in, 
 
 1. Click on **Graphs** on the navigation menu from the left to navigate the Graphs page.
 
-  ![The landing page after creating the environment is the jobs menu](./images/graph-studio-job-screen.png "")
+  ![The landing page after creating the environment is the jobs menu](./images/graph-studio-home.png "")
 
 2. In the Graph Type dropdown menu select **RDF** and then click the **Create** button on the top-right corner of the interface.
 

@@ -1,4 +1,4 @@
-# Lab 3: Querying and Visualizing the RDF Graph
+# Query and Visualize the RDF Graph
 
 ## Introduction
 
@@ -18,10 +18,10 @@ Estimated Time: 10 minutes
   - Provisioned Autonomous Database-Shared instance
   - A database user with the correct roles and privileges for working with Graph Studio, which can be achieved with successfully completing Lab 2
 
-## Task 1: Import the notebook
+## Task 1: Import the notebook (Option A)
 
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
-First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
+First **import** the sample notebook and then execute the relevant paragraph for each step in task 3.   
 
 1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/uaOb7jHZFcCWy4Y-OPjS3MYydBdIWL8OY2qAq5OUDmUUOZ8L-h8fggF_mjP4H0_e/n/c4u04/b/livelabsfiles/o/data-management-library-files/INTRO_SPARQL.dsnb).
 
@@ -39,7 +39,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
     You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
 
-## Task 2: Create a Notebook in Graph Studio
+## Task 2: Create a Notebook in Graph Studio (Option B)
 
 You can perform the following steps to create a notebook in Graph Studio.
 
