@@ -35,7 +35,7 @@ You begin by performing an analysis to filter schools based on containment in a 
 
    ![Select Spatial Analysis Operation](images/analyze-03.png)
 
-4. For Analysis name, enter **SCHOOLS IN FLOOD2060**. For Layer to be filtered select **SCHOOLS** and for Layer to use as the filter select **FLOOD2060**. Then click **Run**.
+4. For Analysis name, enter **SCHOOLS IN FLOOD2060**. For Layer to be filtered select **SCHOOLS LON&LAT** and for Layer to use as the filter select **FLOOD2060.GEOM**. Then click **Run**.
 
    ![Set parameters for selected Spatial Analysis Operation](images/analyze-04.png)
 
@@ -81,7 +81,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Select Spatial Analysis Operation](images/analyze-12.png)
 
-3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES**, and for layer to be used as the filter enter **FLOOD2060**.  
+3. In the analysis dialog, for analysis name enter **FACILITIES NEAR FLOOD2060**, for layer to be filtered select **FACILITIES LONGITUDE&LATITUDE**, and for layer to be used as the filter enter **FLOOD2060.GEOM**.  
    Enter **10** for the distance and select **Kilometer** as the unit. Then click **Run**.
 
    ![Define Spatial Analysis parameters](images/analyze-13.png)
@@ -118,7 +118,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Select Spatial Analysis Operation](images/analyze-21.png)
 
-11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE\_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060**, and for Geometry 2 select **FLOOD2060**.
+11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE\_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060.LATITUDE\_LONGITUDE\_GEOMETRY**, and for Geometry 2 select **FLOOD2060.GEOM**, change Units to Kilometer. Then click **Run**.
 
    ![Set Spatial Analysis parameters](images/analyze-22.png)
 
@@ -144,7 +144,7 @@ You next identify buildings that have any spatial interaction with the projected
 
    ![Select Spatial Analysis Operation](images/analyze-27.png)
 
-3. For name, enter **BUILDINGS FLOOD CONTACT**, for layer to be filtered select **BUILDINGS**, and for layer to be used as filter select **FLOOD2060**. Then click **Run**.
+3. For name, enter **BUILDINGS FLOOD CONTACT**, for layer to be filtered select **BUILDINGS.GEOM**, and for layer to be used as filter select **FLOOD2060.GEOM**. Then click **Run**.
 
    ![Set Spatial Analysis parameters](images/analyze-28.png)
 

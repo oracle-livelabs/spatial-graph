@@ -30,11 +30,11 @@ You begin by creating a Project. A Project is where you visualize and analyze yo
 
 2. Move your mouse over the map. To pan the pan, click and hold and then drag the map. To zoom in and out, use your mouse wheel.
 
-   Alternatively, you can display a navigation widget by clicking on the gear icon above the map and enabling **Show navigation controls**.
+   Alternatively, you can display a navigation widget by clicking on the gear icon above the map and selecting the **Navigation Bar** dropdown. Choose **Zoom and Compass**, and then click **OK**.
 
    ![Visualization settings](images/vis-01a.png)
 
-   If navigation controls is enabled you will have a navigation widget available.
+   Enabling navigation controls will show a navigation widget in the map.
 
    ![Visualize data](images/vis-01b.png)
 
@@ -82,7 +82,7 @@ Next you add map layers and apply styling.
 
    ![Set styling for dataset (layer)](images/vis-10.png)
 
-3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many time in this workshop.
+3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many times in this workshop.
 
    ![Go back to layers list](images/vis-11.png)
 
