@@ -1,4 +1,4 @@
-# Lab 2: Create and Validate an RDF Graph User in Graph Studio
+# Create and Validate an RDF Graph User in Graph Studio
 
 ## Introduction
 In this lab, we will create and validate an RDF Graph User in Graph Studio.

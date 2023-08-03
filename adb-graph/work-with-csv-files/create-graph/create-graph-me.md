@@ -123,7 +123,7 @@ Learn how to
 
     ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
-    After this, you will be taken to the Jobs page where the graph will be create it. Refresh the page to see how the status of the Graph is doing. 
+    After this, you will be taken to the Jobs page where the graph will be create it. 
 
     
     This concludes this lab. **You may now proceed to the next lab.**
