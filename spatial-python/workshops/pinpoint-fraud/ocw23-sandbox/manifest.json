@@ -1,0 +1,68 @@
+{
+    "workshoptitle": "When \"Where\" Matters: How to Be in Two Places at Once",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+        {
+          "title": "Introduction",
+          "description":"Introduction",
+          "filename": "../introduction/introduction.md"
+        },
+        {
+          "title": "Get started",
+          "description": "Login to the Oracle Cloud",
+          "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+          "title": "Lab 1: Connect to Compute",
+          "description": "....",
+          "filename": "../../../connect-to-compute-res/connect-to-compute-res.md"
+        },
+        {
+          "title": "Lab 2: Create Autonomous Database",
+          "type": "ocw23-sandbox",
+          "description": "...",
+          "filename": "../../../create-adb/create-adb.md"
+        },
+        {
+          "title": "Lab 3: Start JupyterLab",
+          "type": "ocw23-sandbox",
+          "description": "...",
+          "filename": "../../../start-jupyterlab/start-jupyterlab.md"
+        },
+        {
+          "title": "Lab 4: Connect to Autonomous Database from Python",
+          "description": "...",
+          "filename": "../../../connect-to-adb/connect-to-adb.md"
+        }, 
+        {
+          "title": "Lab 5: Prepare data",
+          "description": "...",
+          "filename": "../../../prepare-data/prepare-data.md"
+        },   
+        {
+          "title": "Lab 6: Explore data",
+          "description": "...",
+          "filename": "../../../explore-data/explore-data.md"
+        },  
+        {
+          "title": "Lab 7: Detect suspicious transactions",
+          "description": "...",
+          "filename": "../../../detect-anomalies/detect-anomalies.md"
+        },  
+        {
+          "title": "Lab 8: Clean-up",
+          "type": "ocw23-sandbox",
+          "description": "...",
+          "filename": "../../../cleanup/cleanup.md"
+        },
+        {
+          "title": "Need Help?",
+          "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+          "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+        },
+        {
+          "title": "Oracle CloudWorld 2023 - Support",
+          "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
+        }
+    ]
+}

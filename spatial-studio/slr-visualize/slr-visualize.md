@@ -30,11 +30,11 @@ You begin by creating a Project. A Project is where you visualize and analyze yo
 
 2. Move your mouse over the map. To pan the pan, click and hold and then drag the map. To zoom in and out, use your mouse wheel.
 
-   Alternatively, you can display a navigation widget by clicking on the gear icon above the map and enabling **Show navigation controls**.
+   Alternatively, you can display a navigation widget by clicking on the gear icon above the map and selecting the **Navigation Bar** dropdown. Choose **Zoom and Compass**, and then click **OK**.
 
    ![Visualization settings](images/vis-01a.png)
 
-   If navigation controls is enabled you will have a navigation widget available.
+   Enabling navigation controls will show a navigation widget in the map.
 
    ![Visualize data](images/vis-01b.png)
 
@@ -82,7 +82,7 @@ Next you add map layers and apply styling.
 
    ![Set styling for dataset (layer)](images/vis-10.png)
 
-3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many time in this workshop.
+3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many times in this workshop.
 
    ![Go back to layers list](images/vis-11.png)
 
@@ -120,7 +120,7 @@ Next you add map layers and apply styling.
 
    ![Define color coding based on data](images/vis-21.png)
 
-11. From the column menu, select **RISK_SCORE** as the column to drive the map symbol size. Click the **pencil button** to create value bins for symbol sizing. Enter **0** for minimum, **1000** for maximum,  **Interval** for grouping, and **4** for number of ranges. Then click **Regenerate bin values**.
+11. From the column menu, select **RISK\_SCORE** as the column to drive the map symbol size. Click the **pencil button** to create value bins for symbol sizing. Enter **0** for minimum, **1000** for maximum,  **Interval** for grouping, and **4** for number of ranges. Then click **Regenerate bin values**.
 
    ![Select column that contains the data for color coding](images/vis-23.png)
 
@@ -140,27 +140,31 @@ Next you add map layers and apply styling.
 
   Scroll to the top of the Settings dialog and click **back arrow** to return to the Layers list.
 
-15. Drag and drop the **PARCELS** dataset onto the map. Then move the PARCELS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
+15. Drag and drop the **BUILDINGS** dataset onto the map. Then move the BUILDINGS layer to the bottom of the layers list so that other layers such as the flood model render on top. To move the layer in the layers list, click-hold-drag the layer.
 
    ![Drag another dataset as layer onto the map](images/vis-27.png)
 
-16. Zoom into an area with parcels along the flood boundary to observe the overlap.
+16. Zoom into an area with buildings along the flood boundary to observe the overlap.
 
    ![Zoom into the dataset (layer)](images/vis-28.png)
 
-   The PARCELS layer includes non-commercial properties tagged as either RESIDENTIAL or APARTMENT.  You next style the parcels according to this attribute.
+   The BUILDINGS layer includes an attribute for square footage.  You next style the parcels according to this attribute.
 
-17. As you have done in previous steps, from the PARCELS layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
+17. As you have done in previous steps, from the BUILDINGS layer action menu, select **Settings**. Under the Fill section change the Color menu selection to **Based on data**.
 
    ![Define color coding based on data](images/vis-29.png)
 
-18. In the Column menu select **PCAT** as the column to use for driving parcel fill color. Then update the fill colors for APARTMENT and RESIDENTIAL to colors of your choosing, for example dark and light grey.
+18. In the Column menu select **AREA\_SQ\_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
 
    ![Select column that contains the data for color coding](images/vis-30.png)
 
-   Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
+    Click "Set Palette" and then choose one.   
 
-   In the next lab you will perform spatial analyses to identify items that satisfy various spatial relationships with the flood model.
+       ![Choose a color palette](images/vis-30a.png)
+
+       Navigate the map to explore the relationships between the flood area and your other layers. Add and remove the other flood models to observe differences in the relationships.
+
+       In the next lab you will perform spatial analyses to identify items that satisfy various spatial relationships with the flood model.
 
 19. This is a good time to save your work. Click the **Save** button on the top right. Give your project a name such as SLR Project, then click **Save**.
 
@@ -179,4 +183,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Contributors** - Jayant Sharma
+* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023

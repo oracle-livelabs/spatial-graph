@@ -3,17 +3,17 @@
 
 ## Introduction
 
-...
+A compute image has been pre-created with Python configured. In this lab you create an compute instance from that image. 
 
 Estimated Lab Time: xx minutes
 
 ### Objectives
 
-* 
+* Create a compute instance from a custom image with Python pre-configured.
 
 ### Prerequisites
 
-* 
+* Completion of the previous lab (Create SSH Keys in Cloud Shell)
 
 ## Task 1: Create compute instance
 
@@ -68,19 +68,19 @@ Estimated Lab Time: xx minutes
 13. When provisioning is complete, copy the compute instance's public IP address and restore Cloud Shell.
     ![Create instances](images/compute-14.png) 
 
-14. Enter the following command in Cloud Shell to connect to your compute instance, where "[IP address]" is the public IP address of your compute instance.
+14. Enter the following command in Cloud Shell to connect to your compute instance, where you may paste in "[IP address]" which was copied in the previous step. 
 
       ```
       <copy>
        ssh -i ~/.ssh/my-ssh-key opc@[IP address]
       </copy>
       ```
-      When propted to add to the list of known hosts, reply with **yes**.
+      When prompted to add to the list of known hosts, reply with **yes**.
     ![Create instances](images/compute-15.png) 
 
 Your compute instance is created and you have verified SSH access.
 
-## Task 2: VCN open port 8001
+## Task 2: Open network port 8001
 
 1. From the main navigation panel, select **Networking**. Then select **Virtual cloud networks**.
     ![Create instances](images/compute-16.png) 
@@ -100,12 +100,10 @@ Your compute instance is created and you have verified SSH access.
 6. Scroll down and observe the new Ingress Rule allowing inbound access to port 8001.
  ![Create instances](images/compute-21.png) 
 
- Your compute and network are now configured.
 
- You may now proceed to the next lab.
-
-## Learn More
-* 
+ You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - 
+
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
