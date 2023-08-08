@@ -15,7 +15,7 @@ Estimated Time: 10 minutes
 ### Prerequisites
   This lab assumes you have:
   - Oracle Cloud Account
-  - Provisioned Autonomous Database-Shared instance
+  - Provisioned Autonomous Database-Serverless instance
   - A database user with the correct roles and privileges for working with Graph Studio, which can be achieved with successfully completing Lab 2
 
 ## Task 1: Import the notebook (Option A)
