@@ -10,7 +10,7 @@ Estimated Workshop Time: 60 minutes
 
 Oracle Spatial is a set of geospatial data management, analysis, and processing capabilities within Oracle Database. With a native spatial data type and analysis operations, location-based analysis is mainstream and co-located with all other database operations. More at [Oracle Spatial product homepage](https://www.oracle.com/database/spatial)
 
-The python-oracledb driver is an open source Python module that enables programs to access Oracle Database. python-oracledb makes it easy to access Oracle Database (including Oracle Autonomous Database)from Python and leverage features such as large object types, Advanced Queuing, Continuous Query Notification, and much more. More at [python-oracledb on GitHub](https://oracle.github.io/python-oracledb/)
+The python-oracledb driver is an open source Python module that enables programs to access Oracle Database. python-oracledb makes it easy to access Oracle Database (including Oracle Autonomous Database)from Python and leverage features such as large object types, Advanced Queuing, Continuous Query Notification, and much more. More at [python-oracledb on GitHub](https://oracle.github.io/python-oracledb/).
 
 
 ### Objectives
@@ -23,9 +23,8 @@ The python-oracledb driver is an open source Python module that enables programs
 
 ### Prerequisites
 
-- 
+- Experience with SQL and Python is helpful but not required.
 
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
 
 ## Acknowledgements
 
