@@ -60,11 +60,10 @@ The instructions below will show you how to run a stack that will automatically 
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
-    The **Home** icon takes you to the Home page.  
-    The **Graph** page lists existing graphs for use in notebooks.  
-    The **Notebook** page lists existing notebooks and lets you create a new one. 
-    The **Templates** page let's you create templates for the graph visualizations.
-    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.
+    The **Home** icon takes you to the Home page.<br>
+    The **Graph** page lists existing graphs for use in notebooks.<br> 
+    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
+    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  

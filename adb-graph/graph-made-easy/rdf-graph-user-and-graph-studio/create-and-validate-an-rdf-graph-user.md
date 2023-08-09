@@ -19,7 +19,7 @@ Watch the video below for a quick walk-through of the lab.
 - Execute SPARQL Queries on the Playground Page
 
 ### Prerequisites
-- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- The following lab requires an Autonomous Database - Serverless.
 - And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
 
 ## Task 1: Create RDF graph in Graph Studio
@@ -148,4 +148,4 @@ This concludes this lab. **You may now proceed to the next lab.**
 
 - **Author** -  Malia German, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager
 - **Technical Contributor** -  Melliyal Annamalai Distinguished Product Manager, Joao Paiva Consulting Member of Technical Staff, Lavanya Jayapalan Principal User Assistance Developer
-- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2022
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2023
