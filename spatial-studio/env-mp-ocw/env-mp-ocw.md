@@ -137,4 +137,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date** - David Lapp, August 2023

@@ -574,4 +574,5 @@ We hope this workshop has been informative and that you further explore the spat
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+- **Last Updated By/Date** - David Lapp, August 2023

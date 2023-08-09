@@ -29,4 +29,5 @@ The python-oracledb driver is an open source Python module that enables programs
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+- **Last Updated By/Date** - David Lapp, August 2023

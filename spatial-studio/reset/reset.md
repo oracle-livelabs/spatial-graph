@@ -58,5 +58,6 @@ Spatial Studio and ADB are now reset to their pre-workshop state.
 
 ## Acknowledgements
 
-* **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Contributors** - Denise Myrick
+- **Last Updated By/Date** - David Lapp, August 2023

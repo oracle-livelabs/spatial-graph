@@ -62,5 +62,6 @@ Finally, you open the shared map as it would be viewed by others.
 
 ## Acknowledgements
 
-* **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Contributors** - Denise Myrick, Jayant Sharma
+- **Last Updated By/Date** - David Lapp, August 2023

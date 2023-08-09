@@ -151,5 +151,6 @@ The remainder of this hands-on lab may be performed using either of the followin
 
 ## Acknowledgements
 
-- **Author** - Rahul Tasker, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+- **Last Updated By/Date** - David Lapp, August 2023

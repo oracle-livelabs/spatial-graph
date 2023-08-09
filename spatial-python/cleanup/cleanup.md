@@ -38,4 +38,4 @@ Estimated Lab Time: 2 minutes
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Last Updated By/Date** - David Lapp, August 2023
