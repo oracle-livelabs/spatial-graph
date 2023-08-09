@@ -57,6 +57,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
     The **Graph** page lists existing graphs for use in notebooks.<br> 
     The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
     The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
+
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  

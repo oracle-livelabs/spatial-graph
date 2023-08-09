@@ -26,7 +26,7 @@ You next save your work and publish your map for read-only access.
 
    ![Save project](images/save-share-01.png)
 
-2. Then from the Action menu above the map, select **Publish Project**.
+2. Then from the Actions menu above the map, select **Publish Project**.
 
    ![Publish project](images/save-share-02.png)
 
@@ -63,4 +63,4 @@ Finally, you open the shared map as it would be viewed by others.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023
