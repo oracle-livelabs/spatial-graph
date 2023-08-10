@@ -14,7 +14,7 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of previous lab 
+* Completion of Lab 2: Create Autonomous Database
 
 ## Task 1: Start JupyterLab 
    

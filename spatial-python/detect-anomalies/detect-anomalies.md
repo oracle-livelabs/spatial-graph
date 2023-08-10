@@ -15,7 +15,7 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* Completion of previous lab
+* Completion of Lab 6: Explore data
 
 ## Task 1: Experiment with spatial aggregation
 

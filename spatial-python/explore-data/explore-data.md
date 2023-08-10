@@ -13,7 +13,7 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* Completion of previous lab
+* Completion of Lab 5: Prepare data
 
 ## Task 1: Spatial data handling in Python
 

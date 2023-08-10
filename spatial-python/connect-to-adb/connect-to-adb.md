@@ -13,7 +13,7 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of previous lab.
+* Completion of Lab 3: Start JupyterLab
 
 ## Task 1: Create connection parameter files
 

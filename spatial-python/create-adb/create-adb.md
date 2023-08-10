@@ -13,7 +13,7 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of the previous lab
+* Completion of Lab 1: Connect to compute
 
 ## Task 1: Create Autonomous Database
 

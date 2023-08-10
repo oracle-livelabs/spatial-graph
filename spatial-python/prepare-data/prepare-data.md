@@ -14,7 +14,7 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* Completion of previous lab
+* Completion of Lab 4: Connect to Autonomous Database from Python
 
 ## Task 1: Upload data files
 
