@@ -13,7 +13,7 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of the previous lab
+* Completion of Lab 1: Connect to compute
 
 ## Task 1: Create Autonomous Database
 
@@ -38,7 +38,7 @@ Estimated Lab Time: 5 minutes
 
    ![Create ADW](images/adb-03.png) 
 
-2. For database version select **19c**.
+2. For deployment type leave the default **Serverless**. Also leave the defaults for version (19c), ECPU count (2), and storage (1TB). Then scroll down.
    ![Create ADW](images/adb-04.png) 
 
 3. Enter and confirm a password for the database ADMIN user. In the next step you will need the IP address of your compute instance. This is because you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the Python host compute. Click on the restore button to expand Cloud Shell.
@@ -65,4 +65,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+- **Last Updated By/Date** - David Lapp, August 2023

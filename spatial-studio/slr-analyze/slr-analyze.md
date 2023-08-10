@@ -17,7 +17,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 3: Visualize Spatial Data
+* Completion of Lab 3: Visualize spatial data
 
 ## Task 1: Identify schools in the projected flood area
 
@@ -164,6 +164,6 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-* **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Ramu Murakami Gutierrez, Anand Kannan, Jayant Sharma
-* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Contributors** - Denise Myrick, Jayant Sharma
+- **Last Updated By/Date** - David Lapp, August 2023
