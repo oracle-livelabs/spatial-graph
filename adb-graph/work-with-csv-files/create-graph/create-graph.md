@@ -22,7 +22,7 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- The following lab requires an Autonomous Database - Serverless.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
 ## Task 1: Access the Autonomous Database 
@@ -37,9 +37,9 @@ Learn how to
 
 ## Task 2: Log into Graph Studio
 
-Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a     graph-enabled user to log into Graph Studio. When you created the MOVIESTREAM user in Lab 2, you had graph-enabled that user.
+Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. This user was already created for you.  
 
-1. In your **Autonomous Database Details page** page, click the **Database Actions**.
+1. In your **Autonomous Database Details page** page, click the **Database Actions** button, and then select **View all database actions**.
 
     ![Click the Database Actions button](images/click-database-actions.png " ")    
 
@@ -47,17 +47,17 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     ![Click Open Graph Studio](images/graphstudiofixed.png " ")
 
-3. Log in to Graph Studio. Use the credentials for the database user MOVIESTREAM.
+3. Log in to Graph Studio. Use the credentials for the database user GRAPHUSER.
 
     ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
-    The **Home** icon takes you to the Home page.  
-    The **Graph** page lists existing graphs for use in notebooks.  
-    The **Notebook** page lists existing notebooks and lets you create a new one. 
-    The **Templates** page let's you create templates for the graph visualizations.
-    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.
+    The **Home** icon takes you to the Home page.<br>
+    The **Graph** page lists existing graphs for use in notebooks.<br> 
+    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
+    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
+
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
@@ -69,8 +69,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 ## Task 2: Create a graph of accounts and transactions
 
-1. Click the **Graph** icon to navigate to create your graph.  
-    Then click **Create Graph**.  
+1. Click the **Graph** icon. Then click **Create Graph**.  
    
     ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
@@ -158,7 +157,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-7. In the Summary step, click on **Create Graph**. This will open a Create Graph tab, click on **Create Graph. 
+7. In the Summary step, click on **Create Graph**. 
 
     ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
 
@@ -166,7 +165,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
-    After this, you will be taken to the Jobs page where the graph will be create it.  
+    After this, you will be taken to the Jobs page where the graph will be created.  
 
     
     This concludes this lab. **You may now proceed to the next lab.**

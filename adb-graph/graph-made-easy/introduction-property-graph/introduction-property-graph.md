@@ -30,7 +30,7 @@ In this workshop you will:
 ### Prerequisites
 
 * Oracle Cloud Account   
-* Provisioned Autonomous Database-Shared instance  
+* Provisioned Autonomous Database-Serverless instance  
 <!---
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->
@@ -40,4 +40,4 @@ This concludes this lab. **You may now proceed to the next lab.**
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, July 2022
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2023
