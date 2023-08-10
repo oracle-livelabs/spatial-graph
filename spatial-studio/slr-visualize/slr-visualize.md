@@ -18,7 +18,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 2: Load and Prepare Data
+* Completion of Lab 2: Load and prepare data
 
 ## Task 1: Create project
 

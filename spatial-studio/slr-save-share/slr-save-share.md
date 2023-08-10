@@ -16,7 +16,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 4
+* Completion of Lab 4: Analyze spatial relationships
 
 ## Task 1: Save and publish project
 

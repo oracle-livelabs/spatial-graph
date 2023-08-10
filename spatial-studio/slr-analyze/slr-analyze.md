@@ -17,7 +17,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 3: Visualize Spatial Data
+* Completion of Lab 3: Visualize spatial data
 
 ## Task 1: Identify schools in the projected flood area
 
