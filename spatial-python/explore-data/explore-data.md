@@ -13,7 +13,7 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* Completion of previous lab
+* Completion of Lab 5: Prepare data
 
 ## Task 1: Spatial data handling in Python
 
@@ -167,5 +167,6 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, June, 2023
+- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+- **Last Updated By/Date** - David Lapp, August 2023
 

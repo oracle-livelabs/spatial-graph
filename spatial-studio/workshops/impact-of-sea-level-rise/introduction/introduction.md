@@ -36,4 +36,5 @@ For more information please visit [https://oracle.com/goto/spatialstudio](https:
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+- **Contributors** - Jesus Vizcarra, Denise Myrick, Jayant Sharma
+- **Last Updated By/Date** - David Lapp, August 2023

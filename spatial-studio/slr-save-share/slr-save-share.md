@@ -16,7 +16,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 4
+* Completion of Lab 4: Analyze spatial relationships
 
 ## Task 1: Save and publish project
 
@@ -62,5 +62,6 @@ Finally, you open the shared map as it would be viewed by others.
 
 ## Acknowledgements
 
-* **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Jayant Sharma, Database Product Management, July 2023
+- **Author** - David Lapp, Database Product Management, Oracle
+- **Contributors** - Denise Myrick, Jayant Sharma
+- **Last Updated By/Date** - David Lapp, August 2023
