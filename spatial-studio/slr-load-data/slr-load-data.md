@@ -27,7 +27,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Prerequisites
 
-* Complete Lab 1.
+* Complete Lab 1: Deploy Spatial Studio to Oracle Cloud
 * No previous experience with Oracle Spatial is required.
 
 ## Task 1: Load data
@@ -42,7 +42,7 @@ You begin by loading projected flood regions, parcels, schools and facilities fr
 
    ![Upload data in Spatial Studio to create data sets](images/load-data-02.png)
 
-3. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. In this workshop you select the **SPATIAL\_STUDIO** connection (the Spatial Studio metadata repository), but in a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
+3. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. Select the **SPATIAL\_STUDIO** connection (the Spatial Studio metadata repository). In a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
 
    ![Create dataset dialog](images/load-data-03.png)
 
@@ -66,15 +66,17 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
 3. Repeat for **FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization.
 
-4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **BUILDINGS** (or whatever you named the buildings dataset). Click on the **Go to Dataset Columns** link.  
-   
+4. The remaining warning badges indicate that keys need to be defined for your datasets. Although not required for basic mapping, add keys since they are required for analyses you'll perform later in the workshop. Click on the warning icon for **BUILDINGS**. Click on the **Go to Dataset Columns** link.  
+
+      ![Create a key column](images/prep-data-bldgs-00.png)  
+    
    Click  the **Create Key Column** button.  
       ![Create a key column](images/prep-data-bldgs-01.png)  
 
-   Name the key column (e.g. `BLDG_ID`).   
+   Name the key column **bldg_id** and click **Ok**.  
       ![Name the key column](images/prep-data-bldgs-02.png)  
 
-   Finally, click the checkbox to use this newly created column as the key for the dataset.  
+   Finally, click **Apply**.
       ![Specify the key column for the dataset](images/prep-data-bldgs-03.png)  
 
 5. Click on the warning icon for **FACILITIES** and click the link **Go to Dataset Columns**.

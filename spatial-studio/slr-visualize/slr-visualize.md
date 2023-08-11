@@ -154,11 +154,11 @@ Next you add map layers and apply styling.
 
    ![Define color coding based on data](images/vis-29.png)
 
-18. In the Column menu select **AREA\_SQ\_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
+18. In the Column menu select **AREA\_SQ\_FT** as the column to use for controlling building fill color. Click the button to **Create bin values**. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenerate bin values". 
 
    ![Select column that contains the data for color coding](images/vis-30.png)
 
-    Click "Set Palette" and then choose one.   
+    Click the **Set palette** button and select a color palette of your choosing.
 
        ![Choose a color palette](images/vis-30a.png)
 

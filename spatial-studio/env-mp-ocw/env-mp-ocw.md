@@ -109,7 +109,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify the ava
 
    ![Deploy Spatial Studio](images/mp-14.png)
 
-   After the status is SUCCEEDED, **wait an additional 3 min** for automated post-install steps to complete before proceeding.
+   After the status is SUCCEEDED, **wait an additional 5 min** for automated post-install steps to complete before proceeding.
 
 ## Task 3: Log in to Spatial Studio
 
