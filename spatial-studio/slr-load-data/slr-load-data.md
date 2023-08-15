@@ -104,7 +104,9 @@ You may now **proceed to the next lab**.
 
 ## Learn more
 
-* [Oracle Spatial Studio Product information](https://www.oracle.com/database/spatial/#rc30p2)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial)
+* [Get Started with Spatial Studio](https://www.oracle.com/database/technologies/spatial-studio/get-started.html)
+* [Spatial Studio documentation](https://docs.oracle.com/en/database/oracle/spatial-studio)
 
 ## Acknowledgements
 

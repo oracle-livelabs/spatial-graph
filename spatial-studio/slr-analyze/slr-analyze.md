@@ -118,7 +118,7 @@ You next identify facilities near the projected flood area. This is a spatial fi
 
    ![Select Spatial Analysis Operation](images/analyze-21.png)
 
-11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE\_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060.LATITUDE\_LONGITUDE\_GEOMETRY**, and for Geometry 2 select **FLOOD2060.GEOM**, change Units to Kilometer. Then click **Run**.
+11. For analysis name enter **FACILITIES NEAR FLOOD2060 DISTANCE**, for column name for result enter **DISTANCE\_KM**, for Geometry 1 select **FACILITIES NEAR FLOOD2060.LATITUDE\_LONGITUDE\_GEOMETRY**, and for Geometry 2 select **FLOOD2060.GEOM**, change Units to **Kilometer**. Then click **Run**.
 
    ![Set Spatial Analysis parameters](images/analyze-22.png)
 
@@ -156,11 +156,15 @@ You next identify buildings that have any spatial interaction with the projected
 
    ![Zoom into result of Spatial Analysis](images/analyze-30.png)
 
+    Optionally enable a tool tip, info window, or table view for your analysis result.
+
 You may now **proceed to the next lab**.
 
 ## Learn More
 
-* [Spatial Studio product portal](<https://oracle.com/goto/spatialstudio>)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial)
+* [Get Started with Spatial Studio](https://www.oracle.com/database/technologies/spatial-studio/get-started.html)
+* [Spatial Studio documentation](https://docs.oracle.com/en/database/oracle/spatial-studio)
 
 ## Acknowledgements
 
