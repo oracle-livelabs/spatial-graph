@@ -109,7 +109,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify the ava
 
    ![Deploy Spatial Studio](images/mp-14.png)
 
-   After the status is SUCCEEDED, **wait an additional 3 min** for automated post-install steps to complete before proceeding.
+   After the status is SUCCEEDED, **wait an additional 5 min** for automated post-install steps to complete before proceeding.
 
 ## Task 3: Log in to Spatial Studio
 
@@ -135,7 +135,9 @@ You may now **proceed to the next lab**.
 
 ## Learn more
 
-* [Spatial product page](https://oracle.com/goto/spatial)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial)
+* [Get Started with Spatial Studio](https://www.oracle.com/database/technologies/spatial-studio/get-started.html)
+* [Spatial Studio documentation](https://docs.oracle.com/en/database/oracle/spatial-studio)
 
 ## Acknowledgements
 

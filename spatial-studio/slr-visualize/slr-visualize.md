@@ -82,6 +82,11 @@ Next you add map layers and apply styling.
 
    ![Set styling for dataset (layer)](images/vis-10.png)
 
+2. In later steps you be selecting items in the map. To avoid selecting the entire flood area you now configure the layer to not be selectable. From the Configure pull-down select **Interaction**. Change the **Allow selection** switch to off. The flood area is still able to be used for visualization and analysis, it is just not selected in the map with a mouse click.
+
+   ![Set styling for dataset (layer)](images/vis-10a.png)
+
+
 3. At the top of the Layer Settings dialog, click on **back arrow** to return to the Layers List. Please take note of this step as you will navigate using this back arrow many times in this workshop.
 
    ![Go back to layers list](images/vis-11.png)
@@ -154,11 +159,11 @@ Next you add map layers and apply styling.
 
    ![Define color coding based on data](images/vis-29.png)
 
-18. In the Column menu select **AREA\_SQ\_FT** as the column to use for driving parcel fill color. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenrate bin values". Then update the fill to a color palette of your choosing, for example dark and light grey.
+18. In the Column menu select **AREA\_SQ\_FT** as the column to use for controlling building fill color. Click the button to **Create bin values**. Set the minimum and maximum value to 100 and 10,000 respectively and click "Regenerate bin values". 
 
    ![Select column that contains the data for color coding](images/vis-30.png)
 
-    Click "Set Palette" and then choose one.   
+    Click the **Set palette** button and select a color palette of your choosing.
 
        ![Choose a color palette](images/vis-30a.png)
 
@@ -178,7 +183,9 @@ You may now **proceed to the next lab**.
 
 ## Learn more
 
-* [Spatial Studio product portal] (https://oracle.com/goto/spatialstudio)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial)
+* [Get Started with Spatial Studio](https://www.oracle.com/database/technologies/spatial-studio/get-started.html)
+* [Spatial Studio documentation](https://docs.oracle.com/en/database/oracle/spatial-studio)
 
 ## Acknowledgements
 
