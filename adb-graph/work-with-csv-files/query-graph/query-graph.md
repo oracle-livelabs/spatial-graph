@@ -82,18 +82,17 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
      ```
      <copy>
-     %python-pgx
-
+    %python-pgx
     GRAPH_NAME="BANK_GRAPH"
     # try getting the graph from the in-memory graph server
     graph = session.get_graph(GRAPH_NAME)
     # if it does not exist read it into memory
     if (graph == None) :
-         session.read_graph_by_name(GRAPH_NAME, "pg_view")
-         print("Graph "+ GRAPH_NAME + " successfully loaded")
-         graph = session.get_graph(GRAPH_NAME)
+        session.read_graph_by_name(GRAPH_NAME, "pg_view")
+        print("Graph "+ GRAPH_NAME + " successfully loaded")
+        graph = session.get_graph(GRAPH_NAME)
     else :
-         print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
+        print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
     ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
@@ -203,7 +202,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![screen showing how to add highlight](images/new-highlight.png " ")
 
-    Add a new highlight with **ACCT_ID = 934** as the condition, **size = 3.4X** and **color = red** as the visual effect. Click **Create** and then the **X** on the top-right to exit the Settings dialog.
+    Add a new highlight with **ACCT_ID = 934** as the condition, **size = 17** and **color = red** as the visual effect. Click **Create** and then the **X** on the top-right to exit the Settings dialog.
 
     ![Showing the settings of the hightlights](images/highlight-settings.png " ")
 
@@ -240,7 +239,8 @@ If the compute environment is not ready as yet and the code cannot be executed t
     Execute the paragraph containing the following code snippet.
 
      ```
-     <copy>%python-pgx
+     <copy>
+    %python-pgx
     graph = session.get_graph("BANK_GRAPH")
     analyst.pagerank(graph);</copy>
      ```
@@ -286,7 +286,7 @@ A high PageRank value indicates that that account is important, which in the con
 
     ![shows how to pick hierarchical as layout](images/custom-hierarchical.png " ")  
 
-    Add a new highlight with **pagerank >= 0.0035** as the condition, **size = 3X** as the visual effect and **color = red**, then click Create. Click **Create** and then the **X** on the top-right to exit the Settings dialog.  
+    Add a new highlight with **pagerank >= 0.0035** as the condition, **size = 17** as the visual effect and **color = red**, then click Create. Click **Create** and then the **X** on the top-right to exit the Settings dialog.  
 
     ![shows the settings for the pagerank highlight](images/pagerank-highlight.png " ")   
 
@@ -311,7 +311,7 @@ A high PageRank value indicates that that account is important, which in the con
 
      ```
      <copy>%pgql-pgx
-     /* List 10 accounts with the most number of transactions (that is, incoming + outgoing edges) */
+     /* List 5 accounts with the most number of transactions (that is, incoming + outgoing edges) */
      SELECT a.acct_id, (in_degree(a) + out_degree(a)) as num_transactions
      FROM MATCH (a) ON bank_graph
      ORDER BY num_transactions DESC
@@ -371,8 +371,8 @@ A high PageRank value indicates that that account is important, which in the con
     It invokes the **Personalized PageRank algorithm** with the built-in analyst python object.
 
      ```
-     <copy>%python-pgx
-
+     <copy>
+    %python-pgx
     vertices = graph.create_vertex_set()
     vertices.add_all([graph.get_vertex("BANK_ACCOUNTS(934)"),graph.get_vertex("BANK_ACCOUNTS(387)")])
 
@@ -429,7 +429,8 @@ A high PageRank value indicates that that account is important, which in the con
     Execute the paragraphs containing the following code snippet.  
 
      ```
-     <copy>%python-pgx
+     <copy>
+    %python-pgx
     #By default this is property refers to account #934
     vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
 
@@ -439,7 +440,8 @@ A high PageRank value indicates that that account is important, which in the con
     ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 934.](images/shortestpath-algorithm.png " ")  
 
      ```
-     <copy>%python-pgx
+     <copy>
+    %python-pgx
     vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
 
     analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
@@ -469,6 +471,8 @@ A high PageRank value indicates that that account is important, which in the con
      ORDER BY hops</copy>
      ```
     Change the view to table.
+    >**Note:** To display the tables side by side click on **Settings** and then adjust the size of the table.
+    ![Table showing number of hops in descending order](images/adjust-table-size.png " ")   
 
     ![Table showing number of hops in descending order](images/table-with-hops.png " ")    
 
