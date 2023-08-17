@@ -7,6 +7,9 @@ To prepare for data loading and analysis, you first establish a connection from 
 
 Estimated Lab Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Lab 4](videohub:1_w9juh1rp)
+
 ### Objectives
 
 * Connect to Autonomous Database from Python

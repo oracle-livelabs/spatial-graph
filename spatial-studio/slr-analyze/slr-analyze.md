@@ -8,7 +8,7 @@ Estimated Time: 30 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Analyze spatial relationships](videohub:1_b3k5ebni)
+[Analyze spatial relationships](videohub:1_u0a3coe3)
 
 ### Objectives
 

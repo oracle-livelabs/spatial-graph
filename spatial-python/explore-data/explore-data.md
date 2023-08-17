@@ -6,6 +6,9 @@ You now explore the locations and transactions data prepared in the previous lab
 
 Estimated Lab Time: 10 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Lab 6](videohub:1_frsuw8xp)
+
 ### Objectives
 
 * Bring spatiotemporal data and query results from Autonomous Database into Python

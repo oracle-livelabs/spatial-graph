@@ -8,7 +8,7 @@ Estimated Lab Time: 20 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Visualize spatial data using Oracle Spatial Studio](videohub:1_a06nh2ck)
+[Visualize spatial data using Oracle Spatial Studio](videohub:1_74fmvydy)
 
 ### Objectives
 
