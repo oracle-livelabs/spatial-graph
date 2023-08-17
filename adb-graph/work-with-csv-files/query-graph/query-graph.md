@@ -81,18 +81,17 @@ If the compute environment is not ready as yet and the code cannot be executed t
     The code snippet in that paragraph is:  
 
      ```
-     <copy>
-    %python-pgx
-    GRAPH_NAME="BANK_GRAPH"
-    # try getting the graph from the in-memory graph server
-    graph = session.get_graph(GRAPH_NAME)
-    # if it does not exist read it into memory
-    if (graph == None) :
-        session.read_graph_by_name(GRAPH_NAME, "pg_view")
-        print("Graph "+ GRAPH_NAME + " successfully loaded")
-        graph = session.get_graph(GRAPH_NAME)
-    else :
-        print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
+     <copy>%python-pgx
+     GRAPH_NAME="BANK_GRAPH"
+     # try getting the graph from the in-memory graph server
+     graph = session.get_graph(GRAPH_NAME)
+     # if it does not exist read it into memory
+     if (graph == None) :
+         session.read_graph_by_name(GRAPH_NAME, "pg_view")
+         print("Graph "+ GRAPH_NAME + " successfully loaded")
+         graph = session.get_graph(GRAPH_NAME)
+     else :
+         print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
     ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
@@ -239,10 +238,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
     Execute the paragraph containing the following code snippet.
 
      ```
-     <copy>
-    %python-pgx
-    graph = session.get_graph("BANK_GRAPH")
-    analyst.pagerank(graph);</copy>
+     <copy>%python-pgx
+     graph = session.get_graph("BANK_GRAPH")
+     analyst.pagerank(graph);</copy>
      ```
 
     ![Query executing pagerank using python](images/pagerank-algorithm.png " ")  
@@ -371,12 +369,11 @@ A high PageRank value indicates that that account is important, which in the con
     It invokes the **Personalized PageRank algorithm** with the built-in analyst python object.
 
      ```
-     <copy>
-    %python-pgx
-    vertices = graph.create_vertex_set()
-    vertices.add_all([graph.get_vertex("BANK_ACCOUNTS(934)"),graph.get_vertex("BANK_ACCOUNTS(387)")])
+     <copy>%python-pgx
+     vertices = graph.create_vertex_set()
+     vertices.add_all([graph.get_vertex("BANK_ACCOUNTS(934)"),graph.get_vertex("BANK_ACCOUNTS(387)")])
 
-    analyst.personalized_pagerank(graph, vertices)</copy>
+     analyst.personalized_pagerank(graph, vertices)</copy>
      ```
 
     ![computes **PageRank** values relative to a collection of vertices.](images/personalized-pagerank-algorithm.png " ")
@@ -429,22 +426,20 @@ A high PageRank value indicates that that account is important, which in the con
     Execute the paragraphs containing the following code snippet.  
 
      ```
-     <copy>
-    %python-pgx
-    #By default this is property refers to account #934
-    vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
+     <copy>%python-pgx
+     #By default this is property refers to account #934
+     vertex = graph.get_vertex("BANK_ACCOUNTS(934)")
 
-    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_934")</copy>
+     analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_934")</copy>
      ```
 
     ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 934.](images/shortestpath-algorithm.png " ")  
 
      ```
-     <copy>
-    %python-pgx
-    vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
+     <copy>%python-pgx
+     vertex = graph.get_vertex("BANK_ACCOUNTS(387)")
 
-    analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
+     analyst.shortest_path_hop_distance(graph, vertex, "hop_dist_from_387")</copy>
      ```
 
     ![The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier. It invokes the ShortestPathHopDist() algorithm with the built-in analyst python object for 387.](images/shortest-algorithm-387.png " ")  

@@ -67,7 +67,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 --->
 
 
-## Task 2: Create a graph of accounts and transactions
+## Task 3: Create a graph of accounts and transactions
 
 1. Click the **Graph** icon. Then click **Create Graph**.  
    
