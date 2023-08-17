@@ -8,7 +8,7 @@ Estimated Lab Time: 5 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Clean-up option 2: Terminate Spatial Studio and ADB](videohub:1_7rhuy59k)
+[Clean-up option 2: Terminate Spatial Studio and ADB](videohub:1_1jnminp7)
 
 ### Objectives
 

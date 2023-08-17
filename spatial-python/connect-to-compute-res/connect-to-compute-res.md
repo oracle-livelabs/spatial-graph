@@ -6,6 +6,9 @@ In order to access your Python host compute, you need a SSH key pair. Oracle Clo
 
 Estimated Lab Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Lab 1](videohub:1_0tvxm2q0)
+
 ### Objectives
 
 * Retrieve compute IP address

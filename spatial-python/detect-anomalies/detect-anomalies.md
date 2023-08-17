@@ -7,6 +7,9 @@ The spatial features of Oracle Database provide scalable and secure spatial data
 
 Estimated Lab Time: 15 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Lab 7](videohub:1_4u7as0uj)
+
 ### Objectives
 
 * Load transactions data from Oracle Spatial to Python
