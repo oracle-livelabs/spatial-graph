@@ -8,7 +8,7 @@ Estimated Time: 5 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Save and share results](videohub:1_2xm5fy9b)
+[Save and share results](videohub:1_3nnjltvt)
 
 ### Objectives
 

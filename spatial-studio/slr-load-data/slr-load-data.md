@@ -19,7 +19,7 @@ Estimated Lab Time: 10 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Load and prepare data](videohub:1_tad5vspe)
+[Load and prepare data](videohub:1_h1cmu08i)
 
 ### Objectives
 

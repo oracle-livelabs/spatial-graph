@@ -8,7 +8,7 @@ Estimated Lab Time: 5 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
-[Reset Spatial Studio and ADB to pre-workshop state](videohub:1_h9jwq8iq)
+[Reset Spatial Studio and ADB to pre-workshop state](videohub:1_z4mhzd51)
 
 ### Objectives
 

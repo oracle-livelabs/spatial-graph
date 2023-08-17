@@ -7,6 +7,9 @@ Oracle Autonomous Database is a self-driving, self-securing, self-repairing data
 
 Estimated Lab Time: 5 minutes
 
+Watch the video below for a quick walk-through of the lab.
+[Lab 2](videohub:1_jim8q75y)
+
 ### Objectives
 
 * Create an Autonomous Database instance 
