@@ -6,8 +6,8 @@ In this lab you will create a stack that will run a terraform script to generate
 
 Estimated Time: 5 minutes.
 
-Watch the video below for a quick walk-through of the lab.
-[Setup: Run stack](videohub:1_pjftt3v5)
+Watch the video below for a quick walk-through of the lab. 
+[Walkthrough](videohub:1_4lr4x8eb)
 
 ### Objectives
 

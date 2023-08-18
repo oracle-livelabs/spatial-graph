@@ -4,6 +4,9 @@
 
 You can analyze, query, and visualize the RDF graph built from the Moviestream RDF file in a notebook paragraph. This section explains the steps to create a notebook in Graph Studio and how to get started executing SPARQL queries on the RDF graph.
 
+Watch the video below for a quick walk-through of the lab. 
+[Walkthrough](videohub:1_c1am3hb1)
+
 Estimated Time: 10 minutes
 
 ### Objectives
