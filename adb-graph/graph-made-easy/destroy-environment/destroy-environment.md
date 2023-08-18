@@ -6,8 +6,8 @@ In this lab you will destroy the environment created by the stack.
 
 Estimated Time: 5 minutes.
 
-Watch the video below for a quick walk-through of the lab.
-[Clean up](videohub:1_oc7filj5)
+Watch the video below for a quick walk-through of the lab. 
+[Walkthrough](videohub:1_cnecear0)
 
 ### Objectives
 
