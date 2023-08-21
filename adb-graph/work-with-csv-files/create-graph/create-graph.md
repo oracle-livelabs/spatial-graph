@@ -4,14 +4,10 @@
 
 In this lab you will create a graph from the `bank_accounts` and `bank_txns` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
 
-Watch the video below for a quick walk-through of the lab. 
-[Walkthrough](videohub:1_jguolqf3)
-
 Estimated Time: 15 minutes.
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:tNPY4xmVFMk)
+Watch the video below for a quick walk-through of the lab. 
+[Walkthrough](videohub:1_jguolqf3)
 
 ### Objectives
 

@@ -25,11 +25,11 @@
             "filename": "../../query-graph/query-graph.md"
         },
         {
-            "title": "Lab 4: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
+            "title": "Lab 3: Create an RDF graph in Graph Studio (OPTIONAL - part 1)",
             "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
         },
         {
-            "title": "Lab 5: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
+            "title": "Lab 4: Query and Visualize the RDF Graph (OPTIONAL - part 2)",
             "filename": "https://oracle-livelabs.github.io/spatial-graph/adb-graph/graph-made-easy/query-and-visualize/query-and-visualize-the-rdf-graph.md"
         },
         {
