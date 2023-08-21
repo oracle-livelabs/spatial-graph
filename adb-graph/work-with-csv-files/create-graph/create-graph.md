@@ -4,10 +4,8 @@
 
 In this lab you will create a graph from the `bank_accounts` and `bank_txns` tables using Graph Studio and the CREATE PROPERTY GRAPH statement.
 
-<!-- COMMENTED THE FOLLOWING OUT FOR DATABSE WORLD:
-The following video shows the steps you will execute in this lab.
-
-[](youtube:5g9i9HA_cn0) Graph Studio: Create a graph. -->
+Watch the video below for a quick walk-through of the lab. 
+[Walkthrough](videohub:1_jguolqf3)
 
 Estimated Time: 15 minutes.
 
@@ -67,7 +65,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 --->
 
 
-## Task 2: Create a graph of accounts and transactions
+## Task 3: Create a graph of accounts and transactions
 
 1. Click the **Graph** icon. Then click **Create Graph**.  
    

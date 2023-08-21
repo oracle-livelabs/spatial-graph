@@ -11,7 +11,7 @@ You can now use Graph Studio for the following supported RDF features:
 Estimated Time: 5 minutes
 
 Watch the video below for a quick walk-through of the lab.
-[Create an RDF graph in Graph Studio](videohub:1_hyi4jq4z)
+[Create an RDF graph in Graph Studio](videohub:1_vvqhh26v)
 
 ### Objectives
 - Create RDF Graph in Graph Studio
