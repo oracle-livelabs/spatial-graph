@@ -67,9 +67,9 @@ Watch the video below for a quick walk-through of the lab.
 
 1. At the command line, run the following to retrieve and list a zip file containing SSH keys.  
 
-     ```
+    ```bash
     <copy>
-    wget https://bit.ly/ocw23-keys
+    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/hfpJ4-8XrB5tWBDUWvgnCmGch_1WHhihBrRpHNIzj6JSq5O5hbwp2wsqRPYbg8Gm/n/c4u04/b/livelabsfiles/o/labfiles/ocw23-keys.zip
     </copy>
     ```
 
