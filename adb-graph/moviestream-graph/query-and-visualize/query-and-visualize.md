@@ -91,16 +91,16 @@ If the compute environment is not ready and the code cannot be executed then you
      ```
      <copy>%python-pgx
 
-    GRAPH_NAME="MOVIE_RECOMMENDATIONS"
-    # try getting the graph from the in-memory graph server
-    graph = session.get_graph(GRAPH_NAME)
-    # if it does not exist read it into memory
-    IF (graph == None): 
-        session.read_graph_by_name(GRAPH_NAME, "pg_view")
-        print("Graph "+ GRAPH_NAME + " successfully loaded")
-        graph = session.get_graph(GRAPH_NAME)
-    ELSE: 
-        print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
+     GRAPH_NAME="MOVIE_RECOMMENDATIONS"
+     # try getting the graph from the in-memory graph server
+     graph = session.get_graph(GRAPH_NAME)
+     # if it does not exist read it into memory
+     if (graph == None): 
+         session.read_graph_by_name(GRAPH_NAME, "pg_view")
+         print("Graph "+ GRAPH_NAME + " successfully loaded")
+         graph = session.get_graph(GRAPH_NAME)
+     else: 
+         print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
     ![Uploading graph in memory if it's not loaded yet.](images/pythonquery1.png " ")  
@@ -197,8 +197,8 @@ If the compute environment is not ready and the code cannot be executed then you
      ```
      <copy>%python-pgx
 
-    # List the graphs that are in memory
-    session.get_graphs()</copy>
+     # List the graphs that are in memory
+     session.get_graphs()</copy>
      ```
 
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
@@ -212,11 +212,11 @@ If the compute environment is not ready and the code cannot be executed then you
      ```
      <copy>%python-pgx
 
-    # Get the MOVIE_RECOMMENDATIONS graph assuming it is in memory
-    graph = session.get_graph("MOVIE_RECOMMENDATIONS")
+     # Get the MOVIE_RECOMMENDATIONS graph assuming it is in memory
+     graph = session.get_graph("MOVIE_RECOMMENDATIONS")
 
-    # Create a bipartite graph BIP_GRAPH from MOVIE_RECOMMENDATIONS so that we can run algorithms, such as Personalized SALSA, which take a bipartite graph as input
-    bgraph = graph.bipartite_sub_graph_from_in_degree(name="BIP_GRAPH")</copy>
+     # Create a bipartite graph BIP_GRAPH from MOVIE_RECOMMENDATIONS so that we can run algorithms, such as Personalized SALSA, which take a bipartite graph as input
+     bgraph = graph.bipartite_sub_graph_from_in_degree(name="BIP_GRAPH")</copy>
      ```
 
     ![create a bipartite graph BIP_GRAPH from MOVIE_RECOMMENDATIONS so that we can run algorithms, such as Personalized SALSA, which take a bipartite graph as input.](images/create-bipartite-graph.png " ")  
@@ -227,17 +227,17 @@ If the compute environment is not ready and the code cannot be executed then you
  
      ```
      <copy>%python-pgx
-    # Query the graph to get Emilio's vertex.
-    rs = bgraph.query_pgql("SELECT v FROM MATCH(v) WHERE v.cust_id = 1010303")
+     # Query the graph to get Emilio's vertex.
+     rs = bgraph.query_pgql("SELECT v FROM MATCH(v) WHERE v.cust_id = 1010303")
 
-    # set the cursor to the first row then get the vertex (element)
-    rs.first()
+     # set the cursor to the first row then get the vertex (element)
+     rs.first()
 
-    # get the element by its name in the query, i.e. get_vertex("v") or by its index as in get_vertex(1)
-    cust = rs.get_vertex("v")
+     # get the element by its name in the query, i.e. get_vertex("v") or by its index as in get_vertex(1)
+     cust = rs.get_vertex("v")
 
-    # Use Personalized Salsa Assigns a score to
-    analyst.personalized_salsa(bgraph, cust)</copy>
+     # Use Personalized Salsa Assigns a score to
+     analyst.personalized_salsa(bgraph, cust)</copy>
      ```
 
     ![applying personalized salsa to recommen movies to emilio.](images/emilio-movie-recommendation.png " ")  
