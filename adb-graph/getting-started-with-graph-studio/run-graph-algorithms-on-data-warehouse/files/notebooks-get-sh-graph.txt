@@ -1,0 +1,1 @@
+Run the java-pgx paragraph to load the graph into memory

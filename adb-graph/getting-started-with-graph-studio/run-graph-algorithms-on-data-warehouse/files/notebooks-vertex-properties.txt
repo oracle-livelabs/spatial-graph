@@ -1,0 +1,1 @@
+Show all the associated properties of a vertex

@@ -1,4 +1,4 @@
-# Lab 2: Create and Validate an RDF Graph User in Graph Studio
+# Create and Validate an RDF Graph User in Graph Studio
 
 ## Introduction
 In this lab, we will create and validate an RDF Graph User in Graph Studio.
@@ -18,7 +18,7 @@ This lab assumes you have:
   - You have completed:
       - Lab 1: Provision an ADB Instance
 
-## **Task 1:** Create a graph user to access RDF in Graph Studio
+## Task 1: Create a graph user to access RDF in Graph Studio
 
 To work with RDF Graphs in Graph Studio, you must create graph users with granted roles. You can create Graph users with the correct set of roles and privileges using Oracle Database Actions.
 
@@ -72,42 +72,52 @@ Note: The password should meet the following requirements:
 
   ![The database users page showing the created database user accessible under 'all users'](./images/graph-user-created.png "")
 
-## **Task 2:** Create RDF graph in Graph Studio
+## Task 2: Create RDF graph in Graph Studio
 
 Before we can create an RDF graph we must first import RDF data into Graph Studio.
 
-1. Navigate to your Autonomous Database in the Oracle Cloud Infrastructure Console and open Tools.
+1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
-  ![Autonomous Database details showing the link to Graph Studio, accessible under 'Tools'](./images/database-tools.png "")
+  ![Click the Database Actions button](images/click-database-actions.png " ")
 
-2. Open Graph Studio and log in with the user name and password you created in Lab 2, Task 9.
+2. On the Database Actions panel, click **Graph Studio**.
 
-3. Click on Graphs on the navigation menu from the left to navigate the Graphs page.
+  ![Click Open Graph Studio](images/graph-studio-fixed.png " ")
+
+3. Log in to Graph Studio. Use the credentials for the database user MOVIESTREAM.
+
+  ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
+
+4. Click on Graphs on the navigation menu from the left to navigate the Graphs page.
 
   ![The 'get started' page for Graph Studio. On the left-hand navigation bar, the button for 'Graphs' is highlighted](./images/graph-studio-home.png "")
 
-4. In the Graph Type dropdown menu select RDF and then click the Create button on the top-right corner of the interface.
+5. Select **RDF GRAPH** as the graph type, and click on **Create Graph**.
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-5. Create RDF Graph Wizard opens as shown:
+  Then, in the pop-up window select **RDF Graph**, and click **Confirm**. 
+
+  ![Pop up windows asking to select rdf graph or collections](./images/select-rdf-graph.png "")
+
+6. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
-6. Enter the OCI Object Storage URI path:
+7. Enter the OCI Object Storage URI path:
 
     ```
       <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
     ```
 
-7. Click **No Credential**.
+8. Click **No Credential**.
 
-8. Click **Next**.
+9. Click **Next**.
     The follow dialog should appear, enter "MOVIESTREAM" for Graph Name:
 
   ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
 
-9. Click **Create**.
+10. Click **Create**.
 
     The RDF graph creation job will be initiated. Since the RDF file contains 139461 records, the process may take 3 to 4 minutes. You can monitor the job on the **Jobs** page in Graph Studio.
 
@@ -150,7 +160,7 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
     Started execution of task Graph Creation - MOVIESTREAM.
     ```
 
-## **Task 3:** Validate the RDF graph
+## Task 3: Validate the RDF graph
 
 You can explore and validate the newly created RDF graph on the **Graphs** page in Graph Studio as shown:
 
@@ -158,11 +168,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
   ![Sample statements from the RDF graph 'MOVIESTREAM' are displayed in triplets](./images/graph-sample-statements.png "")
 
-2. After selecting the MOVIESTREAM Graph, scroll to the bottom of the page and verify that you see 500 rows of RDF triples have been retrieved.
-
-  ![Sample statements from the MOVIESTREAM RDF graph](./images/sample-statements.png "")
-
-## **Task 4** Execute SPARQL queries on the playground page
+## Task 4: Execute SPARQL queries on the playground page
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 
@@ -200,4 +206,4 @@ This concludes this lab. *You may now proceed to the next lab.*
 
 - **Author** -  Malia German, Ethan Shmargad, Matthew McDaniel Solution Engineers, Ramu Murakami Gutierrez Product Manager
 - **Technical Contributor** -  Melliyal Annamalai Distinguished Product Manager, Joao Paiva Consulting Member of Technical Staff, Lavanya Jayapalan Principal User Assistance Developer
-- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, April 14th 2022
+- **Last Updated By/Date** - Ramu Murakami Gutierrez Product Manager, June 2023

@@ -24,7 +24,7 @@ Estimated Lab Time: 10 minutes
 
 Assuming that the **customer_360** graph is already loaded onto the memory in the previous Lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
 
-```
+```python
 <copy>
 graph = session.get_graph("customer_360")
 </copy>
@@ -38,7 +38,7 @@ PGQL Query is convenient for detecting specific patterns.
 
 Find accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:
 
-```
+```python
 <copy>
 graph.query_pgql("""
     SELECT a.account_no
@@ -67,7 +67,7 @@ Next we use PGQL to find a series of transfers that start and end at the same ac
 
 The first query could be expressed as:
 
-```
+```python
 <copy>
 graph.query_pgql("""
     SELECT a1.account_no    AS a1_account
@@ -94,7 +94,7 @@ This result will be visualized in the next section:
 
 The second query just adds one more transfer to the pattern (list) and could be expressed as:
 
-```
+```python
 <copy>
 graph.query_pgql("""
     SELECT a1.account_no AS a1_account
@@ -126,9 +126,10 @@ Let's find which accounts are influential in the network. There are various algo
 
 1. Filter customers from the graph. (cf. [Filter Expressions](https://docs.oracle.com/cd/E56133_01/latest/prog-guides/filter.html))
 
-    ```
+    ```python
     <copy>
-    graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'")); graph2
+    graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'"));
+    graph2
     </copy>
 
     PgxGraph(name: sub-graph_16, v: 6, e: 8, directed: True, memory(Mb): 0)
@@ -136,7 +137,7 @@ Let's find which accounts are influential in the network. There are various algo
 
 2. Run [PageRank Algorithm](https://docs.oracle.com/cd/E56133_01/latest/reference/analytics/algorithms/pagerank.html). PageRank Algorithm assigns a numeric weight to each vertex, measuring its relative importance within the graph.
 
-    ```
+    ```python
     <copy>
     analyst.pagerank(graph2);
     </copy>
@@ -146,7 +147,7 @@ Let's find which accounts are influential in the network. There are various algo
 
 3. Show the result.
 
-    ```
+    ```python
     <copy>
     graph2.query_pgql("""
         SELECT a.account_no, a.pagerank
@@ -175,7 +176,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
     Filter customers from the graph.
 
-    ```
+    ```python
     <copy>
     graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'")); graph2
     </copy>
@@ -185,7 +186,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
 2. [Weakly Connected Component](https://docs.oracle.com/cd/E56133_01/latest/reference/analytics/algorithms/wcc.html) (WCC) algorithm detects only one partition.
 
-    ```
+    ```python
     <copy>
     analyst.wcc(graph2)
     </copy>
@@ -195,7 +196,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
     The component value is stored in a property named **wcc**.
 
-    ```
+    ```python
     <copy>
     graph2.query_pgql("""
         SELECT a.wcc AS component_id
@@ -217,7 +218,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
 3. Run a [Strongly Connected Component](https://docs.oracle.com/cd/E56133_01/latest/reference//analytics/algorithms/scc.html) algorithm, SCC Kosaraju, instead. It detects three components.
 
-    ```
+    ```python
     <copy>
     analyst.scc_kosaraju(graph2)
     </copy>
@@ -227,7 +228,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
 4. List components and number of vertices in each.
 
-    ```
+    ```python
     <copy>
     graph2.query_pgql("""
         SELECT a.scc_kosaraju AS component_id
@@ -249,7 +250,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
 5. List the other accounts in the same connected component as John's account (= **xxx-yyy-201**). The component ID is added as a property named **SCC_KOSARAJ** for use in PGQL queries.
 
-    ```
+    ```python
     <copy>
     graph2.query_pgql("""
         SELECT a.account_no
@@ -281,4 +282,4 @@ You may now proceed to the next Lab.
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, April 2022
+* **Last Updated By/Date** - Ryota Yamanaka, March 2023

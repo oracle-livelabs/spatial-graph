@@ -1,9 +1,9 @@
 {
     "workshoptitle":"Analyze, Query, and Visualize Property Graphs with Oracle Database",
-    "help": "livelabs-help-db_us@oracle.com",
+    "help": "livelabs-help-sg_us@oracle.com",
 	"tutorials": [
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "description": "Register for a Free Tier account",
             "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"
         },

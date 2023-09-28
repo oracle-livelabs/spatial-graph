@@ -1,0 +1,60 @@
+{
+    "workshoptitle": "How to work with spatial data in Oracle Autonomous Database (ADB)",
+    "help": "livelabs-help-db_us@oracle.com",
+	  "tutorials": [
+      {
+        "title": "Introduction to Oracle Spatial",
+        "type":"adb",
+        "description":"Getting started with managing and analyzing spatial data in the Oracle Autonomous Database",
+        "filename": "../introduction/introduction.md"
+      },
+      {
+        "title": "Get started",
+        "description": "Login to the Oracle Cloud",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
+      },
+      {
+        "title": "Lab 1: Provision Autonomous Database",
+        "description": "Provision a new Autonomous Data Warehouse (ADW) instance",
+        "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-provision/adb-provision.md"
+      },
+      {
+        "title": "Lab 2: Connect to ADB with SQL Worksheet",
+        "description": " SQL Worksheet",
+        "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-sqldevweb/adb-sqldevweb.md"
+      },
+      {
+        "title": "Lab 3: Prepare spatial data",
+        "description": "Create and configure spatial data",
+        "filename": "../../../create-spatial-data-adb/create-spatial-data-adb.md"
+      },
+      {
+        "title": "Lab 4: Run spatial queries",
+        "description":"Perform spatial analysis",
+        "filename": "../../../run-spatial-queries-adb/run-spatial-queries-adb.md"
+      },
+      {
+        "title": "Lab 5: Return GeoJSON",
+        "description":"Return GeoJSON",
+        "filename": "../../../return-geojson/return-geojson.md"
+      },
+      {
+        "title": "Lab 6: Cleanup option 1: Reset ADB to pre-workshop state",
+        "description":"Cleanup",
+        "filename": "../../../cleanup/cleanup.md"
+      },
+      {
+        "title": "Lab 7: Cleanup option 2: Terminate ADB instance",
+        "description":"Cleanup",
+        "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/terminate-adb/terminate-adb.md"
+      },
+      {
+        "title": "Learn more while at Oracle CloudWorld 2022",
+        "filename": "../../../ocw2022-learn-more/ocw2022-learn-more.md"
+        },
+        {
+          "title": "Oracle CloudWorld 2022 - Get help",
+          "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
+          }
+    ]
+}

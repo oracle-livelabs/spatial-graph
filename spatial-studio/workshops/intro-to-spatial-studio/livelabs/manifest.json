@@ -12,7 +12,7 @@
         "type": "reservation"
       },  
       {
-        "title": "Getting Started",
+        "title": "Get Started",
         "description": "Login to Oracle Cloud",
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"
     }, 
@@ -29,7 +29,7 @@
     "filename": "../../../create-project/create-project.md"
 },
 {
-  "title": "Lab 4: Apply Map Styling and Interactivity",
+  "title": "Lab 4: Configure Map",
   "filename": "../../../apply-map-styling/apply-map-styling.md"
 },
 {
@@ -39,7 +39,7 @@
 {
     "title": "Need Help?",
     "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-    "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+    "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
 }
     ]
 }

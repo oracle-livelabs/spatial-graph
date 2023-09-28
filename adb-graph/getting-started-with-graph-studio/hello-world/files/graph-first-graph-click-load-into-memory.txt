@@ -1,0 +1,1 @@
+Click graph to load it into memory in Graph Studio

@@ -1,0 +1,1 @@
+Click load into memory in Graph Studio
