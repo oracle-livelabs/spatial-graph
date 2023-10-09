@@ -26,9 +26,9 @@ Learn how to
 
 1. Open the service detail page for your Autonomous Database instance in the OCI console.  
 
-   Then click the **Database Actions** link to open it.
+   Then click on **Database Actions** and select **View all database actions**. 
 
-   ![Autonomous Database home page pointing to the Database Actions button](images/open-database-actions.png "Autonomous Database home page pointing to the Database Actions button")
+   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
 ## Task 2: Create the web access and graph-enabled user
 
@@ -89,13 +89,10 @@ Learn how to
       </copy>
       ```
 
-   The screenshots below show an example of executing the ALTER USER statement.
+   The screenshot below show an example of executing the ALTER USER statement.
 
    ![Alter user quota to 10G](./images/alter-user.png "Alter user quota to 10G")  
 
-   ![Run the alter user statement](./images/run-sql.png "Run the alter user statement")  
-
-   ![The user will show as altered in the script output](./images/user-altered.png "The user will show as altered in the script output")
 
  6. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
 
@@ -121,4 +118,4 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Korbi Schmid, Rahul Tasker
-* **Last Updated By/Date** - Jayant Sharma, June 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023

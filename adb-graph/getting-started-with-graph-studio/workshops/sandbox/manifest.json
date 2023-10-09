@@ -29,11 +29,6 @@
             "filename": "../../create-user/create-user.md"
         },
         {
-            "title": "Lab 3: Hello World",
-            "description": "Create a simple graph and learn how to navigate the user interface.",
-            "filename": "../../hello-world/hello-world.md"
-        },
-        {
             "title": "Lab 4: Create a Graph from the SH tables",
             "filename": "../../create-graph-from-sh-tables/create-graph-from-sh-tables.md"
         },

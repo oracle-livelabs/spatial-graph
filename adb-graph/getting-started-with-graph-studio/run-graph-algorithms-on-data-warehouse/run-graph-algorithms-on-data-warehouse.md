@@ -20,7 +20,7 @@ Estimated Time: 20 minutes.
 
 - The following lab requires an Autonomous Database account.
 
-- This lab assumes you have completed the previous lab (Lab 2) where we created the **SH\_PGVIEW\_GRAPH** graph.
+- This lab assumes you have completed the previous lab (Lab 3) where we created the **SH\_PGVIEW\_GRAPH** graph.
 
 ## Task 1: Make sure the SH Graph is Loaded into Memory.
 
@@ -30,7 +30,7 @@ Before graphs can be analyzed in a notebook, we need to make sure the graph is l
 
 If the graph is loaded into memory (it says "![ALT text is not available for this image](./images/graphs-fa-bolt.png) in memory"), then you can proceed to STEP 2.
 
-If the graph is **not** loaded into memory, as in the following screenshot,  click the **Load into memory** (lightning bolt) icon on the top right of the details section. In the resulting dialog, click **Yes**.
+If the graph is **not** loaded into memory, as in the following screenshot,  click the **Load into memory** (lightning bolt) icon on the top right of the details section. In the resulting dialog, click **Confirm**.
 
 ![SH graph details](./images/graphs-sh-graph-details.png "SH graph details ")
 
@@ -42,15 +42,15 @@ This will create a "Load into Memory" job for you. Wait for this job to finish:
 
 1. Click on the **Notebooks** icon in the menu on the left.
 
-2. Open the **Learn** folder:
+2. Open the **Use Cases** folder:
 
     ![Find Sales Analysis in the list of notebooks](./images/notebooks-list-sales-analysis.png "Find Sales Analysis in the list of notebooks ")
 
-3. Click on the **Sales Analysis** notebook to open it.
+3. Click on the **Graph Queries on the SH sample data** notebook to open it.
 
     ![Open Sales Analysis from the list of notebooks](./images/notebooks-open-sales-analysis.png "Open Sales Analysis from the list of notebooks ")
 
-4. The **Sales Analysis** notebook is a **built-in** notebook. You can identify **built-in** notebooks by the author being shown as `<<system-user>>`. Built-in notebooks are shared between all users and therefore read-only and locked.
+4. The **Graph Queries on the SH sample data** notebook is a **built-in** notebook. You can identify **built-in** notebooks by the author being shown as `<<system-user>>`. Built-in notebooks are shared between all users and therefore read-only and locked.
    To execute the notebook, we need to create a private copy first and then unlock it. On the top of the notebook, click the **Clone** button.
 
     ![Select the clone button](./images/notebooks-clone-button.png "Select the clone button ")
@@ -59,7 +59,7 @@ This will create a "Load into Memory" job for you. Wait for this job to finish:
 
     ![Clone the Sales Analysis notebook](./images/notebooks-clone-sales-analysis.png "Clone the Sales Analysis notebook ")
 
-6. Click the **Unlock** button on the top right of the cloned notebook.
+6. Go back to the Use Case folder and select the cloned notebook. Click the **Unlock** button on the top right of the cloned notebook.
 
     ![Unlock the notebook to make it writable](./images/notebooks-unlocked-for-write.png "Unlock the notebook to make it writable ")
 
@@ -70,14 +70,17 @@ This will create a "Load into Memory" job for you. Wait for this job to finish:
 
 Each notebook is organized into a set of **paragraphs**. Each paragraph has an input (called **Code**) and an output (called **Result**). In Graph Studio, there are 3 types of paragraphs:
 
-- Markdown paragraphs start with `%md`
-- PGQL paragraphs start with `%pgql-px`
-- PGX Java paragraphs start with `%java-pgx`
+To add a paragraph, hover over the top or the bottom of an existing paragraph.
 
-In the Sales Analysis notebook, you can find examples of for each of those types. The notebook is designed to work with the graph created in the previous lab, so you do not have to
-modify any code to make the paragraphs execute. You may notice that there are some hidden paragraphs at the start of this notebook. These hidden paragraphs run through the SQL code that we ran through earlier in this lab. For this lab, only focus on the visible paragraphs.
+![Hovering over paragraph](./images/paragraph-hover.png)
 
-1. To execute the first paragraph, click the **Run** icon on the top right of the paragraph.
+There are 9 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
+
+![Shows the different paragraphs and samples](./images/paragraphs.png)
+
+The notebook is designed to work with the graph created in the previous lab, so you do not have to modify any code to make the paragraphs execute. You may notice that there are some hidden paragraphs at the start of this notebook. These hidden paragraphs run through the SQL code that we ran through earlier in this lab. For this lab, only focus on the visible paragraphs.
+
+1. We will start running paragraphs from the paragraphs titled **Query and Analyze the graph**. To execute the first paragraph, click the **Run** icon on the top right of the paragraph.
 
     ![First Markdown paragraph](./images/notebooks-first-md-para.png "First Markdown paragraph ")
 
@@ -153,56 +156,60 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     You'll notice that the graph manipulation toolbar on the right side gets enabled.
 
-    ![Selected vertex pointing to expand button](./images/notebooks-selected-vertex-with-expand.png "Selected vertex pointing to expand button")
-
-2. Click on the **Expand** action.
-
-    ![Selected Vertex after expanding](./images/notebooks-expanded-vertex.png "Selected Vertex after expanding ")
-
-    Expand will show you all the neighbors of the selected vertex, up to 2 hops. You can decrease or increase the number of hops in the graph visualization settings dialog.
+2. You can decrease or increase the number of hops in the graph visualization settings dialog.
 
     ![Notebook settings modal to change the number of hops](./images/notebooks-settings-for-hops.png "Notebook settings modal to change the number of hops ")
 
+<!---
+    Click on the **Expand** action.
+
+    ![Selected Vertex after expanding](./images/notebooks-expanded-vertex.png "Selected Vertex after expanding ")
+
+    Expand will show you all the neighbors of the selected vertex, up to 2 hops.
+--->
+
 3. The graph manipulation toolbar provides a convenient **Undo** option to reverse the previous manipulation. Click it to remove the expanded vertices again.
 
-    ![Undo last action](./images/notebooks-undo-last-action.png "Undo last action ")
+    ![Undo last action](./images/notebooks-undo-last-action.png "Undo last action ") 
 
+<!---
 4. Select a vertex again, this time click **Focus**. Focus is like **Expand**, but it will remove all the other elements on the canvas.
 
     ![Selected vertex pointing to focus button](./images/notebooks-focus.png "Selected vertex pointing to focus button ")
 
-    ![Selected vertex after focus](./images/notebooks-after-focus.png "Selected vertex after focus")
+    ![Selected vertex after focus](./images/notebooks-after-focus.png "Selected vertex after focus") 
+--->
 
-5. Next, try to group several vertices into one group. For that, hold the mouse down and drag over the canvas to select a group of vertices. Then click the **Group** button.
+4. Next, try to group several vertices into one group. For that, hold the mouse down and drag over the canvas to select a group of vertices. Then click the **Group** button.
 
     ![Group several vertices](./images/notebooks-group-selected.png "Group several vertices ")
 
     You can create as many groups as you want. That way you can group noisy elements into a single visible group without actually dropping them from the screen. The little number
     next to a group tells you how many elements are in that group.
 
-    ![grouped verticies after grouping](./images/notebooks-group-highlighted.png "grouped verticies after group operation")
+    ![grouped verticies after grouping](./images/notebooks-group-highlighted-updated.png "grouped verticies after group operation")
 
-6. To ungroup the elements again later, click on the group and then click the **Ungroup** icon.
+5. To ungroup the elements again later, click on the group and then click the **Ungroup** icon.
 
     ![Ungroup verticies](./images/notebooks-ungroup.png "Ungroup verticies ")
 
-7. You can also drop individual elements from the visualization. Click on a vertex and then click the **Drop** action.
+6. You can also drop individual elements from the visualization. Click on a vertex and then click the **Drop** action.
 
     ![Drop element from visualization](./images/notebooks-drop-selected.png "Drop element from visualization ")
 
     You can also drop a group of elements. Simply select all the vertices and edges you want to drop by click and drag on the canvas, then click the **Drop** icon.
 
-    ![Elements are dropped from visualization](./images/notebooks-dropped-selected.pngn "Elements are dropped from visualization")
+    ![Elements are dropped from visualization](./images/notebooks-dropped-selected.png "Elements are dropped from visualization")
 
-8. Paragraph results can be expanded into a full screen to give you more space for graph manipulation. Click the **Expand** button on the top right of the paragraph to enter full screen mode.
+7. Paragraph results can be expanded into a full screen to give you more space for graph manipulation. Click the **Expand** button on the top right of the paragraph to enter full screen mode.
 
     ![Select fullscreen](./images/notebooks-choose-fullscreen.png "Select fullscreen ")
 
-    ![Fullscreen selected](./images/notebooks-fullscreen.png "Fullscreen selected")
+    ![Fullscreen selected](./images/notebooks-fullscreen-updated.png "Fullscreen selected")
 
     Click the same button again to go back to normal screen.
 
-9. Lastly, to go back to our initial state of the visualization, click the **Reset** icon in the manipulation toolbar. This will revert all the temporary changes we made to the result.
+8. Lastly, to go back to our initial state of the visualization, click the **Reset** icon in the manipulation toolbar. This will revert all the temporary changes we made to the result.
 
     ![Reset the visualization to the initial state](./images/notebooks-reset-default-state.png "Reset the visualization to the initial state ")
 
@@ -231,4 +238,4 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Korbi Schmid, Rahul Tasker, Product Development
-* **Last Updated By/Date** - Jayant Sharma, June 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023
