@@ -62,7 +62,7 @@ The remainder of this hands-on lab may be performed using either of the followin
    1. Perform **Lab 3 - Task 1** 
    2. Perform **Lab 4 - Task 1**. 
    3. Click the following link to download the pre-built notebook to you laptop:
-     * [prebuit-notebook.ipynb](./files/prebuilt-notebook.ipynb) 
+     * [prebuit-notebook.ipynb](../access-jupyterlab/files/prebuilt-notebook.ipynb) 
 
    4. Click the upload button and select the prebuilt notebook.
      
