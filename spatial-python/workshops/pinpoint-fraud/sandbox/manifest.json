@@ -1,0 +1,56 @@
+{
+    "workshoptitle": "Pinpoint suspicious financial transactions with Oracle Spatial and Python",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+        {
+          "title": "Introduction",
+          "description":"Introduction",
+          "filename": "../introduction/introduction.md"
+        },
+        {
+          "title": "Get started",
+          "description": "Login to the Oracle Cloud",
+          "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+          "title": "Lab 1: Access JupyterLab",
+          "description": "...",
+          "filename": "../../../access-jupyterlab/access-jupyterlab.md"
+        },
+        {
+          "title": "Lab 2: Create Autonomous Database",
+          "description": "...",
+          "filename": "../../../create-adb/create-adb.md"
+        },
+        {
+          "title": "Lab 3: Connect to Autonomous Database from Python",
+          "description": "...",
+          "filename": "../../../connect-to-adb/connect-to-adb.md"
+        }, 
+        {
+          "title": "Lab 4: Prepare data",
+          "description": "...",
+          "filename": "../../../prepare-data/prepare-data.md"
+        },   
+        {
+          "title": "Lab 5: Explore data",
+          "description": "...",
+          "filename": "../../../explore-data/explore-data.md"
+        },  
+        {
+          "title": "Lab 6: Detect suspicious transactions",
+          "description": "...",
+          "filename": "../../../detect-anomalies/detect-anomalies.md"
+        },  
+        {
+          "title": "Lab 7: Clean-up",
+          "description": "...",
+          "filename": "../../../cleanup/cleanup.md"
+        },
+        {
+          "title": "Need Help?",
+          "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+          "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}
