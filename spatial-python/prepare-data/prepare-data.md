@@ -7,9 +7,6 @@ In this lab, fictitious financial transactions data are loaded to your Autonomou
 
 Estimated Lab Time: 10 minutes
 
-Watch the video below for a quick walk-through of the lab.
-[Lab 5](videohub:1_xveyft1c)
-
 ### Objectives
 
 * Load financial transactions data to Autonomous Database
