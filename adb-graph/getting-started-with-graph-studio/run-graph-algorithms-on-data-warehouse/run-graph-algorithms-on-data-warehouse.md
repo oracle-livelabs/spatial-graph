@@ -234,6 +234,7 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 
     ![Use pagerank to create product recommendations](./images/notebooks-product-recommendation.png "Use pagerank to create product recommendations ")
 --->
+
 **Congratulations!** You successfully completed the lab.
 
 ## Acknowledgements
