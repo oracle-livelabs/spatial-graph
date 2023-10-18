@@ -512,7 +512,43 @@ A high PageRank value indicates that that account is important, which in the con
 
     Change the graph visualization layout to **Hierarchical**.
 
-    ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
+    ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")
+
+## Task 4: Query the `BANK_GRAPH` using graph machine learning 
+
+So far, we used the knowledge that a highly connected account might be fraudulent, or when money moves in a cycle then there is potential fraud.
+What if we did not know this about this specific domain, that cycles might indicate fraud? What if we only new that accounts 934 and 387 are fraudulent, but did not have the additional information on what transactions might constitute fraud?
+
+We can use a Graph machine Learning algorithm like DeepWalk to find accounts that have a similar structure to an account. We don't know what structure we are looking for, we are looking for any structure that is similar. That is the power of machine learning - you can find similarities even if you don't know exactly what are you are looking for.
+
+1. Copy and paste the following paragraphs to run the DeepWalk model
+
+     ```
+     <copy>%python-pgx
+
+     model = analyst.deepwalk_builder(
+     learning_rate=0.002,
+     num_epochs=30,
+     seed=1,
+     )
+     ```
+
+    ![running query for deepwalk model](images/deepwalk-query-model.png " ")
+
+     ```
+     <copy>%python-pgx
+
+     import time
+     start_ts = time.time()
+     model.fit(graph)
+     print("DeepWalk model training completed in {:.4f} seconds".format(time.time() - start_ts))
+     ```
+
+    ![running query for deepwalk model](images/deepwalk-query-model.png " ")
+
+        
+
+
 
     This concludes this lab.
 

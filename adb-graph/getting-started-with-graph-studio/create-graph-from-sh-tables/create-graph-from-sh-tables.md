@@ -9,7 +9,7 @@
 
 ## Introduction
 
-In this lab you will explore more of Graph Studio and learn about how you can create graphs from existing relational data stored in your
+In this lab you will explore Graph Studio and learn about how you can create graphs from existing relational data stored in your
 Autonomous Data Warehouse - Shared Infrastructure (ADW) or Autonomous Transaction Processing - Shared Infrastructure (ATP) instance.
 
 Estimated Time: 30 minutes.
@@ -24,6 +24,7 @@ Estimated Time: 30 minutes.
 
 - The following lab requires an Autonomous Data Warehouse - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
 - It assumes you have completed the first lab which explains how you can access the Graph Studio interface of your database instance and illustrates some basic concepts.
+
 ## Task 1: Create the Required Views
 
 1. From your Autonomous Database Details page in OCI, select Database Actions and click on **View all database actions**. 
@@ -38,6 +39,8 @@ Estimated Time: 30 minutes.
 3. Select SQL
 
     ![Select SQL from Database Actions](./images/select-sql-db-actions.png "Select SQL from Database Actions")
+
+Copy the following scripts and press run scripts. 
 
 4. In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. Create Views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS from the SH tables, using only a subset of the columns from those tables.
 
@@ -124,13 +127,13 @@ Estimated Time: 30 minutes.
 
     ![Home page with content](./images/home-page.png "Graphs Page ")
 
-2. Click on the **Graphs** menu icon, and click **create Graph**.
+2. Click on the **Graphs** menu icon, and click **Create Graph**.
 
     ![Graphs Page](./images/graph-page.png " ")
 
     In this lab we use the views created from the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. You can, however, apply the steps of this lab to any relational data available in your database, regardless of where the data originated from. All the schemas and tables - including views - that you have access to will show up as possible input tables at the start of the modeling workflow.
 
-3. Enter `SH_PGVIEW_GRAPH` as the graph name, then click **next**. The description and tags fields are optional.   
+3. Enter `SH_PGVIEW_GRAPH` as the graph name, then click **Next**. The description and tags fields are optional.   
     That graph name is used throughout the next lab.  
     Do not enter a different name because then the queries and code snippets in the next lab will fail. 
 
@@ -226,11 +229,11 @@ Estimated Time: 30 minutes.
 
 ## Task 5: Start the Graph Creation Job
 
-1. In the jobs page you will see the jobs generated and the status of them to create the graph.
+1. In the Jobs page you will see the jobs generated and the status of them to create the graph.
 
     ![Jobs page, after the graph is created](./images/jobs-after-create-graph.png "Jobs page, after the graph is created")
 
-    Click on the job. In the details section, click on **Logs**.
+    Click on the job. In the details section, click on **Log**.
 
     ![Job logs page where you can see the logs for sh graph](./images/jobs-sh-graph-see-log.png "Job logs page where you can see the logs for sh graph")
 
@@ -251,7 +254,7 @@ Estimated Time: 30 minutes.
 
     ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details.png "Preview of graph after selecting it in Graphs page")
 
-    You can see a preview of the graph, edit its name or meta data, share it with others, load it into memory or delete it. You can also see the source code of this graph, share it with others, edit its meta data or delete it.
+    You can see a preview of the graph, edit its name or metadata, share it with others, load it into memory or delete it. You can also see the source code of this graph, share it with others, edit its metadata or delete it.
 
 Congratulations! You successfully converted relational tables into a property graph. You can now go ahead and analyze the relationships in that data using powerful graph queries and algorithms.
 

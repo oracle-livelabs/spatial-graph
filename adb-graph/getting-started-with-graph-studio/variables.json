@@ -1,7 +1,7 @@
 {
     "db_name": "AnDGraphHolADW",
     "db_display_name":"AnD-Graph-Hol-ADW",
-    "db_ocpu": "1 OCPU",
+    "db_ocpu": "2 OCPU",
     "db_storage": "1 TB",
     "db_name_livelabs": "AnDGraphHolADW+your user id",
     "db_name_livelabs_example": "AnDGraphHolADW225",

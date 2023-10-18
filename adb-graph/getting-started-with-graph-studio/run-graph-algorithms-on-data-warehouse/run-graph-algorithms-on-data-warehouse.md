@@ -11,10 +11,10 @@ Estimated Time: 20 minutes.
 ### Objectives
 
 - Learn how to prepare graph data to be analyzed in notebooks
-- Learn how to create a run explanatory paragraphs using Markdown syntax
-- Learn how to create a run graph query paragraphs using PGQL
+- Learn how to create and run explanatory paragraphs using Markdown syntax
+- Learn how to create and run graph query paragraphs using PGQL
 - Learn how to visualize graph query results
-- Learn how to create a run graph algorithm paragraphs using the PGX Java APIs
+- Learn how to create and run graph algorithm paragraphs using the PGX Java APIs
 
 ### Prerequisites
 
@@ -59,7 +59,7 @@ This will create a "Load into Memory" job for you. Wait for this job to finish:
 
     ![Clone the Sales Analysis notebook](./images/notebooks-clone-sales-analysis.png "Clone the Sales Analysis notebook ")
 
-6. Go back to the Use Case folder and select the cloned notebook. Click the **Unlock** button on the top right of the cloned notebook.
+6. Go back to the Use Cases folder and select the cloned notebook. Click the **Disable Read-only** button on the top right of the cloned notebook.
 
     ![Unlock the notebook to make it writable](./images/notebooks-unlocked-for-write.png "Unlock the notebook to make it writable ")
 
@@ -213,13 +213,14 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     ![Reset the visualization to the initial state](./images/notebooks-reset-default-state.png "Reset the visualization to the initial state ")
 
+<!---
 ## Task 6: Find the Most Important Products and Recommendations using Graph Algorithms
 
 The example notebook contains two paragraphs illustrating how you can use graph algorithms to gain new insights into your data.
 
 1. Scroll down to the **Find the most important products** paragraph and familiarize yourself how the algorithm works by reading the Markdown description.
 
-2. Follow the instructions in the next paragraph to create a BIDIRECTED_SH_PGVIEW_GRAPH Property Graph using the Modeler, and run the next paragraph to load it into memory.
+2. Follow the instructions in the next paragraph to create a `BIDIRECTED\_SH\_PGVIEW\_GRAPH` Property Graph using the Modeler, and run the next paragraph to load it into memory.
 
     ![Create Bidirected Property Graph](./images/notebooks-bidir-graph.png "Create Bidirected Property Graph ")
 
@@ -232,7 +233,7 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 4. The next few paragraphs illustrate how you can leverage the built-in **Personalized PageRank** algorithm to recommend products to a particular customer. Familiarize yourself how the algorithm works by reading the Markdown description. We again run the algorithm via an easy PGX API invocation and then query the result using PGQL. This time we use two queries. The first one shows you the products that the customer already bought. The second query shows the products recommended as a possible purchase.
 
     ![Use pagerank to create product recommendations](./images/notebooks-product-recommendation.png "Use pagerank to create product recommendations ")
-
+--->
 **Congratulations!** You successfully completed the lab.
 
 ## Acknowledgements
