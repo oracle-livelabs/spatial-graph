@@ -570,17 +570,6 @@ We can use a Graph machine Learning algorithm like DeepWalk to find accounts tha
      ```
     ![running query for similar accounts to 934l](images/similar-to-387.png " ")
 
-4. Now we will take look at similar nodes to account 387 by running the following paragraph.
-
-     ```
-     <copy>%python-pgx
-     similars_387 = model.compute_similars("BANK_ACCOUNTS(387)", 10)
-     print("List of nodes most similar to node 387.")
-     similars_387.print()
-     ```
-
-    ![running query for similar accounts to 934l](images/similar-to-387.png " ")
-
 We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
 
 5. When we query for transactions 2 hops away from 934, 387, or 134, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also righ-click on them to see check their account ids. 
