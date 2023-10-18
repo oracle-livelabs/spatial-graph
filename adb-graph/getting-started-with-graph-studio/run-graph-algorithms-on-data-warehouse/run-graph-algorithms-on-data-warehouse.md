@@ -1,5 +1,6 @@
 
-# Analyze a Typical Data Warehouse with Graph Algorithms in a Notebook
+# Analyze a Typical Data Warehouse 
+<!---with Graph Algorithms in a Notebook--->
 
 ## Introduction
 
