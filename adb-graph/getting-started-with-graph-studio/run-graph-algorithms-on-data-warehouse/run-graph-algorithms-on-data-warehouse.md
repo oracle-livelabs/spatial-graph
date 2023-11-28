@@ -118,7 +118,7 @@ The notebook is designed to work with the graph created in the previous lab, so 
     If you combine this feature with the ability to hide the **Code** section of the paragraph, you can turn notebooks into zero-code applications that users can execute with various parameters without any programming knowledge.
     Apart from text input, there's also support for dropdown and other types of forms. Please check the Autonomous Graph User's guide for the full reference.
 
-9. The next paragraph illustrates how you can visualize results using charts. You'll notice that you only see a chart, but no code. In the notebooks, you can hide the input for a paragraph. This is useful for generating reports. To show the code, click on the eye icon on the top right of the paragraph and check the **Code** box.
+9. The next paragraph illustrates how you can visualize results using charts. You may notice that you only see a chart, but no code. If this is the case, in the notebooks, you can hide the input for a paragraph. This is useful for generating reports. To show the code, click on the eye icon on the top right of the paragraph and check the **Code** box.
 
     ![Show code](./images/show-code.png "Show code ")
 
@@ -157,23 +157,21 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     You'll notice that the graph manipulation toolbar on the right side gets enabled.
 
+<!---
 2. You can decrease or increase the number of hops in the graph visualization settings dialog.
 
     ![Notebook settings modal to change the number of hops](./images/notebooks-settings-for-hops.png "Notebook settings modal to change the number of hops ")
 
-<!---
     Click on the **Expand** action.
 
     ![Selected Vertex after expanding](./images/notebooks-expanded-vertex.png "Selected Vertex after expanding ")
 
     Expand will show you all the neighbors of the selected vertex, up to 2 hops.
---->
 
 3. The graph manipulation toolbar provides a convenient **Undo** option to reverse the previous manipulation. Click it to remove the expanded vertices again.
 
     ![Undo last action](./images/notebooks-undo-last-action.png "Undo last action ") 
 
-<!---
 4. Select a vertex again, this time click **Focus**. Focus is like **Expand**, but it will remove all the other elements on the canvas.
 
     ![Selected vertex pointing to focus button](./images/notebooks-focus.png "Selected vertex pointing to focus button ")
@@ -181,7 +179,7 @@ The graph visualization feature allows you to further **explore** the graph visu
     ![Selected vertex after focus](./images/notebooks-after-focus.png "Selected vertex after focus") 
 --->
 
-4. Next, try to group several vertices into one group. For that, hold the mouse down and drag over the canvas to select a group of vertices. Then click the **Group** button.
+2. Next, try to group several vertices into one group. For that, hold the mouse down and drag over the canvas to select a group of vertices. Then click the **Group** button.
 
     ![Group several vertices](./images/notebooks-group-selected.png "Group several vertices ")
 
@@ -190,11 +188,11 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     ![grouped verticies after grouping](./images/notebooks-group-highlighted-updated.png "grouped verticies after group operation")
 
-5. To ungroup the elements again later, click on the group and then click the **Ungroup** icon.
+3. To ungroup the elements again later, click on the group and then click the **Ungroup** icon.
 
     ![Ungroup verticies](./images/notebooks-ungroup.png "Ungroup verticies ")
 
-6. You can also drop individual elements from the visualization. Click on a vertex and then click the **Drop** action.
+4. You can also drop individual elements from the visualization. Click on a vertex and then click the **Drop** action.
 
     ![Drop element from visualization](./images/notebooks-drop-selected.png "Drop element from visualization ")
 
@@ -202,7 +200,7 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     ![Elements are dropped from visualization](./images/notebooks-dropped-selected.png "Elements are dropped from visualization")
 
-7. Paragraph results can be expanded into a full screen to give you more space for graph manipulation. Click the **Expand** button on the top right of the paragraph to enter full screen mode.
+5. Paragraph results can be expanded into a full screen to give you more space for graph manipulation. Click the **Expand** button on the top right of the paragraph to enter full screen mode.
 
     ![Select fullscreen](./images/notebooks-choose-fullscreen.png "Select fullscreen ")
 
@@ -210,7 +208,7 @@ The graph visualization feature allows you to further **explore** the graph visu
 
     Click the same button again to go back to normal screen.
 
-8. Lastly, to go back to our initial state of the visualization, click the **Reset** icon in the manipulation toolbar. This will revert all the temporary changes we made to the result.
+6. Lastly, to go back to our initial state of the visualization, click the **Reset** icon in the manipulation toolbar. This will revert all the temporary changes we made to the result.
 
     ![Reset the visualization to the initial state](./images/notebooks-reset-default-state.png "Reset the visualization to the initial state ")
 
