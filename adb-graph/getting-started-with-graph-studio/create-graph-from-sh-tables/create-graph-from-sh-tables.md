@@ -64,7 +64,7 @@ Copy the following scripts and press run scripts.
 
     CREATE OR REPLACE VIEW SH_SALES_VIEW (SALE_ID, CUST_ID, PROD_ID, PROMO_ID, DATE_OF_SALE_ID, CHANNEL_ID, AMOUNT_SOLD, QUANTITY_SOLD)
         DEFAULT COLLATION "USING_NLS_COMP" AS
-        select rownum sale_id, s.cust_id, s.prod_id, s.promo_id, tv.id as date_of_sale_id, s.channel_id, s.amount_sold, s.quantity_sold from sh.sales s, sh_times_view tv where s.time_id = tv.time_id
+        select rownum sale_id, s.cust_id, s.prod_id, s.promo_id, tv.id as date_of_sale_id, s.channel_id, s.amount_sold, s.quantity_sold from sh.sales s, sh_times_view tv where s.time_id = tv.time_id;
     </copy>
     ```
 
@@ -167,7 +167,7 @@ Copy the following scripts and press run scripts.
 
     However, the graph modeler allows you to customize how data is mapped and remove unnecessary tables and or columns not relevant for your analysis. Reducing the amount of data to be processed will reduce the amount of processing resources and storage required for graph analysis. We removed unnecessary columns when creating the views for this graph, so there is nothing to remove in this instance.
 
-2. Rename the vertex label to **CHANNELS**:
+2. Rename the vertex label to **CHANNELS** and make sure you click on the check mark to save the change. 
 
     ![Rename the CHANNELS vertex label](./images/model-rename-vertex.png "Rename the CHANNELS vertex label ")
 

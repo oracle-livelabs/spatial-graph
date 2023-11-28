@@ -213,7 +213,8 @@ The graph visualization feature allows you to further **explore** the graph visu
     ![Reset the visualization to the initial state](./images/notebooks-reset-default-state.png "Reset the visualization to the initial state ")
 
 <!---
-## Task 6: Find the Most Important Products and Recommendations using Graph Algorithms
+This should be task 6
+Find the Most Important Products and Recommendations using Graph Algorithms
 
 The example notebook contains two paragraphs illustrating how you can use graph algorithms to gain new insights into your data.
 
@@ -232,6 +233,7 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 4. The next few paragraphs illustrate how you can leverage the built-in **Personalized PageRank** algorithm to recommend products to a particular customer. Familiarize yourself how the algorithm works by reading the Markdown description. We again run the algorithm via an easy PGX API invocation and then query the result using PGQL. This time we use two queries. The first one shows you the products that the customer already bought. The second query shows the products recommended as a possible purchase.
 
     ![Use pagerank to create product recommendations](./images/notebooks-product-recommendation.png "Use pagerank to create product recommendations ")
+
 --->
 
 **Congratulations!** You successfully completed the lab.
