@@ -1,3 +1,9 @@
+<!--
+    {
+        "name":"Create Graph",
+        "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab."
+    }
+-->
 
 # Hello World: Create, Analyze and Visualize a Graph from Scratch
 
@@ -24,41 +30,24 @@ Learn how to
 
 - The following lab requires an Autonomous Data Warehouse - Serverless or Autonomous Transaction Processing - Serverless account.
 
-## Task 1: Connect to your Autonomous Database using Graph Studio
+## Task 1: Log into Graph Studio
 
-1. If you have the Graph Studio URL then proceed to step 3.
-
-    Log in to the OCI Console, choose the Autonomous Database instance, then click on the Tools Configuration tab on the details page menu on the left.  
-    Locate the Graph Studio link and copy and paste it into a new browser tab or window.
-
-   ![Autonomous Database instance tools page in the OCI Console](./images/oci-console-adb-tools-graph-studio-link.png "Autonomous Database instance tools page in the OCI Console")
-
-
-2. Alternatively, if you still have Database Actions open, click on the Graph Studio card to open in a new page or tab in your browser.  
-   
-   ![Database Actions landing page with Graph Studio card](./images/db-actions-graph-studio-link.png "Database Actions landing page with Graph Studio card")  
-
-
-3. Enter the Autonomous Database account credentials or the Graph-enabled user (e.g. `GRAPHUSER`) into the login screen.   
-   Do **not** use `ADMIN`.
-
-    ![Graph Studio login screen](./images/graph-studio-login.png "Graph Studio login screen ")
-
-4. Then click the "Sign In" button.
+[](include:adb-goto-graph-studio.md)
 
 ## Task 2: Create a Simple Graph using PGQL
 
-1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They naviagte to the Home, Models, Graphs, Notebooks, and Jobs pages respectively.
+1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They naviagte to the Home, Models, Graphs, Notebooks, Templates, and Jobs pages respectively.
 
     ![Graph Studio home screen](./images/home-page.png "Graph Studio home screen ")
 
-2. Click on the `Graphs` menu icon:
+2. Click on the **Graphs** menu icon:
 
     ![Notebook menu screen in Graph Studio](./images/graphs-menu-blank.png "Notebook menu screen in Graph Studio ")
 
-3. Next click the `</> Query` button on the page. You should see a page titled  **</> Query Playground**
+3. Next click the **`</> Query`** button on the page. You should see a page titled  **</> Query Playground**.
 
     ![Empty query playground](./images/query-playground-empty.png "Empty query playground ")
+
 4. Copy and paste the following DDL code into the PGQL input text area:
 
     ```
@@ -90,7 +79,7 @@ Learn how to
 
     This will create a very simple graph with 7 vertices and 8 edges. For more information about the syntax, please refer to the [PGQL specification](https://pgql-lang.org/spec/1.3/#inserting-vertices)
 
-    5. Click the Execute button on the top left.
+    5. Click the **Run** button on the top left.
 
         ![Query playground create graph statement](./images/query-playground-create-graph-statement.png "Query playground create graph statement ")
 
@@ -245,4 +234,4 @@ Please **proceed to the next lab** to see more complex examples of how to create
 ## Acknowledgements
 * **Author** - Jayant Sharma , Product Development
 * **Contributors** -  JKorbi Schmid, Rahul Tasker, Product Development
-* **Last Updated By/Date** - Jayant Sharma, June 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023

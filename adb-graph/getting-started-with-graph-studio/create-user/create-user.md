@@ -26,11 +26,11 @@ Learn how to
 
 1. Open the service detail page for your Autonomous Database instance in the OCI console.  
 
-   Then click the **Database Actions** link to open it.
+   Then click on **Database Actions** and select **View all database actions**. 
 
-   ![Autonomous Database home page pointing to the Database Actions button](images/open-database-actions.png "Autonomous Database home page pointing to the Database Actions button")
+   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
-## Task 2: Create the web access and graph-enabled user
+## Task 2: Create the Web Access and Graph-enabled User
 
 1. Login as the ADMIN user for your Autonomous Database instance.
 
@@ -56,7 +56,7 @@ Learn how to
 
 	![Set Graph username and password, and select Create User](images/db-actions-create-graph-user.png "Set Graph username and password, and select Create User ")
 
-	**Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. Create and use an account with only the necessary privileges for with with graph data and analytics.**
+	**Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. 
 
 	Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
 
@@ -64,9 +64,11 @@ Learn how to
 
 	![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")   
 
-	**Note:** *The UI steps above can be instead done by executing the following sql commands listed below when logged in as ADMIN. So Step 5 below is not necessary. It shows an alternate way of creating and enabling GRAPHUSER.*
+## Task 3: Create User using SQL Commands (OPTIONAL)
 
-5. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
+The UI steps in task 2 can be instead done by executing the following sql commands listed below when logged in as ADMIN. This task is optional. It shows an alternate way of creating and enabling GRAPHUSER.
+
+1. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
 
    For example,
    `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`   
@@ -89,15 +91,12 @@ Learn how to
       </copy>
       ```
 
-   The screenshots below show an example of executing the ALTER USER statement.
+   The screenshot below show an example of executing the ALTER USER statement.
 
    ![Alter user quota to 10G](./images/alter-user.png "Alter user quota to 10G")  
 
-   ![Run the alter user statement](./images/run-sql.png "Run the alter user statement")  
 
-   ![The user will show as altered in the script output](./images/user-altered.png "The user will show as altered in the script output")
-
- 6. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
+ 2. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
 
     You must be logged into Data Actions SQL as `ADMIN` then enter the following SQL statements and execute them.
 
@@ -121,4 +120,4 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Korbi Schmid, Rahul Tasker
-* **Last Updated By/Date** - Jayant Sharma, June 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023

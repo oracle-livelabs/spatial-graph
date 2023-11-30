@@ -512,9 +512,78 @@ A high PageRank value indicates that that account is important, which in the con
 
     Change the graph visualization layout to **Hierarchical**.
 
-    ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")  
+    ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")
 
-    This concludes this lab.
+## Task 4: Query the `BANK_GRAPH` using graph machine learning 
+
+So far, we used the knowledge that a highly connected account might be fraudulent, or when money moves in a cycle then there is potential fraud.
+What if we did not know this about this specific domain, that cycles might indicate fraud? What if we only new that accounts 934 and 387 are fraudulent, but did not have the additional information on what transactions might constitute fraud?
+
+We can use a Graph machine Learning algorithm like DeepWalk to find accounts that have a similar structure to an account. We don't know what structure we are looking for, we are looking for any structure that is similar. That is the power of machine learning - you can find similarities even if you don't know exactly what are you are looking for.
+
+1. Copy and paste the following paragraphs to run the DeepWalk model.
+
+     ```
+     <copy>%python-pgx
+
+     model = analyst.deepwalk_builder(
+     learning_rate=0.002,
+     num_epochs=30,
+     seed=1,
+     )
+     ```
+
+    ![running query for deepwalk model](images/deepwalk-query-model.png " ")
+
+
+2. Now we will train the DeepWalk model. Run the following paragraph.  
+
+     ```
+     <copy>%python-pgx
+
+     import time
+     start_ts = time.time()
+     model.fit(graph)
+     print("DeepWalk model training completed in {:.4f} seconds".format(time.time() - start_ts))
+     ```
+
+    ![running query for deepwalk model training](images/deepwalk-query-model-time.png " ")
+
+3. Run the following paragraph to get the most similar nodes to account 943. 
+
+     ```
+     <copy>%python-pgx
+     similars_934 = model.compute_similars("BANK_ACCOUNTS(934)", 10)
+     print("List of nodes most similar to node 934.")
+     similars_934.print()
+     ```
+
+    ![running query for similar accounts to 934l](images/similar-to-934.png " ")
+
+4. Now we will take look at similar nodes to account 387 by running the following paragraph.
+
+     ```
+     <copy>%python-pgx
+     similars_387 = model.compute_similars("BANK_ACCOUNTS(387)", 10)
+     print("List of nodes most similar to node 387.")
+     similars_387.print()
+     ```
+    ![running query for similar accounts to 934l](images/similar-to-387.png " ")
+
+We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
+
+5. When we query for transactions 2 hops away from 934, 387, or 134, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also righ-click on them to see check their account ids. 
+
+     ```
+     <copy>%pgql-pgx
+     /* show 2-hop accounts from 934 and 387 */
+     SELECT * FROM MATCH (a) -[e1]-> (m) -[e2]-> (d) ON bank_graph
+     WHERE a.acct_id in (934, 387, 135)
+     ```
+
+    ![account 934, 387, abd 135 being highlighted](images/accounts-highlighted.png " ")
+
+This concludes this lab.
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
