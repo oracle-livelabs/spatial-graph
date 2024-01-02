@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you deploy Spatial Studio from the Cloud Marketplace using Always Free resources. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance created is meant to be temporary for use during this workshop.
+In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance created is meant to be temporary for use during this workshop. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits. 
 
 Estimated Lab Time: 15 minutes
 
@@ -14,7 +14,7 @@ Watch the video below for a quick walk-through of the lab.
 
 In this lab, you will:
 
-* Deploy Spatial Studio from the Oracle Cloud Marketplace using Always Free resources.
+* Deploy Spatial Studio from the Oracle Cloud Marketplace.
 
 ### Prerequisites
 
@@ -25,7 +25,7 @@ In this lab, you will:
 
 ## Task 1: Verify availability of Compute resource
 
-Before starting the Spatial Studio deployment, it is necessary to verify the availability domain having quota for the Always Free compute shape.
+Before starting the Spatial Studio deployment, it is necessary to verify if the availability domain has quota for the resource we need.
 
 1. Navigate to **Governance & Administration > Limits, Quota, and Usage**.
 
