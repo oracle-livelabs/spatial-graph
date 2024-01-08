@@ -71,7 +71,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
    Then scroll down.
 
-6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. If you are creating a temporary instance you can go ahead and uncheck this box. This will provide you HTTPS and HTTP access. For Spatial Studio Admin User Name enter **admin** (lower case). This user name will be case sensitive.
+6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. If you are creating a temporary instance you can go ahead and uncheck this box. This will provide you HTTPS and HTTP access. Enter a Spatial Studio Admin User Name This user name will be case sensitive.
 
    ![Spatial Studio Advanced Configuration](images/mp-07.png)
 
@@ -81,9 +81,11 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
    ![Password for Spatial Studio Admin user](images/mp-07a.png)
 
+   There's also an option to use OCI Vault Secrets instead of assigning the user a password. If it is your first time take a look at the [Documentation](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingsecrets.htm) 
+
    Then scroll down.
 
-8. Under Configure Networking, leave the defaults to have a network created for you. Then scroll down.
+8. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
 
 9.  SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. If your Spatial Studio instance is temporary, you can **uncheck** this box. If you are planning to use this intance in the future **add an SSH key**. 
 
