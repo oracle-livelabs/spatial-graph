@@ -95,11 +95,11 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
 10. Spatial Studio requires access to an Oracle Database. You have the options to: 
 
-- **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
-- **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.  
-- **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to create the connection when you log into Spatial Studio. 
+   - **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
+   - **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.  
+   - **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to create the connection when you log into Spatial Studio. 
 
-If you are selecting **Create New Autonomous Database** and using an always free account, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
+   If you are selecting **Create New Autonomous Database** and using an always free account, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
    ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11.png)
 
