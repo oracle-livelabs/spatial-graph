@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. The Spatial Studio instance created is meant to be temporary for use during this workshop. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits. 
+In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits. 
 
 Estimated Lab Time: 15 minutes
 
@@ -71,7 +71,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
    Then scroll down.
 
-6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. If you are creating a temporary instance you can go ahead and uncheck this box. This will provide you HTTPS and HTTP access. Enter a Spatial Studio Admin User Name This user name will be case sensitive.
+6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name This user name will be case sensitive.
 
    ![Spatial Studio Advanced Configuration](images/mp-07.png)
 
@@ -87,7 +87,7 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
 8. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
 
-9.  SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. If your Spatial Studio instance is temporary, you can **uncheck** this box. If you are planning to use this intance in the future **add an SSH key**. 
+9.  SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
 
    ![Add SSH key for the compute instance used by Oracle Spatial Studio](images/mp-09.png)
 
@@ -97,9 +97,9 @@ Before starting the Spatial Studio deployment, it is necessary to verify if the 
 
    - **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
    - **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.  
-   - **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to create the connection when you log into Spatial Studio. 
+   - **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation] (https://docs.oracle.com/en/database/oracle/spatial-studio/22.1/spstu/administering-spatial-studio.html#GUID-B57F59E9-B526-4916-9AF3-C430BB627E41).
 
-   If you are selecting **Create New Autonomous Database** and using an always free account, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
+   If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
    ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11.png)
 
