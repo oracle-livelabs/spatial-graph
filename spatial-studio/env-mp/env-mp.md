@@ -25,7 +25,7 @@ In this lab, you will:
 
 ## Task 1: Verify availability of Compute resource
 
-Before starting the Spatial Studio deployment, it is necessary to verify if the availability domain has quota for the resource we need.
+Before starting the Spatial Studio deployment, it is necessary to identify the availability domain that has quota for the resource we need.
 
 1. Navigate to **Governance & Administration > Limits, Quota, and Usage**.
 
