@@ -150,5 +150,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Jesus Vizcarra
-* **Last Updated By/Date** - David Lapp, August 2023
+* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product Management 
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, January 2024
