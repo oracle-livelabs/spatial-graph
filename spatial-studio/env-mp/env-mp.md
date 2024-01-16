@@ -53,7 +53,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 2. Search for **spatial** and then click on the **Oracle Spatial Studio** app.
 
-    **Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure".
+    >**Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure".
 
    ![Search for application Oracle Spatial Studio](images/mp-02.png)
 
