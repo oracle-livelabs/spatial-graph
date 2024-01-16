@@ -21,8 +21,6 @@ In this lab, you will:
 * An Oracle Cloud Account
 * You are an Admin for the cloud account.
 
-<!-- *This is the "fold" - below items are collapsed by default* -->
-
 ## Task 1: Verify availability of Compute resource
 
 Before starting the Spatial Studio deployment, it is necessary to identify the availability domain that has quota for the resource we need.
@@ -150,5 +148,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Jesus Vizcarra
-* **Last Updated By/Date** - David Lapp, August 2023
+* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product Management, Oracle
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, January 2023
