@@ -40,8 +40,6 @@ Learn how to
 
     A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
-    ![Click Dismiss to cloes the Environment Attaching dialog.](images/click-dismiss.png " ")
-
     You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
 <!---
  2. Review the description before each paragraph.   Review the graph queries and analytics.   You can then run the query by clicking on the triangle on the top right if you would like to do so.  Below is an example of running a query in a paragraph.  
@@ -376,4 +374,4 @@ If the compute environment is not ready and the code cannot be executed then you
 ## Acknowledgements
 * **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
 * **Contributors** -  Jayant Sharma
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, February 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, January 2024

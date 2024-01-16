@@ -44,4 +44,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
 * **Contributors** -  Jayant Sharma
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, July 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, January 2024
