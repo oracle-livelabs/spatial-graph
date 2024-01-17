@@ -5,7 +5,7 @@
 
 In this workshop you will provision Spatial Studio to the Oracle Cloud from the OCI Cloud Marketplace.
 
-Estimated Workshop Time: 60 minutes
+Estimated Workshop Time: 25 minutes
 
 ### About Oracle Spatial Studio
 
