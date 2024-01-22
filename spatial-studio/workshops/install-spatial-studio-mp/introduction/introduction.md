@@ -5,7 +5,7 @@
 
 In this workshop you will provision Spatial Studio to the Oracle Cloud from the OCI Cloud Marketplace.
 
-Estimated Workshop Time: 60 minutes
+Estimated Workshop Time: 25 minutes
 
 ### About Oracle Spatial Studio
 
@@ -21,17 +21,13 @@ For more information please visit [https://oracle.com/goto/spatialstudio] (https
 
 ### Objectives
 
-- Learn how to create and assign a database schema for Spatial Studio's metadata repository
 - Learn how to use the Cloud Marketplace to install Spatial Studio
 - Learn how to uninstall Spatial Studio when no longer needed
 
 
 ### Prerequisites
-
-- This workshop requires an Oracle Autonomous Database.  
-- SQL Developer Web is provided with Autonomous Database and is also used to create the Spatial Studio repository schema. 
-- If you already have access to these, then following this Introduction you may skip to the Lab 3. 
-- Otherwise you should proceed to Lab 1.
+ 
+- Have at least one **Standard.E2.1.Micro VM Instance** available 
 - No previous experience with Oracle Spatial is required.
 - An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
 
