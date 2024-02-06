@@ -123,7 +123,7 @@ Copy the following scripts and press run scripts.
 
 ## Task 3: Select the Tables to Create the Graph From
 
-1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They navigate to the Home, Models, Graphs, Notebooks, and Jobs pages respectively.
+1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They navigate to the Home, Models, Graphs, Notebooks, Templates, and Jobs pages respectively.
 
     ![Home page with content](./images/home-page.png "Graphs Page ")
 
@@ -139,21 +139,21 @@ Copy the following scripts and press run scripts.
 
     ![Overview of the graph and naming it](./images/model-create-graph-dialog.png "Overview of the graph and naming it")
 
-3. Open up the **GRAPHUSER** schema and double click on the **SH\_PRODUCTS\_VIEW** table.
+4. Open up the **GRAPHUSER** schema and double click on the **SH\_PRODUCTS\_VIEW** table.
 
     You see some details about this table, like all the columns it has and their types, as well as which column is the primary key:
 
     ![Modeler view of SH_PRODUCTS_VIEW](./images/modeler-view-products-view-info.png "Modeler view of SH_PRODUCTS_VIEW ")
 
-4. On the bottom left, click on the **GRAPHUSER.SH\_PRODUCTS\_VIEW - Data** tab.
+5. On the bottom left, click on the **GRAPHUSER.SH\_PRODUCTS\_VIEW - Data** tab.
 
     You see a preview of the values of that table. By default, it displays the first ten rows, but you can increase the sample size. You can also search for any value in that table and paginate through the preview.
 
-5. For this lab, we choose all views we created earlier as input for our graph model. If your Graph user only contains those views, you can select *GRAPHUSER* and then click the button in the middle to move all views to the selected section on the right. Otherwise, select the relevant views, and then click the button in the middle to move all views to the selected section on the right.
+6. For this lab, we choose all views we created earlier as input for our graph model. If your Graph user only contains those views, you can select *GRAPHUSER* and then click the button in the middle to move all views to the selected section on the right. Otherwise, select the relevant views, and then click the button in the middle to move all views to the selected section on the right.
 
     ![Select all relevant views for the graph](./images/modeler-views-selected.png "Select all relevant views for the graph ")
 
-6. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right.  
+7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right.  
 
     ![Define Graph page](./images/modeler-sh-model.png "Define Graph page")
 

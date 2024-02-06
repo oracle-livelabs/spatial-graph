@@ -46,7 +46,7 @@ Learn how to
 
 4. Enter the required details, i.e. user name and password. Turn on the **Graph Enable** and **Web Access** radio buttons. And select a quota, e.g. **UNLIMITED**,  to allocate on the `DATA` tablespace.   
 
-   	Note: The password should meet the following requirements:
+   	>**Note:** The password should meet the following requirements:
 
 	- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
 	- The password cannot contain the username.
