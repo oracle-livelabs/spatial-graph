@@ -2,21 +2,21 @@
     "workshoptitle": "Get Started with Graph Studio",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
-      "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
-      "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md"
+        "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+        "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
+        "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md"
     },
     "variables": ["../../variables.json"],
 	"tutorials": [
         {
-            "title": "Get Started",
-            "description": "Prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts. ",
-            "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
-        },
-        {
             "title": "Introduction",
             "description": "Workshop introduction and product overview.",
             "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Get Started",
+            "description": "Prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts. ",
+            "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
         },
         {
             "title": "Lab 1: Provision an ADB Instance",

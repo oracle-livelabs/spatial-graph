@@ -9,14 +9,14 @@
     "variables": ["../../variables.json"],
 	"tutorials": [
         {
-          "title": "Get Started",
-          "description": "Prerequisites for this workshop",
-          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
-        },
-        {
             "title": "Introduction",
             "description": "Workshop introduction and product overview.",
             "filename": "../../introduction/introduction.md"
+        },
+        {
+          "title": "Get Started",
+          "description": "Prerequisites for this workshop",
+          "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
         },
         {
             "title": "Lab 1: Provision an ADB Instance",
