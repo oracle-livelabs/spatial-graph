@@ -45,7 +45,7 @@ The most common Python library for data handling is Pandas, which provides DataF
                      "POINT(-66.86 10.48)",
             ],})
     gdf["geometry"] = gpd.GeoSeries.from_wkt(gdf["geometry"])
-    gdf.set_geometry("geometry")
+    gdf = gdf.set_geometry("geometry")
     gdf.crs="EPSG:4326"
     gdf
     </copy>
