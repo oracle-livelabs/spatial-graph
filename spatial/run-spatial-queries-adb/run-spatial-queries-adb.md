@@ -109,7 +109,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      </copy>
      ```
 
-   ![Proximity query](images/run-queries-01.png)
+    ![Proximity query](images/run-queries-01.png)
 
 2. Identifying items nearest to another item is accomplished with the Spatial operator **SDO\_NN( )**, where NN stands for Nearest Neighbor. Run the following query to identify the 5 closest stores to the Dallas Warehouse. Again, notice that the first argument to **SDO\_NN( )** is the function that returns geometry, which has a function-based spatial index.
 
@@ -177,7 +177,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
      ```
    ![Proximity query](images/run-queries-04.png)
 
-4. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse. 
+5. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse. 
 
      ```
      <copy> 
@@ -191,7 +191,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
 
   ![Proximity query](images/run-queries-05.png)
 
-4. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles. 
+6. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles. 
 
      ```
      <copy> 
@@ -211,7 +211,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
 
  ![Proximity query](images/run-queries-06.png)
 
-4. Proximity is useful for aggregate analysis. Run the following query to return the number of tornados and maximum loss within 20 miles of the Dallas Warehouse.
+7. Proximity is useful for aggregate analysis. Run the following query to return the number of tornados and maximum loss within 20 miles of the Dallas Warehouse.
 
     ```
     <copy> 
@@ -231,7 +231,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
 
       ![Proximity query](images/run-queries-07.png)
 
-   1. Returning to the use of Spatial operators for joins, run the following query to return each warehouse with the number of tornados and maximum loss within 20 miles.
+8. Returning to the use of Spatial operators for joins, run the following query to return each warehouse with the number of tornados and maximum loss within 20 miles.
 
     ```
     <copy> 

@@ -1,6 +1,10 @@
 {
   "workshoptitle": "How to work with spatial data in Oracle Autonomous Database (ADB)",
   "help": "livelabs-help-db_us@oracle.com",
+  "include": {
+    "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+    "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md"
+},
   "tutorials": [
     {
       "title": "Introduction to Oracle Spatial",
@@ -16,7 +20,7 @@
     {
       "title": "Lab 1: Provision Autonomous Database",
       "description": "Provision a new Autonomous Data Warehouse (ADW) instance",
-      "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-provision/adb-provision.md"
+      "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
     },
     {
       "title": "Lab 2: Connect to ADB with SQL Worksheet",
