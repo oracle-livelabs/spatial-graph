@@ -171,7 +171,7 @@ You begin by loading data for warehouses and stores from CSV files that include 
 2. Then navigate your file system explorer to the downloaded files.
 
    ![Prepare spatial data](images/create-data-00.png)
-
+<!---
 3. Begin by viewing the data on map. 
  
    Please note: Oracle Spatial Studio is a web tool for self-service (no code) spatial data loading, configuration, analysis, and map visualization. It is a separate web application that can be deployed from the Cloud Marketplace. As this workshop focuses exclusively on working with Spatial at the SQL level, Spatial Studio is not used. Instead you use a public web site to view the data.
@@ -199,25 +199,24 @@ You begin by loading data for warehouses and stores from CSV files that include 
    ![Prepare spatial data](images/create-data-00f.png)
 
   These are the data that you will load, configure, and perform spatial analysis on. Once you have reviewed the maps you can close the geojson.io tabs.
-
-4. Next you load the files to database tables. In Database Actions, click on the main hamburger icon at the top left and then click **Data Load**.
+--->
+3. Next you load the files to database tables. In Database Actions, click on the main hamburger icon at the top left and then click **Data Load**.
 
  ![Prepare spatial data](images/create-data-01.png)
 
-5. Select **LOAD DATA**.
+4. Select **LOAD DATA**.
 
  ![Prepare spatial data](images/create-data-02.png)
 
-6. Select all 4 of the files you downloaded, then drag and drop them onto the Data Load page.
+5. Select all 4 of the files you downloaded, then drag and drop them onto the Data Load page.
 
  ![Prepare spatial data](images/create-data-03.png)
 
-7. You now see the 4 files listed for loading. Click the action menu icon for tornado_paths.geojson and select **Settings**.
+6. You now see the 4 files listed for loading. Click the edit icon for tornado_paths.geojson and select **Settings**.
 
  ![Prepare spatial data](images/create-data-04.png)
 
-
-8. Since this is a geojson file, you will see a  **SDO\_GEOMTERY** column. Change the **YR**, and **KEY** columns data types to **VARCHAR2**. Then click **Close**.
+7. Since this is a geojson file, you will see a  **SDO_GEOMETRY** column. Click **Close**.
 
  ![Prepare spatial data](images/create-data-05.png)
 
@@ -236,11 +235,11 @@ By default, tables are create with the same name as the input files. This is fin
 
  ![Prepare spatial data](images/create-data-08.png)
 ---> 
-9. Click **Start** to initiate the data load.
+8. Click **Start** to initiate the data load.
 
  ![Prepare spatial data](images/create-data-09.png)
 
-10. When prompted with confirmation popup, click **Run**. 
+9. When prompted with confirmation popup, click **Run**. 
 
  ![Prepare spatial data](images/create-data-10.png) 
   
@@ -248,12 +247,12 @@ By default, tables are create with the same name as the input files. This is fin
 
  ![Prepare spatial data](images/create-data-11.png) 
 
-11. Click the main hamburger icon at the top left, and then select **SQL**.
+10. Click the main hamburger icon at the top left, and then select **SQL**.
 
  ![Prepare spatial data](images/create-data-12.png) 
 
 
-12. Confirm that all 4 tables are now created. 
+11. Confirm that all 4 tables are now created. 
       
  ![Prepare spatial data](images/create-data-17.png)
 
@@ -316,7 +315,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
    
     Run the following to insert spatial metadata for the WAREHOUSES table.
 
-      ```
+      ```[text](https://studio.youtube.com/channel/UCZqBavfLlCuS0il6zNY696w/monetization/overview)
       <copy> 
        INSERT INTO USER_SDO_GEOM_METADATA VALUES (
         'WAREHOUSES',  -- table name
@@ -436,7 +435,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
 
    ![Prepare spatial data](images/create-data-24.png)
-
+<!---
 4.  Finally create the spatial index. In the case of a function-based spatial index, the "column" being indexed is actually the call to the GET\_GEOMETRY function.
 
       ```
@@ -450,8 +449,8 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
 
    ![Prepare spatial data](images/create-data-25.png)
-
-## Task 4: Create Spatial Index for REGIONS and TORNADO_PATHS
+--->
+## Task 4: Create Spatial Indexes for REGIONS and TORNADO_PATHS
 <!--
 Next you convert regions from GeoJSON format to a table with a geometry column. Start by viewing the content of REGIONS\_GEOJSON. As described earlier, loading JSON in SQL Worksheet creates a table with columns for the document's top-level keys. For GeoJSON that is **type** and **features**. Hover your mouse over the **features** value to see a pop-up of the features array. Since the features are polygons with many coordinates, you only see a portion of the first feature in the array.
 
