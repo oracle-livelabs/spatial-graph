@@ -47,7 +47,7 @@ You should see a graph similar to the screenshot below.
 
 ## Task 3: Add highlights
 
-Now let's add some labels and other visual context. These are known as highlights. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/highlights.json.zip) to download a zip file, highlights.json.zip. Unzip this file and note where it is unzipped.
+Now let's add some labels and other visual context. These are known as highlights. Click [here](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/highlights.json.zip) to download a zip file, highlights.json.zip. Unzip this file and note where it is unzipped.
 
 Click on the Load button under **Settings** (on the right side of the screen). Browse to the appropriate folder and choose the file and click Open to load that.
 
