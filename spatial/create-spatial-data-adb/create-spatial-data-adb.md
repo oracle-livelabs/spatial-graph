@@ -310,7 +310,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       ```
 
    ![Prepare spatial data](images/create-data-19.png)
-
+<!--
 3.  Before creating a spatial index, you must insert a row of spatial metadata. Every user has an updatable view called USER\_SDO\_GEOM\_METADATA for their spatial metadata. This is a user view on a centralized table storing spatial metadata for the entire database instance. Spatial metadata tracks the coordinate system identifier (longitude/latitude is only one of many coordinate systems) and dimensionality (2D, 3D, etc) of every geometry column to be indexed. These items need to be consistent for all data in an indexed geometry column, so the index creation reads the values and enforces integrity of the index by rejecting any inconsistency. 
    
     Run the following to insert spatial metadata for the WAREHOUSES table.
@@ -328,8 +328,8 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       </copy>
       ```
    ![Prepare spatial data](images/create-data-20.png)
-
-4. Finally, create a spatial index for the WAREHOUSES table.
+-->
+3. Finally, create a spatial index for the WAREHOUSES table.
 
       ```
       <copy> 
@@ -345,7 +345,7 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
 
       **Please note:** If a spatial index creation statement fails (for example because a previous step was not done correctly), then before retrying you must still drop the index since some index artifacts may have been created.  So for example, if the spatial index creation statement above were to fail, then before retrying you should run "DROP INDEX WAREHOUSES\_SIDX;".
 
-5.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
+4.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
       
    ![Prepare spatial data](images/create-data-21a.png)
 
@@ -418,8 +418,8 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
 
    Instead of creating and indexing a new geometry column in the STORES table, you will create an index on the values returned by the GET\_GEOMETRY function for the STORES table.
 
-
-3.  Before creating a spatial index, a row of spatial metadata is inserted.  In the case of a function-based spatial index, instead of a geometry column name you insert the function call. Insert spatial metadata for the STORES table using the GET\_GEOMETRY function. The function must be prepended with the owner name, in this case ADMIN.
+<!--
+4.  Before creating a spatial index, a row of spatial metadata is inserted.  In the case of a function-based spatial index, instead of a geometry column name you insert the function call. Insert spatial metadata for the STORES table using the GET\_GEOMETRY function. The function must be prepended with the owner name, in this case ADMIN.
 
       ```
       <copy>
@@ -435,7 +435,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
 
    ![Prepare spatial data](images/create-data-24.png)
-<!---
+
 4.  Finally create the spatial index. In the case of a function-based spatial index, the "column" being indexed is actually the call to the GET\_GEOMETRY function.
 
       ```
