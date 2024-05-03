@@ -11,17 +11,17 @@
     {
       "title": "Get started",
       "description": "Login to the Oracle Cloud",
-      "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
+      "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs-novnc.md"
     },
     {
       "title": "Lab 1: Provision Autonomous Database",
       "description": "Provision a new Autonomous Data Warehouse (ADW) instance",
-      "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-provision/adb-provision.md"
+      "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
     },
     {
       "title": "Lab 2: Connect to ADB with SQL Worksheet",
       "description": " SQL Worksheet",
-      "filename": "https://raw.githubusercontent.com/oracle-livelabs/adb/main/shared/adb-sqldevweb/adb-sqldevweb.md"
+      "filename": "https://oracle-livelabs.github.io/common/labs/sqldevweb-login/sqldevweb-login.md"
     },
     {
       "title": "Lab 3: Prepare spatial data",
