@@ -34,7 +34,7 @@ Learn how to
 
 1. Login as the ADMIN user for your Autonomous Database instance.
 
-    ![Log in to your Autonomous Database instance](./images/login.png "Log in to your Autonomous Database instance")
+    ![Log in to your Autonomous Database instance](./images/sign-in-admin.png "Log in to your Autonomous Database instance")
 
 2. Click  the **DATABASE USERS** tile under **Administration**.
 
