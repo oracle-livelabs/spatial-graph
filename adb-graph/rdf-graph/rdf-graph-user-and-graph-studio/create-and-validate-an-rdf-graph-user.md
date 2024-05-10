@@ -34,11 +34,11 @@ Navigate to your Autonomous Database instance and create a graph user by followi
 
 3. From the Database Actions Launchpad, click **Database Users** from **Administration**.
 
-  ![The screen of the database actions launchpad, highlighting the database users page under administration](./images/database-actions-launchpad.png "")
+  ![The screen of the database actions launchpad, highlighting the database users page under administration](./images/database-users.png "")
 
 4. Click **Create User** on the Database Users page in the **All Users** area.
 
-  ![The database users page highlighting the 'create user' button](./images/database-users.png "")
+  ![The database users page highlighting the 'create user' button](./images/create-database-user.png "")
 
 5. Enter a user name and password.
 
@@ -78,7 +78,7 @@ Before we can create an RDF graph we must first import RDF data into Graph Studi
 
 1. In your **Autonomous Database Details page** page, click the **Database Actions**.
 
-  ![Click the Database Actions button](images/click-database-actions.png " ")
+  ![Click the Database Actions button](images/adb-details.png " ")
 
 2. On the Database Actions panel, click **Graph Studio**.
 
