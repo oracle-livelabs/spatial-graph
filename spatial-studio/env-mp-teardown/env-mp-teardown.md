@@ -69,5 +69,5 @@ The stack is the set of instructions for deployment. It captures the settings yo
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product management 
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, January 2024
+* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product management, Oracle
+* **Last Updated By/Date** - Karin Patenge, Product Management, Oracle/May 2024
