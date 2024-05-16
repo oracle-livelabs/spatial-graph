@@ -1,0 +1,52 @@
+{
+    "workshoptitle": "Spatial AI ...",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+        {
+          "title": "Introduction",
+          "description":"Introduction",
+          "filename": "../introduction/introduction.md"
+        },
+        {
+          "title": "Get started",
+          "description": "Login to the Oracle Cloud",
+          "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+          "title": "Lab x: (OML common get started)",
+          "description": "...",
+          "filename": ""
+        },
+        {
+          "title": "Lab x: Load and explore data",
+          "description": "...",
+          "filename": ""
+        },
+        {
+          "title": "Lab x: Engineer spatial features",
+          "description": "...",
+          "filename": ""
+        },
+        {
+          "title": "Lab x: Create a baseline regression model",
+          "description": "...",
+          "filename": ""
+        },
+        {
+          "title": "Lab x: Create spatial regression models",
+          "description": "...",
+          "filename": ""
+        },
+        {
+          "title": "Lab x: Compare model effectiveness",
+          "description": "...",
+          "filename": ""
+        },     
+
+        {
+          "title": "Need Help?",
+          "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+          "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}
