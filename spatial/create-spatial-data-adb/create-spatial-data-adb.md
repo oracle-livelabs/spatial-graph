@@ -435,7 +435,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
 
    ![Prepare spatial data](images/create-data-24.png)
-
+--->
 4.  Finally create the spatial index. In the case of a function-based spatial index, the "column" being indexed is actually the call to the GET\_GEOMETRY function.
 
       ```
@@ -449,7 +449,7 @@ Next you configure the STORES table for Spatial. You could repeat the previous s
       ```
 
    ![Prepare spatial data](images/create-data-25.png)
---->
+
 ## Task 4: Create Spatial Indexes for REGIONS and TORNADO_PATHS
 <!--
 Next you convert regions from GeoJSON format to a table with a geometry column. Start by viewing the content of REGIONS\_GEOJSON. As described earlier, loading JSON in SQL Worksheet creates a table with columns for the document's top-level keys. For GeoJSON that is **type** and **features**. Hover your mouse over the **features** value to see a pop-up of the features array. Since the features are polygons with many coordinates, you only see a portion of the first feature in the array.
