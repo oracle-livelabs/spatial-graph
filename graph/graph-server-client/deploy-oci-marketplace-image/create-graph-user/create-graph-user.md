@@ -26,19 +26,15 @@ Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**
 
 In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your brower allow pop-up windows.
 
-![adb-console](images/adb-console.jpg)
+![adb-console](images/adb-console.png)
 
-Enter **ADMIN** as Username and go next.
+Enter **ADMIN** as Username and password (you set up at Lab 2) and sign in.
 
-![login-1](images/login-1.jpg)
-
-Input the password (you set up at Lab 2) and sign in.
-
-![login-2](images/login-2.jpg)
+![login-1](images/login-1.png)
 
 Go to **SQL** menu once you logged in as the **ADMIN** user. 
 
-![database-actions](images/database-actions.jpg)
+![database-actions](images/database-actions.png)
 
 ## Taks 2: Create database roles
 
@@ -105,7 +101,7 @@ Now create the **CUSTOMER_360** user and provide Database Actions access for thi
 
 Open the main menu and click "Database Users".
 
-![user-1](images/user-1.jpg)
+![user-1](images/user-1.png)
 
 Click **Create User** button, input user name and password. Enable **Web Access** and set the quota to **UNLILMITED**.
 
@@ -121,7 +117,7 @@ Proceed with **Create User**, and open the login window.
 
 Confirm that you can login with the new user.
 
-![user-5](images/user-5.jpg)
+![user-5](images/user-5.png)
 
 For details, see the ["Provide Database Actions Access to Database Users"](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/sql-developer-web.html#GUID-4B404CE3-C832-4089-B37A-ADE1036C7EEA) section in the documentation.
 

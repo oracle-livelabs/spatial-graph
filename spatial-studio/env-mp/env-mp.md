@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits. 
+In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits.
 
 Estimated Lab Time: 15 minutes
 
@@ -45,57 +45,57 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 ## Task 2: Install Spatial Studio from Cloud Marketplace
 
-1. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
+01. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
 
    ![Go to Oracle MarketPlace](images/mp-01.png)
 
-2. Search for **spatial** and then click on the **Oracle Spatial Studio** app.
+02. Search for **spatial** and then click on the **Oracle Spatial Studio** app.
 
-    >**Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure".
+   **Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure".
 
    ![Search for application Oracle Spatial Studio](images/mp-02.png)
 
-3. If you have an existing preferred compartment, then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
+03. If you have an existing preferred compartment, then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
 
-   ![Launch stack for Oracle Spatial Studio](images/mp-04.png)
+   ![Launch stack for Oracle Spatial Studio](images/mp-04-v2.png)
 
-4. Accept defaults and click **Next**.
+04. Accept defaults and click **Next**.
 
    ![Define parameters for the deployment of Oracle Spatial Studio](images/mp-05.png)
 
-5. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**. If you have available cloud credits or a paid account, you may select a paid shape instead.
+05. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**. If you have available cloud credits or a paid account, you may select a paid shape instead.
 
    ![More parameters for the deployment](images/mp-06.png)
 
    Then scroll down.
 
-6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name This user name will be case sensitive.
+06. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name This user name will be case sensitive.
 
    ![Spatial Studio Advanced Configuration](images/mp-07.png)
 
    Then scroll down.
 
-7. Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
+07. Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
 
    ![Password for Spatial Studio Admin user](images/mp-07a.png)
 
-   There's also an option to use OCI Vault Secrets instead of assigning the user a password. If it is your first time take a look at the [Documentation](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingsecrets.htm) 
+   There's also an option to use OCI Vault Secrets instead of assigning the user a password. If it is your first time take a look at the [Documentation](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingsecrets.htm)
 
    Then scroll down.
 
-8. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
+08. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
 
-9.  SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
+09. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
 
    ![Add SSH key for the compute instance used by Oracle Spatial Studio](images/mp-09.png)
 
    Then scroll down.
 
-10. Spatial Studio requires access to an Oracle Database. You have the options to: 
+10. Spatial Studio requires access to an Oracle Database. You have the options to:
 
-   - **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
-   - **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.  
-   - **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation] (https://docs.oracle.com/en/database/oracle/spatial-studio/22.1/spstu/administering-spatial-studio.html#GUID-B57F59E9-B526-4916-9AF3-C430BB627E41).
+* **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
+* **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.
+* **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation] (<https://docs.oracle.com/en/database/oracle/spatial-studio/22.1/spstu/administering-spatial-studio.html#GUID-B57F59E9-B526-4916-9AF3-C430BB627E41>).
 
    If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
@@ -123,7 +123,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    ![Fetch URL to start Spatial Studio](images/mp-15.png)
 
-2. Log in with user name **admin** and the password you entered in the Step 7 above.
+2. Log in with user name **admin** and the password you entered in the Step 7 of Task 2.
 
    ![Login dialog for Spatial Studio](images/mp-17.png)
 
@@ -149,4 +149,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product Management, Oracle
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, January 2024
+* **Last Updated By/Date** - Karin Patenge, Product Management, Oracle/May 2024
