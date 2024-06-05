@@ -95,7 +95,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 * **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
 * **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.
-* **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation] (<https://docs.oracle.com/en/database/oracle/spatial-studio/24.1/spstu/setting-spatial-studio-metadata-schema.html>).
+* **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation](<https://docs.oracle.com/en/database/oracle/spatial-studio/24.1/spstu/setting-spatial-studio-metadata-schema.html>).
 
    If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
