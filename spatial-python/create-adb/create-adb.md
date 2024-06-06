@@ -60,15 +60,16 @@ The remainder of this hands-on lab may be performed using either of the followin
 **Option 2:** Load a pre-built notebook with all steps and run each cell. 
    
    1. Perform **Lab 3 - Task 1** 
-   2. Perform **Lab 4 - Task 1**. 
-   3. Click the following link to download the pre-built notebook to you laptop:
+   2. Perform **Lab 4 - Task 1**
+   3. Perform **Lab 6 - Task 4 - Steps 5-6**
+   4. Click the following link to download the pre-built notebook to you laptop:
      * [prebuit-notebook.ipynb](../access-jupyterlab/files/prebuilt-notebook.ipynb) 
 
-   4. Click the upload button and select the prebuilt notebook.
+   5. Click the upload button and select the prebuilt notebook.
      
      ![Use prebuilt notebook](./images/prebuilt-nb-01.png)
 
-   5. Double-click on the prebuilt notebook to open it and run each cell.
+   6. Double-click on the prebuilt notebook to open it and run each cell.
 
      ![Use prebuilt notebook](./images/prebuilt-nb-02.png)
 
