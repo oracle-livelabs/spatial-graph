@@ -25,9 +25,9 @@ Estimated Time: 20 minutes.
 
 ## Task 1: Make sure the SH Graph is Loaded into Memory.
 
-Before graphs can be analyzed in a notebook, we need to make sure the graph is loaded into memory. In the Graph Studio user interface, navigate to the **Graphs** page, verify whether the **SH\_PGVIEW\_GRAPH** graph is loaded into memory or not.  
+Before graphs can be analyzed in a notebook, we need to make sure the graph is loaded into memory. In the Graph Studio user interface, navigate to the **Graphs** page, verify whether the **SH\_PGVIEW\_GRAPH** graph is loaded into memory or not. You can also verify if the internal compute environment is attached or detached by the indicator in the upper right-hand corner.
 
-![SH Graph is in memory](./images/graphs-sh-is-in-memory.png "SH Graph is in memory ")
+![SH Graph is in memory](./images/graphs-sh-is-in-memory-v2.png "SH Graph is in memory ")
 
 If the graph is loaded into memory (it says "![ALT text is not available for this image](./images/graphs-fa-bolt.png) in memory"), then you can proceed to STEP 2.
 
@@ -54,13 +54,13 @@ This will create a "Load into Memory" job for you. Wait for this job to finish:
 4. The **Graph Queries on the SH sample data** notebook is a **built-in** notebook. You can identify **built-in** notebooks by the author being shown as `<<system-user>>`. Built-in notebooks are shared between all users and therefore read-only and locked.
    To execute the notebook, we need to create a private copy first and then unlock it. On the top of the notebook, click the **Clone** button.
 
-    ![Select the clone button](./images/notebooks-clone-button.png "Select the clone button ")
+    ![Select the clone button](./images/notebooks-clone-button-v2.png "Select the clone button ")
 
 5. In the resulting dialog, give the cloned notebook a unique name so you can find it later again easily. Folder structures can be expressed by using the `/` symbol. Then click *Create*.
 
     ![Clone the Sales Analysis notebook](./images/notebooks-clone-sales-analysis.png "Clone the Sales Analysis notebook ")
 
-6. Go back to the Use Cases folder and select the cloned notebook. Click the **Disable Read-only** button on the top right of the cloned notebook.
+6. The cloned notebook will open automatically. Click the **Disable Read-only** button on the top right of the cloned notebook.
 
     ![Unlock the notebook to make it writable](./images/notebooks-unlocked-for-write.png "Unlock the notebook to make it writable ")
 
@@ -141,7 +141,7 @@ The notebook is designed to work with the graph created in the previous lab, so 
 
     ![Open the highlights tab](./images/notebooks-viz-highlights.png "Open the highlights tab ")
 
-    By using **Highlights**, you can emphasize certain elements in your graph by giving them a different color, icon, size, etc. than others based on certain conditions. As you can see, here we added a few highlights to render different types of vertices differently based on a label condition. Try to create your own hightlight or edit an existing one to see how it affects the output, by clicking the **New Highlight** and **Edit Highlight** buttons respectively.
+    By using **Highlights**, you can emphasize certain elements in your graph by giving them a different color, icon, size, etc. than others based on certain conditions. As you can see, here we added a few highlights to render different types of vertices differently based on a label condition. Try to create your own highlight or edit an existing one to see how it affects the output, by clicking the **New Highlight** and **Edit Highlight** buttons respectively.
 
 3. Close the settings dialog again and do a right-click on one of the vertices. It will show all the associated properties of that vertex. The properties which are part the projection of the original PGQL query are shown in bold:
 
@@ -240,5 +240,5 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Korbi Schmid, Rahul Tasker, Product Development
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023
+* **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez, Product Development
+* **Last Updated By/Date** - Denise Myrick, June 2024
