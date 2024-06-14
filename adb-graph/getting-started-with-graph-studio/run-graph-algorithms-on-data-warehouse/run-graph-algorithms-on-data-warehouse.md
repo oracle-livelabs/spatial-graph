@@ -33,7 +33,7 @@ If the graph is loaded into memory (it says "![ALT text is not available for thi
 
 If the graph is **not** loaded into memory, as in the following screenshot,  click the **Load into memory** (lightning bolt) icon on the top right of the details section. In the resulting dialog, click **Confirm**.
 
-![SH graph details](./images/graphs-sh-graph-details.png "SH graph details ")
+![SH graph details](./images/graphs-sh-graph-details-v2.png "SH graph details ")
 
 This will create a "Load into Memory" job for you. Wait for this job to finish:
 
@@ -96,13 +96,13 @@ The notebook is designed to work with the graph created in the previous lab, so 
 
 4. The next paragraph shows the edges connecting SALES to the other vertices.
 
-    ![This paragraph shows the edges connecting SALES to the other verticies](./images/notebooks-connecting-verticies.png "This paragraph shows the edges connecting SALES to the other verticies ")
+    ![This paragraph shows the edges connecting SALES to the other vertices](./images/notebooks-connecting-vertices.png "This paragraph shows the edges connecting SALES to the other vertices ")
 
-5. The next paragraph shows the result of querying for two specific sales IDs (4744 and 4538). You can right click on any of the verticies to get more information about these two sales.
+5. The next paragraph shows the result of querying for two specific sales IDs (4744 and 4538). You can right click on any of the vertices to get more information about these two sales.
 
     ![Query by sales ID](./images/notebooks-query-by-sales-id.png "Query by sales ID ")
 
-6. The next paragraph shows the relationship between products, sales, and customers. You can right click on any of the verticies and edges to get more information.
+6. The next paragraph shows the relationship between products, sales, and customers. You can right click on any of the vertices and edges to get more information.
 
     ![Query for the relationship between products, sales, and customers](./images/notebooks-query-by-sales-association.png "Query for the relationship between products, sales, and customers ")
 
