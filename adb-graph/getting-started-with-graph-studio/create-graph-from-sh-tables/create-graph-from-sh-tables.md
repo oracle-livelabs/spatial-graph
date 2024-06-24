@@ -23,7 +23,7 @@ Estimated Time: 30 minutes.
 ### Prerequisites
 
 - The following lab requires an Autonomous Data Warehouse - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
-- It assumes you have completed the first lab which explains how you can access the Graph Studio interface of your database instance and illustrates some basic concepts.
+- It assumes you have completed the previous lab which explains how you can create a graph enabled user.
 
 ## Task 1: Create the Required Views
 
@@ -40,7 +40,7 @@ Estimated Time: 30 minutes.
 
     ![Select SQL from Database Actions](./images/select-sql-db-actions.png "Select SQL from Database Actions")
 
-Copy the following scripts and press run scripts. 
+For the next 3 steps, copy the following scripts and press Run Script. Clear the worksheet between steps to ensure the scripts run properly.
 
 4. In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. Create Views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS from the SH tables, using only a subset of the columns from those tables.
 
@@ -125,25 +125,25 @@ Copy the following scripts and press run scripts.
 
 1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They navigate to the Home, Models, Graphs, Notebooks, Templates, and Jobs pages respectively.
 
-    ![Home page with content](./images/home-page.png "Graphs Page ")
+    ![Home page with content](./images/home-page-v2.png "Graphs Page")
 
 2. Click on the **Graphs** menu icon, and click **Create Graph**.
 
-    ![Graphs Page](./images/graph-page.png " ")
+    ![Graphs Page](./images/graph-page-v2.png "Graphs Page")
 
     In this lab we use the views created from the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. You can, however, apply the steps of this lab to any relational data available in your database, regardless of where the data originated from. All the schemas and tables - including views - that you have access to will show up as possible input tables at the start of the modeling workflow.
 
-3. Enter `SH_PGVIEW_GRAPH` as the graph name, then click **Next**. The description and tags fields are optional.   
-    That graph name is used throughout the next lab.  
-    Do not enter a different name because then the queries and code snippets in the next lab will fail. 
+3. Enter `SH_PGVIEW_GRAPH` as the graph name, then click **Next**. The description field is optional.
+    That graph name is used throughout the next lab.
+    Do not enter a different name because then the queries and code snippets in the next lab will fail.
 
-    ![Overview of the graph and naming it](./images/model-create-graph-dialog.png "Overview of the graph and naming it")
+    ![Overview of the graph and naming it](./images/model-create-graph-dialog-v2.png "Overview of the graph and naming it")
 
 4. Open up the **GRAPHUSER** schema and double click on the **SH\_PRODUCTS\_VIEW** table.
 
     You see some details about this table, like all the columns it has and their types, as well as which column is the primary key:
 
-    ![Modeler view of SH_PRODUCTS_VIEW](./images/modeler-view-products-view-info.png "Modeler view of SH_PRODUCTS_VIEW ")
+    ![Modeler view of SH_PRODUCTS_VIEW](./images/modeler-view-products-view-info-v2.png "Modeler view of SH_PRODUCTS_VIEW ")
 
 5. On the bottom left, click on the **GRAPHUSER.SH\_PRODUCTS\_VIEW - Data** tab.
 
@@ -151,7 +151,7 @@ Copy the following scripts and press run scripts.
 
 6. For this lab, we choose all views we created earlier as input for our graph model. If your Graph user only contains those views, you can select *GRAPHUSER* and then click the button in the middle to move all views to the selected section on the right. Otherwise, select the relevant views, and then click the button in the middle to move all views to the selected section on the right.
 
-    ![Select all relevant views for the graph](./images/modeler-views-selected.png "Select all relevant views for the graph ")
+    ![Select all relevant views for the graph](./images/modeler-views-selected-v2.png "Select all relevant views for the graph ")
 
 7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right.  
 
@@ -219,7 +219,7 @@ Copy the following scripts and press run scripts.
 
 9. Click **Next** on the top right. In the Summary step, click on **Create Graph**. 
 
-    ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
+    ![Click Create Graph to create the graphl](./images/create-graph-v2.png " ")  
 
     This will open a Create Graph tab, click on **Create Graph**. 
 
@@ -227,34 +227,15 @@ Copy the following scripts and press run scripts.
 
     After this, you will be taken to the Jobs page where the graph will be created.
 
-## Task 5: Start the Graph Creation Job
-
-1. In the Jobs page you will see the jobs generated and the status of them to create the graph.
-
-    ![Jobs page, after the graph is created](./images/jobs-after-create-graph.png "Jobs page, after the graph is created")
-
-    Click on the job. In the details section, click on **Log**.
-
-    ![Job logs page where you can see the logs for sh graph](./images/jobs-sh-graph-see-log.png "Job logs page where you can see the logs for sh graph")
-
-    That brings up a dialog with the log.  
-
-    ![jobs log for sh graph](./images/jobs-log-for-sh-graph.png "jobs log for sh graph")
-
-    You can leave the resulting logs dialog open to monitor the progress of the graph creation. Graph Studio automatically refreshes the logs once every few seconds.
-    The graph creation job should succeed after a few minutes. After completion, another **Load into memory** job is started automatically.
-
-2. Wait for both jobs to complete successfully.
-
-## Task 6: Inspect the Created Graph
+## Task 5: Inspect the Created Graph
 
 1. Click on the **Graphs** menu icon.
 
 2. Click on the **SH\_PGVIEW\_GRAPH** graph that we just created.
 
-    ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details.png "Preview of graph after selecting it in Graphs page")
+    ![Preview of graph after selecting it in Graphs page](./images/graphs-sh-graph-details-v2.png "Preview of graph after selecting it in Graphs page")
 
-    You can see a preview of the graph, edit its name or metadata, share it with others, load it into memory or delete it. You can also see the source code of this graph, share it with others, edit its metadata or delete it.
+    You can see a preview of the graph, edit its name or metadata, share it with others, load it into memory or delete it. You can also see the source code of this graph.
 
 Congratulations! You successfully converted relational tables into a property graph. You can now go ahead and analyze the relationships in that data using powerful graph queries and algorithms.
 
@@ -262,5 +243,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development
-* **Contributors** -  Jayant Sharma, Rahul Tasker, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023
+* **Contributors** -  Jayant Sharma, Rahul Tasker, Ramu Murakami Gutierrez, Product Management
+* **Last Updated By/Date** - Denise Myrick, June 2024
