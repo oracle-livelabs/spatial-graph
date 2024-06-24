@@ -13,34 +13,44 @@
           "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-          "title": "Lab x: [common lab - intro to oml notebooks]",
-          "description": "...",
-          "filename": ""
+          "title": "Lab 1: Intro to OML Notebooks",
+          "description": "...common lab...",
+          "filename": "./placeholder.html"
         },
         {
-          "title": "Lab x: Load and explore data",
+          "title": "Lab 1a: Import notebooks",
           "description": "...",
-          "filename": ""
+          "filename": "../../../ev/import-notebooks/import-notebooks.md"
+        }, 
+        {
+          "title": "Lab 2: Load and explore data",
+          "description": "...",
+          "filename": "./placeholder.html"
         },
         {
-          "title": "Lab x: Engineer spatial features",
+          "title": "Lab 3: Prepare data",
           "description": "...",
-          "filename": ""
+          "filename": "./placeholder.html"
         },
         {
-          "title": "Lab x: Create a baseline regression model",
+          "title": "Lab 4 - Create non-spatial predictive model",
           "description": "...",
-          "filename": ""
+          "filename": "./placeholder.html"
         },
         {
-          "title": "Lab x: Create spatial regression models",
+          "title": "Lab 5 - Create spatial predictive models",
           "description": "...",
-          "filename": ""
+          "filename": "./placeholder.html"
         },
         {
-          "title": "Lab x: Compare model effectiveness",
+          "title": "Lab 6 - Evaluate predictive models",
           "description": "...",
-          "filename": ""
+          "filename": "./placeholder.html"
+        },  
+        {
+          "title": "Lab 7: Cleanup",
+          "description": "...",
+          "filename": "./placeholder.html"
         },     
 
         {
