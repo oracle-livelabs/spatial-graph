@@ -1,8 +1,8 @@
-# Create non-spatial model
+# Create spatial predictive models
 
 ## Introduction
 
-In this lab you create models for predicting EV adoption using a non-spatial regression algorithm. In the previous lab you performed spatial feature engineering to add a feature with the number of charging stations with 10km of each zip code. Here you  train models without and with this feature. You compare model statistics and observe the benefit of spatial feature engineering.
+In this lab you create models for predicting EV adoption using spatial regression algorithms.  You then compare model statistics and observe the benefits of employing spatial algorithms.
 
 Estimated Lab Time: xx minutes
 
@@ -12,7 +12,7 @@ Estimated Lab Time: xx minutes
 
 ### Prerequisites
 
-* Completion of Lab x - Prepare data
+* Completion of Lab x - Create non-spatial predictive models
 
 ## Task 1: Open the pre-built notebook for this lab
 
@@ -24,10 +24,25 @@ Estimated Lab Time: xx minutes
 1. ...
 
 
-## Task 3: Train a 
+## Task 3: Load the previously saved non-spatial model
 
+1. ...
 
+## Task 4: Create a model using Spatial Error Regressor algorithm
 
+1. ...
+
+## Task 5: Create a model using Spatial Lag Regressor algorithm
+
+1. ...
+
+## Task 6: Create a model using Geographical Regressor algorithm
+
+1. ...
+
+## Task 7: Assess models
+
+1. ...
 
 
 ## Learn More

@@ -24,23 +24,16 @@ Estimated Lab Time: xx minutes
 1. ...
 
 
-## Task 3: Train a model without spatial feature using non-spatial algorithm
+## Task 3: Create a model without spatial feature using OLS algorithm
 
 1. ...
 
-## Task 4: Compile model statistics
-
-1. ...
-
-## Task 5: Train a model with spatial feature using non-spatial algorithm
+## Task 4: Create a model with spatial feature using OLS algorithm
 
 1. ...
    
-## Task 6: Compile model statistics
 
-1. ...
-
-## Task 7: Evaluate models
+## Task 5: Evaluate models
 
 1. ...
 

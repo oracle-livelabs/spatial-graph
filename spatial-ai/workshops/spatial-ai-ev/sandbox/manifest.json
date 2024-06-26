@@ -33,14 +33,14 @@
           "filename": "../../../ev/prepare-data/prepare-data.md"
         },
         {
-          "title": "Lab 4 - Create non-spatial predictive model",
+          "title": "Lab 4 - Create predictive models using non-spatial algorithm",
           "description": "...",
           "filename": "../../../ev/create-non-spatial-models/create-non-spatial-models.md"
         },
         {
-          "title": "Lab 5 - Create spatial predictive models",
+          "title": "Lab 5 - Create predictive models using spatial algorithms",
           "description": "...",
-          "filename": "./placeholder.html"
+          "filename": "../../../ev/create-spatial-models/create-spatial-models.md"
         },
         {
           "title": "Lab 6: Cleanup",
