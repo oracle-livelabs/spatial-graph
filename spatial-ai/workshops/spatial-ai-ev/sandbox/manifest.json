@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Spatial AI ...",
+    "workshoptitle": "Make Better Predictions with Spatial ML Algorithms on Oracle Autonomous Database Serverless",
       "help": "livelabs-help-db_us@oracle.com",
       "tutorials": [
         {
@@ -25,17 +25,17 @@
         {
           "title": "Lab 2: Load and explore data",
           "description": "...",
-          "filename": "./placeholder.html"
+          "filename": "../../../ev/load-data/load-data.md"
         },
         {
           "title": "Lab 3: Prepare data",
           "description": "...",
-          "filename": "./placeholder.html"
+          "filename": "../../../ev/prepare-data/prepare-data.md"
         },
         {
           "title": "Lab 4 - Create non-spatial predictive model",
           "description": "...",
-          "filename": "./placeholder.html"
+          "filename": "../../../ev/create-non-spatial-models/create-non-spatial-models.md"
         },
         {
           "title": "Lab 5 - Create spatial predictive models",
@@ -43,12 +43,7 @@
           "filename": "./placeholder.html"
         },
         {
-          "title": "Lab 6 - Evaluate predictive models",
-          "description": "...",
-          "filename": "./placeholder.html"
-        },  
-        {
-          "title": "Lab 7: Cleanup",
+          "title": "Lab 6: Cleanup",
           "description": "...",
           "filename": "./placeholder.html"
         },     
