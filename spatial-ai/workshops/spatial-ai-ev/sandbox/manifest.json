@@ -13,12 +13,7 @@
           "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-          "title": "Lab 1: Intro to OML Notebooks",
-          "description": "...common lab...",
-          "filename": "./placeholder.html"
-        },
-        {
-          "title": "Lab 1a: Import notebooks",
+          "title": "Lab 1: Log into OML UI and import notebooks",
           "description": "...",
           "filename": "../../../ev/import-notebooks/import-notebooks.md"
         }, 

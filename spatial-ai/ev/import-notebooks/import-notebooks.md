@@ -2,28 +2,34 @@
 
 ## Introduction
 
-In this lab you create an OML Project and import a set of pre-built notebooks used for the remainder of this workshop.
+In this lab you log into the OML UI and import a set of pre-built notebooks used for the remainder of this workshop.
 
 Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-* Create OML Project
+* Log into OML UI
+* Get familiar with OML Notebooks
 * Load pre-built notebooks
 
 ### Prerequisites
 
 * Access to the OML UI
 
-## Task 1: Create OML Project
+## Task 1: Log into OML UI
 
-1. In the OML page, use the pull-down menu and select New Project
+1. ... link to OML UI in reservation launchpad...
 
    ...pic...
 
- 2. Enter a project name, for example 'OCW24 OML4Py Spatial AI'
+ 2. ... log in with user/pwd in reservation launchpad...
 
   ...pic...
+
+ 3. ... OML UI has links to pages incl Notebooks  ... click Notebooks...
+ 
+  ...pic...
+
 
 ## Task 2: Download pre-built notebooks
 
@@ -49,6 +55,14 @@ Estimated Lab Time: 5 minutes
     
     ...pic...
 
+
+## Task 4: Review OML Notebook toolbar options
+
+1. Opening a notebook in edit mode provides the following toolbar options:
+
+	![OML Notebook toolbar options](images/data-studio-notebook-icons.png)
+
+    You will work with notebooks for the remainder of this workshop, so refer back to this diagram as needed.
 
 ## Learn More
 
