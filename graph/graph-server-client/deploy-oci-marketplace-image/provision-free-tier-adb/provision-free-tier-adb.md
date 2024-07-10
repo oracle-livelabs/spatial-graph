@@ -51,8 +51,8 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 3. Provide basic information for the Autonomous Database:
 
     - **Choose a compartment** - Select a compartment for the database from the drop-down list.
-    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **ATP Graph**.
-    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use **ATPGRAPH**.
+    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **adb1**.
+    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use **adb1**.
 
 4. Choose a workload type. Select the workload type for your database from the choices:
 
@@ -107,7 +107,8 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
     ![License](images/license.png)
 
-11.  Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
+11. Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
+
     ![Status provisioning](images/atp-graph-provisioning.png)
     ![Status available](images/atp-graph-available.png)
 
@@ -121,7 +122,4 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 
 - **Author** - Nilay Panchal
 - **Adapted for Cloud by** - Richard Green
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
-- **Author** - Nilay Panchal
-- **Adapted for Cloud by** - Richard Green
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024

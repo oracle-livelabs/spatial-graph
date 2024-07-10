@@ -14,15 +14,15 @@ Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-- Learn how to query and analyze the graph
+- Learn how to analyze a graph using pattern-matching queries, and graph algorithms.
 
 ### Prerequisites
 
 - The Python client up and running
 
-## Task 1: Get the Graph on Memory
+## Task 1: Access the graph
 
-Assuming that the **customer_360** graph is already loaded onto the memory in the previous Lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
+Assuming that the **`customer_360`** graph was already loaded into memory in the previous lab. If you have published the graph, you can also access the graph from others sessions, too.
 
 ```python
 <copy>
@@ -32,11 +32,11 @@ graph = session.get_graph("customer_360")
 
 Now we can query this graph and run some analyses on it.
 
-## Task 2: Pattern Matching
+## Task 2: Your first pattern-matching query
 
-PGQL Query is convenient for detecting specific patterns.
+PGQL is convenient for detecting specific patterns.
 
-Find accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:
+Find accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL statement for this is:
 
 ```python
 <copy>
@@ -61,7 +61,7 @@ graph.query_pgql("""
 +---------------------------------------------------------------+
 ```
 
-## Task 3: Detection of Cycles
+## Task 3: Detect cycles in the graph
 
 Next we use PGQL to find a series of transfers that start and end at the same account, such as A to B to A, or A to B to C to A.
 
@@ -120,15 +120,15 @@ This result will be visualized in the next section:
 
 ![detection2](images/detection2.jpg)
 
-## Task 4: Influential Accounts
+## Task 4: Find influential accounts
 
-Let's find which accounts are influential in the network. There are various algorithms to score the importance and centrality of the vertices. We'll use the built-in PageRank algorithm as an example.
+Let's find which accounts are influential in the network. There are various algorithms to score the importance and centrality of vertices in a graph. We'll use the built-in PageRank algorithm as an example. We will also read a subgraph that contains only vertices connected via edges with the label **TRANSFER**.
 
 1. Filter customers from the graph. (cf. [Filter Expressions](https://docs.oracle.com/cd/E56133_01/latest/prog-guides/filter.html))
 
     ```python
     <copy>
-    graph2 = graph.filter(pgx.EdgeFilter("edge.label()='TRANSFER'"));
+    graph2 = session.read_subgraph.from_pg_pgql("customer_360").query_pgql("MATCH (v1)-[e IS TRANSFER]->(v2)");
     graph2
     </copy>
 
@@ -278,8 +278,8 @@ Let's find which subsets of accounts form communities. That is, there are more t
 
 You may now proceed to the next Lab.
 
-## Acknowledgements ##
+## Acknowledgements
 
-* **Author** - Jayant Sharma
-* **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
+- **Author** - Jayant Sharma
+- **Contributors** - Arabella Yao, Jenny Tsai
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
