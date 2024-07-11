@@ -13,7 +13,7 @@
           "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-          "title": "Lab 1: Log into OML UI and import notebooks",
+          "title": "Lab 1: Import notebooks",
           "description": "...",
           "filename": "../../../ev/import-notebooks/import-notebooks.md"
         }, 
@@ -28,17 +28,12 @@
           "filename": "../../../ev/prepare-data/prepare-data.md"
         },
         {
-          "title": "Lab 4 - Create predictive models using non-spatial algorithm",
+          "title": "Lab 4: Create predictive models",
           "description": "...",
-          "filename": "../../../ev/create-non-spatial-models/create-non-spatial-models.md"
+          "filename": "../../../ev/create-predictive-models/create-predictive-models.md"
         },
         {
-          "title": "Lab 5 - Create predictive models using spatial algorithms",
-          "description": "...",
-          "filename": "../../../ev/create-spatial-models/create-spatial-models.md"
-        },
-        {
-          "title": "Lab 6: Cleanup",
+          "title": "Lab 5: Cleanup",
           "description": "...",
           "filename": "./placeholder.html"
         },     
