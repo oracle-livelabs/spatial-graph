@@ -201,7 +201,7 @@ If the compute environment is not ready and the code cannot be executed then you
 
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
 
-8. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
+8. We need to first create a bipartite graph so that we can run algorithms such as Personalized SALSA which take a bipartite graph as input.  
 
     >**Note:** A bipartite graph is a graph whose vertices can be partitioned into two sets such that all edges connect a vertex in one set to a vertex in the other set.
     
