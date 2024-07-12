@@ -13,7 +13,7 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of Lab 3: Start JupyterLab
+* Completion of Lab 2: Create Autonomous Database
 
 ## Task 1: Create connection parameter files
 
@@ -29,10 +29,7 @@ Estimated Lab Time: 5 minutes
 4. Close the text file tab to return to the Launcher page.
    ![Connect to ADB](images/connect-to-adb-04.png)
 
-5. Return to your Oracle Cloud browser tab and minimize Cloud Shell.
-  ![Connect to ADB](images/connect-to-adb-05.png)
-
-1. Click on **Database Connection**.
+5. Return to your Oracle Cloud browser tab click on **Database Connection**.
   ![Connect to ADB](images/connect-to-adb-06.png)
 
 1. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.

@@ -26,7 +26,7 @@ Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**
 
 In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your browser allow pop-up windows.
 
-![adb-console](images/adb-console.jpg)
+![adb-console](images/adb-console.png)
 
 If required, enter **ADMIN** as username, the password (you set up at Lab 2), and **Sign in**.
 
@@ -102,7 +102,7 @@ Now create the **CUSTOMER_360** user and provide Database Actions access for thi
 
 Click on the Database Actions main menu, then on Database Users.
 
-![user-1](images/user-1.jpg)
+![user-1](images/user-1.png)
 
 Click **Create User** button, input the user name and password. Enable **Graph**, **Web Access**, and set the quota to **UNLIMITED**.
 
@@ -118,7 +118,7 @@ Proceed with **Create User**, and open the Login window.
 
 Confirm that you can login with the new user.
 
-![user-5](images/user-5.jpg)
+![user-5](images/user-5.png)
 
 For details, see the ["Provide Database Actions Access to Database Users"](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/sql-developer-web.html#GUID-4B404CE3-C832-4089-B37A-ADE1036C7EEA) section in the documentation.
 
@@ -128,4 +128,5 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 - **Contributors** - Arabella Yao, Jenny Tsai
-`
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
+

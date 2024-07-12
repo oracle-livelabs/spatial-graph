@@ -1,7 +1,7 @@
 <!--
     {
         "name":"Create Graph",
-        "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab in your own tenancy."
+        "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab."
     }
 -->
 
@@ -16,7 +16,7 @@ Estimated Time: 15 minutes.
 ### Objectives
 
 Learn how to
-- use Graph Studio to model and create a graph from existing tables or views.
+- Use Graph Studio to create a graph from existing tables or views.
 
 ### Prerequisites
 
@@ -29,16 +29,14 @@ Learn how to
 
     ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
 
-2. Select your **compartment**, and click on the **Display Name** for the **Autonomous Database**. 
+2. Select your **compartment** and click on the **Display Name** for the **Autonomous Database**. 
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
 
 ## Task 2: Log into Graph Studio
-
 [](include:adb-goto-graph-studio.md)
 
 ## Task 3: Create a Movie Recommendations graph
-
 [](include:adb-create-graph.md)
 
 ## Acknowledgements

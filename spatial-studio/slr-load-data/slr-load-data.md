@@ -34,7 +34,7 @@ Watch the video below for a quick walk-through of the lab.
 
 You begin by loading projected flood regions, parcels, schools and facilities from common formats.
 
-1. Download the zip file containing the data to a convenient location: [SpatialStudioSlrData.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/SpatialStudioSlrData.zip). The zip file contains the following:
+1. Download the zip file containing the data to a convenient location: [SpatialStudioSlrData.zip](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/SpatialStudioSlrData.zip). The zip file contains the following:
 
    ![Download and check sample data](images/load-data-01.png)
 
@@ -89,12 +89,12 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
 7. Repeat to add keys for your other datasets using the following columns:
 
-   | Dataset | Column to use as Key |
-   | --- | --- |
-   | FLOOD2040 | FID |
-   | FLOOD2060 | FID |
-   | FLOOD2080 | FID |
-   | SCHOOLS | OGR\_FID |
+   | Dataset   | Column to use as Key |
+   | --------- | -------------------- |
+   | FLOOD2040 | FID                  |
+   | FLOOD2060 | FID                  |
+   | FLOOD2080 | FID                  |
+   | SCHOOLS   | OGR\_FID             |
 
 8. Observe that all of your datasets are fully prepared for mapping and spatial analysis.
 
