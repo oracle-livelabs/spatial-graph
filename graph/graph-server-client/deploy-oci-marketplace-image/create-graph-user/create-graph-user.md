@@ -24,21 +24,21 @@ Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**
 
 ![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
-In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your brower allow pop-up windows.
+In Autonomous Database Details page, open **Tools** tab and click **View all Database Actions**. Make sure your browser allows pop-up windows.
 
 ![adb-console](images/adb-console.png)
 
-Enter **ADMIN** as Username and password (you set up at Lab 2) and sign in.
+If requested, enter **ADMIN** as Username and the password you set up at Lab 2 and sign in.
 
 ![login-1](images/login-1.png)
 
-Go to **SQL** menu once you logged in as the **ADMIN** user. 
+Go to **SQL** menu once you are logged in as the **ADMIN** user.
 
 ![database-actions](images/database-actions.png)
 
-## Taks 2: Create database roles
+## Task 2: Create database roles
 
-Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and run it while connected as the Admin user.
+Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and click "Run Script" while connected as the Admin user.
 
 ```sql
 <copy>
@@ -81,7 +81,7 @@ END;
 </copy>
 ```
 
-Assign the default permissions to the roles, **GRAPH_ADMINISTRATOR** and **GRAPH_DEVELOPER**, to group multiple permissions together.
+Assign the default permissions to the roles, **`GRAPH_ADMINISTRATOR`** and **`GRAPH_DEVELOPER`**, to group multiple permissions together.
 ```sql
 <copy>
 GRANT PGX_SESSION_CREATE TO GRAPH_ADMINISTRATOR;
@@ -107,7 +107,7 @@ Click **Create User** button, input user name and password. Enable **Web Access*
 
 ![user-2](images/user-2.png)
 
-Go to **Granted Roles** tab and grant **`GRAPH_DEVELOPER`** role and **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role to this user. (Two roles **CONNECT** and **RESOURCE** are selected by default. Please keep them checked so they will be also granted.)
+Go to **Granted Roles** tab and grant **`GRAPH_DEVELOPER`** role and **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role to this user. (Two roles, **CONNECT** and **RESOURCE**, are selected by default. Please keep them checked so they will be also granted.)
 
 ![user-3](images/user-3.png)
 
@@ -119,12 +119,12 @@ Confirm that you can login with the new user.
 
 ![user-5](images/user-5.png)
 
-For details, see the ["Provide Database Actions Access to Database Users"](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/sql-developer-web.html#GUID-4B404CE3-C832-4089-B37A-ADE1036C7EEA) section in the documentation.
+For details, see the ["Create Users on Autonomous Database with Database Actions"](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/manage-users-create.html#GUID-DD0D847B-0283-47F5-9EF3-D8252084F0C1) section in the documentation.
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
+* **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka
+* **Last Updated By/Date** - Denise Myrick, July 2024

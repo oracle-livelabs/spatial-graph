@@ -117,7 +117,7 @@ COMMIT;
 </copy>
 ```
 
-## Task 7: Create and populate the `PARENT_OF` table
+## Task 6: Create and populate the `PARENT_OF` table
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
@@ -134,7 +134,7 @@ COMMIT;
 </copy>
 ```
 
-## Task 8: Create and populate the `PURCHASED` table
+## Task 7: Create and populate the `PURCHASED` table
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
@@ -163,7 +163,7 @@ COMMIT;
 </copy>
 ```
 
-## Task 9: Create and populate the `TRANSFER` table
+## Task 8: Create and populate the `TRANSFER` table
 
 Clear the SQL Worksheet. Copy, paste, and run the following SQL script.
 
@@ -195,5 +195,5 @@ You may now proceed to the next lab.
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Jenny Tsai, Arabella Yao
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
+* **Contributors** - Jenny Tsai, Arabella Yao, Ryota Yamanaka
+* **Last Updated By/Date** - Denise Myrick, July 2024

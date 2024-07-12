@@ -34,7 +34,7 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 3. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Transaction Processing (ATP) database. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
 
-    ![Select ATP](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
+    ![Select ATP](images/database-atp-v2.png)
 
 4. Make sure your Workload Type is **Transaction Processing** or **All** to see your Autonomous Transaction Processing instances. You can use the **List Scope** drop-down menu to select a Compartment. Select your **root compartment**, or **another compartment of your choice** where you will create your new ATP instance. If you want to create a new compartment or learn more about them, click [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#three).
 
@@ -51,33 +51,33 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 3. Provide basic information for the Autonomous Database:
 
     - **Choose a compartment** - Select a compartment for the database from the drop-down list.
-    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **ATP Graph**.
-    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use **ATPGRAPH**.
+    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **ATPGraph**.
+    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 30 characters. (Underscores not initially supported.) For this lab, use **ATPGRAPH**.
 
 4. Choose a workload type. Select the workload type for your database from the choices:
 
     - **Transaction Processing** - For this lab, choose **Transaction Processing** as the workload type.
     - **Data Warehouse** - Alternately, you could have chosen Data Warehouse as the workload type.
 
-    ![Workload type](images/workload-type.png)
+    ![Workload type](images/workload-type-v2.png)
 
 5. Choose a deployment type. Select the deployment type for your database from the choices:
 
-    - **Shared Infrastructure** - For this lab, choose **Shared Infrastructure** as the deployment type.
+    - **Serverless** - For this lab, choose **Serverless** as the deployment type.
     - **Dedicated Infrastructure** - Alternately, you could have chosen Dedicated Infrastructure as the workload type.
 
-    ![Deployment type](images/deployment-type.png)
+    ![Deployment type](images/deployment-type-v2.png)
 
-6. Configure the database, select the **Always Free** option:
+6. Configure the database:
 
-    - **Always Free** - For this lab, you can select this option to create an always free autonomous database, or not select this option and create a database using your paid subscription. An always free database comes with 1 CPU and 20 GB of storage. Selecting Always Free will suffice for this lab.
-    - **Choose database version** - Select a database version from the available versions (`19c` or `21c`).
-    - **OCPU Count** - Number of CPUs.
-    - **Auto scaling** - For this lab, keep auto scaling **disabled**.
-    - **Storage (TB)** - Storage capacity in terabytes.
+    - **Always Free** - For this lab, if available, you can select this option to create an always free autonomous database, or not select this option and create a database using your paid subscription. An always free database comes with 1 CPU and 20 GB of storage. Selecting Always Free will suffice for this lab.
+    - **Choose database version** - Select a database version from the available versions (`19c` or `23ai`).
+    - **ECPU count** - Number of ECPUs.
+    - **Compute auto scaling** - For this lab, keep auto scaling **disabled**.
+    - **Storage (TB)** - Storage capacity in gigabytes or terabytes.
     - **New Database Preview** - If a checkbox is available to preview a new database version, do **not** select it.
 
-    ![Select CPU and storage](images/atp-choose-cpu-storage.png)
+    ![Select CPU and storage](images/atp-choose-cpu-storage-v2.png)
 
 7. Create administrator credentials:
 
@@ -108,20 +108,16 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
     ![License](images/license.png)
 
 11.  Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
-    ![Status provisioning](images/atp-graph-provisioning.png)
-    ![Status available](images/atp-graph-available.png)
+    ![Status provisioning](images/atp-graph-provisioning-v2.png)
+    ![Status available](images/atp-graph-available-v2.png)
 
 You may now proceed to the next lab.
 
 ## Want to Learn More?
 
-Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/autonomous-workflow.html#GUID-5780368D-6D40-475C-8DEB-DBA14BA675C3) for documentation on the typical workflow for using Autonomous Data Warehouse.
+Click [here](https://docs.oracle.com/en/cloud/paas/atp-cloud/index.html) for documentation on using Autonomous Transaction Processing.
 
 ## Acknowledgements
 
-- **Author** - Nilay Panchal
-- **Adapted for Cloud by** - Richard Green
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
-- **Author** - Nilay Panchal
-- **Adapted for Cloud by** - Richard Green
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
+* **Author** - Nilay Panchal
+* **Contributors** - Richard Green, Ryota Yamanaka, Denise Myrick Product Management, Database Management.

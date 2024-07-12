@@ -48,7 +48,7 @@ You should see the following if the client shell starts up successfully.
 <copy>
 password:
 
-Oracle Graph Client Shell 22.4.0
+Oracle Graph Client Shell 24.2.0
 >>>
 </copy>
 ```
@@ -111,7 +111,7 @@ Check that the graph was created.
 PgxGraph(name: customer_360, v: 15, e: 24, directed: True, memory(Mb): 0)
 ```
 
-Run some PGQL queries. E.g. the list of the vertex labels:
+Run some PGQL queries, e.g. the list of the vertex labels:
 
 ```python
 <copy>
@@ -186,26 +186,26 @@ graph.query_pgql("""
 
 The newly created graph is "private" by default, and is accessible only from the current session. To access the graph from new sessions in future, you can "publish" the graph.
 
-Then create the graph again following the procedure above, then publish it.
+If you're no longer in the session, create the graph again following the procedure above. If you are still in the same session, you do not need to repeat Task 3. Publish the graph.
 ```python
 <copy>
 graph.publish()
 </copy>
 ```
 
-Next time you connect you can access the graph kept on memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
+Next time you connect you can access the graph kept in memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
 ```python
 <copy>
 graph = session.get_graph("customer_360")
 </copy>
 ```
 
-Please note that you are allowed to publish graphs because **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role has been granted when the user is created. Otherwise, it has to be granted by **ADMIN** user and re-connect with the Python shell to pick up the updated permissions.
+Please note that you are allowed to publish graphs because **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role has been granted when the user is created. Otherwise, it has to be granted by **ADMIN** user and you must re-connect with the Python shell to pick up the updated permissions.
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
 - **Author** - Jayant Sharma
-- **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
+- **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka
+- **Last Updated By/Date** - Denise Myrick, July 2024

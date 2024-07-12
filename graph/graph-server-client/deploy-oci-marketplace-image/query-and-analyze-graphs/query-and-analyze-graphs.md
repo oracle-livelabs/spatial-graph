@@ -22,7 +22,7 @@ Estimated Lab Time: 10 minutes
 
 ## Task 1: Get the Graph on Memory
 
-Assuming that the **customer_360** graph is already loaded onto the memory in the previous Lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
+Assuming that the **customer_360** graph is already loaded into the memory from the previous lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
 
 ```python
 <copy>
@@ -34,7 +34,7 @@ Now we can query this graph and run some analyses on it.
 
 ## Task 2: Pattern Matching
 
-PGQL Query is convenient for detecting specific patterns.
+PGQL queries are convenient for detecting specific patterns.
 
 Find accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:
 
