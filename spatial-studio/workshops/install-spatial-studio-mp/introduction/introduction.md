@@ -36,3 +36,4 @@ For more information please visit [https://www.oracle.com/database/spatial/] (ht
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributor** - Karin Patenge, Database Product Management
 - **Last Updated By/Date** - Denise Myrick, Database Product Management, June 2024
+

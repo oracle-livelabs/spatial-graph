@@ -17,12 +17,13 @@ Watch a short video that explains key features in Oracle Graph:
 ### Objectives
 
 In this workshop you will:
+
 - Provision Free Tier Compute and ADB Shared instances.
 - Deploy the Graph Server and Client Marketplace image.
 - Create and populate tables in the ADB instance.
 - Query, analyze, and visualize that data as graphs.
 
-This workshop is tested for the Graph Server version **21.4**.
+This workshop was last tested with the Oracle Graph Server and Client OCI Marketplace image version **24.2.0**.
 
 ### Prerequisites
 
@@ -32,6 +33,6 @@ This workshop is tested for the Graph Server version **21.4**.
 
 ## Acknowledgements
 
-* **Author** - Jayant Sharma, Product Manager, Spatial and Graph.
-* **Contributors** - Arabella Yao, Product Manager Intern, Database Management.
-
+- **Author** - Jayant Sharma, Product Manager, Spatial and Graph.
+- **Contributors** - Arabella Yao, Product Manager Intern, Database Management
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024

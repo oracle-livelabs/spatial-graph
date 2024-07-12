@@ -29,7 +29,7 @@ If you use **Chrome**, type **thisisunsafe** in the warning window to move to th
 
 ![login-chrome](images/login-chrome.jpg)
 
-Using **Firefox**, click **Advanced** and then **Accep the Risk and Continue**.
+Using **Firefox**, click **Advanced** and then **Accept the Risk and Continue**.
 
 ![login-firefox](images/login-firefox.jpg)
 
@@ -37,13 +37,23 @@ You should see a screen similar to the screenshot below. Enter the username (**c
 
 ![login](images/login.jpg)
 
-## Task 2: Modify query
+## Task 2: Modify and run a PGQL Graph Query
 
-Modify the query to get the first 5 rows, i.e. change **LIMIT 100** to **LIMIT 5**, and click Run.
+Modify the query displayed in PGQL Graph Query to
+
+    ```sql
+    <copy>
+    SELECT e
+    FROM MATCH ()-[e]->() ON customer_360
+    LIMIT 50
+    </copy>
+    ```
+
+and click Run (the blue arrow button).
 
 You should see a graph similar to the screenshot below.
 
-![show-5-elements](images/show-5-elements.jpg)
+![show-50-elements](images/show-50-elements_2.png)
 
 ## Task 3: Add highlights
 
@@ -51,17 +61,17 @@ Now let's add some labels and other visual context. These are known as highlight
 
 Click on the Load button under **Settings** (on the right side of the screen). Browse to the appropriate folder and choose the file and click Open to load that.
 
-![highlights-1](images/highlights-1.png)
+![highlights-1](images/highlights-1_2.png)
 
 The graph should now look like
 
-![highlights-2](images/highlights-2.png)
+![highlights-2](images/highlights-2_2.png)
 
-## Task 4: Pattern matching with PGQL
+## Task 4: Pattern-matching queries with PGQL
 
 1. Next let's run a few PGQL queries.
 
-    The [pgql-lang.org](http://pgql-lang.org) site and [Specification](http://pgql-lang.org/spec/1.4) are the best references for details and examples. For the purposes of this lab, however, here are minimal basics.
+    The [pgql-lang.org](http://pgql-lang.org) site and [Specification](http://pgql-lang.org/spec/2.0) are the best references for details and examples. For the purposes of this lab, however, here are minimal basics.
 
     The general structure of a PGQL query is:
 
@@ -73,14 +83,15 @@ The graph should now look like
     </copy>
     ```
 
-    PGQL provides a specific construct known as the **MATCH** clause for matching graph patterns. A graph pattern matches vertices and edges that satisfy the given conditions and constraints.  
-    - **(v)** indicates a vertex variable **v**   
-    - **-** indicates an undirected edge, as in (source)-(dest)  
-    - **->** an outgoing edge from source to destination  
-    - **<-** an incoming edge from destination to source  
+    PGQL provides a specific construct known as the **MATCH** clause for matching graph patterns. A graph pattern matches vertices and edges that satisfy the given conditions and constraints.
+
+    - **(v)** indicates a vertex variable **v**
+    - **-** indicates an undirected edge, as in (source)-(dest)
+    - **->** an outgoing edge from source to destination
+    - **<-** an incoming edge from destination to source
     - **[e]** indicates an edge variable **e**
 
-    Also, please omit the **graph_name** here, as it is selected from the GraphViz UI.
+    Also, please omit the **`graph_name`** here, as it is selected from the GraphViz UI.
 
 2. Let's find accounts that have had an outbound and and inbound transfer of over 500 on the same day.
 
@@ -89,59 +100,61 @@ The graph should now look like
     ```sql
     <copy>
     SELECT *
-    FROM MATCH (a)-[t1:transfer]->(a1)
-       , MATCH (a2)-[t2:transfer]->(a)
+    FROM MATCH (a)-[t1 IS transfer]->(b) ON customer_360
+       , MATCH (b)-[t2 IS transfer]->(c) ON customer_360
     WHERE t1.transfer_date = t2.transfer_date
       AND t1.amount > 500
       AND t2.amount > 500
     </copy>
     ```
 
-    In the first **MATCH** clause above, **(a)** indicates the source vertex and **(a1)** the destination, while **[t1:transfer]** is the edge connecting them. The **:transfer** specifies that the **t1** edge has the label **TRANSFER**. The comma (,) between the two patterns is an AND condition.
+    In the first **MATCH** clause above, **(a)** indicates the source vertex and **(b)** the destination, while **[t1 IS transfer]** defines edges with label **TRANSFER** connecting them. The second **MATCH** clause is similar. The comma (,) between the two MATCH clauses is an AND condition.
 
-3. Copy and paste the query into the PGQL Graph Query text input box of the GraphViz application. Click Run.
+    Copy and paste the query into the PGQL Graph Query text input and click Run.
 
-    The result should look as shown below. In the highlight settings, the accounts starting with **xxx-yyy-** are shown in red (= accounts of the bank), while **xxx-zzz-** are shown in orange (= accounts from another bank). 
+    The result should look as shown below. In the highlight settings, the accounts starting with **xxx-yyy-** are shown in red (= accounts of the bank), while **xxx-zzz-** are shown in orange (= accounts from another bank).
 
-    ![same-day-transfers](images/same-day-transfers.jpg)
+    ![same-day-transfers](images/same-day-transfers_2.png)
 
-4. The next query finds patterns of transfers to and from the same two accounts, i.e. from a1->a2 and back a2->a1.
+3. The next query finds patterns of transfers to and from the same two accounts, i.e. from a->b and back b->a.
 
     The PGQL query for this is:
+
     ```sql
     <copy>
     SELECT *
-    FROM MATCH (a1)-[t1:transfer]->(a2)-[t2:transfer]->(a1)
+    FROM MATCH (a)-[t1 IS transfer]->(b)-[t2 IS transfer]->(a) ON customer_360
     WHERE t1.transfer_date < t2.transfer_date
     </copy>
     ```
 
-5. Copy and paste the query into the PGQL Graph Query text input box of the GraphViz application. Click Run.
+    Copy and paste the query into the PGQL Graph Query text input and click Run.
 
     The result should look as shown below.
 
-    ![cycle-2-hops](images/cycle-2-hops.jpg)
+    ![cycle-2-hops](images/cycle-2-hops_2.png)
 
-6. Let's add one more account to that query to find a circular transfer pattern between 3 accounts.
+4. Let's add one more account to that query to find a circular transfer pattern between 3 accounts.
 
     The PGQL query becomes:
+
     ```sql
     <copy>
     SELECT *
-    FROM MATCH (a1)-[t1:transfer]->(a2)-[t2:transfer]->(a3)-[t3:transfer]->(a1)
+    FROM MATCH (a)-[t1 IS transfer]->(b)-[t2 IS transfer]->(c)-[t3 IS transfer]->(a) ON customer_360
     WHERE t1.transfer_date < t2.transfer_date
       AND t2.transfer_date < t3.transfer_date
     </copy>
     ```
 
-7. Copy and paste the query into the PGQL Graph Query text input box of the GraphViz application. Click Run.
+    Copy and paste the query into the PGQL Graph Query text input and click Run.
 
     The result should look as shown below.
 
-    ![cycle-3-hops](images/cycle-3-hops.jpg)
+    ![cycle-3-hops](images/cycle-3-hops_2.png)
 
 ## Acknowledgements
 
-* **Author** - Jayant Sharma
-* **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
+- **Author** - Jayant Sharma
+- **Contributors** - Arabella Yao, Jenny Tsai
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
