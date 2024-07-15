@@ -18,17 +18,35 @@ Estimated Lab Time: 5 minutes
 
 ## Task 1: Log into OML UI
 
-1. ... link to OML UI in reservation launchpad...
+1. Clink View Login Info to access your reservation information. 
 
-   ...pic...
+   ![View login info](images/view-login-info.png)
 
- 2. ... log in with user/pwd in reservation launchpad...
+2. Note the database user and password at the bottom. Then click the link for the OML UI. 
 
-  ...pic...
+  ![Reservation info](images/reservation-information.png)
 
- 3. ... OML UI has links to pages incl Notebooks  ... click Notebooks...
- 
-  ...pic...
+3. Sign into the OML UI using the database user and password in your reservation information.
+
+  ![OML UI sign in](images/omluser-signin.png)
+
+## Task 2: Work with OML Notebooks
+
+1. From OML user interface home page, click the link for Notebooks. 
+
+  ![OML UI sign in](images/oml-homepage.png)
+
+2. Click the **Create** link to create a new notebook.
+
+     ![Create notebook](images/create-notebook-a.png)
+
+   When prompted, enter the name **Testing** and click OK.
+
+      ![Create notebook](images/create-notebook-b.png)
+
+
+
+
 
 
 ## Task 2: Download pre-built notebooks
