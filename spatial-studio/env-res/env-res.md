@@ -14,7 +14,7 @@ In this lab, you will:
 
 ### Prerequisites
 
-* A completed LiveLabs Reservation for "Introduction to Oracle Spatial Studio" 
+* A completed LiveLabs reservation for "Introduction to Oracle Spatial Studio" 
 
 <!-- *This is the "fold" - below items are collapsed by default* -->
 

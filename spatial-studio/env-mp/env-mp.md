@@ -27,7 +27,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 1. Navigate to **Governance & Administration > Limits, Quota, and Usage**.
 
-   ![Check limits and quotas](images/quota-01.png)
+   ![Check limits and quotas](images/quota-01-v2.png)
 
 2. The Scope menu lists availability domains. Select the first availability domain, type **micro** in the Resource menu, and select **Cores for Standard.E2.1.Micro VM Instances**.
 
@@ -47,7 +47,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 01. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
 
-   ![Go to Oracle MarketPlace](images/mp-01.png)
+   ![Go to Oracle Marketplace](images/mp-01-v2.png)
 
 02. Search for **spatial** and then click on the **Oracle Spatial Studio** app.
 
@@ -99,7 +99,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
-   ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11.png)
+   ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11-v2.png)
 
    Then scroll down.
 
@@ -125,7 +125,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 2. Log in with user name **admin** and the password you entered in the Step 7 of Task 2.
 
-   ![Login dialog for Spatial Studio](images/mp-17.png)
+   ![Login dialog for Spatial Studio](images/mp-17-v2.png)
 
 3. Once logged in, hover over the icons in the main navigation panel on the left to see tooltips with the page names.
 
@@ -150,3 +150,4 @@ You may now **proceed to the next lab**.
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product Management, Oracle
 * **Last Updated By/Date** - Karin Patenge, Product Management, Oracle/May 2024
+

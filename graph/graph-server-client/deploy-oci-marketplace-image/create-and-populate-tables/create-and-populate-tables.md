@@ -18,9 +18,9 @@ Estimated time: 7 minutes
 
 ## Task 1: Log in to Database Actions
 
-Login as `CUSTOMER_360` using the password you entered when creating the user. The correct URL for Database Actions should contain `/customer_360/`
+Login as `CUSTOMER_360` using the password you entered when creating the user.
 
-![login-c360](images/login-c360.jpg)
+![login-c360](images/login-c360.png)
 
 ![sdw-c360](images/sdw-c360.jpg)
 

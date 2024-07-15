@@ -24,7 +24,7 @@ Estimated Lab Time: 5 minutes
 
   ![Select compartment](images/adb-02.png) 
 
-1. For display name enter **my-adw** and for database name enter **myadw**. Leave workload type as Data Warehouse. 
+1. For display name enter **my-adw**. Leave the database name as the default value. Leave workload type as Data Warehouse. 
 
    **Note:** You must select workload type Data Warehouse. Selecting Transaction Processing will result in a quota error. 
 
@@ -39,13 +39,13 @@ Estimated Lab Time: 5 minutes
 4. In the next lab, you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the compute instance hosting Python. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, enter the compute IP address from Lab 1 Task 1.
  ![Create ADW](images/adb-07.png) 
 
-8. In the next section select **Bring your own license (BYOL)** and **Oracle Database Enterprise Edition (EE)**.  For contacts, enter your email address. Then click **Create Autonomous Database**.
+1. In the next section select **Bring your own license (BYOL)** and **Oracle Database Enterprise Edition (EE)**.  For contacts, enter your email address. Then click **Create Autonomous Database**.
  ![Create ADW](images/adb-08.png)
 
-8. ADB provisioning will begin.
+1. ADB provisioning will begin.
  ![Create ADW](images/adb-09.png) 
 
-9. When provisioning is complete your ADB is ready.
+1. When provisioning is complete your ADB is ready.
  ![Create ADW](images/adb-10.png) 
 
 ## Task 2: Select option for performing the remainder of this hands-on lab
@@ -60,15 +60,16 @@ The remainder of this hands-on lab may be performed using either of the followin
 **Option 2:** Load a pre-built notebook with all steps and run each cell. 
    
    1. Perform **Lab 3 - Task 1** 
-   2. Perform **Lab 4 - Task 1**. 
-   3. Click the following link to download the pre-built notebook to you laptop:
+   2. Perform **Lab 4 - Task 1**
+   3. Perform **Lab 6 - Task 4 - Steps 5-6**
+   4. Click the following link to download the pre-built notebook to you laptop:
      * [prebuit-notebook.ipynb](../access-jupyterlab/files/prebuilt-notebook.ipynb) 
 
-   4. Click the upload button and select the prebuilt notebook.
+   5. Click the upload button and select the prebuilt notebook.
      
      ![Use prebuilt notebook](./images/prebuilt-nb-01.png)
 
-   5. Double-click on the prebuilt notebook to open it and run each cell.
+   6. Double-click on the prebuilt notebook to open it and run each cell.
 
      ![Use prebuilt notebook](./images/prebuilt-nb-02.png)
 

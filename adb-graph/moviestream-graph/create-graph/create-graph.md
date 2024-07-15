@@ -34,11 +34,9 @@ Learn how to
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
 
 ## Task 2: Log into Graph Studio
-
 [](include:adb-goto-graph-studio.md)
 
 ## Task 3: Create a Movie Recommendations graph
-
 [](include:adb-create-graph.md)
 
 ## Acknowledgements
