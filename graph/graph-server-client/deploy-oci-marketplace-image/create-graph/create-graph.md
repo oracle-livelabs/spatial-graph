@@ -8,9 +8,10 @@ Estimated time: 5 minutes
 
 ### Objectives
 
-Learn how to create a graph from relational data sources by:
-- Starting a client (Python shell) that connects to the Graph Server
-- Using PGQL Data Definition Language (DDL) (e.g. CREATE PROPERTY GRAPH) to instantiate a graph
+Learn how to create a graph representation of your existing tables by:
+
+- Using a Python client to connect to the Graph Server
+- Using PGQL to create and query a graph
 
 ### Prerequisites
 
@@ -34,7 +35,7 @@ ssh -i key.pem opc@203.0.113.14
 </copy>
 ```
 
-Start a Python client shell instance that connects to the server.
+Start the Python client (OPG4PY shell) on the Graph Server compute instance to connect to the Graph Server.
 
 ```sh
 <copy>
@@ -48,16 +49,16 @@ You should see the following if the client shell starts up successfully.
 <copy>
 password:
 
-Oracle Graph Client Shell 22.4.0
+Oracle Graph Server Shell 24.2.0
 >>>
 </copy>
 ```
 
 ## Task 2: Create a graph
 
-Set up the create property graph statement, which creates a graph from the existing tables.
+Set up the Create Property Graph statement, which creates a graph from the existing tables.
 
-```python  
+```python
 <copy>
 statement = '''
 CREATE PROPERTY GRAPH "customer_360"
@@ -80,25 +81,25 @@ CREATE PROPERTY GRAPH "customer_360"
   , transfer
       SOURCE KEY(account_id_from) REFERENCES account (id)
       DESTINATION KEY(account_id_to) REFERENCES account (id)
-  ) 
+  )
 '''
 </copy>
 ```
 
-For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec/1.4/#create-property-graph). Please note that *all columns of the input tables are mapped to the properties of vertices/edges [by default](https://pgql-lang.org/spec/1.4/#properties)*. For **owned_by** edge, only **id** property is given with **PROPERTIES** keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices. 
+For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec/1.4/#create-property-graph). Please note that *all columns of the input tables are mapped to the properties of vertices/edges [by default](https://pgql-lang.org/spec/1.4/#properties)*. For **owned_by** edge, only **id** property is given with **PROPERTIES** keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices.
 
 Now execute the PGQL DDL to create the graph.
 
 ```python
 >>> <copy>session.prepare_pgql(statement).execute()</copy>
-False   # This is the expected result
+False
 ```
+
+Please note, that the response *False* is the expected result.
 
 ## Task 3: Check the newly created graph
 
 Check that the graph was created. Copy, paste, and run the following statements in the Python shell.
-
-Attach the graph.
 
 ```python
 >>> <copy>graph = session.get_graph("customer_360")</copy>
@@ -111,7 +112,9 @@ Check that the graph was created.
 PgxGraph(name: customer_360, v: 15, e: 24, directed: True, memory(Mb): 0)
 ```
 
-Run some PGQL queries. E.g. the list of the vertex labels:
+## Task 4: Query the graph
+
+You can use PGQL now to query the graph Let´s start with a list of all vertex labels:
 
 ```python
 <copy>
@@ -129,24 +132,26 @@ graph.query_pgql("""
 +----------+
 ```
 
-How many vertices with each label:
+Find out next how many vertices each label has:
+
 ```python
 <copy>
 graph.query_pgql("""
-  SELECT COUNT(v), LABEL(v) FROM MATCH (v) GROUP BY LABEL(v)
+  SELECT LABEL(v), COUNT(v) FROM MATCH (v) GROUP BY LABEL(v)
 """).print()
 </copy>
 
 +---------------------+
-| COUNT(v) | LABEL(v) |
+| LABEL(v) | COUNT(v) |
 +---------------------+
-| 5        | MERCHANT |
-| 6        | ACCOUNT  |
-| 4        | CUSTOMER |
+| MERCHANT | 5        |
+| ACCOUNT  | 6        |
+| CUSTOMER | 4        |
 +---------------------+
 ```
 
-The list of the edge labels:
+Select all edge labels:
+
 ```python
 <copy>
 graph.query_pgql("""
@@ -164,29 +169,31 @@ graph.query_pgql("""
 +-----------+
 ```
 
-How many edges with each label:
+Find out next how many edges each label has:
+
 ```python
 <copy>
 graph.query_pgql("""
-  SELECT COUNT(e), LABEL(e) FROM MATCH ()-[e]->() GROUP BY LABEL(e)
+  SELECT LABEL(e), COUNT(e) FROM MATCH ()-[e]->() GROUP BY LABEL(e)
 """).print()
 </copy>
 
 +----------------------+
-| COUNT(e) | LABEL(e)  |
+| LABEL(e)  | COUNT(e) |
 +----------------------+
-| 4        | OWNED_BY  |
-| 8        | TRANSFER  |
-| 1        | PARENT_OF |
-| 11       | PURCHASED |
+| OWNED_BY  | 4        |
+| TRANSFER  | 8        |
+| PARENT_OF | 1        |
+| PURCHASED | 11       |
 +----------------------+
 ```
 
-## Task 4: Publish the graph
+## Task 5: Publish the graph
 
-The newly created graph is "private" by default, and is accessible only from the current session. To access the graph from new sessions in future, you can "publish" the graph.
+The newly created graph is "private" by default, and is accessible only from the current session. To access the graph from other sessions, you can "publish" the graph.
 
-Then create the graph again following the procedure above, then publish it.
+Use the following command to publish it.
+
 ```python
 <copy>
 graph.publish()
@@ -194,6 +201,7 @@ graph.publish()
 ```
 
 Next time you connect you can access the graph kept on memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
+
 ```python
 <copy>
 graph = session.get_graph("customer_360")
@@ -208,4 +216,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Ryota Yamanaka, March 2023
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
