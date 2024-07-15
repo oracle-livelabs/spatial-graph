@@ -30,7 +30,7 @@ In Autonomous Database Details page, open **Tools** tab and click **Database Act
 
 If required, enter **ADMIN** as username, the password (you set up at Lab 2), and **Sign in**.
 
-![login-2](images/login-2.jpg)
+![login-2](images/login-2.png)
 
 Go to **SQL** menu once you logged in as the **ADMIN** user.
 
@@ -129,4 +129,3 @@ You may now proceed to the next lab.
 - **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 - **Contributors** - Arabella Yao, Jenny Tsai
 - **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
-
