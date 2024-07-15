@@ -128,4 +128,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 - **Contributors** - Arabella Yao, Jenny Tsai
-`
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024

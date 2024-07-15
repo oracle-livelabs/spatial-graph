@@ -100,12 +100,16 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 9. Choose a license type. For this lab, choose **License Included**. The two license types are:
 
+    ![License](images/license_2.png)
+
+    Click on Switch to Bring your own license (BYOL), if you want to change the license type.
+
     - **Bring Your Own License (BYOL)** - Select this type when your organization has existing database licenses.
     - **License Included** - Select this type when you want to subscribe to new database software licenses and the database cloud service.
 
 10. Click **Create Autonomous Database**.
 
-    ![License](images/license.png)
+    ![Create Autonomous Database](images/create-adb_2.png)
 
 11. Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
 
