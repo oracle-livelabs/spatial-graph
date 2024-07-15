@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you you prepare your data for ML modeling. This includes adding spatial context to the non-spatial EV and demographics data by merging with spatial data for zip codes. In addition, you fill data gaps using a spatial algorithm and engineer a new feature using spatial analysis. You finally save the prepared data to ADB-S for use in the subsequent labs.
+In this lab you prepare your data for ML modeling. This includes adding spatial context to the non-spatial EV and demographics data by merging with spatial data for zip codes. In addition, you fill data gaps using a spatial algorithm and engineer a new feature using spatial analysis. You finally save the prepared data to ADB-S for use in the subsequent labs.
 
 Estimated Lab Time: 20 minutes
 

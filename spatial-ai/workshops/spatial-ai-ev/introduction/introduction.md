@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-In this workshop you load and prepare data related to electric vehicles in California, and then create models to predict electric adoption using spatial ML algorithms.  In doing so, you learn how spatial ML algorithms incorporate the effects of location and enhance traditional non-spatial ML with more reliable predictions.
+In this workshop you work with Oracle Machine Learning for Python (OML4Py) Spatial AI to load and prepare data related to electric vehicle registrations in California, and then create models to predict electric adoption using spatial ML algorithms.  In doing so, you learn how spatial ML algorithms incorporate the effects of location and enhance traditional non-spatial ML with more reliable predictions.
 
 Estimated Workshop Time: 90 minutes
 
@@ -20,7 +20,7 @@ OML4Py Spatial AI provides specialized machine learning algorithms that incorpor
 ### Prerequisites
 
 - An Oracle Cloud Account
-- Basic knowledge of Python
+- Basic knowledge of Python and machine learning concepts
 
 
 ## Acknowledgements

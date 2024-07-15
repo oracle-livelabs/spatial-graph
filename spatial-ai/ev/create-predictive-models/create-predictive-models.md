@@ -4,7 +4,7 @@
 
 In this lab you create models for predicting EV adoption using spatial regression algorithms.  You then compare model statistics and observe the benefits of employing spatial algorithms.
 
-Estimated Lab Time: xx minutes
+Estimated Lab Time: 45 minutes
 
 ### Objectives
 
