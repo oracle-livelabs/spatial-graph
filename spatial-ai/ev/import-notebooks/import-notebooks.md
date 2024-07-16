@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you log into the OML UI and import a set of pre-built notebooks used for the remainder of this workshop.
+The Oracle Machine Learning User Interface (OML UI) is the entry point for OML, with links to OML features and artifacts. A central feature of OML is OML Notebooks, an Apache Zeppelin-based web interface for machine learning workflows using any combination of Markdown, Python, SQL, and R. In this lab you log into the OML UI, create a simple notebook, and import a set of pre-built Python notebooks used for the remainder of this workshop.
 
 Estimated Lab Time: 5 minutes
 
@@ -44,9 +44,71 @@ Estimated Lab Time: 5 minutes
 
       ![Create notebook](images/create-notebook-b.png)
 
+3. Hover your mouse above or below the empty paragraph to display buttons for creating a new paragraph. Click on the markdown icon to add a markdown paragraph.
+
+      ![Markdown paragraph](images/md-paragraph-a.png)
+
+4. In the markdown paragraph add a new line and enter 
+   
+      ```
+       <copy>
+         ##### Hello World!
+       </copy>
+      ```
+   
+   Then click the play button to run the paragraph.
+
+      ![Markdown paragraph](images/md-paragraph-b.png)    
+
+5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
+
+      ![Markdown paragraph](images/py-paragraph-a.png)
+
+6. In the Python paragraph add a new line and enter 
+   
+      ```
+      <copy>
+      import oml
+      oml.isconnected()
+      </copy>
+      ``` 
+
+  Then click the play button to run the paragraph.
+
+     ![Markdown paragraph](images/py-paragraph-b.png)
+
+1. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
+
+      ![Markdown paragraph](images/sql-paragraph-a.png)
+
+2. In the SQL paragraph, enter 
+   
+      ```
+       <copy>
+         select count(*) from user_objects;
+       </copy>
+      ``` 
+
+  Then click the play button to run the paragraph.
+
+       ![Markdown paragraph](images/sql-paragraph-b.png)
+
+1. You can clear all results and run all paragraphs using the erasure and play buttons in the top button bars.
+
+       ![Markdown paragraph](images/clear-run-all-paragraphs.png)
+
+2. To navigate back to the Notebooks page, Click the icon to open the main navigation panel and then click **Notebooks**.
+
+       ![Markdown paragraph](images/nav-to-notebooks.png)
 
 
+3. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
 
+       ![Markdown paragraph](images/del-test-notebook-a.png)
+
+  When prompted click OK.
+
+       ![Markdown paragraph](images/del-test-notebook-b.png)
 
 
 ## Task 2: Download pre-built notebooks
