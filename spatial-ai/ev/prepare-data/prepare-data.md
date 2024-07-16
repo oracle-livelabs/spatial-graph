@@ -14,7 +14,7 @@ Estimated Lab Time: 20 minutes
 
 ### Prerequisites
 
-* Completion of Lab x - Load and explore data
+* Completion of Lab 2 - Load and explore data
 
 ## Task 1: Open the pre-built notebook for this lab
 

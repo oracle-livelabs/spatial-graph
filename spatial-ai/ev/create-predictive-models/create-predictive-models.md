@@ -12,7 +12,7 @@ Estimated Lab Time: 45 minutes
 
 ### Prerequisites
 
-* Completion of Lab x - Create non-spatial predictive models
+* Completion of Lab 3 - Prepare data
 
 ## Task 1: Open the pre-built notebook for this lab
 

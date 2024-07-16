@@ -62,7 +62,7 @@ Estimated Lab Time: 5 minutes
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
 
-      ![Markdown paragraph](images/py-paragraph-a.png)
+      ![Python paragraph](images/py-paragraph-a.png)
 
 6. In the Python paragraph add a new line and enter 
    
@@ -75,11 +75,11 @@ Estimated Lab Time: 5 minutes
 
   Then click the play button to run the paragraph.
 
-     ![Markdown paragraph](images/py-paragraph-b.png)
+     ![Python paragraph](images/py-paragraph-b.png)
 
 1. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
 
-      ![Markdown paragraph](images/sql-paragraph-a.png)
+      ![SQL paragraph](images/sql-paragraph-a.png)
 
 2. In the SQL paragraph, enter 
    
@@ -91,58 +91,44 @@ Estimated Lab Time: 5 minutes
 
   Then click the play button to run the paragraph.
 
-       ![Markdown paragraph](images/sql-paragraph-b.png)
+       ![SQL paragraph](images/sql-paragraph-b.png)
 
 1. You can clear all results and run all paragraphs using the erasure and play buttons in the top button bars.
 
-       ![Markdown paragraph](images/clear-run-all-paragraphs.png)
+       ![Clear/run all paragraph](images/clear-run-all-paragraphs.png)
 
 2. To navigate back to the Notebooks page, Click the icon to open the main navigation panel and then click **Notebooks**.
 
-       ![Markdown paragraph](images/nav-to-notebooks.png)
+       ![Navigate to Notebooks](images/nav-to-notebooks.png)
 
 
 3. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
 
-       ![Markdown paragraph](images/del-test-notebook-a.png)
+       ![Delete notebook](images/del-test-notebook-a.png)
 
   When prompted click OK.
 
-       ![Markdown paragraph](images/del-test-notebook-b.png)
+       ![Delete notebook](images/del-test-notebook-b.png)
 
 
-## Task 2: Download pre-built notebooks
+## Task 2: Import pre-built notebooks
 
-1. Download zip file containing pre-built notebooks [**here**](files/notebooks.zip)
+1. Click [**here**](files/oml-notebooks.zip) to download the file oml-notebooks.zip containing pre-built notebooks. Then unzip the file. 
 
-   ...pic...
+       ![Download notebooks](images/download-notebooks.png)
 
-2. Unzip the file
-
-    ...pic...
-
-## Task 3: Import pre-built notebooks
-
-1. Click Import and select all the notebooks unzipped in the previous step.
+1. Return to the OML Notebooks page and click **Import**
     
-    ...pic...
+       ![Import notebooks](images/import-notebooks.png)
 
-2. Click Open to import the notebooks
+2. Select all the notebooks unzipped in step 1, and click Open or OK depending on your platform.
     
-    ...pic...
+       ![Import notebooks](images/select-notebooks.png)
 
-3. Verify all notebooks are imported.
+3. Verify all notebooks are imported. You can see the full notebook names in a tooltip by hovering over the name.
     
-    ...pic...
+       ![Verify notebooks](images/verify-notebooks.png)
 
-
-## Task 4: Review OML Notebook toolbar options
-
-1. Opening a notebook in edit mode provides the following toolbar options:
-
-	![OML Notebook toolbar options](images/data-studio-notebook-icons.png)
-
-    You will work with notebooks for the remainder of this workshop, so refer back to this diagram as needed.
 
 ## Learn More
 
