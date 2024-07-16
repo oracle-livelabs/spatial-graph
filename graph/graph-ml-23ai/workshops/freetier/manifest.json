@@ -1,0 +1,42 @@
+{
+    "workshoptitle": "Graph Studio: Find Circular Payment Chains with Graph Queries in Autonomous Database",
+    "include": {
+        "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md"
+       },
+    "variables": ["/common/building-blocks/variables/variables.json"],
+    "help": "livelabs-help-sg_us@oracle.com",
+	"tutorials": [
+    {
+        "title": "Introduction",
+        "description": "Overview of this workshop.",
+        "filename": "../../introduction/introduction.md"
+    },
+    {
+        "title": "Get Started",
+        "description": "Prerequisites for this workshop",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
+    },
+    {
+        "title": "Lab 1: Setup",
+        "description": "freetier",
+        "filename": "../../setup/setup.md"
+    },
+    {
+        "title": "Lab 2: Create a graph",
+        "filename": "../../create-graph/create-graph-me.md"
+    },
+    {
+        "title": "Lab 3: Query and visualize the graph",
+        "filename": "../../query-graph/query-graph.md"
+    },
+    {
+        "title": "Lab 4: Clean-up: Terminate Graph Studio and ADB",
+        "filename": "../../destroy-environment/destroy-environment.md"
+    },
+    {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+    }
+      ]
+  }

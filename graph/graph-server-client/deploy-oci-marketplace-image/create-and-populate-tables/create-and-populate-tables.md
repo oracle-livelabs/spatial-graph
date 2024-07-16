@@ -2,9 +2,7 @@
 
 ## Introduction
 
-In this lab, you are going to log in as user `CUSTOMER_360`. You will learn how to clear previous tables, create new tables, and populate the tables with your data.
-
-You will create 7 tables (customer, account, merchant, purchased, transfer, parent_of). The entity-relationship diagram for these tables is shown below.
+In this lab, you will create tables belonging to user `CUSTOMER_360` and populate them with data. Find below the Entity-Relationship diagram for the tables.
 
 ![er-diagram](images/er-diagram.jpg)
 
@@ -12,12 +10,11 @@ Estimated time: 7 minutes
 
 ### Objectives
 
-- Learn how to connect to your new Autonomous Database using Database Actions
-- Learn how to create tables and insert data using SQL
+- Learn how to create tables and insert data using Database Actions
 
 ### Prerequisites
 
-- This lab assumes you have successfully completed the lab - Create and enable a user in Database Actions.
+- This lab assumes that you have successfully completed the lab - Create and enable a user in Database Actions.
 
 ## Task 1: Log in to Database Actions
 
@@ -27,9 +24,9 @@ Login as `CUSTOMER_360` using the password you entered when creating the user.
 
 ![sdw-c360](images/sdw-c360.jpg)
 
-## Task 2: Drop existing tables if any
+## Task 2: Drop existing tables if they exist
 
-To ensure a clean slate, drop any existing tables. Copy, paste, and execute the following commands into the SQL Worksheet.
+To ensure a clean slate, drop any existing tables. Copy, paste, and execute the following commands into the SQL Worksheet and run them as script.
 
 ```sql
 <copy>
@@ -43,7 +40,7 @@ DROP TABLE transfer;
 </copy>
 ```
 
-![drop-table](images/drop-table.jpg)
+![drop-table](images/drop-table_2.png)
 
 ## Task 3: Create and populate the `ACCOUNT` table
 
@@ -195,5 +192,5 @@ You may now proceed to the next lab.
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Jenny Tsai, Arabella Yao, Ryota Yamanaka
+* **Contributors** - Jenny Tsai, Arabella Yao, Ryota Yamanaka, Karin Patenge
 * **Last Updated By/Date** - Denise Myrick, July 2024

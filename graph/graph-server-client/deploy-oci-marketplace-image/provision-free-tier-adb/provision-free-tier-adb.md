@@ -51,8 +51,8 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 3. Provide basic information for the Autonomous Database:
 
     - **Choose a compartment** - Select a compartment for the database from the drop-down list.
-    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **ATPGraph**.
-    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 30 characters. (Underscores not initially supported.) For this lab, use **ATPGRAPH**.
+    - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **adb1**.
+    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 30 characters. (Underscores not initially supported.) For this lab, use **adb1**.
 
 4. Choose a workload type. Select the workload type for your database from the choices:
 
@@ -100,12 +100,18 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 9. Choose a license type. For this lab, choose **License Included**. The two license types are:
 
+    ![License](images/license_2.png)
+
+    Click on Switch to Bring your own license (BYOL), if you want to change the license type.
+
     - **Bring Your Own License (BYOL)** - Select this type when your organization has existing database licenses.
     - **License Included** - Select this type when you want to subscribe to new database software licenses and the database cloud service.
 
 10. Click **Create Autonomous Database**.
 
-    ![License](images/license.png)
+    ![Create Autonomous Database](images/create-adb_2.png)
+
+11. Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
 
 11.  Your instance will begin provisioning. In a few minutes the state will turn from Provisioning to Available. At this point, your Autonomous Transaction Processing database is ready to use! Have a look at your instance's details here including its Name, Database Version, OCPU Count and Storage size.
     ![Status provisioning](images/atp-graph-provisioning-v2.png)
@@ -119,5 +125,7 @@ Click [here](https://docs.oracle.com/en/cloud/paas/atp-cloud/index.html) for doc
 
 ## Acknowledgements
 
-* **Author** - Nilay Panchal
-* **Contributors** - Richard Green, Ryota Yamanaka, Denise Myrick Product Management, Database Management.
+- **Author** - Nilay Panchal
+- **Adapted for Cloud by** - Richard Green, Ryota Yamanaka, Karin Patenge
+- **Last Updated By/Date** - Denise Myrick, July 2024
+
