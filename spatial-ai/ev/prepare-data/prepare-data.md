@@ -15,33 +15,38 @@ Estimated Lab Time: 20 minutes
 ### Prerequisites
 
 * Completion of Lab 2 - Load and explore data
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
+
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
+
+Open the notebook **Lab 3 - Prepare data**.
+
+   ![Navigate to Notebooks page](images/lab-3-notebook.png)
+
+
+## Task 1: Import libraries and configure settings
 
 1. ...
 
-
-## Task 2: Import libraries and configure settings
-
-1. ...
-
-## Task 3: Join EV and demographics data to zip code spatial data
+## Task 2: Join EV and demographics data to zip code spatial data
 
 1. ...
    
-## Task 4: Prepare the target variable
+## Task 3: Prepare the target variable
 
 1. ...
 
-## Task 5: Fill missing values with spatial algorithm
+## Task 4: Fill missing values with spatial algorithm
 
 1. ...
 
-## Task 6: Engineer a new feature using spatial analysis
+## Task 5: Engineer a new feature using spatial analysis
 
 1. ...
 
-## Task 7: Save prepared data to ADB-S
+## Task 6: Save prepared data to ADB-S
 
 1. ...
 

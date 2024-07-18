@@ -13,34 +13,38 @@ Estimated Lab Time: 45 minutes
 ### Prerequisites
 
 * Completion of Lab 3 - Prepare data
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
 
-1. ...
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
 
+Open the notebook **Lab 4 - Create predictive models**.
 
-## Task 2: Import libraries and configure settings
+   ![Navigate to Notebooks page](images/lab-4-notebook.png)
 
-1. ...
-
-
-## Task 3: Load the previously saved non-spatial model
-
-1. ...
-
-## Task 4: Create a model using Spatial Error Regressor algorithm
+## Task 1: Import libraries and configure settings
 
 1. ...
 
-## Task 5: Create a model using Spatial Lag Regressor algorithm
+
+## Task 2: Load the previously saved non-spatial model
 
 1. ...
 
-## Task 6: Create a model using Geographical Regressor algorithm
+## Task 3: Create a model using Spatial Error Regressor algorithm
 
 1. ...
 
-## Task 7: Assess models
+## Task 4: Create a model using Spatial Lag Regressor algorithm
+
+1. ...
+
+## Task 5: Create a model using Geographical Regressor algorithm
+
+1. ...
+
+## Task 6: Assess models
 
 1. ...
 

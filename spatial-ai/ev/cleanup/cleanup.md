@@ -12,13 +12,18 @@ Estimated Lab Time: 5 minutes
 
 ### Prerequisites
 
-* Completion of Lab x
+* Completion of previous labs
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
 
-1. ...
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
 
-## Task 2: Drop tables
+Open the notebook **Lab 5 - Cleanup**.
+
+   ![Navigate to Notebooks page](images/lab-5-notebook.png)
+
+## Task 1: Drop tables
 
 1. ...
 

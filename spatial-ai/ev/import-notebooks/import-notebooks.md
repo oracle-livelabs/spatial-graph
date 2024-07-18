@@ -111,7 +111,7 @@ Estimated Lab Time: 5 minutes
        ![Delete notebook](images/del-test-notebook-b.png)
 
 
-## Task 2: Import pre-built notebooks
+## Task 3: Import pre-built notebooks
 
 1. Click [**here**](files/oml-notebooks.zip) to download the file oml-notebooks.zip containing pre-built notebooks. Then unzip the file. 
 
@@ -125,7 +125,7 @@ Estimated Lab Time: 5 minutes
     
        ![Import notebooks](images/select-notebooks.png)
 
-3. Verify all notebooks are imported. You can see the full notebook names in a tooltip by hovering over the name.
+3. Verify all notebooks are imported. If truncated, you can see the full notebook name in a tooltip by hovering your mouse over the notebook name.
     
        ![Verify notebooks](images/verify-notebooks.png)
 

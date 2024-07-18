@@ -13,26 +13,31 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* Completion of Lab x - Import notebooks
+* Completion of Lab 1 - Import notebooks
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
 
-1. ...
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
+
+Open the notebook **Lab 2 - Load and explore data**.
+
+   ![Navigate to Notebooks page](images/lab-2-notebook.png)
 
 
-## Task 2: Import libraries and configure settings
-
-1. ...
-
-## Task 3: Load from Object Storage to ADB-S
-
-1. ...
-
-## Task 4: Create proxy data frames 
+## Task 1: Import libraries and configure settings
 
 1. ...
 
-## Task 5: Explore data
+## Task 2: Load from Object Storage to ADB-S
+
+1. ...
+
+## Task 3: Create proxy data frames 
+
+1. ...
+
+## Task 4: Explore data
 
 1. ...
    
