@@ -5,12 +5,12 @@
     {
       "title": "Introduction",
       "description": "Introduction",
-      "filename": "../introduction/introduction.md"
+      "filename": "../../../introduction/introduction.md"
     },
     {
       "title": "Get Started",
       "description": "Create an Oracle APEX Workspace",
-      "filename": "https://oracle-livelabs.github.io/apex/apex-212/common/1-sign-up-apex/1-sign-up-apex.md"
+      "filename": "../../../access-apex/acces-apex.md"
     },
     {
       "title": "Lab 1: Install Sample Maps Application",
