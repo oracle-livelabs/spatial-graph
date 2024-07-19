@@ -25,30 +25,50 @@ Open the notebook **Lab 3 - Prepare data**.
 
    ![Navigate to Notebooks page](images/lab-3-notebook.png)
 
+You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
+
+   ![Run options](images/run-options.png)  
+
 
 ## Task 1: Import libraries and configure settings
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 1.
+
+   ![Lab 2 Task 1](images/lab3-task1.png)  
 
 ## Task 2: Join EV and demographics data to zip code spatial data
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 2.
+
+   ![Lab 2 Task 1](images/lab3-task2.png) 
    
-## Task 3: Prepare the target variable
+## Task 3: Fill missing values using spatial algorithm
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 4: Fill missing values with spatial algorithm
+   Scroll down to the beginning of Task 3.
 
-1. ...
+   ![Lab 2 Task 1](images/lab3-task3.png) 
 
-## Task 5: Engineer a new feature using spatial analysis
+## Task 4: Engineer a new feature using spatial analysis
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 6: Save prepared data to ADB-S
+   Scroll down to the beginning of Task 4.
 
-1. ...
+   ![Lab 2 Task 1](images/lab3-task4.png) 
+
+## Task 5: Save prepared data to ADB
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 5.
+
+   ![Lab 2 Task 1](images/lab3-task5.png) 
 
 
 ## Learn More

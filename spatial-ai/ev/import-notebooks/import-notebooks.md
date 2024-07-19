@@ -48,7 +48,7 @@ Estimated Lab Time: 5 minutes
 
       ![Markdown paragraph](images/md-paragraph-a.png)
 
-4. In the markdown paragraph add a new line and enter 
+4. In the markdown paragraph add a new line and paste in the following. 
    
       ```
        <copy>
@@ -64,7 +64,7 @@ Estimated Lab Time: 5 minutes
 
       ![Python paragraph](images/py-paragraph-a.png)
 
-6. In the Python paragraph add a new line and enter 
+6. In the Python paragraph add a new line and paste in the following.  
    
       ```
       <copy>
@@ -73,7 +73,7 @@ Estimated Lab Time: 5 minutes
       </copy>
       ``` 
 
-  Then click the play button to run the paragraph.
+   Remove any leading spaces so there is no indentation. Then click the play button to run the paragraph.
 
      ![Python paragraph](images/py-paragraph-b.png)
 

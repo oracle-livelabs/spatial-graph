@@ -23,31 +23,41 @@ Open the notebook **Lab 4 - Create predictive models**.
 
    ![Navigate to Notebooks page](images/lab-4-notebook.png)
 
+You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
+
+   ![Run options](images/run-options.png)   
+
 ## Task 1: Import libraries and configure settings
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
+   Scroll down to the beginning of Task 1.
 
-## Task 2: Load the previously saved non-spatial model
+   ![Lab 2 Task 1](images/lab4-task1.png)  
 
-1. ...
+## Task 2: Create training and test data sets
 
-## Task 3: Create a model using Spatial Error Regressor algorithm
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-1. ...
+   Scroll down to the beginning of Task 2.
 
-## Task 4: Create a model using Spatial Lag Regressor algorithm
+   ![Lab 2 Task 1](images/lab4-task2.png)  
 
-1. ...
+## Task 3: Create and assess predictive models
 
-## Task 5: Create a model using Geographical Regressor algorithm
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-1. ...
+   Scroll down to the beginning of Task 3.
 
-## Task 6: Assess models
+   ![Lab 2 Task 1](images/lab4-task3.png)  
 
-1. ...
+## Task 4: Use models for ad hoc predictions
 
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 4.
+
+   ![Lab 2 Task 1](images/lab4-task4.png)  
 
 ## Learn More
 

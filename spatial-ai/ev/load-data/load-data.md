@@ -1,4 +1,4 @@
-# Load data
+# Load and explore data
 
 ## Introduction
 
@@ -24,23 +24,33 @@ Open the notebook **Lab 2 - Load and explore data**.
 
    ![Navigate to Notebooks page](images/lab-2-notebook.png)
 
+You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
+
+   ![Run options](images/run-options.png)  
 
 ## Task 1: Import libraries and configure settings
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 2: Load from Object Storage to ADB-S
+   Scroll down to the beginning of Task 1.
 
-1. ...
+   ![Lab 2 Task 1](images/lab2-task1.png)  
 
-## Task 3: Create proxy data frames 
+## Task 2: Load data from Object Storage to ADB
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 4: Explore data
+   Scroll down to the beginning of Task 2.
 
-1. ...
-   
+   ![Lab 2 Task 2](images/lab2-task2.png)  
+
+## Task 3: Create proxy data frames and explore data
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 3.
+
+   ![Lab 2 Task 2](images/lab2-task3.png)  
 
 ## Learn More
 
