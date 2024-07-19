@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you remove artifacts created during this workshop. 
+This lab is optional. Perform the steps if you would like to remove artifacts created during this workshop, leaving your environment in a pre-workshop state. 
 
 Estimated Lab Time: 5 minutes
 
@@ -45,15 +45,12 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
 ## Task 3: Delete pre-built notebooks
 
-1. ...
+1. Navigate to the Notebooks page, select all workshop notebooks, and click **Delete**.
 
    ![Lab 5 Task 3](images/lab5-task3.png)  
 
-## Learn More
-
-* ...
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024

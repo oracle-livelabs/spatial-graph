@@ -132,9 +132,9 @@ Estimated Lab Time: 5 minutes
 
 ## Learn More
 
-* ...
+* [Oracle Machine Learning Notebooks](https://docs.oracle.com/en/database/oracle/machine-learning/oml-notebooks/)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, June 2024
+* **Last Updated By/Date**  - David Lapp, July 2024

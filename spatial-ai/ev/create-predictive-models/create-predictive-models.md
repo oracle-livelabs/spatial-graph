@@ -4,11 +4,14 @@
 
 In this lab you create models for predicting EV adoption using spatial regression algorithms.  You then compare model statistics and observe the benefits of employing spatial algorithms.
 
-Estimated Lab Time: 45 minutes
+Estimated Lab Time: 30 minutes
 
 ### Objectives
 
-* 
+* Create predictive models using spatial algorithms
+* Gather metrics and assess the models
+* Perform ad hoc predictions
+* Understand the behavior and benefits of spatial algorithms 
 
 ### Prerequisites
 
@@ -61,9 +64,9 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
 ## Learn More
 
-* ...
+* [OML4Py Spatial AI - Apply Spatial Regression](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/apply-spatial-regression1.html)
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024

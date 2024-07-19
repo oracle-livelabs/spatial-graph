@@ -9,7 +9,7 @@ Estimated Lab Time: 10 minutes
 ### Objectives
 
 * Load data from OCI Object Storage to ADB-S
-* Explore data to gain familiarity
+* Gain familiarity with the data 
 
 ### Prerequisites
 
@@ -54,9 +54,9 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
 ## Learn More
 
-* ...
+* [OML4Py Spatial AI - Access Spatial Data](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/access-spatial-data1.html)
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024

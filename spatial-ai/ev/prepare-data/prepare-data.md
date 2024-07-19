@@ -73,9 +73,10 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
 ## Learn More
 
-* ...
+* [OML4Py Spatial AI - Preprocess Spatial Data](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/preprocess-spatial-data1.html)
+* [OML4Py Spatial AI - Oracle Spatial Based Analysis](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/oracle-spatial-based-analysis.html)
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024
