@@ -1,32 +1,32 @@
 {
   "workshoptitle": "Get Started with Maps and Spatial in APEX",
-  "help": "livelabs-help-db_us@oracle.com",
+  "help": "livelabs-help-sg_us@oracle.com",
 	"tutorials": [
     {
       "title": "Introduction",
       "description": "Introduction",
-      "filename": "../../../introduction/introduction.md"
+      "filename": "../../introduction/introduction.md"
     },
     {
       "title": "Get Started",
       "description": "Create an Oracle APEX Workspace",
-      "filename": "../../../access-apex/acces-apex.md"
+      "filename": "../../access-apex/acces-apex.md"
     },
     {
       "title": "Lab 1: Install Sample Maps Application",
-      "filename": "../../../install-sample-maps-app/install-sample-maps-app.md"
+      "filename": "../../install-sample-maps-app/install-sample-maps-app.md"
     },
     {
       "title": "Lab 2: Create Map with Wizard",
-      "filename": "../../../create-map-with-wizard/create-map-with-wizard.md"
+      "filename": "../../create-map-with-wizard/create-map-with-wizard.md"
     },
     {
       "title": "Lab 3: Create Map from Scratch",
-      "filename": "../../../create-map-from-scratch/create-map-from-scratch.md"
+      "filename": "../../create-map-from-scratch/create-map-from-scratch.md"
     },
     {
       "title": "Lab 4: Incorporate Spatial Analysis",
-      "filename": "../../../add-spatial-analysis/add-spatial-analysis.md"
+      "filename": "../../add-spatial-analysis/add-spatial-analysis.md"
     },
     {
       "title": "Need Help?",
