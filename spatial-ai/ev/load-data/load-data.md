@@ -1,4 +1,4 @@
-# Load data
+# Load and explore data
 
 ## Introduction
 
@@ -9,39 +9,54 @@ Estimated Lab Time: 10 minutes
 ### Objectives
 
 * Load data from OCI Object Storage to ADB-S
-* Explore data to gain familiarity
+* Gain familiarity with the data 
 
 ### Prerequisites
 
-* Completion of Lab x - Import notebooks
+* Completion of Lab 1 - Import notebooks
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
 
-1. ...
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
 
+Open the notebook **Lab 2 - Load and explore data**.
 
-## Task 2: Import libraries and configure settings
+   ![Navigate to Notebooks page](images/lab-2-notebook.png)
 
-1. ...
+You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
 
-## Task 3: Load from Object Storage to ADB-S
+   ![Run options](images/run-options.png)  
 
-1. ...
+## Task 1: Import libraries and configure settings
 
-## Task 4: Create proxy data frames 
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-1. ...
+   Scroll down to the beginning of Task 1.
 
-## Task 5: Explore data
+   ![Lab 2 Task 1](images/lab2-task1.png)  
 
-1. ...
-   
+## Task 2: Load data from Object Storage to ADB
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 2.
+
+   ![Lab 2 Task 2](images/lab2-task2.png)  
+
+## Task 3: Create proxy data frames and explore data
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 3.
+
+   ![Lab 2 Task 2](images/lab2-task3.png)  
 
 ## Learn More
 
-* ...
+* [OML4Py Spatial AI - Access Spatial Data](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/access-spatial-data1.html)
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024
