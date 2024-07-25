@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you you prepare your data for ML modeling. This includes adding spatial context to the non-spatial EV and demographics data by merging with spatial data for zip codes. In addition, you fill data gaps using a spatial algorithm and engineer a new feature using spatial analysis. You finally save the prepared data to ADB-S for use in the subsequent labs.
+In this lab you prepare your data for ML modeling. This includes adding spatial context to the non-spatial EV and demographics data by merging with spatial data for zip codes. In addition, you fill data gaps using a spatial algorithm and engineer a new feature using spatial analysis. You finally save the prepared data to ADB-S for use in the subsequent labs.
 
 Estimated Lab Time: 20 minutes
 
@@ -14,43 +14,69 @@ Estimated Lab Time: 20 minutes
 
 ### Prerequisites
 
-* Completion of Lab x - Load and explore data
+* Completion of Lab 2 - Load and explore data
+* Open the prebuilt notebook for this lab
 
-## Task 1: Open the pre-built notebook for this lab
+To open a prebuilt notebook, navigate to the Notebooks page and click on the notebook name. You can navigate to the Notebooks page by clicking the main navigation toggle icon and then select Notebooks.
 
-1. ...
+   ![Navigate to Notebooks page](images/notebooks-nav.png)
+
+Open the notebook **Lab 3 - Prepare data**.
+
+   ![Navigate to Notebooks page](images/lab-3-notebook.png)
+
+You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
+
+   ![Run options](images/run-options.png)  
 
 
-## Task 2: Import libraries and configure settings
+## Task 1: Import libraries and configure settings
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 3: Join EV and demographics data to zip code spatial data
+   Scroll down to the beginning of Task 1.
 
-1. ...
+   ![Lab 2 Task 1](images/lab3-task1.png)  
+
+## Task 2: Join EV and demographics data to zip code spatial data
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 2.
+
+   ![Lab 2 Task 1](images/lab3-task2.png) 
    
-## Task 4: Prepare the target variable
+## Task 3: Fill missing values using spatial algorithm
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 5: Fill missing values with spatial algorithm
+   Scroll down to the beginning of Task 3.
 
-1. ...
+   ![Lab 2 Task 1](images/lab3-task3.png) 
 
-## Task 6: Engineer a new feature using spatial analysis
+## Task 4: Engineer a new feature using spatial analysis
 
-1. ...
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
-## Task 7: Save prepared data to ADB-S
+   Scroll down to the beginning of Task 4.
 
-1. ...
+   ![Lab 2 Task 1](images/lab3-task4.png) 
+
+## Task 5: Save prepared data to ADB
+
+1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
+
+   Scroll down to the beginning of Task 5.
+
+   ![Lab 2 Task 1](images/lab3-task5.png) 
 
 
 ## Learn More
 
-* ...
+* [OML4Py Spatial AI - Preprocess Spatial Data](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/preprocess-spatial-data1.html)
+* [OML4Py Spatial AI - Oracle Spatial Based Analysis](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/cspai/oracle-spatial-based-analysis.html)
 
 ## Acknowledgements
 
-* **Author** - ...
-* **Last Updated By/Date**  - ...
+* **Author** - David Lapp, Product Manager
+* **Last Updated By/Date**  - David Lapp, July 2024
