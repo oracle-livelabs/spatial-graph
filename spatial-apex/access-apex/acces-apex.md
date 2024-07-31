@@ -41,7 +41,7 @@ Watch the video below for a quick walk-through of the lab.
 
 
 3. Enter the password for the Administration Services and click **Sign In to Administration**.     
-    The password is the same as the one entered for the ADMIN user when creating the ATP instance: **```SecretPassw0rd```**
+    The password is the same as the one for the ADMIN user. You can find this password in the **View Login Info** tab. 
 
     ![Administration Services login page](images/log-in-as-admin.png " ")
 
