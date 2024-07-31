@@ -35,7 +35,7 @@ Estimated Lab Time: 30 minutes
 
 ## Task 2: Add an Item for State Selection
 
-1. Drag a Select List item your filters region and update the name to **P2_STATE**.
+1. Drag a Select List item your filters region and update the name to **P2_STATE**, and label it as **State**.
 
     ![Add Select List Item](images/add-spatial-analysis-03-custom.png)
 
