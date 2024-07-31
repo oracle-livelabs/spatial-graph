@@ -17,6 +17,8 @@ Estimated Lab Time: 15 minutes
 
 ## Task 1: Install the Application
 
+   >**Note:** Your interface may look different because the screenshots are shown in **Light Mode**. You can change this by clicking on the username in the top right corner and selecting your preferred mode.  
+
 1. Begin by clicking on **App Builder**.
 
    ![APEX Application Builder](images/install-sample-maps-00.png)
@@ -27,53 +29,15 @@ Estimated Lab Time: 15 minutes
 
    **Note:** If your Workspace has existing application(s) then click **Create** and then **Starter App**.
 
-3. Click **Samples** to open a new browser tab with a listing of available sample apps.
-
-   ![Select Samples](images/install-sample-maps-02.png)
-
-4. Scroll down to **Sample Maps** and click **Download App**.
+3. Scroll down to **Sample Maps** and click **Install**.
 
    ![Image alt text](images/install-sample-maps-03.png)
 
-   You will be prompted to save the application bundle to a local folder.
-
-   **Note:** If you are redirected to github, then navigate to the folder for your APEX version and download **sample-maps.zip**.
-
-5. Return to your App Builder browser tab a.nd click **Import**.
-
-   ![Select Import](images/install-sample-maps-04.png)
-
-6. Drag and drop or browse to the Sample Maps application zip file that you downloaded previously.  Leave the File Type selection as Database Application, and then click **Next**.
-
-   ![Select Sample Maps Application zip](images/install-sample-maps-05.png)
-
-7. File import is confirmed. Click **Next** again.
-
-   ![Click Next](images/install-sample-maps-06.png)
-
-8. Leave the default menu selections and click **Install Application**.
-
-   ![Click Install Application](images/install-sample-maps-07.png)
-
-   This will take you to the Install Application wizard.
-
-9. Leave the default menu selections and click **Next**.
-
-   ![Click Next](images/install-sample-maps-08.png)
-
-10. Click **Next** to validate system compatibility.
-
-   ![Click Next](images/install-sample-maps-09.png)
-
-11. With compatibility confirmed, click **Install** to initiate the installation of supporting database objects and the APEX application.
-
-   ![Click Install](images/install-sample-maps-10.png)
-
-12. Once installation is complete, click **Run Application**.
+4. Once installation is complete, click the **Run** icon.
 
    ![Click Run Application](images/install-sample-maps-11.png)
 
-13. Sign in to the Sample Maps application using your APEX workspace username and password.
+5. Sign in to the Sample Maps application using your APEX workspace username and password.
 
    ![Sign in](images/install-sample-maps-12.png)
 
@@ -127,9 +91,11 @@ Estimated Lab Time: 15 minutes
 
    ![Table contents](images/install-sample-maps-22.png)
 
+<!--
    Then scroll to the right to see the geometry column. Since airports are stored as points, APEX displays a string representation of the point geometry value. Points are always based on a single coordinate so it makes sense for APEX to display the value in this way.
 
    ![Point geometries](images/install-sample-maps-23.png)
+
 
 4. Click on **EBA\_SAMPLE\_MAP\_SIMPLE_STATES**. Again, observe that the columns includes a column named GEOMETRY that has the type SDO\_GEOMETRY (Oracle's native spatial data type).
 
@@ -138,27 +104,27 @@ Estimated Lab Time: 15 minutes
 5. Click on the **Data** tab to view the table contents. Since this table stores states, the geometries are polygons. APEX does not display a string representation of these values since they may include be extremely long sets of coordinates.
 
    ![Polygon geometries](images/install-sample-maps-25.png)
-
-6. Observe the tables with names like **MDRT_....$**. These are automatically created and managed behind the scenes by the database to support spatial indexes on other tables. You never manually create, update, or delete these tables. They are solely to support spatial analysis operations and can be ignored.
+-->
+5. Observe the tables with names like **MDRT_....$**. These are automatically created and managed behind the scenes by the database to support spatial indexes on other tables. You never manually create, update, or delete these tables. They are solely to support spatial analysis operations and can be ignored.
 
    ![Spatial index artifacts](images/install-sample-maps-26.png)
 
-7. Finally, you can run a basic spatial query with this data.  Click on **SQL Workshop** and then  **SQL Commands**.
+6. Finally, you can run a basic spatial query with this data.  Click on **SQL Workshop** and then  **SQL Commands**.
 
    ![SQL Workshop - SQL Commands](images/install-sample-maps-27.png)
 
-8. The following query returns the number of airports with land coverage over 1000 acres that are within 100km of Texas. Notice the use of the native spatial operator **sdo\_within\_distance**. Copy and paste the query into the SQL Commands window and then click **Run** at the top right.
+7. The following query returns the number of airports with land coverage over 1000 acres that are within 100km of Texas. Notice the use of the native spatial operator **sdo\_within\_distance**. Copy and paste the query into the SQL Commands window and then click **Run** at the top right.
 
-   ```sql
-   <copy>
-   select count(a.id) as number_of_airports
-   from EBA_SAMPLE_MAP_AIRPORTS a,
+
+    ```
+    <copy>
+    SELECT count(a.id) AS number_of_airports
+    FROM EBA_SAMPLE_MAP_AIRPORTS a,
          EBA_SAMPLE_MAP_SIMPLE_STATES b
-   where b.state_code= 'TX'
+    WHERE b.state_code= 'TX'
       and land_area_covered > 1000
-      and sdo_within_distance(a.geometry, b.geometry, 'distance=100 unit=KM') = 'TRUE'
-   </copy>
-   ```
+      and sdo_within_distance(a.geometry, b.geometry, 'distance=100 unit=KM') = 'TRUE'</copy>
+     ```
 
    ![Spatial query](images/install-sample-maps-28.png)
 
@@ -176,4 +142,4 @@ This concludes the lab. You may now proceed to the next lab.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Carsten Czarski, APEX Development, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Database Product Management, July 2024

@@ -21,7 +21,7 @@ The wizard provides a quick and easy way to create a new application and your fi
 1. Navigate to **App Builder** and click **Create**.
 ![Create Application Wizard in App Builder](images/create-map-01.png)
 
-2. Select **New Application**.
+2. Select **Use Create App Wizard**.
 ![Create an Application - New Application](images/create-map-02.png)
 
 3. Enter a name for your application and click **Add Page**.

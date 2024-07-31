@@ -65,7 +65,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
     In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
 
-## Task 3: Load and query the `BANK_GRAPH` and visualize the results
+## Task 3: Load and query the `MOVIESTREAM` graph and visualize the results
 
 In this task, we will run the graph queries and use the settings tool to customize the graphs. If you have imported the notebook in task 1, you do not need to customize the visualizations to achieve the end result. However, you can manipulate the settings to explore different available options.
 

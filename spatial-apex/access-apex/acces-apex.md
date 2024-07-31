@@ -41,7 +41,7 @@ Watch the video below for a quick walk-through of the lab.
 
 
 3. Enter the password for the Administration Services and click **Sign In to Administration**.     
-    The password is the same as the one entered for the ADMIN user when creating the ATP instance: **```SecretPassw0rd```**
+    The password is the same as the one for the ADMIN user. You can find this password in the **View Login Info** tab. 
 
     ![Administration Services login page](images/log-in-as-admin.png " ")
 
@@ -53,7 +53,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![Choose type of schema](images/choose-schema.png " ")
 
-5. In the Create Workspace dialog, enter the following:
+6. In the Create Workspace dialog, enter the following:
 
     | Property | Value |
     | --- | --- |
@@ -66,12 +66,12 @@ Watch the video below for a quick walk-through of the lab.
 
     ![Create Workspace dialog](images/create-workspace.png " ")
 
-6. In the APEX Instance Administration page, click the **DEMO** link in the success message.         
-    *Note: This will log you out of APEX Administration so that you can log into your new workspace.*
+7. In the APEX Instance Administration page, click the **DEMO** link in the success message.         
+    >**Note:** This will log you out of APEX Administration so that you can log into your new workspace.
 
-    ![APEX Instance Administration page](images/log-out-from-admin.png " ")
+    ![APEX Instance Administration page](images/log-out-from-admin.png " ")  
 
-7. On the APEX Workspace log in page, enter **``SecretPassw0rd``** for the password, check the **Remember workspace and username** checkbox, and then click **Sign In**.
+8. On the APEX Workspace log in page, enter **``SecretPassw0rd``** for the password, check the **Remember workspace and username** checkbox, and then click **Sign In**.
 
     ![APEX Workspace log in page](images/log-in-to-workspace.png " ")
 
