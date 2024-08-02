@@ -48,48 +48,23 @@ Estimated Lab Time: 5 minutes
 
       ![Markdown paragraph](images/md-paragraph-a.png)
 
-4. In the markdown paragraph add a new line and paste in the following. 
+4. In the markdown paragraph, add a new line, enter the following command, and click the run icon.
    
-      ```
-       <copy>
-         ##### Hello World!
-       </copy>
-      ```
-   
-   Then click the play button to run the paragraph.
-
-      ![Markdown paragraph](images/md-paragraph-b.png)    
+   ![Markdown paragraph](images/md-paragraph-b.png)    
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
 
       ![Python paragraph](images/py-paragraph-a.png)
 
-6. In the Python paragraph add a new line and paste in the following.  
-   
-      ```
-      <copy>
-      import oml
-      oml.isconnected()
-      </copy>
-      ``` 
-
-   Remove any leading spaces so there is no indentation. Then click the play button to run the paragraph.
+6. In the Python paragraph, add a new line, enter the following commands, and then click the run icon. This loads the OML Python library and verifies connectivity to your database.
 
      ![Python paragraph](images/py-paragraph-b.png)
 
-1. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
+7. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
 
       ![SQL paragraph](images/sql-paragraph-a.png)
 
-2. In the SQL paragraph, enter 
-   
-      ```
-       <copy>
-         select count(*) from user_objects;
-       </copy>
-      ``` 
-
-  Then click the play button to run the paragraph.
+8. In the SQL paragraph, add a new line, enter the following command, and then click the run icon. This verifies SQL access by running a query that counts the objects in your database schema.
 
        ![SQL paragraph](images/sql-paragraph-b.png)
 
