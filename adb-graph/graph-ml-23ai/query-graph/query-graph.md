@@ -38,13 +38,13 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
 4. Click **Import**.
 
-    ![Shows the notebook file selected](images/notebook-file-selected.png " ") 
+    ![Shows the notebook file selected](images/notebook-file-selected.png " ")
 
-5. Once imported, it should open in Graph Studio.  
+5. Once imported, it should open in Graph Studio.
 
-    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")  
+    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")
 
-    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.
 
 ## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B)
 
