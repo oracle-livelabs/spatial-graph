@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will query the newly create graph (that is, `bank_graph`) in PGQL paragraphs of a notebook.
+In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
@@ -11,10 +11,11 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Objectives
 
-Learn how to
+Learn how to:
+
 - Import a notebook
 - Create a notebook and add paragraphs
-- Use Graph Studio notebooks and PGQL and Python paragraphs to query, analyze, and visualize a graph
+- Use Graph Studio notebooks with PGQL and Python paragraphs to query, analyze, and visualize a graph
 
 ### Prerequisites
 
@@ -22,8 +23,8 @@ Learn how to
 
 ## Task 1: Import the notebook (OPTION A)
 
-The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
-First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
+The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.
+First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.
 
 1. Download the exported notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
 
@@ -32,20 +33,20 @@ First **import** the sample notebook and then execute the relevant paragraph for
     ![ALT text is not available for this image](images/import-notebook-button.png " ")  
 
 3. Drag the downloaded file or navigate to the correct folder and select it for upload.  
-    
+
     ![ALT text is not available for this image](images/choose-exported-file.png " ")  
 
 4. Click **Import**.
-  
-    ![Shows the notebook file selected](images/notebook-file-selected.png " ") 
 
-5. Once imported, it should open in Graph Studio.  
+    ![Shows the notebook file selected](images/notebook-file-selected.png " ")
 
-    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")  
+5. Once imported, it should open in Graph Studio.
 
-    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
+    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")
 
-## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B) 
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.
+
+## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B)
 
 1. Go to the **Notebooks** page and click the **Create** button.
 
@@ -70,7 +71,7 @@ First **import** the sample notebook and then execute the relevant paragraph for
 In this task, we will run the graph queries and use the settings tool to customize the graphs. If you have imported the notebook in task 1, you do not need to customize the visualizations to achieve the end result. However, you can manipulate the settings to explore different available options.
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
+If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.
 
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
@@ -82,7 +83,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
      ```
      <copy>%python-pgx
-     GRAPH_NAME="BANK_GRAPH"
+     GRAPH_NAME="MOVIESTREAM"
      # try getting the graph from the in-memory graph server
      graph = session.get_graph(GRAPH_NAME)
      # if it does not exist read it into memory
