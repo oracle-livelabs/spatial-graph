@@ -104,6 +104,17 @@ Estimated Lab Time: 5 minutes
     
        ![Verify notebooks](images/verify-notebooks.png)
 
+4. The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
+
+  * <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
+  * <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
+  * <a href="https://numpy.org/" target="_blank"> **numpy**</a>  provides array structures
+  * <a href="https://pandas.pydata.org/" target="_blank"> **pandas** </a> provides data structures and manipulation
+  * <a href="https://pypi.org/project/shapely/" target="_blank"> **shapely**</a>  provides geometry data structure and manipulation
+  * <a href="https://geopandas.org" target="_blank"> **geopandas**</a>  adds spatial data capabilities to pandas
+  * <a href="https://scikit-learn.org" target="_blank"> **sklearn**</a>   provides machine learning  
+  * <a href="https://matplotlib.org/" target="_blank"> **matplotlib**</a>  provides visualizations
+
 
 ## Learn More
 
