@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you load data from files in OCI Object Storage to tables in ADB-S. You then explore the data to get generally familiar with the contents. The data include spatial and non-spatial  data and are used throughout the remainder of this workshop. 
+In this lab, you load data from files in OCI Object Storage to tables in ADB-S. You then explore the data to get  familiar with its contents. The data include spatial and non-spatial data and are used throughout this workshop. 
 
 Estimated Lab Time: 10 minutes
 
