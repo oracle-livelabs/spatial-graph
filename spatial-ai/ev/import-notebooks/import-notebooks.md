@@ -48,48 +48,23 @@ Estimated Lab Time: 5 minutes
 
       ![Markdown paragraph](images/md-paragraph-a.png)
 
-4. In the markdown paragraph add a new line and paste in the following. 
+4. In the markdown paragraph, add a new line, enter the following command, and click the run icon.
    
-      ```
-       <copy>
-         ##### Hello World!
-       </copy>
-      ```
-   
-   Then click the play button to run the paragraph.
-
-      ![Markdown paragraph](images/md-paragraph-b.png)    
+   ![Markdown paragraph](images/md-paragraph-b.png)    
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
 
       ![Python paragraph](images/py-paragraph-a.png)
 
-6. In the Python paragraph add a new line and paste in the following.  
-   
-      ```
-      <copy>
-      import oml
-      oml.isconnected()
-      </copy>
-      ``` 
-
-   Remove any leading spaces so there is no indentation. Then click the play button to run the paragraph.
+6. In the Python paragraph, add a new line, enter the following commands, and then click the run icon. This loads the OML Python library and verifies connectivity to your database.
 
      ![Python paragraph](images/py-paragraph-b.png)
 
-1. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
+7. Hover your mouse below the Python paragraph to display buttons for creating a new paragraph. Click on the SQL icon to add a SQL paragraph.
 
       ![SQL paragraph](images/sql-paragraph-a.png)
 
-2. In the SQL paragraph, enter 
-   
-      ```
-       <copy>
-         select count(*) from user_objects;
-       </copy>
-      ``` 
-
-  Then click the play button to run the paragraph.
+8. In the SQL paragraph, add a new line, enter the following command, and then click the run icon. This verifies SQL access by running a query that counts the objects in your database schema.
 
        ![SQL paragraph](images/sql-paragraph-b.png)
 
@@ -128,6 +103,17 @@ Estimated Lab Time: 5 minutes
 3. Verify all notebooks are imported. If truncated, you can see the full notebook name in a tooltip by hovering your mouse over the notebook name.
     
        ![Verify notebooks](images/verify-notebooks.png)
+
+4. The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
+
+  * <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
+  * <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
+  * <a href="https://numpy.org/" target="_blank"> **numpy**</a>  provides array structures
+  * <a href="https://pandas.pydata.org/" target="_blank"> **pandas** </a> provides data structures and manipulation
+  * <a href="https://pypi.org/project/shapely/" target="_blank"> **shapely**</a>  provides geometry data structure and manipulation
+  * <a href="https://geopandas.org" target="_blank"> **geopandas**</a>  adds spatial data capabilities to pandas
+  * <a href="https://scikit-learn.org" target="_blank"> **sklearn**</a>   provides machine learning  
+  * <a href="https://matplotlib.org/" target="_blank"> **matplotlib**</a>  provides visualizations
 
 
 ## Learn More
