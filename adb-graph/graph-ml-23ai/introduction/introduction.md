@@ -31,12 +31,11 @@ In this workshop you will:
 * Create a graph
 * Load the graph into memory for analysis
 * Create a notebook
-* Query and visualize the graph using PGQL notebook paragraphs
+* Query and visualize the graph using SQL Property Graph notebook paragraphs
 
 ### Prerequisites
 
 * Oracle Cloud Account
-* Provisioned Autonomous Database-Serverless instance
 <!---
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->

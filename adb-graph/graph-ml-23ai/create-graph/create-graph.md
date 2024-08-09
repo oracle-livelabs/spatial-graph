@@ -136,6 +136,6 @@ The **Jobs** page lists the status of background jobs and lets you view the asso
 
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** -  Jayant Sharma, Ramu Murakami Gutierrez, Denise Myrick Product Management
+* **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
 * **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
 
