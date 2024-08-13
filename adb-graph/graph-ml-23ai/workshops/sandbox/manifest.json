@@ -24,12 +24,12 @@
         "filename": "../../llm/llm.md"
     },
     {
-        "title": "Lab 2: Create a property graph in Graph Studio",
-        "filename": "../../create-graph/create-graph.md"
+        "title": "Lab 2: Import Notebook",
+        "filename": "../../create-graph/create-graph-notebook.md"
     },
     {
         "title": "Lab 3: Query and visualize the property graph",
-        "filename": "../../query-graph/query-graph.md"
+        "filename": "../../query-graph/query-graph-notebook.md"
     },
     {
         "title": "Need Help?",
