@@ -9,21 +9,22 @@
 
 ## Introduction
 
-In this lab you will create a graph from the `MOVIE, CUSTOMER, WATCH` and `WATCHED_WITH` tables using the Graph Studio guided user experience.
+In this lab you will create a graph from the `MOVIE, CUSTOMER_SAMPLE, WATCHED`, and `WATCHED_WITH` tables using the Graph Studio guided user experience.
 
 Estimated Time: 15 minutes.
 
 ### Objectives
 
 Learn how to
-- Use Graph Studio to create a graph from existing tables or views.
+
+- use Graph Studio to create a graph from existing tables or views.
 
 ### Prerequisites
 
 - The following lab requires an Autonomous Database Serverless instance.
 - And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Access the Autonomous Database 
+## Task 1: Access the Autonomous Database
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
@@ -43,31 +44,31 @@ Learn how to
     The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 --->
 
-## Task 3: Create a graph of accounts and transactions
+## Task 3: Create a graph of movies and watch data
 
-The **Home** icon takes you to the Home page.<br>
-The **Graph** page lists existing graphs for use in notebooks.<br>
-The **Notebook** page lists existing notebooks and lets you create a new one.<br>
-The **Templates** page let's you create templates for the graph visualizations.<br>
-The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
+The **Home** icon takes you to the Home page.</br>
+The **Graph** page lists existing graphs for use in notebooks and lets you create a new one.</br>
+The **Notebook** page lists existing notebooks and lets you create a new one.</br>
+The **Templates** page lets you create templates for the graph visualizations.</br>
+The **Jobs** page lists the status of background jobs and lets you view the associated log if any.</br>
 
 1. Click the **Graph** icon. Then click **Create Graph**.  
    
     ![Shows where the create button modeler is](images/graph-create-button.png " ")  
 
-2. Enter `MOVIESTREAM` as the graph name, then click **next**. The description field is optional. That graph name is used throughout the next lab, so do not enter a different name because the queries and code snippets in the next lab will fail.  
+2. Enter `MOVIESTREAM` as the graph name, then click **Next**. The description field is optional. That graph name is used throughout the next lab, so do not enter a different name because the queries and code snippets in the next lab will fail.  
     
-    ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
+    ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog-v2.png " ")
 
-3. Expand **GRAPHUSER** and select the `CUSTOMER`, `MOVIES`, `WATCHED` and `WATCHED_WITH` tables. Click **Next**. 
+3. Expand **MOVIESTREAM** and select the `CUSTOMER_SAMPLE`, `MOVIE`, `WATCHED` and `WATCHED_WITH` tables. Click **Next**. 
 
-    ![Shows how to select the CUSTOMER, MOVIES, WATCHED and WATCHED_WITH](./images/select-tables.png " ")
+    ![Shows how to select the CUSTOMER_SAMPLE, MOVIE, WATCHED, and WATCHED_WITH](./images/select-tables.png " ")
 
 4. Move them to the right, that is, click the first icon on the shuttle control.   
 
     ![Shows the selected tables](./images/selected-tables.png " ")
 
-5. The suggested graph has the `CUSTOMERS` and `MOVIES` as a vertex table since there are foreign key constraints specified on `WATCHED` and `WATHED_WITH` that reference it. And `WATCHED` and `WATHED_WITH` is a suggested edge table. Click **Next**. 
+5. The suggested graph has the `CUSTOMER_SAMPLE` and `MOVIE` as vertex tables since there are foreign key constraints specified on `WATCHED` and `WATCHED_WITH` that reference it. And `WATCHED` and `WATCHED_WITH` are suggested edge tables. Click **Next**. 
 
     ![Shows the vertex and edge table](./images/create-graph-suggested-model.png " ")    
 
@@ -121,7 +122,7 @@ The **Jobs** page lists the status of background jobs and lets you view the asso
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-7. In the Summary step, click on **Create Graph**. 
+6. In the Summary step, click on **Create Graph**.
 
     ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
 
@@ -129,13 +130,12 @@ The **Jobs** page lists the status of background jobs and lets you view the asso
 
     ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
-    After this, you will be taken to the Jobs page where the graph will be created.  
+    After this, you will be taken to the Jobs page where the graph will be created.
 
-    
     This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** -  Jayant Sharma, Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, July 2024
+* **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
+* **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
 
