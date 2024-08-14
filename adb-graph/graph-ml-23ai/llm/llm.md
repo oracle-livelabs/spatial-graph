@@ -22,7 +22,7 @@ Learn how to
 
     ![Navigating to Generative AI.](images/access-genai.png " ")
 
-2. A welcome message will pop up in the screen.  You can start introduction or exit. Click on **Go to playground**. ›
+2. A welcome message will pop up in the screen.  You can start introduction or exit. Click on **Go to playground**.
 
     ![Go to Generative AI playground.](images/go-to-playground.png " ")
 
