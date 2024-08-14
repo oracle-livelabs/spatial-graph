@@ -18,7 +18,7 @@ Estimated Lab Time: 5 minutes
 
 ## Task 1: Log into OML UI
 
-1. Clink View Login Info to access your reservation information. 
+1. Click View Login Info to access your reservation information. 
 
    ![View login info](images/view-login-info.png)
 
