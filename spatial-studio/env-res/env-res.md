@@ -22,7 +22,7 @@ In this lab, you will:
 
 1. In Workshop Details, note your Cloud username, password, Compartment, and Spatial Studio IP address. Then launch the Cloud Console.
 
- ![Workshop details](images/workshopdetails.png "Workshop details")  
+ ![Workshop details](images/workshopdetails-v2.png "Workshop details")  
 
 2. Sign-in using **Oracle Cloud Infrastructure Direct Sign-in** using your Cloud user name and initial password. You will be prompted to change the default password.
 
@@ -34,11 +34,11 @@ In this lab, you will:
 
 4. In the Compartment form on the left, start typing your Compartment name noted earlier. This will dynamically filter the Compartments list. Once listed, select your Compartment. Your Autonomous Database will then be listed. Click on the link to your Autonomous Database.
 
- ![Compartment list](images/compartmentlist.png "Compartment list") 
+ ![Compartment list](images/compartmentlist-v2.png "Compartment list") 
 
 5. Click on **Database Connection** and then **Download Wallet**. You will promoted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your laptop as you will use it in the next step.
 
- ![Database Connection](images/databaseconnection.png "Database connection") 
+ ![Database Connection](images/databaseconnection-v2.png "Database connection") 
 
 ## Task 2: Spatial Studio First-Time Login 
 
