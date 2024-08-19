@@ -11,11 +11,11 @@ Estimated Workshop Time: 2 hours
 
 ### About Oracle Spatial Studio
 
- Oracle Spatial Studio (Spatial Studio) provides no-code access to the spatial capabilities of Oracle Database. While these capabilities have historically required coding and/or use of 3rd party tools, Spatial Studio allows business users to create and share spatial analysis and interactive web maps using self-service GUIs. 
+ Oracle Spatial Studio (Spatial Studio) provides no-code access to the spatial capabilities of Oracle Database. While these capabilities have historically required coding and/or use of 3rd party tools, Spatial Studio allows business users to create and share spatial analysis and interactive web maps using self-service GUIs.
 
   ![Oracle Spatial Studio](./images/spatial-studio.png)
 
-Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. The end user features of Spatial Studio can be summarized as follows:
+Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data can be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes. The end user features of Spatial Studio can be summarized as follows:
 
 Access and prepare spatial data:
   - Access spatial/non-spatial data in Oracle Database
@@ -47,13 +47,19 @@ Understanding Spatial Studio capabilities to
    - This workshop requires access to Spatial Studio and Oracle Database.  
 </if>
 <if type="reservation">  
-  - This workshop requires access to Spatial Studio and Oracle Database. These are created for you as part of your LiveLabs Reservation.  
+  - This workshop requires access to Spatial Studio and Oracle Database. These are created for you as part of your LiveLabs reservation.  
 </if>
 
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
+>**Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, Database Product Management, April 2021
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, June 2024
+
+
+## Need Help?
+Please submit feedback or ask for help using our [LiveLabs Support Forum](https://forums.oracle.com/ords/apexds/domain/dev-community/category/livelabs?tags=spatial). Please click the **Sign In** button and login using your Oracle Account. Click the **New Post** button to the right to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
+
+If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one. 

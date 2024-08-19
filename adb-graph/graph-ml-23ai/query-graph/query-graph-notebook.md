@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in PGQL paragraphs of a notebook.
+In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in SQL and PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
@@ -15,7 +15,7 @@ Learn how to:
 
 - Import a notebook
 - Create a notebook and add paragraphs
-- Use Graph Studio notebooks with SQL and Python paragraphs to query, analyze, and visualize a graph
+- Use Graph Studio notebooks with SQL and PGQL paragraphs to query, analyze, and visualize a graph
 
 ### Prerequisites
 
@@ -23,14 +23,16 @@ Learn how to:
 
 ## Task 1: Explore the data available in the database
 
-We couldn't find any movies released in 2024 using an LLM. In this task, we will explore the data that is available in the database, and search for movies that were recently released. 
+In this workshop, we on the development team at Oracle MovieStream, a fictitious on-line movie streaming company, which has a new feature helping users coordinate watch parties for their friends, who are also MovieStream users. The service uses each party goers' watch history to help inform suggestions. Users can use the LLM to ask general questions about movies, but as we saw, has limitations. One of our customers, Adriana, is exploring the watch party feature. She wants to see what 2024 adventure movie she might be interested in watching and which of her friends she could invite to a party. MovieStream includes an option to personalize an email to Adriana's invitees to her watch party.
+
+In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.
+If the compute environment is not ready just yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.
 
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
-1. We will first start by identifying movies that were released in 2024. We are using vectors to find movies with genre type Adventure for our watch party.    
+1. We will first start by identifying movies that were released in 2024. We are using vectors to find movies with genre type Adventure for our watch party.
 
      ```
      <copy>%sql
@@ -45,7 +47,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     ![Adventure movies released in 2024](images/db-adventure-movies.png  " ") 
 
-2. What movies have our customers watched that are similar to 'The Fall Guy?' Let's run a vector search to find out.
+2. Our search result gives 'The Fall Guy' the highest score for ADVENTURE movies in 2024 that we have available for our customers to watch.
+
+Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run a vector search to find out.
 
      ```
      <copy>%sql
@@ -60,9 +64,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
 ## Task 2: Create and query a Property Graph using SQL
 
-Let's see how movies are connected to customers who have watched movies. We will first create a graph of customers, movies they have watched, and movies they have watched in watch parties. The we will query the graph using SQL. 
+Knowing what movies are similar to 'The Fall Guy' is a good start, but it doesn't fully achieve Adriana's goal. We need more information about the relationships between customers and movies they watch. We will first create a graph of customers, movies they have watched, and movies they have watched at watch parties. Then, we will query the graph using SQL and PGQL.
 
-1. The following query creates a graph of customers, movies they have watched, and movies they have watched in watch parties.
+1. The following query creates a graph of customers, movies they have watched, and movies they have watched at watch parties.
 
      ```
      <copy>%sql
@@ -87,7 +91,7 @@ Let's see how movies are connected to customers who have watched movies. We will
 
     ![Creating sql graph](images/create-sql-graph.png " ")
 
-2. Let's take a close look at our customer Adriana Osborne. We will take a look at the movies she has watched, and the watch parties she has been to. The next query helps us find her CUST_ID to make writing the queries a bit easier. 
+2. Let's take a close look at our customer, Adriana Osborne. We want to know the movies she has watched, and the watch parties she has been to. The next query helps us find her CUST_ID to make writing the queries a bit easier.
 
      ```
      <copy>%sql
@@ -127,9 +131,9 @@ Let's see how movies are connected to customers who have watched movies. We will
 
 ## Task 3: Create and query a Property Graph using PGQL
 
-We will visualize the results of this graph query by creating a PGQL Property Graph. (SQL Property Graph visualization coming soon!)
+This is great, but sometimes a visualization helps us identify relationships more quickly. We will visualize the results of this graph query by creating a PGQL Property Graph. (SQL Property Graph visualization coming soon!)
 
-1. Run the following query to create the same proppery graph query using PGQL.
+1. Run the following query to create the same property graph query using PGQL.
 
      ```
      <copy>%pgql-rdbms
@@ -155,9 +159,9 @@ We will visualize the results of this graph query by creating a PGQL Property Gr
 
     ![Create PGQL Graph](images/create-pgql-graph.png " ")
 
-    Let's run the previous queries in PGQL. 
+    Let's run the previous queries in PGQL.
 
-2. This query helps us visualize the watch parties Adriana has been a part of, and some other movies other watch party attendees have watched.
+2. This query helps us visualize the movies Adriana watched at a watch party and who else attended these events.
 
      ```
      <copy>%pgql-rdbms
@@ -169,7 +173,7 @@ We will visualize the results of this graph query by creating a PGQL Property Gr
 
     ![Movies Adriana and others have watched at a watch party in pgql](images/adiana-and-others-pgql.png " ")
 
-3. This query visualize the movies Adriana has watched previously.
+3. This query visualizes the movies Adriana has watched previously.
 
      ```
      <copy>%pgql-rdbms
@@ -179,11 +183,12 @@ We will visualize the results of this graph query by creating a PGQL Property Gr
          WHERE c1.CUST_ID = 1005510</copy>
       ```
 
-    ![Movies Adriana and others have watched at a watch party in pgql](images/adiana-movies-pgql.png " ")
+    ![Movies Adriana has watched in pgql](images/adiana-movies-pgql.png " ")
 
 ## Task 4: Continue querying the MOVIE_RECOMMENDATIONS graph using SQL and PGQL
 
-Is 'The Fall Guy' a good movie recommendation for Adriana? If Adriana has attended watch parties for movies similar to 'The Fall Guy', it's safe to say that she will be interested in attending a watch party for 'The Fall Guy'.
+We want to know whether Adriana has gone to watch parties for movies similar to 'The Fall Guy.'
+Maybe she will be interested in getting together with the same group of people to watch 'The Fall Guy.'
 
 1. Let us first find out the MOVIE_ID for the 'The Fall Guy' so that writing the query will be a little easier.
 
@@ -194,7 +199,7 @@ Is 'The Fall Guy' a good movie recommendation for Adriana? If Adriana has attend
 
     ![Identify The Fall Guys ID](images/thefall-id.png " ")
 
-2. The following query helps us find watch parties that Adriana has been to, and the watch party movie is similar to 'The Fall Guy.'
+2. The following query helps us find watch parties that Adriana has been to where the movie they watched was similar to 'The Fall Guy.'
 
      ```
      <copy>%sql
@@ -210,9 +215,9 @@ Is 'The Fall Guy' a good movie recommendation for Adriana? If Adriana has attend
      ORDER BY vec_dist  desc;</copy>
      ```
 
-    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy](images/watch-parties.png " ")
+    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy](images/watch-parties-v2.png " ")
 
-    Let's visualize this query! 
+    Let us visualize the graph in this query, again using a PGQL graph.
 
      ```
      <copy>%pgql-rdbms
@@ -224,7 +229,7 @@ Is 'The Fall Guy' a good movie recommendation for Adriana? If Adriana has attend
      
     ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy visualized](images/watch-party.png " ")
 
-    This group seems perfect for organizing a watch party to watch The Fall Guy. Given the strong turnout for the Star Wars Episode IX: The Rise of Skywalker watch party, so we will use the help of the OCI Generative AI service to set up this watch party.
+    Given the strong turnout for the 'Star Wars Episode IX: The Rise of Skywalker' watch party, this group seems perfect for organizing a watch party to watch 'The Fall Guy' so we will use the help of the OCI Generative AI service to set up this watch party.
 
 This concludes this lab.
 
