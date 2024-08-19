@@ -17,34 +17,32 @@ Estimated Time: 15 minutes.
 
 Learn how to
 
-- use Graph Studio to create a graph from existing tables or views.
+- Log into Graph Studio
+- Import a notebook
 
 ### Prerequisites
 
 - The following lab requires an Autonomous Database Serverless instance.
 - And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Access the Autonomous Database
+## Task 1: Log into Graph Studio
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click on **Oracle Database Actions**. This will take you to the main Database Action Page. 
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
+    ![Click on Oracle Database Actions](images/database-actions.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**. 
+2. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
+    ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
-## Task 2: Log into Graph Studio
-[](include:adb-goto-graph-studio.md)
-<!---
-    The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
-    The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
-    The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one. 
-    The Templates page ![Template icon](images/template.svg "")  let's you create templates for the graph visualizations.
-    The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
---->
+    login using the following credentials:
+    
+    **Username:** MOVIESTREAM    
+    **Password:** watchS0meMovies#
 
-## Task 3: Import the notebook
+    ![Click Graph Studio.](./images/graph-studio-signin.png " ")
+
+## Task 2: Import the notebook
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
 

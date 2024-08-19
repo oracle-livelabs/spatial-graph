@@ -2,12 +2,10 @@
 
 ## Introduction
 
-In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in PGQL paragraphs of a notebook.
+In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in SQL and PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
-Watch the video below for a quick walk-through of the lab.
-[Query and visualize the property graph](videohub:1_42g4tneh)
 
 ### Objectives
 
@@ -15,166 +13,298 @@ Learn how to:
 
 - Import a notebook
 - Create a notebook and add paragraphs
-- Use Graph Studio notebooks with SQL and Python paragraphs to query, analyze, and visualize a graph
+- Use Graph Studio notebooks with SQL and PGQL paragraphs to query, analyze, and visualize a graph
 
 ### Prerequisites
 
 - Earlier labs of this workshop. That is, the graph user exists, you have logged into Graph Studio, and created a graph
 
-## Task 1: Import the notebook (OPTION A)
+## Task 1: Explore the data available in the database
 
-The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.
-First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.
+In this workshop, we on the development team at Oracle MovieStream, a fictitious on-line movie streaming company, will demonstrate a new feature to help users coordinate watch parties for their friends, who are also MovieStream users. The service uses each party goers' watch history to help inform suggestions.
 
-1. Download the exported notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
+One of our customers, Adriana Osborne, is exploring the watch party feature. She wants to see what 2024 adventure movie she might be interested in watching and which of her friends she could invite to a party. MovieStream includes an option to personalize an email to Adriana's invitees to her watch party.
 
-2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
+In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
 
-    ![ALT text is not available for this image](images/import-notebook-button.png " ")  
-
-3. Drag the downloaded file or navigate to the correct folder and select it for upload.  
-
-    ![ALT text is not available for this image](images/choose-exported-file.png " ")  
-
-4. Click **Import**.
-
-    ![Shows the notebook file selected](images/notebook-file-selected.png " ")
-
-5. Once imported, it should open in Graph Studio.
-
-    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")
-
-    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.
-
-## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B)
-
-1. Go to the **Notebooks** page and click the **Create** button.
-
-    ![Shows navigation to create notebook](./images/create-notebook.png)
-
-2. Enter the notebook Name. Optionally, you can enter Description and Tags. Click **Create**.
-
-    ![Demonstrates how to create a new name for a notebook](./images/name-notebook.png)
-
-3. To add a paragraph, hover over the top or the bottom of an existing paragraph.
-
-    ![Hovering over paragraph](./images/paragraph-hover.png)
-
-    There are 9 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
-
-    ![Shows the different paragraphs and samples](./images/paragraphs.png)
-
-    In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
-
-## Task 3: Load and query the `MOVIESTREAM` graph and visualize the results
-
-In this task, we will run the graph queries and use the settings tool to customize the graphs. If you have imported the notebook in task 1, you do not need to customize the visualizations to achieve the end result. However, you can manipulate the settings to explore different available options.
-
->**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.
-
+>**Note:** Click the **Run Paragraph** button to run the query. 
+![The environment is loading because it's not ready ](images/run-paragraph.png " ")
+*Execute the relevant paragraph after reading the description in each of the steps below*.
+If the compute environment is not ready just yet and the code cannot be executed then you will see a line moving across the bottom of the paragraph to indicate that a background task is in progress.
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
-1. Let's see what movies we have in our database.   
+1. Users can use the LLM to ask general questions about movies. Let's ask the LLM to give us the top 10 adventure movies released in the past 2 years.
+
+    ![Submit question to Generative AI.](images/submit-question.png " ") 
+
+    GenAI Answer: 
+
+    ![The GenAI Answer.](images/genai-answer.png " ") 
+    
+    As we see, that has limitations. 
+    
+In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
+
+1. We will first start by identifying movies that were released in 2024. We are using vector search to find movies with genre type 'Adventure' for the watch party.
 
      ```
      <copy>%sql
-     SELECT m.TITLE, m.YEAR
-     FROM MOVIES m
-     WHERE m.YEAR > 2021
+     SELECT m.TITLE, m.MOVIE_ID, m.YEAR
+     FROM MOVIE m
+     WHERE m.YEAR = 2024
      ORDER BY vector_distance(m.summary_vec, 
      vector_embedding(doc_model_bert using 'ADVENTURE' as data), COSINE)</copy>
-     ``` 
+     ```
 
-    ![circular payments chains of between 1 and 5 hops](images/circular-payments-1-5.png) " "
+    Looks like the 'The Fall Guy' has the highest score for ADVENTURE movies in 2024 that we have available for our customers to watch. 
 
-2. Looks like the 'The Fall Guy' has the highest score for ADVENTURE movies in 2024 that we have available for our customers to watch.
-What movies have my customers watched that are similar to 'The Fall Guy?' Let me run a vector search to find out.
+    ![Adventure movies released in 2024](images/db-adventure-movies.png  " ") 
+
+2. Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we have available for our customers to watch.
+
+Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run aanother vector search to find out.
 
      ```
      <copy>%sql
      SELECT mo.TITLE, mo.YEAR, vector_distance(m.summary_vec, mo.summary_vec, COSINE) as vec_dist
-     FROM MOVIES m, MOVIES mo
+     FROM MOVIE m, MOVIE mo
      WHERE m.TITLE = 'The Fall Guy'
      ORDER BY vec_dist;
      </copy>
      ``` 
 
-    ![circular payments chains of between 1 and 5 hops](images/circular-payments-2.png " ") 
+    ![Movies similar to The Fall Guy](images/similar-fallguy.png " ") 
 
-3. What I want to know is whether my customers have had watch parties with movies similar to 'The Fall Guy.'
-This is a query to identify customers who have been together in a watch party, and one of them has watched a movie similar to 'The Fall Guy.'
+## Task 2: Create and query a Property Graph using SQL
+
+Knowing what movies are similar to 'The Fall Guy' is a good start, but it doesn't fully achieve Adriana's goal. We need more information about the relationships between customers and movies they watch. We will first create a graph of customers, movies they have watched, and movies they have watched at watch parties. Then, we will query the graph using SQL and PGQL.
+
+1. The following query creates a graph of customers, movies they have watched, and movies they have watched at watch parties.
 
      ```
      <copy>%sql
-     SELECT C1NAME, C2NAME, MOVIE_TITLE, vector_distance(svec, (SELECT summary_vec from MOVIES WHERE title = 'The Fall Guy'), COSINE) as vec_dist 
+     CREATE PROPERTY GRAPH movie_recommendations
+     VERTEX TABLES (
+         CUSTOMER
+             KEY ( CUST_ID ),
+         MOVIE
+             KEY ( MOVIE_ID )
+     )
+     EDGE TABLES (
+         WATCHED
+             KEY ( DAY_ID, PROMO_CUST_ID, MOVIE_ID )
+             SOURCE KEY ( PROMO_CUST_ID ) REFERENCES CUSTOMER ( CUST_ID )
+             DESTINATION KEY ( MOVIE_ID ) REFERENCES MOVIE ( MOVIE_ID ),
+         WATCHED_WITH
+             KEY(ID)
+             SOURCE KEY ( WATCHER ) REFERENCES CUSTOMER( CUST_ID )
+             DESTINATION KEY ( WATCHED_WITH ) REFERENCES CUSTOMER ( CUST_ID )
+     );</copy>
+     ```
+
+    ![Creating sql graph](images/create-sql-graph.png " ")
+
+2. Let's take a close look at our customer, Adriana Osborne. We want to know the movies she has watched, and the watch parties she has been to. The next query helps us find her CUST_ID to make writing the queries a bit easier.
+
+     ```
+     <copy>%sql
+     SELECT CUST_ID FROM CUSTOMER WHERE FIRST_NAME ='Adriana'AND LAST_NAME = 'Osborne';</copy>
+     ```
+
+    ![Identify Adriana Osborne's CUST_ID](images/cust-id.png " ")
+
+    Now that we know Adriana's CUST_ID, let's look at some sample queries. 
+
+3. This query returns all the movies Adriana has watched.
+
+     ```
+     <copy>%sql
+     SELECT C1NAME, MOVIE_TITLE
+     FROM GRAPH_TABLE( MOVIE_RECOMMENDATIONS
+     MATCH (c1 IS CUSTOMER)-[e1 IS WATCHED]->(m IS MOVIE)
+     WHERE c1.CUST_ID = 1005510
+     COLUMNS (c1.FIRST_NAME as C1NAME, m.title as MOVIE_TITLE) );</copy>
+     ```
+
+    ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
+
+4. Next, let's take a look at the watch parties Adriana has been part of, and some other movies other watch party attendees have watched.
+
+     ```
+     <copy>%sql
+     SELECT C1NAME, C2NAME, MOVIE_TITLE
+	     FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS 
+         MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+         WHERE c1.CUST_ID = 1005510
+         COLUMNS (c1.FIRST_NAME as C1NAME, C2.FIRST_NAME as C2NAME, m.TITLE as MOVIE_TITLE)
+         )</copy>
+     ```
+
+    ![Movies Adriana and others have watched at a watch party](images/adiana-and-others.png " ")  
+
+## Task 3: Create and query a Property Graph using PGQL
+
+This is great, but sometimes a visualization helps us identify relationships more quickly. We will visualize the results of this graph query by creating a PGQL Property Graph. (SQL Property Graph visualization coming soon!)
+
+1. Run the following query to create the same property graph query using PGQL.
+
+     ```
+     <copy>%pgql-rdbms
+     CREATE PROPERTY GRAPH movie_recommendations_pgql
+     VERTEX TABLES (
+         CUSTOMER
+             KEY ( CUST_ID ),
+         MOVIE
+             KEY ( MOVIE_ID )
+             PROPERTIES ARE ALL COLUMNS EXCEPT(summary_vec)
+     )
+     EDGE TABLES (
+         WATCHED
+             KEY ( DAY_ID, PROMO_CUST_ID, MOVIE_ID )
+             SOURCE KEY ( PROMO_CUST_ID ) REFERENCES CUSTOMER ( CUST_ID )
+             DESTINATION KEY ( MOVIE_ID ) REFERENCES MOVIE ( MOVIE_ID ),
+         WATCHED_WITH
+             KEY(ID)
+             SOURCE KEY ( WATCHER ) REFERENCES CUSTOMER( CUST_ID )
+             DESTINATION KEY ( WATCHED_WITH ) REFERENCES CUSTOMER ( CUST_ID )
+     ) OPTIONS(PG_VIEW)</copy>
+     ```
+
+    ![Create PGQL Graph](images/create-pgql-graph.png " ")
+
+    Let's run the previous queries in PGQL.
+
+2. This query helps us visualize the movies Adriana watched at a watch party and who else attended these events.
+
+     ```
+     <copy>%pgql-rdbms
+     SELECT c1, e, c2, w, m
+         FROM MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+         ON MOVIE_RECOMMENDATIONS_PGQL 
+         WHERE c1.CUST_ID = 1005510</copy>
+     ```
+
+    ![Movies Adriana and others have watched at a watch party in pgql](images/adiana-and-others-pgql.png " ")
+
+3. This query visualizes the movies Adriana has watched previously.
+
+     ```
+     <copy>%pgql-rdbms
+     SELECT c1, w, m
+	     FROM MATCH (c1 is CUSTOMER) -[w is WATCHED]-> (m is MOVIE)
+         ON MOVIE_RECOMMENDATIONS_PGQL 
+         WHERE c1.CUST_ID = 1005510</copy>
+      ```
+
+    ![Movies Adriana has watched in pgql](images/adiana-movies-pgql.png " ")
+
+## Task 4: Continue querying the MOVIE_RECOMMENDATIONS graph using SQL and PGQL
+
+We want to know whether Adriana has gone to watch parties for movies similar to 'The Fall Guy.'
+Maybe she will be interested in getting together with the same group of people to watch 'The Fall Guy.'
+
+1. Let us first find out the MOVIE_ID for the 'The Fall Guy' so that writing the query will be a little easier.
+
+     ```
+     <copy>%sql
+     select MOVIE_ID from MOVIE where TITLE ='The Fall Guy';</copy>
+      ```
+
+    ![Identify The Fall Guys ID](images/thefall-id.png " ")
+
+2. The following query helps us find watch parties that Adriana has been to where the movie they watched was similar to 'The Fall Guy.'
+
+     ```
+     <copy>%sql
+     SELECT C1NAME, C2NAME, MOVIE_TITLE, vector_distance(svec, (SELECT summary_vec from MOVIE WHERE movie_id = 4004), COSINE) as vec_dist 
      FROM (
-	 SELECT C1NAME, C2NAME, MOVIE_TITLE, svec
-	 FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS 
-	     MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIES)
-	     COLUMNS (c1.FIRST_NAME as C1NAME, C2.FIRST_NAME as C2NAME, m.MOVIE_ID as m_id, m.TITLE as MOVIE_TITLE, m.YEAR as MOVIE_YEAR, m.SUMMARY_VEC as svec)
-	    )  
+         SELECT C1NAME, C2NAME, MOVIE_TITLE, svec
+         FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS 
+             MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+             WHERE c1.CUST_ID = 1005510
+             COLUMNS (c1.FIRST_NAME as C1NAME, C2.FIRST_NAME as C2NAME, m.MOVIE_ID as m_id, m.TITLE as MOVIE_TITLE, m.YEAR as MOVIE_YEAR, m.SUMMARY_VEC as svec, vertex_id(c1) as c1id, edge_id(e) as eid, vertex_id(c2) as c2id, edge_id(w) as wid, vertex_id(m) as mid)
+         )
      )
      ORDER BY vec_dist  desc;</copy>
-    ```
+     ```
 
-    ![circular payments chains of between 1 and 5 hops](images/circular-payments-3.png " ")
+    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy](images/watch-parties-v2.png " ")
 
-4. Now let us find customers who have been in a watch party together, and the watch party movie is similar to 'The Fall Guy.'
+    Let us visualize the graph in this query, again using a PGQL graph.
+
+     ```
+     <copy>%pgql-rdbms
+     SELECT c1, e, c2, w, m
+         FROM MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+         ON MOVIE_RECOMMENDATIONS_PGQL 
+         WHERE e.MOVIE_ID = m.MOVIE_ID and c1.CUST_ID = 1005510</copy>
+     ```
+     
+    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy visualized](images/watch-party.png " ")
+
+    Given the strong turnout for the 'Star Wars Episode IX: The Rise of Skywalker' watch party, this group seems perfect for organizing a watch party to watch 'The Fall Guy' so we will use the help of the OCI Generative AI service to set up this watch party.
+
+ ## Task 5: Use SQL and GenAI to write an invitation email
+
+ 1. Let's start by creating a table so we can easily create, save and call various prompts.
 
      ```
      <copy>%sql
-     SELECT C1NAME, C2NAME, MOVIE_TITLE, vector_distance(svec, (SELECT summary_vec from MOVIES WHERE title = 'The Fall Guy'), COSINE) as vec_dist 
-     FROM (
-	 SELECT C1NAME, C2NAME, MOVIE_TITLE, svec
-	 FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS 
-	     MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIES)
-         WHERE e.MOVIE_ID = m.MOVIE_ID
-	     COLUMNS (c1.FIRST_NAME as C1NAME, C2.FIRST_NAME as C2NAME, m.MOVIE_ID as m_id, m.TITLE as MOVIE_TITLE, m.YEAR as MOVIE_YEAR, m.SUMMARY_VEC as svec)
-	    )
+     CREATE TABLE PROMPT (
+         ID  NUMBER,
+         TASK VARCHAR2(40),
+         PROMPT VARCHAR2(400),
+         PROFILE_NAME VARCHAR2(40),
+         ACTION VARCHAR2(40)
+     );</copy>
+     ```
+
+    ![Create table to save and call various prompts](images/create-table.png " ")
+ 
+ 2. Then we can call the Gen AI service directtly through SQL, using a graph query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
+
+     ```
+     <copy>%sql
+     INSERT INTO PROMPT VALUES (
+         1, 
+         'TASK', 
+         'Write an email inviting this person to a watch party on the moviestream platform with watch Star Wars Episode IX The Rise of Skywalker tonight at 8pm',
+         'GENAI',
+         'chat'
+     );</copy>
+     ```
+    
+    ![Prompt the LLM to create an email invite for the watch party.](images/call-genai " ")
+
+ 3. Now we can generate an email for Carmine using SQL and GenAI. 
+
+     ```
+     <copy>%sql
+     WITH prompt_document AS (
+         SELECT
+             JSON_OBJECT (
+                 (SELECT TASK FROM PROMPT WHERE ID=1) VALUE (SELECT PROMPT FROM PROMPT WHERE ID=1),
+             email ) AS prompt_details
+             FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS
+                 MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE) 
+             WHERE e.MOVIE_ID = m.MOVIE_ID and c1.CUST_ID = 1005510 and c2.CUST_ID = 1221016
+             COLUMNS (c2.email as email) 
+         ) FETCH FIRST 2 ROWS ONLY
      )
-     ORDER BY vec_dist desc;</copy>
+     SELECT 
+         DBMS_LOB.SUBSTR(DBMS_CLOUD_AI.GENERATE(
+             PROMPT => prompt_details,
+             PROFILE_NAME => (SELECT PROFILE_NAME FROM PROMPT WHERE ID=1),
+             ACTION       => (SELECT ACTION FROM PROMPT WHERE ID=1)       
+         ), 4000, 1) AS Answer
+     FROM prompt_document;</copy>
      ```
+    
+    ![Email generated by LLM.](images/generated-email.png " ") 
 
-    ![Number of transfers top 10 query](images/35-num-transfers-top-10-query.png " ")
+    GenAI Answer: 
 
-This looks like a good set of folks to create a watch party for, to see the 'Fall Guy.' The watch part of 'Star Wars Episode IX: The Rise of Skywalker' has a good number of folks, so I will use the help of the OCI Generative AI service to set up this watch party.
-
-5. Let's load the graph into the in-memory graph server if it still needs to be loaded since we will execute some graph algorithms.
-
-    Run the **%python-pgx** paragraph, which uses the built-in session object to read the graph into memory from the database and creates a PgXGraph object that handles the loaded graph.  
-
-     ```
-     <copy>%python-pgx
-     GRAPH_NAME="MOVIESTREAM"
-     # try getting the graph from the in-memory graph server
-     graph = session.get_graph(GRAPH_NAME)
-     # if it does not exist read it into memory
-     if (graph == None) :
-         session.read_graph_by_name(GRAPH_NAME, "pg_view")
-         print("Graph "+ GRAPH_NAME + " successfully loaded")
-         graph = session.get_graph(GRAPH_NAME)
-     else :
-         print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
-     ```
-
-    ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
-
-6. Place holder for instructions
-
-     Execute the following query.
-
-     ```
-     <copy>%sql
-     SELECT C1NAME, MOVIE_TITLE, C2NAME
-     FROM GRAPH_TABLE( MOVIE_RECOMMENDATIONS
-     MATCH (c1)-[e1]->(m)<-[e2]-(c2)
-     WHERE c1.CUST_ID = 1005510 AND c2.CUST_ID = 1062082
-     COLUMNS (c1.FIRST_NAME as C1NAME, edge_id(e1) as e1, m.title as MOVIE_TITLE, 
-     edge_id(e2) as e2, c2.FIRST_NAME as C2NAME) );</copy>
-     ```
-
-    ![Number of transfers top 10 query](images/35-num-transfers-top-6.png " ")
+     ![Email generated by LLM.](images/answer-generated-email.png " ")     
 
 This concludes this lab.
 
