@@ -2,9 +2,8 @@
     "workshoptitle": "Use of Graph ML, Vector Search, RAG, and LLMs for Information Retrieval",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-     "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md",
-     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
-     "adb-create-graph.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-graph.md"
+     "adb-connect-with-sql-worksheet-non-admin.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-non-admin.md",
+     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
     },
     "variables": ["./variables.json"],
 	"tutorials": [
