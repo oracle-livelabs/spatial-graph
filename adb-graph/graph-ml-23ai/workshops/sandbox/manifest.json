@@ -2,9 +2,8 @@
     "workshoptitle": "Use of Graph ML, Vector Search, RAG, and LLMs for Information Retrieval",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-     "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md",
-     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
-     "adb-create-graph.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-graph.md"
+     "adb-connect-with-sql-worksheet-non-admin.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-non-admin.md",
+     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
     },
     "variables": ["./variables.json"],
 	"tutorials": [
@@ -19,17 +18,21 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
     },
     {
+        "title": "Your OCI GenAI key",
+        "filename": "https://oracle-livelabs.github.io/common/labs/ocw24/tut3335.md"
+    },
+    {
         "title": "Lab 1: Ask GenerativeAI for a movie recommendation",
         "description": "Prerequisites for this workshop",
-        "filename": "../../llm/llm.md"
+        "filename": "../../genai-setup/genai-setup.md"
     },
     {
         "title": "Lab 2: Import Notebook",
-        "filename": "../../create-graph/create-graph-notebook.md"
+        "filename": "../../import-notebook/import-notebook.md"
     },
     {
         "title": "Lab 3: Query and visualize the property graph",
-        "filename": "../../query-graph/query-graph-notebook.md"
+        "filename": "../../query-graph/query-graph.md"
     },
     {
         "title": "Need Help?",
