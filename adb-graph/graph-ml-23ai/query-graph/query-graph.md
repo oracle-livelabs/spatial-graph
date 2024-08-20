@@ -2,22 +2,20 @@
 
 ## Introduction
 
-In this lab, you will query the newly created graph (that is, `MOVIESTREAM`) in SQL and PGQL paragraphs of a notebook.
+In this lab, you will create and query a graph (that is, `MOVIESTREAM`) in SQL and PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
-
 
 ### Objectives
 
 Learn how to:
 
-- Import a notebook
-- Create a notebook and add paragraphs
-- Use Graph Studio notebooks with SQL and PGQL paragraphs to query, analyze, and visualize a graph
+- Use Graph Studio notebooks to query a LLM
+- Use Graph Studio notebooks with SQL and PGQL paragraphs to create, query, analyze, and visualize a graph
 
 ### Prerequisites
 
-- Earlier labs of this workshop. That is, the graph user exists, you have logged into Graph Studio, and created a graph
+- Earlier labs of this workshop. That is, the graph user exists, you have logged into Graph Studio, and imported the notebook
 
 ## Task 1: Explore the data available in the database
 
@@ -27,7 +25,7 @@ One of our customers, Adriana Osborne, is exploring the watch party feature. She
 
 In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
 
->**Note:** Click the **Run Paragraph** button to run the query. 
+>**Note:** Click the **Run Paragraph** button to run the query.
 ![The environment is loading because it's not ready ](images/run-paragraph.png " ")
 *Execute the relevant paragraph after reading the description in each of the steps below*.
 If the compute environment is not ready just yet and the code cannot be executed then you will see a line moving across the bottom of the paragraph to indicate that a background task is in progress.
@@ -39,13 +37,11 @@ If the compute environment is not ready just yet and the code cannot be executed
 
     GenAI Answer: 
 
-    ![The GenAI Answer.](images/genai-answer.png " ") 
-    
-    As we see, that has limitations. 
-    
-In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
+    ![The GenAI Answer.](images/genai-answer.png " ")
 
-1. We will first start by identifying movies that were released in 2024. We are using vector search to find movies with genre type 'Adventure' for the watch party.
+    As we see, that has limitations. We couldn't find any movies released in 2024 using an LLM. In this task, we will explore the data that is available in the database, and search for movies that were recently released.
+
+2. We will first start by identifying movies that were released in 2024. We are using vector search to find movies with genre type 'Adventure' for the watch party.
 
      ```
      <copy>%sql
@@ -62,7 +58,7 @@ In this task, we will explore the data that is available in the MovieStream data
 
 2. Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we have available for our customers to watch.
 
-Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run aanother vector search to find out.
+Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run another vector search to find out.
 
      ```
      <copy>%sql
@@ -244,7 +240,7 @@ Maybe she will be interested in getting together with the same group of people t
 
     Given the strong turnout for the 'Star Wars Episode IX: The Rise of Skywalker' watch party, this group seems perfect for organizing a watch party to watch 'The Fall Guy' so we will use the help of the OCI Generative AI service to set up this watch party.
 
- ## Task 5: Use SQL and GenAI to write an invitation email
+## Task 5: Use SQL and GenAI to write an invitation email
 
  1. Let's start by creating a table so we can easily create, save and call various prompts.
 
@@ -261,7 +257,7 @@ Maybe she will be interested in getting together with the same group of people t
 
     ![Create table to save and call various prompts](images/create-table.png " ")
  
- 2. Then we can call the Gen AI service directtly through SQL, using a graph query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
+ 2. Then we can call the Gen AI service directly through SQL, using a graph query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
 
      ```
      <copy>%sql
@@ -274,7 +270,7 @@ Maybe she will be interested in getting together with the same group of people t
      );</copy>
      ```
     
-    ![Prompt the LLM to create an email invite for the watch party.](images/call-genai " ")
+    ![Prompt the LLM to create an email invite for the watch party.](images/call-genai.png " ")
 
  3. Now we can generate an email for Carmine using SQL and GenAI. 
 
