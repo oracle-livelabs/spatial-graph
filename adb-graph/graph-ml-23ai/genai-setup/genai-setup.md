@@ -71,10 +71,9 @@ Learn how to
     <tenancy> can be found in the text file as 'tenancy'
     <private_key> can be found as the contents .pem file that does not have the '_public' extension.
     <fingerprint> can be found in the text file as 'fingerprint' 
-
     ```
 
-    Copy and paste the following code, and make the necessary changes: 
+    Copy and paste the following code, and make the necessary changes.
 
     ```
     <copy>
@@ -90,7 +89,7 @@ Learn how to
     /</copy>
     ```
 
-    Here is an example of how it should look:
+    Here is **an example** of how it should look. Then run the the script using the **Run Statement** button to create the DBMS Cloud Credential. 
 
     ```
     BEGIN
@@ -104,38 +103,43 @@ Learn how to
     /
     ```
 
-    Run the the script using the **Run Statement** button to create the DBMS Cloud Credential. 
-
     ![Create the DBMS Cloud Credential.](images/dbms-credentials.png " ") 
 
-3. Then, create a Gen AI profile using the default llama model. Copy and run this script using the **Run Script** button. 
+3. Then, create a Gen AI profile using the default llama model. You will need this information:  
 
     ```
-    <copy>begin    
-
-        -- drops the profile if it already exists
-        DBMS_CLOUD_AI.drop_profile(profile_name => 'genai', force => true);
-
-        -- Create an AI profile that uses the default LLAMA model on OCI
-        dbms_cloud_ai.create_profile(
-            profile_name => 'genai',
-            attributes =>       
-                '{"provider": "oci",
-                "credential_name": "GRAPH_OCW_CREDENTIAL",
-                "comments":"true",            
-                "object_list": [
-                    {"owner": "MOVIESTREAM", "name": "MOVIE"},
-                    {"owner": "MOVIESTREAM", "name": "CUSTOMER"},
-                    {"owner": "MOVIESTREAM", "name": "WATCHED"},
-                    {"owner": "MOVIESTREAM", "name": "WATCHED_WITH"}
-                ]
-                }'
-            );
-
-    end;
-    /</copy>
+    <oci_compartment_id> can be found in the text file as 'Compartment_ocid' 
     ```
-    ![Create a GenAI profile using thte default llama model.](images/genai-profile.png " ") 
+
+    Copy and paste the following code, and make the necessary changes. Then run this script using the **Run Script** button. 
+
+    ```
+     <copy>begin    
+         -- drops the profile if it already exists
+         DBMS_CLOUD_AI.drop_profile(profile_name => 'genai', force => true);
+
+         -- Create an AI profile that uses the default LLAMA model on OCI
+         dbms_cloud_ai.create_profile(
+             profile_name => 'genai',
+             attributes =>       
+                 '{"provider": "oci",
+                 "credential_name": "GRAPH_OCW_CREDENTIAL",
+                 "comments":"true",            
+                 "oci_compartment_id": "<compartment_ocid>",
+                 "object_list": [
+                     {"owner": "MOVIESTREAM", "name": "MOVIE"},
+                     {"owner": "MOVIESTREAM", "name": "CUSTOMER"},
+                     {"owner": "MOVIESTREAM", "name": "WATCHED"},
+                     {"owner": "MOVIESTREAM", "name": "WATCHED_WITH"}
+                 ]
+                 }'
+             );
+
+     end;
+     /</copy>
+    ```
+
+    ![Create a GenAI profile using the default llama model.](images/genai-profile.png " ") 
 
     This concludes this lab. **You may now proceed to the next lab.**
 

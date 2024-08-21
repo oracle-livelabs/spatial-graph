@@ -23,8 +23,6 @@ In this workshop, we on the development team at Oracle MovieStream, a fictitious
 
 One of our customers, Adriana Osborne, is exploring the watch party feature. She wants to see what 2024 adventure movie she might be interested in watching and which of her friends she could invite to a party. MovieStream includes an option to personalize an email to Adriana's invitees to her watch party.
 
-In this task, we will explore the data that is available in the MovieStream database, and search for movies that were recently released.
-
 >**Note:** Click the **Run Paragraph** button to run the query.
 ![The environment is loading because it's not ready ](images/run-paragraph.png " ")
 *Execute the relevant paragraph after reading the description in each of the steps below*.
@@ -32,6 +30,15 @@ If the compute environment is not ready just yet and the code cannot be executed
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
 1. Users can use the LLM to ask general questions about movies. Let's ask the LLM to give us the top 10 adventure movies released in the past 2 years.
+
+     ```
+     <copy>%sql
+     SELECT DBMS_CLOUD_AI.GENERATE(
+         prompt       => 'what are the top 10 adventure movies',
+         profile_name => 'genai',
+         action       => 'chat')
+     FROM dual;</copy>
+     ```
 
     ![Submit question to Generative AI.](images/submit-question.png " ") 
 
@@ -52,13 +59,11 @@ If the compute environment is not ready just yet and the code cannot be executed
      vector_embedding(doc_model_bert using 'ADVENTURE' as data), COSINE)</copy>
      ```
 
-    Looks like the 'The Fall Guy' has the highest score for ADVENTURE movies in 2024 that we have available for our customers to watch. 
+    Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we have available for our customers to watch. 
 
     ![Adventure movies released in 2024](images/db-adventure-movies.png  " ") 
 
-2. Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we have available for our customers to watch.
-
-Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run another vector search to find out.
+3. Adriana wants to know which movies it's similar to to help her decide if she'd like to watch it. Let's run another vector search to find out.
 
      ```
      <copy>%sql
@@ -107,9 +112,9 @@ Knowing what movies are similar to 'The Fall Guy' is a good start, but it doesn'
      SELECT CUST_ID FROM CUSTOMER WHERE FIRST_NAME ='Adriana'AND LAST_NAME = 'Osborne';</copy>
      ```
 
-    ![Identify Adriana Osborne's CUST_ID](images/cust-id.png " ")
-
     Now that we know Adriana's CUST_ID, let's look at some sample queries. 
+
+    ![Identify Adriana Osborne's CUST_ID](images/cust-id.png " ")
 
 3. This query returns all the movies Adriana has watched.
 
