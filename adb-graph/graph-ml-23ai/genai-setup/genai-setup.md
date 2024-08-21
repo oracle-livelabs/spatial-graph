@@ -9,7 +9,7 @@
 
 ## Introduction
 
-In this lab, you will 
+In this lab, you will set up the GenerativeAI service in OCI to work with Graph Studio.
 
 Estimated Time: 10 minutes.
 
@@ -17,7 +17,7 @@ Estimated Time: 10 minutes.
 
 Learn how to
 
-- Access SQL Worksheet 
+- Access SQL Worksheet
 - Create a DBMS Cloud Credential
 - Create a Gen AI profile
 
@@ -29,27 +29,27 @@ Learn how to
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
+    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**. 
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** button.
 
-    ![Click Database Actions button.](./images/database-action-sql.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
 
-    Logging in from the OCI service console expects you are the ADMIN user. Log in as ADMIN if you are not automatically logged in. 
+    Logging in from the OCI service console expects you are the ADMIN user. Log in as ADMIN if you are not automatically logged in.
 
-3. The Database Actions page opens. In the **Development** box, click **SQL**.
+4. The Database Actions page opens. In the **Development** box, click **SQL**.
 
     ![Click SQL.](./images/adb-dbactions-click-sql.png " ")
 
-4. The first time you open SQL Worksheet, a series of pop-up informational boxes may appear, providing you a tour that introduces the main features. If not, click the Tour button (labeled with binoculars symbol) in the upper right corner. Click **Next** to take a tour through the informational boxes.
+5. The first time you open SQL Worksheet, a series of pop-up informational boxes may appear, providing you a tour that introduces the main features. If not, you may click the Tour button (labeled with binoculars symbol) in the upper right corner. Click **Next** to take a tour through the informational boxes.
 
     ![SQL Worksheet.](./images/adb-sql-worksheet-opening-tour.png " ")
 
-5. Sign out of the worksheet and log back in. Then, open SQL again and run the analytics as **MOVIESTREAM**.
+6. Sign out of the worksheet and log back in. Then, open SQL again and run the analytics as **MOVIESTREAM**.
     
     ![Log out.](./images/log-out-dbactions.png " ")
 
@@ -60,7 +60,7 @@ Learn how to
 
 ## Task 2: Setup GenAI Connection
 
-1. Download and unzip the zipfile under the GenAI Key lab. This contains the connection information needed for GenAI to be used in the Graph Studio notebook.
+1. Download and unzip the zip file under the GenAI Key lab. This contains the connection information needed for GenAI to be used in the Graph Studio notebook.
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/genai-key.png " ") 
 
@@ -69,8 +69,8 @@ Learn how to
     ```
     <user> can be found in the text file as 'user'
     <tenancy> can be found in the text file as 'tenancy'
-    <private_key> can be found as the contents .pem file that does not have the '_public' extention.
-    <fingerprint> can be found in the textfile as 'fingerprint' 
+    <private_key> can be found as the contents .pem file that does not have the '_public' extension.
+    <fingerprint> can be found in the text file as 'fingerprint' 
 
     ```
 
@@ -90,7 +90,7 @@ Learn how to
     /</copy>
     ```
 
-    Here is an example of how it should look: 
+    Here is an example of how it should look:
 
     ```
     BEGIN
@@ -108,7 +108,7 @@ Learn how to
 
     ![Create the DBMS Cloud Credential.](images/dbms-credentials.png " ") 
 
-3. Then, create a Gen AI profile using the default llama model. Copy and run thhis script usisng the **Run Script** button. 
+3. Then, create a Gen AI profile using the default llama model. Copy and run this script using the **Run Script** button. 
 
     ```
     <copy>begin    
