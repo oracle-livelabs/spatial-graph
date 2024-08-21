@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be exporting the movie_recommendations notebook.
+Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the movie_recommendations notebook.
 
 Estimated Time: 15 minutes.
 
