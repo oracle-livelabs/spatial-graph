@@ -265,7 +265,7 @@ Maybe she will be interested in getting together with the same group of people t
 
     ![Create table to save and call various prompts](images/create-table.png " ")
  
- 2. Then we can call the Gen AI service directly through SQL, using a graph query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
+ 2. Then we can call the Gen AI service directly through SQL, using a SQL query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
 
      ```
      <copy>%sql
