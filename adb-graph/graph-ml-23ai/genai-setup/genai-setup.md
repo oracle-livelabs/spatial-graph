@@ -25,7 +25,7 @@ Learn how to
 
 - The following lab requires access to an OCI account.
 
-## Task 1: Access the Autonomous Database and Open a SQL worksheet
+## Task 1: Access the Autonomous Database and open a SQL worksheet
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
@@ -35,7 +35,7 @@ Learn how to
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
 
-3. In your Autonomous Database details page, click the **Database Actions** button.
+3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
     ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
 
@@ -111,10 +111,10 @@ Learn how to
     <oci_compartment_id> can be found in the text file as 'Compartment_ocid' 
     ```
 
-    Copy and paste the following code, and make the necessary changes. Then run this script using the **Run Script** button. 
+    Copy and paste the following code, and make the necessary changes. Then run this script using the **Run Statement** button. 
 
     ```
-     <copy>begin    
+     <copy>BEGIN   
          -- drops the profile if it already exists
          DBMS_CLOUD_AI.drop_profile(profile_name => 'genai', force => true);
 
@@ -135,7 +135,7 @@ Learn how to
                  }'
              );
 
-     end;
+     END;
      /</copy>
     ```
 
@@ -143,8 +143,18 @@ Learn how to
 
     This concludes this lab. **You may now proceed to the next lab.**
 
+>**Note:** If you encounter issues in Lab 3, Task 1, it may be due to the DBMS Cloud Credential not being created properly. You can remove the credential running the following statement.
+    ```
+     <copy>BEGIN
+     DBMS_CLOUD.DROP_CREDENTIAL ('GRAPH_OCW_CREDENTIAL');
+     END;</copy>
+    ```
+![Drop the DBMS Cloud Credentials ](images/drop-credentials.png " ")
+Then, re-run Task 2 in Lab 1. After re-creating the DBMS Cloud Credential, you can return to Lab 3, Task 1. 
+
+
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
+* **Author** - Ramu Murakami Gutierrez, Product Manager
 * **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, July 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
 

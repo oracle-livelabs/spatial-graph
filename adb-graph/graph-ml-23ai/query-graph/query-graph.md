@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will create and query a graph (that is, `MOVIESTREAM`) in SQL and PGQL paragraphs of a notebook.
+In this lab, you will create and query a graph (that is, `MOVIE_RECOMMENDATIONS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
 
 Estimated Time: 30 minutes.
 
@@ -10,12 +10,12 @@ Estimated Time: 30 minutes.
 
 Learn how to:
 
-- Use Graph Studio notebooks to query a LLM
-- Use Graph Studio notebooks with SQL and PGQL paragraphs to create, query, analyze, and visualize a graph
+- Use Graph Studio notebooks to query a LLM and run vector search
+- Use Graph Studio notebooks with SQL and PGQL paragraphs to create, query, analyze, and visualize a graph, and integrate with vector search
 
 ### Prerequisites
 
-- Earlier labs of this workshop. That is, the graph user exists, you have logged into Graph Studio, and imported the notebook
+- You have logged into Graph Studio, and imported the notebook
 
 ## Task 1: Explore the data available in the database
 
@@ -45,6 +45,8 @@ If the compute environment is not ready just yet and the code cannot be executed
     GenAI Answer: 
 
     ![The GenAI Answer.](images/genai-answer.png " ")
+
+    Your LLM answer might vary because each time you submit a prompt, it can produce a different response.
 
     As we see, that has limitations. We couldn't find any movies released in 2024 using an LLM. In this task, we will explore the data that is available in the database, and search for movies that were recently released.
 
@@ -84,7 +86,7 @@ Knowing what movies are similar to 'The Fall Guy' is a good start, but it doesn'
 
      ```
      <copy>%sql
-     CREATE PROPERTY GRAPH movie_recommendations
+     CREATE PROPERTY GRAPH IF NOT EXISTS movie_recommendations
      VERTEX TABLES (
          CUSTOMER
              KEY ( CUST_ID ),
@@ -175,7 +177,7 @@ This is great, but sometimes a visualization helps us identify relationships mor
 
     Let's run the previous queries in PGQL.
 
-2. This query helps us visualize the movies Adriana watched at a watch party and who else attended these events.
+2. This query helps us visualize the movies Adriana watched at a watch party and who else attended these events, and the movies they have watched.
 
      ```
      <copy>%pgql-rdbms
@@ -313,6 +315,6 @@ Maybe she will be interested in getting together with the same group of people t
 This concludes this lab.
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-* **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
+* **Author** - Ramu Murakami Gutierrez, Product Manager
+* **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
