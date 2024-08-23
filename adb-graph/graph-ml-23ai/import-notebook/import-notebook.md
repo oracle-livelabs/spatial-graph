@@ -56,7 +56,7 @@ Learn how to
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
 
-    A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usually in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
+    A dialog pops up named **Compute Environment**. It will disappear when the compute environment finishes attaching, usually in less than one minute. Or you can click **Close** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
