@@ -1,6 +1,5 @@
 # Spatial queries
 
-
 ## Introduction
 
 This lab walks you through basic spatial queries in Oracle Autonomous Database. You will use the sample data created in the previous lab to identify items based on proximity and containment.
@@ -9,17 +8,6 @@ Estimated Time: 20 minutes
 
 Watch the video below for a quick walk-through of the lab.
 [Prepare spatial data](videohub:1_feaq2eu8)
-
-### Objectives
-
-In this lab, you will:
-*  Learn about and perform spatial queries in Oracle Database
-
-### Prerequisites
-
-* Completion of Lab 3: Prepare spatial data
-
-
 
 ### About spatial queries
 
@@ -49,7 +37,7 @@ AND B.NAME='MY_REGION-01';
 </code>
 ```
 
-Spatial Functions return a value and can be in the SELECT list or used in the WHERE clause. Generically as follows:
+Spatial functions return a value and can be in the SELECT list or used in the WHERE clause. Generically as follows:
 
 ```
 <code>
@@ -58,7 +46,7 @@ FROM [tables]
 WHERE [conditions]
 </code>
 ```
- 
+
 For example, to get the area of REGION-01 of MY\_REGIONS:
 
 ```
@@ -84,9 +72,10 @@ In this lab, you will perform spatial queries to identify the location relations
 
 
 
-## Task 1: Proximity queries 
+## Task 1: Proximity queries
 
-Proximity relates to how close items are to each other. The two main Spatial proximity operators are 
+Proximity relates to how close items are to each other. The two main spatial proximity operators are
+
 * SDO\_WITH\_DISTANCE( ) returns items within a given distance of another item
 * SDO\_NN( ) returns the nearest items to another item.
 
@@ -111,7 +100,7 @@ Proximity relates to how close items are to each other. The two main Spatial pro
 
     ![Proximity query](images/run-queries-01.png)
 
-2. Identifying items nearest to another item is accomplished with the Spatial operator **SDO\_NN( )**, where NN stands for Nearest Neighbor. Run the following query to identify the 5 closest stores to the Dallas Warehouse. Again, notice that the first argument to **SDO\_NN( )** is the function that returns geometry, which has a function-based spatial index.
+2. Identifying items nearest to another item is accomplished with the spatial operator **SDO\_NN( )**, where NN stands for Nearest Neighbor. Run the following query to identify the 5 closest stores to the Dallas Warehouse. Again, notice that the first argument to **SDO\_NN( )** is the function that returns geometry, which has a function-based spatial index.
 
       ```
       <copy> 
@@ -256,12 +245,11 @@ Proximity relates to how close items are to each other. The two main Spatial pro
 
 ## Task 2: Containment queries 
 
-Containment refers to identifying items that are contained by a specific region, and vice versa, identifying regions that contain specific items. The spatial main Spatial containment operators are 
- * SDO\_INSIDE( ) returns items that are inside region(s). Items on the boundary are not returned.
- * SDO_CONTAINS( ) returns regions that contain item(s). Items on the boundary are not considered to be contained.
- * SDO\_ANYINTERACT( ) returns items having any spatial relationship to other item(s), including items on a boundary or items partially contained such as a line that crosses into a region.
+Containment refers to identifying items that are contained by a specific region, and vice versa, identifying regions that contain specific items. The main spatial containment operators are
 
-
+* SDO\_INSIDE( ) returns items that are inside region(s). Items on the boundary are not returned.
+* SDO_CONTAINS( ) returns regions that contain item(s). Items on the boundary are not considered to be contained.
+* SDO\_ANYINTERACT( ) returns items having any spatial relationship to other item(s), including items on a boundary or items partially contained such as a line that crosses into a region.
 
 1. Use SDO_INSIDE( ) to return stores in REGION-02, not including stores on the boundary.
 
@@ -282,7 +270,7 @@ Containment refers to identifying items that are contained by a specific region,
 
       ![Containment query](images/run-queries-09.png)
 
-2. Use SDO_INSIDE( ) to return each store with the region it's contained by. This is another example of using a Spatial operator to perform a join, as you did previously with SDO\_NN( ). Note that stores on a region boundary are not included.  To include stores on the boundary you would use SDO\_ANYINTERACT( ).
+2. Use SDO_INSIDE( ) to return each store with the region it's contained by. This is another example of using a spatial operator to perform a join, as you did previously with SDO\_NN( ). Note that stores on a region boundary are not included.  To include stores on the boundary you would use SDO\_ANYINTERACT( ).
 
       ```
       <copy> 
@@ -380,4 +368,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, September 2022
+* **Last Updated By/Date** - Denise Myrick, August 2024
