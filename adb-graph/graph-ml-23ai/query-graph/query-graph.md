@@ -34,7 +34,7 @@ If the compute environment is not ready just yet and the code cannot be executed
      ```
      <copy>%sql
      SELECT DBMS_CLOUD_AI.GENERATE(
-         prompt       => 'what are the top 10 adventure movies',
+         prompt       => 'what are the top 10 adventure movies released in the past 2 years',
          profile_name => 'genai',
          action       => 'chat')
      FROM dual;</copy>
