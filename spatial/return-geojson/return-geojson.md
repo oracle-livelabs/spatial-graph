@@ -3,7 +3,7 @@
 
 ## Introduction
 
-GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from Spatial as GeoJSON. Please refer to **Lab 3 - Introduction** for an explanation of GeoJSON. In this lab you will generate GeoJSON documents from tables with geometries. In practice, the value of generating GeoJSON in ADB is in returning GeoJSON to diverse clients and that then deliver the content from their framework. For example, SQL and PL/SQL returning GeoJSON can be leveraged by Oracle REST Data Services (ORDS) to publish location-based REST APIs returning GeoJSON documents, and Oracle Data Science to combine with popular open source spatial ML libraries that natively support GeoJSON.
+GeoJSON is the preferred format for developer integration of spatial data. Virtually all spatial and mapping client libraries consume GeoJSON. So it is important to return content and results from spatial as GeoJSON. Please refer to **Lab 3 - Prepare spatial data** for an explanation of GeoJSON. In this lab you will generate GeoJSON documents from tables with geometries. In practice, the value of generating GeoJSON in ADB is in returning GeoJSON to diverse clients and that then deliver the content from their framework. For example, SQL and PL/SQL returning GeoJSON can be leveraged by Oracle REST Data Services (ORDS) to publish location-based REST APIs returning GeoJSON documents, and Oracle Data Science to combine with popular open source spatial ML libraries that natively support GeoJSON.
 
 Estimated Time: 15 minutes
 
@@ -13,13 +13,13 @@ Watch the video below for a quick walk-through of the lab.
 ### Objectives
 
 In this lab, you will:
-*  Explore native JSON handing in Oracle Autonomous Database
-*  Convert tables with geometries to GeoJSON documents to support developer integration
 
+* Explore native JSON handing in Oracle Autonomous Database
+* Convert tables with geometries to GeoJSON documents to support developer integration
 
 ### Prerequisites
 
-* Completion of Lab 3: Prepare Spatial Data
+* Completion of Lab 3: Prepare spatial data
 
 ## Task 1: Construct GeoJSON document from query results
 
@@ -178,4 +178,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, September 2022
+* **Last Updated By/Date** - Denise Myrick, August 2024
