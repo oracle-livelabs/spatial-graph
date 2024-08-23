@@ -4,6 +4,8 @@
 
 The Oracle Machine Learning User Interface (OML UI) is the entry point for OML, with links to OML features and artifacts. A central feature of OML is OML Notebooks, an Apache Zeppelin-based web interface for machine learning workflows using any combination of Markdown, Python, SQL, and R. In this lab you log into the OML UI, create a simple notebook, and import a set of pre-built Python notebooks used for the remainder of this workshop.
 
+[Make Better Predictions](videohub:1_4q5ul7ex)
+
 Estimated Lab Time: 5 minutes
 
 ### Objectives
@@ -18,7 +20,7 @@ Estimated Lab Time: 5 minutes
 
 ## Task 1: Log into OML UI
 
-1. Clink View Login Info to access your reservation information. 
+1. Click View Login Info to access your reservation information. 
 
    ![View login info](images/view-login-info.png)
 
