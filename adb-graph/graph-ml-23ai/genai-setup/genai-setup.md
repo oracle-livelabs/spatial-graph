@@ -143,7 +143,7 @@ Learn how to
 
     This concludes this lab. **You may now proceed to the next lab.**
 
->**Note:** If you encounter issues in Lab 3, Task 1, it may be due to the DBMS Cloud Credential not being created properly. You can remove the credential running the following statement.
+>**Note:** If you encounter issues in Lab 3, Task 1, it may be due to the DBMS Cloud Credential not being created properly. You can remove the credential by running the following statement.
     ```
      <copy>BEGIN
      DBMS_CLOUD.DROP_CREDENTIAL ('GRAPH_OCW_CREDENTIAL');
