@@ -194,26 +194,26 @@ The newly created graph is "private" by default, and is accessible only from the
 
 Use the following command to publish it.
 
+If you're no longer in the session, create the graph again following the procedure above. If you are still in the same session, you do not need to repeat Task 3. Publish the graph.
 ```python
 <copy>
 graph.publish()
 </copy>
 ```
 
-Next time you connect you can access the graph kept on memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
-
+Next time you connect you can access the graph kept in memory without re-loading it, if the graph server has not been shutdown or restarted between logins.
 ```python
 <copy>
 graph = session.get_graph("customer_360")
 </copy>
 ```
 
-Please note that you are allowed to publish graphs because **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role has been granted when the user is created. Otherwise, it has to be granted by **ADMIN** user and re-connect with the Python shell to pick up the updated permissions.
+Please note that you are allowed to publish graphs because **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role has been granted when the user is created. Otherwise, it has to be granted by **ADMIN** user and you must re-connect with the Python shell to pick up the updated permissions.
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
 - **Author** - Jayant Sharma
-- **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
+- **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka, Karin Patenge
+- **Last Updated By/Date** - Denise Myrick, July 2024
