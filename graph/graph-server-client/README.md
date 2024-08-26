@@ -7,7 +7,7 @@
 ## Property Graph
 
 The following workshops are available in this repository.  
-Access them in [LiveLabs](http://developer.oracle.com/livelabs).
+Access them in [LiveLabs](http://livelabs.oracle.com).
 
 - **Deploy the Graph Server and Client OCI Marketplace** image and get started with property graphs:  
   This workshop show you how to use the Oracle Resource Manager to deploy Graph Server Client Marketplace image. Then create a property graph and query, analyze, and visualize it.
