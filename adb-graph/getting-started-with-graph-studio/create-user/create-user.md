@@ -56,7 +56,7 @@ Learn how to
 
 	![Set Graph username and password, and select Create User](images/db-actions-create-graph-user.png "Set Graph username and password, and select Create User ")
 
-	**Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. 
+	>**Note:** Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. 
 
 	Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
 
@@ -66,7 +66,7 @@ Learn how to
 
 ## Task 3: Create User using SQL Commands (OPTIONAL)
 
-The UI steps in task 2 can be instead done by executing the following sql commands listed below when logged in as ADMIN. This task is optional. It shows an alternate way of creating and enabling GRAPHUSER.
+The UI steps in Task 2 can be alternatively done by executing the following SQL commands listed below when logged in as ADMIN. This task is optional. It shows an alternate way of creating and enabling GRAPHUSER.
 
 1. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
 
@@ -119,5 +119,5 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Korbi Schmid, Rahul Tasker
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023
+* **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez
+* **Last Updated By/Date** - Denise Myrick, June 2024

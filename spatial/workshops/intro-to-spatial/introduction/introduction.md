@@ -16,7 +16,7 @@ Estimated Workshop Time: 60 minutes
 
 In this workshop you will create, configure, and analyze spatial data.  You will create and configure spatial tables for STORES, WAREHOUSES, REGIONS, and TORNADO\_PATHS from common formats, and then perform spatial queries to explore their relationships based on proximity and containment. You finally transform results using native JSON support in ADB, for developer integration. 
 
-The ability to relate information based on location, such as relating data based on spatial proximity and containment, is extremely valuable in myriad scenarios.  There is no pre-existing key that relates store locations to a warehouse. But Spatial enables such a relationship to be determined based on proximity. Similarly, there is no pre-existing relationship between store locations and regions, for example tax regions. But Spatial enables their relationship to be determined based on containment. Going further, Spatial enables location-based analytics such as summarizing information based on proximity; for example loss due to tornadoes within a distance from a location. Instead of performing these analyses in a separate system, you may leverage the built-in spatial features of ADB.
+The ability to relate information based on location, such as relating data based on spatial proximity and containment, is extremely valuable in a myriad of scenarios.  There is no pre-existing key that relates store locations to a warehouse. But Spatial enables such a relationship to be determined based on proximity. Similarly, there is no pre-existing relationship between store locations and regions, for example tax regions. But Spatial enables their relationship to be determined based on containment. Going further, Spatial enables location-based analytics such as summarizing information based on proximity; for example loss due to tornadoes within a distance from a location. Instead of performing these analyses in a separate system, you may leverage the built-in spatial features of ADB.
 
 You will gain experience with all of the aforementioned capabilities in this workshop. 
 
@@ -38,6 +38,6 @@ You will gain experience with all of the aforementioned capabilities in this wor
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, September 2022
+* **Last Updated By/Date** - Denise Myrick, August 2024
 
 
