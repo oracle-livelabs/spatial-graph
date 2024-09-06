@@ -126,6 +126,7 @@ Learn how to
                  "credential_name": "GRAPH_OCW_CREDENTIAL",
                  "comments":"true",            
                  "oci_compartment_id": "<compartment_ocid>",
+                 "region":"<region-id>",
                  "object_list": [
                      {"owner": "MOVIESTREAM", "name": "MOVIE"},
                      {"owner": "MOVIESTREAM", "name": "CUSTOMER"},
