@@ -20,14 +20,14 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* This lab requires access to Spatial Studio and Oracle Database. 
+* This lab requires access to Spatial Studio and Oracle Database.
 * To deploy these from the Oracle Cloud Marketplace, please navigate to the listing [here](https://cloud.oracle.com/marketplace/application/71472162/overview) (you will be prompted to log into to your Oracle Cloud account) and then follow instructions [here](https://blogs.oracle.com/database/post/oracle-spatial-studio-221-now-on-cloud-marketplace).
 * No previous experience with Oracle Spatial is required.
 
 
 ## Task 1: Load Accidents data
 
-You begin by loading a set of traffic accident data from a GeoJSON file. The data are fictitious and were generated for random locations along roadways in South Africa. 
+You begin by loading a set of traffic accident data from a GeoJSON file. The data are fictitious and were generated for random locations along roadways in South Africa.
 
 1. Download GeoJSON file to a convenient location: [accidents.geojson](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson).
 

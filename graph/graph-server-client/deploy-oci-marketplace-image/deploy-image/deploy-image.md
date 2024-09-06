@@ -26,7 +26,7 @@ Estimated time: 7 minutes
     - VCN NAME: e.g. **vcn1**
     - The rest of the items: Do not need to be changed
 
-3. you need to open port 7007. Go to Virtual Cloud Networks > vcn1 > Public Subnet-vcn1 > Default Security List for vcn1 > Add Ingress Rules and create the rule below:
+3. You need to open port 7007. Go to Virtual Cloud Networks > vcn1 > public subnet-vcn1 > Default Security List for vcn1 > Add Ingress Rules and create the rule below:
 
     - Source Type: **CIDR**
     - Source CIDR: **0.0.0.0/0** (This setting is for testing only. Please replace to the IP address of the client machines for actual use.)
@@ -37,20 +37,19 @@ Estimated time: 7 minutes
 
     ![ingress-rule](images/ingress-rule.png)
 
-
 ## Task 2: Locate the Graph Server and Client in the Marketplace
 
-Oracle Cloud Marketplace is an online platform which offers Oracle and partner software as click-to-deploy solutions that are built to extend Oracle Cloud products and services.
+The Oracle Cloud Marketplace is an online platform which offers Oracle and partner software as click-to-deploy solutions that are built to extend Oracle Cloud products and services.
 
-Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a fully automated end-to-end deployment of a partner solution on Oracle Cloud Infrastructure.
+Oracle Cloud Marketplace stacks are sets of Terraform templates that provide a fully automated end-to-end solution deployment on the Oracle Cloud Infrastructure.
 
-1. Go to your Cloud Console. Navigate to the **Marketplace** tab and enter "Graph Server and Client" in the serach bar. Click on the Oracle Graph Server and Client stack.
+1. Go to your Cloud Console. Navigate to the **Marketplace** tab and enter "Graph Server and Client" in the search bar. Click on the Oracle Graph Server and Client stack.
 
     ![marketplace](images/marketplace.png)
 
-2. Select the stack and then review the System Requirements and Usage Instructions. Then select the version **22.4.x** (18-month patch release) and choose a compartment and click on **Launch Stack**.
+2. Review the System Requirements and Usage Instructions. Then select the latest version of the stack. Choose a compartment and click on **Launch Stack**.
 
-    ![launch-stack](images/launch-stack.png)
+    ![launch-stack](images/launch-stack_2.png)
 
 3. **Stack Information**: You do not need to change. Proceed with **Next**.
 
@@ -71,24 +70,23 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
     About the JDBC URL above:
 
-    - This is the TNS_ADMIN entry points to the directory where you **will** have uploaded and unzipped the wallet **on the Compute instance** which will be created in this process
-    - If you named your database something else, e.g. **adb2** then replace **`@adb1_low`** with **`@adb2_low`** in the JDBC URL
-    - This JDBC URL is stored in **/etc/oracle/graph/pgx.conf** which can be updated later if necessary
-    
+    - This is the TNS_ADMIN entry point to the directory on the compute instance created in this process where you **will** upload and unzip the Autonomous Database wallet
+    - If you named your Autonomous Database differently, e.g. **adb2** then replace **`@adb1_low`** with **`@adb2_low`** in the JDBC URL
+    - The JDBC URL is stored in **/etc/oracle/graph/pgx.conf** which can be updated later if necessary
 
-5. Click **Next** to initiate the Resource Manager Job for the stack. The job will take 2-3 minutes to complete.
+5. Click **Next** and **Create** to initiate the **Run apply** for the stack. The job takes approximately 2-3 minutes to complete.
 
     ![rmj-1](images/rmj-1.png)
 
-    You'll see the progress in the log output.
+    Check the job progress in the **Logs** section.
 
     ![rmj-2](images/rmj-2.png)
 
-    Once the job has successfully completed the status will change from "In Progess" to "Succeeded". If you get **"shape VM.Standard.E2.1.Micro not found"** error, the availability domain cannot provide the selected shape. Please edit the job and change the availability domain and retry. (An always-free compute VM can only be created in your home region. If you have previously created an always-free compute VM then this new VM.Standard.E2.1.Micro instance can only be created in the same availability domain as the previous one.)
+    Once the job has successfully completed the status will change from "In Progess" to "Succeeded". If you get **"Shape VM.Standard.E2.1.Micro not found"** error, the selected Availability Domain lacks resources for the compute shape. Please edit the job and change the availability domain and retry. (An always-free compute VM can only be created in your home region. If you have previously created an always-free compute VM then this new VM.Standard.E2.1.Micro instance can only be created in the same availability domain as the previous one.)
 
     ![rmj-3](images/rmj-3.png)
 
-    ***NOTE:*** *On completion please make a note of **public_ip** and **graphviz_public_url**, so that you can SSH into the running instance and access the graph viz later in this lab.*
+    ***NOTE:*** *On completion please make a note of **`public_ip`** and **`graphviz_public_url`**, so that you can SSH into the running instance and access the Graph clients later in this lab.*
 
 ## Task 3: Download ADB Wallet
 
@@ -96,28 +94,28 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
     ![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
-1. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **Database Connection**.
+2. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **Database Connection**.
 
     ![wallet-1](images/wallet-1.png)
 
-1. In Database Connection window, select **Instance Wallet** as your Wallet Type, click **Download Wallet**.
+3. In Database Connection window, select **Instance Wallet** as your Wallet Type, click **Download Wallet**.
 
     ![wallet-2](images/wallet-2.png)
 
-1. In the Download Wallet dialog, enter a (new) wallet password in the Password fields. This password protects the downloaded client credentials wallet.
+4. In the Download Wallet dialog, enter a (new) wallet password in the Password fields. This password protects the downloaded client credentials wallet.
 
     Click **Download** to save the client security credentials zip file.
     ![wallet-3](images/wallet-3.png)
 
-    By default, the filename is: **Wallet_<database_name>.zip**
+    By default, the filename is: **Wallet_adb1.zip**
 
 Content in this section is adapted from [Download Client Credentials (Wallets)](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-download-wallet.html#GUID-B06202D2-0597-41AA-9481-3B174F75D4B1)
 
 ## Task 4: Upload ADB Wallet
 
-In this step, you need the shell tool to run **scp** and **ssh** commands, e.g. Oracle Cloud Shell, Terminal if you are using MAC, or Gitbash if you are using Windows.
+In this step, you need the shell tool to run **scp** and **ssh** commands, e.g. Oracle Cloud Shell, Terminal if you are using MAC, or Git Bash if you are using Windows.
 
-Copy the wallet from your local machine to the Graph Server instance on OCI.
+Copy the wallet from your local machine to the Graph Server compute instance on OCI.
 
 ```sh
 <copy>
@@ -126,6 +124,7 @@ scp -i <private_key> <Wallet_database_name>.zip opc@<public_ip_for_compute>:/etc
 ```
 
 Example:
+
 ```sh
 <copy>
 scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wallets
@@ -143,13 +142,14 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
     ```
 
     Example:
+
     ```sh
     <copy>
     ssh -i key.pem opc@203.0.113.14
     </copy>
     ```
 
-1. Unzip the ADB wallet to the **/etc/oracle/graph/wallets/** directory and change the group permission.
+2. Unzip the ADB wallet to the **/etc/oracle/graph/wallets/** directory and change the group permission.
 
     ```sh
     <copy>
@@ -159,7 +159,7 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
     </copy>
     ```
 
-1. Optionally, check that you used the right service name in the JDBC URL you entered when configuring the OCI stack.
+3. Optionally, check that you used the right service name in the JDBC URL you entered when configuring the OCI stack.
 
     ```sh
     <copy>
@@ -167,18 +167,11 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
     </copy>
     ```
 
-    You will see the entry `adb1_low` similar to:
+    You will see an entry for `adb1_low` similar to:
+
     ```text
     <copy>
-    adb1_low =
-        (description=
-            (address=
-                (https_proxy=proxyhostname)(https_proxy_port=80)(protocol=tcps)(port=1521)
-                (host=adwc.example.oraclecloud.com)
-            )
-            (connect_data=(service_name=adwc1_low.adwc.oraclecloud.com))
-            (security=(ssl_server_cert_dn="adwc.example.oraclecloud.com,OU=Oracle BMCS US,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))
-    )
+    adb1_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.region.oraclecloud.com))(connect_data=(service_name=ij1tzxav3wpwnpa_adb1_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
     </copy>
     ```
 
@@ -186,7 +179,6 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Jayant Sharma
-* **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
-
+- **Author** - Jayant Sharma
+- **Contributors** - Arabella Yao, Jenny Tsai
+- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024

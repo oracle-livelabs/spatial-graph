@@ -12,11 +12,11 @@ Oracle Spatial Studio (Spatial Studio) is a web application providing self-servi
 
   ![Image alt text](./images/spatial-studio.png "Spatial Studio")
 
-Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data be be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes.
+Spatial Studio operates on spatial data in Oracle Database, meaning tables and views that include Oracle's geometry data type. This data can be pre-existing spatial data or non-spatial data which is prepared using Spatial Studio to add geometries based on attributes.
 
 Spatial Studio is a Java EE application that may be deployed to Oracle Cloud from the Oracle Cloud Marketplace. Spatial Studio can also be deployed manually to Oracle WebLogic or Jetty, or as a self contained pre-deployed Quick Start for testing.
 
-For more information please visit [https://oracle.com/goto/spatialstudio] (https://oracle.com/goto/spatialstudio)
+For more information please visit [https://www.oracle.com/database/spatial/] (https://www.oracle.com/database/spatial/)
 
 ### Objectives
 

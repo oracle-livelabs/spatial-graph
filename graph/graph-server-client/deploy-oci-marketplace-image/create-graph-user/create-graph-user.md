@@ -13,7 +13,7 @@ Estimated time: 3 minutes
 
 ### Prerequisites
 
-- Oracle cloud account
+- Oracle Cloud account
 - Provisioned Autonomous Database
 
 ## Task 1: Login to Database Actions
@@ -24,21 +24,22 @@ Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**
 
 ![database-atp](https://oracle-livelabs.github.io/common/images/console/database-atp.png)
 
-In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your brower allow pop-up windows.
+In Autonomous Database Details page, open **Tools** tab and click **View all Database Actions**. Make sure your browser allows pop-up windows.
 
 ![adb-console](images/adb-console.png)
 
-Enter **ADMIN** as Username and password (you set up at Lab 2) and sign in.
+If required, enter **ADMIN** as username, the password (you set up at Lab 2), and **Sign in**.
 
-![login-1](images/login-1.png)
+![login-2](images/login-2.png)
 
-Go to **SQL** menu once you logged in as the **ADMIN** user. 
+Go to **SQL** menu once you are logged in as the **ADMIN** user.
 
-![database-actions](images/database-actions.png)
+![database-actions](images/database-actions_2.png)
 
-## Taks 2: Create database roles
+## Task 2: Create database roles
+## Task 2: Create database roles
 
-Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and run it while connected as the Admin user.
+Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and click "Run Script" while connected as the Admin user.
 
 ```sql
 <copy>
@@ -81,7 +82,8 @@ END;
 </copy>
 ```
 
-Assign the default permissions to the roles, **GRAPH_ADMINISTRATOR** and **GRAPH_DEVELOPER**, to group multiple permissions together.
+Assign default permissions to the roles, **`GRAPH_ADMINISTRATOR`** and **`GRAPH_DEVELOPER`**, to group multiple permissions together. Copy and paste the following commands into the SQL Workshop and run them as script.
+
 ```sql
 <copy>
 GRANT PGX_SESSION_CREATE TO GRAPH_ADMINISTRATOR;
@@ -99,19 +101,19 @@ GRANT PGX_SESSION_READ_MODEL TO GRAPH_DEVELOPER;
 
 Now create the **CUSTOMER_360** user and provide Database Actions access for this user.
 
-Open the main menu and click "Database Users".
+Click on the Database Actions main menu, then on Database Users.
 
 ![user-1](images/user-1.png)
 
-Click **Create User** button, input user name and password. Enable **Web Access** and set the quota to **UNLILMITED**.
+Click **Create User** button, input the user name and password. Enable **Graph**, **Web Access**, and set the quota to **UNLIMITED**.
 
-![user-2](images/user-2.png)
+![user-2](images/user-2_2.png)
 
-Go to **Granted Roles** tab and grant **`GRAPH_DEVELOPER`** role and **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role to this user. (Two roles **CONNECT** and **RESOURCE** are selected by default. Please keep them checked so they will be also granted.)
+Go to the **Granted Roles** tab and make sure to grant the roles **`GRAPH_DEVELOPER`** and **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** to the user. (Two roles **CONNECT** and **RESOURCE** are selected by default. Please keep them checked so they will be also granted.)
 
 ![user-3](images/user-3.png)
 
-Proceed with **Create User**, and open the login window.
+Proceed with **Create User**, and open the Login window.
 
 ![user-4](images/user-4.jpg)
 
@@ -119,12 +121,12 @@ Confirm that you can login with the new user.
 
 ![user-5](images/user-5.png)
 
-For details, see the ["Provide Database Actions Access to Database Users"](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/sql-developer-web.html#GUID-4B404CE3-C832-4089-B37A-ADE1036C7EEA) section in the documentation.
+For details, see the ["Create Users on Autonomous Database with Database Actions"](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/manage-users-create.html#GUID-DD0D847B-0283-47F5-9EF3-D8252084F0C1) section in the documentation.
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, March 2023
+* **Contributors** - Arabella Yao, Jenny Tsai, Ryota, Yamanaka, Karin Patenge
+* **Last Updated By/Date** - Denise Myrick, July 2024

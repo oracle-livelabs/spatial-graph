@@ -6,6 +6,6 @@
     "db_name_livelabs": "AnDGraphHolADW+your user id",
     "db_name_livelabs_example": "AnDGraphHolADW225",
     "db_workload_type":"Autonomous Data Warehouse",
-    "db_user_name":"ADMIN",
-    "oac_instance_name": "GRAPHWORKSHOP"    
+    "db_user_name":"GRAPHUSER",
+    "oac_instance_name": "GRAPHWORKSHOP"
  }

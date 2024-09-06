@@ -471,7 +471,7 @@ A high PageRank value indicates that that account is important, which in the con
 
     ![Table showing number of hops in descending order](images/table-with-hops.png " ")    
 
-18. Let's take a look at the number of transactions for accounts that have two hops or less from 932 or 387.
+18. Let's take a look at the number of transactions for accounts that have two hops or less from 934 or 387.
 
      ```
      <copy>%pgql-pgx
@@ -491,7 +491,7 @@ A high PageRank value indicates that that account is important, which in the con
 
     Change the view to table.
 
-    ![Shows the number of transactions based on hops for 943 and 387.](images/hop-transaction-tables.png " ")   
+    ![Shows the number of transactions based on hops for 934 and 387.](images/hop-transaction-tables.png " ")   
 
 19. We see account **406** reappearing with a high number of transactions and close to accounts **934** and **387**. 
 
@@ -512,7 +512,7 @@ A high PageRank value indicates that that account is important, which in the con
 
     Change the graph visualization layout to **Hierarchical**.
 
-    ![Shows graph with 2 hops accounts from 943 and 387.](images/2-hops-934-387.png " ")
+    ![Shows graph with 2 hops accounts from 934 and 387.](images/2-hops-934-387.png " ")
 
 ## Task 4: Query the `BANK_GRAPH` using graph machine learning 
 
@@ -549,7 +549,7 @@ We can use a Graph machine Learning algorithm like DeepWalk to find accounts tha
 
     ![running query for deepwalk model training](images/deepwalk-query-model-time.png " ")
 
-3. Run the following paragraph to get the most similar nodes to account 943. 
+3. Run the following paragraph to get the most similar nodes to account 934. 
 
      ```
      <copy>%python-pgx
@@ -572,7 +572,7 @@ We can use a Graph machine Learning algorithm like DeepWalk to find accounts tha
 
 We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
 
-5. When we query for transactions 2 hops away from 934, 387, or 134, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also righ-click on them to see check their account ids. 
+5. When we query for transactions 2 hops away from 934, 387, or 135, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also righ-click on them to check their account ids. 
 
      ```
      <copy>%pgql-pgx

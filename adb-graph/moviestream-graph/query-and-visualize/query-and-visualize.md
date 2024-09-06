@@ -30,7 +30,7 @@ Learn how to
 
   [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/Movie%20Recommendations%20-%20Personalized%20SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
- 1. 1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
+ 1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
     ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
     
@@ -201,7 +201,7 @@ If the compute environment is not ready and the code cannot be executed then you
 
     ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
 
-8. We need to first create a bipartite graph so that we can run algorithms such as PerSonalized SALSA which take a bipartite graph as input.  
+8. We need to first create a bipartite graph so that we can run algorithms such as Personalized SALSA which take a bipartite graph as input.  
 
     >**Note:** A bipartite graph is a graph whose vertices can be partitioned into two sets such that all edges connect a vertex in one set to a vertex in the other set.
     

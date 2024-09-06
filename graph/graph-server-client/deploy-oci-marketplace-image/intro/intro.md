@@ -2,13 +2,13 @@
 
 ## About this Workshop
 
-The labs in this workshop walk you through all the steps to  deploy, configure, and use the Graph Server and Client package to query, analyze, and visualize graph content stored in a Free Tier Autonomous Database (ADB) instance. You will provision a new free tier ADB instance, load data into it, create a graph, and then query, analyze and visualize the graph.
+The labs in this workshop walk you through all the steps to  deploy, configure, and use the Graph Server and Client package to query, analyze, and visualize graph content stored in an Autonomous Database (ADB) instance. You will provision a new ADB instance, load data into it, create a graph, and then query, analyze and visualize the graph.
 
 Estimated Workshop Time: 1 hour
 
 ### About Oracle Property Graph?
 
-Oracle Database property graph supports and consists of graph storage, indexing, and search; a powerful in-memory analyst with nearly 60 built-in, parallel analytic functions; a graph query language and developer APIs. Graph algorithms enable you to explore and discover relationships in social networks, IoT, big data, data warehouses and complex transaction data for applications such as fraud detection in banking, customer 360, and smart manufacturing.
+Oracle Database property graph supports and consists of graph storage, indexing, and search; a powerful in-memory analyst with over 80 built-in, parallel analytic functions; a graph query language and developer APIs. Graph algorithms enable you to explore and discover relationships in social networks, IoT, big data, data warehouses and complex transaction data for applications such as fraud detection in banking, customer 360, and smart manufacturing.
 
 Watch a short video that explains key features in Oracle Graph:
 
@@ -17,12 +17,13 @@ Watch a short video that explains key features in Oracle Graph:
 ### Objectives
 
 In this workshop you will:
-- Provision Free Tier Compute and ADB Shared instances.
+
+- Provision compute instance and a ADB Shared instance.
 - Deploy the Graph Server and Client Marketplace image.
 - Create and populate tables in the ADB instance.
 - Query, analyze, and visualize that data as graphs.
 
-This workshop is tested for the Graph Server version **21.4**.
+This workshop was last tested with the Oracle Graph Server and Client OCI Marketplace image version **24.2.0**.
 
 ### Prerequisites
 
@@ -33,5 +34,5 @@ This workshop is tested for the Graph Server version **21.4**.
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph.
-* **Contributors** - Arabella Yao, Product Manager Intern, Database Management.
-
+* **Contributors** - Arabella Yao, Karin Patenge
+* **Last Updated By/Date** - Denise Myrick, Oracle Database Product Management Spatial and Graph, July 2024

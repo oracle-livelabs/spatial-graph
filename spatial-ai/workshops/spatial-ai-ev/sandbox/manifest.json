@@ -1,0 +1,47 @@
+{
+    "workshoptitle": "Make Better Predictions with Spatial ML Algorithms on Oracle Autonomous Database Serverless",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+        {
+          "title": "Introduction",
+          "description":"Introduction",
+          "filename": "../introduction/introduction.md"
+        },
+        {
+          "title": "Get started",
+          "description": "Login to the Oracle Cloud",
+          "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+          "title": "Lab 1: Import notebooks",
+          "description": "...",
+          "filename": "../../../ev/import-notebooks/import-notebooks.md"
+        }, 
+        {
+          "title": "Lab 2: Load and explore data",
+          "description": "...",
+          "filename": "../../../ev/load-data/load-data.md"
+        },
+        {
+          "title": "Lab 3: Prepare data",
+          "description": "...",
+          "filename": "../../../ev/prepare-data/prepare-data.md"
+        },
+        {
+          "title": "Lab 4: Create predictive models",
+          "description": "...",
+          "filename": "../../../ev/create-predictive-models/create-predictive-models.md"
+        },
+        {
+          "title": "Lab 5: Cleanup",
+          "description": "...",
+          "filename": "../../../ev/cleanup/cleanup.md"
+        },     
+
+        {
+          "title": "Need Help?",
+          "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+          "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab walks through the process of accessing Oracle Spatial Studio (Spatial Studio) from an Oracle LiveLabs Reservation. Your environment includes Spatial Studio and an Autonomous Database. On the first login to Spatial Studio you will provide connection information for your Autonomous Database. 
+This lab walks through the process of accessing Oracle Spatial Studio (Spatial Studio) from an Oracle LiveLabs reservation. Your environment includes Spatial Studio and an Autonomous Database. On the first login to Spatial Studio you will provide connection information for your Autonomous Database.
 
 Estimated Lab Time: 10 minutes
 
@@ -14,32 +14,31 @@ In this lab, you will:
 
 ### Prerequisites
 
-* A completed LiveLabs Reservation for "Introduction to Oracle Spatial Studio" 
+* A completed LiveLabs reservation for "Introduction to Oracle Spatial Studio" 
 
 <!-- *This is the "fold" - below items are collapsed by default* -->
 
 ## Task 1: Download Cloud Wallet for your Autonomous Database 
 
-1. In Workshop Details, note your Cloud user name, password, Compartment, and Spatial Studio IP address. Then launch the Cloud Console.
+1. In Workshop Details, note your Cloud username, password, Compartment, and Spatial Studio IP address. Then launch the Cloud Console.
 
- ![Image alt text](images/1-1.png "Image title")  
-
+ ![Workshop details](images/workshopdetails-v2.png "Workshop details")  
 
 2. Sign-in using **Oracle Cloud Infrastructure Direct Sign-in** using your Cloud user name and initial password. You will be prompted to change the default password.
 
- ![Image alt text](images/1-2.png "Image title")  
+ ![Sign-in](images/signin.png "Sign-in")  
 
 3. Navigate to **Oracle Database** and then **Autonomous Database**.
 
- ![Image alt text](images/1-3.png "Image title") 
+ ![OCI menu](images/cloudmenu.png "OCI Menu") 
 
 4. In the Compartment form on the left, start typing your Compartment name noted earlier. This will dynamically filter the Compartments list. Once listed, select your Compartment. Your Autonomous Database will then be listed. Click on the link to your Autonomous Database.
 
- ![Image alt text](images/1-4.png "Image title") 
+ ![Compartment list](images/compartmentlist-v2.png "Compartment list") 
 
 5. Click on **Database Connection** and then **Download Wallet**. You will promoted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your laptop as you will use it in the next step.
 
- ![Image alt text](images/1-5.png "Image title") 
+ ![Database Connection](images/databaseconnection-v2.png "Database connection") 
 
 ## Task 2: Spatial Studio First-Time Login 
 
@@ -69,5 +68,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - David Lapp, Database Product Management, June 2021
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, June 2024
 
