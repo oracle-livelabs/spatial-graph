@@ -109,6 +109,7 @@ Learn how to
 
     ```
     <oci_compartment_id> can be found in the text file as 'Compartment_ocid' 
+    <region-id> can be found in the text file as 'region'
     ```
 
     Copy and paste the following code, and make the necessary changes. Then run this script using the **Run Statement** button. 
@@ -126,6 +127,7 @@ Learn how to
                  "credential_name": "GRAPH_OCW_CREDENTIAL",
                  "comments":"true",            
                  "oci_compartment_id": "<compartment_ocid>",
+                 "region":"<region-id>",
                  "object_list": [
                      {"owner": "MOVIESTREAM", "name": "MOVIE"},
                      {"owner": "MOVIESTREAM", "name": "CUSTOMER"},
