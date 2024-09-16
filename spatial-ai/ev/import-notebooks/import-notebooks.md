@@ -106,7 +106,11 @@ Estimated Lab Time: 5 minutes
     
        ![Verify notebooks](images/verify-notebooks.png)
 
-4. The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
+   OML notebooks allow selecting a service level. The pre-built notebooks for this workshop are configured to use the **Low** service level. You should leave this setting as-is. Do not switch to a different service level.
+    
+       ![Service level low](images/service-level-low.png)
+
+   The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
 
   * <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
   * <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
