@@ -6,18 +6,6 @@ Spatial data is commonly sourced from files having coordinates or place names, a
 
 Estimated Time: 20 minutes
 
-### Objectives
-
-In this lab, you will:
-*  Learn about spatial data management in Oracle Database
-*  Prepare spatial data in Oracle Database from common file formats
-
-
-### Prerequisites
-
-* Completion of Lab 2: Connect to ADB with SQL Worksheet
-
-
 ### About spatial data
 
 Oracle Database stores spatial data (points, lines, polygons) in a native data type called SDO_GEOMETRY. Oracle Database also provides a native spatial index for high performance spatial operations. This spatial index relies on spatial metadata that is entered for each table and geometry column storing spatial data. Once spatial data is populated and indexed, robust APIs are available to perform spatial analysis, calculations, and processing.
@@ -37,7 +25,7 @@ The SDO_GEOMETRY type has the following general format:
 The most common geometry types are 2-dimensional:
 
   | ID |Type |
-  | --- | --- | 
+  | --- | --- |
   | 2001 |Point |
   | 2002 |Line |
   | 2003 |Polygon |
@@ -45,7 +33,7 @@ The most common geometry types are 2-dimensional:
 The most common coordinate systems are:
 
   | ID |Coordinate System |
-  | --- | --- | 
+  | --- | --- |
   | 4326 |Latitude/Longitude|
   | 3857 |World Mercator|
 
@@ -99,7 +87,6 @@ Spatial metadata is inserted as follows:
     );
 ```
 
-
 In this workshop you work with longitude,latitude coordinates so the metadata inserts will be as follows:
 
 ```
@@ -113,9 +100,7 @@ In this workshop you work with longitude,latitude coordinates so the metadata in
     );
 ```
 
-
-
-For **point** data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity. 
+For **point** data, the most common scenario is to start with data including coordinates representing point locations. The data may be configured either by creating and populating a new geometry column (column with type SDO_GEOMETRY), or creating a function that creates geometries from coordinates, and then creating a spatial index on that function. Both options have their associated use cases, and you will use both methods to gain familiarity.
 
 For **lines** and **polygons**, it is most common to load from common formats, such as GeoJSON, and convert to a table with a geometry column. GeoJSON which is the most common format for developer integration, and since conversion from/to GeoJSON is included in this workshop, we provide the following brief introduction.
 
@@ -145,20 +130,19 @@ In this lab you will load data from GeoJSON documents to tables with SDO\_GEOMET
 ### Objectives
 
 In this lab, you will:
+
 * Download files for STORES, WAREHOUSES, REGIONS, and TORNADO\_PATHS
 * View the content on a map
 * Load the files to database tables
 * Configure the tables for spatial analysis
 
-
 ### Prerequisites
 
-Oracle Autonomous Database and Database Actions 
-
+* Completion of Lab 2: Connect to ADB with SQL Worksheet
 
 ## Task 1: Load data from files
 
-You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries. 
+You begin by loading data for warehouses and stores from CSV files that include coordinates which will be used to create point geometries. You then load data for regions and tornado paths from GeoJSON documents. The GeoJSON files will be loaded and converted to tables with geometries.
 
 1. Download the following files using **right-click > Save link As...**.
 
@@ -634,4 +618,4 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, March 2023
+* **Last Updated By/Date** - Denise Myrick, August 2024

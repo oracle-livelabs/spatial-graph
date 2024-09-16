@@ -16,7 +16,7 @@ RDF graph leverages features such as triple-level security, Exadata, RAC, compre
 RDF graphs create a unified metadata layer for disparate applications that facilitates identification, integration, and discovery.  RDF graphs are central to knowledge management, linked data and social network applications common in the healthcare and life sciences, finance, media and intelligence communities.
 
 
-Try one of our workshops in [LiveLabs](http://developer.oracle.com/livelabs).
+Try one of our workshops in [LiveLabs](http://livelabs.oracle.com).
 
 ## Property Graph Workshops
 
