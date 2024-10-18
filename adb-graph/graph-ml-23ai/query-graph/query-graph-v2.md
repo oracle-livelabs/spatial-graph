@@ -140,7 +140,7 @@ We will first create a graph of customers, movies they have watched, and movies 
 
     ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
 
-4. Next, let's take a look at the watch parties Adriana has been part of, and some other movies other watch party attendees have watched.
+3. Next, let's take a look at the watch parties Adriana has been part of, and some other movies other watch party attendees have watched.
 
      ```
      <copy>%sql

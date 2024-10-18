@@ -39,7 +39,7 @@ Learn how to
 
     ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
 
-2. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
+4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
     ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
