@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Use of Graph ML, Vector Search, RAG, and LLMs for Information Retrieval",
+    "workshoptitle": "Use of Graph RAG and Vector Search for Enhanced User Prompt to LLMs",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
      "adb-connect-with-sql-worksheet-non-admin.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-non-admin.md",
@@ -18,21 +18,12 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
     },
     {
-        "title": "Your OCI GenAI key - Required for Lab 1",
-        "filename": "https://oracle-livelabs.github.io/common/labs/ocw24/tut3335.md"
+        "title": "Lab 1: Import Notebook",
+        "filename": "../../import-notebook/import-notebook-v2.md"
     },
     {
-        "title": "Lab 1: GenAI Setup to integrate with Graph Studio",
-        "description": "Prerequisites for this workshop",
-        "filename": "../../genai-setup/genai-setup.md"
-    },
-    {
-        "title": "Lab 2: Import Notebook",
-        "filename": "../../import-notebook/import-notebook.md"
-    },
-    {
-        "title": "Lab 3: Query and visualize the property graph",
-        "filename": "../../query-graph/query-graph.md"
+        "title": "Lab 2: Query and visualize the property graph",
+        "filename": "../../query-graph/query-graph-v2.md"
     },
     {
         "title": "Need Help?",
