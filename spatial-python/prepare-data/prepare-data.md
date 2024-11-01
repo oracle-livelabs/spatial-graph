@@ -1,6 +1,5 @@
 # Prepare Data
 
-
 ## Introduction
 
 In this lab, fictitious financial transactions data are loaded to your Autonomous Database and configured for spatial and temporal ("spatiotemporal") analysis.
@@ -14,13 +13,14 @@ Estimated Lab Time: 10 minutes
 
 ### Prerequisites
 
-* Completion of Lab 4: Connect to Autonomous Database from Python
+* Completion of Lab 3: Connect to Autonomous Database from Python
 
 ## Task 1: Upload data files
 
 1. Use the following links to download the data files:
- * [locations.csv](./data/locations.csv)
- * [transactions.csv](./data/transactions.csv)
+
+* [locations.csv](./data/locations.csv)
+* [transactions.csv](./data/transactions.csv)
 
 2. Click the **Upload** icon to load the data files.
    ![Upload data](images/prepare-data-01.png)
@@ -30,7 +30,6 @@ Estimated Lab Time: 10 minutes
    ![Preview files](images/prepare-data-02.png)
 
   Observe that locations.csv has one row per ATM location, and transactions has one row per financial transaction. Then close tabs with the data preview and return to your notebook.
-
 
 ## Task 2: Create and load tables
 
@@ -203,9 +202,7 @@ Temporal calculations are a key component of this workshop, and are best perform
 
      ![Preview epoch date](images/prepare-data-11.png)
 
-
-## Task 4: Configure data for spatial operations  
-
+## Task 4: Configure data for spatial operations
 
 Spatial calculations are an additional key component of this workshop. In this task you configure your locations data to utilize the spatial features of Autonomous Database. The locations table includes longitude/latitude coordinates. One option is to create and populate a new column using the native spatial data type. While that would work perfectly fine, there is another option that takes advantage of a mainstream Oracle Database feature called "function based indexing". This approach allows for all of the capability associated with creating a new spatial column, but without having to create the column. Instead, you create a database function that converts coordinates to a spatial data element, and then create an index on that function. Once the function and index are created, all spatial operations behave as if a new spatial column had been created. While this is not essential for the small data volume in this workshop, the approach is of great benefit for large scale systems where the overhead of adding a column is significant.
 
@@ -264,8 +261,6 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Test the function](images/prepare-data-14.png)
 
-
-
 4. Spatial queries rely on a spatial index for optimal performance. A spatial index can only be created on data having uniform dimensionality (i.e., 2D or 3D) and coordinate system. Before creating a spatial index, it is necessary to insert a row of metadata describing these properties for the geometry to be indexed. This includes the table name, geometry column name (or in this case a function returning geometry), dimensionality , and a coordinate system code. When creating a spatial index, the data are first verified to conform to the metadata. Spatial indexing completes successfully only if the data conform to the metadata. Run the following to create spatial metadata for the location geometry.
 
      ```
@@ -313,15 +308,14 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Run spatial query](images/prepare-data-18.png)
 
-
 You may now **proceed to the next lab**.
 
 ## Learn More
 * For details on UNIX time please see [https://en.wikipedia.org/wiki/Unix_time](https://en.wikipedia.org/wiki/Unix_time)
-* For details on function-based spatial indexing, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089)
+* For details on function-based spatial indexing, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/sdo_geometry-objects-function-based-indexes.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089)
 
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - David Lapp, August 2023
+- **Last Updated By/Date** - Denise Myrick, November 2024

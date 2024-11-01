@@ -1,6 +1,5 @@
 # Detect suspicious transactions
 
-
 ## Introduction
 
 The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. You will identify such occurrences in this lab.
@@ -15,7 +14,7 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* Completion of Lab 6: Explore data
+* Completion of Lab 5: Explore data
 
 ## Task 1: Experiment with spatial aggregation
 
@@ -233,7 +232,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-simple-07.png)
 
-  In the next steps you use this approach to detect suspicious financial transactions.
+  In the next steps, you use this approach to detect suspicious financial transactions.
 
 9. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
 
@@ -568,11 +567,11 @@ We hope this workshop has been informative and that you further explore the spat
 
 ## Learn More
 
-* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html)
+* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html)
 * For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](https://github.com/eren-ck/st_dbscan)
 
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - David Lapp, August 2023
+- **Last Updated By/Date** - Denise Myrick, November 2024
