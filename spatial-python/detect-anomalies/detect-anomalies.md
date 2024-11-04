@@ -107,11 +107,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
  You will next identify suspicious transactions that occur during the time range of a spatiotemporal cluster but at a distance greater than a threshold. Since the area covered by a spatiotemporal cluster is insignificant compared to the distance threshold for a suspicious transaction, you will use the aggregate centroid to represent the location of a spatiotemporal cluster.
 
-
 ## Task 2: Prep for cluster detection
 
-
-1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan.
+1. Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan.
 
      ```
      <copy>
@@ -122,7 +120,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      ```
 
      ![detect anomalies](images/detect-anomalies-01.png)
-
 
 2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with some locations each having epoch time and an ID.
       ```
@@ -170,8 +167,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-simple-02.png)
 
-​
-4. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
+​4. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
      ```
      <copy>
      # Convert to pandas dataframe
@@ -370,11 +366,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       ```
     ![detect anomalies](images/detect-anomalies-11.png)
 
-
 9. Zooming into the area of Austin, TX where the current customer's transaction locations are concentrated, observe the color coding indicating which are part of the spatiotemporal cluster.
 
     ![detect anomalies](images/detect-anomalies-12.png)
-
 
 ## Task 4: Detect anomalies
 
@@ -417,6 +411,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 3. To identify current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold, you will run a query using the WITH ... AS ... SELECT .. WHERE... syntax as follows.
 
     ```
+    <copy>
     WITH
         x as ( [transactions] ),
         y as ( [spatiotemporal cluster aggregate centroids] )
@@ -424,6 +419,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     FROM x, y
     WHERE [transaction time within cluster time frame]
     AND [distance from cluster > threshold]
+    <\copy>
     ```
 
    Run the following query to return suspicious transactions along with the associated cluster label and distance from the cluster.
@@ -563,7 +559,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     To detect suspicious for other customers, scroll up to step 8, set a different customer id, and re-run the the subsequent cells to call the functions in the script.
 
 We hope this workshop has been informative and that you further explore the spatial features of Oracle Database and their use in machine learning and AI workflows.
-
 
 ## Learn More
 
