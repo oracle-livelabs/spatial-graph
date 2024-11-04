@@ -1,9 +1,8 @@
 # Connect to  Autonomous Database from Python
 
-
 ## Introduction
 
-To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous Database. The python-oracledb driver supports this connection and all subsequent database interactions.  You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle Database and does not need Oracle Client libraries. 
+To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous Database. The python-oracledb driver supports this connection and all subsequent database interactions.  You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle Database and does not need Oracle Client libraries.
 
 Estimated Lab Time: 5 minutes
 
@@ -17,10 +16,10 @@ Estimated Lab Time: 5 minutes
 
 ## Task 1: Create connection parameter files
 
-1. To avoid including database connection information directly in your notebook, you create files with this information which your notebook can reference. In JupyterLab, click on the Text File tile to create a new text file. 
+1. To avoid including database connection information directly in your notebook, you create files with this information which your notebook can reference. In JupyterLab, click on the Text File tile to create a new text file.
   ![Connect to ADB](images/connect-to-adb-01.png)
 
-2. Enter your ADB ADMIN user password. Then from the File menu select **Save Text**. 
+2. Enter your ADB ADMIN user password. Then from the File menu select **Save Text**.
   ![Connect to ADB](images/connect-to-adb-02.png)
 
 3. When prompted enter **my-pwd.txt** as your file name and click **Rename**.
@@ -30,12 +29,12 @@ Estimated Lab Time: 5 minutes
    ![Connect to ADB](images/connect-to-adb-04.png)
 
 5. Return to your Oracle Cloud browser tab click on **Database Connection**.
-  ![Connect to ADB](images/connect-to-adb-06.png)
+  ![Connect to ADB](images/connect-to-adb-06-v2.png)
 
-1. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
+6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
   ![Connect to ADB](images/connect-to-adb-07.png)
 
-1. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from your Autonomous Database. Then save the file and rename to **my-dsn.txt**. 
+7. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from your Autonomous Database. Then save the file and rename to **my-dsn.txt**.
   ![Connect to ADB](images/connect-to-adb-08.png)
 
   As done previously, close the text file tab to return to the Launcher page.
@@ -45,7 +44,7 @@ Estimated Lab Time: 5 minutes
 1. From the Launcher, click the **Python 3** tile to create a new notebook.
   ![Connect to ADB](images/connect-to-adb-09.png)
 
-1. In the first cell, paste the following statement and then click the **run** button. This loads the python-oracedb module which handles interaction with Oracle Database. 
+2. In the first cell, paste the following statement and then click the **run** button. This loads the python-oracledb module which handles interaction with Oracle Database.
 
      ```
      <copy>
@@ -54,7 +53,7 @@ Estimated Lab Time: 5 minutes
      ```
      ![Connect to ADB](images/connect-to-adb-10.png)
 
-2. In the next cell, paste the following statements and then click the **run** button. This loads your ADB password and DSN into variables
+3. In the next cell, paste the following statements and then click the **run** button. This loads your ADB password and DSN into variables
 
      ```
      <copy>
@@ -65,7 +64,7 @@ Estimated Lab Time: 5 minutes
      ```
      ![Connect to ADB](images/connect-to-adb-11.png)
 
-3. In the next cell, paste the following statements and then click the **run** button. This creates a connection to your ADB.
+4. In the next cell, paste the following statements and then click the **run** button. This creates a connection to your ADB.
 
      ```
      <copy>
@@ -76,7 +75,7 @@ Estimated Lab Time: 5 minutes
      ```
      ![Connect to ADB](images/connect-to-adb-12.png)
 
-3. In the next cell, paste the following statements and then click the **run** button. This runs a test query to verify successful connection to ADB.
+5. In the next cell, paste the following statements and then click the **run** button. This runs a test query to verify successful connection to ADB.
 
      ```
      <copy>
@@ -88,23 +87,22 @@ Estimated Lab Time: 5 minutes
      ```
      ![Connect to ADB](images/connect-to-adb-13.png)
 
-
-4. Right-click on your notebook file Untitled.ipynb in the left panel and select **Rename**.
+6. Right-click on your notebook file Untitled.ipynb in the left panel and select **Rename**.
 
      ![Connect to ADB](images/connect-to-adb-14.png)
 
-
-5. Enter **my-notebook** (or a name of your choosing). Observe the notebook name is changed.
+7. Enter **my-notebook** (or a name of your choosing). Observe the notebook name is changed.
 
      ![Connect to ADB](images/connect-to-adb-15.png)
 
 You may now **proceed to the next lab**.
 
 ## Learn More
+
 * For more info on python-oracledb connections to Autonomous Database, please see the [documentation](https://python-oracledb.readthedocs.io/en/latest/user_guide/connection_handling.html#connecting-to-oracle-cloud-autonomous-databases).
 
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - David Lapp, August 2023
+- **Last Updated By/Date** - Denise Myrick, November 2024
