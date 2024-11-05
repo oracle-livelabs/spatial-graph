@@ -29,7 +29,7 @@ Estimated Lab Time: 5 minutes
    ![Connect to ADB](images/connect-to-adb-04.png)
 
 5. Return to your Oracle Cloud browser tab click on **Database Connection**.
-  ![Connect to ADB](images/connect-to-adb-06-v2.png)
+  ![Connect to ADB](images/connect-to-adb-06-v3.png)
 
 6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
   ![Connect to ADB](images/connect-to-adb-07.png)
