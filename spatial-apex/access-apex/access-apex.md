@@ -46,7 +46,7 @@ Watch the video below for a quick walk-through of the lab.
 
 4. Click **Create Workspace**.
 
-    ![Create Workspace page](images/welcome-create-workspace.png " ")
+    ![Create workspace page](images/welcome-create-workspace.png " ")
 
 5. Depending on how you would like to create your workspace, select **New Schema** or **Existing Schema**. If you are getting started, select **New Schema**.
 
