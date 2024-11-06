@@ -19,19 +19,19 @@ Estimated Lab Time: 30 minutes
 
 1. Click on the **Page 3: Airports and States Map** at the top of the tree on the left. Then in the Page properties panel on the right, under Appearance change the Page Template to **Left Side Column**.
 
-    ![Update Page template](images/add-spatial-analysis-01a.png)
+    ![Update Page template](images/add-spatial-analysis-01a-v2.png)
 
     You should then see **LEFT COLUMN** in the layout.
 
-    ![Update Page template](images/add-spatial-analysis-01b.png)
+    ![Update Page template](images/add-spatial-analysis-01b-v2.png)
 
 2. Drag a Static Content region to left column.
 
-    ![Add Static Content Region](images/add-spatial-analysis-01c.png)
+    ![Add Static Content Region](images/add-spatial-analysis-01c-v2.png)
 
 3. Rename to **My Filters Region** or a name of your choosing.
 
-    ![Rename Region](images/add-spatial-analysis-02.png)
+    ![Rename Region](images/add-spatial-analysis-02-v2.png)
 
 ## Task 2: Add an Item for State Selection
 
@@ -59,11 +59,11 @@ Estimated Lab Time: 30 minutes
 
 1. Drag Number Field into your filters region. Update the name to **P3_DISTANCE** and the label to **Proximity (km)**.
 
-    ![Add Number Field Item](images/add-spatial-analysis-06.png)
+    ![Add Number Field Item](images/add-spatial-analysis-06-v2.png)
 
 2. In the Page Item properties on the right, scroll down to the Validation section and enable **Value Required**.
 
-    ![Set Validation to Value Required](images/add-spatial-analysis-07.png)
+    ![Set Validation to Value Required](images/add-spatial-analysis-07-v2.png)
 
 3. Scroll down to the section for Default. Set the Type to **Static** and value to **100**.
 
@@ -77,25 +77,25 @@ You next create the actions that are invoked when state and/or distance values a
 
 1. Right-click on either your P3\_STATE or P3\_DISTANCE item and select **Create Dynamic Action**  (the action we create will be applied to both items).
 
-    ![Create Dynamic Action](images/add-spatial-analysis-09.png)
+    ![Create Dynamic Action](images/add-spatial-analysis-09-v2.png)
 
 2. In the Dynamic Action properties on the right, set the Name to **Validate and Refresh**. Under the When section, set Event to **Change**, Selection Type to **Item(s)**, and items to the comma separated list **P3\_DISTANCE,P3\_STATE** . Note, the button to the right of the items text box allows you select items from a list. To prevent submitting negative values for distance, under the Client Side Condition section, set Type to **Item >= Value**, item to **P3\_DISTANCE** and Value to **0**.
 
-    ![Configure Dynamic Action](images/add-spatial-analysis-10.png)
+    ![Configure Dynamic Action](images/add-spatial-analysis-10-v2.png)
 
 3. Dynamic Actions are configured with TRUE action(s) and FALSE action(s) which are invoked based on conditions that have been configured. In this case the client-side condition (P3\_DISTANCE >= 0) determines whether to invoke the TRUE Action (condition is met) or the FALSE Action (condition is not met). This will allow us to trap negative distance entry.
 
     When the client-side condition is TRUE, the action should submit the input values and refresh the page. Click on the action under True. In the Action properties on the right, under Identification set Action to **Refresh**.  Under Affected Elements, set Selection Type to **Region** and Region to **My Map Region** (or the name you used if different.) Observe in the page tree on the left that the True action changes to Refresh.
 
-    ![Configure Dynamic Action](images/add-spatial-analysis-11.png)
+    ![Configure Dynamic Action](images/add-spatial-analysis-11-v2.png)
 
 4. Next you will configure the action to invoke when the client-side condition is not met, meaning a negative distance value was entered. Under Dynamic Actions for either item, right-click on False and select **Create FALSE Action**.
 
-    ![Configure Dynamic Action](images/add-spatial-analysis-12.png)
+    ![Configure Dynamic Action](images/add-spatial-analysis-12-v2.png)
 
 5. The FALSE Action invoked when distance is negative will be a popup message to the user. Click on the False action. In the Action properties on the right, under Identification, set Action to **Alert**. Under Settings set the Title to **Invalid distance** (this will be the alert banner) and Message to **Distance must be >= 0** (this will be the alert body). Observe in the page tree on the left that the False action changes to Alert.
 
-    ![Configure Dynamic Action](images/add-spatial-analysis-13.png)
+    ![Configure Dynamic Action](images/add-spatial-analysis-13-v2.png)
 
 6. Your Map Region currently includes a States layer displaying all states. You now adjust this layer to only display the state selected from the P3\_STATE menu. In the page tree on the left, under Layers click on States. In the Layer properties on the right, under Identification change Name to **Selected State**. Under Source set the Where Clause to **state\_code = :P3\_STATE**. Observe in the page tree on the left that the layer name changes to Selected State.
 
@@ -105,7 +105,7 @@ You next create the actions that are invoked when state and/or distance values a
     </copy>
     ```
 
-    ![Configure WHERE clause](images/add-spatial-analysis-14.png)
+    ![Configure WHERE clause](images/add-spatial-analysis-14-v2.png)
 
 7. Finally you update the Airports layer to return items filtered by the user-specified state and proximity. In the Page tree on the left, click on the Airports layer. In the Layer properties on the right, under Source, change Type to **SQL Query**. For SQL Query enter the following which uses Oracle Database's native SQL "within distance" operator.
 
@@ -122,7 +122,7 @@ You next create the actions that are invoked when state and/or distance values a
 
     For Page Items to Submit, enter the comma separated list **P3\_STATE,P3\_DISTANCE** .
 
-    ![Spatial SQL query](images/add-spatial-analysis-15.png)
+    ![Spatial SQL query](images/add-spatial-analysis-15-v2.png)
 
 8. Your page is now ready to view. Click **Save** and then the green **Run** button at the upper right.  Once the page is rendered, for state select **Alabama**. The map displays the selected state and airports within 100km (the default distance).
 
@@ -150,4 +150,4 @@ You next create the actions that are invoked when state and/or distance values a
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date**  - Denise Myrick, Database Product Management, November 2024
