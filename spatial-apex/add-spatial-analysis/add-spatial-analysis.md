@@ -13,7 +13,7 @@ Estimated Lab Time: 30 minutes
 
 ### Prerequisites
 
-* Lab 3: Create a map from scratch
+* Lab 3: Create Map from Scratch
 
 ## Task 1: Add a Region for Filters
 
@@ -37,7 +37,7 @@ Estimated Lab Time: 30 minutes
 
 1. Drag a Select List item your filters region and update the name to **P3_STATE**.
 
-    ![Add Select List Item](images/add-spatial-analysis-03.png)
+    ![Add Select List Item](images/add-spatial-analysis-03-v2.png)
 
 2. In the Page Item properties on the right, scroll down to the section for List of Values. Enable **Value Required** using the switch, set the Type as **SQL Query** and enter the following query:
 
@@ -79,7 +79,7 @@ You next create the actions that are invoked when state and/or distance values a
 
     ![Create Dynamic Action](images/add-spatial-analysis-09.png)
 
-2. In the Dynamic Action properties on the right, set the Name to **Validate and Refresh**. Under the When section, set Event to **Change**, Selection Type to **Items**, and items to the comma separated list **P3\_DISTANCE,P3\_STATE** . Note, the button to the right of the items text box allows you select items from a list. To prevent submitting negative values for distance, under the Client Side Condition section, set Type to **Item >= Value**, item to **P3\_DISTANCE** and Value to **0**.
+2. In the Dynamic Action properties on the right, set the Name to **Validate and Refresh**. Under the When section, set Event to **Change**, Selection Type to **Item(s)**, and items to the comma separated list **P3\_DISTANCE,P3\_STATE** . Note, the button to the right of the items text box allows you select items from a list. To prevent submitting negative values for distance, under the Client Side Condition section, set Type to **Item >= Value**, item to **P3\_DISTANCE** and Value to **0**.
 
     ![Configure Dynamic Action](images/add-spatial-analysis-10.png)
 

@@ -70,9 +70,9 @@ You will now inspect the Map Region created by the wizard.
 
 Congratulations on creating your first maps. There is a lot of capability beyond the basics you have just explored. Feel free to experiment with adjustments to parameters and then Save and Run to see results. In the next Lab you will configure a new Map Region from scratch.
 
-This concludes the lab. You may now proceed to the next lab.
+This concludes the lab. You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date**  - Denise Myrick, Database Product Management, November 2024

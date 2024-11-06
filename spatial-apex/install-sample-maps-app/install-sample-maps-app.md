@@ -13,11 +13,11 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* Oracle APEX 21.1+ is required. The screenshots in this workshop are taken using APEX 21.2. Since we generally recommend using the [latest version of APEX](https://www.oracle.com/tools/downloads/apex-downloads/), expect occasional small differences in the user interface.
+* Oracle APEX 21.1+ is required. The screenshots in this workshop are taken using APEX 24.1. Since we generally recommend using the [latest version of APEX](https://www.oracle.com/tools/downloads/apex-downloads/), expect occasional small differences in the user interface.
 
 ## Task 1: Install the Application
 
-   >**Note:** Your interface may look different because the screenshots are shown in **Light Mode**. You can change this by clicking on the username in the top right corner and selecting your preferred mode.  
+   >**Note:** Your interface may look different because the screenshots are shown in **Light Mode**. You can change this by clicking on the username in the top right corner and selecting your preferred mode.
 
 1. Begin by clicking on **App Builder**.
 
@@ -47,13 +47,13 @@ Estimated Lab Time: 15 minutes
 
    ![Click on Data Loading](images/install-sample-maps-13.png)
 
-2. The Data Loading page shows the loading status of the States and Airports datasets used by the Sample Maps application and the rest of this workshop. Upon installation of the Sample Maps application, these datasets are only partially loaded. To complete the sample data loading, you may either load directly from files stored in github, or you may first download the files and load from your local system. If you are running APEX in a network that requires a proxy to access github, then you should use the latter option.
+2. The Data Loading page shows the loading status of the US States and Airports datasets used by the Sample Maps application and the rest of this workshop. Upon installation of the Sample Maps application, these datasets are only partially loaded. To complete the sample data loading, you may either load directly from files stored in GitHub, or you may first download the files and load from your local system. If you are running APEX in a network that requires a proxy to access GitHub, then you should use the latter option.
 
-   If your APEX instance does not require a proxy to access github (for example, apex.oracle.com or APEX wth Oracle Autonomous Database), then click on the button to load **Directly from GitHub** and then click **Load Dataset** at the top right.
+   If your APEX instance does not require a proxy to access GitHub (for example, apex.oracle.com or APEX wth Oracle Autonomous Database), then click on the button to load **Directly from GitHub** and then click **Load Dataset** at the top right.
 
-   ![Click on Directly from Github](images/install-sample-maps-14.png)
+   ![Click on Directly from GitHub](images/install-sample-maps-14.png)
 
-   If your APEX instance requires a proxy to access github (for example, APEX running behind your corporate firewall), or if you have other issues loading directly from github, then click the button **Upload Files** which provides alternate instructions.
+   If your APEX instance requires a proxy to access GitHub (for example, APEX running behind your corporate firewall), or if you have other issues loading directly from GitHub, then click the button **Upload Files** which provides alternate instructions.
 
 3. When data loading is complete you will see a notification at the top right, and the warning message is gone. The Sample Maps application is now ready to use.
 
@@ -65,7 +65,7 @@ Estimated Lab Time: 15 minutes
 
    ![Navigate to Map and Report page](images/install-sample-maps-16.png)
 
-2. In this page, clicking on an item in the report on the right centers on the item in the map and opens an info window. Clicking on the icon at the top left corner opens a navigation panel to access other pages in the application.
+2. In this page, clicking on an item in the report on the right centers the map on the item and opens an info popup. Clicking on the hamburger icon at the top left corner opens a navigation panel to access other pages in the application.
 
    ![Interact with the map](images/install-sample-maps-17.png)
 
@@ -105,16 +105,15 @@ Estimated Lab Time: 15 minutes
 
    ![Polygon geometries](images/install-sample-maps-25.png)
 -->
-5. Observe the tables with names like **MDRT_....$**. These are automatically created and managed behind the scenes by the database to support spatial indexes on other tables. You never manually create, update, or delete these tables. They are solely to support spatial analysis operations and can be ignored.
+4. Observe the tables with names like **MDRT_....$**. These are automatically created and managed behind the scenes by the database to support spatial indexes on other tables. You never manually create, update, or delete these tables. They are solely to support spatial analysis operations and can be ignored.
 
    ![Spatial index artifacts](images/install-sample-maps-26.png)
 
-6. Finally, you can run a basic spatial query with this data.  Click on **SQL Workshop** and then  **SQL Commands**.
+5. Finally, you can run a basic spatial query with this data.  Click on **SQL Workshop** and then  **SQL Commands**.
 
    ![SQL Workshop - SQL Commands](images/install-sample-maps-27.png)
 
-7. The following query returns the number of airports with land coverage over 1000 acres that are within 100km of Texas. Notice the use of the native spatial operator **sdo\_within\_distance**. Copy and paste the query into the SQL Commands window and then click **Run** at the top right.
-
+6. The following query returns the number of airports with land coverage over 1000 acres that are within 100km of Texas. Notice the use of the native spatial operator **sdo\_within\_distance**. Copy and paste the query into the SQL Commands window and then click **Run** at the top right.
 
     ```
     <copy>
@@ -128,7 +127,7 @@ Estimated Lab Time: 15 minutes
 
    ![Spatial query](images/install-sample-maps-28.png)
 
-9. In the sdo\_within\_distance operator, update the distance to 300km and re-run. Observe the result changes based on the larger search area.
+7. In the sdo\_within\_distance operator, update the distance to 300km and re-run. Observe the result changes based on the larger search area.
 
    ![Spatial query](images/install-sample-maps-29.png)
 
@@ -136,10 +135,10 @@ In a later lab you will configure a map that displays the results of this query 
 
 You now have installed and explored the Sample Maps application and data. Next you move on to begin creating your own application and maps.
 
-This concludes the lab. You may now proceed to the next lab.
+This concludes the lab. You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Carsten Czarski, APEX Development, Oracle
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Database Product Management, July 2024
+* **Contributors** - Carsten Czarski, APEX Development, Ramu Murakami Gutierrez, Database Product Management, Oracle
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024
