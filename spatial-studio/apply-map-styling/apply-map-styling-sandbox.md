@@ -15,7 +15,7 @@ Estimated Time: 30 minutes
 
 ### Prerequisites
 
-* Successfully complete Lab 2: Create Project
+* Successfully complete Lab 3: Create Project
 
 ## Task 1: Navigate to styling
 
