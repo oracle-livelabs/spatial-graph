@@ -45,7 +45,7 @@ Estimated Time: 45 minutes
 
 ### Prerequisites
 
-* Successfully complete Labs 1-3
+* Successfully complete Labs 1-4
 
 <!-- *This is the "fold" - below items are collapsed by default*  -->
 

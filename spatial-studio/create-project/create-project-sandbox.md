@@ -14,7 +14,7 @@ Estimated Time: 30 minutes
 
 ### Prerequisites
 
-* Successfully complete Lab 1: Load Spatial Data
+* Successfully complete Lab 2: Load Spatial Data
 
 ## Task 1: Create Project
 
