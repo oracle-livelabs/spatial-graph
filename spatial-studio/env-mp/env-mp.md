@@ -4,7 +4,7 @@
 
 In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits.
 
-Estimated Lab Time: 15 minutes
+Estimated Time: 15 minutes
 
 Watch the video below for a quick walk-through of the lab.
 
@@ -95,7 +95,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
     * **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
     * **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.
-    * **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation] (<https://docs.oracle.com/en/database/oracle/spatial-studio/22.1/spstu/administering-spatial-studio.html#GUID-B57F59E9-B526-4916-9AF3-C430BB627E41>).
+    * **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation](<https://docs.oracle.com/en/database/oracle/spatial-studio/24.2/spstu/setting-spatial-studio-metadata-schema.html>).
 
     If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
@@ -121,7 +121,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 1. Click on the **Application Information** tab, and then click the link for **Spatial Studio HTTP or HTTPS URL**.
 
-   ![Fetch URL to start Spatial Studio](images/mp-15.png)
+   ![Fetch URL to start Spatial Studio](images/mp-15-v2.png)
 
 2. Log in with user name **admin** and the password you entered in the Step 7 of Task 2.
 
