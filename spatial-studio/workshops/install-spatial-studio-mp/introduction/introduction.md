@@ -4,7 +4,7 @@
 
 In this workshop you will provision Spatial Studio to the Oracle Cloud from the OCI Cloud Marketplace.
 
-Estimated Workshop Time: 25 minutes
+Estimated Time: 25 minutes
 
 ### About Oracle Spatial Studio
 
@@ -34,4 +34,5 @@ For more information please visit [https://www.oracle.com/database/spatial/] (ht
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - Karin Patenge, Database Product Management, May 2024
+- **Contributors** - Karin Patenge, Database Product Management
+- **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024

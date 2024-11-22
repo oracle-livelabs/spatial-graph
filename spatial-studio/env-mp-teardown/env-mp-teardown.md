@@ -28,7 +28,7 @@ Navigate to the stack used to create your Spatial Studio instance.
 
 1. Navigate to **Developer Services > Stacks**.
 
-   ![Navigate to Stacks in OCI Console](images/teardown-01.png)
+   ![Navigate to Stacks in OCI Console](images/teardown-01-v2.png)
 
 2. From the action menu of your stack, select **View stack details**.
 
@@ -50,7 +50,7 @@ Navigate to the stack used to create your Spatial Studio instance.
 
 The stack is the set of instructions for deployment. It captures the settings you selected when running the Cloud Marketplace wizard. Now that you have purged resources created when you ran the stack to create your Spatial Studio instance, you may now delete the stack itself. After deleting the stack, in order to deploy Spatial Studio again you will need to start over with the Cloud Marketplace. You may also keep the stack and re-run it as-is, or edit it to modify parameters such as adding a SSH key to create a longer term instance.
 
-1. From the stack's **More action** menu, select **Delete stack**.
+1. From the stack's **More actions** menu, select **Delete stack**.
 
    ![Select Delete stack](images/teardown-06.png)
 
@@ -69,5 +69,5 @@ The stack is the set of instructions for deployment. It captures the settings yo
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Product management, Oracle
-* **Last Updated By/Date** - Karin Patenge, Product Management, Oracle/May 2024
+* **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, and Karin Patenge, Product management, Oracle
+* **Last Updated By/Date** - Denise Myrick, Product Management, Oracle November 2024
