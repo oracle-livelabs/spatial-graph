@@ -41,7 +41,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     ![Click Open Graph Studio](images/graphstudiofixed.png " ")
 
-3. Log in to Graph Studio. Use the credentials for the database user GRAPHUSER.
+3. Log in to Graph Studio. Use the credentials for the database user **GRAPHUSER** displayed in **View Login info**.
 
     ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
 
@@ -167,5 +167,5 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, November 2024
 
