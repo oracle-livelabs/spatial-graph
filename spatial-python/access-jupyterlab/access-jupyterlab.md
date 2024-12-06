@@ -12,7 +12,6 @@ Estimated Lab Time: 5 minutes
 * Explore notebook functionality
 * Select option for performing remainder of hands-on lab
 
-
 ## Task 1: Retrieve IP address for JupyterLab
 
 1. From the main menu, navigate to Compute > Instances
@@ -22,17 +21,14 @@ Estimated Lab Time: 5 minutes
 2. In the workshop instructions page, click **View Login Info** at the top left and copy your Compartment name.
 
   ![Retrieve IP address](images/compartment.png)
- 
- 
- 1. In the OCI console, paste in your Compartment name and select it from the pull-down. 
+  
+3. In the OCI console, paste in your Compartment name and select it from the pull-down. 
 
   ![Retrieve IP address](images/compute-02.png)
 
-
- 4. Note the Public IP of your compute instance. JupyerLab has been set on on this instance. You will use this later in this and other Labs. 
+4. Note the Public IP of your compute instance. JupyerLab has been set on on this instance. You will use this later in this and other Labs.
 
   ![Retrieve IP address](images/compute-03.png)
-
 
 ## Task 2: Verify access to JupyterLab 
 
@@ -42,7 +38,7 @@ Estimated Lab Time: 5 minutes
 
 2. Enter the password **livelabs** and click **Log in**. 
    
-## Task 2: Explore Jupyter Notebooks
+## Task 3: Explore Jupyter Notebooks
 
 Jupyter Notebook is an interactive web-based tool that allows you to create and share documents that contain live code, equations, visualizations, and text. It is widely used in the data science community for prototyping and data analysis.
 
@@ -61,7 +57,6 @@ In this task, we will walk through the basics of using Jupyter Notebook.
    From the launcher window, select  "Python 3" to create a new notebook using the Python programming language. A new notebook will be created, and you can start working on it by entering code in the code cells or adding markdown text in the markdown cells.
 
    ![create a new Python notebook](./images/launcher3.png) 
-
 
 2. Add some markdown Text.
 
@@ -93,9 +88,8 @@ In this task, we will walk through the basics of using Jupyter Notebook.
 
 4. To save a Jupyter Notebook, click on the "Save" icon on the toolbar, or press Ctrl+S (or Cmd+S on macOS). The notebook will be saved with the .ipynb file extension.
 
-
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - David Lapp, August 2023
+- **Last Updated By/Date** - Denise Myrick, November 2024

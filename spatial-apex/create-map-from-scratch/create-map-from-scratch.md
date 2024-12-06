@@ -12,12 +12,12 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* Lab 2: Create map with wizard
+* Lab 2: Create map with Wizard
 
 ## Task 1: Create a New Page
 
-1. In the breadcrumbs at the top left, click on the link for your application home. Then click on the **Layout** tab.
-![Page layout](images/create-map-15a.png)
+1. In the breadcrumbs at the top left, click on the link for your application home.
+![Page layout](images/create-map-15a-v2.png)
 
 2. Click on **Create Page**.
 ![Create page wizard](images/create-map-15b.png)
@@ -25,14 +25,8 @@ Estimated Lab Time: 15 minutes
 3. You could select Map here to have the same wizard you saw in the Create App wizard. But this step is to create a map from scratch, for example if you had an existing page. Select **Blank Page** and then click **Next**.
 ![Select Blank Page](images/create-map-16.png)
 
-4. For name enter **Airports and States Map** and then click **Next**.
-![Enter page Name](images/create-map-16a.png)
-
-5. Select the option to create a new navigation menu entry and enter **Airports and States Map**, i.e. the same as the page name. Then click **Next**.
-![Create navigation menu entry](images/create-map-17.png)
-
-6. Review the summary and click **Finish**.
-![Review summary](images/create-map-18.png)
+4. For name enter **Airports and States Map** Select the option to create a new navigation menu entry and enter **Airports and States Map**, i.e. the same as the page name. Review entries and click **Create Page**.
+![Enter page Name](images/create-map-16a-v3.png)
 
 ## Task 2: Add a Map to the Page
 
@@ -49,7 +43,7 @@ Estimated Lab Time: 15 minutes
 ![Update Layer properties](images/create-map-23.png)
 
 5. Scroll down in the Layer properties panel on the right. Update the **Source** to use the table **EBA\_SAMPLE\_MAP\_AIRPORTS** . To limit the airports rendered in the layer, add the where clause **LAND\_AREA\_COVERED > 2500**.  Enable the option Use Spatial Index using the switch.
-![Update Layer properties](images/create-map-24.png)
+![Update Layer properties](images/create-map-24-v2.png)
 
 6. Scroll down in the Layer properties panel on the right to the **Column Mapping** section. This is where you configure the spatial column for rendering. Select geometry data type **SDO\_GEOMETRY** and geometry column **GEOMETRY**.
 ![Update Layer properties](images/create-map-25.png)
@@ -83,11 +77,11 @@ Estimated Lab Time: 15 minutes
 5. Observe your map render with States and Airports layers. Click and drag the map to pan, and use the navigation control at the top right to zoom in and out. Click on an Airport to see the info window that you configured. Mouse over a state to see the tooltip that you configured. Turn layers off and on with the checkboxes under the map.
 ![Interact with the map](images/create-map-30.png)
 
-Congratulations on creating your first map from scratch. In the next Lab you will incorporate spatial analysis into this map.
+Congratulations on creating your first map from scratch. In the next Lab, you will incorporate spatial analysis into this map.
 
-This concludes the lab. You may now proceed to the next lab.
+This concludes the lab. You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - David Lapp, Database Product Management, March 2023
+* **Last Updated By/Date**  - Denise Myrick, Database Product Management, November 2024

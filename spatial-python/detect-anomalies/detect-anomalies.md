@@ -1,6 +1,5 @@
 # Detect suspicious transactions
 
-
 ## Introduction
 
 The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. You will identify such occurrences in this lab.
@@ -15,7 +14,7 @@ Estimated Lab Time: 15 minutes
 
 ### Prerequisites
 
-* Completion of Lab 6: Explore data
+* Completion of Lab 5: Explore data
 
 ## Task 1: Experiment with spatial aggregation
 
@@ -108,11 +107,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
  You will next identify suspicious transactions that occur during the time range of a spatiotemporal cluster but at a distance greater than a threshold. Since the area covered by a spatiotemporal cluster is insignificant compared to the distance threshold for a suspicious transaction, you will use the aggregate centroid to represent the location of a spatiotemporal cluster.
 
-
 ## Task 2: Prep for cluster detection
 
-
-1.  Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan.
+1. Begin by importing libraries needed for detecting spatiotemporal clusters. The main library is st\_dbscan. Also, the pandas and numpy libraries are required for configuration of the input to st\_dbscan.
 
      ```
      <copy>
@@ -123,7 +120,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      ```
 
      ![detect anomalies](images/detect-anomalies-01.png)
-
 
 2. Now let's run through an example of detecting spatiotemporal clusters. Run the following to create a GeoDataFrame with some locations each having epoch time and an ID.
       ```
@@ -171,8 +167,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-simple-02.png)
 
-​
-4. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
+​4. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
      ```
      <copy>
      # Convert to pandas dataframe
@@ -233,7 +228,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-simple-07.png)
 
-  In the next steps you use this approach to detect suspicious financial transactions.
+  In the next steps, you use this approach to detect suspicious financial transactions.
 
 9. The result of cluster detection is a "label" for every data item indicating if the item is part of a cluster, and if so which cluster. You will perform cluster analysis and save the results to the database for further analysis. Run the following to create a database table that will store cluster labels.
 
@@ -371,11 +366,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
       ```
     ![detect anomalies](images/detect-anomalies-11.png)
 
-
 9. Zooming into the area of Austin, TX where the current customer's transaction locations are concentrated, observe the color coding indicating which are part of the spatiotemporal cluster.
 
     ![detect anomalies](images/detect-anomalies-12.png)
-
 
 ## Task 4: Detect anomalies
 
@@ -418,6 +411,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 3. To identify current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold, you will run a query using the WITH ... AS ... SELECT .. WHERE... syntax as follows.
 
     ```
+    <copy>
     WITH
         x as ( [transactions] ),
         y as ( [spatiotemporal cluster aggregate centroids] )
@@ -425,6 +419,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     FROM x, y
     WHERE [transaction time within cluster time frame]
     AND [distance from cluster > threshold]
+    <\copy>
     ```
 
    Run the following query to return suspicious transactions along with the associated cluster label and distance from the cluster.
@@ -565,14 +560,13 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
 We hope this workshop has been informative and that you further explore the spatial features of Oracle Database and their use in machine learning and AI workflows.
 
-
 ## Learn More
 
-* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-aggregate-functions.html)
+* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html)
 * For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](https://github.com/eren-ck/st_dbscan)
 
 ## Acknowledgements
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - David Lapp, August 2023
+- **Last Updated By/Date** - Denise Myrick, November 2024
