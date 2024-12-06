@@ -322,4 +322,4 @@ This concludes this lab.
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Manager
 * **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, October 2024
