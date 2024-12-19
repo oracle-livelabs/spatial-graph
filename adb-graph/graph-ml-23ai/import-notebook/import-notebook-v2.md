@@ -75,4 +75,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
 * **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-* **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, October 2024

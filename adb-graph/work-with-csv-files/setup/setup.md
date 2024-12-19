@@ -25,7 +25,7 @@ The instructions below will show you how to run a stack that will automatically 
 
 1. Login to the Oracle Cloud.
 
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oracle-quickstart/oci-arch-graph/releases/latest/download/orm-graph-stack.zip) to create and run the Stack.
+2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/U_zkmk15jXGDwhFQGKANkVainyMr9_WfmuHmp1_lN0wflIk5WJHyl1INCgR1vGdU/n/oradbclouducm/b/bank_graph_livelab/o/bank_graph_livelab_terraform.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
 3. You will be directed to this page:
