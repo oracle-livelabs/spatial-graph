@@ -57,20 +57,17 @@ WHERE NAME='MY_REGION-01';
 </code>
 ```
 
-There are hundreds of Spatial SQL and PL/SQL operations available, as documented [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-reference-information.html). You will explore some of the most common ones in this lab.
+There are hundreds of Spatial SQL and PL/SQL operations available, as documented [here](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/reference-information.html). You will explore some of the most common ones in this lab.
 
 ### Objectives
 
 In this lab, you will perform spatial queries to identify the location relationships between stores, warehouses, regions, and tornado paths.
-
 
 ### Prerequisites
 
 * Completion of Lab 3: Prepare Spatial Data
 
 <!--  *This is the "fold" - below items are collapsed by default*  -->
-
-
 
 ## Task 1: Proximity queries
 
@@ -143,8 +140,7 @@ Proximity relates to how close items are to each other. The two main spatial pro
 
    ![Proximity query](images/run-queries-03.png)
 
-
-4. Run the following query to return the 5 closest retail stores to the Dallas Warehouse along with their distances in miles. Notice that the result includes stores farther than the previous result since you re only looking for retail stores.
+4. Run the following query to return the 5 closest retail stores to the Dallas Warehouse along with their distances in miles. Notice that the result includes stores farther than the previous result since you are only looking for retail stores.
 
       ```
       <copy> 
@@ -166,7 +162,7 @@ Proximity relates to how close items are to each other. The two main spatial pro
      ```
    ![Proximity query](images/run-queries-04.png)
 
-5. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse. 
+5. Spatial operators such as SDO\_NN( ) can also be used to create a join. Run the following query to return each store with the name of the nearest warehouse.
 
      ```
      <copy> 
@@ -180,7 +176,7 @@ Proximity relates to how close items are to each other. The two main spatial pro
 
   ![Proximity query](images/run-queries-05.png)
 
-6. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles. 
+6. Run the following query to return each store with the name of the nearest warehouse along with the distances in miles.
 
      ```
      <copy> 
@@ -242,7 +238,6 @@ Proximity relates to how close items are to each other. The two main spatial pro
 
   Increase the distance value in the query from 20 to 50 mi and observe the new result.
 
-
 ## Task 2: Containment queries 
 
 Containment refers to identifying items that are contained by a specific region, and vice versa, identifying regions that contain specific items. The main spatial containment operators are
@@ -289,7 +284,6 @@ Containment refers to identifying items that are contained by a specific region,
 
       ![Containment query](images/run-queries-10.png)
 
-
 3. Next use SDO\_ANYINTERACT( ) for the purpose of aggregation of tornadoes by region. Run the following to return the number of tornadoes and maximum loss for each region. Note that SDO\_ANYINTERACT( ) returns items having any spatial relationship such as tornado paths that are entirely or partially contained by a region.
 
       ```
@@ -311,7 +305,6 @@ Containment refers to identifying items that are contained by a specific region,
       ```
 
       ![Containment query](images/run-queries-11.png)
-
 
 4. Identify regions containing tornado(s) with loss above $100,000.
 
@@ -357,15 +350,14 @@ Containment refers to identifying items that are contained by a specific region,
 
 You may now **proceed to the next lab**.
 
-
 ## Learn more
 
-* [Spatial product portal](https://oracle.com/goto/spatial)
-* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
+* [Spatial product portal](https://www.oracle.com/database/spatial/)
+* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl)
 * [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, August 2024
+* **Last Updated By/Date** - Denise Myrick, December 2024

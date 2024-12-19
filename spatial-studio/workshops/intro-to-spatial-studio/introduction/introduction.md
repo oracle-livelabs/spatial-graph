@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-In this workshop you will explore the features of Spatial Studio for self-service spatial analysis and visualization. Using datasets of traffic accidents, police stations, and police station service areas, you will load and visualize spatial data, and analyze their spatial relationships as shown below. 
+In this workshop you will explore the features of Spatial Studio for self-service spatial analysis and visualization. Using datasets of traffic accidents, police stations, and police station service areas, you will load and visualize spatial data, and analyze their spatial relationships as shown below.
 
 ![Oracle Spatial Studio](./images/spatial-studio-project.png)
 

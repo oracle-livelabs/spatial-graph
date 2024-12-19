@@ -4,7 +4,7 @@
 
 This lab is to remove everything created in the previous labs so that you can start over if needed.
 
-Estimated Lab Time: 2 minutes
+Estimated Time: 2 minutes
 
 ### About
 
@@ -58,8 +58,7 @@ In this lab, all previously created artifacts are dropped.
       </copy>
       ```
 
-
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, September 2022
+* **Last Updated By/Date** - Denise Myrick, December 2024
