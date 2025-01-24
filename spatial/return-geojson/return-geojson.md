@@ -171,11 +171,11 @@ You may now **proceed to the next lab**.
 
 ## Learn more
 
-* [Spatial product portal](https://oracle.com/goto/spatial)
-* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
+* [Spatial product portal](https://www.oracle.com/database/spatial/)
+* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/)
 * [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, August 2024
+* **Last Updated By/Date** - Denise Myrick, December 2024

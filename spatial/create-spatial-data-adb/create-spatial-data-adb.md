@@ -330,14 +330,12 @@ Next you configure the WAREHOUSES table for Spatial by generating a geometry col
       **Please note:** If a spatial index creation statement fails (for example because a previous step was not done correctly), then before retrying you must still drop the index since some index artifacts may have been created.  So for example, if the spatial index creation statement above were to fail, then before retrying you should run "DROP INDEX WAREHOUSES\_SIDX;".
 
 4.  After creating the spatial index, refresh the table listing. Creating a spatial index automatically creates a special system-managed table with a name having the format **MDRT_xxxx$**. Such tables are managed entirely by Spatial to support spatial indexes and should never be manually dropped. For database users they should be ignored.
-      
+
    ![Prepare spatial data](images/create-data-21a.png)
-
-
 
 ## Task 3: Configure STORES table using function-based spatial index
 
-Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, you index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/extending-spatial-indexing.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089).
+Next you configure the STORES table for Spatial. You could repeat the previous steps to create and index a new geometry column. Instead you will create a "function-based spatial index". With a function-based spatial index, you index geometries returned by a function. The benefit of this approach is that a new geometry column does not need to be added. For scenarios where adding a column is impractical or not desirable, this is the preferred approach.  Details can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/sdo_geometry-objects-function-based-indexes.html).
 
 1. The first step is to create a generic function that accepts coordinates and returns a geometry (i.e., a SDO\_GEOMETRY value). The function includes criteria so that a result is only returned for valid input coordinates.
    
@@ -610,12 +608,12 @@ Now that conversion from GeoJSON is complete you may drop the tables storing the
 
 ## Learn more
 
-* [Spatial product portal](https://oracle.com/goto/spatial)
-* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl)
+* [Spatial product portal](https://www.oracle.com/database/spatial/)
+* [Spatial documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/)
 * [Spatial blog posts on Oracle Database Insider](https://blogs.oracle.com/database/category/db-spatial)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Karin Patenge, Database Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, August 2024
+* **Last Updated By/Date** - Denise Myrick, December 2024
