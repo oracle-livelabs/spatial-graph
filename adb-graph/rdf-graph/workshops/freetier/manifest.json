@@ -1,6 +1,10 @@
 {
     "workshoptitle": "Work with RDF Graphs in Graph Studio",
     "help": "livelabs-help-sg_us@oracle.com",
+    "include": {
+     "adb-create-user.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-user.md",
+     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
+    },
     "tutorials": [
         {
             "title": "Introduction",
