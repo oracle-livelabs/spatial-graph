@@ -39,7 +39,7 @@ Start the Python client (OPG4PY shell) on the Graph Server compute instance to c
 
 ```sh
 <copy>
-opg4py -b https://localhost:7007 -u customer_360
+opg4py -b https://<localhost>:7007 -u customer_360
 </copy>
 ```
 

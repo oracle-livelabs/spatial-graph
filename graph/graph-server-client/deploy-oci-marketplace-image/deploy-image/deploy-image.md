@@ -107,13 +107,13 @@ Oracle Cloud Marketplace stacks are sets of Terraform templates that provide a f
     Click **Download** to save the client security credentials zip file.
     ![wallet-3](images/wallet-3.png)
 
-    By default, the filename is: **Wallet_adb1.zip**
+    By default, the filename is: **Wallet_<adbname>.zip**
 
 Content in this section is adapted from [Download Client Credentials (Wallets)](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-download-wallet.html#GUID-B06202D2-0597-41AA-9481-3B174F75D4B1)
 
 ## Task 4: Upload ADB Wallet
 
-In this step, you need the shell tool to run **scp** and **ssh** commands, e.g. Oracle Cloud Shell, Terminal if you are using MAC, or Git Bash if you are using Windows.
+In this step, you need the shell tool to run **scp** and **ssh** commands, e.g. Oracle Cloud Shell, Terminal if you are using MAC, or Git Bash if you are using Windows. Run the following command in the folder where your private SSH key is stored.
 
 Copy the wallet from your local machine to the Graph Server compute instance on OCI.
 
@@ -154,7 +154,7 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
     ```sh
     <copy>
     cd /etc/oracle/graph/wallets/
-    unzip Wallet_adb1.zip
+    unzip <Wallet_adbname.zip>
     chgrp oraclegraph *
     </copy>
     ```
