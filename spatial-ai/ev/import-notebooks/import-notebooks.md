@@ -90,7 +90,7 @@ Estimated Lab Time: 5 minutes
 
 ## Task 3: Import pre-built notebooks
 
-1. Click [**here**](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/oml-notebooks.zip) to download the file oml-notebooks.zip containing pre-built notebooks. Then unzip the file. 
+1. Click [**here**](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/oml-notebooks-2.zip) to download the file OML notebooks containing pre-built notebooks. Then unzip the file. 
 
        ![Download notebooks](images/download-notebooks.png)
 
