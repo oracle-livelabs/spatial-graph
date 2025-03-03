@@ -33,7 +33,7 @@ Estimated Lab Time: 5 minutes
    ![Create ADW](images/adb-04a.png)
 
 5. Enter and confirm a password for the database ADMIN user. Then scroll down.
-   ![Create ADW](images/adb-05.png)
+   ![Create ADW](images/adb-05a.png)
 
 6. In the next lab, you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the compute instance hosting Python. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, enter the compute IP address from Lab 1 Task 1. Then click **Create**.
  ![Create ADW](images/adb-06a.png)
