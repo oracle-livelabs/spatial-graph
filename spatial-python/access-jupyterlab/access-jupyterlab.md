@@ -16,7 +16,7 @@ Estimated Lab Time: 5 minutes
 
 1. From the main menu, navigate to Compute > Instances
 
-  ![Retrieve IP address](images/compute-01.png)
+  ![Retrieve IP address](images/compute-01a.png)
 
 2. In the workshop instructions page, click **View Login Info** at the top left and copy your Compartment name.
 
@@ -90,6 +90,6 @@ In this task, we will walk through the basics of using Jupyter Notebook.
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, February 2025

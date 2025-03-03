@@ -164,7 +164,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     gdf
     </copy>
     ```
-
     ![detect anomalies](images/detect-simple-02.png)
 
 ​4. Input to ST\_DBSCAN is a Numpy array. Therefore run the following to convert the GeoDataFrame to a Numpy array.
@@ -178,7 +177,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
      data
      </copy>
      ```
-
      ![detect anomalies](images/detect-simple-03.png)
 
 5. From here, we can run ST\_DBSCAN on our sample data. ST\_DBSCAN is a variation of the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm that is extended to work with spatial data. The parameters are the thresholds for clusters; eps1 is the distance threshold in the units of the coordinate system (meters), eps2 is the time threshold in seconds, and min-samples is the threshold for minimum of items. Run the following to detect clusters where the thresholds are 5 or more items within 5KM and roughly 1 month.
@@ -411,7 +409,6 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 3. To identify current customer transactions within the time range of cluster(s) and located at a distance greater than a threshold, you will run a query using the WITH ... AS ... SELECT .. WHERE... syntax as follows.
 
     ```
-    <copy>
     WITH
         x as ( [transactions] ),
         y as ( [spatiotemporal cluster aggregate centroids] )
@@ -419,11 +416,9 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
     FROM x, y
     WHERE [transaction time within cluster time frame]
     AND [distance from cluster > threshold]
-    <\copy>
     ```
 
    Run the following query to return suspicious transactions along with the associated cluster label and distance from the cluster.
-
 
       ```
       <copy>
@@ -463,7 +458,7 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-anomalies-15.png)
 
-4. Run the following to visualize the spatiotemporal cluster(s) as blue markers and associated suspicious outlier(s) as red markers. The Hover over the suspicious transaction(s) to see their attributes.
+4. Run the following to visualize the spatiotemporal cluster(s) as blue markers and associated suspicious outlier(s) as red markers. Then hover over the suspicious transaction(s) to see their attributes.
 
       ```
       <copy>
@@ -478,10 +473,10 @@ To calculate the distance of transactions from a spatiotemporal cluster, it is c
 
     ![detect anomalies](images/detect-anomalies-16.png)
 
-      To repeat the process for the other customer's transactions you could scroll up to the cell where customer ID is set, update to a different customer ID, and rerun the subsequent cells. However it is more convenient to use a script that runs all of the steps.
+      To repeat the process for the other customers' transactions you could scroll up to the cell where customer ID is set, update to a different customer ID, and rerun the subsequent cells. However, it is more convenient to use a script that runs all of the steps.
 
-5. Use the following link to download a script that includes all the steps for anomaly detection: 
-     * [anomaly_detection.py](./files/anomaly_detection.py)
+5. Use the following link to download a script that includes all the steps for anomaly detection:
+[anomaly_detection.py](./files/anomaly_detection.py)
 
     ![detect anomalies](images/detect-anomalies-17.png)
 
@@ -569,4 +564,4 @@ We hope this workshop has been informative and that you further explore the spat
 
 - **Author** - David Lapp, Database Product Management, Oracle
 - **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
+- **Last Updated By/Date** - Denise Myrick, March 2025
