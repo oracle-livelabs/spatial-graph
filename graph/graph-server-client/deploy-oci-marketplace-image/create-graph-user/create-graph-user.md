@@ -37,7 +37,6 @@ Go to **SQL** menu once you are logged in as the **ADMIN** user.
 ![database-actions](images/database-actions_2.png)
 
 ## Task 2: Create database roles
-## Task 2: Create database roles
 
 Now create the roles required for the graph feature. Enter the following commands into the SQL Worksheet and click "Run Script" while connected as the Admin user.
 
