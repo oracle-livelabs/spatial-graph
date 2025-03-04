@@ -75,7 +75,6 @@ Estimated Lab Time: 10 minutes
      ```
      ![Load data](images/prepare-data-05.png)
 
-
 3. Run the following to preview the locations data, which contains one row for each for each ATM location including coordinates and a unique location ID.
 
      ```
@@ -88,7 +87,6 @@ Estimated Lab Time: 10 minutes
      </copy>
      ```
      ![Preview data](images/prepare-data-06.png)
-
 
 4. In the next cell, paste the following statement and then click the **run** button. This creates the table for the transaction data.
 
@@ -104,8 +102,6 @@ Estimated Lab Time: 10 minutes
      </copy>
      ```
      ![Create table](images/prepare-data-07.png)
-
-
 
 5. Run the following to load the transactions data.
 
@@ -133,8 +129,6 @@ Estimated Lab Time: 10 minutes
      ```
      ![Load data](images/prepare-data-08.png)
 
-
-
 6. Run the following to preview the transactions data, which contains one row for each transaction including data and location ID.
 
      ```
@@ -161,9 +155,6 @@ Estimated Lab Time: 10 minutes
      ```
      ![List IDs](images/prepare-data-09a.png)
 
-
-
-
 ## Task 3: Add epoch date
 
 Temporal calculations are a key component of this workshop, and are best performed on an integer representation of date and time. This integer representation is generally referred to as epoch time or more specifically UNIX time. In this task you add epoch time for all transactions.
@@ -188,8 +179,7 @@ Temporal calculations are a key component of this workshop, and are best perform
 
      ![Add epoch date](images/prepare-data-10.png)
 
-
-2. Run the following to again preview the transactions data. Observe the epoch date column is added..
+2. Run the following to again preview the transactions data. Observe the epoch date column is added.
 
      ```
      <copy>
@@ -261,7 +251,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Test the function](images/prepare-data-14.png)
 
-4. Spatial queries rely on a spatial index for optimal performance. A spatial index can only be created on data having uniform dimensionality (i.e., 2D or 3D) and coordinate system. Before creating a spatial index, it is necessary to insert a row of metadata describing these properties for the geometry to be indexed. This includes the table name, geometry column name (or in this case a function returning geometry), dimensionality , and a coordinate system code. When creating a spatial index, the data are first verified to conform to the metadata. Spatial indexing completes successfully only if the data conform to the metadata. Run the following to create spatial metadata for the location geometry.
+4. Spatial queries rely on a spatial index for optimal performance. A spatial index can only be created on data having uniform dimensionality (i.e., 2D or 3D) and coordinate system. Before creating a spatial index, it is necessary to insert a row of metadata describing these properties for the geometry to be indexed. This includes the table name, geometry column name (or in this case a function returning geometry), dimensionality, and a coordinate system code. When creating a spatial index, the data are first verified to conform to the metadata. Spatial indexing completes successfully only if the data conform to the metadata. Run the following to create spatial metadata for the location geometry.
 
      ```
      <copy>
@@ -291,7 +281,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 
      ![Create index](images/prepare-data-16.png)
 
-6.  To verify the spatial index, run the following example spatial query. This query returns the 5 nearest items from the **locations** table to a longitude, latitude coordinate, along with the distances.  This is referred to as a "nearest neighbor" query and uses the **sdo\_nn( )** operator which uses the spatial index. For more info on nearest neighbor queries, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-operators-reference.html#GUID-41E6B1FA-1A03-480B-996F-830E8566661D).
+6. To verify the spatial index, run the following example spatial query. This query returns the 5 nearest items from the **locations** table to a longitude, latitude coordinate, along with the distances.  This is referred to as a "nearest neighbor" query and uses the **sdo\_nn( )** operator which uses the spatial index. For more info on nearest neighbor queries, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/sdo_nn.html).
 
     ```
     <copy>
@@ -316,6 +306,6 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, February 2025
