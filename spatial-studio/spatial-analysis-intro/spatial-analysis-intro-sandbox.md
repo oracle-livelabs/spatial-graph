@@ -54,7 +54,7 @@ Estimated Time: 45 minutes
 In this task you use a spatial filter to identify accidents within a specified distance of a selected police station.
 
 1. Begin by clicking on a police station. In the image below, I have clicked on the police station in the red box. This selects the police station to use for the proximity analysis. If there is any issue with making the selection, confirm that **Allow selection** is turned on for the POLICE\_POINTS layer as described in Lab 4 Task 6.
-   >**Note:** I changed the ACCIDENTS Render style back to Circle, changed the color to Blue, and the Stroke Width to 0.
+   >**Note:** I changed the ACCIDENTS radius to single value, changed the color to blue, and the stroke width to 0.
 
  ![Select a police station](images/spatial-analysis-1.png "Select a police station")
 
@@ -62,11 +62,11 @@ In this task you use a spatial filter to identify accidents within a specified d
 
    ![Open action menu](images/spatial-analysis-2.png "Open action menu")
 
-3. Click on the **Filter** tab select **Return shapes within a specific distance of another**
+3. Click on the **Filter** tab select **Return shapes within a specified distance of another**
 
-   ![Select Return shapes within a specific distance of another](images/spatial-analysis-3.png "Select Return shapes within a specific distance of another")
+   ![Select Return shapes within a specified distance of another](images/spatial-analysis-3.png "Select Return shapes within a specified distance of another")
 
-4. In the analysis dialog, you may enter a name for the result or leave the default. We are filtering ACCIDENTS based on distance from a selected item in POLICE_POINTS. In the example show below, I have used a distance of 150 kilometers.
+4. In the analysis dialog, you may enter a name for the result or leave the default. We are filtering ACCIDENTS based on distance from a selected item in POLICE_POINTS. In the example shown below, I used a distance of 150 kilometers.
 
    >**Note:** The analysis includes switches to **Include only selected items in the layer above** for the layers involved. We are only interested in including the 1 selected police station for proximity analysis in this example. Therefore **Include only selected items in the layer above** should be **On** for POLICE_POINTS.
 
@@ -78,13 +78,13 @@ In this task you use a spatial filter to identify accidents within a specified d
 
    ![Drag and drop analysis results onto map](images/spatial-analysis-5.png "Drag and drop analysis results onto map")
 
- >**Note:** Analysis results are just another type of Dataset in Spatial Studio. As you'll see in a later task, analysis results may be added to other maps/tables, used in other projects, accessed programmatically via REST or SQL, or exported as a file.
+ >**Note:** Analysis results are just another type of dataset in Spatial Studio. As you'll see in a later task, analysis results may be added to other maps/tables, used in other projects, accessed programmatically via REST or SQL, or exported as a file.
 
 6. You no longer need this analysis result in the map. So to avoid clutter, you next remove it from the map. Right-click on the analysis result in the Layers List and select **Remove**.
 
    ![Remove layer](images/spatial-analysis-6.png "Remove layer")
 
->**Note:** A Layer is just a Dataset rendered in a map. After removing a Layer (our analysis result in this case), the Dataset is still listed in the Data Elements panel and could be re-added to the map. To remove a Dataset from a Project you would right-click on the Dataset in the Data Elements panel and select **Remove from project**.
+>**Note:** A Layer is just a dataset rendered in a map. After removing a Layer (our analysis result in this case), the dataset is still listed in the Data Elements panel and could be re-added to the map. To remove a dataset from a Project you would right-click on the dataset in the Data Elements panel and select **Remove from project**.
 
 ## Task 2: Filter by Containment
 
@@ -199,9 +199,9 @@ In this task, you determine the nearest accident to each police station. The res
 
     On your own, paste the GeoJSON endpoint into a browser and observe your results returned as GeoJSON. Similarly, you may copy and paste the SQL code into SQL Developer Web to run the analysis directly.
 
-This concludes the Intro to Oracle Spatial Studio workshop.
+This concludes the Introduction to Oracle Spatial Studio workshop.
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, March 2025

@@ -31,13 +31,13 @@ In this lab, you will:
 
 3. Navigate to **Oracle Database** and then **Autonomous Database**.
 
- ![OCI menu](images/cloudmenu.png "OCI Menu")
+ ![OCI menu](images/cloudmenu-v2.png "OCI Menu")
 
 4. In the Compartment form on the left, start typing your Compartment name noted earlier. This will dynamically filter the Compartments list. Once listed, select your Compartment. Your Autonomous Database will then be listed. Click on the link to your Autonomous Database.
 
  ![Compartment list](images/compartmentlist-v2.png "Compartment list")
 
-5. Click on **Database Connection** and then **Download Wallet**. You will promoted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your laptop as you will use it in the next step.
+5. Click on **Database Connection** and then **Download Wallet**. You will prompted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your computer as you will use it in the next step.
 
  ![Database Connection](images/databaseconnection-v2.png "Database connection")
 
@@ -49,7 +49,7 @@ In this lab, you will:
 
 2. First-time login to Spatial Studio prompts you to enter database connection information for Spatial Studio's metadata repository. Click **Autonomous Database** and then **Next**. On the next screen, drag and drop the wallet file you downloaded previously and click **Ok**.
 
- ![Connection information](images/connection-information.png "Connection information)
+ ![Connection information](images/connection-information.png "Connection information")
 
 3. You are now prompted for Autonomous Database connection information. Enter the user **studio_repo**, password **Welcome1Welcome1**, and select the medium service level.
 
@@ -65,9 +65,9 @@ You may now [proceed to the next lab](#next).
 
 ## Learn More
 
-* [Spatial Studio product page](https://www.oracle.com/database/spatial/)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial/)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, March 2025

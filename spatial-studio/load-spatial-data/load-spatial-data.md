@@ -71,9 +71,9 @@ You may now [proceed to the next lab](#next).
 
 ## Learn More
 
-* [Spatial Studio product portal] (https://www.oracle.com/database/spatial/)
+* [Oracle Spatial product portal](https://www.oracle.com/database/spatial/)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, March 2025
