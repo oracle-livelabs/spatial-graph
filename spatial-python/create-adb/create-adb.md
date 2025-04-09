@@ -17,26 +17,26 @@ Estimated Lab Time: 5 minutes
 ## Task 1: Create Autonomous Database
 
 1. From the main navigation panel select **Oracle Database**, then select **Autonomous Database**.
-  ![Navigate to Oracle Database](images/adb-01.png)
+  ![Navigate to Oracle Database](images/adb-01a.png)
 
 2. Your Compartment should still be selected. If not then re-select it. Then click **Create Autonomous Database**.
 
-  ![Select compartment](images/adb-02.png)
+  ![Select compartment](images/adb-02a.png)
 
 3. For display name enter **my-adw**. Leave the database name as the default value. Leave workload type as Data Warehouse.
 
    **Note:** You must select workload type Data Warehouse. Selecting Transaction Processing will result in a quota error.
 
-   ![Create ADW](images/adb-03.png)
+   ![Create ADW](images/adb-03a.png)
 
-4. For deployment type leave the default **Serverless**. Also leave the defaults for version (23ai), ECPU count (2), and storage (1TB). Then scroll down.
-   ![Create ADW](images/adb-04v2.png)
+4. Ensure the database version is 23ai, ECPU count (2), and storage (1TB). Then scroll down.
+   ![Create ADW](images/adb-04a.png)
 
 5. Enter and confirm a password for the database ADMIN user. Then scroll down.
-   ![Create ADW](images/adb-05.png)
+   ![Create ADW](images/adb-05a.png)
 
-6. In the next lab, you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the compute instance hosting Python. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, enter the compute IP address from Lab 1 Task 1.
- ![Create ADW](images/adb-07.png)
+6. In the next lab, you will be creating to a connection from Python to Autonomous Database using a simple method that does not require an Oracle Client install or Cloud Wallet. To use this method you must pre-configure your Autonomous Database to allow access from the compute instance hosting Python. For network access, select **Secure access from allowed IPs and VCNs only**. Under Values, enter the compute IP address from Lab 1 Task 1. Then click **Create**.
+ ![Create ADW](images/adb-06a.png)
 
 7. ADB provisioning will begin.
  ![Create ADW](images/adb-09v2.png)
@@ -57,7 +57,7 @@ The remainder of this hands-on lab may be performed using either of the followin
    1. Perform **Lab 3 - Task 1**
    2. Perform **Lab 4 - Task 1**
    3. Perform **Lab 6 - Task 4 - Steps 5-6**
-   4. Click the following link to download the pre-built notebook to you laptop:
+   4. Click the following link to download the pre-built notebook to your laptop:
      * [prebuilt-notebook.ipynb](../access-jupyterlab/files/prebuilt-notebook.ipynb)
 
    5. Click the upload button and select the prebuilt notebook.
@@ -70,6 +70,6 @@ The remainder of this hands-on lab may be performed using either of the followin
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, February 2025

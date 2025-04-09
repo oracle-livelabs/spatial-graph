@@ -31,8 +31,8 @@ Estimated Lab Time: 5 minutes
 5. Return to your Oracle Cloud browser tab click on **Database Connection**.
   ![Connect to ADB](images/connect-to-adb-06-v3a.png)
 
-6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click **Copy** for the TNS Name ending in \_low.
-  ![Connect to ADB](images/connect-to-adb-07.png)
+6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click the elipse and then click **Copy** for the TNS Name ending in \_low.
+  ![Connect to ADB](images/connect-to-adb-07a.png)
 
 7. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from your Autonomous Database. Then save the file and rename to **my-dsn.txt**.
   ![Connect to ADB](images/connect-to-adb-08.png)
@@ -103,6 +103,6 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, February 2025
