@@ -201,7 +201,7 @@ This lab assumes you have:
                   the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo":
                   ["bar", "baz"]}} is not well-formatted.\n\n
                   Here is the output schema:\n
-                  ```\n
+                  \n
                   {"properties":
                   {"head": {"description": "extracted head entity like Microsoft, Apple, John. Must use human-readable unique
                   identifier.", "title": "Head", "type": "string"},
@@ -246,7 +246,6 @@ This lab assumes you have:
                   "relation": "HAS_CHARACTERISTIC",
                   "tail": "accessible offline",
                   "tail_type": "Characteristic"}]
-                  ```
                   Input text:\n\n' || text_chunk,
                   profile_name => 'GENAI_GRAPH',
                   action => 'chat'
