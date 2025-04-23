@@ -1,0 +1,327 @@
+# Title of the Lab
+
+## Introduction
+
+*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+
+Estimated Time: -- minutes
+
+### About <Product/Technology> (Optional)
+Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
+
+### Objectives
+
+*List objectives for this lab using the format below*
+
+In this lab, you will:
+* Objective 1
+* Objective 2
+* Objective 3
+
+### Prerequisites (Optional)
+
+*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+
+This lab assumes you have:
+* An Oracle Cloud account
+* All previous labs successfully completed
+
+
+*This is the "fold" - below items are collapsed by default*
+
+## Task 1: Load sample data and ONNX Models for Graph user
+
+
+1. Open the service detail page for your Autonomous Database instance in the OCI console.  
+
+   Then click on **Database Actions** and select **SQL**. 
+
+   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
+
+2. Make sure to be logged in as Admin and execute the 7 SQL statements below to grant the necessary roles for the user created in Lab 1 and be sure the correct user name is referenced in SQL.
+ 
+    Paste the PL/SQL:
+
+    ```text
+        <copy>
+            GRANT CREATE ANY MINING MODEL TO <USERNAME HERE>;
+            GRANT SELECT ANY MINING MODEL TO <USERNAME HERE>;
+            GRANT CREATE ANY DIRECTORY TO <USERNAME HERE>;
+            GRANT DROP ANY DIRECTORY TO <USERNAME HERE>;
+            GRANT EXECUTE ON DBMS_CLOUD TO <USERNAME HERE>;
+            GRANT EXECUTE ON DBMS_CLOUD_PIPELINE TO <USERNAME HERE>;
+            GRANT EXECUTE ON DBMS_CLOUD_AI TO <USERNAME HERE>;
+        </copy>
+    ```
+
+3. Sign out of SQL Developer and sign back in as the graph user (use created in Lab 1)
+
+4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data
+  
+    Paste the PL/SQL:
+    
+      ```text
+      <copy>
+            /**Create directory to hold onnx model and text later on**/
+            CREATE OR REPLACE DIRECTORY GRAPHDIR as 'scratch/';
+
+            BEGIN
+            /** download onnx model from object storage bucket**/    
+            DBMS_CLOUD.GET_OBJECT(
+            object_uri => 'https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/onnx-embedding-models/tinybert.onnx',
+            directory_name => 'GRAPHDIR');
+
+            /** load onnx model into schema**/    
+            DBMS_VECTOR.LOAD_ONNX_MODEL(
+                'GRAPHDIR',
+                'tinybert.onnx',
+                'TINYBERT_MODEL',
+                json('{"function":"embedding","embeddingOutput":"embedding","input":{"input":["DATA"]}}')
+              );
+
+            /** load sample data **/
+            DBMS_CLOUD.GET_OBJECT(
+            object_uri => 'https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/sample-data/blue.txt',
+            directory_name => 'GRAPHDIR');
+     
+            END;
+            /
+    </copy>
+    ```
+
+  5. Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt)
+
+        Paste the PL/SQL:
+    
+      ```text
+      <copy>
+        SELECT * FROM DBMS_CLOUD.LIST_FILES('GRAPHDIR');
+      </copy>
+       ```
+
+## Task 2: Vectorize sample data into chunks
+
+
+  1. Create 3 tables to be used in vectorization process, make sure each is created
+
+      Paste the PL/SQL:
+
+      ```text
+      <copy>
+          CREATE TABLE SHOLMES_TAB (ID NUMBER, DATA BLOB);
+          CREATE TABLE SHOLMES_TAB_CLOB(ID NUMBER, DATA CLOB);
+          CREATE TABLE SHOLMES_TAB_CHUNKS (DOC_ID NUMBER, CHUNK_ID NUMBER, CHUNK_DATA VARCHAR2(4000), CHUNK_EMBEDDING VECTOR);
+      </copy>
+      ```
+
+  2. Run PL/SQL to create the vector chunks
+
+
+      Paste the PL/SQL:
+
+      ```text
+      <copy>
+            INSERT INTO SHOLMES_TAB VALUES(1, TO_BLOB(BFILENAME('GRAPHDIR', 'BLUE.TXT')));
+            INSERT INTO SHOLMES_TAB_CLOB SELECT ID, TO_CLOB(DATA) FROM SHOLMES_TAB;
+            INSERT INTO SHOLMES_TAB_CHUNKS
+            SELECT DT.ID DOC_ID, ET.EMBED_ID CHUNK_ID, ET.EMBED_DATA CHUNK_DATA, TO_VECTOR(ET.EMBED_VECTOR) CHUNK_EMBEDDING 
+            FROM
+              SHOLMES_TAB_CLOB DT
+                ,DBMS_VECTOR_CHAIN.UTL_TO_EMBEDDINGS(
+                                                    DBMS_VECTOR_CHAIN.UTL_TO_CHUNKS(DBMS_VECTOR_CHAIN.UTL_TO_TEXT(DT.DATA)
+                                                                                    ,JSON('{"SPLIT":"SENTENCE","NORMALIZE":"ALL"}')
+                                                                                    )
+                                                    ,JSON('{"PROVIDER":"DATABASE", "MODEL":"TINYBERT_MODEL"}')
+                                                    )T
+                ,JSON_TABLE(
+                              T.COLUMN_VALUE
+                            ,'$[*]' COLUMNS (EMBED_ID NUMBER PATH '$.EMBED_ID'
+                                            ,EMBED_DATA VARCHAR2(4000) PATH '$.EMBED_DATA'
+                                            ,EMBED_VECTOR CLOB PATH '$.EMBED_VECTOR')
+                            ) ET;
+            COMMIT;
+      </copy>
+      ```
+
+  3. Test that all the previous steps worked by running a vector search on the sample data
+
+        Paste the PL/SQL:
+
+        ```text
+          <copy>
+                SELECT doc_id, chunk_id, chunk_data
+                FROM sholmes_tab_chunks
+                ORDER BY vector_distance(chunk_embedding , vector_embedding(TINYBERT_MODEL using 'Who stole the blue carbuncle?' as data), COSINE)
+                FETCH FIRST 20 ROWS ONLY;
+          </copy>
+        ```
+
+
+## Task 3: Send chunks to LLM with DBMS_Scheduler job
+
+  1.  Create PL/SQL function that sends prompt question with chunk of text sample data
+
+        Paste the PL/SQL:
+
+        ```text
+          <copy>
+                  CREATE OR REPLACE FUNCTION GRAPH_RAG.extract_graph (text_chunk CLOB) RETURN CLOB IS
+                  BEGIN
+                  RETURN DBMS_CLOUD_AI.GENERATE(prompt => '
+                  You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph.
+                  Your task is to identify the entities and relations requested with the user prompt from a given text.
+                  You must generate the output in a JSON format containing a list with JSON objects.
+                  Each object should have the keys: "head", "head_type", "relation", "tail", and "tail_type".
+                  The "head" key must contain the text of the extracted entity with one of the types from the provided list in the
+                  user prompt.\n
+                  Attempt to extract as many entities and relations as you can. Maintain Entity Consistency: When extracting
+                  entities, it''s vital to ensure consistency.
+                  If an entity, such as "John Doe", is mentioned multiple times in the text but is referred to by different names
+                  or pronouns (e.g., "Joe", "he"), always use the most complete identifier for that entity.
+                  The knowledge graph should be coherent and easily understandable, so maintaining consistency in entity references
+                  is crucial.\n
+                  IMPORTANT NOTES:\n
+                  - Don''t add any explanation and text.
+                  The output should be formatted as a JSON instance that conforms to the JSON schema below.\n\n
+                  As an example, for the schema {"properties": {"foo": {"title": "Foo", "description": "a list of strings", "type":
+                  "array", "items": {"type": "string"}}}, "required": ["foo"]}\n
+                  the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo":
+                  ["bar", "baz"]}} is not well-formatted.\n\n
+                  Here is the output schema:\n
+                  ```\n
+                  {"properties":
+                  {"head": {"description": "extracted head entity like Microsoft, Apple, John. Must use human-readable unique
+                  identifier.", "title": "Head", "type": "string"},
+                  "head_type": {"description": "type of the extracted head entity like Person, Company, etc", "title": "Head
+                  Type", "type": "string"},
+                  "relation": {"description": "relation between the head and the tail entities", "title": "Relation", "type":
+                  "string"},
+                  "tail": {"description": "extracted tail entity like Microsoft, Apple, John. Must use human-readable unique
+                  identifier.", "title": "Tail", "type": "string"},
+                  "tail_type": {"description": "type of the extracted tail entity like Person, Company, etc", "title": "Tail
+                  Type", "type": "string"}},
+                  "required": ["head", "head_type", "relation", "tail", "tail_type"]
+                  }\n
+                  Examples:
+                  [{"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+                  "head": "Adam",
+                  "head_type": "Person",
+                  "relation": "WORKS_FOR",
+                  "tail": "Microsoft",
+                  "tail_type": "Company"},
+                  {"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+                  "head": "Adam",
+                  "head_type": "Person",
+                  "relation": "HAS_AWARD",
+                  "tail": "Best Talent",
+                  "tail_type": "Award"},
+                  {"text": "Microsoft is a tech company that provide several products such as Microsoft Word",
+                  "head": "Microsoft Word",
+                  "head_type": "Product",
+                  "relation": "PRODUCED_BY",
+                  "tail": "Microsoft",
+                  "tail_type": "Company"},
+                  {"text": "Microsoft Word is a lightweight app that accessible offline",
+                  "head": "Microsoft Word",
+                  "head_type": "Product",
+                  "relation": "HAS_CHARACTERISTIC",
+                  "tail": "lightweight app",
+                  "tail_type": "Characteristic"},
+                  {"text": "Microsoft Word is a lightweight app that accessible offline",
+                  "head": "Microsoft Word",
+                  "head_type": "Product",
+                  "relation": "HAS_CHARACTERISTIC",
+                  "tail": "accessible offline",
+                  "tail_type": "Characteristic"}]
+                  ```
+                  Input text:\n\n' || text_chunk,
+                  profile_name => 'GENAI_GRAPH',
+                  action => 'chat'
+                  );
+
+                  END;
+          </copy>
+        ```
+
+  2.  Use PL/SQL to create staging table and stored procedure to loop thru each chunk and execute function using chunk as parameter
+
+        Paste the PL/SQL:
+
+        ```text
+          <copy>
+                        CREATE TABLE GRAPH_EXTRACTION_STAGING(CHUNK_ID NUMBER, RESPONSE CLOB);
+                        CREATE OR REPLACE PROCEDURE "LOAD_EXTRACT_TABLE" 
+                        AS
+                        BEGIN
+                        DECLARE
+                          x NUMBER := 0;
+                        BEGIN
+                          --Loop thru chunks that have not been added to the staging table but only 10 times
+                          FOR text_chunk IN (SELECT c.chunk_id, c.chunk_data 
+                                            FROM  sholmes_tab_chunks c 
+                                            LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
+                                            WHERE s.chunk_id IS NULL AND
+                                            c.CHUNK_ID > 0 AND c.CHUNK_ID <= 1000
+                                            ORDER BY c.CHUNK_ID)
+                          LOOP
+                              x := x + 1;
+                              --Execute function to send prompt to Gen AI and Insert response into staging table
+                              INSERT INTO  GRAPH_EXTRACTION_STAGING (CHUNK_ID, RESPONSE)
+                              SELECT text_chunk.chunk_id, extract_graph(text_chunk.chunk_data) as response FROM dual;
+                              EXIT  WHEN X > 10;
+                          END LOOP;
+
+                        END;
+                        /
+          </copy>
+        ```
+
+  3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the extract to staging stored procedure every 2 minutes
+
+      Paste the PL/SQL:
+
+        ```text
+            <copy>  
+                    DECLARE 
+                            Startjob TIMESTAMP;
+                            endjob TIMESTAMP;
+                    BEGIN 
+                      Startjob := CURRENT_TIMESTAMP;
+                      endjob := Startjob + 2/24;
+                      SYS.DBMS_SCHEDULER.CREATE_JOB ( 
+                            job_name => 'runExtractStagingStoredProcedure',
+                            job_type => 'PLSQL_BLOCK',
+                            job_action => 'LOAD_EXTRACT_TABLE'
+                        ); 
+                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                            name => 'runExtractStagingStoredProcedure',
+                            attribute => 'START_DATE',
+                            value => Startjob
+                        );
+                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                            name => 'runExtractStagingStoredProcedures',
+                            attribute => 'REPEAT_INTERVAL',
+                            value => 'FREQ=MINUTELY; INTERVAL=2'
+                        );
+                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                            name => 'runExtractStagingStoredProcedure',
+                            attribute => 'END_DATE',
+                            value => endjob
+                        );
+                      SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
+                    END;
+                    /
+            </copy>
+        ```      
+
+## Learn More
+
+*(optional - include links to docs, white papers, blogs, etc)*
+
+* [URL text 1](http://docs.oracle.com)
+* [URL text 2](http://docs.oracle.com)
+
+## Acknowledgements
+* **Author** - <Name, Title, Group>
+* **Contributors** -  <Name, Group> -- optional
+* **Last Updated By/Date** - <Name, Month Year>
