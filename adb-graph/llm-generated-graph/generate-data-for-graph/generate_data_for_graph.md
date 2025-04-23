@@ -15,8 +15,6 @@ Enter background information here about the technology/feature or product used i
 
 In this lab, you will:
 * Objective 1
-* Objective 2
-* Objective 3
 
 ### Prerequisites (Optional)
 
@@ -54,8 +52,13 @@ This lab assumes you have:
         </copy>
     ```
 
-3. Sign out of SQL Developer and sign back in as the graph user (use created in Lab 1)
+   ![grant user grants plsql](images/graph_user_grants.png "grant user grants plsql")
 
+3. Sign out of SQL Developer and sign back into SQL Developer as the graph user (use created in Lab 1)
+
+    ![sql developer sign off](images/sql_developer_sign_off.png "sql developer sign off")
+
+    ![sql developer graph user sign in](images/sql_developer_graph_user_sign_in.png "sql developer graph user sign in")
 4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data
   
     Paste the PL/SQL:
@@ -89,15 +92,20 @@ This lab assumes you have:
     </copy>
     ```
 
+  ![create and load directory"](images/create_load_directory.png "create and load directory")
+
   5. Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt)
 
-        Paste the PL/SQL:
-    
+
+      Paste the PL/SQL:
+
       ```text
       <copy>
-        SELECT * FROM DBMS_CLOUD.LIST_FILES('GRAPHDIR');
+                SELECT * FROM DBMS_CLOUD.LIST_FILES('GRAPHDIR');
       </copy>
-       ```
+      ```
+    
+  ![check directory contents](images/check_directory_contents.png "check directory contents")
 
 ## Task 2: Vectorize sample data into chunks
 
@@ -114,6 +122,8 @@ This lab assumes you have:
       </copy>
       ```
 
+  ![create tables for embeddings](images/create_tables_for_embedding.png "create tables for embeddings")
+
   2. Run PL/SQL to create the vector chunks
 
 
@@ -126,22 +136,24 @@ This lab assumes you have:
             INSERT INTO SHOLMES_TAB_CHUNKS
             SELECT DT.ID DOC_ID, ET.EMBED_ID CHUNK_ID, ET.EMBED_DATA CHUNK_DATA, TO_VECTOR(ET.EMBED_VECTOR) CHUNK_EMBEDDING 
             FROM
-              SHOLMES_TAB_CLOB DT
+                 SHOLMES_TAB_CLOB DT
                 ,DBMS_VECTOR_CHAIN.UTL_TO_EMBEDDINGS(
                                                     DBMS_VECTOR_CHAIN.UTL_TO_CHUNKS(DBMS_VECTOR_CHAIN.UTL_TO_TEXT(DT.DATA)
-                                                                                    ,JSON('{"SPLIT":"SENTENCE","NORMALIZE":"ALL"}')
+                                                                                    ,json('{"split":"sentence","normalize":"all"}')
                                                                                     )
-                                                    ,JSON('{"PROVIDER":"DATABASE", "MODEL":"TINYBERT_MODEL"}')
+                                                    ,json('{"provider":"database", "model":"tinybert_model"}')
                                                     )T
                 ,JSON_TABLE(
                               T.COLUMN_VALUE
-                            ,'$[*]' COLUMNS (EMBED_ID NUMBER PATH '$.EMBED_ID'
-                                            ,EMBED_DATA VARCHAR2(4000) PATH '$.EMBED_DATA'
-                                            ,EMBED_VECTOR CLOB PATH '$.EMBED_VECTOR')
+                            ,'$[*]' COLUMNS (EMBED_ID NUMBER PATH '$.embed_id'
+                                            ,EMBED_DATA VARCHAR2(4000) PATH '$.embed_data'
+                                            ,EMBED_VECTOR CLOB PATH '$.embed_vector')
                             ) ET;
-            COMMIT;
+                COMMIT;
       </copy>
       ```
+
+  ![create embeddings](images/create_embeddings.png "create embeddings")
 
   3. Test that all the previous steps worked by running a vector search on the sample data
 
@@ -156,6 +168,7 @@ This lab assumes you have:
           </copy>
         ```
 
+  ![vector search plsql](images/vector_search_plsql.png "vector search plsql")
 
 ## Task 3: Send chunks to LLM with DBMS_Scheduler job
 
