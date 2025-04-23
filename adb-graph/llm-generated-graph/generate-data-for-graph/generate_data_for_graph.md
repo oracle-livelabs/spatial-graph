@@ -178,7 +178,7 @@ This lab assumes you have:
 
         ```text
           <copy>
-                  CREATE OR REPLACE FUNCTION GRAPH_RAG.extract_graph (text_chunk CLOB) RETURN CLOB IS
+                  CREATE OR REPLACE FUNCTION extract_graph (text_chunk CLOB) RETURN CLOB IS
                   BEGIN
                   RETURN DBMS_CLOUD_AI.GENERATE(prompt => '
                   You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph.
@@ -200,8 +200,7 @@ This lab assumes you have:
                   "array", "items": {"type": "string"}}}, "required": ["foo"]}\n
                   the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo":
                   ["bar", "baz"]}} is not well-formatted.\n\n
-                  Here is the output schema:\n
-                  \n
+                  Here is the output schema:\n\n
                   {"properties":
                   {"head": {"description": "extracted head entity like Microsoft, Apple, John. Must use human-readable unique
                   identifier.", "title": "Head", "type": "string"},
