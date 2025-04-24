@@ -309,16 +309,8 @@ This lab assumes you have:
                         BEGIN
                         DECLARE
                           x NUMBER := 0;
-                          chunksToSend NUMBER := -1;
                         BEGIN
-                          --Check if there are any chunks left to send 
-                              SELECT count(*) INTO chunksToSend
-                              FROM  sholmes_tab_chunks c 
-                              LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
-                              WHERE s.chunk_id IS NULL;
-                              IF chunksToSend = 0 THEN
-                                DBMS_SCHEDULER.STOP_JOB('RUNEXTRACTSTAGINGSTOREDPROCEDURE');
-                              END IF;
+                    
                           --Loop thru chunks that have not been added to the staging table but only 10 times
                           FOR text_chunk IN (SELECT c.chunk_id, c.chunk_data 
                                             FROM  sholmes_tab_chunks c 
@@ -342,7 +334,7 @@ This lab assumes you have:
 
   ![create staging table and stored procedure](images/create_staging_table_storedprocedure.png "create staging table and stored procedure")
 
-  3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the extract to staging stored procedure every 2 minutes
+  3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the extract to staging stored procedure in the background every 2 minutes. Once PL/SQL job is enabled it will keep running until all chunks of text are sent via prompt, this should take about 30 mins. See next step to check progress
 
       Paste the PL/SQL:
 
@@ -362,7 +354,7 @@ This lab assumes you have:
                     endjob TIMESTAMP;
                 BEGIN 
                   Startjob := CURRENT_TIMESTAMP;
-                  endjob := Startjob + 2/24;
+                  endjob := Startjob + 1/24;
               
                   SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
                         name => 'runExtractStagingStoredProcedure',
@@ -387,6 +379,22 @@ This lab assumes you have:
         ```      
 
   ![create dbms job for prompts](images/create_job_for_prompts.png "create dbms job for prompts")
+
+
+  4.  Execute the PL/SQL to check how many chunks of text need to be sent in prompt, make sure the number returned is zero before proceeding to the next lab.
+
+      Paste the PL/SQL:
+
+        ```text
+            <copy>  
+                    SELECT count(*)  AS "Chunks of Text to Send"
+                    FROM  sholmes_tab_chunks c 
+                    LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
+                    WHERE s.chunk_id IS NULL
+            </copy>
+        ```      
+
+
 
 ## Learn More
 
