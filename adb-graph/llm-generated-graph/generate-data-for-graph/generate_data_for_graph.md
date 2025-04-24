@@ -113,7 +113,7 @@ This lab assumes you have:
         </copy>
     ```
 
-    ![Create Credential ](images/db_actions_sql_create_credential.png)
+    ![Create Credential](images/db_actions_sql_create_credential.png)
 
 6. Clear the worksheet area and type the script below in the worksheet. Update script for the name(use uppercase) of the workspace you created in Lab 2 Step 3. Click the run script button and check the script output to make sure it completed successfully.
 
