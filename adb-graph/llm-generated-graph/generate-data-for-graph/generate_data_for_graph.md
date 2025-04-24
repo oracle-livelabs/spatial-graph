@@ -202,10 +202,10 @@ This lab assumes you have:
 
         ```text
           <copy>
-                SELECT doc_id, chunk_id, chunk_data
-                FROM sholmes_tab_chunks
-                ORDER BY vector_distance(chunk_embedding , vector_embedding(TINYBERT_MODEL using 'Who stole the blue carbuncle?' as data), COSINE)
-                FETCH FIRST 20 ROWS ONLY;
+            SELECT doc_id, chunk_id, chunk_data
+            FROM sholmes_tab_chunks
+            ORDER BY vector_distance(chunk_embedding , vector_embedding(TINYBERT_MODEL using 'Who stole the blue carbuncle?' as data), COSINE)
+            FETCH FIRST 20 ROWS ONLY;
           </copy>
         ```
 
@@ -219,8 +219,8 @@ This lab assumes you have:
 
         ```text
           <copy>
-                  CREATE OR REPLACE FUNCTION extract_graph (text_chunk CLOB) RETURN CLOB IS
-                  BEGIN
+          CREATE OR REPLACE FUNCTION extract_graph (text_chunk CLOB) RETURN CLOB IS
+          BEGIN
                   RETURN DBMS_CLOUD_AI.GENERATE(prompt => '
                   You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph.
                   Your task is to identify the entities and relations requested with the user prompt from a given text.
@@ -291,7 +291,7 @@ This lab assumes you have:
                   action => 'chat'
                   );
 
-                  END;
+          END;  
           </copy>
         ```
 
@@ -303,32 +303,32 @@ This lab assumes you have:
 
         ```text
           <copy>
-                        CREATE TABLE GRAPH_EXTRACTION_STAGING(CHUNK_ID NUMBER, RESPONSE CLOB);
-                        CREATE OR REPLACE PROCEDURE "LOAD_EXTRACT_TABLE" 
-                        AS
-                        BEGIN
-                        DECLARE
-                          x NUMBER := 0;
-                        BEGIN
-                    
-                          --Loop thru chunks that have not been added to the staging table but only 10 times
-                          FOR text_chunk IN (SELECT c.chunk_id, c.chunk_data 
-                                            FROM  sholmes_tab_chunks c 
-                                            LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
-                                            WHERE s.chunk_id IS NULL AND
-                                            c.CHUNK_ID > 0 AND c.CHUNK_ID <= 1000
-                                            ORDER BY c.CHUNK_ID)
-                          LOOP
-                              x := x + 1;
-                              --Execute function to send prompt to Gen AI and Insert response into staging table
-                              INSERT INTO  GRAPH_EXTRACTION_STAGING (CHUNK_ID, RESPONSE)
-                              SELECT text_chunk.chunk_id, extract_graph(text_chunk.chunk_data) as response FROM dual;
-                              EXIT  WHEN X > 10;
-                          END LOOP;
+            CREATE TABLE GRAPH_EXTRACTION_STAGING(CHUNK_ID NUMBER, RESPONSE CLOB);
+            CREATE OR REPLACE PROCEDURE "LOAD_EXTRACT_TABLE" 
+                          AS
+                          BEGIN
+                          DECLARE
+                            x NUMBER := 0;
+                          BEGIN
+                      
+                            --Loop thru chunks that have not been added to the staging table but only 10 times
+                            FOR text_chunk IN (SELECT c.chunk_id, c.chunk_data 
+                                              FROM  sholmes_tab_chunks c 
+                                              LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
+                                              WHERE s.chunk_id IS NULL AND
+                                              c.CHUNK_ID > 0 AND c.CHUNK_ID <= 1000
+                                              ORDER BY c.CHUNK_ID)
+                            LOOP
+                                x := x + 1;
+                                --Execute function to send prompt to Gen AI and Insert response into staging table
+                                INSERT INTO  GRAPH_EXTRACTION_STAGING (CHUNK_ID, RESPONSE)
+                                SELECT text_chunk.chunk_id, extract_graph(text_chunk.chunk_data) as response FROM dual;
+                                EXIT  WHEN X > 10;
+                            END LOOP;
 
+                            END;
                           END;
-                        END;
-                        /
+                          /
           </copy>
         ```
 
