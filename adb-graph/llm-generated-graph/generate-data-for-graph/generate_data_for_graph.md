@@ -295,6 +295,8 @@ This lab assumes you have:
           </copy>
         ```
 
+  ![create prompt function](images/create_prompt_function.png "create prompt function")
+
   2.  Use PL/SQL to create staging table and stored procedure to loop thru each chunk and execute function using chunk as parameter
 
         Paste the PL/SQL:
@@ -329,6 +331,8 @@ This lab assumes you have:
           </copy>
         ```
 
+  ![create staging table and stored procedure](images/create_staging_table_storedprocedure.png "create staging table and stored procedure")
+
   3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the extract to staging stored procedure every 2 minutes
 
       Paste the PL/SQL:
@@ -336,41 +340,44 @@ This lab assumes you have:
         ```text
             <copy>  
                   BEGIN
-                      SYS.DBMS_SCHEDULER.CREATE_JOB ( 
-                                job_name => 'runExtractStagingStoredProcedure',
-                                job_type => 'PLSQL_BLOCK',
-                                job_action => 'LOAD_EXTRACT_TABLE'
-                            ); 
-                  END;
-                  /
+              SYS.DBMS_SCHEDULER.CREATE_JOB ( 
+                        job_name => 'runExtractStagingStoredProcedure',
+                        job_type => 'STORED_PROCEDURE',
+                        job_action => 'LOAD_EXTRACT_TABLE'
+                    ); 
+          END;
+          /
 
-                  DECLARE 
-                            Startjob TIMESTAMP;
-                            endjob TIMESTAMP;
-                        BEGIN 
-                          Startjob := CURRENT_TIMESTAMP;
-                          endjob := Startjob + 2/24;
-                      
-                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                                name => 'runExtractStagingStoredProcedure',
-                                attribute => 'START_DATE',
-                                value => Startjob
-                            );
-                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                                name => 'runExtractStagingStoredProcedure',
-                                attribute => 'REPEAT_INTERVAL',
-                                value => 'FREQ=MINUTELY; INTERVAL=2'
-                            );
-                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                                name => 'runExtractStagingStoredProcedure',
-                                attribute => 'END_DATE',
-                                value => endjob
-                            );
-                          SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
-                        END;
-                        /
+          DECLARE 
+                    Startjob TIMESTAMP;
+                    endjob TIMESTAMP;
+                BEGIN 
+                  Startjob := CURRENT_TIMESTAMP;
+                  endjob := Startjob + 2/24;
+              
+                  SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                        name => 'runExtractStagingStoredProcedure',
+                        attribute => 'START_DATE',
+                        value => Startjob
+                    );
+                  SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                        name => 'runExtractStagingStoredProcedure',
+                        attribute => 'REPEAT_INTERVAL',
+                        value => 'FREQ=MINUTELY; INTERVAL=2'
+                    );
+                  SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                        name => 'runExtractStagingStoredProcedure',
+                        attribute => 'END_DATE',
+                        value => endjob
+                    );
+ 
+                  SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
+                END;
+                /
             </copy>
         ```      
+
+  ![create dbms job for prompts](images/create_job_for_prompts.png "create dbms job for prompts")
 
 ## Learn More
 
