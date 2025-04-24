@@ -394,8 +394,9 @@ This lab assumes you have:
             </copy>
         ```      
 
+![check for more chunks](images/check_for_chunks_1.png "check for more chunks")
 
-
+![check for more chunks](images/check_for_chunks_2.png "check for more chunks")
 ## Learn More
 
 *(optional - include links to docs, white papers, blogs, etc)*
