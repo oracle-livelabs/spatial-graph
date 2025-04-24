@@ -94,7 +94,48 @@ This lab assumes you have:
 
   ![create and load directory"](images/create_load_directory.png "create and load directory")
 
-  5. Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt)
+5. Create cloud credentials and AI Profile for Graph User. Type the following sql code in the worksheet area and update with API Key configurations in four places. Update for user_ocid, tenancy_ocid, private_key, and fingerprint. Each value can be found in Lab 1, Task 2, Steps 3/4. Click the run script button and check the script output to make sure it completed successfully.
+        
+
+    Paste the PL/SQL:
+
+    ```text
+        <copy>
+                  BEGIN                                                                         
+                  DBMS_CLOUD.CREATE_CREDENTIAL(                                               
+                      credential_name => 'GENAI_GRAPH_CRED',                                          
+                      user_ocid       => '<UPDATE HERE>',
+                      tenancy_ocid    => '<UPDATE HERE>',
+                      private_key     => '<UPDATE HERE>',
+                      fingerprint     => '<UPDATE HERE>'
+                      );
+                  END;
+        </copy>
+    ```
+
+    ![Create Credential ](images/db_actions_sql_create_credential.png)
+
+6. Clear the worksheet area and type the script below in the worksheet. Update script for the name(use uppercase) of the workspace you created in Lab 2 Step 3. Click the run script button and check the script output to make sure it completed successfully.
+
+    Paste the PL/SQL:
+
+    ```text
+        <copy>
+                BEGIN                                                                        
+                  DBMS_CLOUD_AI.CREATE_PROFILE(                                              
+                      profile_name =>'GENAI_GRAPH',                                                             
+                      attributes   =>'{"provider": "oci",                                                                   
+                        "credential_name": "GENAI_GRAPH_CRED",
+                        "conversation" : "true"
+                      }');                                                                  
+                END;
+        </copy>
+    ```
+
+     ![Create Profile](images/db_actions_sql_create_profile_oci.png)
+
+
+  7.  Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt)
 
 
       Paste the PL/SQL:
@@ -282,6 +323,7 @@ This lab assumes you have:
                               EXIT  WHEN X > 10;
                           END LOOP;
 
+                          END;
                         END;
                         /
           </copy>
@@ -293,35 +335,40 @@ This lab assumes you have:
 
         ```text
             <copy>  
-                    DECLARE 
+                  BEGIN
+                      SYS.DBMS_SCHEDULER.CREATE_JOB ( 
+                                job_name => 'runExtractStagingStoredProcedure',
+                                job_type => 'PLSQL_BLOCK',
+                                job_action => 'LOAD_EXTRACT_TABLE'
+                            ); 
+                  END;
+                  /
+
+                  DECLARE 
                             Startjob TIMESTAMP;
                             endjob TIMESTAMP;
-                    BEGIN 
-                      Startjob := CURRENT_TIMESTAMP;
-                      endjob := Startjob + 2/24;
-                      SYS.DBMS_SCHEDULER.CREATE_JOB ( 
-                            job_name => 'runExtractStagingStoredProcedure',
-                            job_type => 'PLSQL_BLOCK',
-                            job_action => 'LOAD_EXTRACT_TABLE'
-                        ); 
-                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                            name => 'runExtractStagingStoredProcedure',
-                            attribute => 'START_DATE',
-                            value => Startjob
-                        );
-                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                            name => 'runExtractStagingStoredProcedures',
-                            attribute => 'REPEAT_INTERVAL',
-                            value => 'FREQ=MINUTELY; INTERVAL=2'
-                        );
-                      SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
-                            name => 'runExtractStagingStoredProcedure',
-                            attribute => 'END_DATE',
-                            value => endjob
-                        );
-                      SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
-                    END;
-                    /
+                        BEGIN 
+                          Startjob := CURRENT_TIMESTAMP;
+                          endjob := Startjob + 2/24;
+                      
+                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                                name => 'runExtractStagingStoredProcedure',
+                                attribute => 'START_DATE',
+                                value => Startjob
+                            );
+                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                                name => 'runExtractStagingStoredProcedure',
+                                attribute => 'REPEAT_INTERVAL',
+                                value => 'FREQ=MINUTELY; INTERVAL=2'
+                            );
+                          SYS.DBMS_SCHEDULER.SET_ATTRIBUTE( 
+                                name => 'runExtractStagingStoredProcedure',
+                                attribute => 'END_DATE',
+                                value => endjob
+                            );
+                          SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
+                        END;
+                        /
             </copy>
         ```      
 
