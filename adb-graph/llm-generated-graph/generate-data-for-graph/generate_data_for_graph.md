@@ -309,7 +309,16 @@ This lab assumes you have:
                         BEGIN
                         DECLARE
                           x NUMBER := 0;
+                          chunksToSend NUMBER := -1;
                         BEGIN
+                          --Check if there are any chunks left to send 
+                              SELECT count(*) INTO chunksToSend
+                              FROM  sholmes_tab_chunks c 
+                              LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
+                              WHERE s.chunk_id IS NULL;
+                              IF chunksToSend = 0 THEN
+                                DBMS_SCHEDULER.STOP_JOB('RUNEXTRACTSTAGINGSTOREDPROCEDURE');
+                              END IF;
                           --Loop thru chunks that have not been added to the staging table but only 10 times
                           FOR text_chunk IN (SELECT c.chunk_id, c.chunk_data 
                                             FROM  sholmes_tab_chunks c 
