@@ -198,7 +198,7 @@ This lab assumes you have:
 
   3. Test that all the previous steps worked by running a vector search on the sample data
 
-        Paste the PL/SQL:
+      Paste the PL/SQL:
 
         ```text
           <copy>
@@ -215,7 +215,7 @@ This lab assumes you have:
 
   1.  Create PL/SQL function that sends prompt question with chunk of text sample data
 
-        Paste the PL/SQL:
+      Paste the PL/SQL:
 
         ```text
           <copy>
@@ -299,7 +299,7 @@ This lab assumes you have:
 
   2.  Use PL/SQL to create staging table and stored procedure to loop thru each chunk and execute function using chunk as parameter
 
-        Paste the PL/SQL:
+      Paste the PL/SQL:
 
         ```text
           <copy>
