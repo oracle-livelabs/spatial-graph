@@ -48,34 +48,19 @@ This lab assumes you have:
                     tail_type VARCHAR(256),
                     text VARCHAR(512)
                     );
-              DROP TABLE IF EXISTS GRAPH_ENTITIES; 
-              CREATE TABLE GRAPH_ENTITIES
-              ( 
-              ID          NUMBER GENERATED ALWAYS AS IDENTITY 
-                  ( START WITH 1 CACHE 20 )  NOT NULL , 
-              ENTITY_NAME VARCHAR2 (250) , 
-              ENTITY_TYPE VARCHAR2 (250) 
-              );
-              DROP TABLE IF EXISTS GRAPH_RELATIONS;       
-              CREATE TABLE  GRAPH_RELATIONS 
-              ( 
-              ID       NUMBER GENERATED ALWAYS AS IDENTITY 
-                  ( START WITH 1 CACHE 20 )  NOT NULL , 
-              CHUNK_ID NUMBER , 
-              HEAD_ID  NUMBER , 
-              TAIL_ID  NUMBER , 
-              RELATION VARCHAR2 (256)  NOT NULL , 
-              TEXT     VARCHAR2 (512) 
-              );
+            
           </copy>
       ```
+
+  ![create staging table](images/create_staging_table.png "create staging table")
+
 2. Load Staging table
 
       Paste the PL/SQL:
 
       ```text
           <copy>
-               INSERT INTO GRAPH_RELATIONS_STG (chunk_id, head, head_type, relation, tail, tail_type, text)
+              INSERT INTO GRAPH_RELATIONS_STG (chunk_id, head, head_type, relation, tail, tail_type, text)
               SELECT mt.chunk_id, jt.head, jt.head_type, jt.relation, jt.tail, jt.tail_type, jt.head_type || ': ' || jt.head ||
               ' -[' || jt.relation || ']-> ' || jt.tail_type || ': ' || jt.tail
               FROM GRAPH_EXTRACTION_STAGING mt,
@@ -96,6 +81,8 @@ This lab assumes you have:
               jt.tail IS NOT NULL;
           </copy>
       ```
+
+  ![load staging table](images/load_staging_table.png "load staging table")
 
 ## Task 2: Process data
 
@@ -159,7 +146,30 @@ This lab assumes you have:
             WHERE lower(tail) IN IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
           </copy>
       ```
-2. Populate the graph vertice tables
+
+  ![data cleansing](images/data_cleansing.png "data cleansing")
+
+2. Create vertice table
+
+      Paste the PL/SQL:
+
+      ```text
+          <copy>
+              DROP TABLE IF EXISTS GRAPH_ENTITIES; 
+              CREATE TABLE GRAPH_ENTITIES
+              ( 
+              ID          NUMBER GENERATED ALWAYS AS IDENTITY 
+                  ( START WITH 1 CACHE 20 )  NOT NULL , 
+              ENTITY_NAME VARCHAR2 (250) , 
+              ENTITY_TYPE VARCHAR2 (250) 
+              );
+            
+          </copy>
+      ```
+
+  ![create vertice table](images/create_vertice_table.png "create vertice table")
+
+3. Populate the vertice table
 
 
       Paste the PL/SQL:
@@ -180,7 +190,31 @@ This lab assumes you have:
           </copy>
       ```
 
-3. Populate the graph edge tables
+![populate vertice table](images/load_vertice_table.png "create vertice table")
+
+4. Create Edge Table
+
+      Paste the PL/SQL:
+
+      ```text
+          <copy>
+            DROP TABLE IF EXISTS GRAPH_RELATIONS;     
+            CREATE TABLE  GRAPH_RELATIONS 
+            ( 
+            ID       NUMBER GENERATED ALWAYS AS IDENTITY 
+                ( START WITH 1 CACHE 20 )  NOT NULL , 
+            CHUNK_ID NUMBER , 
+            HEAD_ID  NUMBER , 
+            TAIL_ID  NUMBER , 
+            RELATION VARCHAR2 (256)  NOT NULL , 
+            TEXT     VARCHAR2 (512) 
+            );            
+          </copy>
+      ```
+  
+![create edge table](images/create_edge_table.png "create edge table")
+
+5. Populate the Edge table 
 
 
       Paste the PL/SQL:
@@ -197,6 +231,8 @@ This lab assumes you have:
 
           </copy>
       ```
+
+![load edge table](images/load_edge_table.png "load edge table")
 
 ## Task 3: Create Graph
 
@@ -224,6 +260,7 @@ This lab assumes you have:
           </copy>
       ```
 
+![create property graph sql](images/create_property_graph_sql.png "create property graph sql")
 
 ## Learn More
 
