@@ -209,14 +209,14 @@ This lab assumes you have:
           
           CREATE OR REPLACE PROPERTY GRAPH  pg_rag_sql
           VERTEX TABLES (
-              "GRAPH_ENTITIES_NEW"
+              "GRAPH_ENTITIES"
                 KEY ( "ID" )
                 LABEL "ENTITY" PROPERTIES ( "ENTITY_NAME", "ENTITY_TYPE" )
             )
             EDGE TABLES (
               "GRAPH_RELATIONS"  KEY ( "ID" )
-                SOURCE KEY ( "HEAD_ID" ) REFERENCES "GRAPH_ENTITIES_NEW"( "ID" )
-                DESTINATION KEY ( "TAIL_ID") REFERENCES "GRAPH_ENTITIES_NEW"( "ID" )
+                SOURCE KEY ( "HEAD_ID" ) REFERENCES "GRAPH_ENTITIES"( "ID" )
+                DESTINATION KEY ( "TAIL_ID") REFERENCES "GRAPH_ENTITIES"( "ID" )
                 LABEL "RELATION" PROPERTIES ( "CHUNK_ID", "RELATION", "TEXT" )
             )
             OPTIONS( TRUSTED MODE, DISALLOW MIXED PROPERTY TYPES )
