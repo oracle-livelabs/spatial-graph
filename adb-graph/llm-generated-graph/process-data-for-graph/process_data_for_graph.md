@@ -97,7 +97,9 @@ This lab assumes you have:
           </copy>
       ```
 
-## Task 2: Clean Data
+## Task 2: Process data
+
+1. Clean data with DELETE and UPDATE statements
 
       Paste the PL/SQL:
 
@@ -155,10 +157,9 @@ This lab assumes you have:
             WHERE lower(head) IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
             UPDATE GRAPH_RELATIONS_STG SET tail ='Goose'
             WHERE lower(tail) IN IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
- 
           </copy>
       ```
-## Task 3: Populate the graph vertice tables
+2. Populate the graph vertice tables
 
 
       Paste the PL/SQL:
@@ -179,7 +180,7 @@ This lab assumes you have:
           </copy>
       ```
 
-## Task 4: Populate the graph edge tables
+3. Populate the graph edge tables
 
 
       Paste the PL/SQL:
@@ -197,7 +198,9 @@ This lab assumes you have:
           </copy>
       ```
 
-## Task 5: Create Graph
+## Task 3: Create Graph
+
+1. create the graph using SQL notation
 
       Paste the PL/SQL:
 
