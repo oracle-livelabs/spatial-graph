@@ -99,11 +99,127 @@ This lab assumes you have:
 
 ## Task 2: Clean Data
 
-## Task 3: Process Staging tables Data
+      Paste the PL/SQL:
 
-## Task 4: Create Graph
+      ```text
+          <copy>
+            DELETE
+            FROM GRAPH_RELATIONS_STG
+            WHERE lower(HEAD) IN ('you','she','he','i');
+
+            DELETE
+            FROM GRAPH_RELATIONS_STG
+            WHERE lower(tail) IN ('you','she','he','i');
+
+            UPDATE GRAPH_RELATIONS_STG SET head ='Henry Baker'
+            WHERE lower(head) IN ('baker', 'henry baker', 'mr. baker', 'mr. henry baker' );
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Henry Baker'
+            WHERE lower(tail) IN ('baker', 'henry baker', 'mr. baker', 'mr. henry baker' );
+            
+            UPDATE GRAPH_RELATIONS_STG SET head ='Catherine Cusack'
+            WHERE lower(head) IN ('catherine cusack', 'cusack' );
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Catherine Cusack'
+            WHERE lower(tail) IN ('catherine cusack', 'cusack' );
+
+            UPDATE GRAPH_RELATIONS_STG SET head ='Sherlock Holmes'
+            WHERE lower(head) IN ('holmes', 'mr. holmes' ,'sherlock holmes');
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Sherlock Holmes'
+            WHERE lower(tail) IN ('holmes', 'mr. holmes' ,'sherlock holmes');
+            
+            UPDATE GRAPH_RELATIONS_STG SET head ='John Horner'
+            WHERE lower(head) IN ('horner', 'john horner' ,'');
+            UPDATE GRAPH_RELATIONS_STG SET tail ='John Horner'
+            WHERE lower(tail) IN ('horner', 'john horner' ,'');
+
+            UPDATE GRAPH_RELATIONS_STG SET head ='James Ryder'
+            WHERE lower(head) IN ('james ryder', 'mr. ryder' ,'ryder');
+            UPDATE GRAPH_RELATIONS_STG SET tail ='James Ryder'
+            WHERE lower(tail) IN ('james ryder', 'mr. ryder' ,'ryder');
+            
+            UPDATE GRAPH_RELATIONS_STG SET head ='Mr. Windigate'
+            WHERE lower(head) IN ('mr. windigate', 'windigate' ,'windigate');
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Mr. Windigate'
+            WHERE lower(tail) IN ('mr. windigate', 'windigate' ,'windigate');
+
+            UPDATE GRAPH_RELATIONS_STG SET head ='Hat'
+            WHERE lower(head) IN ('hat', 'the hat', 'old hat', 'battered hat' );
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Hat'
+            WHERE lower(tail)  IN ('hat', 'the hat', 'old hat', 'battered hat' );
+
+            UPDATE GRAPH_RELATIONS_STG SET head ='Blue Carbuncle'
+            where lower(head) in ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Blue Carbuncle'
+            WHERE lower(tail) ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
+            
+            UPDATE GRAPH_RELATIONS_STG SET head ='Goose'
+            WHERE lower(head) IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
+            UPDATE GRAPH_RELATIONS_STG SET tail ='Goose'
+            WHERE lower(tail) IN IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
+ 
+          </copy>
+      ```
+## Task 3: Populate the graph vertice tables
 
 
+      Paste the PL/SQL:
+
+      ```text
+          <copy>
+            TRUNCATE TABLE GRAPH_ENTITIES;
+            INSERT INTO  GRAPH_ENTITIES (
+                            ENTITY_NAME,
+                            ENTITY_TYPE
+            ) 
+            SELECT HEAD, head_type FROM
+            GRAPH_RELATIONS_STG
+            UNION
+            SELECT TAIL, TAIL_type FROM
+            GRAPH_RELATIONS_STG;
+            
+          </copy>
+      ```
+
+## Task 4: Populate the graph edge tables
+
+
+      Paste the PL/SQL:
+
+      ```text
+          <copy>
+
+          TRUNCATE TABLE GRAPH_RELATIONS;
+          INSERT INTO GRAPH_RELATIONS (CHUNK_ID, HEAD_ID, TAIL_ID, RELATION, TEXT)
+          SELECT CHUNK_ID, head.ID as HEAD_ID,  tail.ID, s.relation, s.text
+          FROM GRAPH_RELATIONS_STG S
+          INNER JOIN  GRAPH_ENTITIES head ON head.ENTITY_NAME=s.head and head.ENTITY_TYPE = s.head_type
+          INNER JOIN  GRAPH_ENTITIES tail ON tail.ENTITY_NAME=s.tail and tail.ENTITY_TYPE = s.tail_type
+
+          </copy>
+      ```
+
+## Task 5: Create Graph
+
+      Paste the PL/SQL:
+
+      ```text
+          <copy>
+          
+          CREATE OR REPLACE PROPERTY GRAPH  pg_rag_sql
+          VERTEX TABLES (
+              "GRAPH_ENTITIES_NEW"
+                KEY ( "ID" )
+                LABEL "ENTITY" PROPERTIES ( "ENTITY_NAME", "ENTITY_TYPE" )
+            )
+            EDGE TABLES (
+              "GRAPH_RELATIONS"  KEY ( "ID" )
+                SOURCE KEY ( "HEAD_ID" ) REFERENCES "GRAPH_ENTITIES_NEW"( "ID" )
+                DESTINATION KEY ( "TAIL_ID") REFERENCES "GRAPH_ENTITIES_NEW"( "ID" )
+                LABEL "RELATION" PROPERTIES ( "CHUNK_ID", "RELATION", "TEXT" )
+            )
+            OPTIONS( TRUSTED MODE, DISALLOW MIXED PROPERTY TYPES )
+
+          </copy>
+      ```
 
 
 ## Learn More
