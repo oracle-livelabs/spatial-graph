@@ -234,33 +234,7 @@ This lab assumes you have:
 
 ![load edge table](images/load_edge_table.png "load edge table")
 
-## Task 3: Create Graph
 
-1. create the graph using SQL notation
-
-      Paste the PL/SQL:
-
-      ```text
-          <copy>
-          
-          CREATE OR REPLACE PROPERTY GRAPH  pg_rag_sql
-          VERTEX TABLES (
-              "GRAPH_ENTITIES"
-                KEY ( "ID" )
-                LABEL "ENTITY" PROPERTIES ( "ENTITY_NAME", "ENTITY_TYPE" )
-            )
-            EDGE TABLES (
-              "GRAPH_RELATIONS"  KEY ( "ID" )
-                SOURCE KEY ( "HEAD_ID" ) REFERENCES "GRAPH_ENTITIES"( "ID" )
-                DESTINATION KEY ( "TAIL_ID") REFERENCES "GRAPH_ENTITIES"( "ID" )
-                LABEL "RELATION" PROPERTIES ( "CHUNK_ID", "RELATION", "TEXT" )
-            )
-            OPTIONS( TRUSTED MODE, DISALLOW MIXED PROPERTY TYPES )
-
-          </copy>
-      ```
-
-![create property graph sql](images/create_property_graph_sql.png "create property graph sql")
 
 ## Learn More
 

@@ -88,6 +88,23 @@ This lab assumes you have:
 
    ![PGQL Query on Hat](images/graph_visual_hat.png "PGQL Query on Hat")
 
+## Task 3 Convert PGQL graph to SQL Graph
+
+ 1. Open the Graph page view
+
+![open graphs page view](images/open_graphs_page.png "open graphs page view")
+
+ 2. Click the menu button for the graph created in task 1 and select "Convert to SQL Graph"
+
+![Convert to SQL Graph](images/convert_to_sql_graph.png "Convert to SQL Graph")
+
+ 3. Confirm the migration to SQL Graph 
+
+![Convert to SQL Graph](images/confirm_sql_migration.png "Convert to SQL Graph")
+
+ 4. Verify existence of SQL version of property graph 
+
+![Convert to SQL Graph](images/finish_sql_graph_migration.png "Convert to SQL Graph")
 
 ## Learn More
 
