@@ -29,57 +29,65 @@ This lab assumes you have:
 
 *This is the "fold" - below items are collapsed by default*
 
-## Task 1: Concise Task Description
+## Task 1: Create property graph in graph studio 
 
-(optional) Task 1 opening paragraph.
 
-1. Step 1
+1. Open Database Actions, click the hamburger icon and select Graph Studio from the Development menu
 
-	![Image alt text](images/sample1.png)
+   ![Open Graph Studio](images/open_graph_studio.png "Open Graph Studio")
 
-	> **Note:** Use this format for notes, hints, and tips. Only use one "Note" at a time in a step.
+   ![Graph Studio Console](images/graph_studio_console.png "Graph Studio Console")
 
-2. Step 2
+ 2. Navigate to the graphs pageview but dont click the Create Graph button, click the Query button, paste the PGQL below to create a PGQL Property Graph
 
-  ![Image alt text](images/sample1.png)
+       Paste the PL/SQL:
 
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
+      ```text
+          <copy>
+            CREATE PROPERTY GRAPH  pg_rag_pgql
+            VERTEX TABLES (
+              "GRAPH_ENTITIES"
+                KEY ( "ID" )
+                LABEL "ENTITY" PROPERTIES ( "ENTITY_NAME", "ENTITY_TYPE" )
+            )
+            EDGE TABLES (
+              "GRAPH_RELATIONS"  KEY ( "ID" )
+                SOURCE KEY ( "HEAD_ID" ) REFERENCES "GRAPH_ENTITIES"( "ID" )
+                DESTINATION KEY ( "TAIL_ID") REFERENCES "GRAPH_ENTITIES" ( "ID" )
+                LABEL "RELATION" PROPERTIES ( "CHUNK_ID", "RELATION", "TEXT" )
+            )
+            OPTIONS( PG_PGQL)
+          </copy>
+      ```
+   ![Create Graph](images/create_graph.png "Create Graph")
 
-5. Example with bold **text**.
+   ![Run Create Graph Query](images/run_create_graph_query.png "Run Create Graph Query")
 
-   If you add another paragraph, add 3 spaces before the line.
+ ## Task 2: Import notebook
 
-## Task 2: Concise Task Description
+ 1. Click on the link to download the required notebook
 
-1. Step 1 - tables sample
+   [graph_rag_live_lab.dsnb](https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/property-graph-live-lab%2Fgraph_rag_live_lab.dsnb)
 
-  Use tables sparingly:
+   ![Create Graph](images/create_graph.png "Create Graph")
 
-  | Column 1 | Column 2 | Column 3 |
-  | --- | --- | --- |
-  | 1 | Some text or a link | More text  |
-  | 2 |Some text or a link | More text |
-  | 3 | Some text or a link | More text |
+ 2. Navigate to the notebook pageview, click the import button and select the notebook downloaded in the previous step
 
-2. You can also include bulleted lists - make sure to indent 4 spaces:
+   ![Import Notebook](images/import_notebook.png "Import Notebook")
 
-    - List item 1
-    - List item 2
 
-3. Code examples
+ 3. Run all paragraphs using the run button and make sure show results is enabled
 
-    ```
-    Adding code examples
-  	Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-  	<copy>Enclose the text you want to copy in <copy></copy>.</copy>
-    ```
+   ![Run All Paragraphs](images/run_all_paragraphs.png "Run All Paragraphs")
 
-4. Code examples that include variables
+ 4. View the visualizations for each paragraph and note the relationships that have been generated 
 
-	```
-  <copy>ssh -i <ssh-key-file></copy>
-  ```
+   ![PGQL Query on Blue Carbuncle](images/graph_visual_blue_carbuncle.png "PGQL Query on Blue Carbuncle")
+
+   ![PGQL Query on James Ryder](images/graph_visual_james_ryder.png "PGQL Query on James Ryder")
+
+   ![PGQL Query on Hat](images/graph_visual_hat.png "PGQL Query on Hat")
+
 
 ## Learn More
 

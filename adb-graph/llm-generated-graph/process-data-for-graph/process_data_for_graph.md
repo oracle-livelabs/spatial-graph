@@ -138,12 +138,12 @@ This lab assumes you have:
             UPDATE GRAPH_RELATIONS_STG SET head ='Blue Carbuncle'
             where lower(head) in ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
             UPDATE GRAPH_RELATIONS_STG SET tail ='Blue Carbuncle'
-            WHERE lower(tail) ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
+            WHERE lower(tail) IN ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
             
             UPDATE GRAPH_RELATIONS_STG SET head ='Goose'
             WHERE lower(head) IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
             UPDATE GRAPH_RELATIONS_STG SET tail ='Goose'
-            WHERE lower(tail) IN IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
+            WHERE lower(tail) IN  ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
           </copy>
       ```
 
@@ -224,7 +224,7 @@ This lab assumes you have:
 
           TRUNCATE TABLE GRAPH_RELATIONS;
           INSERT INTO GRAPH_RELATIONS (CHUNK_ID, HEAD_ID, TAIL_ID, RELATION, TEXT)
-          SELECT CHUNK_ID, head.ID as HEAD_ID,  tail.ID, s.relation, s.text
+          SELECT CHUNK_ID, head.ID as HEAD_ID,  tail.ID as TAIL_ID, s.relation, s.text
           FROM GRAPH_RELATIONS_STG S
           INNER JOIN  GRAPH_ENTITIES head ON head.ENTITY_NAME=s.head and head.ENTITY_TYPE = s.head_type
           INNER JOIN  GRAPH_ENTITIES tail ON tail.ENTITY_NAME=s.tail and tail.ENTITY_TYPE = s.tail_type
