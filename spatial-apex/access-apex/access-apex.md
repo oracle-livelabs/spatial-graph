@@ -67,7 +67,7 @@ Watch the video below for a quick walk-through of the lab.
     | --- | --- |
     | Workspace Name | DEMO |
     | Workspace Username | DEMO |
-    | Workspace Password | \<password> |
+    | Workspace Password | '<password>' |
 
     Click **Create Workspace**.
 
