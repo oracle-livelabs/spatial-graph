@@ -94,11 +94,11 @@ This lab assumes you have:
           <copy>
             DELETE
             FROM GRAPH_RELATIONS_STG
-            WHERE lower(HEAD) IN ('you','she','he','i');
+            WHERE lower(HEAD) IN ('you','she','he','i','narrator','the man','man');
 
             DELETE
             FROM GRAPH_RELATIONS_STG
-            WHERE lower(tail) IN ('you','she','he','i');
+            WHERE lower(tail) IN ('you','she','he','i','narrator','the man','man');
 
             UPDATE GRAPH_RELATIONS_STG SET head ='Henry Baker'
             WHERE lower(head) IN ('baker', 'henry baker', 'mr. baker', 'mr. henry baker' );
@@ -136,9 +136,9 @@ This lab assumes you have:
             WHERE lower(tail)  IN ('hat', 'the hat', 'old hat', 'battered hat' );
 
             UPDATE GRAPH_RELATIONS_STG SET head ='Blue Carbuncle'
-            where lower(head) in ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
+            where lower(head) in ('gem', 'blue stone', 'jewel', 'the stone', 'stone', 'jewel-case' );
             UPDATE GRAPH_RELATIONS_STG SET tail ='Blue Carbuncle'
-            WHERE lower(tail) IN ('gem', 'blue stone', 'jewel', 'the stone', 'stone' );
+            WHERE lower(tail) IN ('gem', 'blue stone', 'jewel', 'the stone', 'stone', 'jewel-case' );
             
             UPDATE GRAPH_RELATIONS_STG SET head ='Goose'
             WHERE lower(head) IN ('goose', 'good fat goose' ,'christmas goose','the bird','the goose','bird');
