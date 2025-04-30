@@ -41,7 +41,7 @@ This lab assumes you have:
    ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
 
-2. Run the PL/SQL to create stored procedure for making prompt requests
+2. Run the PL/SQL to a create stored procedure to help with graph rag prompt requests
    
     Paste the PL/SQL:
 
@@ -166,7 +166,7 @@ This lab assumes you have:
         <copy>
             DECLARE
               L_ENTITYNAME       VARCHAR2(200) := 'Blue Carbuncle';
-              L_PROMPTBEGIN      VARCHAR2(200) := 'Write an official report on';
+              L_PROMPTBEGIN      VARCHAR2(200) := 'Write an official evidence report';
               L_RESP             VARCHAR2(8000);
               L_PROPERTYGRAPHRAG VARCHAR2(4000);
           BEGIN
