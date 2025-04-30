@@ -61,9 +61,11 @@ This lab assumes you have:
           AS
           (   SELECT ROWNUM as row_n,  entity_name || ''('' || entity_type || '') '' || relation || '' '' || entity_name_dest  || ''('' || entity_type_dest || '') ''  as INFORMATION
             FROM GRAPH_TABLE(PG_RAG_PGQL
-                  MATCH (n IS Entity)-[e is Relation]-(n2 is Entity)
+                  MATCH (n IS Entity)-[e is Relation]->(n2 is Entity)
                   WHERE n.entity_name =:a
                   COLUMNS(n.entity_name as entity_name,n.entity_type as entity_type,e.relation,n2.entity_name as entity_name_dest,n2.entity_type as entity_type_dest))
+              UNION
+              
 
           ),
           ctePivotGraphData AS
