@@ -28,37 +28,14 @@ In this workshop you will:
 ### Prerequisites
 
 * Oracle Cloud Account   
-* Provisioned Autonomous Database-Serverless instance  
+* Access to OCI Autonomous Database (ADB)
+* Access to a Region where the Generative AI service is available: Chicago, Frankfurt
+* Must have an Administrator Account or Permissions to manage several OCI Services: Generative AI Services,   Autonomous Database 
+ 
 <!---
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)
 --->
 
-
-## Task 1: Create Autonomous Database
-
-This task involves creating Autonomous Database 23ai.
-
-1. Locate Autonomous Databases under Oracle Databases. Click on Create Autonomous Database.
-
-    ![Create ADB](images/create_adb.png)
-
-2. Provide information for Compartment, Display name, Database name. Also, choose workload type as APEX.
-    
-    ![Create ADB Name](images/)
-    
-3. Choose deployment type as Serverless, database version as 23ai and disable Compute auto scaling.
-
-    ![Create ADB Deployment](images/create_adb_deployment_type.png)
-
-4. Make sure Network Access is Secure access from everywhere, provide password, valid email ID and click on Create Autonomous Database.
-
-    ![Create ADB Password](images/create_adb_password_network.png)
-
-5. After deployment is complete, check to make sure your autonomous database is available on the autonomous databases page with the specified compartment selected.
-
-    ![Create ADB Done](images/create_adb_complete.png)
-
-This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 
