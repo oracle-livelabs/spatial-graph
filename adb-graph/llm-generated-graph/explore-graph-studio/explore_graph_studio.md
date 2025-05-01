@@ -63,7 +63,8 @@ This lab assumes you have:
 
    ![Run Create Graph Query](images/run_create_graph_query.png "Run Create Graph Query")
 
- ## Task 2: Import notebook
+
+## Task 2: Import notebook
 
  1. Click on the link to download the required notebook
 
@@ -87,6 +88,7 @@ This lab assumes you have:
    ![PGQL Query on James Ryder](images/graph_visual_james_ryder.png "PGQL Query on James Ryder")
 
    ![PGQL Query on Hat](images/graph_visual_hat.png "PGQL Query on Hat")
+
 
 ## Task 3 Convert PGQL graph to SQL Graph
 
