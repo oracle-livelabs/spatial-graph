@@ -6,9 +6,6 @@ This workshop shows how Generative AI can be used to create an informative prope
 
 Estimated Workshop Time: -- 3 hours -- minutes (This estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.)
 
-<if type="odbw">If you would like to see a video that relates to this workshop, click  [here](youtube:zNKxJjkq0Pw)
-https://www.youtube.com/watch?v=81GShL2Uz04.</if>
- 
 ### About Graph Studio
 Oracle Autonomous Database has features that enable it to function as a scalable graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, over 60 built-in graph algorithms using Java or Python APIs, and native graph visualization.
 
@@ -21,11 +18,12 @@ Watch the following two videos for more information on Graph Studio. The first i
 ### Objectives
 
 In this workshop you will:
-* Create a graph using PGQL's (a graph query language) CREATE PROPERTY GRAPH statement
-* Load the graph into memory for analysis
-* Create a notebook
+* Vectorize text data for ingestion
+* Use Generative AI to summarize text chunks for graph edge/vertice relationships 
+* Transform responses from LLM into suitable format for creating Property Graph
+* Create graph studio notebook
 * Query and visualize the graph using PGQL notebook paragraphs
-* Execute graph algorithms and visualize the results
+* Use graph information for retrieval augmented generation
 
 ### Prerequisites
 
