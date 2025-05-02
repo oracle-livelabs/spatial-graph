@@ -4,7 +4,7 @@
 
 This lab walks you through the steps to get started using Oracle APEX on Oracle Autonomous Database (Autonomous Transaction Processing [ATP]). In this lab, you provision a new ATP instance and create an APEX workspace.
 
-Estimated Time: 5 minutes
+Estimated Time: 10 minutes
 
 Objectives
 
@@ -17,15 +17,24 @@ In this lab, you will:
 Watch the video below for a quick walk-through of the lab.
 [Create an App from a Spreadsheet](videohub:1_rcmsmco3)
 
-## Task 1: Access the Autonomous Database
+## Task 1: Create the Autonomous Database
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu-v2.png " ")
+    ![Navigating to Autonomous Database.](images/navigation-menu-v3.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Click **Create Autonomous Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+    ![Create ADB](images/create-db.png " ")
+
+3. Input a Display name and Database name. Change Workload type to Transaction Processing and change database version to 23ai. Input your ADMIN password. For all other options, keep the default. Click Create.
+
+    ![Create ADB form](images/create-db1.png " ")
+
+4. You will be redirected to the Autonomous Database details page. Note the status indicator will say PROVISIONING and the icon will be brown. Wait for the indicator to say AVAILABLE and the for the icon to turn green.
+
+  ![Provisioning status](images/db-creation-status.png " ")
+  ![Available status](images/db-creation-status-green.png " ")
 
 ## Task 2: Create a APEX workspace
 
@@ -58,7 +67,7 @@ Watch the video below for a quick walk-through of the lab.
     | --- | --- |
     | Workspace Name | DEMO |
     | Workspace Username | DEMO |
-    | Workspace Password | **`SecretPassw0rd`** |
+    | Workspace Password | *password* |
 
     Click **Create Workspace**.
 
@@ -69,7 +78,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![APEX Instance Administration page](images/log-out-from-admin.png " ")
 
-8. On the APEX Workspace log in page, enter **``SecretPassw0rd``** for the password, check the **Remember workspace and username** checkbox, and then click **Sign In**.
+8. On the APEX Workspace log in page, enter the password you chose, check the **Remember workspace and username** checkbox, and then click **Sign In**.
 
     ![APEX Workspace log in page](images/log-in-to-workspace.png " ")
 
@@ -80,5 +89,6 @@ Watch the video below for a quick walk-through of the lab.
   You may now **proceed to the next lab**.
 
 ## Acknowledgements
+
 - **Author** - Apoorva Srinivas, Senior Product Manager, Ramu Murakami Gutierrez, Product Manager
-- **Last Updated By/Date** - Denise Myrick, Product Manager, November 2024
+- **Last Updated By/Date** - Denise Myrick, Product Manager, April 2025
