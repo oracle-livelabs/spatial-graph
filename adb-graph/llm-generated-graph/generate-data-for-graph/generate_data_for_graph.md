@@ -2,31 +2,31 @@
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+This lab walks you through the steps to generate data for a property graph. First you will grant the graph user necessary privileges for the workshop. Next you will load the sample data, ONNX Embedding Models into the database and use the models to vectorize the text into chunks. Also, you will create PL/SQL stored procedures and functions to generate SQL from text using LLM. Finally you will a create DBMS Scheduler job to generate the SQL for each text chunk using a few shot prompt.
 
-Estimated Time: -- minutes
-
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
+Estimated Time: -- 60 minutes
+ 
 
 ### Objectives
 
-*List objectives for this lab using the format below*
+ 
 
 In this lab, you will:
-* Objective 1
+* Grant user created in previous lab necessary privileges to finish workshop
+* Load textual data into database
+* Vectorize the textual data into chunks
+* Create PL/SQL procedures/functions to generate SQL from chunks
+* Create DBMS Scheduler Job to Generate SQL for each chunk
 
 ### Prerequisites (Optional)
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
 
 This lab assumes you have:
 * An Oracle Cloud account
 * All previous labs successfully completed
 
 
-*This is the "fold" - below items are collapsed by default*
-
+ 
 ## Task 1: Load sample data and ONNX Models for Graph user
 
 
@@ -59,6 +59,7 @@ This lab assumes you have:
     ![sql developer sign off](images/sql_developer_sign_off.png "sql developer sign off")
 
     ![sql developer graph user sign in](images/sql_developer_graph_user_sign_in.png "sql developer graph user sign in")
+    
 4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data
   
     Paste the PL/SQL:
