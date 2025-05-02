@@ -4,7 +4,7 @@
 
 This workshop shows how Generative AI can be used to create an informative property graph from the texst of a Sherlock Holmses story and  how to use the graph for retrieval augmented generation. The workshop will guide users through provisioning the required resources, generating a property graph, visualizing the property graph and using the property graph for retreival augmented generation. 
 
-Estimated Workshop Time: -- 3 hours -- 00 minutes
+Estimated Workshop Time: 3 hours 
 
 ### About Graph Studio
 Oracle Autonomous Database has features that enable it to function as a scalable graph database. They automate the creation of graph models and in-memory graphs from database tables. They include notebooks and developer APIs for executing graph queries using PGQL, a SQL-like graph query language, over 60 built-in graph algorithms using Java or Python APIs, and native graph visualization.
@@ -49,4 +49,4 @@ In this workshop you will:
 
 
 * **Last Updated By/Date**
-    * **Jadd Jennings**, Principal Cloud Architect, NACIE, April 2025
+    * **Jadd Jennings**, Principal Cloud Architect, NACIE, May 2025
