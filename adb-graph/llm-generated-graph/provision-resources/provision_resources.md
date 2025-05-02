@@ -2,13 +2,12 @@
 
 ## Introduction
 
-This lab will walk you thru provisioning an Autonomous Database, adding API keys in OCI and a database user for Graph studio. There are also instructions for giving the database user all the necessary roles and privileges for later labs in the workshop.
+This lab will walk you thru provisioning an Autonomous Database, adding API keys in OCI and a database user for Graph studio. 
 
 Estimated Time: 30 minutes
 
 ### Objectives
 
-*List objectives for this lab using the format below*
 
 In this lab, you will:
 * Provision an Autonomous Database
@@ -23,8 +22,6 @@ This lab assumes you have:
 * An Oracle Cloud account with privileges to provision and Autonomous Database and add API keys
  
 
-*This is the "fold" - below items are collapsed by default*
-
 ## Task 1: Create Autonomous Database
 
 This task involves creating Autonomous Database 23ai.
@@ -34,7 +31,7 @@ This task involves creating Autonomous Database 23ai.
     ![Create ADB Navigate To](images/create_adb_navigate_to_adb.png)
     ![Create ADB](images/create_adb.png)
 
-2. Provide information for Compartment, Display name, Database name. Also, choose workload type as Data Warehouse or Transaction Processing.
+2. Provide information for Compartment, Display name, Database name. Also, choose workload type as Data Warehouse or Transaction Processing, these are the types that offer Graph Studio.
     
     ![Create ADB Name](images/create_adb_name_workload.png)
     
