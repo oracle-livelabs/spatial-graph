@@ -1,44 +1,39 @@
-# Title of the Lab
+# Explore Graph Studio
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+This lab shows you how to create a property graph in Graph Studio using the data definition created in previous steps. After creating the graph, there will be steps to import a Graph Studio notebook and explore the paragraphs. Finally, you will convert the graph to SQL form to be used in the next lab.
 
 Estimated Time: -- minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
-
+ 
 ### Objectives
 
-*List objectives for this lab using the format below*
+ 
 
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
+* Create a Property Graph in Graph Studio
+* Import a Graph Studio notebook and explore paragraphs
+* Convert Graph to SQL format
 
 ### Prerequisites (Optional)
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
 
 This lab assumes you have:
 * An Oracle Cloud account
 * All previous labs successfully completed
 
 
-*This is the "fold" - below items are collapsed by default*
-
 ## Task 1: Create property graph in graph studio 
 
 
-1. Open Database Actions, click the hamburger icon and select Graph Studio from the Development menu
+1. Open Database Actions, click the hamburger icon and select Graph Studio from the Development menu.
 
    ![Open Graph Studio](images/open_graph_studio.png "Open Graph Studio")
 
    ![Graph Studio Console](images/graph_studio_console.png "Graph Studio Console")
 
- 2. Navigate to the graphs pageview but dont click the Create Graph button, click the Query button, paste the PGQL below to create a PGQL Property Graph
+ 2. Navigate to the graphs pageview but dont click the Create Graph button, click the Query button, paste the PGQL below to create a PGQL Property Graph.
 
        Paste the PL/SQL:
 
@@ -66,13 +61,13 @@ This lab assumes you have:
 
 ## Task 2: Import notebook
 
- 1. Click on the link to download the required notebook
+ 1. Click on the link to download the required notebook.
 
    [graph_rag_live_lab.dsnb](https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/property-graph-live-lab%2Fgraph_rag_live_lab.dsnb)
 
    ![Create Graph](images/create_graph.png "Create Graph")
 
- 2. Navigate to the notebook pageview, click the import button and select the notebook downloaded in the previous step
+ 2. Navigate to the notebook pageview, click the import button and select the notebook downloaded in the previous step.
 
    ![Import Notebook](images/import_notebook.png "Import Notebook")
 
@@ -92,19 +87,19 @@ This lab assumes you have:
 
 ## Task 3 Convert PGQL graph to SQL Graph
 
- 1. Open the Graph page view
+ 1. Open the Graph page view.
 
 ![open graphs page view](images/open_graphs_page.png "open graphs page view")
 
- 2. Click the menu button for the graph created in task 1 and select "Convert to SQL Graph"
+ 2. Click the menu button for the graph created in task 1 and select "Convert to SQL Graph".
 
 ![Convert to SQL Graph](images/convert_to_sql_graph.png "Convert to SQL Graph")
 
- 3. Confirm the migration to SQL Graph 
+ 3. Confirm the migration to SQL Graph.
 
 ![Convert to SQL Graph](images/confirm_sql_migration.png "Convert to SQL Graph")
 
- 4. Verify existence of SQL version of property graph 
+ 4. Verify existence of SQL version of property graph.
 
 ![Convert to SQL Graph](images/finish_sql_graph_migration.png "Convert to SQL Graph")
 
