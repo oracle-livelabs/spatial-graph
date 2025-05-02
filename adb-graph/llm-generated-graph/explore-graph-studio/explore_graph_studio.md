@@ -4,7 +4,7 @@
 
 This lab shows you how to create a property graph in Graph Studio using the data definition created in previous steps. After creating the graph, there will be steps to import a Graph Studio notebook and explore the paragraphs. Finally, you will convert the graph to SQL form to be used in the next lab.
 
-Estimated Time: -- minutes
+Estimated Time: 30 minutes
 
  
 ### Objectives

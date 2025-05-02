@@ -4,7 +4,7 @@
 
 In this lab you will create a PL/SQL stored procedure to serve as a utility for prompting the LLM. You will also run the stored procedure using different parameters to show retrieval augmented generation with property graph data.
 
-Estimated Time: 30 -- minutes
+Estimated Time: 30 minutes
 
 
 ### Objectives

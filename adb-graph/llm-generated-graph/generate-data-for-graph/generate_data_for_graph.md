@@ -4,7 +4,7 @@
 
 This lab walks you through the steps to generate data for a property graph. First you will grant the graph user necessary privileges for the workshop. Next you will load the sample data, ONNX Embedding Models into the database and use the models to vectorize the text into chunks. Also, you will create PL/SQL stored procedures and functions to generate SQL from text using LLM. Finally you will a create DBMS Scheduler job to generate the SQL for each text chunk using a few shot prompt.
 
-Estimated Time: -- 60 minutes
+Estimated Time: 60 minutes
  
 
 ### Objectives
