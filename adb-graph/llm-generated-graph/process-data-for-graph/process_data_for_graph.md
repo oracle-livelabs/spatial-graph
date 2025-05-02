@@ -1,34 +1,27 @@
-# Title of the Lab
+# Process Data for Graph
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+This labs goes thru the processing required to create a property graph for use in graph studio. First you will stage and clean the data for unnecessary and ambiguous information. Then you will load the staged data into tables that will be used as edge and vertices of a property graph.
 
 Estimated Time: -- minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
 
 ### Objectives
 
-*List objectives for this lab using the format below*
 
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
+* Stage generated SQL
+* Clean bad data
+* Load edge/vertice tables
 
-### Prerequisites (Optional)
-
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites  
 
 This lab assumes you have:
 * An Oracle Cloud account
 * All previous labs successfully completed
 
-
-*This is the "fold" - below items are collapsed by default*
-
+ 
 ## Task 1: Load Gen AI Prompt Responses into table
 
 1. Create staging, edge and vertice tables
