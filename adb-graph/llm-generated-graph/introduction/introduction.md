@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-This workshop shows how Generative AI can be used to create an informative property graph from unstructured data. It also shows how to use the graph for retrieval augmented generation. The first lab will go through the steps of using generative AI to create property graph staging data from a Sherlock Holmes story. In the second lab you will process the staging data and create a working property graph data structure. When you get to the third lab you will explore the graph in graph studio. Finally you will use the graph for retrieval augmented generation.
+This workshop shows how Generative AI can be used to create an informative property graph from the texst of a Sherlock Holmses story and  how to use the graph for retrieval augmented generation. The workshop will guide users through provisioning the required resources, generating a property graph, visualizing the property graph and using the property graph for retreival augmented generation. 
 
 Estimated Workshop Time: -- 3 hours -- minutes (This estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.)
 

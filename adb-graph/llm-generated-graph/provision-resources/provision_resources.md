@@ -2,7 +2,7 @@
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+This lab will walk you thru provisioning an Autonomous Database, adding API keys in OCI and a user for Graph studio
 
 Estimated Time: -- minutes
 
@@ -17,9 +17,9 @@ In this lab you will create a database user with the appropriate roles and privi
 *List objectives for this lab using the format below*
 
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
+* Provision an Autonomous Database
+* Create API Key in OCI
+* Create Autonomous Database user with access to Graph Studio
  
 
 Learn how to
@@ -33,7 +33,6 @@ Learn how to
  
 This lab assumes you have:
 * An Oracle Cloud account
-* All previous labs successfully completed
 
 
 *This is the "fold" - below items are collapsed by default*
