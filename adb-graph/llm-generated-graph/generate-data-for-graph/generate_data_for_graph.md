@@ -1,4 +1,4 @@
-# Title of the Lab
+# Generate Data for Graph
 
 ## Introduction
 
@@ -59,7 +59,7 @@ This lab assumes you have:
     ![sql developer sign off](images/sql_developer_sign_off.png "sql developer sign off")
 
     ![sql developer graph user sign in](images/sql_developer_graph_user_sign_in.png "sql developer graph user sign in")
-    
+
 4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data
   
     Paste the PL/SQL:
