@@ -399,14 +399,20 @@ This lab assumes you have:
 ![check for more chunks](images/check_for_chunks_1.png "check for more chunks")
 
 ![check for more chunks](images/check_for_chunks_2.png "check for more chunks")
+
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
 
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+* [Graph RAG](https://blogs.oracle.com/database/post/graph-rag-bring-the-power-of-graphs-to-generative-ai)
 
-## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+
+* **Author**
+    * **Jadd Jennings**, Principal Cloud Architect, NACIE
+
+* **Contributors**
+    * **Melliyal Annamalai**,  Distinguished Product Manager
+    * **Eduard Cuba**,  Senior Member of Technical Staff
+
+
+* **Last Updated By/Date**
+    * **Jadd Jennings**, Principal Cloud Architect, NACIE, May 2025
