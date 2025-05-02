@@ -72,11 +72,11 @@ This lab assumes you have:
    ![Import Notebook](images/import_notebook.png "Import Notebook")
 
 
- 3. Run all paragraphs using the run button and make sure show results is enabled
+ 3. Run all paragraphs using the run button and make sure show results is enabled.
 
    ![Run All Paragraphs](images/run_all_paragraphs.png "Run All Paragraphs")
 
- 4. View the visualizations for each paragraph and note the relationships that have been generated 
+ 4. View the visualizations for each paragraph and note the relationships that have been generated.
 
    ![PGQL Query on Blue Carbuncle](images/graph_visual_blue_carbuncle.png "PGQL Query on Blue Carbuncle")
 

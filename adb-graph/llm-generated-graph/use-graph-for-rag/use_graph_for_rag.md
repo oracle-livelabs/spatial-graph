@@ -2,34 +2,27 @@
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+In this lab you will create a PL/SQL stored procedure to serve as a utility for prompting the LLM. You will also run the stored procedure using different parameters to show retrieval augmented generation with property graph data.
 
-Estimated Time: -- minutes
+Estimated Time: 30 -- minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
 
 ### Objectives
 
-*List objectives for this lab using the format below*
 
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
+* Create PL/SQL Stored Procedure as prompting utility
+* Run PL/SQL Stored Procedure for RAG use-cases
 
-### Prerequisites (Optional)
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites  
 
 This lab assumes you have:
 * An Oracle Cloud account
 * All previous labs successfully completed
 
-
-*This is the "fold" - below items are collapsed by default*
-
-## Task 1: Create Prompting Utility 
+ 
+## Task 1: Create Prompting Utility Scripts
 
  
 
@@ -41,7 +34,7 @@ This lab assumes you have:
    ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
 
-2. Run the PL/SQL to a create stored procedure that will run basic queries on the property graph and use the results to send a prompt to the LLM
+2. Run the PL/SQL to a create stored procedure that will run basic queries on the property graph and use the results to send a prompt to the LLM.
    
     Paste the PL/SQL:
 
@@ -166,9 +159,9 @@ This lab assumes you have:
 
    ![Create Stored Procedure for Prompt](images/create_prompt_stored_procedure.png "Create Stored Procedure for Prompt")
 
-## Task 2: Execute examples of using property graph for Retrieval Augmented Generation
+## Task 2: Run Stored Procedure for Property Graph Rag
 
-1. Create Evidence report using property graph query on Blue Carbuncle Vertice, run PL/SQL to 
+1. Create Evidence report using property graph query on the Blue Carbuncle Vertice.
 
     Paste the PL/SQL:
 
@@ -194,7 +187,7 @@ This lab assumes you have:
    ![Execute Blue Carbuncle Prompt](images/prompt_blue_carbuncle.png "Execute Blue Carbuncle Prompt")
 
 
-2. Write a prosecution argument outline against James Ryder
+2. Write a prosecution argument outline against James Ryder.
 
     Paste the PL/SQL:
 
@@ -219,7 +212,7 @@ This lab assumes you have:
 
    ![Execute James Ryder Prosecution Prompt](images/prompt_james_ryder_prosecution.png "Execute James Ryder Prosecution Prompt")
 
-3. Write a defense argument outline for James Ryder
+3. Write a defense argument outline for James Ryder.
 
     Paste the PL/SQL:
 
@@ -244,7 +237,7 @@ This lab assumes you have:
    ![Execute James Ryder Defense Prompt](images/prompt_james_ryder_defense.png "Execute James Ryder Defense Prompt")
 
 
-4. Write poem using property graph query on Hat
+4. Write poem using property graph query on Hat.
 
     Paste the PL/SQL:
 
@@ -272,11 +265,7 @@ This lab assumes you have:
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
-
+ 
 ## Acknowledgements
 * **Author** - <Name, Title, Group>
 * **Contributors** -  <Name, Group> -- optional
