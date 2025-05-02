@@ -229,13 +229,6 @@ This lab assumes you have:
 
 
 
-## Learn More
-
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-
-
 ## Acknowledgements
 * **Author**
     * **Jadd Jennings**, Principal Cloud Architect, NACIE

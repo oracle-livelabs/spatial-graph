@@ -15,6 +15,7 @@ Watch the following two videos for more information on Graph Studio. The first i
 
 [Autonomous Database: A tour of the Graph Studio interface](youtube:S6Q-IJcBkU0)   Autonomous Database: A tour of the Graph Studio interface
 
+
 ### Objectives
 
 In this workshop you will:

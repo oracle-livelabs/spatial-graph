@@ -103,13 +103,7 @@ This lab assumes you have:
 
 ![Convert to SQL Graph](images/finish_sql_graph_migration.png "Convert to SQL Graph")
 
-## Learn More
-
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
-
+ 
 ## Acknowledgements
 * **Author**
     * **Jadd Jennings**, Principal Cloud Architect, NACIE

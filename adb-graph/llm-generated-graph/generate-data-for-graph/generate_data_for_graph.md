@@ -400,10 +400,9 @@ This lab assumes you have:
 
 ![check for more chunks](images/check_for_chunks_2.png "check for more chunks")
 
-## Learn More
+ 
 
-
-* [Graph RAG](https://blogs.oracle.com/database/post/graph-rag-bring-the-power-of-graphs-to-generative-ai)
+## Acknowledgements
 
 
 * **Author**

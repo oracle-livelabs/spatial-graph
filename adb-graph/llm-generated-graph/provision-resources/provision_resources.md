@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will walk you thru provisioning an Autonomous Database, adding API keys in OCI and a database user for Graph studio. 
+This lab will walk you thru provisioning an Autonomous Database, adding API keys in the Oracle Cloud Console and adding a database user for Graph studio. 
 
 Estimated Time: 30 minutes
 
@@ -31,7 +31,7 @@ This task involves creating Autonomous Database 23ai.
     ![Create ADB Navigate To](images/create_adb_navigate_to_adb.png)
     ![Create ADB](images/create_adb.png)
 
-2. Provide information for Compartment, Display name, Database name. Also, choose workload type as Data Warehouse or Transaction Processing, these are the types that offer Graph Studio.
+2. Provide information for Compartment, Display name, Database name. Also, choose workload type as Data Warehouse or Transaction Processing one of these workload types are needed for Graph Studio.
     
     ![Create ADB Name](images/create_adb_name_workload.png)
     
@@ -50,7 +50,7 @@ This task involves creating Autonomous Database 23ai.
 
 ## Task 2: Create API Key in OCI
 
-This task involves creating and API Key in OCI, the key will be used to implement Select AI.
+This task involves creating and API Key in OCI, the key will be needed in creating an AI profile for the data generation.
 
 1. Login the OCI Console and click the person icon on the top right.
 
@@ -79,11 +79,11 @@ This task involves creating and API Key in OCI, the key will be used to implemen
    ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
 
-2. If necessary, login as the ADMIN user for your Autonomous Database instance.
+2. Login as the ADMIN user for your Autonomous Database instance.
 
     ![Log in to your Autonomous Database instance](./images/sign-in-admin.png "Log in to your Autonomous Database instance")
 
-3. Click  the **DATABASE USERS** tile under **Administration**.
+3. Click the **DATABASE USERS** tile under **Administration**.
 
    ![Click the Database Actions tile](./images/db-actions-users.png "Click the Database Actions tile")
 

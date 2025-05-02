@@ -263,9 +263,7 @@ This lab assumes you have:
    ![Execute Hat Poem Prompt](images/prompt_hat_poem.png "Execute Hat Poem Prompt")
 
 
-## Learn More
 
- 
 ## Acknowledgements
 
 * **Author**
