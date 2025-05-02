@@ -63,7 +63,7 @@ This lab assumes you have:
 
  1. Click on the link to download the required notebook.
 
-   [graph_rag_live_lab.dsnb](https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/property-graph-live-lab%2Fgraph_rag_live_lab.dsnb)
+   [Graph Rag Notebook](https://objectstorage.us-chicago-1.oraclecloud.com/n/idb6enfdcxbl/b/Livelabs/o/property-graph-live-lab%2Fgraph_rag_live_lab.dsnb)
 
    ![Create Graph](images/create_graph.png "Create Graph")
 
@@ -72,7 +72,7 @@ This lab assumes you have:
    ![Import Notebook](images/import_notebook.png "Import Notebook")
 
 
- 3. Run all paragraphs using the run button and make sure show results is enabled.
+ 3. Run all paragraphs using the run button and make sure the show results button is enabled.
 
    ![Run All Paragraphs](images/run_all_paragraphs.png "Run All Paragraphs")
 
@@ -85,7 +85,7 @@ This lab assumes you have:
    ![PGQL Query on Hat](images/graph_visual_hat.png "PGQL Query on Hat")
 
 
-## Task 3 Convert PGQL graph to SQL Graph
+## Task 3: Convert PGQL graph to SQL Graph
 
  1. Open the Graph page view.
 

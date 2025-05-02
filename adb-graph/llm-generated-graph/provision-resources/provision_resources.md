@@ -113,8 +113,6 @@ This task involves creating and API Key in OCI, the key will be needed in creati
 
 
 
-This concludes this lab. **You may now proceed to the next lab.**
-
 ## Acknowledgements
 
 * **Author**
@@ -124,4 +122,4 @@ This concludes this lab. **You may now proceed to the next lab.**
     * **Kaushik Kundu**, Master Principal Cloud Architect, NACIE
 
 * **Last Updated By/Date**
-    * **Jadd Jennings**, Principal Cloud Architect, NACIE, April 2025
+    * **Jadd Jennings**, Principal Cloud Architect, NACIE, May 2025

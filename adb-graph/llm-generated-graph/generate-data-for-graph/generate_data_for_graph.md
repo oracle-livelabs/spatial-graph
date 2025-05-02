@@ -36,7 +36,7 @@ This lab assumes you have:
 
    ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
-2. Make sure to be logged in as Admin and execute the 7 SQL statements below to grant the necessary roles for the user created in Lab 1 and be sure the correct user name is referenced in SQL.
+2. Make sure to be logged in as Admin and execute the seven SQL statements below to grant the necessary roles for the user created in Lab 1 and be sure the correct user name is referenced similar to screenshot.
  
     Paste the PL/SQL:
 
@@ -54,13 +54,13 @@ This lab assumes you have:
 
    ![grant user grants plsql](images/graph_user_grants.png "grant user grants plsql")
 
-3. Sign out of SQL Developer and sign back into SQL Developer as the graph user (use created in Lab 1)
+3. Sign out of SQL Developer and sign back into SQL Developer as the graph user (user created in Lab 1)
 
     ![sql developer sign off](images/sql_developer_sign_off.png "sql developer sign off")
 
     ![sql developer graph user sign in](images/sql_developer_graph_user_sign_in.png "sql developer graph user sign in")
 
-4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data
+4. Execute the SQL below to create a directory, download an onnx embedding model, load in the schema and download text sample data.
   
     Paste the PL/SQL:
     
@@ -95,7 +95,7 @@ This lab assumes you have:
 
   ![create and load directory"](images/create_load_directory.png "create and load directory")
 
-5. Create cloud credentials and AI Profile for Graph User. Type the following sql code in the worksheet area and update with API Key configurations in four places. Update for user_ocid, tenancy_ocid, private_key, and fingerprint. Each value can be found in Lab 1, Task 2, Steps 3/4. Click the run script button and check the script output to make sure it completed successfully.
+5. Create cloud credentials and an AI Profile for Graph User. Type the following sql code in the worksheet area and update with API Key configurations in four places. Update for user_ocid, tenancy_ocid, private_key, and fingerprint. Each value can be found in Lab 1, Task 2, Steps 3/4. Click the run script button and check the script output to make sure it completed successfully.
         
 
     Paste the PL/SQL:
@@ -116,7 +116,7 @@ This lab assumes you have:
 
     ![Create Credential](images/db_actions_sql_create_credential.png)
 
-6. Clear the worksheet area and type the script below in the worksheet. Update script for the name(use uppercase) of the workspace you created in Lab 2 Step 3. Click the run script button and check the script output to make sure it completed successfully.
+6. Clear the worksheet area and run the script below. 
 
     Paste the PL/SQL:
 
@@ -136,7 +136,7 @@ This lab assumes you have:
      ![Create Profile](images/db_actions_sql_create_profile_oci.png)
 
 
-  7.  Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt)
+  7.  Optional, run SQL query to make sure the appropriate files exist (tinybert.onnx, blue.txt).
 
 
       Paste the PL/SQL:
@@ -152,7 +152,7 @@ This lab assumes you have:
 ## Task 2: Vectorize sample data into chunks
 
 
-  1. Create 3 tables to be used in vectorization process, make sure each is created
+  1. Create 3 tables to be used in vectorization process, make sure each table gets created.
 
       Paste the PL/SQL:
 
@@ -169,7 +169,7 @@ This lab assumes you have:
 
   ![create tables for embeddings](images/create_tables_for_embedding.png "create tables for embeddings")
 
-  2. Run PL/SQL to create the vector chunks
+  2. Run PL/SQL below to create the vector chunks.
 
 
       Paste the PL/SQL:
@@ -200,7 +200,7 @@ This lab assumes you have:
 
   ![create embeddings](images/create_embeddings.png "create embeddings")
 
-  3. Test that all the previous steps worked by running a vector search on the sample data
+  3. Test that all the previous steps worked by running a vector search on the sample data.
 
       Paste the PL/SQL:
 
@@ -217,7 +217,7 @@ This lab assumes you have:
 
 ## Task 3: Send chunks to LLM with DBMS_Scheduler job
 
-  1.  Create PL/SQL function that sends prompt question with chunk of text sample data
+  1.  Create PL/SQL function that generates SQL based on prompt question with chunk of text sample data.
 
       Paste the PL/SQL:
 
@@ -300,7 +300,7 @@ This lab assumes you have:
 
   ![create prompt function](images/create_prompt_function.png "create prompt function")
 
-  2.  Use PL/SQL to create staging table and stored procedure to loop thru each chunk and execute function using chunk as parameter
+  2.  Use PL/SQL to create staging table and stored procedure. The stored procedure will call the function and load results into the table.
 
       Paste the PL/SQL:
 
@@ -337,7 +337,7 @@ This lab assumes you have:
 
   ![create staging table and stored procedure](images/create_staging_table_storedprocedure.png "create staging table and stored procedure")
 
-  3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the extract to staging stored procedure in the background every 2 minutes. Once PL/SQL job is enabled it will keep running until all chunks of text are sent via prompt, this should take about 30 mins. See next step to check progress
+  3.  Use PL/SQL to create a DBMS_SCHEDULER job that will execute the previously created stored procedure in the background every 2 minutes. Once PL/SQL job is enabled it will keep running until all chunks of text are processed, this should take about 30 mins. See next step to check progress.
 
       Paste the PL/SQL:
 
@@ -383,7 +383,7 @@ This lab assumes you have:
   ![create dbms job for prompts](images/create_job_for_prompts.png "create dbms job for prompts")
 
 
-  4.  Execute the PL/SQL to check how many chunks of text need to be sent in prompt, make sure the number returned is zero before proceeding to the next lab.
+  4.  Execute the PL/SQL to check how many chunks of text need to be processed, make sure the number returned is zero before proceeding to the next lab.
 
       Paste the PL/SQL:
 
@@ -400,7 +400,7 @@ This lab assumes you have:
 
 ![check for more chunks](images/check_for_chunks_2.png "check for more chunks")
 
- 
+
 
 ## Acknowledgements
 

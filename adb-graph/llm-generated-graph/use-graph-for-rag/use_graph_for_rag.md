@@ -34,7 +34,7 @@ This lab assumes you have:
    ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
 
 
-2. Run the PL/SQL to a create stored procedure that will run basic queries on the property graph and use the results to send a prompt to the LLM.
+2. Run the PL/SQL to a create stored procedure that will run basic queries on the property graph and pivot the results to send a prompt to the LLM.
    
     Paste the PL/SQL:
 
@@ -159,9 +159,9 @@ This lab assumes you have:
 
    ![Create Stored Procedure for Prompt](images/create_prompt_stored_procedure.png "Create Stored Procedure for Prompt")
 
-## Task 2: Run Stored Procedure for Property Graph Rag
+## Task 2: Run Stored Procedure for Property Graph Rag examples
 
-1. Create Evidence report using property graph query on the Blue Carbuncle Vertice.
+1. Create Evidence report using property graph query on the Blue Carbuncle.
 
     Paste the PL/SQL:
 

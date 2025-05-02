@@ -24,7 +24,7 @@ This lab assumes you have:
  
 ## Task 1: Load Gen AI Prompt Responses into table
 
-1. Create staging, edge and vertice tables
+1. Create staging, edge and vertice tables.
 
       Paste the PL/SQL:
 
@@ -47,7 +47,7 @@ This lab assumes you have:
 
   ![create staging table](images/create_staging_table.png "create staging table")
 
-2. Load Staging table
+2. Load Staging table.
 
       Paste the PL/SQL:
 
@@ -79,7 +79,7 @@ This lab assumes you have:
 
 ## Task 2: Process data
 
-1. Clean data with DELETE and UPDATE statements
+1. Clean data with DELETE and UPDATE statements.
 
       Paste the PL/SQL:
 
@@ -142,7 +142,7 @@ This lab assumes you have:
 
   ![data cleansing](images/data_cleansing.png "data cleansing")
 
-2. Create vertice table
+2. Create vertice table.
 
       Paste the PL/SQL:
 
@@ -162,7 +162,7 @@ This lab assumes you have:
 
   ![create vertice table](images/create_vertice_table.png "create vertice table")
 
-3. Populate the vertice table
+3. Populate the vertice table.
 
 
       Paste the PL/SQL:
@@ -185,7 +185,7 @@ This lab assumes you have:
 
 ![populate vertice table](images/load_vertice_table.png "create vertice table")
 
-4. Create Edge Table
+4. Create Edge Table.
 
       Paste the PL/SQL:
 
@@ -207,7 +207,7 @@ This lab assumes you have:
   
 ![create edge table](images/create_edge_table.png "create edge table")
 
-5. Populate the Edge table 
+5. Populate the Edge table.
 
 
       Paste the PL/SQL:
