@@ -1,4 +1,4 @@
-# Title of the Lab
+# Use Graph for Retrieval Augmented Generation
 
 ## Introduction
 
