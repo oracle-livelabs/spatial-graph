@@ -1,6 +1,6 @@
 {
     "workshoptitle": "Gain a competitive edge with Generative AI, use AI to generate the Edge and Vertices that make Property Graph data structure",
-    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "help": "livelabs-help-sg_us@oracle.com",
     "tutorials": [
         {
             "title": "Introduction",
@@ -18,7 +18,7 @@
             "filename": "../../provision-resources/provision_resources.md"
         },
         {
-            "title": "Lab 2: Generate Data for graph",
+            "title": "Lab 2: Generate Data for Graph",
             "filename": "../../generate-data-for-graph/generate_data_for_graph.md"
         },
         {
