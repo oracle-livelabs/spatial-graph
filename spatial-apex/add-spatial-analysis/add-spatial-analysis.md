@@ -31,7 +31,7 @@ Estimated Lab Time: 30 minutes
 
 3. Rename to **My Filters Region** or a name of your choosing.
 
-    ![Rename Region](images/add-spatial-analysis-02-v2.png)
+    ![Rename Region](images/add-spatial-analysis-02-v3.png)
 
 ## Task 2: Add an Item for State Selection
 
@@ -50,6 +50,7 @@ Estimated Lab Time: 30 minutes
     ```
 
     ![SELECT query](images/add-spatial-analysis-04.png)
+Toggle off **Display Extra Values** and **Display Null Value**.
 
 3. In the Page Item properties on the right, scroll down to the section for Default. Set the Type to **Static** and value to **'Texas'** or another state of your choosing (in single quotes).
 
@@ -94,6 +95,7 @@ You next create the actions that are invoked when state and/or distance values a
     ![Configure Dynamic Action](images/add-spatial-analysis-12-v2.png)
 
 5. The FALSE Action invoked when distance is negative will be a popup message to the user. Click on the False action. In the Action properties on the right, under Identification, set Action to **Alert**. Under Settings set the Title to **Invalid distance** (this will be the alert banner) and Message to **Distance must be >= 0** (this will be the alert body). Observe in the page tree on the left that the False action changes to Alert.
+    >NOTE: If the message text box doesn't appear when you select Alert, click on a different action on a different component and then go back to the FALSE Action. 
 
     ![Configure Dynamic Action](images/add-spatial-analysis-13-v2.png)
 
@@ -150,4 +152,4 @@ You next create the actions that are invoked when state and/or distance values a
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date**  - Denise Myrick, Database Product Management, April 2025
