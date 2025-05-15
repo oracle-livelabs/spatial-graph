@@ -2,7 +2,9 @@
 
 ## About this Workshop
 
-This workshop shows how Generative AI can be used to create an informative property graph from the texst of a Sherlock Holmses story and  how to use the graph for retrieval augmented generation. The workshop will guide users through provisioning the required resources, generating a property graph, visualizing the property graph and using the property graph for retreival augmented generation. 
+
+This workshop shows how Generative AI can be used to create an informative property graph from the text of a Sherlock Holmes story and  how to use the graph for retrieval augmented generation. The workshop will guide users through provisioning the required resources, generating a property graph, visualizing the property graph and using the property graph for retrieval augmented generation. 
+
 
 Estimated Workshop Time: 3 hours 
 
@@ -20,7 +22,9 @@ Watch the following two videos for more information on Graph Studio. The first i
 
 In this workshop you will:
 * Vectorize text data for ingestion
-* Use Generative AI to summarize text chunks for graph edge/vertice relationships 
+
+* Use Generative AI to summarize text chunks for graph edge/vertex relationships 
+
 * Transform responses from LLM into suitable format for creating Property Graph
 * Create graph studio notebook
 * Query and visualize the graph using PGQL notebook paragraphs
@@ -31,7 +35,9 @@ In this workshop you will:
 * Oracle Cloud Account   
 * Access to OCI Autonomous Database (ADB)
 * Access to a Region where the Generative AI service is available: Chicago, Frankfurt
-* Must have an Administrator Account or Permissions to manage several OCI Services: Generative AI Services,   Autonomous Database 
+
+* Must have an Administrator Account or Permissions to manage several OCI Services: Generative AI Services, Autonomous Database 
+ 
  
 <!---
 * A database user with the correct roles and privileges for working with **Graph Studio**. That is, successful completion of Lab 1 of the [Get Started with Graph Studio workshop](https://oracle-livelabs.github.io/adb/shared/adb-graph/workshops/freetier/index.html?lab=lab-1-create-graph-user)

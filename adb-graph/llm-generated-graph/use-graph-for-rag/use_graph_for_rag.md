@@ -237,7 +237,9 @@ This lab assumes you have:
    ![Execute James Ryder Defense Prompt](images/prompt_james_ryder_defense.png "Execute James Ryder Defense Prompt")
 
 
-4. Write poem using property graph query on Hat.
+
+4. Write poem using property graph query on the hat entity.
+
 
     Paste the PL/SQL:
 
