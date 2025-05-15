@@ -3,6 +3,7 @@
 ## Introduction
 
 This labs goes thru the data processing required to create a property graph for use in graph studio. First you will stage and clean the data for unnecessary and ambiguous information. Then you will load the staged data into tables to be used as edge and vertices of a property graph.
+=======
 
 Estimated Time: 30 minutes
 
