@@ -204,14 +204,14 @@ This lab assumes you have:
 
       Paste the PL/SQL:
 
-        ```text
-          <copy>
+      ```text
+      <copy>
             SELECT doc_id, chunk_id, chunk_data
             FROM sholmes_tab_chunks
             ORDER BY vector_distance(chunk_embedding , vector_embedding(TINYBERT_MODEL using 'Who stole the blue carbuncle?' as data), COSINE)
             FETCH FIRST 20 ROWS ONLY;
-          </copy>
-        ```
+      </copy>
+      ```
 
   ![vector search plsql](images/vector_search_plsql.png "vector search plsql")
 
@@ -221,8 +221,8 @@ This lab assumes you have:
 
       Paste the PL/SQL:
 
-        ```text
-          <copy>
+      ```text
+      <copy>
             CREATE OR REPLACE FUNCTION extract_graph (text_chunk CLOB) RETURN CLOB IS
             BEGIN
             RETURN DBMS_CLOUD_AI.GENERATE(prompt => '
@@ -247,26 +247,26 @@ This lab assumes you have:
             ["bar", "baz"]}} is not well-formatted.\n\n
             Here is the output schema:\n\n
             {"properties":
-            {"head": {"description": "extracted head entity like Microsoft, Apple, John. Must use human-readable unique
+            {"head": {"description": "extracted head entity like Oracle, Apple, John. Must use human-readable unique
             identifier.", "title": "Head", "type": "string"},
             "head_type": {"description": "type of the extracted head entity like Person, Company, etc", "title": "Head
             Type", "type": "string"},
             "relation": {"description": "relation between the head and the tail entities", "title": "Relation", "type":
             "string"},
-            "tail": {"description": "extracted tail entity like Microsoft, Apple, John. Must use human-readable unique
+            "tail": {"description": "extracted tail entity like Oracle, Apple, John. Must use human-readable unique
             identifier.", "title": "Tail", "type": "string"},
             "tail_type": {"description": "type of the extracted tail entity like Person, Company, etc", "title": "Tail
             Type", "type": "string"}},
             "required": ["head", "head_type", "relation", "tail", "tail_type"]
             }\n
             Examples:
-            [{"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+            [{"text": "Adam is a software engineer in Oracle since 2009, and last year he got an award as the Best Talent",
             "head": "Adam",
             "head_type": "Person",
             "relation": "WORKS_FOR",
-            "tail": "Microsoft",
+            "tail": "Oracle",
             "tail_type": "Company"},
-            {"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+            {"text": "Adam is a software engineer in Oracle since 2009, and last year he got an award as the Best Talent",
             "head": "Adam",
             "head_type": "Person",
             "relation": "HAS_AWARD",
@@ -295,8 +295,8 @@ This lab assumes you have:
             action => 'chat'
             );
             END;  
-          </copy>
-        ```
+      </copy>
+      ```
 
   ![create prompt function](images/create_prompt_function.png "create prompt function")
 
@@ -304,8 +304,8 @@ This lab assumes you have:
 
       Paste the PL/SQL:
 
-        ```text
-          <copy>
+      ```text
+      <copy>
             DROP TABLE IF EXISTS GRAPH_EXTRACTION_STAGING; 
             CREATE TABLE GRAPH_EXTRACTION_STAGING(CHUNK_ID NUMBER, RESPONSE CLOB);
             CREATE OR REPLACE PROCEDURE "LOAD_EXTRACT_TABLE" 
@@ -332,8 +332,8 @@ This lab assumes you have:
               END;
             END;
             /
-          </copy>
-        ```
+      </copy>
+      ```
 
   ![create staging table and stored procedure](images/create_staging_table_storedprocedure.png "create staging table and stored procedure")
 
@@ -341,8 +341,8 @@ This lab assumes you have:
 
       Paste the PL/SQL:
 
-        ```text
-            <copy>  
+      ```text
+      <copy>  
               BEGIN
                 SYS.DBMS_SCHEDULER.CREATE_JOB ( 
                           job_name => 'runExtractStagingStoredProcedure',
@@ -377,8 +377,8 @@ This lab assumes you have:
               SYS.DBMS_SCHEDULER.enable(name => 'runExtractStagingStoredProcedure'); 
             END;
             /
-            </copy>
-        ```      
+      </copy>
+      ```      
 
   ![create dbms job for prompts](images/create_job_for_prompts.png "create dbms job for prompts")
 
@@ -387,14 +387,14 @@ This lab assumes you have:
 
       Paste the PL/SQL:
 
-        ```text
-            <copy>  
+      ```text
+      <copy>  
               SELECT count(*)  AS "Chunks of Text to Send"
               FROM  sholmes_tab_chunks c 
               LEFT JOIN  GRAPH_EXTRACTION_STAGING S ON S.CHUNK_ID  = c.chunk_id
               WHERE s.chunk_id IS NULL
-            </copy>
-        ```      
+      </copy>
+      ```      
 
 ![check for more chunks](images/check_for_chunks_1.png "check for more chunks")
 
