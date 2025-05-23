@@ -247,26 +247,26 @@ This lab assumes you have:
             ["bar", "baz"]}} is not well-formatted.\n\n
             Here is the output schema:\n\n
             {"properties":
-            {"head": {"description": "extracted head entity like Microsoft, Apple, John. Must use human-readable unique
+            {"head": {"description": "extracted head entity like Oracle, Apple, John. Must use human-readable unique
             identifier.", "title": "Head", "type": "string"},
             "head_type": {"description": "type of the extracted head entity like Person, Company, etc", "title": "Head
             Type", "type": "string"},
             "relation": {"description": "relation between the head and the tail entities", "title": "Relation", "type":
             "string"},
-            "tail": {"description": "extracted tail entity like Microsoft, Apple, John. Must use human-readable unique
+            "tail": {"description": "extracted tail entity like Oracle, Apple, John. Must use human-readable unique
             identifier.", "title": "Tail", "type": "string"},
             "tail_type": {"description": "type of the extracted tail entity like Person, Company, etc", "title": "Tail
             Type", "type": "string"}},
             "required": ["head", "head_type", "relation", "tail", "tail_type"]
             }\n
             Examples:
-            [{"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+            [{"text": "Adam is a software engineer in Oracle since 2009, and last year he got an award as the Best Talent",
             "head": "Adam",
             "head_type": "Person",
             "relation": "WORKS_FOR",
-            "tail": "Microsoft",
+            "tail": "Oracle",
             "tail_type": "Company"},
-            {"text": "Adam is a software engineer in Microsoft since 2009, and last year he got an award as the Best Talent",
+            {"text": "Adam is a software engineer in Oracle since 2009, and last year he got an award as the Best Talent",
             "head": "Adam",
             "head_type": "Person",
             "relation": "HAS_AWARD",

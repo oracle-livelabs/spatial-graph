@@ -19,7 +19,7 @@ In this lab, you will:
 
  
 This lab assumes you have:
-* An Oracle Cloud account with privileges to provision and Autonomous Database and add API keys
+* An Oracle Cloud account with privileges to access Generative AI services, provision Autonomous Database and add API keys
  
 
 ## Task 1: Create Autonomous Database
