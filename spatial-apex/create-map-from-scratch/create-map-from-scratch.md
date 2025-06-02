@@ -25,16 +25,16 @@ Estimated Lab Time: 15 minutes
 3. You could select Map here to have the same wizard you saw in the Create App wizard. But this step is to create a map from scratch, for example if you had an existing page. Select **Blank Page** and then click **Next**.
 ![Select Blank Page](images/create-map-16.png)
 
-4. For name enter **Airports and States Map** Select the option to create a new navigation menu entry and enter **Airports and States Map**, i.e. the same as the page name. Review entries and click **Create Page**.
-![Enter page Name](images/create-map-16a-v3.png)
+4. For name, enter **Airports and States Map**. Select the option to create a new navigation menu entry. Review entries and click **Create Page**.
+![Enter page Name](images/create-map-16a-v4.png)
 
 ## Task 2: Add a Map to the Page
 
 1. Drag **Map** from the Regions palette at the bottom and drop under the Body section of the page layout. Observe the Map Region appears in the Page tree under Body with default name New. Click on **New** in the Page tree and observe its properties on the right.  Observe the Region Type is Map.
 ![Add Map Region](images/create-map-19.png)
 
-2. In the panel on the right, update the Region Title from New to a name of your choosing, for example **My Map Region**. Observe the title is updated in the page tree on the left.
-![Enter Region title](images/create-map-20.png)
+2. In the panel on the right, update the Region Name from New to a name of your choosing, for example **My Map Region**. Observe the title is updated in the page tree on the left.
+![Enter Region name](images/create-map-20-v1.png)
 
 3. Observe that the Map Region includes a child element called Layers with a default Layer called New. Layers are the data driven content to be rendered on the map. Click on the Layer **New** in the page tree to see its properties in the right panel.
 ![View Layer properties](images/create-map-21.png)
@@ -45,7 +45,7 @@ Estimated Lab Time: 15 minutes
 5. Scroll down in the Layer properties panel on the right. Update the **Source** to use the table **EBA\_SAMPLE\_MAP\_AIRPORTS** . To limit the airports rendered in the layer, add the where clause **LAND\_AREA\_COVERED > 2500**.  Enable the option Use Spatial Index using the switch.
 ![Update Layer properties](images/create-map-24-v2.png)
 
-6. Scroll down in the Layer properties panel on the right to the **Column Mapping** section. This is where you configure the spatial column for rendering. Select geometry data type **SDO\_GEOMETRY** and geometry column **GEOMETRY**.
+6. Scroll down in the Layer properties panel on the right to the **Column Mapping** section. This is where you configure the spatial column for rendering. Select geometry data type **SDO\_GEOMETRY**, geometry column **GEOMETRY**, and primary key column **ID**.
 ![Update Layer properties](images/create-map-25.png)
 
 7. Scroll down in the Layer properties panel on the right to the **Info Window** section. This is where you can configure the content of a info window that pops up when clicking on an item in the map. Enable **Advanced Formatting** by clicking the switch button and then paste the following into the text area **HTML Expression**:
@@ -63,12 +63,12 @@ Estimated Lab Time: 15 minutes
 ## Task 3: Add a Layer to the Map
 
 1. In the Page tree on the left, right-click on **Layers** under your Map Region and select **Create Layer**.
-![Add a Layer](images/create-map-26.png)
+![Add a Layer](images/create-map-26-v1.png)
 
 2. Click on the newly created Layer in the Page tree under your Map Region. Then in the Layer details panel on the right, update the Name to **States**, Layer type to **Polygons**, and Source to **EBA\_SAMPLE\_MAP\_SIMPLE\_STATES**.
 ![Update Layer properties](images/create-map-27.png)
 
-3. Layers will be rendered in the order they appear under Layers in the page tree. To have Airports render on top States, drag the **States** layer above the Airports layer under Layers in the page tree. Scroll down in the Layer details panel on the right to the Column Mapping section section. Select geometry data type **SDO\_GEOMETRY** and geometry column **GEOMETRY**. Under Appearance, select a fill and stroke (outline) colors of your choosing. Set fill opacity to a value of your choosing, noting that a value of 1 means totally opaque so that the background map is not visible.
+3. Layers will be rendered in the order they appear under Layers in the page tree. To have Airports render on top States, drag the **States** layer above the Airports layer under Layers in the page tree. Scroll down in the Layer details panel on the right to the Column Mapping section section. Select geometry data type **SDO\_GEOMETRY** and geometry column **GEOMETRY**. Under Appearance, select a fill and stroke (outline) colors of your choosing. Set fill opacity to a value of your choosing, noting that a value of 1 means totally opaque so that the background map is not visible. Under Tooltip, choose column **NAME**.
 ![Update Layer order](images/create-map-28.png)
 
 4. At the upper right, click **Save** and then green **Run** button.
@@ -84,4 +84,4 @@ This concludes the lab. You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date**  - Denise Myrick, Database Product Management, April 2025

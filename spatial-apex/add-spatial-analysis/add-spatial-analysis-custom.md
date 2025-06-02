@@ -48,7 +48,7 @@ Estimated Lab Time: 30 minutes
     order by name
     </copy>
     ```
-    
+
     ![SELECT query](images/add-spatial-analysis-04-custom.png)
 
 3. In the Page Item properties on the right, scroll down to the section for Default. Set the Type to **Static** and value to **Texas** or another state of your choosing.
