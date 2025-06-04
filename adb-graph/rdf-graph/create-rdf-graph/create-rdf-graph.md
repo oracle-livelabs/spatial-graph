@@ -34,69 +34,31 @@ This lab assumes you have:
 
   ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
-  Then, in the pop-up window select **RDF Graph**, and click **Confirm**. 
+3. **RDF Graph** will be selected by default. Click **Confirm**
 
-  ![Pop up windows asking to select rdf graph or collections](./images/select-rdf-graph.png "")
+  ![Confirming RDF graphs as the RDF graph type](./images/rdf-graph-selection.png "")
 
-3. Create RDF Graph Wizard opens as shown:
+4. Create RDF Graph Wizard opens as shown:
 
   ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
-4. Enter the OCI Object Storage URI path:
+5. Enter the OCI Object Storage URI path:
 
     ```
       <copy>https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
     ```
 
-5. Click **No Credential**.
+6. Select **No Credential** and click **Next**.
 
-6. Click **Next**.
-    The follow dialog should appear, enter "MOVIESTREAM" for Graph Name:
+7. Enter **"MOVIESTREAM"** as the graph name. Then click **Create**.
 
-  ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
+  ![Naming the RDF Graph.](./images/name-rdf-graph.png "")
 
-7. Click **Create**.
+7. Click on **Create**.
 
     The RDF graph creation job will be initiated. Since the RDF file contains 139461 records, the process may take 3 to 4 minutes. You can monitor the job on the **Jobs** page in Graph Studio.
 
   ![The 'jobs' page of Graph Studio displays a job 'Create a RDF Graph - MOVIESTREAM' still in progress](./images/graph-studio-jobs.png "")
-
-    When succeeded, the status will change from pending to succeeded and Logs can be viewed by clicking on the three dots on the right side of the job row and selecting **See Log**. The log for the job displays details as shown below:
-
-    ```
-    Tue, Mar 1, 2022 08:21:04 AM
-    Finished execution of task Graph Creation - MOVIESTREAM.
-
-    Tue, Mar 1, 2022 08:21:04 AM
-    Graph MOVIESTREAM created successfully
-
-    Tue, Mar 1, 2022 08:21:04 AM
-    Optimizer Statistics Gathered successfully
-
-    Tue, Mar 1, 2022 08:20:50 AM
-    External table <graph-user>_TAB_EXTERNAL dropped successfully
-
-    Tue, Mar 1, 2022 08:20:49 AM
-    Data successfully bulk loaded from ORACLE_ORARDF_STGTAB
-
-    Tue, Mar 1, 2022 08:20:39 AM
-    Model MOVIESTREAM created successfully
-
-    Tue, Mar 1, 2022 08:20:37 AM
-    Network RDF_NETWORK created successfully
-
-    Tue, Mar 1, 2022 08:20:24 AM
-    Data loaded into the staging table ORACLE_ORARDF_STGTAB from <graph-user>_TAB_EXTERNAL
-
-    Tue, Mar 1, 2022 08:20:19 AM
-    External table <graph-user>_TAB_EXTERNAL created successfully
-
-    Tue, Mar 1, 2022 08:20:19 AM
-    Using the Credential MOVIES_CREDENTIALS
-
-    Tue, Mar 1, 2022 08:20:19 AM
-    Started execution of task Graph Creation - MOVIESTREAM.
-    ```
 
 ## Task 3: Validate the RDF graph
 
@@ -110,7 +72,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
 You can execute SPARQL Queries on the RDF Graph from the **Query Playground** page.
 
-1. On the **Graphs** page select the **RDF** from the Graph Type dropdown menu and click the **Query** button to navigate to the Query Playground page.
+1. On the **Graphs** page select **RDF** as the graph type and click the **Query** button to navigate to the Query Playground page.
 
   ![Graphs page with RDF graph type selected and the query button highlighted](./images/graph-type.png "")
 
