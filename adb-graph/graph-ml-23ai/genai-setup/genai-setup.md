@@ -50,11 +50,11 @@ Learn how to
     ![SQL Worksheet.](./images/adb-sql-worksheet-opening-tour.png " ")
 
 6. Sign out of the worksheet and log back in. Then, open SQL again and run the analytics as **MOVIESTREAM**.
-    
+
     ![Log out.](./images/log-out-dbactions.png " ")
 
     login using the following credentials:
-    
+
     **Username:** MOVIESTREAM
     **Password:** watchS0meMovies#
 
