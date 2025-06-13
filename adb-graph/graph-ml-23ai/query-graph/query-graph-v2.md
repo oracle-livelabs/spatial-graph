@@ -19,7 +19,7 @@ Learn how to:
 
 ## Task 1: Explore the data available in the database
 
-In this workshop, we on the development team at Oracle MovieStream, a fictitious on-line movie streaming company, will demonstrate a new feature to help users coordinate watch parties for their friends, who are also MovieStream users. The service uses each party goers' watch history to help inform suggestions.
+In this workshop, we are on the development team at Oracle MovieStream, a fictitious on-line movie streaming company. We will demonstrate a new feature to help users coordinate watch parties for their friends, who are also MovieStream users. The service uses each party goers' watch history to help inform suggestions.
 
 One of our customers, Adriana Osborne, is exploring the watch party feature. She wants to see what 2024 adventure movie she might be interested in watching and which of her friends she could invite to a party. MovieStream includes an option to personalize an email to Adriana's invitees to her watch party.
 
@@ -54,22 +54,20 @@ If the compute environment is not ready just yet and the code cannot be executed
 
     So in the next task we will explore data in the database which has up-to-date data. This is known as "RAG" or "Vector RAG," the technique of using data in the database to enhance the prompt sent to the generative AI service. Text search or vector search (similarity search) can be used to find relevant data in the database, and that data is used to enhance the prompt.   
 
-    We will search for movies that were released in 2024. We will use vector search to find movies with genre type 'Adventure' for the watch party, as these are the movies of interest for Adriana. 
-
-2. We will search for movies that were released in 2024. We will use vector search to find movies with genre type 'Adventure' for the watch party, as these are the movies of interest for Adriana. 
+2. We will search for movies that were released in 2024. We will use vector search to find movies with genre type 'Adventure' for the watch party, as these are the movies of interest for Adriana.
 
      ```
      <copy>%sql
      SELECT m.TITLE, m.MOVIE_ID, m.YEAR
      FROM MOVIE m
      WHERE m.YEAR = 2024
-     ORDER BY vector_distance(m.summary_vec, 
+     ORDER BY vector_distance(m.summary_vec,
      vector_embedding(doc_model_bert using 'ADVENTURE' as data), COSINE)</copy>
      ```
 
-    Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we (Oracle MovieStream company) have available for our customers to watch. 
+    Our search result gives 'The Fall Guy' the highest score for 'Adventure' movies in 2024 that we (Oracle MovieStream company) have available for our customers to watch.
 
-    ![Adventure movies released in 2024](images/db-adventure-movies.png  " ") 
+    ![Adventure movies released in 2024](images/db-adventure-movies.png  " ")
 
 3. Adriana wants to know which movies are similar to 'The Fall Guy' to help her decide if she'd like to watch 'The Fall Guy.' Let's run another vector search to find out.
 

@@ -55,7 +55,7 @@ Learn how to
 
     login using the following credentials:
     
-    **Username:** MOVIESTREAM    
+    **Username:** MOVIESTREAM
     **Password:** watchS0meMovies#
 
 ## Task 2: Setup GenAI Connection
@@ -152,11 +152,10 @@ Learn how to
      END;</copy>
     ```
 ![Drop the DBMS Cloud Credentials ](images/drop-credentials.png " ")
-Then, re-run task 2 in tab 1. After re-creating the DBMS Cloud Credential, you can return to lab 3, task 1. 
-
+Then, re-run task 2 in tab 1. After re-creating the DBMS Cloud Credential, you can return to lab 3, task 1.
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Manager
-* **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
 
+- **Author** - Ramu Murakami Gutierrez, Product Manager
+- **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
