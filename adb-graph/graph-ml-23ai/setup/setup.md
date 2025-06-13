@@ -11,7 +11,8 @@ Estimated Time: 5 minutes.
 
 ### Objectives
 
-Learn how to
+Learn how to:
+
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
@@ -23,30 +24,28 @@ Learn how to
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
 
-1. Login to the Oracle Cloud.
-
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/atdXMYMkeIsDsljg7nq0eXdH63AYxqPfyZSARev5ThWJYxd8Kgvg84i1psAPOo1S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
+1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/X2IwZyonQTP9fUsyfS_YYMUrZ5t1-wTSCLqrdZMSsMHyOVhSccOdEKZ8JMq9Nu3S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
-3. You will be directed to this page:
+2. You will be directed to this page:
 
     ![The create stack page](./images/create-stack.png "")
 
-4.  Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
+3. Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartments** to create the stack and Autonomous Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
+4. Select the **compartments** to create the stack and Autonomous Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
     ![Configurating the settings for the stack](./images/configure-variables.png "")
 
-6. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
+5. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
     ![Job has been successful](./images/successful-job.png "")
 
     To see information about your application click on **Application Information**. Save the graph username and password (to see the password click unlock) since you will be using it to login to Graph Studio.
 
-    ![How to see the graph username and password](./images/graph-username-password.png "")
+    ![How to see the graph username and password](./images/graph-username-password-v2.png "")
 
 ## Task 3: Login to Graph studio
 
@@ -75,6 +74,7 @@ The instructions below will show you how to run a stack that will automatically 
 This concludes this lab. **You may now proceed to the next lab.**  
 
 ## Acknowledgements
-  * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-  * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
+
+- **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025

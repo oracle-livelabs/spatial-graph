@@ -51,7 +51,11 @@ Estimated Lab Time: 5 minutes
       ![Markdown paragraph](images/md-paragraph-a.png)
 
 4. In the markdown paragraph, add a new line, enter the following command, and click the run icon.
-   
+
+```copy md
+#### Hello World!
+```
+
    ![Markdown paragraph](images/md-paragraph-b.png)    
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
