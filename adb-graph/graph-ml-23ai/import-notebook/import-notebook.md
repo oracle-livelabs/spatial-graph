@@ -59,6 +59,7 @@ Learn how to
     A dialog pops up named **Compute Environment**. It will disappear when the compute environment finishes attaching, usually in less than one minute. Or you can click **Close** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-* **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
+
+- **Author** - Ramu Murakami Gutierrez, Product Management
+- **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
