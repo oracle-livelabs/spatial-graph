@@ -58,7 +58,7 @@ Toggle off **Display Extra Values** and **Display Null Value**.
 
 ## Task 3: Add an Item for Distance Entry
 
-1. Drag Number Field into your filters region. Update the name to **P3_DISTANCE** and the label to **Proximity (km)**. In the Page Item setting section set the  Minimum Value to **0**.
+1. Drag Number Field into your filters region. Update the name to **P3_DISTANCE** and the label to **Proximity (km)**. In the Page Item section Settings set the  Minimum Value to **0**.
 
     ![Add Number Field Item](images/add-spatial-analysis-06-v21.png)
 
