@@ -58,9 +58,9 @@ Toggle off **Display Extra Values** and **Display Null Value**.
 
 ## Task 3: Add an Item for Distance Entry
 
-1. Drag Number Field into your filters region. Update the name to **P3_DISTANCE** and the label to **Proximity (km)**.
+1. Drag Number Field into your filters region. Update the name to **P3_DISTANCE** and the label to **Proximity (km)**. In the Page Item setting section set the  Minimum Value to **0**.
 
-    ![Add Number Field Item](images/add-spatial-analysis-06-v2.png)
+    ![Add Number Field Item](images/add-spatial-analysis-06-v21.png)
 
 2. In the Page Item properties on the right, scroll down to the Validation section and enable **Value Required**.
 
@@ -152,4 +152,4 @@ You next create the actions that are invoked when state and/or distance values a
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - Denise Myrick, Database Product Management, April 2025
+* **Last Updated By/Date**  - Renée Wikestad, Database Product Management, June 2025
