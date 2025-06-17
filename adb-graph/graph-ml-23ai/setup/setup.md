@@ -37,11 +37,11 @@ The instructions below will show you how to run a stack that will automatically 
 
 4. Select the **compartments** to create the stack and Autonomous Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
-    ![Configuring the settings for the stack](./images/configure-variables.png "")
+    ![Configurating the settings for the stack](./images/configure-variables.png "")
 
-5. You will be taken to a Job Details page with a provisioning status shown in orange. The icon will become green once the job has successfully completed.
+5. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
-    ![Job has been successful](./images/successful-job-v2.png "")
+    ![Job has been successful](./images/successful-job.png "")
 
     To see information about your application click on **Application Information**. Save the graph username and password (to see the password click unlock) since you will be using it to login to Graph Studio.
 
