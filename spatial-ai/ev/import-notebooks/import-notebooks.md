@@ -82,7 +82,6 @@ Estimated Lab Time: 5 minutes
 
        ![Navigate to Notebooks](images/nav-to-notebooks.png)
 
-
 3. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
 
        ![Delete notebook](images/del-test-notebook-a.png)
@@ -116,15 +115,14 @@ Estimated Lab Time: 5 minutes
 
    The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
 
-  * <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
-  * <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
-  * <a href="https://numpy.org/" target="_blank"> **numpy**</a>  provides array structures
-  * <a href="https://pandas.pydata.org/" target="_blank"> **pandas** </a> provides data structures and manipulation
-  * <a href="https://pypi.org/project/shapely/" target="_blank"> **shapely**</a>  provides geometry data structure and manipulation
-  * <a href="https://geopandas.org" target="_blank"> **geopandas**</a>  adds spatial data capabilities to pandas
-  * <a href="https://scikit-learn.org" target="_blank"> **sklearn**</a>   provides machine learning  
-  * <a href="https://matplotlib.org/" target="_blank"> **matplotlib**</a>  provides visualizations
-
+* [**oml**](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/) is the core OML4Py library
+* [**oraclesai**](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/) is the core OML4Py Spatial AI library
+* [**numpy**](https://numpy.org/) provides array structures
+* [**pandas**](https://pandas.pydata.org/) provides data structures and manipulation
+* [**shapely**](https://pypi.org/project/shapely/) provides geometry data structure and manipulation
+* [**geopandas**](https://geopandas.org) adds spatial data capabilities to pandas
+* [**sklearn**](https://scikit-learn.org) provides machine learning  
+* [**matplotlib**](https://matplotlib.org/) provides visualizations
 
 ## Learn More
 
@@ -133,4 +131,4 @@ Estimated Lab Time: 5 minutes
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, July 2024
+* **Last Updated By/Date**  - Denise Myrick, June 2025
