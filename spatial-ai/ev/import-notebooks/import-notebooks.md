@@ -36,7 +36,7 @@ Estimated Lab Time: 5 minutes
 
 1. From OML user interface home page, click the link for Notebooks. 
 
-  ![OML UI sign in](images/oml-homepage.png)
+  ![OML UI sign in](images/oml-homepage-v2.png)
 
 2. Click the **Create** link to create a new notebook.
 
@@ -48,15 +48,11 @@ Estimated Lab Time: 5 minutes
 
 3. Hover your mouse above or below the empty paragraph to display buttons for creating a new paragraph. Click on the markdown icon to add a markdown paragraph.
 
-      ![Markdown paragraph](images/md-paragraph-a.png)
+      ![Markdown paragraph](images/md-paragraph-a-v2.png)
 
 4. In the markdown paragraph, add a new line, enter the following command, and click the run icon.
 
-```copy md
-#### Hello World!
-```
-
-   ![Markdown paragraph](images/md-paragraph-b.png)    
+   ![Markdown paragraph](images/md-paragraph-b.png)
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
 
@@ -78,10 +74,9 @@ Estimated Lab Time: 5 minutes
 
        ![Clear/run all paragraph](images/clear-run-all-paragraphs.png)
 
-2. To navigate back to the Notebooks page, Click the icon to open the main navigation panel and then click **Notebooks**.
+2. To navigate back to the Notebooks page, click the icon to open the main navigation panel and then click **Notebooks**.
 
        ![Navigate to Notebooks](images/nav-to-notebooks.png)
-
 
 3. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
 
@@ -116,21 +111,20 @@ Estimated Lab Time: 5 minutes
 
    The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
 
-  * <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
-  * <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
-  * <a href="https://numpy.org/" target="_blank"> **numpy**</a>  provides array structures
-  * <a href="https://pandas.pydata.org/" target="_blank"> **pandas** </a> provides data structures and manipulation
-  * <a href="https://pypi.org/project/shapely/" target="_blank"> **shapely**</a>  provides geometry data structure and manipulation
-  * <a href="https://geopandas.org" target="_blank"> **geopandas**</a>  adds spatial data capabilities to pandas
-  * <a href="https://scikit-learn.org" target="_blank"> **sklearn**</a>   provides machine learning  
-  * <a href="https://matplotlib.org/" target="_blank"> **matplotlib**</a>  provides visualizations
-
+* <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/2/mlapi/" target="_blank">**oml** </a> is the core OML4Py library
+* <a href="https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/saipy/" target="_blank">**oraclesai**</a> is the core OML4Py Spatial AI library
+* <a href="https://numpy.org/" target="_blank"> **numpy**</a>  provides array structures
+* <a href="https://pandas.pydata.org/" target="_blank"> **pandas** </a> provides data structures and manipulation
+* <a href="https://pypi.org/project/shapely/" target="_blank"> **shapely**</a>  provides geometry data structure and manipulation
+* <a href="https://geopandas.org" target="_blank"> **geopandas**</a>  adds spatial data capabilities to pandas
+* <a href="https://scikit-learn.org" target="_blank"> **sklearn**</a>   provides machine learning  
+* <a href="https://matplotlib.org/" target="_blank"> **matplotlib**</a>  provides visualizations
 
 ## Learn More
 
-* [Oracle Machine Learning Notebooks](https://docs.oracle.com/en/database/oracle/machine-learning/oml-notebooks/)
+* [Oracle Machine Learning Notebooks](https://docs.oracle.com/en/database/oracle/machine-learning/oml-notebooks/omlug/get-started-oracle-machine-learning.html)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, July 2024
+* **Last Updated By/Date**  - Denise Myrick, June 2025
