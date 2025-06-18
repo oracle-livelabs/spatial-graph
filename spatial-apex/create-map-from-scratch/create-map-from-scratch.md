@@ -84,4 +84,4 @@ This concludes the lab. You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - Denise Myrick, Database Product Management, April 2025
+* **Last Updated By/Date**  -  Denise Myrick, Database Product Management, April 2025
