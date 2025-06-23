@@ -29,7 +29,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    ![Check limits and quotas](images/quota-01-v2.png)
 
-2. The Scope menu lists availability domains. Select the first availability domain, type **micro** in the Resource menu, and select **Cores for Standard.E2.1.Micro VM Instances**.
+2. The Scope menu lists availability domains. Select one availability domain, type **micro** in the Resource menu, and select **Cores for Standard.E2.1.Micro VM Instances**.
 
    ![Select compute shape](images/quota-02.png)
 
@@ -37,7 +37,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    ![Check availability for selected compute shape](images/quota-03.png)
 
-4. If the selected availability domain does not have quota, change to the next availability domain and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case, the second availability domain has quota.
+4. If the selected availability domain does not have quota, change to a new availability domain (if there exist more than one) and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case, the availability domain has quota.
 
    ![Check availability for alternative compute shape](images/quota-04.png)
 
@@ -47,37 +47,37 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 1. Click the hamburger icon at the top left to open the main Navigation Menu. Select **Marketplace** and then click **All Applications**.
 
-   ![Go to Oracle Marketplace](images/mp-01-v2.png)
+   ![Go to Oracle Marketplace](images/mp-01.png)
 
 2. Search for **spatial** and then click on the **Oracle Spatial Studio** app.
 
-   >**Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure".
+   >**Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure" or "Oracle Spatial Studio for Oracle Compute Cloud@Customer".
 
-   ![Search for application Oracle Spatial Studio](images/mp-02.png)
+   ![Search for application Oracle Spatial Studio](images/mp-02-v2.png)
 
 3. If you have an existing preferred compartment, then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
 
-   ![Launch stack for Oracle Spatial Studio](images/mp-04-v2.png)
+   ![Launch stack for Oracle Spatial Studio](images/mp-04.png)
 
 4. Accept defaults and click **Next**.
 
-   ![Define parameters for the deployment of Oracle Spatial Studio](images/mp-05.png)
+   ![Define parameters for the deployment of Oracle Spatial Studio](images/mp-05-v2.png)
 
 5. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**. If you have available cloud credits or a paid account, you may select a paid shape instead.
 
-   ![More parameters for the deployment](images/mp-06.png)
+   ![More parameters for the deployment](images/mp-06-v2.png)
 
    Then scroll down.
 
 6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name. This user name will be case sensitive.
 
-   ![Spatial Studio Advanced Configuration](images/mp-07.png)
+   ![Spatial Studio Advanced Configuration](images/mp-07-v2.png)
 
    Then scroll down.
 
 7. Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
 
-   ![Password for Spatial Studio Admin user](images/mp-07a.png)
+   ![Password for Spatial Studio Admin user](images/mp-07a-v2.png)
 
    There's also an option to use OCI Vault Secrets instead of assigning the user a password. If it is your first time take a look at the [Documentation](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingsecrets.htm)
 
@@ -87,7 +87,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 9. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
 
-   ![Add SSH key for the compute instance used by Oracle Spatial Studio](images/mp-09.png)
+   ![Add SSH key for the compute instance used by Oracle Spatial Studio](images/mp-09-v2.png)
 
    Then scroll down.
 
@@ -99,21 +99,21 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
     If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
-    ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11-v2.png)
+    ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11.png)
 
     Then scroll down.
 
 11. For Autonomous database service level, select **low**. Then enter a password for the database user that stores     Spatial Studio's metadata. This will be used in the automatic configuration of metadata for your Spatial Studio instance. You will not need to use this password again in this workshop. Then click **Next**.
 
-    ![Deploy Spatial Studio](images/mp-12.png)
+    ![Deploy Spatial Studio](images/mp-12-v2.png)
 
 12. You are now on the Review step of the wizard. Scroll to the bottom and make sure **Run apply** is checked. Then click **Create**.
 
-    ![Deploy Spatial Studio](images/mp-13.png)
+    ![Deploy Spatial Studio](images/mp-13-v2.png)
 
 13. Wait approximately 5 min for the status to change from IN PROCESS to SUCCEEDED.
 
-    ![Deploy Spatial Studio](images/mp-14.png)
+    ![Deploy Spatial Studio](images/mp-14-v2.png)
 
    After the status is SUCCEEDED, **wait an additional 5 min** for automated post-install steps to complete before proceeding.
 
@@ -121,7 +121,7 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
 1. Click on the **Application Information** tab, and then click the link for **Spatial Studio HTTP or HTTPS URL**.
 
-   ![Fetch URL to start Spatial Studio](images/mp-15-v2.png)
+   ![Fetch URL to start Spatial Studio](images/mp-15-v3.png)
 
 2. Log in with user name **admin** and the password you entered in the Step 7 of Task 2.
 
@@ -145,4 +145,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Karin Patenge, Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, Product Management, Oracle, November 2024
+* **Last Updated By/Date** - Renée Wikestad, Product Management, Oracle, June 2025
