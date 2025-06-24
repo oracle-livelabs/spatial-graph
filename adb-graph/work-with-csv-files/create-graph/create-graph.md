@@ -24,19 +24,19 @@ Learn how to
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu-v2.png " ") 
+    ![Navigating to Autonomous Database.](images/navigation-menu-v2.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**. 
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database-v2.png " ")
 
 ## Task 2: Log into Graph Studio
 
-Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. This user was already created for you.  
+Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. This user was already created for you.
 
 1. In your **Autonomous Database Details page** page, click the **Database Actions** button, and then select **View all database actions**.
 
-    ![Click the Database Actions button](images/click-database-actions.png " ")    
+    ![Click the Database Actions button](images/click-database-actions-v2.png " ")
 
 2. On the Database Actions panel, click **Graph Studio**.
 
@@ -44,7 +44,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 3. Log in to Graph Studio. Use the credentials for the database user **GRAPHUSER** displayed in **View Login info**.
 
-    ![Use the credentials for database user MOVIESTREAM](images/graph-login.png " ")
+    ![Use the credentials for database user GRAPHUSER](images/graph-login.png " ")
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
