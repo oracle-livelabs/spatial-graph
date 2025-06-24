@@ -6,12 +6,13 @@ In this lab you will create a graph from the `bank_accounts` and `bank_txns` tab
 
 Estimated Time: 15 minutes.
 
-Watch the video below for a quick walk-through of the lab. 
+Watch the video below for a quick walk-through of the lab.
 [Walkthrough](videohub:1_jguolqf3)
 
 ### Objectives
 
 Learn how to
+
 - use Graph Studio and PGQL DDL (that is, CREATE PROPERTY GRAPH statement) to model and create a graph from existing tables or views.
 
 ### Prerequisites
@@ -19,11 +20,11 @@ Learn how to
 - The following lab requires an Autonomous Database - Serverless.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Access the Autonomous Database 
+## Task 1: Access the Autonomous Database
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
+    ![Navigating to Autonomous Database.](images/navigation-menu-v2.png " ") 
 
 2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**. 
 
@@ -47,10 +48,11 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
-    The **Home** icon takes you to the Home page.<br>
-    The **Graph** page lists existing graphs for use in notebooks.<br> 
-    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
-    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
+    - The **Overview** icon takes you to the Home page.
+    - The **Graphs** page lists existing graphs for use in notebooks.
+    - The **Notebooks** page lists existing notebooks and lets you create a new one.
+    - The **Templates** page let's you create templates for the graph visualizations.
+    - The **Jobs** page lists the status of background jobs and lets you view the associated log if any.
 
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
@@ -60,46 +62,45 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
     The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 --->
 
-
 ## Task 3: Create a graph of accounts and transactions
 
-1. Click the **Graph** icon. Then click **Create Graph**.  
-   
-    ![Shows where the create button modeler is](images/graph-create-button.png " ")  
+1. Click the **Graphs** icon. Then click **Create Graph**.
 
-2. Enter `bank_graph` as the graph name, then click **next**. The description and tags fields are optional.   
-    That graph name is used throughout the next lab.  
-    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
-    
+    ![Shows where the create button modeler is](images/graph-create-button.png " ")
+
+2. Enter `bank_graph` as the graph name, then click **Next**. The description field is optional.
+    That graph name is used throughout the next lab.
+    Do not enter a different name because then the queries and code snippets in the next lab will fail.
+
     ![Shows the create graph window where you assign the graph a name](./images/create-graph-dialog.png " ")
 
-3. Expand **GRAPHUSER** and select the `BANK_ACCOUNTS` and `BANK_TXNS` tables. 
+3. Expand **GRAPHUSER** and select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.
 
     ![Shows how to select the BANK_ACCOUNTS and BANK_TXNS](./images/select-tables.png " ")
 
-4. Move them to the right, that is, click the first icon on the shuttle control.   
+4. Move them to the right by clicking the first icon on the shuttle control.
 
     ![Shows the selected tables](./images/selected-tables.png " ")
 
-5. Click **Next**. We will edit and update this graph to add an edge and a vertex label.  
+5. Click **Next**. We will edit and update this graph to add an edge and a vertex label.
 
-    The suggested graph has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.   
+    The suggested graph has the `BANK_ACCOUNTS` as a vertex table since there are foreign key constraints specified on `BANK_TXNS` that reference it.
 
     And `BANK_TXNS` is a suggested edge table.
 
-    ![Shows the vertex and edge table](./images/create-graph-suggested-model.png " ")    
+    ![Shows the vertex and edge table](./images/create-graph-suggested-model.png " ")
 
-6. Now let's change the default Vertex and Edge labels.  
+6. Now let's change the default vertex and edge labels.
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click the checkmark to confirm label and save the update.  
+    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click the checkmark to confirm label and save the update.
 
-    ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")  
+    ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")
 
-    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click the checkmark to confirm label and save the update. 
+    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click the checkmark to confirm label and save the update.
 
-    ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")  
+    ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")
 
-    This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph. Click **Next**.   
+    This is **important** because we will use these edge labels in the next lab of this workshop when querying the graph. Click **Next**.
 
 <!---
 6.  Since these are directed edges, a best practice is verifying that the direction is correct.  
@@ -151,21 +152,20 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
    **Important:** Click the **Save** (floppy disk icon) to commit the changes.
 --->
 
-7. In the Summary step, click on **Create Graph**. 
+7. In the Summary step, click on **Create Graph**.
 
-    ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")  
+    ![Shows the job tab with the job status as successful](./images/jobs-create-graph.png " ")
 
-    This will open a Create Graph tab, click on **Create Graph**. 
+    This will open a Create Graph tab, click on **Create Graph**.
 
     ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
-    After this, you will be taken to the Jobs page where the graph will be created.  
+    After this, you will be taken to the Jobs page where the graph will be created.
 
-    
     This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
-* **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, November 2024
 
+- **Author** - Jayant Sharma, Product Management
+- **Contributors** -  Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
