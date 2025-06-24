@@ -145,4 +145,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Karin Patenge, Product Management, Oracle
-* **Last Updated By/Date** - Renée Wikestad, Product Management, Oracle, June 2025
+* **Last Updated By/Date** - Renée Wikestad, Database Product Management, June 2025
