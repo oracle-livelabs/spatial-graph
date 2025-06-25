@@ -28,15 +28,15 @@ Navigate to the stack used to create your Spatial Studio instance.
 
 1. Navigate to **Developer Services > Stacks**.
 
-   ![Navigate to Stacks in OCI Console](images/teardown-01-v2.png)
+   ![Navigate to Stacks in OCI Console](images/teardown-01-v3.png)
 
 2. From the action menu of your stack, select **View stack details**.
 
-   ![Display stack details](images/teardown-02.png)
+   ![Display stack details](images/teardown-02-v2.png)
 
 3. Click **Destroy**. This will purge the resources created by the Spatial Studio Marketplace deployment.
 
-   ![Destroy stack](images/teardown-03.png)
+   ![Destroy stack](images/teardown-03-v2.png)
 
 4. Confirm by again clicking **Destroy**.
 
@@ -44,7 +44,7 @@ Navigate to the stack used to create your Spatial Studio instance.
 
 5. Wait for roughly 3-4 minutes for the process to complete. Observe the status in the Jobs section. When the status is **Succeeded** the unemployment is complete and all resources provisioned by the Spatial Studio Marketplace deployment are purged.
 
-   ![Check destroy job](images/teardown-05.png)
+   ![Check destroy job](images/teardown-05-v2.png)
 
 ## Task 2: Delete the Stack (Optional)
 
@@ -52,11 +52,11 @@ The stack is the set of instructions for deployment. It captures the settings yo
 
 1. From the stack's **More actions** menu, select **Delete stack**.
 
-   ![Select Delete stack](images/teardown-06.png)
+   ![Select Delete stack](images/teardown-06-v2.png)
 
 2. When prompted to confirm, click **Delete**
 
-   ![Confirm stack deletion](images/teardown-07.png)
+   ![Confirm stack deletion](images/teardown-07-v2.png)
 
 3. All artifacts created by the Cloud Marketplace wizard, both resources and the stack, are now gone.
 
@@ -70,4 +70,4 @@ The stack is the set of instructions for deployment. It captures the settings yo
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, and Karin Patenge, Product management, Oracle
-* **Last Updated By/Date** - Denise Myrick, Product Management, Oracle November 2024
+* **Last Updated By/Date** - Renée Wikestad, Database Product Management, June 2025
