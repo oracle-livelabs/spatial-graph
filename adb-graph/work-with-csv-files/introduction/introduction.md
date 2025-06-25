@@ -25,7 +25,8 @@ Autonomous Database: A tour of the Graph Studio interface
 ### Objectives
 
 In this workshop you will:
-* Create a graph using PGQLs (a graph query language) CREATE PROPERTY GRAPH statement
+
+* Create a graph using PGQL's (a graph query language) CREATE PROPERTY GRAPH statement
 * Load the graph into memory for analysis
 * Create a notebook
 * Query and visualize the graph using PGQL notebook paragraphs
@@ -39,6 +40,7 @@ In this workshop you will:
 --->
 
 ## Acknowledgements
+
 * **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, November 2024
+* **Contributors** -  Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+* **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
