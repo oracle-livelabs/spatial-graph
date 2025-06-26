@@ -153,7 +153,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     ![Select all relevant views for the graph](./images/modeler-views-selected-v2.png "Select all relevant views for the graph ")
 
-7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right.  
+7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right. Also ensure **PGQL Property Graph** is selected to create a graph using PGQL.
 
     ![Define Graph page](./images/modeler-sh-model.png "Define Graph page")
 
