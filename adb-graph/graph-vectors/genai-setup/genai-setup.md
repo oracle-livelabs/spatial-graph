@@ -53,10 +53,7 @@ Learn how to
     
     ![Log out.](./images/log-out-dbactions.png " ")
 
-    login using the following credentials:
-    
-    **Username:** MOVIESTREAM    
-    **Password:** watchS0meMovies#
+    Login using the graph user and password that appears under **View Login Info**.
 
 ## Task 2: Setup GenAI Connection
 
