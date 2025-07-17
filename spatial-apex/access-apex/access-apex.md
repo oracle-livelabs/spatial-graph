@@ -91,4 +91,4 @@ Watch the video below for a quick walk-through of the lab.
 ## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Senior Product Manager, Ramu Murakami Gutierrez, Product Manager
-- **Last Updated By/Date** - Denise Myrick, Product Manager, April 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Manager, June 2025

@@ -12,6 +12,7 @@ Watch the video below for a quick walk-through of the lab.
 ### Objectives
 
 Learn how to
+
 - Destroy the job created by the stack
 - Delete the Stack
 
@@ -19,7 +20,7 @@ Learn how to
 
 1. Click the navigation menu in the upper left to show navigation choices. Select **Developer Services** and then click on **Stacks**.
 
-  ![Steps on how to get to Stack in the OCI navigation menu](./images/stack-in-oci.png "")
+  ![Steps on how to get to Stack in the OCI navigation menu](./images/stack-in-oci-v2.png "")
 
 2. Click on your Stack, and click on **Destroy** to destroy the resources created when running the stack.
 
@@ -44,6 +45,7 @@ Learn how to
     This concludes this lab. Thank you!
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** - Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2023  
+
+- **Author** - Ramu Murakami Gutierrez, Product Management
+- **Contributors** - Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Management, June 2025
