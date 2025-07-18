@@ -27,18 +27,23 @@ Learn how to
 
 ## Task 1: Log into Graph Studio
 
-1. Click on **Oracle Database Actions**. This will take you to the main Database Action Page.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Click on Oracle Database Actions](images/database-actions.png " ")
+    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
 
-2. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+
+3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
+
+    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
+
+4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
     ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
-    Login using the following credentials:
-    
-    **Username:** MOVIESTREAM
-    **Password:** watchS0meMovies#
+    Login using the graph user and password that appears under **View Login Info**. 
 
     ![Click Graph Studio.](./images/graph-studio-signin.png " ")
 
@@ -61,4 +66,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Management
 * **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-* **Last Updated By/Date** - Denise Myrick, Product Manager, July 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, October 2024
