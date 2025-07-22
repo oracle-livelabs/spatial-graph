@@ -35,20 +35,20 @@ Using **Firefox**, click **Advanced** and then **Accept the Risk and Continue**.
 
 You should see a screen similar to the screenshot below. Enter the username (**customer_360**) and password, then click submit. **Graph Server** is the default in the Advanced Options, so you don't need to change it.
 
-![login](images/login.jpg)
+![login](images/login.png)
+
+The following queries will be ran in the Graph Server tab. 
 
 ## Task 2: Modify and run a PGQL Graph Query
 
 Modify the query displayed in PGQL Graph Query to
-
-    ```sql
+    ```
     <copy>
     SELECT e
     FROM MATCH ()-[e]->() ON customer_360
-    LIMIT 50
-    </copy>
+    LIMIT 50</copy>
     ```
-
+  
 and click Run (the blue arrow button).
 
 You should see a graph similar to the screenshot below.
@@ -157,4 +157,4 @@ The graph should now look like
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Oracle Database Product Management Spatial and Graph, July 2024

@@ -17,16 +17,18 @@ Estimated time: 7 minutes
 
 ## Task 1: Create Network for Graph Server
 
-1. Go to Oracle Cloud console > Networking > Virtual Cloud Networks
+1. Go to Oracle Cloud console > Networking > Overview
 
-    ![networking-vcn](https://oracle-livelabs.github.io/common/images/console/networking-vcn.png)
+    ![networking-vcn](images/networking.png)
 
-2. Start VCN Wizard > Create VCN with Internet Connectivity > Start VCN Wizard
+2. Click on **Start VCN Wizard**
 
     - VCN NAME: e.g. **vcn1**
     - The rest of the items: Do not need to be changed
 
-3. You need to open port 7007. Go to Virtual Cloud Networks > vcn1 > public subnet-vcn1 > Default Security List for vcn1 > Add Ingress Rules and create the rule below:
+    Then, click **Create** and then click **View VNC** 
+
+3. You need to open port 7007. Click on **Subnets** in the VCN tabs. Then click **public subnet-vcn1** and **Security** which is one of the tabs. Select **Default Security List for vcn1** and under **Security rules**,  **Add Ingress Rules** and create the rule below: 
 
     - Source Type: **CIDR**
     - Source CIDR: **0.0.0.0/0** (This setting is for testing only. Please replace to the IP address of the client machines for actual use.)
@@ -169,10 +171,8 @@ scp -i key.pem ~/Downloads/Wallet_adb1.zip opc@203.0.113.14:/etc/oracle/graph/wa
 
     You will see an entry for `adb1_low` similar to:
 
-    ```text
-    <copy>
+    ```
     adb1_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.region.oraclecloud.com))(connect_data=(service_name=ij1tzxav3wpwnpa_adb1_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
-    </copy>
     ```
 
 You may now proceed to the next lab.
@@ -181,4 +181,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai
-- **Last Updated By/Date** - Karin Patenge, Oracle Database Product Management Spatial and Graph, July 2024
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Spatial and Graph Product Manager, July 2025
