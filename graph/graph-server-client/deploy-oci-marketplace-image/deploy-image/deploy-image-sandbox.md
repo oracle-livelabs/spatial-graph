@@ -23,15 +23,13 @@ Estimated time: 7 minutes
 
 2. The VCN was created when the workshop was provisioned. Let's confirm the configuration is accurate. 
 
-3. You need port 7007 open. Go to Virtual Cloud Networks > &lt;Compartment-vcn1> > &ltCompartment-SUBNET-PUBLIC > &ltSECLIST and verify an entry exists for the port below:
+3. You need port 7007 open. Go to Virtual Cloud Networks and select your compartment. Click on **Subnets** in the VCN tabs. Then click on the public subnet and **Security** which is one of the tabs. Select **Default Security List** for the vnc and in **Security rules**,  under **Ingress Rules** you should see the following rule:
 
     - Source: **0.0.0.0/0** (This setting is for testing only. Please replace to the IP address of the client machines for actual use.)
     - IP Protocol: **TCP**
     - Source Port Range: **(All)**
     - Destination Port Range: **7007**
     - Description: e.g. **Graph Server**
-
-    ![ingress-rule](images/ingress-rule-sandbox.png)
 
 ## Task 2: Locate the Graph Server and Client in the Marketplace
 
@@ -184,4 +182,4 @@ You may now proceed to the next lab.
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka
-* **Last Updated By/Date** - Denise Myrick, July 2024
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager 2025

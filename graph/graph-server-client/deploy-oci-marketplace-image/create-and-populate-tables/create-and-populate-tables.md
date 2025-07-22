@@ -18,11 +18,13 @@ Estimated time: 7 minutes
 
 ## Task 1: Log in to Database Actions
 
-Login as `CUSTOMER_360` using the password you entered when creating the user.
+1. Use the top right menu to log out as an Admin, and login as `CUSTOMER_360` using the password you entered when creating the user.
 
-![login-c360](images/login-c360.png)
+    ![login-c360](images/login-c360.png)
 
-![sdw-c360](images/sdw-c360.jpg)
+2. Open a **SQL** worksheet. 
+
+    ![login-c360](images/sql-c360.png)
 
 ## Task 2: Drop existing tables if they exist
 
@@ -67,7 +69,7 @@ COMMIT;
 </copy>
 ```
 
-![create-table](images/create-table.jpg)
+![create-table](images/create-table.png)
 
 ## Task 4: Create and populate the `CUSTOMER` table
 
@@ -191,6 +193,6 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Jenny Tsai, Arabella Yao, Ryota Yamanaka, Karin Patenge
-* **Last Updated By/Date** - Denise Myrick, July 2024
+- **Author** - Jayant Sharma, Product Manager, Spatial and Graph
+- **Contributors** - Jenny Tsai, Arabella Yao, Ryota Yamanaka, Karin Patenge
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Spatial and GraphProduct Manager, June 2025
