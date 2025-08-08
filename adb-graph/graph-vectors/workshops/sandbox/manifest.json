@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Use of Graph RAG and Vector Search for Enhanced User Prompt to LLMs",
+    "workshoptitle": "Knowledge Graphs and AI Vector Search to Trace Linkages in Data in Oracle 23ai",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
      "adb-connect-with-sql-worksheet-non-admin.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-non-admin.md",
@@ -18,11 +18,15 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
     },
     {
-        "title": "Lab 1: Import Notebook",
-        "filename": "../../import-notebook/import-notebook-v2.md"
+        "title": "Lab 1: GenAI Setup to integrate with Graph Studio",
+        "filename": "../../genai-setup/genai-setup.md"
     },
     {
-        "title": "Lab 2: Query and visualize the property graph",
+        "title": "Lab 2: Import Notebook",
+        "filename": "../../import-notebook/import-notebook-sandbox.md"
+    },
+    {
+        "title": "Lab 3: Query and visualize the property graph",
         "filename": "../../query-graph/query-graph-v2.md"
     },
     {

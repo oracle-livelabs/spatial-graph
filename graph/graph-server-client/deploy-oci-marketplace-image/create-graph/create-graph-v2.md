@@ -10,109 +10,65 @@ Estimated time: 5 minutes
 
 Learn how to create a graph representation of your existing tables by:
 
-- Using a Python client to connect to the Graph Server
-- Using PGQL to create and query a graph
+- Using SQL to create and query a graph
 
 ### Prerequisites
 
 - This lab assumes you have successfully completed the lab - Create and populate tables.
 
-## Task 1: Start the Python client
+## Task 1: Create a graph
 
-Connect to the compute instance via SSH as **opc** user, using the private key you created earlier.
+Run the following SQL create property graph statement in SQL.
 
-```sh
-<copy>
-ssh -i <private_key> opc@<public_ip_for_compute>
-</copy>
 ```
-
-Example:
-
-```sh
 <copy>
-ssh -i key.pem opc@203.0.113.14
-</copy>
-```
-
-Start the Python client (OPG4PY shell) on the Graph Server compute instance to connect to the Graph Server.
-
-```sh
-<copy>
-opg4py -b http://<public_ip_for_compute>:7007 -u customer_360
-</copy>
-```
-
-You should see the following if the client shell starts up successfully.
-
-```sh
-<copy>
-password:
-
-Oracle Graph Server Shell 24.2.0
->>>
-</copy>
-```
-
-## Task 2: Create a graph
-
-Set up the Create Property Graph statement, which creates a graph from the existing tables.
-
-```python
-<copy>
-statement = '''
-CREATE PROPERTY GRAPH "customer_360"
+CREATE PROPERTY GRAPH customer_360
   VERTEX TABLES (
     customer
-  , account
-  , merchant
+      KEY (id)
+      LABEL customer
+      PROPERTIES ALL COLUMNS,
+    account
+      KEY (id)
+      LABEL account
+      PROPERTIES ALL COLUMNS,
+    merchant
+      KEY (id)
+      LABEL merchant
+      PROPERTIES ALL COLUMNS
   )
   EDGE TABLES (
-    account
-      SOURCE KEY(id) REFERENCES account (id)
-      DESTINATION KEY(customer_id) REFERENCES customer (id)
-      LABEL owned_by PROPERTIES (id)
-  , parent_of
-      SOURCE KEY(customer_id_parent) REFERENCES customer (id)
-      DESTINATION KEY(customer_id_child) REFERENCES customer (id)
-  , purchased
-      SOURCE KEY(account_id) REFERENCES account (id)
-      DESTINATION KEY(merchant_id) REFERENCES merchant (id)
-  , transfer
-      SOURCE KEY(account_id_from) REFERENCES account (id)
-      DESTINATION KEY(account_id_to) REFERENCES account (id)
-  )
-'''
+    account as owned_by 
+      KEY (id)
+      SOURCE KEY (id) REFERENCES account(id)
+      DESTINATION KEY (customer_id) REFERENCES customer(id)
+      LABEL owned_by
+      PROPERTIES ALL COLUMNS,
+    
+    parent_of
+      SOURCE KEY (customer_id_parent) REFERENCES customer(id)
+      DESTINATION KEY (customer_id_child) REFERENCES customer(id)
+      LABEL parent_of
+      PROPERTIES ALL COLUMNS,
+
+    purchased
+      SOURCE KEY (account_id) REFERENCES account(id)
+      DESTINATION KEY (merchant_id) REFERENCES merchant(id)
+      LABEL purchased
+      PROPERTIES ALL COLUMNS,
+
+    transfer
+      SOURCE KEY (account_id_from) REFERENCES account(id)
+      DESTINATION KEY (account_id_to) REFERENCES account(id)
+      LABEL transfer
+      PROPERTIES ALL COLUMNS
+  );
 </copy>
 ```
 
-For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec/1.4/#create-property-graph). Please note that *all columns of the input tables are mapped to the properties of vertices/edges [by default](https://pgql-lang.org/spec/1.4/#properties)*. For **owned_by** edge, only **id** property is given with **PROPERTIES** keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices.
+For more about DDL syntax, please see [Introduction to SQL Property Graphs](https://docs.oracle.com/en/database/oracle/property-graph/25.2/spgdg/sql-property-graph.html). Please note that *all columns of the input tables are mapped to the properties of vertices/edges by default. For **owned_by** edge, only **id** property is given with **PROPERTIES** keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices.
 
-Now execute the PGQL DDL to create the graph.
-
-```python
->>> <copy>session.prepare_pgql(statement).execute()</copy>
-False
-```
-
-Please note, that the response *False* is the expected result.
-
-## Task 3: Check the newly created graph
-
-Check that the graph was created. Copy, paste, and run the following statements in the Python shell.
-
-```python
->>> <copy>graph = session.get_graph("customer_360")</copy>
-```
-
-Check that the graph was created.
-
-```python
->>> <copy>graph</copy>
-PgxGraph(name: customer_360, v: 15, e: 24, directed: True, memory(Mb): 0)
-```
-
-## Task 4: Query the graph
+## Task 2: Query the graph
 
 You can use PGQL now to query the graph Let´s start with a list of all vertex labels:
 
@@ -216,4 +172,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka, Karin Patenge
-- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager 2025
+- **Last Updated By/Date** - Denise Myrick, July 2024
