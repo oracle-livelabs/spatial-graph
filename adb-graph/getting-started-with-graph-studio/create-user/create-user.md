@@ -16,6 +16,7 @@ Watch the video below for a quick walk through of the lab.
 Learn how to
 
 - create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
+- create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
 
 ### Prerequisites
 
