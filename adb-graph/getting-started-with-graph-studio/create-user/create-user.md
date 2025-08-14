@@ -43,26 +43,25 @@ Learn how to
 
     ![Click Create User](./images/db-actions-create-user.png "Click Create User ")
 
-4. Enter the required details, i.e. user name and password. Turn on the **Graph** and **REST, GraohQL, MongoDB API, and Web access** radio buttons. And select a quota, e.g. **UNLIMITED**,  to allocate on the `DATA` tablespace.
+4. Enter the required details, i.e. user name and password. Turn on the **Graph** and **REST, GraphQL, MongoDB API, and Web access** radio buttons. And select a quota, e.g. **UNLIMITED**,  to allocate on the `DATA` tablespace.
 
    >**Note:** The password should meet the following requirements:
 
-	- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
-	- The password cannot contain the username.
-	- The password cannot contain the double quote (“) character.
-	- The password must be different from the last 4 passwords used for this user.
-	- The password must not be the same password that is set less than 24 hours ago.
+- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
+- The password cannot contain the username.
+- The password cannot contain the double quote (“) character.
+- The password must be different from the last 4 passwords used for this user.
+- The password must not be the same password that is set less than 24 hours ago.
 
-	![Set Graph username and password, and select Create User](images/db-actions-create-graph-user-v2.png "Set Graph username and password, and select Create User ")
+  ![Set Graph username and password, and select Create User](images/db-actions-create-graph-user-v2.png "Set Graph username and password, and select Create User ")
 
-	>**Note:** Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default.
+   >**Note:** Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default.
 
-	Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
+Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
 
-	The newly created user will now be listed.
+The newly created user will now be listed.
 
-	![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")   
-
+   ![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")
 ## Task 3: Create User using SQL Commands (OPTIONAL)
 
 The UI steps in Task 2 can be alternatively done by executing the following SQL commands listed below when logged in as ADMIN. This task is optional. It shows an alternate way of creating and enabling GRAPHUSER.

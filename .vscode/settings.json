@@ -1,4 +1,5 @@
 {
     "explorer.expandSingleFolderWorkspaces": true,
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "liveServer.settings.port": 5501
 }
