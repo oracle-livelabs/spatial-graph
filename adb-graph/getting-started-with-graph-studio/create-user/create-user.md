@@ -16,7 +16,6 @@ Watch the video below for a quick walk through of the lab.
 Learn how to
 
 - create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
-- create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
 
 ### Prerequisites
 
@@ -63,6 +62,7 @@ Click the **Create User** button at the bottom of the panel to create the user w
 The newly created user will now be listed.
 
    ![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")
+
 ## Task 3: Create User using SQL Commands (OPTIONAL)
 
 The UI steps in Task 2 can be alternatively done by executing the following SQL commands listed below when logged in as ADMIN. This task is optional. It shows an alternate way of creating and enabling GRAPHUSER.
@@ -70,7 +70,7 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 1. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
 
    For example,
-   `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`   
+   `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`
    will allocate a quota the user `GRAPHUSER` in the tablespace named `DATA`.  
    Copy and paste the following command into the SQL worksheet.  
    Substitute the correct values for  `<username>` and `<quota>` and then click on Run to execute it.
