@@ -27,8 +27,8 @@ Autonomous Database: A tour of the Graph Studio interface
 In this workshop you will:
 
 * Examples of how to combine Graph Studio and Generative AI services using SQL
-* Run a vector search in SQL 
-* Create a property graph from relational tables using SQL 
+* Run a vector search in SQL
+* Create a property graph from relational tables using SQL
 * Run graph queries using SQL, with the new syntax from the SQL:2023 standard implemented in Oracle Database 23ai
 * Run graph queries combined with vector search
 
@@ -40,6 +40,7 @@ In this workshop you will:
 --->
 
 ## Acknowledgements
+
 * **Author** - Ramu Murakami Gutierrez, Product Manager
 * **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2025

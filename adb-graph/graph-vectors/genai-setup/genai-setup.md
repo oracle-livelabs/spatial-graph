@@ -29,15 +29,15 @@ Learn how to
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
+    ![Navigating to Autonomous Database.](images/navigation-menu-v1.png " ")
 
 2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database-v1.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
-    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v4.png " ")
 
     Logging in from the OCI service console expects you are the ADMIN user. Log in as ADMIN if you are not automatically logged in.
 
@@ -151,9 +151,8 @@ Learn how to
 ![Drop the DBMS Cloud Credentials ](images/drop-credentials.png " ")
 Then, re-run task 2 in tab 1. After re-creating the DBMS Cloud Credential, you can return to lab 3, task 1. 
 
-
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Manager
-* **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, August 2024
 
+- **Author** - Ramu Murakami Gutierrez, Product Manager
+- **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, August 2025

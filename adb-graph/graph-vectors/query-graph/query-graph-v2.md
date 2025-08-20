@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will create and query a graph (that is, `MOVIE_RECOMMENDATIONS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
+In this lab, you will create and query a graph (that is, `AUTOMOTIVE_ORDERS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
 
 Estimated Time: 30 minutes.
 

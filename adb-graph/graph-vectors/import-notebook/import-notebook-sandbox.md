@@ -1,7 +1,7 @@
 <!--
     {
         "name":"Create Graph",
-        "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab."
+        "description":"Login to Graph Studio and create an automotive orders graph for when running the tenancy the lab."
     }
 -->
 
@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the movie_recommendations notebook.
+Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the AUTOMOTIVE_ORDERS notebook.
 
 Estimated Time: 15 minutes.
 
@@ -43,7 +43,7 @@ Learn how to
 
     ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
-    Login using the graph user and password that appears under **View Login Info**. 
+    Login using the graph user and password that appears under **View Login Info**.
 
     ![Click Graph Studio.](./images/graph-studio-signin.png " ")
 
@@ -51,7 +51,7 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.
 
-  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/MOVIE_RECOMMENDATIONS.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/MOVIE_RECOMMENDATIONS.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the AUTOMOTIVE_ORDERS graph.
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
@@ -64,6 +64,7 @@ Learn how to
     A dialog pops up named **Compute Environment**. It will disappear when the compute environment finishes attaching, usually in less than one minute. Or you can click **Close** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, October 2024
+
+- **Author** - Ramu Murakami Gutierrez, Product Management
+- **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
+- **Last Updated By/Date** - Denise Myrick, August 2025

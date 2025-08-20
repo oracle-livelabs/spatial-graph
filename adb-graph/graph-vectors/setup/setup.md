@@ -12,6 +12,7 @@ Estimated Time: 5 minutes.
 ### Objectives
 
 Learn how to
+
 - Run the stack to create an Autonomous Database, Graph user, and upload dataset
 - Login to Graph Studio
 
@@ -25,20 +26,20 @@ The instructions below will show you how to run a stack that will automatically 
 
 1. Login to the Oracle Cloud.
 
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/atdXMYMkeIsDsljg7nq0eXdH63AYxqPfyZSARev5ThWJYxd8Kgvg84i1psAPOo1S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
+2. Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/atdXMYMkeIsDsljg7nq0eXdH63AYxqPfyZSARev5ThWJYxd8Kgvg84i1psAPOo1S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
 3. You will be directed to this page:
 
     ![The create stack page](./images/create-stack.png "")
 
-4.  Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
+4. Check the "I have reviewed and accept the Oracle Terms of Use" box and choose your compartment. Leave the rest as default. Click **Next**.
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
 5. Select the **compartments** to create the stack and Autonomous Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
-    ![Configurating the settings for the stack](./images/configure-variables.png "")
+    ![Configuring the settings for the stack](./images/configure-variables.png "")
 
 6. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
@@ -54,7 +55,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Open graph studio under Application Information](./images/login-page.png " ")
 
-2. Then click the **Sign In** button. You should see the studio home page.   
+2. Then click the **Sign In** button. You should see the studio home page.
 
     ![ALT text is not available for this image](./images/gs-graphuser-home-page.png " ")
 
@@ -62,7 +63,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     The **Home** icon takes you to the Home page.<br>
     The **Graph** page lists existing graphs for use in notebooks.<br> 
-    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
+    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                              The **Templates** page let's you create templates for the graph visualizations.<br>
     The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
@@ -75,6 +76,7 @@ The instructions below will show you how to run a stack that will automatically 
 This concludes this lab. **You may now proceed to the next lab.**  
 
 ## Acknowledgements
-  * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-  * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
+
+- **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
