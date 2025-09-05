@@ -12,6 +12,7 @@ Watch the video below for a quick walk-through of the lab.
 ### Objectives
 
 Learn how to
+
 - Import a notebook
 - Create a notebook and add paragraphs
 - Use Graph Studio notebooks and PGQL and Python paragraphs to query, analyze, and visualize a graph
@@ -22,30 +23,30 @@ Learn how to
 
 ## Task 1: Import the notebook (OPTION A)
 
-The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
-First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
+The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.
+First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.
 
-1. Download the exported notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
+1. Download the notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
 
-2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
+2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.
 
-    ![ALT text is not available for this image](images/import-notebook-button.png " ")  
+    ![ALT text is not available for this image](images/import-notebook-button-v2.png " ")
 
-3. Drag the downloaded file or navigate to the correct folder and select it for upload.  
-    
-    ![ALT text is not available for this image](images/choose-exported-file.png " ")  
+3. Drag the downloaded file or navigate to the correct folder and select it for upload.
+
+    ![ALT text is not available for this image](images/choose-exported-file.png " ")
 
 4. Click **Import**.
-  
-    ![Shows the notebook file selected](images/notebook-file-selected.png " ") 
 
-5. Once imported, it should open in Graph Studio.  
+    ![Shows the notebook file selected](images/notebook-file-selected.png " ")
 
-    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")  
+5. Once imported, it should open in Graph Studio.
 
-    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 2** below.  
+    ![Shows Graph Studio open when the notebook is imported](images/notebook-imported.png " ")
 
-## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B) 
+    You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
+
+## Task 2: Create a notebook in Graph Studio and add a paragraph (OPTION B)
 
 1. Go to the **Notebooks** page and click the **Create** button.
 
@@ -63,14 +64,14 @@ First **import** the sample notebook and then execute the relevant paragraph for
 
     ![Shows the different paragraphs and samples](./images/paragraphs.png)
 
-    In this lab, we will select the ![plus logo](./images/plus-circle.svg "") **Add Paragraph** interpreter.
+    In this lab, we will select the ![plus logo](./images/plus-circle.svg) **Add Paragraph** interpreter.
 
 ## Task 3: Load and query the `BANK_GRAPH` and visualize the results
 
 In this task, we will run the graph queries and use the settings tool to customize the graphs. If you have imported the notebook in task 1, you do not need to customize the visualizations to achieve the end result. However, you can manipulate the settings to explore different available options.
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
-If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
+If the compute environment is not ready as yet and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.
 
 ![The environment is loading because it's not ready ](images/env-not-ready.png " ")
 
@@ -78,7 +79,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Run the first **%python-pgx** paragraph, which uses the built-in session object to read the graph into memory from the database and creates a PgXGraph object that handles the loaded graph.
 
-    The code snippet in that paragraph is:  
+    The code snippet in that paragraph is:
 
      ```
      <copy>%python-pgx
@@ -94,9 +95,9 @@ If the compute environment is not ready as yet and the code cannot be executed t
          print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
-    ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")  
+    ![Uploading graph in memory if it's not loaded yet](images/pythonquery1.png " ")
 
-2. Next, execute the paragraph that queries and displays 100 graph elements.   
+2. Next, execute the paragraph that queries and displays 100 graph elements.
 
      ```
      <copy>%pgql-pgx
@@ -125,26 +126,30 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     Steps required for customizing the visualization:  
 
-    Click the visualization `settings` icon
+    Click the visualization `Settings` icon
 
-    ![Slider icon](images/sliders.svg "") (the fourth icon from the left at the top of the visualization panel).  
+    ![Slider icon](images/sliders.svg) (the fourth icon from the left at the top of the visualization panel).
 
-    ![Shows where visualization settings in located](images/choose-viz-settings-label.png  " ") 
+    ![Shows where visualization settings in located](images/choose-viz-settings-label-v2.png)
 
-    In this `Settings` dialog, click the **Customization** tab.
-    Then scroll down and pick `ACCT_ID` from the `Labeling`, `Vertex Label` drop-down list (we do this for every visualization).  
+    The `Settings` dialog will open to the **General** tab.
+    Then scroll down to the **Vertex Captions** section and click the + icon.
 
-    ![Shows the customization menu and changing the label](images/31-viz-open-settings.png " ")  
+    ![Vertex captions](images/vertex-captions.png)
 
-    Click the **X** on the top-right to exit the Settings dialog. The resulting visualization should be similar to the screenshot below.   
+    Then pick `ACCOUNTS` from the `Label`  dropdown list and `ACCT_ID` from the `Property` dropdown list (we do this for every visualization).
+
+    ![Shows the settings menu and adding a vertex label](images/choosing-vertex-labels.png)
+
+    Click the **X** on the top-right to exit the Settings dialog. The resulting visualization should be similar to the screenshot below.
 
     >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 
-    ![Shows visualization after changing settings](images/33-viz-labels-shown.png " ")   
+    ![Shows visualization after changing settings](images/viz-labels-shown.png)
 
-    Now open the visualization settings again, click the **Customization** tab, and choose a different layout (**Concentric**) from the Layout drop-down    list. Exit the Settings dialog.
+    Now open the visualization settings again, verify you're in the  **General** tab, and choose a different layout (**Concentric**) from the Layouts dropdown list. Exit the Settings dialog.
 
-    ![Changing the layout under settings to concentric](images/concentric-layout-for-elements.png " ")
+    ![Changing the layout under settings to concentric](images/concentric-layout-for-elements-v2.png)
 
 4. This shows the use of bind parameters in a query. The account id value is entered at runtime.
     Enter **534** as the account id, and execute the paragraph.
@@ -157,10 +162,10 @@ If the compute environment is not ready as yet and the code cannot be executed t
       WHERE a.acct_id=${account_id} AND id(a) = id(b)</copy>
     ```
 
-    ![circular payments chains of between 1 and 5 hops](images/circular-payments-1-5.png " ")
+    ![circular payments chains of between 1 and 5 hops](images/circular-payments-1-5-v2.png " ")
 
-5. Next let's use PGQL to find the top 10 accounts regarding of number of transfers.  
-    PGQL has built-in functions `IN_DEGREE` and `OUT_DEGREE`, which return the number of incoming and outgoing edges of a node. So we can use them in this query.   
+5. Next let's use PGQL to find the top 10 accounts regarding of number of transfers.
+    PGQL has built-in functions `IN_DEGREE` and `OUT_DEGREE`, which return the number of incoming and outgoing edges of a node. So we can use them in this query.
 
     Run the paragraph with the following query.
 
@@ -197,17 +202,17 @@ If the compute environment is not ready as yet and the code cannot be executed t
     >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
 
     Steps required for customizing the visualization:  
-    In this `Settings` dialog, click the **Highlights** tab.
+    In this `Settings` dialog, click the **Styles** tab.
 
-    ![screen showing how to add highlight](images/new-highlight.png " ")
+    ![screen showing how to add highlight](images/new-highlight-v2.png " ")
 
-    Add a new highlight with **ACCT_ID = 934** as the condition, **size = 17** and **color = red** as the visual effect. Click **Create** and then the **X** on the top-right to exit the Settings dialog.
+    Add a New Vertex Style with **ACCT_ID = 934** as the condition, **size = 17** and **color = red** as the visual effect. Click **Create** and then the **X** on the top-right to exit the Settings dialog.
 
-    ![Showing the settings of the hightlights](images/highlight-settings.png " ")
+    ![Showing the settings of the highlights](images/highlight-settings.png " ")
 
     drag the circles to arrange the visualization.
 
-    ![Query that checks if there are any circular payment chains of length 4 from acct 934](images/payment-chain-4.png " ")
+    ![Query that checks if there are any circular payment chains of length 4 from acct 934](images/payment-chain-4-v2.png " ")
 
     Here `[:TRANSFERS]->{4}` is a [reachability path expression](https://pgql-lang.org/spec/1.3/#reachability). It only tests for the existence of the path.  
     `:TRANSFERS` specifies that all edges in the path must have the label `TRANSFERS`.  
@@ -227,7 +232,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
      LIMIT 100</copy>
      ```
 
-    ![Query checks if there are any circular payment chains of length 5 from acct 934](images/payment-chain-5.png " ")  
+    ![Query checks if there are any circular payment chains of length 5 from acct 934](images/payment-chain-5-v2.png " ")  
 
     The number of circular payment chains that start and end in **934** makes that account look suspicious.
 
@@ -276,21 +281,21 @@ A high PageRank value indicates that that account is important, which in the con
      LIMIT 100</copy>
      ```  
 
-    >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
+    >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*
 
     Steps required for customizing the visualization:  
 
     Change the graph visualization layout to **Hierarchical**.
 
-    ![shows how to pick hierarchical as layout](images/custom-hierarchical.png " ")  
+    ![shows how to pick hierarchical as layout](images/custom-hierarchical-v2.png " ")  
 
-    Add a new highlight with **pagerank >= 0.0035** as the condition, **size = 17** as the visual effect and **color = red**, then click Create. Click **Create** and then the **X** on the top-right to exit the Settings dialog.  
+    Add a new style with **pagerank >= 0.0035** as the condition, **size = 17** as the visual effect and **color = red**, then click Create. Click **Create** and then the **X** on the top-right to exit the Settings dialog.  
 
-    ![shows the settings for the pagerank highlight](images/pagerank-highlight.png " ")   
+    ![shows the settings for the pagerank highlight](images/pagerank-highlight-v2.png " ")   
 
     >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 
-    ![finds the 6-hop payment chains starting at account #934.](images/6-hop-payment.png " ")
+    ![finds the 6-hop payment chains starting at account #934.](images/hop-payment.png " ")
 
 11. Now let us compare the **PageRank** values of accounts with the **number of transactions** going through those accounts (that we had looked at earlier).
     
@@ -334,7 +339,7 @@ A high PageRank value indicates that that account is important, which in the con
      WHERE a.acct_id=934 AND b.acct_id=387</copy>
      ```
 
-    ![examine the paths that exist between 934, and the account with the highest PageRank value, 387.](images/path-between-934-387.png " ")
+    ![examine the paths that exist between 934, and the account with the highest PageRank value, 387.](images/path-between-934-387-v2.png " ")
 
 13. If you arrange the paths in ascending order by number of hops, these are the **top 3** and **top 5** paths.
 
@@ -346,7 +351,7 @@ A high PageRank value indicates that that account is important, which in the con
      WHERE a.acct_id=934 AND b.acct_id=387</copy>
      ```
 
-    ![Find the top 3 shortest paths between account 934 and account 387.](images/top-3-shortest.png " ")
+    ![Find the top 3 shortest paths between account 934 and account 387.](images/top-3-shortest-v2.png " ")
 
      ```
      <copy>%pgql-pgx
@@ -356,7 +361,7 @@ A high PageRank value indicates that that account is important, which in the con
      WHERE a.acct_id=934 AND b.acct_id=387</copy>
     ```
 
-    ![Find the top 5 shortest paths between account 934 and account 387.](images/top-5-shortest.png " ")
+    ![Find the top 5 shortest paths between account 934 and account 387.](images/top-5-shortest-v2.png " ")
 
     The fraud department has now also confirmed that **934** and **387** might have been involved in illegal activities.
     Chances are, that accounts which received money from account **934** or **387**
@@ -401,17 +406,17 @@ A high PageRank value indicates that that account is important, which in the con
      WHERE a.acct_id=406</copy>
      ```
 
-    >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*   
+    >**Note:** *You do not need to execute the following steps. They just outline the steps used. Feel free to experiment and modify the visualizations.*
 
     Steps required for customizing the visualization:  
 
     Change the graph visualization layout to **Grid**.
 
-    ![shows how to pick grid as layout](images/grid-setting.png " ")    
+    ![shows how to pick grid as layout](images/grid-setting-v2.png " ")406-
 
     >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 
-    ![Executes the paragraph which queries and displays account 406 and its neighbors.n](images/406-neighbors.png " ")
+    ![Executes the paragraph which queries and displays account 406 and its neighbors.n](images/406-neighbors-v2.png " ")
 
 16. We can use another algorithm, the **``ShortestPathHopDist()``** analytics algorithm, to compute which accounts might be engaged in illegal activities because of their proximity to accounts **934** and **387**.
     **``ShortestPathHopDist()``** computes the minimum number of hops between **934** and **387** and every other account in the graph.  The higher the number of hops the farther away an account is from **934** and **387**, and hence lower the risk.
@@ -419,7 +424,7 @@ A high PageRank value indicates that that account is important, which in the con
 
     The code snippet uses the PgxGraph object containing a handle to the BANK_GRAPH that we got earlier.
 
-    It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object.   It first obtains the vertex object corresponding to account **934** and then executes the algorithm.  Instead of using the default property name it specifies **hop\_dist\_from\_934** or **hop\_dist\_from\_387** as the respective properties to store the hop distances from these accounts.
+    It invokes the **``ShortestPathHopDist()``** algorithm with the built-in analyst python object. It first obtains the vertex object corresponding to account **934** and then executes the algorithm. Instead of using the default property name it specifies **hop\_dist\_from\_934** or **hop\_dist\_from\_387** as the respective properties to store the hop distances from these accounts.
 
     We repeat the same steps for account **387**.
 
@@ -467,7 +472,7 @@ A high PageRank value indicates that that account is important, which in the con
      ```
     Change the view to table.
     >**Note:** To display the tables side by side click on **Settings** and then adjust the size of the table.
-    ![Table showing number of hops in descending order](images/adjust-table-size.png " ")   
+    ![Table showing number of hops in descending order](images/adjust-table-size-v2.png " ")   
 
     ![Table showing number of hops in descending order](images/table-with-hops.png " ")    
 
@@ -512,14 +517,14 @@ A high PageRank value indicates that that account is important, which in the con
 
     Change the graph visualization layout to **Hierarchical**.
 
-    ![Shows graph with 2 hops accounts from 934 and 387.](images/2-hops-934-387.png " ")
+    ![Shows graph with 2 hops accounts from 934 and 387.](images/2-hops-934-387-v2.png " ")
 
-## Task 4: Query the `BANK_GRAPH` using graph machine learning 
+## Task 4: Query the `BANK_GRAPH` using graph machine learning
 
 So far, we used the knowledge that a highly connected account might be fraudulent, or when money moves in a cycle then there is potential fraud.
 What if we did not know this about this specific domain, that cycles might indicate fraud? What if we only new that accounts 934 and 387 are fraudulent, but did not have the additional information on what transactions might constitute fraud?
 
-We can use a Graph machine Learning algorithm like DeepWalk to find accounts that have a similar structure to an account. We don't know what structure we are looking for, we are looking for any structure that is similar. That is the power of machine learning - you can find similarities even if you don't know exactly what are you are looking for.
+We can use a graph machine learning algorithm like DeepWalk to find accounts that have a similar structure to an account. We don't know what structure we are looking for, we are looking for any structure that is similar. That is the power of machine learning - you can find similarities even if you don't know exactly what are you are looking for.
 
 1. Copy and paste the following paragraphs to run the DeepWalk model.
 
@@ -534,7 +539,6 @@ We can use a Graph machine Learning algorithm like DeepWalk to find accounts tha
      ```
 
     ![running query for deepwalk model](images/deepwalk-query-model.png " ")
-
 
 2. Now we will train the DeepWalk model. Run the following paragraph.  
 
@@ -572,7 +576,7 @@ We can use a Graph machine Learning algorithm like DeepWalk to find accounts tha
 
 We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
 
-5. When we query for transactions 2 hops away from 934, 387, or 135, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also righ-click on them to check their account ids. 
+5. When we query for transactions 2 hops away from 934, 387, or 135, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also right-click on them to check their account ids.
 
      ```
      <copy>%pgql-pgx
@@ -581,11 +585,12 @@ We see that 135 shows up as the account closest to 934 and 387, in terms of the 
      WHERE a.acct_id in (934, 387, 135)
      ```
 
-    ![account 934, 387, abd 135 being highlighted](images/accounts-highlighted.png " ")
+    ![account 934, 387, abd 135 being highlighted](images/accounts-highlighted-v2.png " ")
 
 This concludes this lab.
 
 ## Acknowledgements
-* **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Rahul Tasker, Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, June 2023 
+
+- **Author** - Jayant Sharma, Product Management
+- **Contributors** -  Rahul Tasker, Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Management, June 2025

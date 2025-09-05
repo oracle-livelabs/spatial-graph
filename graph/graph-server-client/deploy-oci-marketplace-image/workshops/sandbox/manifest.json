@@ -1,6 +1,13 @@
 {
     "workshoptitle":"Analyze, Query, and Visualize Property Graphs with Oracle Database",
     "help": "livelabs-help-sg_us@oracle.com",
+    "include": {
+     "adb-create-user.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-user.md",
+     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
+     "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+     "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
+     "adb-connect-with-sql-worksheet-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-body.md"
+    },
 	"tutorials": [
         {
             "title": "Get Started",
@@ -20,12 +27,12 @@
         {
             "title": "Lab 2: Create an Autonomous Database",
             "description":"Setup an Always Free autonomous database instance",
-            "filename":"../../provision-free-tier-adb/provision-free-tier-adb.md"
+            "filename":"https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
             "title": "Lab 3: Create a Graph Server",
             "description":"Deploy the Graph Server & Client Marketplace image",
-            "filename":"../../deploy-image-sandbox/deploy-image-sandbox.md"
+            "filename":"../../deploy-image/deploy-image-sandbox.md"
         },
         {
             "title": "Lab 4: Create and Enable a Graph User",

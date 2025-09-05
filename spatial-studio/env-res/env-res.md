@@ -37,9 +37,13 @@ In this lab, you will:
 
  ![Compartment list](images/compartmentlist-v2.png "Compartment list")
 
-5. Click on **Database Connection** and then **Download Wallet**. You will prompted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your computer as you will use it in the next step.
+5. Click on **Database Connection**. 
 
  ![Database Connection](images/databaseconnection-v2.png "Database connection")
+
+ Then **Download Wallet**. You will prompted for a wallet password. Enter any string as this password will not be used. Save the wallet to a convenient location on your computer as you will use it in the next step.
+
+ ![Database Connection](images/downloadwallet.png "Download Wallet")
 
 ## Task 2: Spatial Studio First-Time Login
 
@@ -65,9 +69,10 @@ You may now [proceed to the next lab](#next).
 
 ## Learn More
 
-* [Oracle Spatial product page](https://www.oracle.com/database/spatial/)
+* [Oracle Spatial product page](https://www.oracle.com/database/spatial-database/)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management
-* **Last Updated By/Date** - Denise Myrick, Database Product Management, March 2025
+* **Contributors** - Renée Wikestad, Database Product Management
+* **Last Updated By/Date** - Denise Myrick, Database Product Management, August 2025

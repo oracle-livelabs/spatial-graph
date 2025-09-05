@@ -3,7 +3,9 @@
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
      "adb-create-user.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-user.md",
-     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
+     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
+     "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+     "adb-provision-body-developer.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body-developer.md"
     },
     "tutorials": [
         {
@@ -19,11 +21,11 @@
         {
             "title": "Lab 1: Provision an ADB Instance",
             "description": "Provisioning an Autonomous Database Instance",
-            "filename": "https://oracle-livelabs.github.io/adb/shared/adb-provision/adb-provision-conditional.md"
+            "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
             "title": "Lab 2: Create and validate an RDF graph user in Graph Studio",
-            "filename": "../../rdf-graph-user-and-graph-studio/create-and-validate-an-rdf-graph-user.md"
+            "filename": "../../create-rdf-graph/create-rdf-graph.md"
         },
         {
             "title": "Lab 3: Query and Visualize the RDF Graph",

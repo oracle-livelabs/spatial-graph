@@ -39,7 +39,7 @@ Start the Python client (OPG4PY shell) on the Graph Server compute instance to c
 
 ```sh
 <copy>
-opg4py -b https://<localhost>:7007 -u customer_360
+opg4py -b http://<public_ip_for_compute>:7007 -u customer_360
 </copy>
 ```
 
@@ -216,4 +216,4 @@ You may now proceed to the next lab.
 
 - **Author** - Jayant Sharma
 - **Contributors** - Arabella Yao, Jenny Tsai, Ryota Yamanaka, Karin Patenge
-- **Last Updated By/Date** - Denise Myrick, July 2024
+- **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager 2025

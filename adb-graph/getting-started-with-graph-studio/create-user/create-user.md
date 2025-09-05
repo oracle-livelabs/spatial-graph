@@ -14,8 +14,8 @@ Watch the video below for a quick walk through of the lab.
 ### Objectives
 
 Learn how to
--  create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
 
+- create a database user with the appropriate roles and privileges required for accessing **Graph Studio**
 
 ### Prerequisites
 
@@ -23,12 +23,11 @@ Learn how to
 
 ## Task 1: Connect to the Database Actions for your Autonomous Database instance
 
-
 1. Open the service detail page for your Autonomous Database instance in the OCI console.  
 
    Then click on **Database Actions** and select **View all database actions**. 
 
-   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated.png "Autonomous Database home page pointing to the Database Actions button")
+   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated2.png "Autonomous Database home page pointing to the Database Actions button")
 
 ## Task 2: Create the Web Access and Graph-enabled User
 
@@ -44,25 +43,25 @@ Learn how to
 
     ![Click Create User](./images/db-actions-create-user.png "Click Create User ")
 
-4. Enter the required details, i.e. user name and password. Turn on the **Graph Enable** and **Web Access** radio buttons. And select a quota, e.g. **UNLIMITED**,  to allocate on the `DATA` tablespace.   
+4. Enter the required details, i.e. user name and password. Turn on the **Graph** and **REST, GraphQL, MongoDB API, and Web access** radio buttons. And select a quota, e.g. **UNLIMITED**,  to allocate on the `DATA` tablespace.
 
-   	>**Note:** The password should meet the following requirements:
+   >**Note:** The password should meet the following requirements:
 
-	- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
-	- The password cannot contain the username.
-	- The password cannot contain the double quote (“) character.
-	- The password must be different from the last 4 passwords used for this user.
-	- The password must not be the same password that is set less than 24 hours ago.
+- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
+- The password cannot contain the username.
+- The password cannot contain the double quote (“) character.
+- The password must be different from the last 4 passwords used for this user.
+- The password must not be the same password that is set less than 24 hours ago.
 
-	![Set Graph username and password, and select Create User](images/db-actions-create-graph-user.png "Set Graph username and password, and select Create User ")
+  ![Set Graph username and password, and select Create User](images/db-actions-create-graph-user-v2.png "Set Graph username and password, and select Create User ")
 
-	>**Note:** Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. 
+   >**Note:** Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default.
 
-	Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
+Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
 
-	The newly created user will now be listed.
+The newly created user will now be listed.
 
-	![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")   
+   ![The newly created user will be listed](./images/db-actions-user-created.png "The newly created user will be listed ")
 
 ## Task 3: Create User using SQL Commands (OPTIONAL)
 
@@ -71,7 +70,7 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 1. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
 
    For example,
-   `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`   
+   `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`
    will allocate a quota the user `GRAPHUSER` in the tablespace named `DATA`.  
    Copy and paste the following command into the SQL worksheet.  
    Substitute the correct values for  `<username>` and `<quota>` and then click on Run to execute it.
@@ -95,7 +94,6 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 
    ![Alter user quota to 10G](./images/alter-user.png "Alter user quota to 10G")  
 
-
  2. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
 
     You must be logged into Data Actions SQL as `ADMIN` then enter the following SQL statements and execute them.
@@ -113,11 +111,10 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 
     ![Grant proxy to the graph user](images/graphuser-proxy-grant.png "Grant proxy to the graph user")
 
-
-
 Please **proceed to the next lab** to learn how to create and analyze graphs in ADB.
 
 ## Acknowledgements
-* **Author** - Jayant Sharma, Product Management
-* **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez
-* **Last Updated By/Date** - Denise Myrick, June 2024
+
+- **Author** - Jayant Sharma, Product Management
+- **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez
+- **Last Updated By/Date** - Denise Myrick, August 2025
