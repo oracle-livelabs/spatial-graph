@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will create and query a graph (that is, `AUTOMOTIVE_ORDERS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
+In this lab, you will create and query a graph (`AUTOMOTIVE_ORDERS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search.
 
 Estimated Time: 30 minutes.
 
@@ -10,7 +10,7 @@ Estimated Time: 30 minutes.
 
 Learn how to:
 
-- Use Graph Studio notebooks to query a LLM and run vector search
+- Use Graph Studio notebooks to run vector search
 - Use Graph Studio notebooks with SQL and PGQL paragraphs to create, query, analyze, and visualize a graph, and integrate with vector search
 
 ### Prerequisites
@@ -19,115 +19,137 @@ Learn how to:
 
 ## Task 1: Explore the data available in the database
 
-In this workshop, we will query our graph to learn more about our data to discover what products have the highest number of customer support tickets, what components make up those products and who supplies those components. We will start by finding what products have the highest number of customer support tickets.  
+In this workshop, we will query our graph to learn more about our data to discover what products have the highest number of customer support tickets, what components make up those products and who supplies those components. We will start by connecting to Oracle Cloud Infrastructure AI Language sentiment analysis tool and analyzing our tickets to determine the emotional tone or attitude of our tickets, classifying them as positive, negative, or neutral.
 
 >**Note:** Click the **Run Paragraph** button to run the query.
-![The environment is loading because it's not ready ](images/run-paragraph.png " ")
+![The environment is loading because it's not ready ](images/run-paragraph-v1.png " ")
 *Execute the relevant paragraph after reading the description in each of the steps below*.
 If the compute environment is not ready just yet and the code cannot be executed then you will see a line moving across the bottom of the paragraph to indicate that a background task is in progress.
-![The environment is loading because it's not ready ](images/env-not-ready.png " ")
+![The environment is loading because it's not ready ](images/env-not-ready-v1.png " ")
 
 -----------------------------------------NEEDS TO BE REPLACED-----------------------------------------------------------------------
 
-1. Users can use the LLM to ask general questions about movies. Let's ask the LLM to give us the top 10 adventure movies released in the past 2 years.
-
-    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and serves as an example of how to combine Graph Studio with OCI generative AI.
+1. The following command adds a new column called sentiment we will use to store our sentiment analysis.
 
      ```
      <copy>%sql
-     SELECT DBMS_CLOUD_AI.GENERATE(
-         prompt       => 'what are the top 10 adventure movies released in the past 2 years',
-         profile_name => 'genai',
-         action       => 'chat')
-     FROM dual;</copy>
+     ALTER TABLE CUSTOMER_TICKET ADD SENTIMENT VARCHAR2(400)
+     </copy>
      ```
 
-    ![Submit question to Generative AI.](images/submit-question.png " ") 
-
-    GenAI Answer: 
-
-    ![The GenAI Answer.](images/genai-answer.png " ")
-
-    Your LLM answer might vary because each time you submit a prompt, it can produce a different response.
-
-    As we see, we could not find the answers we wanted (movies released in 2024), because this generative AI service does not have the latest data.
-
-    So in the next task we will explore data in the database which has up-to-date data. This is known as "RAG" or "Vector RAG," the technique of using data in the database to enhance the prompt sent to the generative AI service. Text search or vector search (similarity search) can be used to find relevant data in the database, and that data is used to enhance the prompt.   
-
-    We will search for movies that were released in 2024. We will use vector search to find movies with genre type 'Adventure' for the watch party, as these are the movies of interest for Adriana. 
+    ![Add new column to customer_ticket table](images/sentiment-column.png  " ")
 
 -----------------------------------------NEEDS TO BE REPLACED-----------------------------------------------------------------------
 
-2. The following query finds all nodes connected to another node through an edge. This is usually the first step in any exploratory analysis to ensure the graph is modeled as expected. 
+2. Run sentiment analysis on customer_ticket table
 
      ```
      <copy>%sql
-     SELECT * FROM GRAPH_TABLE(auto_graph
-     MATCH (n) -[e]-> (m)
-     COLUMNS(vertex_id(n) as nid, edge_id(e) as eid, vertex_id(m) as mid)
-     )</copy>
+
+MERGE INTO customer_ticket t
+USING (
+  SELECT ROWID rid,
+           LOWER(
+             DBMS_CLOUD_AI.GENERATE (
+                prompt => 'Analyze the sentiment of this ticket and tell me if it is positive or negative. ' ||
+                'Please say if it is positive, negative, slightly positive, slightly negative, or neutral, no other words \n' || 
+                DESCRIPTION,
+        profile_name => 'MOVIESSTREAM_GENAI',
+        action => 'chat'
+    )) AS senti
+  FROM customer_ticket
+) g
+ON (t.ROWID = g.rid)
+WHEN MATCHED THEN
+  UPDATE SET t.sentiment = g.senti;
+     </copy>
      ```
+         ![Run sentiment analysis](images/sentiment-analysis.png " ")
 
-    ![Adventure movies released in 2024](images/all-connections.png  " ") 
-
-3. Run a two hop query to visualize the Electrical System hierarchy - Our graph is made up of multiple categories, subcategories, products, components and suppliers. This query will find all products under the 'Electrical Systems' category.
+3. Show the results of the sentiment analysis in a table
 
      ```
      <copy>%sql
-     SELECT *
-     FROM GRAPH_TABLE( auto_graph
-         MATCH (a IS CATEGORY) -[e1]->(b) -[e2]-> (c)
-         WHERE a.category_name = 'Electrical Systems'
-         COLUMNS(vertex_id(a) as a, edge_id(e1) as e1, vertex_id(b) as b, edge_id(e2) as e2, vertex_id(c) as c)
-     )
+     SELECT TICKET_ID, PRODUCT_ID, DESCRIPTION, SENTIMENT FROM CUSTOMER_TICKET
      </copy>
      ``` 
 
-    ![Movies similar to The Fall Guy](images/electrical-system.png " ") 
+    ![sentiment results](images/sentiment-results.png " ")
 
-4. Lets find what products have the highest number of customer support tickets. We can find this through a simple pattern matching query using SQL Property Graphs.
-
-     ```
-     <copy>%sql
-     SELECT ticket_desc, product_id, product_name, count(product_name) as num_issues FROM GRAPH_TABLE(AUTO_GRAPH
-         MATCH (t IS CUSTOMER_TICKET) -[e]-> (p IS PRODUCT)
-         COLUMNS (t.description as ticket_desc, p.product_id as product_id, p.product_name as product_name)
-     )
-     GROUP BY ticket_desc, product_id, product_name
-     ORDER BY num_issues desc
-     </copy>
-     ``` 
-
-    ![Movies similar to The Fall Guy](images/support-ticekts.png " ") 
-
-5. Lets find what products have the highest number of customer support tickets. We can find this through a simple pattern matching query using SQL Property Graphs.
+4. Now, let's create a graph
 
      ```
      <copy>%sql
-     SELECT ticket_desc, product_id, product_name, count(product_name) as num_issues FROM GRAPH_TABLE(AUTO_GRAPH
-         MATCH (t IS CUSTOMER_TICKET) -[e]-> (p IS PRODUCT)
-         COLUMNS (t.description as ticket_desc, p.product_id as product_id, p.product_name as product_name)
-     )
-     GROUP BY ticket_desc, product_id, product_name
-     ORDER BY num_issues desc
+     CREATE OR REPLACE PROPERTY GRAPH auto_graph
+     VERTEX TABLES (
+    CUSTOMER_TICKET
+      KEY ( TICKET_ID ),
+    SUPPLIER
+      KEY ( SUPPLIER_ID ),
+    CATEGORY
+      KEY ( CATEGORY_ID ),
+    PRODUCT
+      KEY ( PRODUCT_ID ),
+    COMPONENT
+      KEY ( COMPONENT_ID )
+  )
+  EDGE TABLES (
+    CUSTOMER_TICKET AS TICKET_FOR_PRODUCT KEY ( TICKET_ID )
+      SOURCE KEY ( TICKET_ID ) REFERENCES CUSTOMER_TICKET( TICKET_ID )
+      DESTINATION KEY ( PRODUCT_ID ) REFERENCES PRODUCT( PRODUCT_ID )
+      NO PROPERTIES,
+    CATEGORY AS PARENT_CATEGORY_OF KEY ( CATEGORY_ID )
+      SOURCE KEY ( PARENT_CATEGORY_ID ) REFERENCES CATEGORY( CATEGORY_ID )
+      DESTINATION KEY ( CATEGORY_ID ) REFERENCES CATEGORY( CATEGORY_ID )
+      NO PROPERTIES,
+    PRODUCT AS CATEGORY_OF_PRODUCT KEY ( PRODUCT_ID )
+      SOURCE KEY ( CATEGORY_ID ) REFERENCES CATEGORY( CATEGORY_ID )
+      DESTINATION KEY ( PRODUCT_ID ) REFERENCES PRODUCT( PRODUCT_ID )
+      NO PROPERTIES,
+    COMPONENT AS COMPONENT_OF_PRODUCT KEY (COMPONENT_ID, PRODUCT_ID)
+      SOURCE KEY ( PRODUCT_ID ) REFERENCES PRODUCT( PRODUCT_ID )
+      DESTINATION KEY ( COMPONENT_ID ) REFERENCES COMPONENT( COMPONENT_ID )
+      NO PROPERTIES,
+    COMPONENT AS SUPPLIED_BY KEY (COMPONENT_ID)
+      SOURCE KEY ( COMPONENT_ID ) REFERENCES COMPONENT( COMPONENT_ID )
+      DESTINATION KEY ( SUPPLIER_ID ) REFERENCES SUPPLIER( SUPPLIER_ID )
+      NO PROPERTIES
+  )
      </copy>
-     ``` 
+     ```
 
-    ![Movies similar to The Fall Guy](images/similar-fallguy.png " ") 
+    ![Create SQL graph](images/create-sql-graph-v2.png " ")
 
-6. From our previous query, we know High-Performance Gaskets, with ID 59, has the highest number of reported issues. Let's query our graph with a WHERE clause to find what components make up this product.
+5. Let's find what products have the highest number of customer support tickets. We can find this through a simple pattern matching query using SQL Property Graphs.
 
      ```
      <copy>%sql
-     SELECT * FROM GRAPH_TABLE(auto_graph
-         MATCH (p is PRODUCT) -[e]-> (m)
-         WHERE p.product_id=59
-         COLUMNS(vertex_id(p) as pid, edge_id(e) as eid, vertex_id(m) as mid)
-     )
+    SELECT * FROM GRAPH_TABLE(auto_graph
+       MATCH (n) -[e]-> (m)
+        COLUMNS(vertex_id(n) as nid, edge_id(e) as eid, vertex_id(m) as mid)
+    )
      </copy>
-     ``` 
+     ```
 
-    ![Movies similar to The Fall Guy](images/components.png " ")
+    ![Visualize the graph](images/similar-fallguy.png " ")
+
+**Exploratory Analysis** - In the next few paragraphs, we will query our graph to learn more about our data to discover which products have the highest number of negative customer support tickets, which components make up those products and who supplies those components.
+
+6. **Find the products with the largest number of negative customer tickets** - First, let's find which products have the highest number of customer support tickets with a negative sentiment. We can find this through a simple pattern matching query using SQL Property Graphs.
+
+     ```
+     <copy>%sql
+    SELECT product_id, product_name, count(product_name) as num_issues FROM GRAPH_TABLE(AUTO_GRAPH
+        MATCH (t IS CUSTOMER_TICKET) -[e]-> (p IS PRODUCT)
+        WHERE t.sentiment = 'slightly negative' OR t.sentiment = 'negative'
+        COLUMNS (p.product_id as product_id, p.product_name as product_name)
+    )
+    GROUP BY product_id, product_name
+    ORDER BY num_issues desc
+     </copy>
+     ```
+
+    ![Show the products with the most negative tickets](images/large-neg-tickets.png " ")
 
     You can also view the results as a table running the following query:
 
