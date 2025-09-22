@@ -23,7 +23,7 @@ Learn how to
 ### Prerequisites
 
 - The following lab requires an Autonomous Database Serverless instance.
-- And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
+- And that a Graph-enabled user exists.
 
 ## Task 1: Log into Graph Studio
 
@@ -55,8 +55,8 @@ Learn how to
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
-    ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
-    
+    ![Click the notebook icon and import the notebook.](images/import-notebook.png " ")
+
      Select or drag and drop the notebook and click **Import**.
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
@@ -67,4 +67,4 @@ Learn how to
 
 - **Author** - Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2025
+- **Last Updated By/Date** - Denise Myrick, September 2025
