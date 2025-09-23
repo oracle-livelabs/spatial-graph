@@ -2,7 +2,6 @@
     "workshoptitle": "Knowledge Graphs and AI Vector Search to Trace Linkages in Data in Oracle 23ai",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-     "adb-connect-with-sql-worksheet-non-admin.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-non-admin.md",
      "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
     },
     "variables": ["./variables.json"],
