@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the AUTO_GRAPH notebook.
+Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the AUTOMOTIVE_ORDERS notebook.
 
 Estimated Time: 15 minutes.
 
