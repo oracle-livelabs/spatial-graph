@@ -13,9 +13,9 @@ Oracle Analytics Cloud supports the configuration of numerous [map background](h
 In this hands-on lab you will learn how to create this interactive map. Let’s see how
 simple it is to do.
 
-![University of Michigan solar car racing along the Australian outback track under a clear sky, surrounded by sparse vegetation and open landscape, conveying a sense of determination and adventure](./images/racepic-solarcar.JPG)
+![University of Michigan solar car racing along the Australian outback track under a clear sky, surrounded by sparse vegetation and open landscape, conveying a sense of determination and adventure](./images/racepic-solarcar.JPG =90%x90%)
 
-_Estimated Time:_ 60 minutes
+_Estimated Time:_ 50 minutes
 
 ### Objectives
 
@@ -37,7 +37,7 @@ This lab includes three Excel files. Please download and save them to a folder o
 
 - [route](./files/route.csv?download=1)
 - [speed](./files/speed.csv?download=1)
-- [livelocation](./files/live location.csv?download=1)
+- [live location](./files/live%20location.csv?download=1)
 
 ## **Acknowledgements**
 
