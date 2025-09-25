@@ -81,6 +81,7 @@ If the compute environment is not ready just yet and the code cannot be executed
     WHERE t.sentiment = 'slightly negative' OR t.sentiment = 'negative';
      </copy>
      ```
+    ![Create SQL graph](images/create-sql-graph-v1.png " ")
 
     ![sentiment results](images/negative-sentiments.png " ")
 
