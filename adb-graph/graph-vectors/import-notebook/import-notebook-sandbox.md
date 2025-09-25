@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the AUTO_GRAPH notebook.
+Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab, we will be importing the AUTO_GRAPH notebook.
 
 Estimated Time: 15 minutes.
 
@@ -17,7 +17,7 @@ Estimated Time: 15 minutes.
 
 Learn how to
 
-- Log into Graph Studio
+- Log in to Graph Studio
 - Import a notebook
 
 ### Prerequisites
@@ -43,7 +43,7 @@ Learn how to
 
     ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
-    Login using the graph user and password that appears under **View Login Info**.
+    Log in using the graph user and password that appears under **View Login Info**.
 
     ![Click Graph Studio.](./images/graph-studio-signin.png " ")
 
@@ -51,7 +51,7 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.
 
-  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/MOVIE_RECOMMENDATIONS.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the AUTOMOTIVE_ORDERS graph.
+  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/MOVIE_RECOMMENDATIONS.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the AUTO_GRAPH graph.
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
