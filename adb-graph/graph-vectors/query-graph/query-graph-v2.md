@@ -143,7 +143,7 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
 
 2. Let’s visualize the graph.
 
-    Running the following query is similar to executing SELECT * FROM \<tablename\> on a traditional table.
+    Running the following query is similar to executing SELECT * FROM <tablename\> on a traditional table.
 
     It’s a straightforward way to view all the relationships and data points in our graph.
 
