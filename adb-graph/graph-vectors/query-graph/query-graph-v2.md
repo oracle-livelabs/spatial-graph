@@ -76,7 +76,7 @@ If the compute environment is not ready just yet and the code cannot be executed
 
     ![sentiment results](images/sentiment-results.png " ")
 
-4. Next, we'll filter our results by tickets with slightly negative or negative sentiments. This will help us focus on the customer comments that may need further attention.
+4. Next, we'll filter our results by tickets with 'slightly negative' or 'negative' sentiments. This will help us focus on the customer comments that may need further attention.
 
     ```
      <copy>%sql
@@ -85,7 +85,6 @@ If the compute environment is not ready just yet and the code cannot be executed
     WHERE t.sentiment = 'slightly negative' OR t.sentiment = 'negative';
      </copy>
      ```
-    ![Create SQL graph](images/create-sql-graph-v1.png " ")
 
     ![sentiment results](images/negative-sentiments.png " ")
 
@@ -178,11 +177,11 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
      </copy>
      ```
 
-   ![Electrical system](images/electrical-system.png " ")
+    ![Electrical system](images/electrical-system.png " ")
 
 ## Task 3: Cause Analysis and Supplier Investigation
 
-**Exploring further** - In the next few paragraphs, we will query our graph, combined with vector search, to discover which products have the highest number of negative customer support tickets, which components make up those products, and who supplies those components.
+In the next few paragraphs, we will query our graph, combined with vector search, to discover which products have the highest number of negative customer support tickets, which components make up those products, and who supplies those components.
 
 1. **First, let's find the products with the largest number of negative sentiment customer tickets**  - We can find this through a simple pattern matching query on our graph.
 
@@ -240,7 +239,7 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
      </copy>
      ```
 
-  ![Transmission gearbox vector search](images/transmission-vector-search.png " ")
+    ![Transmission gearbox vector search](images/transmission-vector-search.png " ")
 
 4. The Oil Pump component seems to be the culprit! Let's confirm that no other products are affected by the Oil Pump through another graph query.
 
@@ -254,15 +253,15 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
      </copy>
      ```
 
-  ![Confirm oil pump](images/confirm-oil-pump.png " ")
+   ![Confirm oil pump](images/confirm-oil-pump.png " ")
 
 5. Now, let’s identify the suppliers for the components in the product we’re investigating (product_id 11).
 
-By extending our previous graph query to include an additional edge and node, we can trace each component in the Transmission Gearbox (product ID 11) directly to its supplier. This gives us a complete view of the supply chain for this product.
+    By extending our previous graph query to include an additional edge and node, we can trace each component in the Transmission Gearbox (product ID 11) directly to its supplier. This gives us a complete view of the supply chain for this product.
 
-     ```
-     <copy>%sql
-     SELECT *
+    ```
+    <copy>%sql
+    SELECT *
     FROM GRAPH_TABLE( auto_graph
       MATCH (p is PRODUCT) -[e1]-> (m) -[e2]-> (s)
       WHERE p.product_id=11
@@ -271,7 +270,7 @@ By extending our previous graph query to include an additional edge and node, we
      </copy>
      ```
 
-  ![Identify component suppliers](images/component-suppliers.png " ")
+    ![Identify component suppliers](images/component-suppliers.png " ")
 
 6. Now, who is the supplier for the Oil Pump component, that vector search helped us identify? We show the results both visually and as a table.
 
