@@ -19,7 +19,11 @@ Learn how to:
 
 ## Task 1:  Sentiment Analysis
 
-In this workshop, we will query our graph to learn more about our data to discover what products have the highest number of customer support tickets, what components make up those products and who supplies those components. We will start by connecting to Oracle Cloud Infrastructure AI Language sentiment analysis tool and analyzing our tickets to determine the emotional tone or attitude of our tickets, classifying them as positive, negative, or neutral.
+Early on a Monday morning, our manager messages us. There is an urgent problem she needs our help with. She tells us that she noticed some negative customer sentiments that popped up on her dashboard. She asks us to look into them and see what might be going on.
+
+In the next few paragraphs, we will first run sentiment analysis and add the results as a column to the ticket table. We'll use sentiment analysis to determine the emotional tone or attitude of our tickets, classifying them as positive, negative, or neutral.
+
+Once we determine the comments with a negative sentiment, we will identify the product they are associated with. From that product we will a trace the path through the components that make up the product, and then to the supplier who supplies them, using graph queries.
 
 >**Note:** Click the **Run Paragraph** button to run the query.
 ![The environment is loading because it's not ready ](images/run-paragraph-v1.png " ")
@@ -61,7 +65,7 @@ If the compute environment is not ready just yet and the code cannot be executed
      ```
     ![Run sentiment analysis](images/sentiment-analysis.png " ")
 
-3. Let's start by querying CUSTOMER_TICKET table, to display the sentiment analysis results we've added to the SENTIMENT column.
+3. Let's start by querying **CUSTOMER_TICKET** table, to display the sentiment analysis results we've added to the **SENTIMENT** column.
 
      ```
      <copy>%sql
@@ -93,8 +97,9 @@ It's important to note that customer tickets are linked directly to products, no
 
 By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, and CUSTOMER_TICKET tables, we can bridge this gap and trace negative sentiments from customer tickets back to the components and suppliers that may be responsible.
 
-1. Let's create a graph on the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, and CUSTOMER_TICKET tables to connect the negative sentiments to the components that could be causing the problem.
   ![data model](images/data-model.png " ")
+
+1. Let's create a graph on the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, and CUSTOMER_TICKET tables to connect the negative sentiments to the components that could be causing the problem.
 
      ```
      <copy>%sql
@@ -137,7 +142,11 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
      ```
     ![Create SQL graph](images/create-sql-graph-v1.png " ")
 
-2. Let's take a look at what the graph looks like visually. The query we will run to do that is like running 'select * from tablename' on a table.
+2. Let’s visualize the graph.
+
+    Running the following query is similar to executing SELECT * FROM \<tablename\> on a traditional table.
+
+    It’s a straightforward way to view all the relationships and data points in our graph.
 
      ```
      <copy>%sql
@@ -153,9 +162,9 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
 
 3. Let’s make sense of this data.
 
-  **Modeling your data as a graph makes it easy to explore the relationships between different entities.**
+    **Modeling your data as a graph makes it easy to explore the relationships between different entities.**
 
-  Our graph consists of categories, subcategories, products, components, and suppliers. You can run a ‘multiple hop’ query to visualize the hierarchy within the Electrical System category - this means finding all data entities connected to this category by one to four hops. With this query, you can easily identify all subcategories and associated products related to the ‘Electrical Systems’ category.
+     Our graph consists of categories, subcategories, products, components, and suppliers. You can run a ‘multiple hop’ query to visualize the hierarchy within the Electrical System category - this means finding all data entities connected to this category by one to four hops. With this query, you can easily identify all subcategories and associated products related to the ‘Electrical Systems’ category.
 
      ```
      <copy>%sql
@@ -169,7 +178,7 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
      </copy>
      ```
 
-  ![Electrical system](images/electrical-system.png " ")
+   ![Electrical system](images/electrical-system.png " ")
 
 ## Task 3: Cause Analysis and Supplier Investigation
 
@@ -208,7 +217,7 @@ By creating a graph that connects the CATEGORY, PRODUCT, COMPONENT, SUPPLIER, an
 
 3. Now let's run a vector search with our graph query to uncover which component of the Transmission Gearbox is causing so many issues.
 
-By using vector search, we can match the component names identified in the graph with the language customers have used in their support tickets, helping us connect specific problems to the corresponding components more accurately.
+  By using vector search, we can match the component names identified in the graph with the language customers have used in their support tickets, helping us connect specific problems to the corresponding components more accurately.
 
      ```
      <copy>%sql
