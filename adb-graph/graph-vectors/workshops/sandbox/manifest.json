@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Knowledge Graphs and AI Vector Search to Trace Linkages in Data in Oracle 23ai",
+    "workshoptitle": "Trace Data Lineage with AI Vector Search and Knowledge Graphs in Oracle AI Database",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
      "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
