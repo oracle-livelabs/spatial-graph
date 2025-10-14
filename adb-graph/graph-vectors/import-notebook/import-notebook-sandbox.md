@@ -33,11 +33,11 @@ Learn how to
 
 2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
-    ![Selecting Autonomous AI Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+    ![Selecting Autonomous AI Database in the Navigation Menu.](images/select-autonomous-database-v1.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
-    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v3.png " ")
 
 4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
