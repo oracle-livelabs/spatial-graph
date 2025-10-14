@@ -22,22 +22,22 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database Serverless instance.
+- The following lab requires an Autonomous AI Database Serverless instance.
 - And that a Graph-enabled user exists.
 
 ## Task 1: Log into Graph Studio
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
+    ![Navigating to Autonomous AI Database.](images/navigation-menu.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+    ![Selecting Autonomous AI Database in the Navigation Menu.](images/select-autonomous-database-v1.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
-    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v3.png " ")
 
 4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
