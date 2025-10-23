@@ -2,14 +2,14 @@
 
 ## Introduction
 
-In this lab, you load data from files in OCI Object Storage to tables in ADB-S. You then explore the data to get  familiar with its contents. The data include spatial and non-spatial data and are used throughout this workshop. 
+In this lab, you load data from files in OCI Object Storage to tables in Oracle Autonomous AI Database Serverless. You then explore the data to get  familiar with its contents. The data include spatial and non-spatial data and are used throughout this workshop.
 
 Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-* Load data from OCI Object Storage to ADB-S
-* Gain familiarity with the data 
+* Load data from OCI Object Storage to Oracle Autonomous AI Database Serverless
+* Gain familiarity with the data
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 1.
 
-   ![Lab 2 Task 1](images/lab2-task1.png)  
+   ![Lab 2 Task 1](images/lab2-task1-v2.png)  
 
 ## Task 2: Load data from Object Storage to ADB
 
@@ -42,7 +42,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 2.
 
-   ![Lab 2 Task 2](images/lab2-task2.png)  
+   ![Lab 2 Task 2](images/lab2-task2-v2.png)  
 
 ## Task 3: Create proxy data frames and explore data
 
@@ -50,7 +50,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 3.
 
-   ![Lab 2 Task 2](images/lab2-task3.png)  
+   ![Lab 2 Task 2](images/lab2-task3-v2.png)  
 
 ## Learn More
 
