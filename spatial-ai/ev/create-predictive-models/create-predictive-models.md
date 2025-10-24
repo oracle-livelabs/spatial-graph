@@ -36,7 +36,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 1.
 
-   ![Lab 2 Task 1](images/lab4-task1.png)  
+   ![Lab 4 Task 1](images/lab4-task1-v2.png)  
 
 ## Task 2: Create training and test data sets
 
@@ -44,7 +44,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 2.
 
-   ![Lab 2 Task 1](images/lab4-task2.png)  
+   ![Lab 4 Task 2](images/lab4-task2.png)  
 
 ## Task 3: Create and assess predictive models
 
@@ -52,7 +52,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 3.
 
-   ![Lab 2 Task 1](images/lab4-task3.png)  
+   ![Lab 4 Task 3](images/lab4-task3.png)  
 
 ## Task 4: Use models for ad hoc predictions
 
@@ -60,7 +60,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 4.
 
-   ![Lab 2 Task 1](images/lab4-task4.png)  
+   ![Lab 4 Task 4](images/lab4-task4.png)  
 
 ## Learn More
 
@@ -69,4 +69,4 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, July 2024
+* **Last Updated By/Date**  - Denise Myrick, October 2025

@@ -29,14 +29,13 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    ![Run options](images/run-options.png)  
 
-
 ## Task 1: Import libraries and configure settings
 
 1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
    Scroll down to the beginning of Task 1.
 
-   ![Lab 2 Task 1](images/lab3-task1.png)  
+   ![Lab 3 Task 1](images/lab3-task1-v2.png)  
 
 ## Task 2: Join EV and demographics data to zip code spatial data
 
@@ -44,15 +43,15 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 2.
 
-   ![Lab 2 Task 1](images/lab3-task2.png) 
-   
+   ![Lab 3 Task 2](images/lab3-task2-v2.png)
+
 ## Task 3: Fill missing values using spatial algorithm
 
 1. Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
    Scroll down to the beginning of Task 3.
 
-   ![Lab 2 Task 1](images/lab3-task3.png) 
+   ![Lab 3 Task 3](images/lab3-task3-v2.png)
 
 ## Task 4: Engineer a new feature using spatial analysis
 
@@ -60,7 +59,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 4.
 
-   ![Lab 2 Task 1](images/lab3-task4.png) 
+   ![Lab 3 Task 4](images/lab3-task4-v2.png)
 
 ## Task 5: Save prepared data to ADB
 
@@ -68,8 +67,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 5.
 
-   ![Lab 2 Task 1](images/lab3-task5.png) 
-
+   ![Lab 3 Task 5](images/lab3-task5-v2.png)
 
 ## Learn More
 
@@ -79,4 +77,4 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, July 2024
+* **Last Updated By/Date**  - Denise Myrick, October 2025

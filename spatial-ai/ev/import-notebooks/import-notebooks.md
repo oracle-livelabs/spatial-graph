@@ -20,11 +20,11 @@ Estimated Lab Time: 5 minutes
 
 ## Task 1: Log into OML UI
 
-1. Click View Login Info to access your reservation information. 
+1. Click View Login Info to access your reservation information.
 
    ![View login info](images/view-login-info.png)
 
-2. Note the database user and password at the bottom. Then click the link for the OML UI. 
+2. Note the database user and password at the bottom. Then click the link for the OML UI.
 
   ![Reservation info](images/reservation-information.png)
 
@@ -34,7 +34,7 @@ Estimated Lab Time: 5 minutes
 
 ## Task 2: Work with OML Notebooks
 
-1. From OML user interface home page, click the link for Notebooks. 
+1. From OML user interface home page, click the link for Notebooks.
 
   ![OML UI sign in](images/oml-homepage.png)
 
@@ -52,7 +52,7 @@ Estimated Lab Time: 5 minutes
 
 4. In the markdown paragraph, add a new line, enter the following command, and click the run icon.
 
-   ![Markdown paragraph](images/md-paragraph-b.png)    
+   ![Markdown paragraph](images/md-paragraph-b.png)
 
 5. Hover your mouse below the markdown paragraph to display buttons for creating a new paragraph. Click on the Python icon to add a Python paragraph.
 
@@ -70,15 +70,15 @@ Estimated Lab Time: 5 minutes
 
        ![SQL paragraph](images/sql-paragraph-b.png)
 
-1. You can clear all results and run all paragraphs using the erasure and play buttons in the top button bars.
+9. You can clear all results and run all paragraphs using the erasure and play buttons in the top button bars.
 
        ![Clear/run all paragraph](images/clear-run-all-paragraphs.png)
 
-2. To navigate back to the Notebooks page, Click the icon to open the main navigation panel and then click **Notebooks**.
+10. To navigate back to the Notebooks page, Click the icon to open the main navigation panel and then click **Notebooks**.
 
        ![Navigate to Notebooks](images/nav-to-notebooks.png)
 
-3. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
+11. You can now delete the test notebook. Select the notebook with the checkbox and click **Delete**.
 
        ![Delete notebook](images/del-test-notebook-a.png)
 
@@ -86,10 +86,9 @@ Estimated Lab Time: 5 minutes
 
        ![Delete notebook](images/del-test-notebook-b.png)
 
-
 ## Task 3: Import pre-built notebooks
 
-1. Click [**here**](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/oml-notebooks-2.zip) to download the file OML notebooks containing pre-built notebooks. Then unzip the file. 
+1. Click [**here**](https://objectstorage.us-ashburn-1.oraclecloud.com/p/7SzTWw-b4Yeg6CSktyyMNZmag67SnNSWWR2j6ntcOaihhFkNKtIxeVV70R00WCJJ/n/oradbclouducm/b/spatial_ml_algorithms/o/oml-notebooks.zip) to download the file OML notebooks containing pre-built notebooks. Then unzip the file.
 
        ![Download notebooks](images/download-notebooks.png)
 
@@ -98,15 +97,15 @@ Estimated Lab Time: 5 minutes
        ![Import notebooks](images/import-notebooks.png)
 
 2. Select all the notebooks unzipped in step 1, and click Open or OK depending on your platform.
-    
+
        ![Import notebooks](images/select-notebooks.png)
 
 3. Verify all notebooks are imported. If truncated, you can see the full notebook name in a tooltip by hovering your mouse over the notebook name.
-    
+
        ![Verify notebooks](images/verify-notebooks.png)
 
    OML notebooks allow selecting a service level. The pre-built notebooks for this workshop are configured to use the **Low** service level. You should leave this setting as-is. Do not switch to a different service level.
-    
+
        ![Service level low](images/service-level-low.png)
 
    The pre-built notebooks begin with paragraphs that import required libraries. The following summarizes the libraries that will be used:
@@ -117,14 +116,14 @@ Estimated Lab Time: 5 minutes
 * [**pandas**](https://pandas.pydata.org/) provides data structures and manipulation
 * [**shapely**](https://pypi.org/project/shapely/) provides geometry data structure and manipulation
 * [**geopandas**](https://geopandas.org) adds spatial data capabilities to pandas
-* [**sklearn**](https://scikit-learn.org) provides machine learning  
+* [**sklearn**](https://scikit-learn.org) provides machine learning
 * [**matplotlib**](https://matplotlib.org/) provides visualizations
 
 ## Learn More
 
-* [Oracle Machine Learning Notebooks](https://docs.oracle.com/en/database/oracle/machine-learning/oml-notebooks/)
+* [Oracle Machine Learning Notebooks](https://docs.oracle.com/en/database/oracle/machine-learning/oml-notebooks/omlug/get-started-oracle-machine-learning.html)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - Denise Myrick, June 2025
+* **Last Updated By/Date**  - Denise Myrick, Oracle Database Product Manager, October 2025
