@@ -42,7 +42,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 2.
 
-   ![Lab 2 Task 2](images/lab2-task2-v2.png)  
+   ![Lab 2 Task 2](images/lab2-task2-v3.png)  
 
 ## Task 3: Create proxy data frames and explore data
 
