@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab you will create a database user with the appropriate roles and privileges required for using the graph capabilities of the Autonomous Database.
+In this lab you will create a database user with the appropriate roles and privileges required for using the graph capabilities of the Autonomous AI Database.
 
 Estimated Time: 5 minutes.
 
@@ -19,15 +19,15 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Data Warehouse - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account
+- The following lab requires a Lakehouse or Transaction Processing database instance
 
-## Task 1: Connect to the Database Actions for your Autonomous Database instance
+## Task 1: Connect to the Database Actions for your Autonomous AI Database instance
 
-1. Open the service detail page for your Autonomous Database instance in the OCI console.  
+1. Open the service detail page for your Autonomous AI Database instance in the OCI console.
 
-   Then click on **Database Actions** and select **View all database actions**. 
+   Then click on **Database actions** and select **View all database actions**.
 
-   ![Autonomous Database home page pointing to the Database Actions button](images/click-database-actions-updated2.png "Autonomous Database home page pointing to the Database Actions button")
+   ![Autonomous AI Database home page pointing to the Database Actions button](images/click-database-actions-updated3.png "Autonomous AI Database home page pointing to the Database Actions button")
 
 ## Task 2: Create the Web Access and Graph-enabled User
 
@@ -92,7 +92,7 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 
    The screenshot below show an example of executing the ALTER USER statement.
 
-   ![Alter user quota to 10G](./images/alter-user.png "Alter user quota to 10G")  
+   ![Alter user quota to 100G](./images/alter-user.png "Alter user quota to 100G")  
 
  2. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
 
@@ -117,4 +117,4 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 
 - **Author** - Jayant Sharma, Product Management
 - **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez
-- **Last Updated By/Date** - Denise Myrick, August 2025
+- **Last Updated By/Date** - Denise Myrick, November 2025

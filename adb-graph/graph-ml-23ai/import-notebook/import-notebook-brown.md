@@ -22,7 +22,7 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database Serverless instance.
+- The following lab requires an Autonomous AI Database Serverless instance.
 - And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
 ## Task 1: Import the notebook
@@ -45,4 +45,4 @@ Learn how to
 
 - **Author** - Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Management, May 2025
+- **Last Updated By/Date** - Denise Myrick, Product Management, December 2025
