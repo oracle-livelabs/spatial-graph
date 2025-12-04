@@ -2,13 +2,13 @@
 
 ## Introduction
 
-This lab is optional. Perform the steps if you would like to remove artifacts created during this workshop, leaving your environment in a pre-workshop state. 
+This lab is optional. Perform the steps if you would like to remove artifacts created during this workshop, leaving your environment in a pre-workshop state.
 
 Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-* Remove artifacts created during this workshop, leaving your environment in a pre-workshop state. 
+* Remove artifacts created during this workshop, leaving your environment in a pre-workshop state.
 
 ### Prerequisites
 
@@ -25,7 +25,7 @@ Open the notebook **Lab 5 - Cleanup**.
 
 You may either run all paragraphs by clicking the play icon at the top, or run individually by moving your mouse into a paragraph and clicking the play button in the paragraph.
 
-   ![Run options](images/run-options.png)  
+   ![Run options](images/run-options.png)
 
 ## Task 1: Drop tables
 
@@ -33,7 +33,7 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 1.
 
-   ![Lab 5 Task 1](images/lab5-task1.png)  
+   ![Lab 5 Task 1](images/lab5-task1-v2.png)
 
 ## Task 2: Delete spatial metadata
 
@@ -41,16 +41,15 @@ You may either run all paragraphs by clicking the play icon at the top, or run i
 
    Scroll down to the beginning of Task 2.
 
-   ![Lab 5 Task 1](images/lab5-task2.png)  
+   ![Lab 5 Task 2](images/lab5-task2.png)
 
 ## Task 3: Delete pre-built notebooks
 
 1. Navigate to the Notebooks page, select all workshop notebooks, and click **Delete**.
 
-   ![Lab 5 Task 3](images/lab5-task3.png)  
-
+   ![Lab 5 Task 3](images/lab5-task3.png)
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Product Manager
-* **Last Updated By/Date**  - David Lapp, July 2024
+* **Last Updated By/Date**  - Denise Myrick, October 2025

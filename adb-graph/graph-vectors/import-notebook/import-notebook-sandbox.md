@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab we will be importing the AUTOMOTIVE_ORDERS notebook.
+Notebooks enable you to execute code and to work interactively with long workflows. You can analyze and visualize graph results using a notebook. In this lab, we will be importing the AUTO_GRAPH notebook.
 
 Estimated Time: 15 minutes.
 
@@ -17,33 +17,33 @@ Estimated Time: 15 minutes.
 
 Learn how to
 
-- Log into Graph Studio
+- Log in to Graph Studio
 - Import a notebook
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database Serverless instance.
-- And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
+- The following lab requires an Autonomous AI Database Serverless instance.
+- And that a Graph-enabled user exists.
 
 ## Task 1: Log into Graph Studio
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
+    ![Navigating to Autonomous AI Database.](images/navigation-menu.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
+    ![Selecting Autonomous AI Database in the Navigation Menu.](images/select-autonomous-database-v1.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
-    ![Click Database Actions button.](./images/database-action-sql-v2.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v3.png " ")
 
 4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
     ![Click Graph Studio.](./images/dbactions-click-graph-studio.png " ")
 
-    Login using the graph user and password that appears under **View Login Info**.
+    Log in using the graph user and password that appears under **View Login Info**.
 
     ![Click Graph Studio.](./images/graph-studio-signin.png " ")
 
@@ -51,12 +51,12 @@ Learn how to
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.
 
-  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/MOVIE_RECOMMENDATIONS.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the AUTOMOTIVE_ORDERS graph.
+  [Click here to download the notebook](https://objectstorage.us-ashburn-1.oraclecloud.com/p/1iB1cADcb2xhd-7aYIrSfv4Fnk3nj0HGDSW-G3ymyp287s0XjdSKWMl7da_QH3GT/n/oradbclouducm/b/HOL-16/o/AUTO_GRAPH.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the AUTO_GRAPH graph.
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
-    ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
-    
+    ![Click the notebook icon and import the notebook.](images/import-notebook.png " ")
+
      Select or drag and drop the notebook and click **Import**.
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
@@ -67,4 +67,4 @@ Learn how to
 
 - **Author** - Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2025
+- **Last Updated By/Date** - Denise Myrick, September 2025
