@@ -22,22 +22,22 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database Serverless instance.
+- The following lab requires an Autonomous AI Database Serverless instance.
 - And that the Graph-enabled user exists. That is, a database user with the correct roles and privileges exists.
 
 ## Task 1: Log into Graph Studio
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
+    ![Navigating to Autonomous AI Database.](images/navigation-menu-v1.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonmous-database-v3.png " ")
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonmous-database-v4.png " ")
 
 3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
-    ![Click Database Actions button.](./images/database-action-sql-v3.png " ")
+    ![Click Database Actions button.](./images/database-action-sql-v4.png " ")
 
 4. The Database Actions page opens. In the **Development** box, click **Graph Studio**.
 
@@ -77,4 +77,4 @@ Learn how to
 
 - **Author** - Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Melliyal Annamalai, Rahul Tasker, Denise Myrick, Ramu Murkami Gutierrez Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Management, June 2025
+- **Last Updated By/Date** - Denise Myrick, Product Management, December 2025

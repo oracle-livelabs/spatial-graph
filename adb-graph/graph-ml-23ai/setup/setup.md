@@ -13,7 +13,7 @@ Estimated Time: 5 minutes.
 
 Learn how to:
 
-- Run the stack to create an Autonomous Database, Graph user, and upload dataset
+- Run the stack to create an Autonomous AI Database, Graph user, and upload the dataset
 - Login to Graph Studio
 
 ## Task 1: Create OCI compartment
@@ -22,7 +22,7 @@ Learn how to:
 
 ## Task 2: Run stack
 
-The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
+The instructions below will show you how to run a stack that will automatically create an Autonomous AI Database containing a graph user and the dataset needed for the property graph queries.
 
 1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/X2IwZyonQTP9fUsyfS_YYMUrZ5t1-wTSCLqrdZMSsMHyOVhSccOdEKZ8JMq9Nu3S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
@@ -35,7 +35,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-4. Select the **compartments** to create the stack and Autonomous Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
+4. Select the **compartments** to create the stack and Autonomous AI Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
     ![Configurating the settings for the stack](./images/configure-variables.png "")
 
@@ -58,11 +58,11 @@ The instructions below will show you how to run a stack that will automatically 
     ![ALT text is not available for this image](./images/gs-graphuser-home-page.png " ")
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
-
-    The **Home** icon takes you to the Home page.<br>
-    The **Graph** page lists existing graphs for use in notebooks.<br> 
-    The **Notebook** page lists existing notebooks and lets you create a new one.<br>                                                                                             The **Templates** page let's you create templates for the graph visualizations.<br>
-    The **Jobs** page lists the status of background jobs and lets you view the associated log if any.<br>
+    - The **Home** icon takes you to the Home page.
+    - The **Graph** page lists existing graphs for use in notebooks and lets you create a new one.
+    - The **Notebook** page lists existing notebooks and lets you create a new one.
+    - The **Templates** page lets you create templates for the graph visualizations.
+    - The **Jobs** page lists the status of background jobs and lets you view the associated log if any.
 <!---
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
@@ -71,10 +71,10 @@ The instructions below will show you how to run a stack that will automatically 
     The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 --->
 
-This concludes this lab. **You may now proceed to the next lab.**  
+This concludes this lab. **You may now proceed to the next lab.**
 
 ## Acknowledgements
 
 - **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
+- **Last Updated By/Date** - Denise Myrick, Product Manager, December 2025
