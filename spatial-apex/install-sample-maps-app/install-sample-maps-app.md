@@ -49,7 +49,7 @@ Estimated Lab Time: 15 minutes
 
 2. The Data Loading page shows the loading status of the US States and Airports datasets used by the Sample Maps application and the rest of this workshop. Upon installation of the Sample Maps application, these datasets are only partially loaded. To complete the sample data loading, you may either load directly from files stored in GitHub, or you may first download the files and load from your local system. If you are running APEX in a network that requires a proxy to access GitHub, then you should use the latter option.
 
-   If your APEX instance does not require a proxy to access GitHub (for example, apex.oracle.com or APEX with Oracle Autonomous Database), then click on the button to load **Directly from GitHub** and then click **Load Dataset** at the top right.
+   If your APEX instance does not require a proxy to access GitHub (for example, apex.oracle.com or APEX with Oracle Autonomous AI Database), then click on the button to load **Directly from GitHub** and then click **Load Dataset** at the top right.
 
    ![Click on Directly from GitHub](images/install-sample-maps-14.png)
 
@@ -141,4 +141,4 @@ This concludes the lab. You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Carsten Czarski, APEX Development, Ramu Murakami Gutierrez, Database Product Management, Oracle
-* **Last Updated By/Date** - Denise Myrick, Database Product Management, November 2024
+* **Last Updated By/Date** - Renée Wikestad, Database Product Management, December 2025
