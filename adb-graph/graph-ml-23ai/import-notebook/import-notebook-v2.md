@@ -27,7 +27,7 @@ Learn how to
 
 ## Task 1: Log into Graph Studio
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
     ![Navigating to Autonomous AI Database.](images/navigation-menu-v1.png " ")
 

@@ -24,7 +24,7 @@ Learn how to:
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous AI Database containing a graph user and the dataset needed for the property graph queries.
 
-1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/X2IwZyonQTP9fUsyfS_YYMUrZ5t1-wTSCLqrdZMSsMHyOVhSccOdEKZ8JMq9Nu3S/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_23ai_brown_button.zip) to create and run the Stack.
+1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/2ubCrh4NROm9gOmqwD8LqXotUeQEuYozqVXqDwVGswg4QTh3FkWZ9v6MOnG42OSU/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_26ai_brown_button.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
 2. You will be directed to this page:
@@ -37,7 +37,7 @@ The instructions below will show you how to run a stack that will automatically 
 
 4. Select the **compartments** to create the stack and Autonomous AI Database. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
-    ![Configurating the settings for the stack](./images/configure-variables.png "")
+    ![Configuring the settings for the stack](./images/configure-variables.png "")
 
 5. You will be taken to a Job Details page with an initial status shown in orange. The icon will become green once the job has successfully completed.
 
