@@ -3,7 +3,7 @@
 ## Introduction
 
 In this lab you will load two CSV files into corresponding tables using the Database Actions interface of your 
-Oracle Autonomous Data Warehouse  or Oracle Autonomous Transaction Processing instance.
+Oracle Autonomous AI Lakehouse  or Oracle Autonomous AI Transaction Processing instance.
 
 <!-- COMMENTED THE FOLLOWING OUT FOR DATABSE WORLD:
 
@@ -22,16 +22,16 @@ Watch the video below for a quick walk through of the lab.
 ### Objectives
 
 Learn how to
-- load CSV files into an Autonomous Database using Database Actions
+- load CSV files into an Oracle Autonomous AI Database using Database Actions
 
 ### Prerequisites
 
-- The following lab requires an Oracle Autonomous Database account. 
+- The following lab requires an Oracle Autonomous AI Database account. 
 - It assumes that a Graph and Web-Access enabled user exists. That is, a database user with the correct roles and privileges exists and that user can log into Database Actions.
 
-## Task 1: Connect to the Database Actions for your Autonomous Database instance
+## Task 1: Connect to the Database Actions for your Oracle Autonomous AI Database instance
 
-1. Open the service detail page for your Autonomous Database instance in the Oracle Cloud Console.  
+1. Open the service detail page for your Oracle Autonomous AI Database instance in the Oracle Cloud Console.  
 
     ![ALT text is not available for this image](images/open-database-actions.png " ")  
 
@@ -39,12 +39,12 @@ Learn how to
  
 ## Task 2: Login as the graph-enabled user
 
-1. Login as the graph user (for example, `GRAPHUSER`) for your Autonomous Database instance. 
+1. Login as the graph user (for example, `GRAPHUSER`) for your Oracle Autonomous AI Database instance. 
    
     ![ALT text is not available for this image](./images/db-actions-graphuser-login.png " ")  
 
     >**Note:** *If necessary, do the following to create the user with the right roles and privileges*:
-    - Log in to Database Actions as the **ADMIN** user for your Autonomous Database
+    - Log in to Database Actions as the **ADMIN** user for your Oracle Autonomous AI Database
     - Select **Administration** and then **Database Users** from the navigation menu
     - Click **Create User**
     - Turn on the **Web-Access** and **Graph** buttons

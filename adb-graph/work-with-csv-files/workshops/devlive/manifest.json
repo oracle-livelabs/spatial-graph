@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Autonomous Database",
+    "workshoptitle": "Graph Studio: Find Circular Payment Chains using Graph Queries in Oracle Autonomous AI Database",
       "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -14,7 +14,7 @@
         },
         {
             "title": "Lab 1: Provision an ADB Instance",
-            "description": "Provisioning an Autonomous Database Instance",
+            "description": "Provisioning an Oracle Autonomous AI Database Instance",
             "type": "freetier",
             "filename": "https://oracle-livelabs.github.io/adb/shared/adb-provision/adb-provision-conditional.md"
         },
@@ -24,7 +24,7 @@
             "filename": "../../../create-user/create-user.md"
         },                
         {
-            "title": "Lab 3: Load CSV files into the Autonomous Database",
+            "title": "Lab 3: Load CSV files into the Oracle Autonomous AI Database",
             "description": "Load data from CSV files using Database Actions Data Load",
             "filename": "../../load-csv-files/load-csv-files.md"
         },
