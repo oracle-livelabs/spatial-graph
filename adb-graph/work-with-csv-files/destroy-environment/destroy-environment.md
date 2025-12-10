@@ -40,7 +40,7 @@ Learn how to
 
     ![Steps on how to delete Stack](./images/delete-stack.png "")
 
-    After this your Autonomous database containing the graph user and the datasets will be deleted.
+    After this your Oracle Autonomous AI database containing the graph user and the datasets will be deleted.
 
     This concludes this lab. Thank you!
 
@@ -48,4 +48,4 @@ Learn how to
 
 - **Author** - Ramu Murakami Gutierrez, Product Management
 - **Contributors** - Ramu Murakami Gutierrez, Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Management, June 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Management, December 2025
