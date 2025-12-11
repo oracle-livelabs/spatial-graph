@@ -269,7 +269,7 @@ If the compute environment is not ready and the code cannot be executed then you
      ```
      <copy>%python-pgx
 
-     # Save the movie recommendations to the MOVIE_RECOMMENDATIONS table in Autonomous Database
+     # Save the movie recommendations to the MOVIE_RECOMMENDATIONS table in Autonomous AI Database
      rs = bgraph.query_pgql("""
      SELECT  1010303 AS CUST_ID, 
          m.movie_id as MOVIE_ID, 
