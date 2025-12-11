@@ -347,4 +347,4 @@ This concludes this lab.
 
 - **Author** - Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez, Product Management, July 2025
 - **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez, Product Management
-- **Last Updated By/Date** - Renée, Product Management, December 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Management, December 2025
