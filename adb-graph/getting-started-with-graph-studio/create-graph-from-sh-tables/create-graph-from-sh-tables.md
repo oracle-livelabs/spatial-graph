@@ -139,7 +139,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     ![Overview of the graph and naming it](./images/model-create-graph-dialog-v2.png "Overview of the graph and naming it")
 
-4. Open up the **GRAPHUSER** schema and double click on the **SH\_PRODUCTS\_VIEW** table.
+4. Open up the **GRAPHUSER** schema, change the **Graph Type** to **PGQL Property Graph** and double click on the **SH\_PRODUCTS\_VIEW** table.
 
     You see some details about this table, like all the columns it has and their types, as well as which column is the primary key:
 
@@ -153,7 +153,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     ![Select all relevant views for the graph](./images/modeler-views-selected-v2.png "Select all relevant views for the graph ")
 
-7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to vertex and edge tables on the right. Also ensure **PGQL Property Graph** is selected to create a graph using PGQL.
+7. Click on the **Next** button on the top right to move to the next step. Graph Studio analyzes the foreign key constraints and suggests a possible mapping from the selected views to a property graph structure. This may take a few seconds. Once done, you see all the input you selected on the left, and the mapping to graph schema on the right. Also ensure **PGQL Property Graph** is selected to create a graph using PGQL.
 
     ![Define Graph page](./images/modeler-sh-model.png "Define Graph page")
 
@@ -167,7 +167,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     However, the graph modeler allows you to customize how data is mapped and remove unnecessary tables and or columns not relevant for your analysis. Reducing the amount of data to be processed will reduce the amount of processing resources and storage required for graph analysis. We removed unnecessary columns when creating the views for this graph, so there is nothing to remove in this instance.
 
-2. Rename the vertex label to **CHANNELS** and make sure you click on the check mark to save the change. 
+2. Rename the vertex label to **CHANNELS** and make sure you click on **Update Vertex** to save the change. 
 
     ![Rename the CHANNELS vertex label](./images/model-rename-vertex.png "Rename the CHANNELS vertex label ")
 
@@ -185,8 +185,6 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     As you can see from the **Source Vertex** and **Destination Vertex** information, this edge type maps all relations from **SH\_SALES\_VIEW** to **SH\_CUSTOMERS\_VIEW**. In other words, it models **bought by** relationships.
     By default, this edge label is **SH\_SALES\_VIEW\_SH\_CUSTOMERS\_VIEW**.
-
-    **Note**: If the edge table is not visible you can change the size of the upper pane. Use the splitter (the horizontal line with three dots `...` separating the two panes) to increase its size. Click on the splitter and drag it down or up.
 
 5. Rename the edge label to **TO\_CUSTOMER**:
 
@@ -210,14 +208,14 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     Advanced users can edit the source code directly. Changes will be reflected immediately in the designer view and vice versa.
 
-8. Click the **Preview** tab on the upper left.
+<!-- 8. Click the **Preview** tab on the upper left.
 
     ![Model source page, pointing to preview tab](./images/model-source-choose-preview.png "Model source page, pointing to preview tab")
 
     You see a visual representation of our graph model so far. Each circle in the graph represents a vertex type (label). And edge relationship in the graph represents an edge type (label)
-    in between the circles. You can rearrange the graph by clicking and dragging elements around. You can also right click on each element to see the list of properties it will contain.
+    in between the circles. You can rearrange the graph by clicking and dragging elements around. You can also right click on each element to see the list of properties it will contain. -->
 
-9. Click **Next** on the top right. In the Summary step, click on **Create Graph**. 
+8. Click **Next** on the top right. In the Summary step, click on **Create Graph**. 
 
     ![Click Create Graph to create the graphl](./images/create-graph-v2.png " ")  
 

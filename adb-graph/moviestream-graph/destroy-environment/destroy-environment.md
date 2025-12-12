@@ -39,7 +39,7 @@ Learn how to
 
     ![Steps on how to delete Stack](./images/delete-stack.png "")
 
-    After this your Autonomous database containing the graph user and the datasets will be deleted.
+    After this your Autonomous AI database containing the graph user and the datasets will be deleted.
 
     This concludes this lab. Thank you!
 

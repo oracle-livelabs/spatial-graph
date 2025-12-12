@@ -25,11 +25,11 @@ Learn how to
 
 ## Task 1: Access the Autonomous Database 
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous Database**.
 
     ![Navigating to Autonomous Database.](images/navigation-menu.png " ") 
 
-2. Select your **compartment** and click on the **Display Name** for the **Autonomous Database**. 
+2. Select your **compartment** and click on the **Display Name** for the **Autonomous AI Database**. 
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ") 
 

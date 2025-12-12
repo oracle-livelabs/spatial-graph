@@ -1,7 +1,7 @@
 <!--
     {
         "name":"Setup: Run Stack",
-        "description":"Running a stack that creates an autonomous database, creates graph user and loads the moviestream dataset "
+        "description":"Running a stack that creates an autonomous ai database, creates graph user and loads the moviestream dataset "
     }
 -->
 
@@ -9,14 +9,14 @@
 
 ## Introduction
 
-In this lab you will create a stack that will run a terraform script to generate an Autonomous Database, create a Graph User, and upload the dataset that will be used.
+In this lab you will create a stack that will run a terraform script to generate an Autonomous AI Database, create a Graph User, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
 ### Objectives
 
 Learn how to
-- Run the stack to create an Autonomous Database, Graph user, and upload dataset
+- Run the stack to create an Autonomous AI Database, Graph user, and upload dataset
 - Login to Graph Studio
 
 ## Task 1: Create OCI compartment
@@ -24,7 +24,7 @@ Learn how to
 
 ## Task 2: Run Stack
 
-The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
+The instructions below will show you how to run a stack that will automatically create an Autonomous AI Database containing a graph user and the dataset needed for the property graph queries.
 
 1. Login to the Oracle Cloud.
 
@@ -39,7 +39,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the **region** you are currenlty creating the stack on to create all resources. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous AI Database and the **region** you are currenlty creating the stack on to create all resources. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
   ![The create stack page](./images/configure-variables.png "")
 
