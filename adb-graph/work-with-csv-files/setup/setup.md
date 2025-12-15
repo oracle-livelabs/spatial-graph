@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will create a stack that will run a terraform script to generate an Autonomous Database, create a graph user, and upload the dataset that will be used.
+In this lab you will create a stack that will run a terraform script to generate an Oracle Autonomous AI Database, create a graph user, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
@@ -13,7 +13,7 @@ Watch the video below for a quick walk-through of the lab.
 
 Learn how to
 
-- Run the stack to create an Autonomous Database, graph user, and upload dataset
+- Run the stack to create an Oracle Autonomous AI Database, graph user, and upload dataset
 - Login to Graph Studio
 
 ## Task 1: Create OCI compartment
@@ -22,7 +22,7 @@ Learn how to
 
 ## Task 2: Run stack
 
-The instructions below will show you how to run a stack that will automatically create an Autonomous Database containing a graph user and the dataset needed for the property graph queries.
+The instructions below will show you how to run a stack that will automatically create an Oracle Autonomous AI Database containing a graph user and the dataset needed for the property graph queries.
 
 1. Login to the Oracle Cloud.
 
@@ -37,7 +37,7 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous Database and the Database Type. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Oracle Autonomous AI Database and the Database Type. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
     ![Configuring the settings for the stack](./images/configure-variables.png "")
 
@@ -80,4 +80,4 @@ This concludes this lab. **You may now proceed to the next lab.**
 
 - **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
 - **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Manager, December 2025

@@ -17,26 +17,26 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database - Serverless.
+- The following lab requires an Oracle Autonomous AI Database - Serverless.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
-## Task 1: Access the Autonomous Database
+## Task 1: Access the Autonomous AI Database
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu-v2.png " ")
+    ![Navigating to Autonomous Database.](images/navigation-menu-v3.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
-    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database-v2.png " ")
+    ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database-v3.png " ")
 
 ## Task 2: Log into Graph Studio
 
-Graph Studio is a feature of Autonomous Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. This user was already created for you.
+Graph Studio is a feature of Oracle Autonomous AI Database. It is available as an option on the Database Actions Launchpad. You need a graph-enabled user to log into Graph Studio. This user was already created for you.
 
-1. In your **Autonomous Database Details page** page, click the **Database Actions** button, and then select **View all database actions**.
+1. In your **Autonomous AI Database Details page** page, click the **Database Actions** button, and then select **View all database actions**.
 
-    ![Click the Database Actions button](images/click-database-actions-v2.png " ")
+    ![Click the Database Actions button](images/click-database-actions-v3.png " ")
 
 2. On the Database Actions panel, click **Graph Studio**.
 
@@ -44,7 +44,7 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 3. Log in to Graph Studio. Use the credentials for the database user **GRAPHUSER** displayed in **View Login info**.
 
-    ![Use the credentials for database user GRAPHUSER](images/graph-login.png " ")
+    ![Use the credentials for database user GRAPHUSER](images/graph-login-v2.png " ")
 
     Graph Studio consists of a set of pages accessed from the menu on the left.
 
@@ -92,11 +92,12 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 6. Now let's change the default vertex and edge labels.
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click the checkmark to confirm label and save the update.
+    Click the pencil next to `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click **Update Vertex** to save the update.  
+
 
     ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")
 
-    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click the checkmark to confirm label and save the update.
+    Click the pencil next to `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click **Update Edge** to save the update. 
 
     ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")
 
@@ -168,4 +169,4 @@ Graph Studio is a feature of Autonomous Database. It is available as an option o
 
 - **Author** - Jayant Sharma, Product Management
 - **Contributors** -  Ramu Murakami Gutierrez, Product Management
-- **Last Updated By/Date** - Denise Myrick, Product Manager, June 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Manager, December 2025

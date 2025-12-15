@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab walks you through the steps to get started using Oracle APEX on Oracle Autonomous Database (Autonomous Transaction Processing [ATP]). In this lab, you provision a new ATP instance and create an APEX workspace.
+This lab walks you through the steps to get started using Oracle APEX on Oracle Autonomous AI Database. In this lab, you provision a new Oracle Autonomous AI Transaction Processing instance and create an APEX workspace.
 
 Estimated Time: 10 minutes
 
@@ -10,28 +10,28 @@ Objectives
 
 In this lab, you will:
 
-- Navigate to the Oracle Autonomous Transaction Processing cloud service using the Oracle Cloud Infrastructure console.
-- Provision a new Autonomous Transaction Processing database.
+- Navigate to the Oracle AI Database and then to Autonomous AI Database using the Oracle Cloud Infrastructure console.
+- Create Autonomous AI Database and select Transaction Processing.
 - Create an APEX workspace.
 
 Watch the video below for a quick walk-through of the lab.
 [Create an App from a Spreadsheet](videohub:1_rcmsmco3)
 
-## Task 1: Create the Autonomous Database
+## Task 1: Create the Autonomous AI Database
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
+1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
-    ![Navigating to Autonomous Database.](images/navigation-menu-v3.png " ")
+    ![Navigating to Autonomous AI Database.](images/navigation-menu-v4.png " ")
 
-2. Click **Create Autonomous Database**.
+2. Click **Create Autonomous AI Database**.
 
     ![Create ADB](images/create-db.png " ")
 
-3. Input a Display name and Database name. Change Workload type to Transaction Processing and change database version to 23ai. Input your ADMIN password. For all other options, keep the default. Click Create.
+3. Input a Display name and Database name. Change Workload type to Transaction Processing and change database version to 26ai. Input your ADMIN password. For all other options, keep the default. Click Create.
 
     ![Create ADB form](images/create-db1.png " ")
 
-4. You will be redirected to the Autonomous Database details page. Note the status indicator will say PROVISIONING and the icon will be brown. Wait for the indicator to say AVAILABLE and the for the icon to turn green.
+4. You will be redirected to the Autonomous AI Database details page. Note the status indicator will say PROVISIONING and the icon will be orange. Wait for the indicator to say AVAILABLE and the for the icon to turn green.
 
   ![Provisioning status](images/db-creation-status.png " ")
   ![Available status](images/db-creation-status-green.png " ")
@@ -40,13 +40,13 @@ Watch the video below for a quick walk-through of the lab.
 
 1. Within your new database, APEX is not yet configured. Therefore, when you first access APEX, you will need to log in as an APEX Instance Administrator to create a workspace.
 
-    Click the **APEX instance URL** provided on the ATP overview screen.
+    Click the **APEX instance URL** matching your database name provided under the Autonomous AI Database information tab.
 
-    ![Open APEX instance](images/apex-instance-v2.png " ")
+    ![Open APEX instance](images/apex-instance-v3.png " ")
 
 2. Now, click **Launch APEX**
 
-    ![Launch APEX instance](images/launch-apex-inst-v2.png " ")
+    ![Launch APEX instance](images/launch-apex-inst-v3.png " ")
 
 3. Enter the password for the Administration Services and click **Sign In to Administration**.
     The password is the same as the one for the ADMIN user. You can find this password in the **View Login Info** tab.
@@ -91,4 +91,4 @@ Watch the video below for a quick walk-through of the lab.
 ## Acknowledgements
 
 - **Author** - Apoorva Srinivas, Senior Product Manager, Ramu Murakami Gutierrez, Product Manager
-- **Last Updated By/Date** - Renée Wikestad, Product Manager, June 2025
+- **Last Updated By/Date** - Renée Wikestad, Product Manager, December 2025

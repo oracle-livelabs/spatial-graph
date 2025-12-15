@@ -154,7 +154,7 @@ We will first create a graph of customers, movies they have watched, and movies 
 
 ## Task 3: Create and query a Property Graph using PGQL
 
-This is great, but sometimes a visualization helps us identify relationships more quickly. We will visualize the results of this graph query by creating a PGQL Property Graph. (SQL Property Graph visualization coming soon!)
+This is great, but sometimes a visualization helps us identify relationships more quickly. We will visualize the results of this graph query by creating a PGQL Property Graph.
 
 1. Run the following PGQL statement to create the same property graph query using PGQL.
 

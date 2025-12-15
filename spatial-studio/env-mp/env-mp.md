@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Autonomous Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits.
+In this lab, you deploy Spatial Studio from the Cloud Marketplace. The Cloud Marketplace takes care of installing and configuring Spatial Studio and an Oracle Autonomous AI Database. For this workshop we will be using an Always Free account but you can use a paid account or an account with credits.
 
 Estimated Time: 15 minutes
 
@@ -12,7 +12,7 @@ Watch the video below for a quick walk-through of the lab.
 
 ### Objectives
 
-In this lab, you will:
+In this lab, you will: 
 
 * Deploy Spatial Studio from the Oracle Cloud Marketplace.
 
@@ -29,17 +29,19 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    ![Check limits and quotas](images/quota-01-v2.png)
 
-2. The Scope menu lists availability domains. Select one availability domain, type **micro** in the Resource menu, and select **Cores for Standard.E2.1.Micro VM Instances**.
+2.  Select **Edit filters**.
 
-   ![Select compute shape](images/quota-02.png)
+   ![Select edit filters](images/quota-02a.png)
 
-3. The result listing shows the service limit (quota), usage, and availability of the selected shape in the selected availability domain. In the example below, there is no availability for the selected availability domain.
+3. 
+For Service select **Compute** , and type in the Search field **micro VM**.
+The Decription listing shows the service limit (quota), usage, and availability of the **Cores for Standard.E2.1.Micro VM Instances** in the selected availability domain. In the example below, there is no availability for the selected availability domain.
 
-   ![Check availability for selected compute shape](images/quota-03.png)
+   ![Check availability for selected compute shape](images/quota-03a.png)
 
-4. If the selected availability domain does not have quota, change to a new availability domain (if there exist more than one) and again enter **micro** in the Resource menu and select **Cores for Standard.E2.1.Micro VM Instances**. In this case, the availability domain has quota.
+4. If the selected availability domain does not have quota, change to a new availability domain (if there exist more than one) and again enter **micro VM** in the Search field and select **Cores for Standard.E2.1.Micro VM Instances**. In this case, the availability domain has quota.
 
-   ![Check availability for alternative compute shape](images/quota-04.png)
+   ![Check availability for alternative compute shape](images/quota-04a.png)
 
  Note the availability domain having quota for your target compute shape, as you will need to select it when installing Spatial Studio from the Cloud Marketplace.
 
@@ -53,29 +55,33 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    >**Note:**  Make sure you select "Oracle Spatial Studio" and not "Oracle Spatial Studio for Roving Edge Infrastructure" or "Oracle Spatial Studio for Oracle Compute Cloud@Customer".
 
-   ![Search for application Oracle Spatial Studio](images/mp-02-v2.png)
+   ![Search for application Oracle Spatial Studio](images/mp-02-v3.png)
 
-3. If you have an existing preferred compartment, then select it, otherwise leave the default (root). Accept the terms and conditions, and click **Launch Stack**
+3.  Click **Launch Stack**
 
-   ![Launch stack for Oracle Spatial Studio](images/mp-04.png)
+   ![Launch stack for Oracle Spatial Studio](images/mp-03.png)
 
-4. Accept defaults and click **Next**.
+4. If you have an existing preferred compartment, then select it, otherwise leave the default. Accept the terms and conditions, and click **Launch Stack**
+
+   ![Launch stack with Compartment and Version ](images/mp-04b.png)
+
+5. Accept defaults and click **Next**.
 
    ![Define parameters for the deployment of Oracle Spatial Studio](images/mp-05-v2.png)
 
-5. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**. If you have available cloud credits or a paid account, you may select a paid shape instead.
+6. Select the availability domain having quota, as you identified in Task 1.  Select the Always Free shape **VM.Standard.E2.1.Micro**. If you have available cloud credits or a paid account, you may select a paid shape instead.
 
    ![More parameters for the deployment](images/mp-06-v2.png)
 
    Then scroll down.
 
-6. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name. This user name will be case sensitive.
+7. By default, Spatial Studio allows only HTTPS access, which requires additional configuration for secure access. To enable both HTTPS and HTTP you may uncheck this box. However read the important note under the checkbox before unchecking it. Enter a Spatial Studio Admin User Name. This user name will be case sensitive.
 
    ![Spatial Studio Advanced Configuration](images/mp-07-v2.png)
 
    Then scroll down.
 
-7. Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
+8. Enter a password for the Spatial Studio admin user. This is the password you will use when you log in to Spatial Studio.
 
    ![Password for Spatial Studio Admin user](images/mp-07a-v2.png)
 
@@ -83,35 +89,35 @@ Before starting the Spatial Studio deployment, it is necessary to identify the a
 
    Then scroll down.
 
-8. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
+9. Under Configure Networking, you can create choose to create a new VCN or use an existing VCN. Leave the defaults to have a network created for you, or select **Use Existing VCN** and pick a previously created VCN. Then scroll down.
 
-9. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
+10. SSH keys enable access to the Spatial Studio server for administration such as restarting the instance and checking log files. Only uncheck this option if your Spatial Studio instance is for temporary use and will not require administration.
 
    ![Add SSH key for the compute instance used by Oracle Spatial Studio](images/mp-09-v2.png)
 
    Then scroll down.
 
-10. Spatial Studio requires access to an Oracle Database. You have the options to:
+11. Spatial Studio requires access to an Oracle AI Database. You have the options to:
 
-    * **Create New Autonomous Database**: It will create an Autonomous Database and will automatically do the Spatial Studio metadata user configuration.
-    * **Use Existing Autonomous Database**: It will allow you to pick an Autonomous Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.
-    * **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation](<https://docs.oracle.com/en/database/oracle/spatial-studio/24.2/spstu/setting-spatial-studio-metadata-schema.html>).
+    * **Create New Oracle Autonomous AI Database**: It will create an Oracle Autonomous AI Database and will automatically do the Spatial Studio metadata user configuration.
+    * **Use Existing Oracle Autonomous AI Database**: It will allow you to pick an Oracle Autonomous AI Database that is already created and will automatically do the Spatial Studio metadata user configuration. You need the current admin credentials for this option.
+    * **Configure Later**: This will not do the Spatial Studio metadata user configuration. You will need to perform the Spatial Studio metadata user configuration and connection when you first log into Spatial Studio. See the [documentation](<https://docs.oracle.com/en/database/oracle/spatial-studio/25.1/spstu/setting-spatial-studio-metadata-schema.html>).
 
-    If you are selecting **Create New Autonomous Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Autonomous Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
+    If you are selecting **Create New Oracle Autonomous AI Database** and wish to use Always Free resources, check the box for **Always Free** and accept the other defaults to have an Oracle Autonomous AI Database created and configured for you. If you have available cloud credits or a paid account, you may uncheck this box and select a paid configuration instead.
 
     ![Configure Database to be used as repository by Oracle Spatial Studio](images/mp-11.png)
 
     Then scroll down.
 
-11. For Autonomous database service level, select **low**. Then enter a password for the database user that stores     Spatial Studio's metadata. This will be used in the automatic configuration of metadata for your Spatial Studio instance. You will not need to use this password again in this workshop. Then click **Next**.
+12. For Autonomous database service level, select **low**. Then enter a password for the database user that stores Spatial Studio's metadata. This will be used in the automatic configuration of metadata for your Spatial Studio instance. You will not need to use this password again in this workshop. Then click **Next**.
 
     ![Deploy Spatial Studio](images/mp-12-v2.png)
 
-12. You are now on the Review step of the wizard. Scroll to the bottom and make sure **Run apply** is checked. Then click **Create**.
+13. You are now on the Review step of the wizard. Scroll to the bottom and make sure **Run apply** is checked. Then click **Create**.
 
     ![Deploy Spatial Studio](images/mp-13-v2.png)
 
-13. Wait approximately 5 min for the status to change from IN PROCESS to SUCCEEDED.
+14. Wait approximately 5 min for the status to change from IN PROCESS to SUCCEEDED.
 
     ![Deploy Spatial Studio](images/mp-14-v2.png)
 
@@ -145,4 +151,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Jesus Vizcarra, Ramu Murakami Gutierrez, Karin Patenge, Product Management, Oracle
-* **Last Updated By/Date** - Renée Wikestad, Database Product Management, June 2025
+* **Last Updated By/Date** - Renée Wikestad, Database Product Management, December 2025

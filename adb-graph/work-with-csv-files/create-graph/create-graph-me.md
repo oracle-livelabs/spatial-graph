@@ -21,7 +21,7 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Database - Shared Infrastructure account.
+- The following lab requires an Oracle Autonomous AI Database - Shared Infrastructure account.
 - And that the Graph-enabled user (`GRAPHUSER`) exists. That is, a database user with the correct roles and privileges exists.
 
 ## Task 1: Create a graph of accounts and transactions
@@ -55,11 +55,11 @@ Learn how to
 
 6. Now let's change the default Vertex and Edge labels.  
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click the checkmark to confirm label and save the update.  
+    Click the pencil next to `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click **Update Vertex** to save the update.  
 
     ![Changed the label name of the vertex to Accounts](images/edit-accounts-vertex-label.png " ")  
 
-    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click the checkmark to confirm label and save the update. 
+    Click the pencil next to `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**. Then click **Update Edge** to save the update.  
 
     ![Changed the label name of the edge to Transfers](images/edit-edge-label.png " ")  
 
@@ -131,4 +131,4 @@ Learn how to
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, June 2023
+* **Last Updated By/Date** - Renée Wikestad, Product Manager, December 2025

@@ -109,7 +109,7 @@ You next create the actions that are invoked when state and/or distance values a
 
     ![Configure WHERE clause](images/add-spatial-analysis-14-v2.png)
 
-7. Finally you update the Airports layer to return items filtered by the user-specified state and proximity. In the Page tree on the left, click on the Airports layer. In the Layer properties on the right, under Source, change Type to **SQL Query**. For SQL Query enter the following which uses Oracle Database's native SQL "within distance" operator.
+7. Finally you update the Airports layer to return items filtered by the user-specified state and proximity. In the Page tree on the left, click on the Airports layer. In the Layer properties on the right, under Source, change Type to **SQL Query**. For SQL Query enter the following which uses Oracle AI Database's native SQL "within distance" operator.
 
     ```sql
     <copy>
@@ -152,4 +152,4 @@ You next create the actions that are invoked when state and/or distance values a
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date**  - Renée Wikestad, Database Product Management, June 2025
+* **Last Updated By/Date**  - Renée Wikestad, Database Product Management, December 2025
