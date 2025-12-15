@@ -25,13 +25,13 @@ Learn how to
 
 - The following lab requires access to an OCI account.
 
-## Task 1: Access the Autonomous Database and open a SQL worksheet
+## Task 1: Access the Autonomous AI Database and open a SQL worksheet
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Database**.
 
     ![Navigating to Autonomous Database.](images/navigation-menu.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous Database**.
+2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonomous-database.png " ")
 

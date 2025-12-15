@@ -35,7 +35,7 @@ Learn how to
 
     ![Selecting Autonomous Database in the Navigation Menu.](images/select-autonmous-database-v4.png " ")
 
-3. In your Autonomous Database details page, click the **Database Actions** dropdown and then choose View all database actions.
+3. In your Autonomous AI Database details page, click the **Database Actions** dropdown and then choose View all database actions.
 
     ![Click Database Actions button.](./images/database-action-sql-v4.png " ")
 
