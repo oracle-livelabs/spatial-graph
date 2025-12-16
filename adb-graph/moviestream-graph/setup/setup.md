@@ -9,17 +9,19 @@
 
 ## Introduction
 
-In this lab you will create a stack that will run a terraform script to generate an Autonomous AI Database, create a Graph User, and upload the dataset that will be used.
+In this lab you will create a stack that will run a terraform script to generate an Autonomous AI Database, create a graph user, and upload the dataset that will be used.
 
 Estimated Time: 5 minutes.
 
 ### Objectives
 
 Learn how to
-- Run the stack to create an Autonomous AI Database, Graph user, and upload dataset
+
+- Run the stack to create an Autonomous AI Database, graph user, and upload dataset
 - Login to Graph Studio
 
 ## Task 1: Create OCI compartment
+
 [](include:iam-compartment-create-body.md)
 
 ## Task 2: Run Stack
@@ -28,7 +30,8 @@ The instructions below will show you how to run a stack that will automatically 
 
 1. Login to the Oracle Cloud.
 
-2.  Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/KJbOHpQEuv8Qf_Hjz4p0_bpFeVcSUf92T5nBTqP1LTHzOL-hgTwnPDwD06lgHNtC/n/oradbclouducm/b/moviestream_livelab/o/MovieStream_base_brownbutton.zip) to create and run the Stack.
+2. Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/KJbOHpQEuv8Qf_Hjz4p0_bpFeVcSUf92T5nBTqP1LTHzOL-hgTwnPDwD06lgHNtC/n/oradbclouducm/b/moviestream_livelab/o/MovieStream_base_brownbutton.zip) to create and run the Stack.
+
   > Note: the link will open in a new tab or window.
 
 3. You will be directed to this page:
@@ -39,7 +42,7 @@ The instructions below will show you how to run a stack that will automatically 
 
   ![Option to have reviewed and accept the Oracle Terms of Use checked](./images/oracle-terms.png "")
 
-5. Select the **compartment** to create the Autonomous AI Database and the **region** you are currenlty creating the stack on to create all resources. Click **Next**. After that you will be taken to the Review page, click **Create**.
+5. Select the **compartment** to create the Autonomous AI Database and the **region** you are currently creating the stack on to create all resources. Click **Next**. After that you will be taken to the Review page, click **Create**.
 
   ![The create stack page](./images/configure-variables.png "")
 
@@ -47,8 +50,8 @@ The instructions below will show you how to run a stack that will automatically 
 
     ![Job has been successful](./images/successful-job.png "")
 
-
 ## Acknowledgements
-  * **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-  * **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, February 2023
+
+- **Author** - Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Contributors** -  Rahul Tasker, Jayant Sharma, Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Manager, December 2025
