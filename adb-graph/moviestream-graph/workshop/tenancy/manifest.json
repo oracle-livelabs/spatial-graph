@@ -4,7 +4,7 @@
     "include": {
      "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md",
      "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
-     "adb-create-graph.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-graph.md"
+     "adb-create-graph-pgql.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-graph-pgql.md"
     },
     "variables": ["./variables.json"],
     "tutorials": [
@@ -33,7 +33,7 @@
         },
         {
             "title": "Lab 4: Clean-up",
-            "description": "Destroyed environement created in setup ",
+            "description": "Destroyed environment created in setup ",
             "filename": "../../destroy-environment/destroy-environment.md"
         },
         {

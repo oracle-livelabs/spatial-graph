@@ -9,16 +9,17 @@
 
 ## Introduction
 
-In this lab you will query the newly create graph (that is, `moviestream_recommendations`) in PGQL paragraphs of a notebook.
+In this lab you will query the newly create graph (`moviestream_recommendations`) in PGQL paragraphs of a notebook.
 
 Estimated Time: 30 minutes.
 
 ### Objectives
 
 Learn how to
-- Import a notebook
-- Create a notebook and add paragraphs
-- use Graph Studio notebooks and PGQL and Python paragraphs to query, analyze, and visualize a graph.
+
+- import a notebook
+- create a notebook and add paragraphs
+- use Graph Studio notebooks with PGQL and Python paragraphs to query, analyze, and visualize a graph.
 
 ### Prerequisites
 
@@ -26,19 +27,19 @@ Learn how to
 
 ## Task 1: Import the notebook
 
- You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
+ You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.
 
-  [Click here to download the notebook](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/Movie%20Recommendations%20-%20Personalized%20SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](https://objectstorage.us-ashburn-1.oraclecloud.com/p/J5_h138Zml1dqZ-ovzQKiSRQocWiEtrGTvTclj_FmCaRYtLa3L_m8rLYyC_a3w1M/n/oradbclouducm/b/recommend_movies/o/Movie%20Recommendations%20-%20Personalized%20SALSA.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
     ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
     
-     Select or drag and drop the noteboook and click **Import**.
+     Select or drag and drop the notebook and click **Import**.
 
     ![Select the notebook to import and click on Import.](images/task3step2.png " ")
 
-    A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usuallly in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
+    A dialog pops up named **Environment Attaching**. It will disappear when the compute environment finishes attaching, usually in less than one minute. Or you can click **Dismiss** to close the dialog and start working on your environment. Note that you will not be able to run any paragraph until the environment finishes attaching.
 
     You can execute the paragraphs in sequence and experiment with visualizations settings as described in **Task 3** below.
 <!---
@@ -67,13 +68,13 @@ Learn how to
 
     ![Hovering over paragraph.](./images/paragraph-hover.png)
 
-    There are 7 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
+    There are 9 different interpreters. Each option creates a paragraph with a sample syntax that can be customized.
 
     ![Shows the different paragraphs and samples.](./images/paragraphs.png)
 
     In this lab, we will select the ![plus logo.](./images/plus-circle.svg "") **Add Paragraph** interpreter.
 
-## Task 3: Load and query the "Moviestream" and visualize the results
+## Task 3: Load and query the "MOVIESTREAM graph" and visualize the results
 
 >**Note:** *Execute the relevant paragraph after reading the description in each of the steps below*.
 If the compute environment is not ready and the code cannot be executed then you will see a blue line moving across the bottom of the paragraph to indicate that a background task is in progress.  
@@ -84,7 +85,7 @@ If the compute environment is not ready and the code cannot be executed then you
 
     Run the first **%python-pgx** paragraph which uses the built-in session object to read the graph into memory from the database and creates a PgXGraph object which is a handle to the loaded graph.
 
-    The code snippet in that paragraph is:  
+    The code snippet in that paragraph is:
 
      ```
      <copy>%python-pgx
@@ -93,17 +94,17 @@ If the compute environment is not ready and the code cannot be executed then you
      # try getting the graph from the in-memory graph server
      graph = session.get_graph(GRAPH_NAME)
      # if it does not exist read it into memory
-     if (graph == None): 
+     if (graph == None):
          session.read_graph_by_name(GRAPH_NAME, "pg_view")
          print("Graph "+ GRAPH_NAME + " successfully loaded")
          graph = session.get_graph(GRAPH_NAME)
-     else: 
+     else:
          print("Graph '"+ GRAPH_NAME + "' already loaded")</copy>
      ```
 
-    ![Uploading graph in memory if it's not loaded yet.](images/pythonquery1.png " ")  
+    ![Uploading graph in memory if it's not loaded yet.](images/pythonquery1.png " ")
 
-2. Next, execute the paragraph which queries and displays 100 movies connected to a specific customer.    
+2. Next, execute the paragraph which queries and displays 100 movies connected to a specific customer.
 
      ```
      <copy>%pgql-pgx
@@ -124,9 +125,9 @@ If the compute environment is not ready and the code cannot be executed then you
      <copy>%pgql-pgx
 
      /* Number of movies Emilio has watched */
-     SELECT COUNT(distinct m.title) AS Num_Watched 
-     FROM MATCH (c) -[e]-> (m) 
-     ON MOVIE_RECOMMENDATIONS 
+     SELECT COUNT(distinct m.title) AS Num_Watched
+     FROM MATCH (c) -[e]-> (m)
+     ON MOVIE_RECOMMENDATIONS
      WHERE c.cust_id = 1010303</copy>
      ```
 
@@ -134,7 +135,7 @@ If the compute environment is not ready and the code cannot be executed then you
 
     ![number of movies Emilio has watched.](images/number-of-movies-emilio-wacthed.png " ")
 
-4. Let's get some details on the movies Emilio has watched ordered by number of times he has watched the movies  
+4. Let's get some details on the movies Emilio has watched ordered by number of times he has watched the movies
 
     Run the paragraph with the following query.
 
@@ -150,61 +151,47 @@ If the compute environment is not ready and the code cannot be executed then you
      LIMIT 100</copy>
      ```
 
-    ![some details about Emilio in a table view.](images/emilio-details.png " ") 
+    ![some details about Emilio in a table view.](images/emilio-details.png " ")
 
-5. It would be interesting to see the movies that Emilio and Floyd have both watched. 
+5. It would be interesting to see the movies that Emilio and Floyd have both watched.
 
-    Run the paragraph with the following query. 
+    Run the paragraph with the following query.
 
      ```
      <copy>%pgql-pgx
 
      /* Find movies that both customers are connecting to */
      SELECT c1, e1, m.title, e2, c2
-     FROM MATCH (c1)-[e1]->(m)<-[e2]-(c2) 
+     FROM MATCH (c1)-[e1]->(m)<-[e2]-(c2)
      ON MOVIE_RECOMMENDATIONS
      WHERE c1.FIRST_NAME = 'Floyd' AND c1.LAST_NAME = 'Bryant' AND
      c2.FIRST_NAME = 'Emilio' AND c2.LAST_NAME = 'Welch'
      LIMIT 100</copy>
      ```
 
-    ![movies Emilio and Floyed have watched.](images/emilio-and-floyed-watched.png " ") 
+    ![movies Emilio and Floyd have watched.](images/emilio-and-floyed-watched.png " ")
 
 6. Let's get some details about Emilio by executing the next paragraph.
- 
+
      ```
      <copy>%pgql-pgx
 
      /* Get some details about Emilio */
-     SELECT  v.first_name, 
+     SELECT  v.first_name,
          v.last_name,
          v.income_level,
          v.gender,
          v.city
-     FROM MATCH(v) ON MOVIE_RECOMMENDATIONS 
+     FROM MATCH(v) ON MOVIE_RECOMMENDATIONS
      WHERE v.cust_id = 1010303</copy>
      ```
 
-    ![Emilios properties.](images/emilios-properties.png " ") 
+    ![Emilio's properties.](images/emilios-properties.png " ")
 
-7.  Now let's use python with graph algorithms to recommend movies.
-    Let's list the graphs in memory before running some algorithms.
-
-    Execute the following query.
-
-     ```
-     <copy>%python-pgx
-
-     # List the graphs that are in memory
-     session.get_graphs()</copy>
-     ```
-
-    ![checking if the graph is in memory.](images/graph-in-memory-check.png " ")
-
-8. We need to first create a bipartite graph so that we can run algorithms such as Personalized SALSA which take a bipartite graph as input.  
+7. We need to first create a bipartite graph so that we can run algorithms such as Personalized SALSA which take a bipartite graph as input.
 
     >**Note:** A bipartite graph is a graph whose vertices can be partitioned into two sets such that all edges connect a vertex in one set to a vertex in the other set.
-    
+
     Execute the following query.
 
      ```
@@ -219,7 +206,7 @@ If the compute environment is not ready and the code cannot be executed then you
 
     ![create a bipartite graph BIP_GRAPH from MOVIE_RECOMMENDATIONS so that we can run algorithms, such as Personalized SALSA, which take a bipartite graph as input.](images/create-bipartite-graph.png " ")  
 
-9. Let's apply the Personlized SALSA algorithm to recommend movies to Emilio
+8. Let's apply the Personalized SALSA algorithm to recommend movies to Emilio
 
     Execute the paragraph containing the following code snippet.
  
@@ -238,15 +225,15 @@ If the compute environment is not ready and the code cannot be executed then you
      analyst.personalized_salsa(bgraph, cust)</copy>
      ```
 
-    ![applying personalized salsa to recommen movies to emilio.](images/emilio-movie-recommendation.png " ")  
+    ![applying personalized salsa to recommend movies to emilio.](images/emilio-movie-recommendation.png " ")  
 
-10. The following query will display the movies that have the highest personlized salsa scores and have not been previously watched by Emilio.
+9. The following query will display the movies that have the highest personalized salsa scores and have not been previously watched by Emilio.
 
      ```
      <copy>%pgql-pgx
 
      /* Select the movies that have the highest personalized salsa scores
-     and were not previously watched by Emilio */  
+     and were not previously watched by Emilio */
      SELECT m.title, m.personalized_salsa
      FROM MATCH (m) ON BIP_GRAPH
      WHERE LABEL(m) = 'MOVIE'
@@ -295,7 +282,7 @@ If the compute environment is not ready and the code cannot be executed then you
     ![saving the movie recommendations in the database.](images/save-recommendations-database.png " ")  
 --->
 
-11. By running this query we are listing the top 20 customers with similar viewing habits to Emilio based on the highest personalized salsa score.
+10. By running this query we are listing the top 20 customers with similar viewing habits to Emilio based on the highest personalized salsa score.
 
      ```
      <copy>%pgql-pgx
@@ -310,9 +297,9 @@ If the compute environment is not ready and the code cannot be executed then you
 
     Change the view to table.
 
-    ![lists top 20 customers similar to Emilio.](images/20-customers.png " ") 
+    ![lists top 20 customers similar to Emilio.](images/20-customers.png " ")
 
-12. Let's take a look at the movies Emilio has watched most often. 
+11. Let's take a look at the movies Emilio has watched most often.
 
     Execute the paragraph containing the following code snippet.
  
@@ -327,9 +314,9 @@ If the compute environment is not ready and the code cannot be executed then you
      ORDER BY NumTimesWatched DESC</copy>
      ```
 
-    ![most watched movies by Emilio.](images/most-watched-movie.png " ") 
+    ![most watched movies by Emilio.](images/most-watched-movie.png " ")
 
-13. Timmy had the highest personalized salsa score based on similar viewing habits to Emilio, so let's look at the movies Timmy has watched more often. 
+12. Timmy had the highest personalized salsa score based on similar viewing habits to Emilio, so let's look at the movies Timmy has watched more often. 
 
      ```
      <copy>%pgql-pgx
@@ -342,14 +329,14 @@ If the compute environment is not ready and the code cannot be executed then you
      ORDER BY NumTimesWatched DESC </copy>
      ```
 
-    ![most watched movies by Timmy.](images/timmys-most-watched.png " ") 
+    ![most watched movies by Timmy.](images/timmys-most-watched.png " ")
 
-14. Lastly, let's find the movies with the highest personalized salsa score Emilio hasn't watched. We can recommend movies that Timmy has watched that Emilio hasn't. 
+13. Lastly, let's find the movies with the highest personalized salsa score Emilio hasn't watched. We can recommend movies that Timmy has watched that Emilio hasn't.
 
      ```
      <copy>%pgql-pgx
 
-     /* Select the movies that Timmy has watched but Emilio has not, ranked by their psalsa score. */
+     /* Select the movies that Timmy has watched but Emilio has not, ranked by their salsa score. */
      SELECT m.title, m.personalized_salsa
      FROM MATCH (m) ON BIP_GRAPH
      WHERE LABEL(m) = 'MOVIE'
@@ -367,11 +354,12 @@ If the compute environment is not ready and the code cannot be executed then you
      LIMIT 20</copy>
      ```
 
-    ![most watched movies by Timmy.](images/not-watched-by-emilio.png " ") 
+    ![most watched movies by Timmy.](images/not-watched-by-emilio.png " ")
 
     This concludes this lab.
 
 ## Acknowledgements
-* **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
-* **Contributors** -  Jayant Sharma
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Manager, Oracle Spatial and Graph, January 2024
+
+- **Author** - Melli Annamalai, Product Manager, Oracle Spatial and Graph
+- **Contributors** -  Jayant Sharma, Ramu Murakami Gutierrez
+- **Last Updated By/Date** - Denise Myrick, Product Manager, Oracle Spatial and Graph, December 2025

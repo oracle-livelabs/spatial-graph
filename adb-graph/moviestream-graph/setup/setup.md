@@ -30,7 +30,7 @@ The instructions below will show you how to run a stack that will automatically 
 
 1. Login to the Oracle Cloud.
 
-2. Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/KJbOHpQEuv8Qf_Hjz4p0_bpFeVcSUf92T5nBTqP1LTHzOL-hgTwnPDwD06lgHNtC/n/oradbclouducm/b/moviestream_livelab/o/MovieStream_base_brownbutton.zip) to create and run the Stack.
+2. Once logged in, use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/35oekyIFM-7s0Y5EoiBNStU3qU3LD3fJnTf0wxDl4d_eZUeGug_VEwlkbZSgkeCq/n/oradbclouducm/b/recommend_movies/o/terraform_ww_26ai_brown_button.zip) to create and run the Stack.
 
   > Note: the link will open in a new tab or window.
 

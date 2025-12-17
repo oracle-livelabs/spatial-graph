@@ -40,7 +40,7 @@ Learn how to
 
 ## Task 3: Create a Movie Recommendations graph
 
-[](include:adb-create-graph.md)
+[](include:adb-create-graph-pgql.md)
 
 ## Acknowledgements
 
