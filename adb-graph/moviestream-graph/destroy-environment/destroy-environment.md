@@ -12,6 +12,7 @@ Watch the video below for a quick walk-through of the lab.
 ### Objectives
 
 Learn how to
+
 - Destroy the job created by the stack
 - Delete the Stack
 
@@ -44,6 +45,7 @@ Learn how to
     This concludes this lab. Thank you!
 
 ## Acknowledgements
-* **Author** - Ramu Murakami Gutierrez, Product Management
-* **Contributors** - Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, February 2023  
+
+- **Author** - Ramu Murakami Gutierrez, Product Management
+- **Contributors** - Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, Product Management, December 2025
