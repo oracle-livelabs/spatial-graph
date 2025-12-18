@@ -21,7 +21,7 @@
         },
         {
             "title": "Lab 1: Provision an ADB Instance",
-            "description": "Provisioning an Autonomous Database Instance",
+            "description": "Provisioning an Autonomous AI Database Instance",
             "type": "freetier",
             "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
@@ -35,7 +35,7 @@
             "filename": "../../create-graph-from-sh-tables/create-graph-from-sh-tables.md"
         },
         {
-            "title": "Lab 4: Analyze a Data Warehouse",
+            "title": "Lab 4: Analyze a Lakehouse",
             "filename": "../../run-graph-algorithms-on-data-warehouse/run-graph-algorithms-on-data-warehouse.md"
         },
         {

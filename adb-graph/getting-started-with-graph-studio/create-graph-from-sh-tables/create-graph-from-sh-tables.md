@@ -10,7 +10,7 @@
 ## Introduction
 
 In this lab you will explore Graph Studio and learn about how you can create graphs from existing relational data stored in your
-Autonomous Data Warehouse - Shared Infrastructure (ADW) or Autonomous Transaction Processing - Shared Infrastructure (ATP) instance.
+Lakehouse - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure (ATP) instance.
 
 Estimated Time: 30 minutes.
 
@@ -22,14 +22,14 @@ Estimated Time: 30 minutes.
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Data Warehouse - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
+- The following lab requires a Lakehouse or Autonomous Transaction Processing - Shared Infrastructure account.
 - It assumes you have completed the previous lab which explains how you can create a graph enabled user.
 
 ## Task 1: Create the Required Views
 
-1. From your Autonomous Database Details page in OCI, select Database Actions and click on **View all database actions**. 
+1. From your Autonomous AI Database Details page in OCI, select Database Actions and click on **View all database actions**.
 
-    ![Select Database Actions from the autonomous Database Details page](./images/click-database-actions-updated.png "Select Database Actions from the autonomous Database Details page")
+    ![Select Database Actions from the Autonomous AI Database Details page](./images/click-database-actions-updated.png "Select Database Actions from the autonomous Database Details page")
 
 2. By default you will be logged in as the Admin user. Sign out, and sign in again as the Graph User.
 
@@ -42,7 +42,7 @@ Estimated Time: 30 minutes.
 
 For the next 3 steps, copy the following scripts and press Run Script. Clear the worksheet between steps to ensure the scripts run properly.
 
-4. In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. Create Views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS from the SH tables, using only a subset of the columns from those tables.
+4. In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous AI Database instances. Create Views for CUSTOMERS, TIMES, CHANNELS, PRODUCTS, and PROMOTIONS from the SH tables, using only a subset of the columns from those tables.
 
     ```
     <copy>
@@ -131,7 +131,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     ![Graphs Page](./images/graph-page-v2.png "Graphs Page")
 
-    In this lab we use the views created from the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. You can, however, apply the steps of this lab to any relational data available in your database, regardless of where the data originated from. All the schemas and tables - including views - that you have access to will show up as possible input tables at the start of the modeling workflow.
+    In this lab we use the views created from the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous AI Database instances. You can, however, apply the steps of this lab to any relational data available in your database, regardless of where the data originated from. All the schemas and tables - including views - that you have access to will show up as possible input tables at the start of the modeling workflow.
 
 3. Enter `SH_PGVIEW_GRAPH` as the graph name, then click **Next**. The description field is optional.
     That graph name is used throughout the next lab.
@@ -167,7 +167,7 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
 
     However, the graph modeler allows you to customize how data is mapped and remove unnecessary tables and or columns not relevant for your analysis. Reducing the amount of data to be processed will reduce the amount of processing resources and storage required for graph analysis. We removed unnecessary columns when creating the views for this graph, so there is nothing to remove in this instance.
 
-2. Rename the vertex label to **CHANNELS** and make sure you click on **Update Vertex** to save the change. 
+2. Rename the vertex label to **CHANNELS** and make sure you click on **Update Vertex** to save the change.
 
     ![Rename the CHANNELS vertex label](./images/model-rename-vertex.png "Rename the CHANNELS vertex label ")
 
@@ -215,11 +215,11 @@ For the next 3 steps, copy the following scripts and press Run Script. Clear the
     You see a visual representation of our graph model so far. Each circle in the graph represents a vertex type (label). And edge relationship in the graph represents an edge type (label)
     in between the circles. You can rearrange the graph by clicking and dragging elements around. You can also right click on each element to see the list of properties it will contain. -->
 
-8. Click **Next** on the top right. In the Summary step, click on **Create Graph**. 
+8. Click **Next** on the top right. In the Summary step, click on **Create Graph**.
 
-    ![Click Create Graph to create the graphl](./images/create-graph-v2.png " ")  
+    ![Click Create Graph to create the graphl](./images/create-graph-v2.png " ")
 
-    This will open a Create Graph tab, click on **Create Graph**. 
+    This will open a Create Graph tab, click on **Create Graph**.
 
     ![Shows in-memory enabled and the create graph button](./images/create-graph-in-memory.png " ")
 
@@ -240,6 +240,7 @@ Congratulations! You successfully converted relational tables into a property gr
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Korbi Schmid, Product Development
-* **Contributors** -  Jayant Sharma, Rahul Tasker, Ramu Murakami Gutierrez, Product Management
-* **Last Updated By/Date** - Denise Myrick, June 2024
+
+- **Author** - Korbi Schmid, Product Development
+- **Contributors** -  Jayant Sharma, Rahul Tasker, Ramu Murakami Gutierrez, Product Management
+- **Last Updated By/Date** - Denise Myrick, December 2025

@@ -10,16 +10,17 @@
 ## Introduction
 
 In this lab you will explore Graph Studio and learn how you can create and analyze a graph from scratch very quickly using
-Autonomous Data Warehouse - Serverless (ADW) or Autonomous Transaction Processing - Serverless (ATP) instance.
+Lakehouse or Autonomous Transaction Processing - Serverless (ATP) instance.
 
-**Note: While this lab uses Autonomous Data Warehouse, the steps are identical for creating and connecting to an Autonomous Transaction Processing database.**
+**Note: While this lab uses Lakehouse, the steps are identical for creating and connecting to an Autonomous Transaction Processing database.**
 
 Estimated Time: 10 minutes.
 
 ### Objectives
 
 Learn how to
-- connect to your Autonomous Database using **Graph Studio**
+
+- connect to your Autonomous AI Database using **Graph Studio**
 - quickly create a very simply graph from scratch using PGQL
 - load graphs into memory for analysis
 - create a simple notebook
@@ -28,7 +29,7 @@ Learn how to
 
 ### Prerequisites
 
-- The following lab requires an Autonomous Data Warehouse - Serverless or Autonomous Transaction Processing - Serverless account.
+- The following lab requires a Lakehouse or Autonomous Transaction Processing - Serverless account.
 
 ## Task 1: Log into Graph Studio
 
@@ -36,7 +37,7 @@ Learn how to
 
 ## Task 2: Create a Simple Graph using PGQL
 
-1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They naviagte to the Home, Models, Graphs, Notebooks, Templates, and Jobs pages respectively.
+1. The following screenshot shows Graph Studio user interface with the menu, or navigation, icons on the left. They navigate to the Home, Models, Graphs, Notebooks, Templates, and Jobs pages respectively.
 
     ![Graph Studio home screen](./images/home-page.png "Graph Studio home screen ")
 
@@ -76,12 +77,11 @@ Learn how to
     </copy>
     ```
 
-
     This will create a very simple graph with 7 vertices and 8 edges. For more information about the syntax, please refer to the [PGQL specification](https://pgql-lang.org/spec/1.3/#inserting-vertices)
 
-    5. Click the **Run** button on the top left.
+5. Click the **Run** button on the top left.
 
-        ![Query playground create graph statement](./images/query-playground-create-graph-statement.png "Query playground create graph statement ")
+    ![Query playground create graph statement](./images/query-playground-create-graph-statement.png "Query playground create graph statement ")
 
 ## Task 3: Load the Graph into Memory
 
@@ -101,10 +101,9 @@ Learn how to
 
     ![Load graph into memory dialog](./images/my-first-graph-load-into-memory.png "Load graph into memory dialog ")
 
-5. You get redirected to the Jobs page. Wait for the job to complete.
+4. You get redirected to the Jobs page. Wait for the job to complete.
 
     ![Load first graph into memory](./images/jobs-first-graph-load-into-memory.png "Load first graph into memory ")
-
 
 ## Task 4: Create your First Notebook
 
@@ -135,7 +134,7 @@ This is my first paragraph
 
   The `%md` indicates that the paragraph input is Markdown code.
 
-1. Execute the paragraph:
+5. Execute the paragraph:
 
     ![Run the first paragraph in the Graph Studio notebook](./images/first-notebook-execute-md-para.png "Run the first paragraph in the Graph Studio notebook ")
 
@@ -147,11 +146,11 @@ This is my first paragraph
 
 ## Task 5: Analyze, Query and Visualize the Graph
 
-1. Add another paragraph to the notebook by hovering at the middle of the bottom of the paragrah and clicking the **+** button which appears.
+1. Add another paragraph to the notebook by hovering at the middle of the bottom of the paragraph and clicking the **+** button which appears.
 
    ![Select the plus button to add a paragraph](./images/first-notebook-add-para.png "Select the plus button to add a paragraph")
 
-3. Then enter the following code in the new paragraph.
+2. Then enter the following code in the new paragraph.
 
     ```
     <copy>
@@ -160,15 +159,13 @@ This is my first paragraph
     </copy>
     ```
 
-4. Execute that paragraph, you will see we successfully referenced our graph that we just created from scratch via the PGX Java APIs.
+3. Execute that paragraph, you will see we successfully referenced our graph that we just created from scratch via the PGX Java APIs.
 
     ![Execute get graph statement](./images/first-notebook-pgx-get-graph.png "Execute get graph statement ")
 
-
-**Note: Some users have encountered an issue when copying and pasting the `%md` and `%java-pgx` code above.** If you see an error message `"Invalid Parameter. No interpreter with the name 'java-pgx' is currently registered to the server."` then delete the text, or the paragraph, and manually enter the same text and re-execute the paragraph.   
-The following screenshot shows the error message some, but not all, have encountered.  
+**Note: Some users have encountered an issue when copying and pasting the `%md` and `%java-pgx` code above.** If you see an error message `"Invalid Parameter. No interpreter with the name 'java-pgx' is currently registered to the server."` then delete the text, or the paragraph, and manually enter the same text and re-execute the paragraph.
+The following screenshot shows the error message some, but not all, have encountered.
     ![No interpreter found error](./images/no-interpreter-found-error.png "No interpreter found error ")
-
 
 4. Modify the paragraph to run a graph algorithm. For example:
 
@@ -206,13 +203,13 @@ The following screenshot shows the error message some, but not all, have encount
 
     ![Open the settings modal](./images/first-notebook-pgql-settings.png "Open the settings modal ")
 
-10.  Navigate to the **Visualization** tab and select **NAME** as the label to render next to the vertices:
+10. Navigate to the **Visualization** tab and select **NAME** as the label to render next to the vertices:
 
-    ![Select vertex label for visualization](./images/first-notebook-pgql-viz-label.png "Select vertex label for visualization ")    
+    ![Select vertex label for visualization](./images/first-notebook-pgql-viz-label.png "Select vertex label for visualization ")
 
-    You now see the name next to each vertex, which will help you better understand the visualization. There are lots of other options to help you make sense of the graph. Feel free to play around with the settings as you like.
+You now see the name next to each vertex, which will help you better understand the visualization. There are lots of other options to help you make sense of the graph. Feel free to play around with the settings as you like.
 
-11.  Add another paragraph with the following query and execute it.
+11. Add another paragraph with the following query and execute it.
 
     ```
     <copy>
@@ -223,15 +220,16 @@ The following screenshot shows the error message some, but not all, have encount
 
     ![Visualize the next query](./images/first-notebook-population-query.png "Visualize the next query ")
 
-12.  Change the output to be a pie chart.
+12. Change the output to be a pie chart.
 
-    ![Change visualization to display as pie chart](./images/first-notebook-population-as-pie-chart.png "Change visualization to display as pie chart ")   
+    ![Change visualization to display as pie chart](./images/first-notebook-population-as-pie-chart.png "Change visualization to display as pie chart ")
 
-Congratulations! You successfully created, analyzed and visualized a graph from scratch using Graph Studio. Hopefully this little example gave you a feeling of how can use your Autonomous Database as a graph database.
+Congratulations! You successfully created, analyzed and visualized a graph from scratch using Graph Studio. Hopefully this little example gave you a feeling of how can use your Autonomous AI Database as a graph database.
 
 Please **proceed to the next lab** to see more complex examples of how to create and analyze graphs.
 
 ## Acknowledgements
-* **Author** - Jayant Sharma , Product Development
-* **Contributors** -  JKorbi Schmid, Rahul Tasker, Product Development
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2023
+
+- **Author** - Jayant Sharma, Product Development
+- **Contributors** -  Korbi Schmid, Rahul Tasker,  Ramu Murakami Gutierrez, Product Development
+- **Last Updated By/Date** - Denise Myrick, December 2025

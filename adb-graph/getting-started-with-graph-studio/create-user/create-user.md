@@ -31,9 +31,9 @@ Learn how to
 
 ## Task 2: Create the Web Access and Graph-enabled User
 
-1. Login as the ADMIN user for your Autonomous Database instance.
+1. Login as the ADMIN user for your Autonomous AI Database instance.
 
-    ![Log in to your Autonomous Database instance](./images/sign-in-admin.png "Log in to your Autonomous Database instance")
+    ![Log in to your Autonomous AI Database instance](./images/sign-in-admin.png "Log in to your Autonomous AI Database instance")
 
 2. Click  the **DATABASE USERS** tile under **Administration**.
 
@@ -94,7 +94,7 @@ The UI steps in Task 2 can be alternatively done by executing the following SQL 
 
    ![Alter user quota to 100G](./images/alter-user.png "Alter user quota to 100G")  
 
- 2. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
+2. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
 
     You must be logged into Data Actions SQL as `ADMIN` then enter the following SQL statements and execute them.
 
@@ -117,4 +117,4 @@ Please **proceed to the next lab** to learn how to create and analyze graphs in 
 
 - **Author** - Jayant Sharma, Product Management
 - **Contributors** -  Korbi Schmid, Rahul Tasker, Ramu Murakami Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2025
+- **Last Updated By/Date** - Denise Myrick, December 2025
