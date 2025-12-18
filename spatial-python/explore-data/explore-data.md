@@ -2,13 +2,13 @@
 
 ## Introduction
 
-You now explore the locations and transactions data prepared in the previous lab. By managing the data in Autonomous Database, you are able to perform back-end processing and analysis operations and then bring appropriate data subsets into Python for specialized analyses.
+You now explore the locations and transactions data prepared in the previous lab. By managing the data in Autonomous AI Database, you are able to perform back-end processing and analysis operations and then bring appropriate data subsets into Python for specialized analyses.
 
 Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-* Bring spatiotemporal data and query results from Autonomous Database into Python
+* Bring spatiotemporal data and query results from Autonomous AI Database into Python
 * Visualize and explore the data in Python
 
 ### Prerequisites
@@ -51,9 +51,9 @@ The most common Python library for data handling is Pandas, which provides DataF
     </copy>
     ```
 
-    ![Explore data](images/explore-data-02.png) 
+    ![Explore data](images/explore-data-02.png)
 
-3.  To visualize the data, run the following where you specify both the background map and marker size. Move your mouse over a map marker to see its attributes.
+3. To visualize the data, run the following where you specify both the background map and marker size. Move your mouse over a map marker to see its attributes.
 
     ```
     <copy>
@@ -62,8 +62,7 @@ The most common Python library for data handling is Pandas, which provides DataF
     ```
     ![Explore data](images/explore-data-03.png)
 
-4.   Oracle Spatial includes functions and methods to convert from the native spatial type to common formats, including conversion to the WKT format used in a GeoDataFrame. So creating a GeoDataFrame from Oracle Spatial results is straightforward. The conversion syntax of object methods is more compact than the equivalent SQL functions. For example the method **(geometry).get\_wkt()** versus the function **sdo\_util.to_wktgeometry(geometry)**. Run the following to see a basic example of format conversions of a hard-coded SDO\_GEOMETRY to WKT and GeoJSON formats using object methods.
-
+4. Oracle Spatial includes functions and methods to convert from the native spatial type to common formats, including conversion to the WKT format used in a GeoDataFrame. So creating a GeoDataFrame from Oracle Spatial results is straightforward. The conversion syntax of object methods is more compact than the equivalent SQL functions. For example the method **(geometry).get\_wkt()** versus the function **sdo\_util.to_wktgeometry(geometry)**. Run the following to see a basic example of format conversions of a hard-coded SDO\_GEOMETRY to WKT and GeoJSON formats using object methods.
 
     ```
     <copy>
@@ -82,9 +81,9 @@ The most common Python library for data handling is Pandas, which provides DataF
        print(row)
     </copy>
     ```
-    ![Explore data](images/explore-data-04.png) 
+    ![Explore data](images/explore-data-04.png)
 
-5.   In the previous lab you configured the LOCATIONS table with a function-based spatial index. The function is lonlat\_to\_proj\_geom( ) and converts longitude, latitude into a SDO\_GEOMETRY in the World Mercator coordinate system for compatibility with libraries used in a later lab.  Run the following to retrieve geometries using that function as WKT format. 
+5. In the previous lab you configured the LOCATIONS table with a function-based spatial index. The function is lonlat\_to\_proj\_geom( ) and converts longitude, latitude into a SDO\_GEOMETRY in the World Mercator coordinate system for compatibility with libraries used in a later lab.  Run the following to retrieve geometries using that function as WKT format.
 
     ```
     <copy>
@@ -97,9 +96,9 @@ The most common Python library for data handling is Pandas, which provides DataF
        print(row)
     </copy>
     ```
-    ![Explore data](images/explore-data-05.png) 
+    ![Explore data](images/explore-data-05.png)
 
-6.  Run the following to retrieve the LOCATIONS table and create a GeoDataFrame.
+6. Run the following to retrieve the LOCATIONS table and create a GeoDataFrame.
      ```
      <copy>
      cursor.execute("""
@@ -115,7 +114,7 @@ The most common Python library for data handling is Pandas, which provides DataF
 
     ![Explore data](images/explore-data-06.png) 
 
-6.  Run the following to visualize the GeoDataFrame.
+7. Run the following to visualize the GeoDataFrame.
      ```
      <copy>
      gdf.explore(tiles="CartoDB positron")
@@ -126,8 +125,7 @@ The most common Python library for data handling is Pandas, which provides DataF
 
 ## Task 2: Explore transactions data
 
-
-1.  Next you create a GeoDataFrame from a query joining TRANSACTIONS to LOCATIONS. Run the following to create the GeoDataFrame.
+1. Next you create a GeoDataFrame from a query joining TRANSACTIONS to LOCATIONS. Run the following to create the GeoDataFrame.
 
     ```
     <copy>
@@ -147,7 +145,7 @@ The most common Python library for data handling is Pandas, which provides DataF
 
     ![Explore data](images/explore-data-08.png) 
 
-2.  Run the following to visualize the GeoDataFrame. Mouse over an item to see transaction attributes.
+2. Run the following to visualize the GeoDataFrame. Mouse over an item to see transaction attributes.
 
     ```
     <copy>
@@ -156,15 +154,14 @@ The most common Python library for data handling is Pandas, which provides DataF
     ```
     ![Explore data](images/explore-data-09.png) 
 
-
 You may now **proceed to the next lab**.
 
 ## Learn More
+
 * For details on GeoPandas see [https://geopandas.org](https://geopandas.org)
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, November 2024
-
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, December 2025

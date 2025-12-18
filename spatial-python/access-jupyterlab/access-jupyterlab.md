@@ -16,28 +16,28 @@ Estimated Lab Time: 5 minutes
 
 1. From the main menu, navigate to Compute > Instances
 
-  ![Retrieve IP address](images/compute-01a.png)
+  ![Navigate to instances](images/compute-01a.png)
 
 2. In the workshop instructions page, click **View Login Info** at the top left and copy your Compartment name.
 
-  ![Retrieve IP address](images/compartment.png)
-  
-3. In the OCI console, paste in your Compartment name and select it from the pull-down. 
+  ![Verify compartment name](images/compartment.png)
 
-  ![Retrieve IP address](images/compute-02.png)
+3. In the OCI console, paste in your Compartment name and select it from the pull-down.
+
+  ![Change compartment](images/compute-02.png)
 
 4. Note the Public IP of your compute instance. JupyerLab has been set on on this instance. You will use this later in this and other Labs.
 
   ![Retrieve IP address](images/compute-03.png)
 
-## Task 2: Verify access to JupyterLab 
+## Task 2: Verify access to JupyterLab
 
-1. Open a new browser tab and enter the URL **http://[IP address]:8001/lab** where [IP address] is the address retrieved in Task 1. 
-   
-   ![Access JupyterLab](images/access-jupyter-01.png) 
+1. Open a new browser tab and enter the URL **http://[IP address]:8001/lab** where [IP address] is the address retrieved in Task 1.
 
-2. Enter the password **livelabs** and click **Log in**. 
-   
+   ![Access JupyterLab](images/access-jupyter-01.png)
+
+2. Enter the password **livelabs** and click **Log in**.
+
 ## Task 3: Explore Jupyter Notebooks
 
 Jupyter Notebook is an interactive web-based tool that allows you to create and share documents that contain live code, equations, visualizations, and text. It is widely used in the data science community for prototyping and data analysis.
@@ -52,11 +52,11 @@ In this task, we will walk through the basics of using Jupyter Notebook.
 
    If you do not see the launcher window, select file at the top left of the window, and select 'New Launcher'.
 
-   ![Open new Launcher Tab](./images/launcher2.png) 
+   ![Open new Launcher Tab](./images/launcher2.png)
 
    From the launcher window, select  "Python 3" to create a new notebook using the Python programming language. A new notebook will be created, and you can start working on it by entering code in the code cells or adding markdown text in the markdown cells.
 
-   ![create a new Python notebook](./images/launcher3.png) 
+   ![create a new Python notebook](./images/launcher3.png)
 
 2. Add some markdown Text.
 
@@ -86,10 +86,10 @@ In this task, we will walk through the basics of using Jupyter Notebook.
 
    ![hello world example](./images/notebook3.png)
 
-4. To save a Jupyter Notebook, click on the "Save" icon on the toolbar, or press Ctrl+S (or Cmd+S on macOS). The notebook will be saved with the .ipynb file extension.
+4. To save a Jupyter Notebook, click on the "Save" icon on the toolbar, or press Ctrl+S (or Cmd+S on macOS). A popup will appear allowing you to rename the notebook. The notebook will be saved with the .ipynb file extension.
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-* **Last Updated By/Date** - Denise Myrick, February 2025
+* **Last Updated By/Date** - Denise Myrick, December 2025

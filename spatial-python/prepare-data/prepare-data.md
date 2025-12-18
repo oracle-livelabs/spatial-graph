@@ -2,18 +2,18 @@
 
 ## Introduction
 
-In this lab, fictitious financial transactions data are loaded to your Autonomous Database and configured for spatial and temporal ("spatiotemporal") analysis.
+In this lab, fictitious financial transactions data are loaded to your Autonomous AI Database and configured for spatial and temporal ("spatiotemporal") analysis.
 
 Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-* Load financial transactions data to Autonomous Database
+* Load financial transactions data to Autonomous AI Database
 * Configure data for spatiotemporal analysis
 
 ### Prerequisites
 
-* Completion of Lab 3: Connect to Autonomous Database from Python
+* Completion of Lab 3: Connect to Autonomous AI Database from Python
 
 ## Task 1: Upload data files
 
@@ -29,7 +29,7 @@ Estimated Lab Time: 10 minutes
 
    ![Preview files](images/prepare-data-02.png)
 
-  Observe that locations.csv has one row per ATM location, and transactions has one row per financial transaction. Then close tabs with the data preview and return to your notebook.
+  Observe that locations.csv has one row per ATM location, and transactions has one row per financial transaction. Then close the tabs with the data preview and return to your notebook.
 
 ## Task 2: Create and load tables
 
@@ -194,7 +194,7 @@ Temporal calculations are a key component of this workshop, and are best perform
 
 ## Task 4: Configure data for spatial operations
 
-Spatial calculations are an additional key component of this workshop. In this task you configure your locations data to utilize the spatial features of Autonomous Database. The locations table includes longitude/latitude coordinates. One option is to create and populate a new column using the native spatial data type. While that would work perfectly fine, there is another option that takes advantage of a mainstream Oracle Database feature called "function based indexing". This approach allows for all of the capability associated with creating a new spatial column, but without having to create the column. Instead, you create a database function that converts coordinates to a spatial data element, and then create an index on that function. Once the function and index are created, all spatial operations behave as if a new spatial column had been created. While this is not essential for the small data volume in this workshop, the approach is of great benefit for large scale systems where the overhead of adding a column is significant.
+Spatial calculations are an additional key component of this workshop. In this task you configure your locations data to utilize the spatial features of Autonomous AI Database. The locations table includes longitude/latitude coordinates. One option is to create and populate a new column using the native spatial data type. While that would work perfectly fine, there is another option that takes advantage of a mainstream Oracle AI Database feature called "function based indexing". This approach allows for all of the capability associated with creating a new spatial column, but without having to create the column. Instead, you create a database function that converts coordinates to a spatial data element, and then create an index on that function. Once the function and index are created, all spatial operations behave as if a new spatial column had been created. While this is not essential for the small data volume in this workshop, the approach is of great benefit for large scale systems where the overhead of adding a column is significant.
 
 1. Run the following to create a function that converts longitude/latitude coordinates to Oracle's native spatial data type (i.e. SDO_GEOMETRY, referred to as a "geometry"). Not only does the function convert coordinates to the native spatial type, but it also converts the coordinates from longitude/latitude to a coordinate system called "world mercator". This is the coordinate system expected by Python libraries used in subsequent labs, hence it is convenient to perform this conversion in this function.
 
@@ -308,4 +308,4 @@ You may now **proceed to the next lab**.
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-* **Last Updated By/Date** - Denise Myrick, February 2025
+* **Last Updated By/Date** - Denise Myrick, December 2025

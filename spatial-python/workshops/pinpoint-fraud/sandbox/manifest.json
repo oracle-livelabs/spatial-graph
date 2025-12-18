@@ -18,12 +18,12 @@
           "filename": "../../../access-jupyterlab/access-jupyterlab.md"
         },
         {
-          "title": "Lab 2: Create Autonomous Database",
+          "title": "Lab 2: Create Autonomous AI Database",
           "description": "...",
           "filename": "../../../create-adb/create-adb.md"
         },
         {
-          "title": "Lab 3: Connect to Autonomous Database from Python",
+          "title": "Lab 3: Connect to Autonomous AI Database from Python",
           "description": "...",
           "filename": "../../../connect-to-adb/connect-to-adb.md"
         }, 

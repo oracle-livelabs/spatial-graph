@@ -2,20 +2,19 @@
 
 ## Introduction
 
-You may clean-up your workshop environment by resetting your Autonomous Database to pre-workshop state.
+You may clean-up your workshop environment by resetting your Autonomous AI Database to pre-workshop state.
 
 Estimated Lab Time: 2 minutes
 
 ### Objectives
 
-* Reset Autonomous Database to pre-workshop state
+* Reset Autonomous AI Database to pre-workshop state
 
 ### Prerequisites
 
-* Active Autonomous Database instance
+* Active Autonomous AI Database instance
 
-
-## Task 1: Reset Autonomous Database to pre-workshop state
+## Task 1: Reset Autonomous AI Database to pre-workshop state
 
 1. Run the following to remove all database artifacts created in this workshop.
 
@@ -37,5 +36,5 @@ Estimated Lab Time: 2 minutes
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Last Updated By/Date** - David Lapp, August 2023
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Last Updated By/Date** - Denise Myrick, December 2025

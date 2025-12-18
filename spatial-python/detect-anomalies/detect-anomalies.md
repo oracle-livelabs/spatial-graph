@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The spatial features of Oracle Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. You will identify such occurrences in this lab.
+The spatial features of Oracle AI Database provide scalable and secure spatial data management, processing, and analysis. A major benefit of working in Python is the availability of open source libraries to augment the native analysis capabilities of the Oracle AI Database. In this lab you leverage a library that identifies clusters based on both space and time, or in other words spatiotemporal clusters. A set of transactions that occurred within a concentrated area and time window belong to a spatiotemporal cluster. A transaction that occurred within the time window of a spatiotemporal cluster but far from the area of concentration is considered suspicious. For example, if during a given week a customer's transactions were concentrated in the New York City area, then a transaction in the middle of that week in California would be suspicious. You will identify such occurrences in this lab.
 
 Estimated Lab Time: 15 minutes
 
@@ -557,11 +557,11 @@ We hope this workshop has been informative and that you further explore the spat
 
 ## Learn More
 
-* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-aggregate-functions1.html)
-* For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](https://github.com/eren-ck/st_dbscan)
+* For details on Spatial aggregate functions see [https://docs.oracle.com/en/database/oracle/oracle-database/26/spatl/spatial-aggregate-functions1.html](the Spatial Developer's Guide)
+* For details on st\_dbscan see [ST-DBSCAN: An algorithm for clustering spatial–temporal data](https://www.sciencedirect.com/science/article/pii/S0169023X06000218) and [https://github.com/eren-ck/st_dbscan](st_dbscan on GitHub)
 
 ## Acknowledgements
 
-- **Author** - David Lapp, Database Product Management, Oracle
-- **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-- **Last Updated By/Date** - Denise Myrick, March 2025
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
+* **Last Updated By/Date** - Denise Myrick, December 2025

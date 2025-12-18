@@ -1,18 +1,18 @@
-# Connect to  Autonomous Database from Python
+# Connect to  Autonomous AI Database from Python
 
 ## Introduction
 
-To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous Database. The python-oracledb driver supports this connection and all subsequent database interactions.  You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle Database and does not need Oracle Client libraries.
+To prepare for data loading and analysis, you first establish a connection from Python to your Autonomous AI Database. The python-oracledb driver supports this connection and all subsequent database interactions. You will use the python-oracledb driver's ‘Thin’ mode which connects directly to Oracle AI Database and does not need Oracle Client libraries.
 
 Estimated Lab Time: 5 minutes
 
 ### Objectives
 
-* Connect to Autonomous Database from Python
+* Connect to Autonomous AI Database from Python
 
 ### Prerequisites
 
-* Completion of Lab 2: Create Autonomous Database
+* Completion of Lab 2: Create Autonomous AI Database
 
 ## Task 1: Create connection parameter files
 
@@ -28,10 +28,10 @@ Estimated Lab Time: 5 minutes
 4. Close the text file tab to return to the Launcher page.
    ![Connect to ADB](images/connect-to-adb-04.png)
 
-5. Return to your Oracle Cloud browser tab click on **Database Connection**.
+5. Return to your Oracle Cloud browser tab and click on **Database Connection**.
   ![Connect to ADB](images/connect-to-adb-06-v3a.png)
 
-6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click the elipse and then click **Copy** for the TNS Name ending in \_low.
+6. Scroll down to the Connection Strings section. For TLS Authentication, select **TLS**. This is required to allow Thin mode connections. Then Under Connection String click the ellipsis and then click **Copy** for the TNS Name ending in \_low.
   ![Connect to ADB](images/connect-to-adb-07a.png)
 
 7. Return to your JupyterLab browser tab. As done previously, click on the Text File tile to create another new text file. Paste the connection string just copied from your Autonomous Database. Then save the file and rename to **my-dsn.txt**.
@@ -99,10 +99,10 @@ You may now **proceed to the next lab**.
 
 ## Learn More
 
-* For more info on python-oracledb connections to Autonomous Database, please see the [documentation](https://python-oracledb.readthedocs.io/en/latest/user_guide/connection_handling.html#connecting-to-oracle-cloud-autonomous-databases).
+* For more info on python-oracledb connections to Autonomous AI Database, please see the [documentation](https://python-oracledb.readthedocs.io/en/latest/user_guide/connection_handling.html#connecting-to-oracle-cloud-autonomous-databases).
 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
 * **Contributors** - Rahul Tasker, Denise Myrick, Ramu Gutierrez
-* **Last Updated By/Date** - Denise Myrick, February 2025
+* **Last Updated By/Date** - Denise Myrick, December 2025
