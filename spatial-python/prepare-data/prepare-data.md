@@ -301,6 +301,7 @@ Spatial calculations are an additional key component of this workshop. In this t
 You may now **proceed to the next lab**.
 
 ## Learn More
+
 * For details on UNIX time please see [https://en.wikipedia.org/wiki/Unix_time](https://en.wikipedia.org/wiki/Unix_time)
 * For details on function-based spatial indexing, please see the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/sdo_geometry-objects-function-based-indexes.html#GUID-CFB6B6DB-4B97-43D1-86A1-21C1BA853089)
 
