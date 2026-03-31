@@ -24,7 +24,7 @@ Learn how to:
 
 The instructions below will show you how to run a stack that will automatically create an Autonomous AI Database containing a graph user and the dataset needed for the property graph queries.
 
-1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/X2jvcS9YYxqmJc-bV0WfLeFeQX9kWVDAmVmtyiaMM5ezN2A_g1ksvCLJUw8X3UxU/n/oradbclouducm/b/23ai_moviestream_livelab/o/terraform_ww_26ai_brown_button.zip) to create and run the Stack.
+1. Use this [link](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/5o1tsYVvEbq_zSmbTJnfCTsAdbgXdHVBhYx-sEMPngohLLkJ4dUP2dR8_NLCj3iF/n/oradbclouducm/b/propertyGraphs_23aiLL/o/movie_recommendation_brownbuttonlabfiles_terraform_brown_button_livelabs_movie_recommendations_setup.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
 2. You will be directed to this page:
