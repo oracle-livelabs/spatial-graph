@@ -112,19 +112,7 @@ We will first create a graph of customers, movies they have watched, and movies 
      );</copy>
      ```
 
-    ![Creating sql graph](images/create-sql-graph.png " ")
-<!---
-2. Let's take a close look at our customer, Adriana Osborne. We want to know the movies she has watched, and the watch parties she has been to. The next query helps us find her CUST_ID to make writing the queries a bit easier.
-
-     ```
-     <copy>%sql
-     SELECT CUST_ID FROM CUSTOMER WHERE FIRST_NAME ='Adriana'AND LAST_NAME = 'Osborne';</copy>
-     ```
-
-    Now that we know Adriana's CUST_ID, let's look at some sample queries. 
-
-    ![Identify Adriana Osborne's CUST_ID](images/cust-id.png " ")
--->
+     ![Creating sql graph](images/create-sql-graph.png " ")
 
 2. This query returns all the movies Adriana has watched.
 
@@ -137,7 +125,7 @@ We will first create a graph of customers, movies they have watched, and movies 
      COLUMNS (c1.FIRST_NAME as C1NAME, m.title as MOVIE_TITLE) );</copy>
      ```
 
-    ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
+     ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
 
 3. Next, let's take a look at the watch parties Adriana has been part of, and some other movies other watch party attendees have watched.
 
@@ -168,11 +156,10 @@ We will first create a graph of customers, movies they have watched, and movies 
 
     ![Movies Adriana has watched](images/adriana-movies.png " ")
 
-3. This query helps us visualize the movies Adriana watched at a watch party and others who attended these events, and the movies they have watched. In this example, we are using Adriana Osborne's CUST_ID.
+5. This query helps us visualize the movies Adriana watched at a watch party and others who attended these events, and the movies they have watched. In this example, we are using Adriana Osborne's CUST_ID.
 
      ```
      <copy>%sql
-     %sql
      SELECT *
      FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS
         MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
@@ -226,7 +213,7 @@ We next find out whether Adriana has gone to watch parties for movies similar to
 
  1. Let's start by creating a table so we can easily create, save and call various prompts.
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql
@@ -244,7 +231,7 @@ We next find out whether Adriana has gone to watch parties for movies similar to
  
  2. Then we can call the Gen AI service directly through SQL, using a SQL query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql
@@ -261,7 +248,7 @@ We next find out whether Adriana has gone to watch parties for movies similar to
 
  3. Now we can generate an email for Carmine using SQL and GenAI.
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql

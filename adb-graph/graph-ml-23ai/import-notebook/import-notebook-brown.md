@@ -1,10 +1,3 @@
-<!--
-    {
-        "name":"Create Graph",
-        "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab."
-    }
--->
-
 # Import Notebook
 
 ## Introduction
