@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will create and query a graph (that is, `MOVIE_RECOMMENDATIONS`) in SQL and PGQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
+In this lab, you will create and query a graph (that is, `MOVIE_RECOMMENDATIONS`) in SQL paragraphs of a notebook, and use that with vector search and send the results to an LLM.
 
 Estimated Time: 30 minutes.
 
@@ -11,7 +11,8 @@ Estimated Time: 30 minutes.
 Learn how to:
 
 - Use Graph Studio notebooks to query a LLM and run vector search
-- Use Graph Studio notebooks with SQL and PGQL paragraphs to create, query, analyze, and visualize a graph, and integrate with vector search
+- Use Graph Studio notebooks with SQL
+ paragraphs to create, query, analyze, and visualize a graph, and integrate with vector search
 
 ### Prerequisites
 
@@ -86,7 +87,7 @@ If the compute environment is not ready just yet and the code cannot be executed
 
 Knowing what movies are similar to 'The Fall Guy' is a good start, but it doesn't fully achieve Adriana's goal. She needs more information about the relationships between customers and movies they watch, to decide who to invite to the watch party.
 
-We will first create a graph of customers, movies they have watched, and movies they have watched at watch parties. Then, we will query the graph using SQL and PGQL. The results of the graph query, where the graph represents the network of watch parties, is used to enhance the prompt sent to a generative AI service.
+We will first create a graph of customers, movies they have watched, and movies they have watched at watch parties. Then, we will query the graph using SQL. The results of the graph query, where the graph represents the network of watch parties, is used to enhance the prompt sent to a generative AI service.
 
 1. The following SQL statement creates a graph of customers, movies they have watched, and movies they have watched at watch parties.
 
@@ -111,19 +112,7 @@ We will first create a graph of customers, movies they have watched, and movies 
      );</copy>
      ```
 
-    ![Creating sql graph](images/create-sql-graph.png " ")
-<!---
-2. Let's take a close look at our customer, Adriana Osborne. We want to know the movies she has watched, and the watch parties she has been to. The next query helps us find her CUST_ID to make writing the queries a bit easier.
-
-     ```
-     <copy>%sql
-     SELECT CUST_ID FROM CUSTOMER WHERE FIRST_NAME ='Adriana'AND LAST_NAME = 'Osborne';</copy>
-     ```
-
-    Now that we know Adriana's CUST_ID, let's look at some sample queries. 
-
-    ![Identify Adriana Osborne's CUST_ID](images/cust-id.png " ")
--->
+     ![Creating sql graph](images/create-sql-graph.png " ")
 
 2. This query returns all the movies Adriana has watched.
 
@@ -136,7 +125,7 @@ We will first create a graph of customers, movies they have watched, and movies 
      COLUMNS (c1.FIRST_NAME as C1NAME, m.title as MOVIE_TITLE) );</copy>
      ```
 
-    ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
+     ![Find all the movies Adriana has watched](images/adrianas-movies.png " ")
 
 3. Next, let's take a look at the watch parties Adriana has been part of, and some other movies other watch party attendees have watched.
 
@@ -152,63 +141,37 @@ We will first create a graph of customers, movies they have watched, and movies 
 
     ![Movies Adriana and others have watched at a watch party](images/adiana-and-others.png " ")  
 
-## Task 3: Create and query a Property Graph using PGQL
-
-This is great, but sometimes a visualization helps us identify relationships more quickly. We will visualize the results of this graph query by creating a PGQL Property Graph.
-
-1. Run the following PGQL statement to create the same property graph query using PGQL.
+4. This is great, but sometimes a visualization helps us identify relationships more quickly.  This query visualizes the movies Adriana has watched previously.
 
      ```
-     <copy>%pgql-rdbms
-     CREATE PROPERTY GRAPH movie_recommendations_pgql
-     VERTEX TABLES (
-         CUSTOMER
-             KEY ( CUST_ID ),
-         MOVIE
-             KEY ( MOVIE_ID )
-             PROPERTIES ARE ALL COLUMNS EXCEPT(summary_vec)
+     <copy>%sql
+     SELECT * 
+     FROM GRAPH_TABLE (MOVIE_RECOMMENDATIONS
+      MATCH (c1 is CUSTOMER) -[w is WATCHED]-> (m is MOVIE)
+      WHERE c1.FIRST_NAME = 'Adriana' and c1.LAST_NAME = 'Osborne'
+      COLUMNS(vertex_id(c1) as customer, vertex_id(m) as movie, edge_id(w) as watched)
      )
-     EDGE TABLES (
-         WATCHED
-             KEY ( DAY_ID, PROMO_CUST_ID, MOVIE_ID )
-             SOURCE KEY ( PROMO_CUST_ID ) REFERENCES CUSTOMER ( CUST_ID )
-             DESTINATION KEY ( MOVIE_ID ) REFERENCES MOVIE ( MOVIE_ID ),
-         WATCHED_WITH
-             KEY(ID)
-             SOURCE KEY ( WATCHER ) REFERENCES CUSTOMER( CUST_ID )
-             DESTINATION KEY ( WATCHED_WITH ) REFERENCES CUSTOMER ( CUST_ID )
-     ) OPTIONS(PG_VIEW)</copy>
-     ```
-
-    ![Create PGQL Graph](images/create-pgql-graph.png " ")
-
-    Let's run the previous queries in PGQL.
-
-2. This query visualizes the movies Adriana has watched previously.
-
-     ```
-     <copy>%pgql-rdbms
-     SELECT c1, w, m
-	     FROM MATCH (c1 is CUSTOMER) -[w is WATCHED]-> (m is MOVIE)
-         ON MOVIE_RECOMMENDATIONS_PGQL 
-         WHERE c1.FIRST_NAME ='Adriana' AND c1.LAST_NAME = 'Osborne'</copy>
+     </copy>
       ```
 
-    ![Movies Adriana has watched in pgql](images/adriana-movies-pgql.png " ")
+    ![Movies Adriana has watched](images/adriana-movies.png " ")
 
-3. This query helps us visualize the movies Adriana watched at a watch party and others who attended these events, and the movies they have watched. In this example, we are using Adriana Osborne's CUST_ID.
+5. This query helps us visualize the movies Adriana watched at a watch party and others who attended these events, and the movies they have watched. In this example, we are using Adriana Osborne's CUST_ID.
 
      ```
-     <copy>%pgql-rdbms
-     SELECT c1, e, c2, w, m
-         FROM MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
-         ON MOVIE_RECOMMENDATIONS_PGQL 
-         WHERE c1.CUST_ID = 1005510</copy>
+     <copy>%sql
+     SELECT *
+     FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS
+        MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+        WHERE c1.CUST_ID = 1005510
+        COLUMNS(vertex_id(c1) as customer1, vertex_id(c2) as customer2, vertex_id(m) as movie, edge_id(w) as watched, edge_id(e) as watched_with)
+     )
+     </copy>
      ```
 
-    ![Movies Adriana and others have watched at a watch party in pgql](images/adiana-and-others-pgql.png " ")
+    ![Movies Adriana and others have watched at a watch party](images/adiana-and-others-viz.png " ")
 
-## Task 4: Continue querying the MOVIE_RECOMMENDATIONS graph using SQL and PGQL
+## Task 3: Continue querying the MOVIE_RECOMMENDATIONS graph using SQL
 
 We next find out whether Adriana has gone to watch parties for movies similar to 'The Fall Guy.' Maybe the same group of people will be interested in watching 'The Fall Guy.'
 
@@ -230,25 +193,27 @@ We next find out whether Adriana has gone to watch parties for movies similar to
 
     ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy](images/watch-parties-v2.png " ")
 
-2. Let us visualize the graph in this query, again using a PGQL graph.
+2. Let us visualize the graph in this query.
 
      ```
-     <copy>%pgql-rdbms
-     SELECT c1, e, c2, w, m
-         FROM MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
-         ON MOVIE_RECOMMENDATIONS_PGQL 
-         WHERE e.MOVIE_ID = m.MOVIE_ID and c1.FIRST_NAME ='Adriana' AND c1.LAST_NAME = 'Osborne'</copy>
+     <copy>%sql
+     SELECT *
+     FROM GRAPH_TABLE(MOVIE_RECOMMENDATIONS
+        MATCH (c1 is CUSTOMER) -[e is WATCHED_WITH]-> (c2 is CUSTOMER)-[w is WATCHED]-> (m is MOVIE)
+        WHERE e.MOVIE_ID = m.MOVIE_ID and c1.FIRST_NAME = 'Adriana' and c1.LAST_NAME = 'Osborne'
+        COLUMNS(vertex_id(c1) as customer1, vertex_id(c2) as customer2, vertex_id(m) as movie, edge_id(e) as watched_with, edge_id(w) as watched)
+     );</copy>
      ```
      
-    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy visualized](images/watch-party.png " ")
+    ![Parties Adriana has been to, and the watch party movie similar to The Fall Guy visualized](images/watch-party-sql.png " ")
 
     Given the strong turnout for the 'Star Wars Episode IX: The Rise of Skywalker' watch party, this group seems perfect for organizing a watch party to watch 'The Fall Guy' so we will use the help of a generative AI service to set up this watch party.
 
-## Task 5: Use SQL and GenAI to write an invitation email
+## Task 4: Use SQL and GenAI to write an invitation email
 
  1. Let's start by creating a table so we can easily create, save and call various prompts.
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql
@@ -266,7 +231,7 @@ We next find out whether Adriana has gone to watch parties for movies similar to
  
  2. Then we can call the Gen AI service directly through SQL, using a SQL query similar to the previous query. In this case we are inserting prompt values for our email and asking GenAI to generate an email for the watch party. 
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql
@@ -283,7 +248,7 @@ We next find out whether Adriana has gone to watch parties for movies similar to
 
  3. Now we can generate an email for Carmine using SQL and GenAI.
  
- <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
+    <span style="display: inline-block; border-radius: 50%; background-color: #2B6689; color: white; width: 20px; height: 20px; text-align: center; font-weight: bold;">i</span> This paragraph has the run button disabled and is included as an example of how to combine Graph Studio with a generative AI service, using SQL.
 
      ```
      <copy>%sql
@@ -320,4 +285,4 @@ This concludes this lab.
 ## Acknowledgements
 * **Author** - Ramu Murakami Gutierrez, Product Manager
 * **Contributors** -  Melliyal Annamalai, Denise Myrick, Rahul Tasker, and Ramu Murakami Gutierrez Product Management
-* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, October 2024
+* **Last Updated By/Date** - Ramu Murakami Gutierrez, Product Management, March 2026
