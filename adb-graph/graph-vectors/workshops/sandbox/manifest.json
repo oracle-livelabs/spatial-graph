@@ -2,7 +2,7 @@
     "workshoptitle": "Trace Data Lineage with AI Vector Search and Knowledge Graphs in Oracle AI Database",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md"
+     "adb-goto-graph-studio.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/goto-graph-studio.md"
     },
     "variables": ["./variables.json"],
 	"tutorials": [
@@ -14,7 +14,7 @@
     {
         "title": "Get Started",
         "description": "Prerequisites for this workshop",
-        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs.md"
+        "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs.md"
     },
     {
         "title": "Lab 1: Import Notebook",
@@ -27,7 +27,7 @@
     {
         "title": "Need Help?",
         "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-        "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+        "filename":"https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-livelabs.md"
     }
     ]
 }

@@ -2,17 +2,17 @@
     "workshoptitle":"Analyze, Query, and Visualize Property Graphs with Oracle Database",
     "help": "livelabs-help-sg_us@oracle.com",
     "include": {
-     "adb-create-user.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/create-user.md",
-     "adb-goto-graph-studio.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-graph-studio.md",
-     "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
-     "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
-     "adb-connect-with-sql-worksheet-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/connect-with-sql-worksheet-body.md"
+     "adb-create-user.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/create-user.md",
+     "adb-goto-graph-studio.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/goto-graph-studio.md",
+     "adb-goto-service-body.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/goto-service-body.md",
+     "adb-provision-body.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/provision-body.md",
+     "adb-connect-with-sql-worksheet-body.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/adb/connect-with-sql-worksheet-body.md"
     },
 	"tutorials": [
         {
             "title": "Get Started",
             "description": "Register for a Free Tier account",
-            "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"
+            "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
             "title": "Introduction",
@@ -22,12 +22,12 @@
         {
             "title": "Lab 1: Create SSH Keys",
             "description":"Create SSH Keys",
-            "filename":"https://oracle-livelabs.github.io/common/labs/generate-ssh-key/generate-ssh-keys.md"
+            "filename":"https://livelabs.oracle.com/cdn/common/labs/generate-ssh-key/generate-ssh-keys.md"
         },
         {
             "title": "Lab 2: Create an Autonomous Database",
             "description":"Setup an Always Free autonomous database instance",
-            "filename":"https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
+            "filename":"https://livelabs.oracle.com/cdn/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
             "title": "Lab 3: Create a Graph Server",
@@ -62,7 +62,7 @@
         {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-            "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+            "filename":"https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-livelabs.md"
         }
     ]
 }
