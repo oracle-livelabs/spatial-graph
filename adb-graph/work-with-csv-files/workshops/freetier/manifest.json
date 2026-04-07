@@ -1,7 +1,7 @@
 {
     "workshoptitle": "Graph Studio: Find Circular Payment Chains with Graph Queries in Oracle Autonomous AI Database",
     "include": {
-        "iam-compartment-create-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/iam/compartment-create-body.md"
+        "iam-compartment-create-body.md":"https://livelabs.oracle.com/cdn/common/building-blocks/tasks/iam/compartment-create-body.md"
        },
     "variables": ["/common/building-blocks/variables/variables.json"],
     "help": "livelabs-help-sg_us@oracle.com",
@@ -14,7 +14,7 @@
     {
         "title": "Get Started",
         "description": "Prerequisites for this workshop",
-        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login.md"
+        "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login.md"
     },
     {
         "title": "Lab 1: Setup",
@@ -36,7 +36,7 @@
     {
         "title": "Need Help?",
         "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-        "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+        "filename":"https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-freetier.md"
     }
       ]
   }
