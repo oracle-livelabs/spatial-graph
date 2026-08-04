@@ -1,0 +1,47 @@
+{
+    "workshoptitle": "Build an Ontology-Grounded Vector and RDF F1 Assistant",
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Lab 1 - Ingest and Chunk Formula 1 Documents",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../ingest-f1-documents/ingest-f1-documents.md"
+        },
+        {
+            "title": "Lab 2 - Extract Ontology-Aligned RDF Facts",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../extract-rdf-facts/extract-rdf-facts.md"
+        },
+        {
+            "title": "Lab 3 - Load and Explore the RDF Graph",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../load-rdf-graph/load-rdf-graph.md"
+        },
+        {
+            "title": "Lab 4 - Vectorize Graph Entities",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../vectorize-graph-entities/vectorize-graph-entities.md"
+        },
+        {
+            "title": "Lab 5 - Ask Ontology-Grounded Questions",
+            "description": "",
+            "type": "livelabs",
+            "filename": "../../ask-graph-questions/ask-graph-questions.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Template to link to Need Help lab at the end of workshop.",
+            "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}
