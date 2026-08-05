@@ -1,0 +1,10 @@
+{
+  "workshoptitle": "Build a Knowledge Graph Layer for an Electronics Store",
+  "help": "Need Help?",
+  "tutorials": [
+    {"title": "Introduction", "description": "Workshop overview and prerequisites.", "type": "livelabs", "filename": "../../introduction/introduction.md"},
+    {"title": "Lab 1: Examine the Data and Ontology", "description": "Examine the Terraform-provisioned relational data and ontology.", "type": "livelabs", "filename": "../../query-knowledge-graph/query-knowledge-graph.md"},
+    {"title": "Lab 2: Create the Relational Knowledge Graph", "description": "Expose the relational tables through R2RML.", "type": "livelabs", "filename": "../../create-knowledge-graph/create-knowledge-graph.md"},
+    {"title": "Lab 3: Query the Created Knowledge Graph", "description": "Query RDF resources and run the source SQL question.", "type": "livelabs", "filename": "../../query-created-knowledge-graph/query-created-knowledge-graph.md"}
+  ]
+}
