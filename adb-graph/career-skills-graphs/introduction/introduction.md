@@ -18,7 +18,7 @@ The sandbox provides the temporary OCI environment. You do not need to create an
 ### Prerequisites
 
 - An instructor-provided Oracle Autonomous AI Database 26ai environment with Database Actions, APEX, and the career data.
-- Access to the `GHC_DEV` database user and the enabled APEX workspace.
+- Access to the `GHC_USER` database user and the enabled APEX workspace.
 - A configured career AI profile for the optional AI call in Lab 3.
 - Basic SQL familiarity. No graph experience is required.
 
@@ -39,9 +39,7 @@ Estimated Workshop Time: 45 minutes
 2. **Lab 2: Traverse Skills to Discover Roles** (15 minutes): Submit a profile and inspect the graph query.
 3. **Lab 3: Add Semantic Similarity and AI Explanations** (15 minutes): Compare vectors and explain one role.
 
-Reserve five minutes for sign-in, transitions, and reflection.
-
 ## Acknowledgements
 
-* **Oracle LiveLabs source** - [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?P0_REDIRECT=Y&wid=3978).
-* **Last Updated By/Date** - September 23, 2026
+- **Oracle LiveLabs source** - [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?P0_REDIRECT=Y&wid=3978).
+- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, September 2026

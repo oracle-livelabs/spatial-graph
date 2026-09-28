@@ -4,15 +4,13 @@
 
 The Career Explorer runs in an APEX application backed by Oracle Autonomous AI Database. First verify the database user and APEX workspace. Then import the application and confirm that its support objects exist.
 
-If the LiveLabs sandbox already includes `GHC_DEV`, skip Task 1 and begin with Task 2.
-
 Estimated Time: 10 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Verify `GHC_DEV` with Graph, REST, GraphQL, Web Access, and `DBMS_CLOUD_AI` access.
+- Verify `GHC_USER` with Graph, REST, GraphQL, Web Access, and `DBMS_CLOUD_AI` access.
 - Import application 100 into the enabled APEX workspace.
 - Open the Career Explorer entry page.
 
@@ -22,29 +20,25 @@ In this lab, you will:
 
 2. Select **Administration > Database Users > Create User**. Enter:
 
-    - **User Name**: `GHC_DEV`
-    - **Password**: Use the instructor-provided password or a strong temporary password.
-    - **Quota on tablespace DATA**: Use the value provided by the instructor.
+    - **User Name**: `GHC_USER`
+    - **Password**: input your password
+    - **Quota on tablespace DATA**: Unlimited
 
 3. Enable these capabilities:
 
     - **Graph**
-    - **REST** or **RESTful Services and SODA**
-    - **GraphQL**
-    - **Web Access**
+    - **REST, RESTful Services and SODA, GraphQL, and Web Access**
     - **DBMS_CLOUD_AI package**, if the form exposes the option
-
-    The MongoDB API is not required and remains disabled. If the AI package option is missing, ask the instructor to grant `EXECUTE` on `DBMS_CLOUD_AI`.
 
 4. Select **Create User**. The Graph option normally adds the `GRAPH_DEVELOPER` role. Web Access supports Database Actions and local file loading.
 
 ## Task 2: Verify the user capabilities
 
-1. Sign in to Database Actions as `GHC_DEV`. Open **SQL > SQL Worksheet** and run [verify-ghc-dev.sql](files/verify-ghc-dev.sql).
+1. Sign in to Database Actions as `GHC_USER`. Open **SQL > SQL Worksheet** and run [verify-ghc-dev.sql](files/verify-ghc-dev.sql).
 
 2. Confirm these results:
 
-    - The connected user is `GHC_DEV`.
+    - The connected user is `GHC_USER`.
     - A graph role or privilege appears, normally `GRAPH_DEVELOPER` or `CREATE PROPERTY GRAPH`.
     - `DBMS_CLOUD_AI` appears in the received grants.
     - The expected AI profile appears when the instructor has configured it.
@@ -55,11 +49,11 @@ In this lab, you will:
 
 1. Open the enabled APEX workspace. Select **App Builder > Import**.
 
-2. Upload [f100.sql](files/f100.sql). Keep application **100**, use the `ghc_dev` application name, and map the parsing schema to `GHC_DEV`.
+2. Upload [f100.sql](files/f100.sql). Keep application **100**, use the `ghc_dev` application name, and map the parsing schema to `GHC_USER`.
 
 3. Open application 100 and select **Run**. Sign in with the APEX account created for the workshop.
 
-    The APEX account and the `GHC_DEV` database user are separate accounts. Ask the workspace administrator to create the APEX account if it does not exist.
+    The APEX account and the `GHC_USER` database user are separate accounts. Ask the workspace administrator to create the APEX account if it does not exist.
 
 4. Open **Career Explorer**. Confirm that the page shows a profile editor and an **Explore career options** button.
 
@@ -82,5 +76,5 @@ In this lab, you will:
 
 ## Acknowledgements
 
-* **Oracle documentation** - [Create a Graph User](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/create-graph-user.html).
-* **Last Updated By/Date** - September 23, 2026
+- **Oracle documentation** - [Create a Graph User](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/create-graph-user.html).
+- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, September 2026
