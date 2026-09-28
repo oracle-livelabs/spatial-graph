@@ -1,0 +1,58 @@
+{
+    "workshoptitle": "Introduction to Oracle Spatial Studio",
+      "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
+      "sample.json":"../../data-load/files/sample.json",
+      "step2.md":"../../data-load/files/step2.md"},
+      "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
+      "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../introduction/introduction.md",
+        "type": "freetier"
+      },  
+      {
+        "title": "Get Started",
+        "description": "Login to Oracle Cloud",
+        "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login.md"
+    }, 
+         {
+        "title": "Lab 1: Autonomous Database",
+        "filename": "https://livelabs.oracle.com/cdn/adb/shared/adb-provision/adb-provision.md"
+      },
+  {
+      "title": "Lab 2: Create User and Access Spatial Studio",
+      "filename": "../../../adbs-access-spatial-studio/access-spatial-studio.md"
+  },
+  {
+      "title": "Lab 3: Create Project",
+      "filename": "../../../adbs-create-project/create-project.md"
+  },
+  {
+      "title": "Lab 4: Load Spatial Data",
+      "filename": "../../../adbs-access-upload/access-upload.md"
+  },
+  {
+    "title": "Lab 5: Create Project",
+    "filename": "../../../adbs-create-project/create-project.md"
+},
+{
+  "title": "Lab 6: Explore Historical Asset Movement",
+  "filename": "../../../adbs-temporal/temporal.md"
+},
+{
+  "title": "Lab 7: Annotate the Map with Redline Tools",
+  "filename": "../../../adbs-apply-redline/redline-tools.md"
+},
+{
+  "title": "Lab 8: Visualize Wind Flow and Tune Animations",
+  "filename": "../../../adbs-wind-animations/wind-animations.md"
+},
+{
+    "title": "Need Help?",
+    "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+    "filename":"https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-livelabs.md"
+}
+    ]
+}
+

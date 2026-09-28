@@ -1,0 +1,35 @@
+{
+    "workshoptitle": "Find Roles Hidden in Your Skills using Graphs",
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Frame the career-mobility question and review the workshop goals.",
+            "type": "livelabs",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Lab 1: Prepare the Career Graph Environment",
+            "description": "Create GHC_DEV, import the APEX app, and verify the environment.",
+            "type": "livelabs",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 2: Traverse Skills to Discover Roles",
+            "description": "Use multi-hop graph traversal to uncover roles linked to your skills.",
+            "type": "livelabs",
+            "filename": "../../graph-exploration/graph-exploration.md"
+        },
+        {
+            "title": "Lab 3: Add Semantic Similarity and AI Explanations",
+            "description": "Add vector similarity and AI explanations for role fit and skill gaps.",
+            "type": "livelabs",
+            "filename": "../../ai-enhanced-fit/ai-enhanced-fit.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Template to link to Need Help lab at the end of workshop.",
+            "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}
