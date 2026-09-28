@@ -6,6 +6,14 @@ Use a career skills graph to uncover roles connected to what you already know. A
 
 Estimated Time: 45 minutes
 
+### Objectives
+
+In this workshop, you will:
+
+- Connect skills, occupations, and open positions with a property graph.
+- Compare related skills with Oracle AI Vector Search.
+- Use an AI profile to explain role fit and identify a skill gap.
+
 ## Long Description
 
 Your job title describes where you work today. It does not show every role your experience can support. This workshop uses Oracle Autonomous AI Database to connect skills, occupations, and open positions.

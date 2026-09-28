@@ -17,15 +17,15 @@ In this lab, you will:
 
 1. Save and close the active project, and then open **Datasets**.
 
-  ![Open datasets](./images/datasets.png "Open datasets")
+    ![Open datasets](./images/datasets.png "Open datasets")
 
 2. Open the properties for `FIELD_ASSET_HISTORY`.
 
-  ![Open properties for Field Asset History](./images/field-properties.png "Open properties for Field Asset History")
+    ![Open properties for Field Asset History](./images/field-properties.png "Open properties for Field Asset History")
 
 3. Locate the spatiotemporal settings and switch **Enable spatiotemporal** on. Select `OBSERVED_AT` as the timestamp column. Switch **Data is live** off and switch **Moving objects** on. Select `ASSET_ID` as the entity identifier and use seconds as the time unit.
 
-  ![Configure spatiotemporal settings](./images/field-asset-spatiotemporal.png "Configure spatiotemporal settings")
+    ![Configure spatiotemporal settings](./images/field-asset-spatiotemporal.png "Configure spatiotemporal settings")
 
 4. Apply the changes.
 
@@ -35,23 +35,23 @@ In this lab, you will:
 
 1. Reopen `Regional Operations Explorer`. Open the **Data** tab, select **Add Dataset**, choose `FIELD_ASSET_HISTORY`, and select **OK**.
 
-  ![Add field asset history dataset](./images/add-field-asset-history.png "Add field asset history dataset")
+    ![Add field asset history dataset](./images/add-field-asset-history.png "Add field asset history dataset")
 
-2.  Drag `FIELD_ASSET_HISTORY` from the Data tab onto the map.
+2. Drag `FIELD_ASSET_HISTORY` from the Data tab onto the map.
 
-  ![Add field asset history dataset](./images/add-field-asset.png "Add field asset history dataset")
+    ![Add field asset history dataset](./images/add-field-asset.png "Add field asset history dataset")
 
 3. Open the map settings, switch **Show timeline** on, and apply the setting.
 
-  ![Show timeline](./images/timeline.png "Show timeline")
+    ![Show timeline](./images/timeline.png "Show timeline")
 
 4. Open the primary `FIELD_ASSET_HISTORY` layer menu and select **Add to Timeline**.
 
-  ![Add to timeline](./images/add-to-timeline.png "Add to timeline")
+    ![Add to timeline](./images/add-to-timeline.png "Add to timeline")
 
 5. Open the same layer menu and select **Configure Animation**.
 
-  ![Configure animation](./images/configure-animation.png "Configure animation")
+    ![Configure animation](./images/configure-animation.png "Configure animation")
 
 6. Switch **Animate layer based on automatic dataset refresh** on. Set **Time between auto refreshes** to `1` second.
 
@@ -59,23 +59,23 @@ In this lab, you will:
 
     The data points are ten minutes apart. The one-second refresh makes the short workshop dataset respond promptly to Cesium timeline events.
 
-  ![Configure animation](./images/field-configure-animation.png "Configure animation")
+    ![Configure animation](./images/field-configure-animation.png "Configure animation")
 
 8. Select **Zoom Timeline to Range** for the primary layer. This sets the timeline to the earliest and latest `OBSERVED_AT` values.
 
-  ![Zoom timeline to range](./images/zoom-timeline.png "Zoom timeline to range")
+    ![Zoom timeline to range](./images/zoom-timeline.png "Zoom timeline to range")
 
 9. Open the timeline settings and set a minute-scale multiplier. Use `Minute (120x)`.
 
-  ![Zoom timeline to range](./images/timeline-settings.png "Zoom timeline to range")
+    ![Zoom timeline to range](./images/timeline-settings.png "Zoom timeline to range")
 
 10. Use the timeline controls to play forward, pause, and move to a different time.
 
 11. Confirm that asset locations change across the historical range and that Spatial Studio automatically adds a secondary trail layer for each moving object.
 
-  ![Use timeline controls](./images/timeline-controls.png "Use timeline controls")
+    ![Use timeline controls](./images/timeline-controls.png "Use timeline controls")
 
-You may now **proceed to the next lab**.
+    You may now **proceed to the next lab**.
 
 ## Learn More
 

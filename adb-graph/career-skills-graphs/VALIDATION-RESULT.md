@@ -2,6 +2,16 @@
 
 Generated on 2026-09-23T19:56:57.842825+00:00
 
+Estimated Time: 5 minutes
+
+### Objectives
+
+This report records the structural, manifest, Markdown, and writing-quality checks for the workshop.
+
+- Confirm required workshop folders and variants.
+- Record validation results for each workshop document.
+- Identify formatting or content issues that need correction.
+
 ## Structure Check
 - ✅ Required folders and workshop variants present.
 
@@ -81,3 +91,8 @@ Generated on 2026-09-23T19:56:57.842825+00:00
 - ✍️ Lanham score: 3/5
   - 1 sentence(s) exceed 20 words; tighten wording.
   - Contractions found; expand them per Lanham rules.
+
+## Acknowledgements
+
+- **Validation Report** - Generated from the workshop validation checks.
+- **Last Updated By/Date** - September 23, 2026

@@ -2,6 +2,14 @@
 
 Estimated Time: 5 minutes
 
+### Objectives
+
+This document records the sources, embedded assets, and approval notes used to build the workshop.
+
+- Identify the source owner and evidence for each workshop area.
+- Record asset reuse, attribution, and rights decisions.
+- Track open implementation and validation gaps.
+
 ## Source Classification
 
 - Oracle-owned/internal sources: Oracle LiveLabs workshop 3978 and Oracle product documentation for Autonomous AI Database, Graph, ORDS/API access, AI Vector Search, and Select AI.

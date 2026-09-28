@@ -52,7 +52,7 @@ In this lab, you will:
 
 3. Save the project with the wind layer visible and the timeline displayed.
 
-You may now **proceed to the next lab**.
+    You may now **proceed to the next lab**.
 
 ## Learn More
 
