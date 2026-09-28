@@ -51,7 +51,7 @@ In this lab, you will:
 
 3. Confirm that `FIELD_ASSET_HISTORY` contains repeated `ASSET_ID` values with different `OBSERVED_AT` timestamps.
 
-You may now **proceed to the next lab**.
+    You may now **proceed to the next lab**.
 
 ## Learn More
 
