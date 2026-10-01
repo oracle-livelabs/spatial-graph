@@ -13,30 +13,6 @@
 
     <link rel="stylesheet" href="https://livelabs.oracle.com/cdn/common/redwood-hol/css/style.min.css" />
     <link rel="shortcut icon" href="https://livelabs.oracle.com/cdn/common/redwood-hol/img/favicon.ico" />
-    <style>
-        .hol-Content pre {
-            position: relative;
-            padding-top: 3rem;
-        }
-
-        .hol-copy-code-button {
-            position: absolute;
-            top: 0.55rem;
-            right: 0.55rem;
-            border: 0;
-            border-radius: 0.2rem;
-            padding: 0.35rem 0.65rem;
-            background: #312d2a;
-            color: #ffffff;
-            font: 600 0.8rem/1 Arial, sans-serif;
-            cursor: pointer;
-        }
-
-        .hol-copy-code-button:hover,
-        .hol-copy-code-button:focus {
-            background: #5f5a56;
-        }
-    </style>
 </head>
 
 <body>
@@ -81,63 +57,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        (function () {
-            function copyText(text) {
-                if (navigator.clipboard && window.isSecureContext) {
-                    return navigator.clipboard.writeText(text);
-                }
-
-                var textArea = document.createElement('textarea');
-                textArea.value = text;
-                textArea.style.position = 'fixed';
-                textArea.style.opacity = '0';
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                return Promise.resolve();
-            }
-
-            function addCopyButtons() {
-                document.querySelectorAll('#module-content pre').forEach(function (pre) {
-                    if (pre.dataset.copyButtonAdded === 'true') {
-                        return;
-                    }
-
-                    var code = pre.querySelector('code');
-                    if (!code) {
-                        return;
-                    }
-
-                    var button = document.createElement('button');
-                    button.type = 'button';
-                    button.className = 'hol-copy-code-button';
-                    button.textContent = 'Copy';
-                    button.setAttribute('aria-label', 'Copy code to clipboard');
-                    button.addEventListener('click', function () {
-                        copyText(code.innerText).then(function () {
-                            button.textContent = 'Copied';
-                            window.setTimeout(function () {
-                                button.textContent = 'Copy';
-                            }, 1600);
-                        });
-                    });
-
-                    pre.appendChild(button);
-                    pre.dataset.copyButtonAdded = 'true';
-                });
-            }
-
-            var target = document.getElementById('module-content');
-            if (target) {
-                new MutationObserver(addCopyButtons).observe(target, {
-                    childList: true,
-                    subtree: true
-                });
-            }
-            addCopyButtons();
-        }());
-    </script>
 </body>
 </html>
