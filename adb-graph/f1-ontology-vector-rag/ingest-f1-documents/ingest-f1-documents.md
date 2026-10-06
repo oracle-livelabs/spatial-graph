@@ -81,14 +81,14 @@ In this lab, you will:
     INSERT INTO f1_documents (document_name, document_blob)
     SELECT 'f1rules.pdf',
            DBMS_CLOUD.GET_OBJECT(credential_name => NULL,
-                                 object_uri      => '<beginners-guide-url>')
+                                 object_uri      => 'https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/f1_beginners_guide.pdf')
     FROM dual
     WHERE NOT EXISTS (SELECT 1 FROM f1_documents WHERE document_name = 'f1rules.pdf');
 
     INSERT INTO f1_documents (document_name, document_blob)
     SELECT 'f1text.pdf',
            DBMS_CLOUD.GET_OBJECT(credential_name => NULL,
-                                 object_uri      => '<expanded-article-url>')
+                                 object_uri      => 'https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/2026-f1-regulations-expanded-article.pdf')
     FROM dual
     WHERE NOT EXISTS (SELECT 1 FROM f1_documents WHERE document_name = 'f1text.pdf');
 
