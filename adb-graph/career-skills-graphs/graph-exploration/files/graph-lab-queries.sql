@@ -1,4 +1,4 @@
--- Run as GHC_DEV after submitting a profile in the APEX application.
+-- Run as GHC_USER after submitting a profile in the APEX application.
 -- This query exposes the latest task results saved by the supplied app.
 
 SELECT history_id,
@@ -9,9 +9,23 @@ SELECT history_id,
          result_payload,
          '$.sql' RETURNING VARCHAR2(4000) NULL ON ERROR
        ) AS graph_sql_preview,
-       JSON_VALUE(
-         result_payload,
-         '$.occupations[0].title' RETURNING VARCHAR2(4000) NULL ON ERROR
+       COALESCE(
+         JSON_VALUE(
+           result_payload,
+           '$.result.occupations[0].title' RETURNING VARCHAR2(4000) NULL ON ERROR
+         ),
+         JSON_VALUE(
+           result_payload,
+           '$.occupations[0].title' RETURNING VARCHAR2(4000) NULL ON ERROR
+         ),
+         JSON_VALUE(
+           JSON_VALUE(result_payload, '$.result' RETURNING CLOB NULL ON ERROR),
+           '$.result.occupations[0].title' RETURNING VARCHAR2(4000) NULL ON ERROR
+         ),
+         JSON_VALUE(
+           JSON_VALUE(result_payload, '$.result' RETURNING CLOB NULL ON ERROR),
+           '$.occupations[0].title' RETURNING VARCHAR2(4000) NULL ON ERROR
+         )
        ) AS first_role
 FROM   career_profile_task_history
 ORDER BY history_id DESC

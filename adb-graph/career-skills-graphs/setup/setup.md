@@ -2,71 +2,71 @@
 
 ## Introduction
 
-The Career Explorer runs in an APEX application backed by Oracle Autonomous AI Database. First verify the database user and APEX workspace. Then import the application and confirm that its support objects exist.
+The Career Explorer runs in an APEX application backed by Oracle Autonomous AI Database. Verify the pre-provisioned `GHC_USER` schema and its privileges, then import the application. The supplied application export does not install the career data, property graph, or task packages.
 
-Estimated Time: 10 minutes
+Estimated Time: 15 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Verify `GHC_USER` with Graph, REST, GraphQL, Web Access, and `DBMS_CLOUD_AI` access.
+- Verify the pre-provisioned `GHC_USER` account and its required privileges.
 - Import application 100 into the enabled APEX workspace.
-- Open the Career Explorer entry page.
+- Open the Career Explorer entry page and confirm its support objects are available.
 
-## Task 1: Create the GHC_DEV user
+## Task 1: Verify the database account
 
-1. Open **Database Actions** as `ADMIN` for the instructor-provided Autonomous AI Database.
+1. In LiveLabs, open **View Login Info** and select **Launch OCI**. In the OCI Console navigation menu, select **Oracle AI Database > Autonomous AI Database**.
 
-2. Select **Administration > Database Users > Create User**. Enter:
+    Use the region listed in **View Login Info** for your database; the region names in these screenshots are examples.
 
-    - **User Name**: `GHC_USER`
-    - **Password**: input your password
-    - **Quota on tablespace DATA**: Unlimited
+    ![OCI Console navigation menu with Autonomous AI Database highlighted.](images/navigation-menu.png " ")
 
-3. Enable these capabilities:
+2. Select the compartment provided in **View Login Info**, then select the **GHC Career Recommendation Graph** database.
 
-    - **Graph**
-    - **REST, RESTful Services and SODA, GraphQL, and Web Access**
-    - **DBMS_CLOUD_AI package**, if the form exposes the option
+    ![Autonomous AI Database list with GHC Career Recommendation Graph selected.](images/select-autonomous-database.png " ")
 
-4. Select **Create User**. The Graph option normally adds the `GRAPH_DEVELOPER` role. Web Access supports Database Actions and local file loading.
+3. On the database details page, select **Database Actions**, open the SQL Worksheet, and sign in as `GHC_USER`. Run [verify-ghc-user.sql](files/verify-ghc-user.sql).
 
-## Task 2: Verify the user capabilities
-
-1. Sign in to Database Actions as `GHC_USER`. Open **SQL > SQL Worksheet** and run [verify-ghc-dev.sql](files/verify-ghc-dev.sql).
-
-2. Confirm these results:
+4. Confirm these results:
 
     - The connected user is `GHC_USER`.
-    - A graph role or privilege appears, normally `GRAPH_DEVELOPER` or `CREATE PROPERTY GRAPH`.
-    - `DBMS_CLOUD_AI` appears in the received grants.
-    - The expected AI profile appears when the instructor has configured it.
+    - The `GRAPH_DEVELOPER` role or required graph privilege appears.
+    - `EXECUTE` on `DBMS_CLOUD_AI` appears in the received grants.
+    - `GHC_CAREER_AI` is enabled if you plan to complete the optional AI task in Lab 3.
 
-3. Stop if Graph or Web Access is missing. Ask the instructor to update the account before continuing.
+5. If the account or graph access is missing, stop and ask the instructor to provision it. If the `DBMS_CLOUD_AI` grant or `GHC_CAREER_AI` profile is missing, skip the standalone AI explanation in Lab 3 and ask the instructor whether the Career Explorer task packages need those settings. Do not create a blank replacement schema; the Career Explorer depends on the preloaded objects in `GHC_USER`.
 
-## Task 3: Import and launch the APEX application
+## Task 2: Confirm the application support objects
 
-1. Open the enabled APEX workspace. Select **App Builder > Import**.
-
-2. Upload [f100.sql](files/f100.sql). Keep application **100**, use the `ghc_dev` application name, and map the parsing schema to `GHC_USER`.
-
-3. Open application 100 and select **Run**. Sign in with the APEX account created for the workshop.
-
-    The APEX account and the `GHC_USER` database user are separate accounts. Ask the workspace administrator to create the APEX account if it does not exist.
-
-4. Open **Career Explorer**. Confirm that the page shows a profile editor and an **Explore career options** button.
-
-## Task 4: Check the application support boundary
-
-1. Ask the instructor to confirm these objects:
+1. Ask the instructor to confirm that the `GHC_USER` schema contains these objects:
 
     - `CAREER_PROFILE_TASK_HISTORY`
     - `CAREER_PROFILE_AGENT_TOOLS.RUN_PROFILE_TASKS`
     - `CAREER_PROFILE_TASK4_RUNNER.RUN`
     - The career tables and property graph used by the application
 
-2. Stop if any object is missing. The import can succeed while the **Explore career options** action still lacks its database dependencies.
+2. Stop if any object is missing. The APEX import does not install these dependencies.
+
+## Task 3: Import and launch the APEX application
+
+1. On the database details page, open **Tool configuration**. Under **Oracle APEX**, copy the **Public access URL** and open it in a new browser tab.
+
+    ![Oracle APEX section of Tool configuration with the Public access URL Copy button highlighted.](images/apex-link.png " ")
+
+2. Sign in to the enabled APEX workspace with the workshop APEX account. Select **App Builder > Import**. Ask the workspace administrator for an account if one has not been provided.
+
+3. Upload [f100.sql](files/f100.sql). Keep application **100**, use the `ghc_dev` application name, and map the parsing schema to `GHC_USER`.
+
+    The exported APEX application keeps the name `ghc_dev`; its parsing schema is `GHC_USER`.
+
+4. Under **Import As Application**, select **Reuse Application ID 100 From Imported Application**. Click **Import Application**.
+
+5. Open application 100 and select **Run**. Sign in with the APEX account.
+
+    The APEX account and the `GHC_USER` database user are separate accounts.
+
+6. Open **Career Explorer**. Confirm that the page shows a profile editor and an **Explore career options** button.
 
 ## Learn More
 

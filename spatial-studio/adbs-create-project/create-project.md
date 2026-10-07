@@ -25,8 +25,6 @@ In this lab, you will:
 
 2. On the **Setup** tab, keep **Single column address** off. Map `ADDRESS`, `CITY`, `STATE`, `POSTAL_CODE`, and `COUNTRY` to the matching address components.
 
-    ![Setup geocode](./images/geocode-setup.png "Geocode-addresses")
-
 3. Switch **Save coordinates in columns** on. Enter `LATITUDE` and `LONGITUDE` as the output column names, then select **Apply**.
 
     ![Setup geocode](./images/geocode-setup-1.png "Geocode-addresses")
@@ -98,7 +96,7 @@ In this lab, you will:
 
     ![Save project as](./images/save-project-as.png "Save project as")
 
-3. Select **Save**, and then save the project.
+3. Select **Save** to create the project.
 
     ![Save as](./images/save-as.png "Save as")
 
@@ -112,9 +110,7 @@ In this lab, you will:
 
     ![Add datasets](./images/add-datasets.png "Add datasets")
 
-3. From **Data**, drag `SERVICE_CENTER_ADDRESSES` onto the map.
-
-    ![Add service center addresses to map](./images/service-center-address.png "Add service center addresses to map")
+3. From **Data**, drag `SERVICE_CENTER_ADDRESSES` onto the map. Confirm that its geocoded points appear around Albany, Springfield, Hartford, and Worcester.
 
 4. Drag `WEATHER_OBSERVATIONS` onto the same map.
 
@@ -137,21 +133,13 @@ In this lab, you will:
     ![Choose based on data](./images/weather-obs-based-on-data.png "Choose based on data")
     ![Select wind speed](./images/weather-obs-wind-speed.png "Select wind speed")
 
-3. Open **Visualizations** and drag **Table** next to the map.
+3. Open **Visualizations**, and drag **Table** onto the project canvas beside the map.
 
-    ![Add table](./images/add-table.png "Add table")
-
-4. Add `SERVICE_CENTER_ADDRESSES` to the table and select a row.
-
-    ![Add service center addresses](./images/add-serv-cent-add.png "Add service center addresses")
+4. From **Data**, drag `SERVICE_CENTER_ADDRESSES` into the table visualization, and then select a row.
 
 5. Confirm that Spatial Studio highlights the matching map feature or lets you locate it from the selected table record.
 
-    ![Highlight map](./images/highlight-table.png "Highlight map")
-
-6. Remove table as it will not be used in follow on labs.
-
-    ![Remove table](./images/remove-table.png "Remove table")
+6. Close the table visualization. It is not used in later labs.
 
 7. Save the project.
 
@@ -159,9 +147,12 @@ In this lab, you will:
 
 - [Typical Workflow for Visualizing Spatial Data](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/typical-workflow-visualizing-spatial-data.html)
 - [Geocode a Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/geocode-dataset.html)
+- [Load Raster Images into Oracle Spatial GeoRaster](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/create-dataset-loading-raster-images-oracle-spatial-georaster.html)
+- [Create a Wind Animation Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/create-wind-animation-dataset.html)
+- [About the Spatial Studio Compute Environment](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/compute-environment-spatial-studio.html)
 - [Using Oracle Spatial Studio on Autonomous AI Database, Release 26.1](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/get-started-using-spatial-studio1.html)
 
 ## Acknowledgements
 
 - **Authors** Denise Myrick, Oracle Database Product Management
--* **Last Updated By/Date** - Denise Myrick, Oracle Database Product Management, August 2026
+- **Last Updated By/Date** - Denise Myrick, Oracle Database Product Management, October 2026

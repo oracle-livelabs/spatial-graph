@@ -1,3 +1,4 @@
+-- Run as GHC_USER in Database Actions SQL Worksheet.
 -- Part 1: native vector-distance example.
 -- The vectors are illustrative; the instructor's schema should contain
 -- model-generated embeddings for the production workflow.

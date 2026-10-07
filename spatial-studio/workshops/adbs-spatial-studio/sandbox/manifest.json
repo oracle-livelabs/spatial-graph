@@ -1,8 +1,5 @@
 {
     "workshoptitle": "Introduction to Oracle Spatial Studio",
-      "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
-      "sample.json":"../../data-load/files/sample.json",
-      "step2.md":"../../data-load/files/step2.md"},
       "support": "https://community.oracle.com/tech/developers/categories/autonomous-database-shared",
       "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
@@ -21,12 +18,12 @@
         "filename": "../../../adbs-access-spatial-studio/access-spatial-studio.md"
     },
     {
-        "title": "Lab 2: Load Spatial Data",
+        "title": "Lab 2: Load Operations Data",
         "filename": "../../../adbs-access-upload/access-upload.md"
 
   },
   {
-      "title": "Lab 3: Create Project",
+      "title": "Lab 3: Geocode, Load Wind Data, and Build a Base Map",
       "filename": "../../../adbs-create-project/create-project.md"
   },
   {
@@ -42,10 +39,13 @@
       "filename": "../../../adbs-wind-animations/wind-animations.md"
   },
   {
+      "title": "Lab 7: Summarize Coverage with H3 and Proximity Analysis",
+      "filename": "../../../adbs-spatial-analysis/spatial-analysis.md"
+  },
+  {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
       "filename":"https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-livelabs.md"
   }
   ]
 }
-

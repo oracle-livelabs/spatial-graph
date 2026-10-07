@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "name": "field-asset-history",
+  "features": [
+    {"type":"Feature","properties":{"OBS_ID":"OBS-001","ASSET_ID":"ASSET-101","OBSERVED_AT":"2026-07-17T13:00:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-73.90,42.65]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-002","ASSET_ID":"ASSET-101","OBSERVED_AT":"2026-07-17T13:10:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-73.55,42.55]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-003","ASSET_ID":"ASSET-101","OBSERVED_AT":"2026-07-17T13:20:00Z","STATUS":"On site"},"geometry":{"type":"Point","coordinates":[-73.25,42.44]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-004","ASSET_ID":"ASSET-102","OBSERVED_AT":"2026-07-17T13:00:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-73.05,42.45]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-005","ASSET_ID":"ASSET-102","OBSERVED_AT":"2026-07-17T13:10:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-72.82,42.36]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-006","ASSET_ID":"ASSET-102","OBSERVED_AT":"2026-07-17T13:20:00Z","STATUS":"On site"},"geometry":{"type":"Point","coordinates":[-72.60,42.28]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-007","ASSET_ID":"ASSET-103","OBSERVED_AT":"2026-07-17T13:00:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-72.80,41.95]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-008","ASSET_ID":"ASSET-103","OBSERVED_AT":"2026-07-17T13:10:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-72.63,42.08]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-009","ASSET_ID":"ASSET-103","OBSERVED_AT":"2026-07-17T13:20:00Z","STATUS":"On site"},"geometry":{"type":"Point","coordinates":[-72.48,42.19]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-010","ASSET_ID":"ASSET-104","OBSERVED_AT":"2026-07-17T13:00:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-72.20,42.55]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-011","ASSET_ID":"ASSET-104","OBSERVED_AT":"2026-07-17T13:10:00Z","STATUS":"En route"},"geometry":{"type":"Point","coordinates":[-71.98,42.44]}},
+    {"type":"Feature","properties":{"OBS_ID":"OBS-012","ASSET_ID":"ASSET-104","OBSERVED_AT":"2026-07-17T13:20:00Z","STATUS":"On site"},"geometry":{"type":"Point","coordinates":[-71.82,42.34]}}
+  ]
+}

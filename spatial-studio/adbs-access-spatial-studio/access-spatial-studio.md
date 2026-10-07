@@ -2,7 +2,7 @@
 
 ## Introduction
 
-To log into Oracle Spatial Studio on ADBS, you will need to create a user with the necessary permissions. We will do this in Database Actions, then we will launch Spatial Studio and log in.
+To sign in to Oracle Spatial Studio on Autonomous AI Database Serverless, create a database user with the `SPATIAL_AUTHOR` role and the required database privileges. If your instructor has already provided an author account, skip Task 1 and use those credentials.
 
 Estimated Time: 10 minutes
 
@@ -15,35 +15,43 @@ In this lab, you will:
 
 ## Task 1: Create a Spatial User
 
-1. Once you've logged into Oracle Cloud, you will use the hamburger menu to navigate to Oracle AI Database, then select Autonomous AI Database.
+1. After signing in to Oracle Cloud, open the navigation menu, select **Oracle AI Database**, and then select **Autonomous AI Database**.
 
     ![OCI menu](./images/cloud-menu.png "OCI menu")
 
-2. Ensure you are in the correct compartment, and click on your database's display name. This will bring up the Autonomous AI Database information page.
+2. Select the correct compartment, and then select your database display name to open its details page.
 
     ![Select database](./images/select-database.png "Select database")
 
-3. Click Database Actions, then select Database Users.
+3. Select **Database Actions**, and then select **Database Users**.
 
     ![Database users](./images/database-users.png "Database Users")
 
-4. Click Create User
+4. Select **Create User**.
 
     ![Create user](./images/create-user.png "Create user")
 
-5. Fill in the form. Include the username, password, select the Quota on tablespace DATA, toggle on REST, GraphQL, MongoDB API, Web access, and Spatial. Then click Create User.
+5. Enter `SPATIALUSER` as the user name, enter and confirm a password, and select a quota for tablespace `DATA`.
 
-    ![Create spatial user](./images/create-spatial-user.png "Create spatial user")
+6. Open **Granted Roles**, search for `SPATIAL_AUTHOR`, and grant that role to the user.
 
-6. The spatial user is now created and you can proceed to launching Spatial Studio
+7. Select **Create User**. The user appears in the Database Users list.
 
     ![Spatial user created](./images/spatial-user-created.png "Spatial user created")
 
+8. In Database Actions, open **SQL** as `ADMIN` and run the following statements to grant the required privileges and allow the user to connect through Spatial Studio:
+
+        GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW, CREATE SEQUENCE,
+              CREATE PROCEDURE, CREATE TYPE, CREATE SYNONYM, CREATE TRIGGER
+        TO SPATIALUSER;
+
+        ALTER USER SPATIALUSER GRANT CONNECT THROUGH "SPATIAL$PROXY_USER";
+
 ## Task 2: Launch Spatial Studio
 
-1. Click the hamburger menu in the upper left corner to reveal the Database Actions options. In the first column, select Spatial Studio. This will open Spatial Studio in a new window.
+1. Open the Database Actions menu. Under **Development**, select **Spatial Studio**. Spatial Studio opens in a new window.
 
-    ![Launch Spatial from Database Actions](./images/spatial-user-created.png "Launch Spatial from Database Actions")
+    ![Select Spatial Studio from the Database Actions menu](./images/launch-spatial-studio.png "Launch Spatial Studio")
 
 2. Sign in with the credentials you created in Task 1.
 
@@ -58,8 +66,10 @@ In this lab, you will:
 ## Learn More
 
 - [Oracle Spatial product portal](https://www.oracle.com/database/spatial/)
+- [Set Up Spatial Studio Users and Privileges](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/set-spatial-studio-users-and-privileges.html)
+- [Access Spatial Studio](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/access-spatial-studio.html)
 
 ## Acknowledgements
 
 - **Author** - Denise Myrick, Database Product Management, Oracle
-- **Last Updated By/Date** - Denise Myrick, Database Product Management, July 2026
+- **Last Updated By/Date** - Denise Myrick, Database Product Management, October 2026

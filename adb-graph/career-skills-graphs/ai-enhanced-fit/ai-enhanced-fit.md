@@ -4,8 +4,6 @@
 
 Graph traversal follows explicit relationships. Vector search adds a second signal when two skills use different words. An AI profile can explain the evidence and name a gap.
 
-This lab uses Database Actions. FreeSQL does not generate the embeddings or call the configured AI provider required here.
-
 Estimated Time: 15 minutes
 
 ### Objectives
@@ -13,7 +11,7 @@ Estimated Time: 15 minutes
 In this lab, you will:
 
 - Compare a profile vector with skill vectors using cosine distance.
-- Check the AI profile available to `GHC_DEV`.
+- Check the AI profile available to `GHC_USER`.
 - Request an evidence-based explanation for one candidate role.
 
 ## Task 1: Compare semantically related skills
@@ -40,7 +38,7 @@ In this lab, you will:
 
 ## Task 2: Check the AI profile
 
-1. Run the profile query in [ai-fit-query.sql](files/ai-fit-query.sql). Confirm that `GHC_CAREER_AI` is enabled for the workshop.
+1. Run the profile query in [ai-fit-query.sql](files/ai-fit-query.sql). Confirm that `GHC_CAREER_AI` is enabled in the `GHC_USER` schema. `USER_CLOUD_AI_PROFILES` shows profiles in the connected user's schema.
 
 2. If the profile is missing, finish with the graph and vector results. Ask the instructor to configure the credential, profile, and outbound access. Do not paste a personal API key into the worksheet.
 
@@ -68,5 +66,4 @@ In this lab, you will:
 
 ## Acknowledgements
 
-* **Oracle documentation** - [Use Retrieval-Augmented Generation and Vectors](https://docs.oracle.com/en/database/oracle/oracle-database/26/selai/use-retrieval-augmented-generation-and-vectors.html).
 * **Last Updated By/Date** - September 23, 2026

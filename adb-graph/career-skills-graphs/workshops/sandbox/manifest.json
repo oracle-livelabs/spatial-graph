@@ -9,10 +9,15 @@
             "filename": "../../introduction/introduction.md"
         },
         {
+          "title": "Get Started",
+          "description": "Prerequisites for this workshop",
+          "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs.md"
+        },
+        {
             "title": "Lab 1: Prepare the Career Graph Environment",
-            "description": "Create GHC_DEV, import the APEX app, and verify the environment.",
+            "description": "Verify GHC_USER and its career graph prerequisites, then import the APEX app.",
             "type": "livelabs",
-            "filename": "../../setup/setup.md"
+            "filename": "../../setup/setup-sandbox.md"
         },
         {
             "title": "Lab 2: Traverse Skills to Discover Roles",

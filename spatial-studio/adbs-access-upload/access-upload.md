@@ -62,4 +62,4 @@ In this lab, you will:
 ## Acknowledgements
 
 - **Authors** - Denise Myrick, Oracle Database Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2026
+- **Last Updated By/Date** - Denise Myrick, October 2026

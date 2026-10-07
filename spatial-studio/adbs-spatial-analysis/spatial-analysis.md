@@ -92,26 +92,27 @@ In this lab, you will:
 
     ![Display analysis](./images/display-observations.png "Display analysis")
 
-2. Compare the analysis result with the wind flow, H3 clusters, and asset history.
+2. Compare the analysis result with the H3 clusters, asset history, and service-center locations.
 
     ![Review all layers](./images/review-layers.png "Review all layers")
 
 3. Save `Regional Operations Explorer`.
 
-    ![Save project](./images/save-projects.png "Save project")
+    ![Save project](./images/save-project.png "Save project")
 
 4. Confirm that both derived datasets appear on the Datasets page and remain available to another project.
 
-    ![Check datasets](./images/check-datasets.png "Check datasets")
+    ![Check derived datasets](./images/check-dataset.png "Check derived datasets")
 
     You may now **proceed to the next step**.
 
 ## Learn More
 
 - [Prepare an H3 Aggregation Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/prepare-dataset-h3-aggregation.html)
+- [Generate a Spatial Analysis Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/generate-spatial-analysis-dataset.html)
 - [Overview of the Datasets Page](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/overview-datasets-page.html)
 
 ## Acknowledgements
 
 - **Authors** - Denise Myrick, Oracle Database Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2026
+- **Last Updated By/Date** - Denise Myrick, October 2026

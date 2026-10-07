@@ -1,0 +1,58 @@
+{
+  "type": "FeatureCollection",
+  "name": "service-centers",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "CENTER_ID": "CTR-01",
+        "CENTER_NAME": "Albany Operations Center",
+        "ADDRESS": "51 State Street",
+        "CITY": "Albany",
+        "STATE": "NY",
+        "POSTAL_CODE": "12207",
+        "COUNTRY": "United States"
+      },
+      "geometry": {"type": "Point", "coordinates": [-73.7517, 42.6492]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CENTER_ID": "CTR-02",
+        "CENTER_NAME": "Springfield Service Center",
+        "ADDRESS": "1 Federal Street",
+        "CITY": "Springfield",
+        "STATE": "MA",
+        "POSTAL_CODE": "01105",
+        "COUNTRY": "United States"
+      },
+      "geometry": {"type": "Point", "coordinates": [-72.5764, 42.1097]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CENTER_ID": "CTR-03",
+        "CENTER_NAME": "Hartford Response Center",
+        "ADDRESS": "55 Farmington Avenue",
+        "CITY": "Hartford",
+        "STATE": "CT",
+        "POSTAL_CODE": "06105",
+        "COUNTRY": "United States"
+      },
+      "geometry": {"type": "Point", "coordinates": [-72.6877, 41.7679]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CENTER_ID": "CTR-04",
+        "CENTER_NAME": "Worcester Field Office",
+        "ADDRESS": "455 Main Street",
+        "CITY": "Worcester",
+        "STATE": "MA",
+        "POSTAL_CODE": "01608",
+        "COUNTRY": "United States"
+      },
+      "geometry": {"type": "Point", "coordinates": [-71.8019, 42.2626]}
+    }
+  ]
+}

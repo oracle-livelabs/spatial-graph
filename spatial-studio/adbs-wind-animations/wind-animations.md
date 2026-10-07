@@ -12,7 +12,7 @@ In this lab, you will:
 
 - Add a wind dataset to the active project.
 - Tune particle count, speed, fading, and the color palette.
-- Configure refresh interval and trail length for asset history.
+- Confirm that historical asset animation continues alongside the wind visualization.
 
 ## Task 1: Verify the wind dataset
 
@@ -57,8 +57,9 @@ In this lab, you will:
 ## Learn More
 
 - [About the Spatial Studio compute node](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/compute-environment-spatial-studio.html)
+- [Visualize a Wind Animation Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/visualize-wind-animation-dataset.html)
 
 ## Acknowledgements
 
 - **Authors** - Oracle LiveLabs
-- **Last Updated By/Date** - Oracle LiveLabs, July 2026
+- **Last Updated By/Date** - Oracle LiveLabs, October 2026

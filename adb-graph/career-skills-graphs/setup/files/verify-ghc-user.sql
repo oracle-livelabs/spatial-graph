@@ -1,4 +1,4 @@
--- Run as GHC_DEV in Database Actions SQL Worksheet.
+-- Run as GHC_USER in Database Actions SQL Worksheet.
 -- Capability labels and role names can vary by Autonomous AI Database release.
 
 SELECT USER AS connected_user,

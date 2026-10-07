@@ -24,11 +24,17 @@ In this lab, you will:
 
 2. Select **Explore career options**. Wait for the results to refresh.
 
+    ![Input career profile.](images/career-profile.png " ")
+
 3. In **Career Exploration Results**, record one role that interests or surprises you.
+
+    ![Explore results.](images/career-results.png " ")
 
 ## Task 2: Explore the graph result
 
 1. In **Visualization Result**, move the network and select a vertex. Identify the starting skills, intermediate relationships, and target roles.
+
+    ![Visualize results.](images/visualize-result.png " ")
 
 2. Find an indirect path. A two-hop or three-hop path shows how a skill reaches a role through an intermediate relationship.
 
@@ -36,11 +42,11 @@ In this lab, you will:
 
 ## Task 3: Inspect the query behind the visualization
 
-1. Open Database Actions in a second tab as `GHC_DEV`. Open **SQL Worksheet** and run [graph-lab-queries.sql](files/graph-lab-queries.sql).
+1. Open Database Actions in a second tab as `GHC_USER`. Open **SQL Worksheet** and run `graph-lab-queries.sql`, which you downloaded in the last lab.
 
 2. Find the latest successful row for task order 3. Compare its SQL preview with the graph you explored.
 
-3. Review the variable-length pattern below. Replace the graph name, labels, and property names with the values from the instructor-provided graph definition before you execute it.
+3. Review the variable-length pattern below.
 
     ```sql
     SELECT DISTINCT starting_skill, target_role
@@ -66,5 +72,4 @@ In this lab, you will:
 
 ## Acknowledgements
 
-* **Oracle LiveLabs source** - [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?P0_REDIRECT=Y&wid=3978).
-* **Last Updated By/Date** - September 23, 2026
+* **Last Updated By/Date** - Denise Myrick, September 2026

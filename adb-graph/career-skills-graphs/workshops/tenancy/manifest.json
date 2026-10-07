@@ -10,7 +10,7 @@
         },
         {
             "title": "Lab 1: Prepare the Career Graph Environment",
-            "description": "Create GHC_DEV, import the APEX app, and verify the environment.",
+            "description": "Verify GHC_USER and its career graph prerequisites, then import the APEX app.",
             "type": "livelabs",
             "filename": "../../setup/setup.md"
         },

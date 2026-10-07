@@ -67,7 +67,7 @@ In this lab, you will:
 
 9. Open the timeline settings and set a minute-scale multiplier. Use `Minute (120x)`.
 
-    ![Zoom timeline to range](./images/timeline-settings.png "Zoom timeline to range")
+    ![Timeline settings with Minute (120x) selected](./images/timeline-settings.png "Timeline settings")
 
 10. Use the timeline controls to play forward, pause, and move to a different time.
 
@@ -79,10 +79,10 @@ In this lab, you will:
 
 ## Learn More
 
-- [Enable Spatiotemporal for a Dataset](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/enable-spatiotemporal-dataset.html)
+- [Configure Spatiotemporal for Non-Live Moving Objects](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/configure-spatiotemporal-non-live-moving-objects-dataset.html)
 - [Visualize Spatiotemporal Datasets](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/visualize-spatiotemporal-datasets.html)
 
 ## Acknowledgements
 
 - **Authors** - Denise Myrick, Oracle Database Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2026
+- **Last Updated By/Date** - Denise Myrick, October 2026

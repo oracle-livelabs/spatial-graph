@@ -34,17 +34,15 @@ In this lab, you will:
 
     Tip: Right-click and choose **Close polygon** to complete the drawing.
 
-4. Select **Draw Line** and trace a possible access route from the nearest service center into the advisory area.
+5. Select **Draw Line** and trace a possible access route from the nearest service center into the advisory area.
 
     ![Draw line](./images/line.png "Draw line")
 
-    Tip: Right-click and choose **Close polygon** to complete the drawing.
-
-5. The orange color of the line is difficult to see. Select the line and click **Edit Feature Properties**, then choose a different color so the line stands out more. You can also change the width.
+6. Select the line, open **Edit Feature Properties**, and change its color or width so it stands out against the map.
 
     ![Edit line](./images/edit-line.png "Edit line")
 
-6. Select **Draw Point** to mark a proposed staging location. Select the point and click **Edit Feature Properties**, then choose a different color so the point stands out more. You can also change the width.
+7. Select **Draw Point** to mark a proposed staging location. Select the point, open **Edit Feature Properties**, and choose a contrasting color.
 
     ![Edit point](./images/point.png "Edit point")
 
@@ -52,17 +50,19 @@ In this lab, you will:
 
 1. Select **Select feature**, and then select the advisory polygon.
 
-2. Move one or more vertices to refine its boundary.
+2. Move one or more vertices to refine the polygon boundary.
 
-    ![Resize polygon](./images/resize-polygon.png "Resize polygon")
+    ![Selected polygon with editable vertices](./images/resize-polygon.png "Edit polygon vertices")
 
 3. Open **Edit Feature Properties**, enter `Weather advisory area` as the description, and adjust its fill or outline.
 
     ![Edit polygon](./images/edit-polygon.png "Edit polygon")
 
-4. Select the polygon and place your mouse near one of the edges. The mouse pointer will turn into a rotation icon. Click and drag to rotate the polygon.
+4. Select the polygon. Hold **Ctrl+R** and drag to rotate it. Hold **Ctrl+S** and drag to resize it.
 
     ![Rotate polygon](./images/rotate-polygon.png "Rotate polygon")
+
+5. Select the polygon, right-click it, choose **Duplicate Feature**, and move the copy to another part of the map.
 
 ## Task 3: Toggle Visibility
 
@@ -74,15 +74,21 @@ In this lab, you will:
 
     ![Visibility off](./images/visibility-off.png "Visibility off")
 
-3. Select **Save** to persist the Redline drawings with the project.
+3. Select **Save** to persist the Redline drawings with the project. When you reopen the project, select **Actions** > **Redline** to make the saved shapes editable again.
+
+## Task 4: Export the Redline features
+
+1. On the Redline toolbar, select **Export Features**, and then select **Download as GeoJson**.
+
+2. Save the `.geojson` file to your computer. Descriptions and object IDs are included in the export; custom colors and outline widths are not.
 
     You may now **proceed to the next lab**.
 
 ## Learn More
 
-- [Use the Redline Map Tool](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/style-map-layer1.html)
+- [Use the Redline Map Tool](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adstu/use-redline-map-tool.html)
 
 ## Acknowledgements
 
 - **Authors** - Denise Myrick, Oracle Database Product Management
-- **Last Updated By/Date** - Denise Myrick, August 2026
+- **Last Updated By/Date** - Denise Myrick, October 2026
