@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "name": "weather-observations",
+  "features": [
+    {"type":"Feature","properties":{"OBS_ID":"WX-001","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":3.2},"geometry":{"type":"Point","coordinates":[-73.82,42.88]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-002","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":5.8},"geometry":{"type":"Point","coordinates":[-73.54,42.51]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-003","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":7.1},"geometry":{"type":"Point","coordinates":[-73.12,42.34]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-004","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":4.6},"geometry":{"type":"Point","coordinates":[-72.95,42.06]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-005","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":9.3},"geometry":{"type":"Point","coordinates":[-72.67,42.42]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-006","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":6.4},"geometry":{"type":"Point","coordinates":[-72.34,42.21]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-007","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":11.2},"geometry":{"type":"Point","coordinates":[-72.02,42.70]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-008","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":8.7},"geometry":{"type":"Point","coordinates":[-71.86,42.14]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-009","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":2.9},"geometry":{"type":"Point","coordinates":[-72.96,41.82]}},
+    {"type":"Feature","properties":{"OBS_ID":"WX-010","OBSERVED_AT":"2026-07-17T13:00:00Z","WIND_SPEED":12.6},"geometry":{"type":"Point","coordinates":[-71.63,42.52]}}
+  ]
+}
