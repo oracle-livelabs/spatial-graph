@@ -4,7 +4,7 @@
 
 The 2026 Formula 1 rules change the car in connected ways. Active aerodynamics replaces DRS, a new energy mode helps drivers overtake, and the car gets lighter, shorter, and narrower. Rules like these are relationships and limits, and a knowledge graph represents them better than loose text chunks do.
 
-In this workshop, you turn two F1 documents into an RDF knowledge graph inside Oracle Autonomous AI Database. A large language model reads the text, but an ontology decides which classes, relationships, and units the model may use. You then build two Select AI agents on the graph. One answers questions. The other changes the graph through a guarded, audited API.
+In this workshop, you turn two F1 documents into an RDF knowledge graph inside Oracle Autonomous AI Database. An LLM (Large Language Model) reads the text, but an ontology decides which classes, relationships, and units the LLM may use. You then build two AI agents on the graph. One answers questions. The other changes the graph through a guarded, audited API.
 
 ![Workshop flow from two PDFs to chunks, ontology-guided facts, an RDF graph, and two agents](images/workshop-flow.png " ")
 
@@ -15,9 +15,9 @@ Estimated Workshop Time: 45 minutes
 In this workshop, you will:
 
 - Load two PDF documents into the database and split them into chunks.
-- Use Select AI with an ontology prompt to extract facts as JSON.
+- Call a chat model with an ontology prompt to extract facts as JSON.
 - Convert the facts to RDF terms and bulk load them into an RDF graph.
-- Query the graph with SPARQL through `SEM_MATCH`.
+- Query the graph with SPARQL.
 - Create a read-only question agent and a change agent that needs a human to confirm deletes.
 - Use the agents from an APEX chatbot.
 
@@ -40,11 +40,8 @@ Your LiveLabs sandbox reservation prepares the environment before you start. You
 ## Learn More
 
 - [Oracle RDF Graph Developer's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/)
-- [Select AI in Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/sql-generation-ai-autonomous.html)
-- [Select AI Agent](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/select-ai-agents.html)
 
 ## Acknowledgements
 
-* **Author** - Ramu Murakami Gutierrez
-* **Source** - [The beginner's guide to the 2026 Formula 1 regulations](https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-2026-regulations.6j0tS0hrHG2T01tpmK6XYz). Built with permission from the author(s).
+* **Author** - Ramu Murakami Gutierrez, Denise Myrick, Shreya Pandey, Matthew Perry
 * **Last Updated By/Date** - Ramu Murakami Gutierrez, September 2026

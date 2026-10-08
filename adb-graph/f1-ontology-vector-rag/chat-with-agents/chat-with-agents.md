@@ -22,11 +22,11 @@ In this lab, you will:
 
 3. Sign in with the same `F1_ANALYST` user and password that you used for SQL Worksheet.
 
-    ![Sign-in page with the user and password fields](./../../chat-with-agents/images/01-sign-in-highlighted-1280.png)
+    ![Sign-in page with the user and password fields](images/01-sign-in-highlighted-1280.png)
 
     The chat opens with `F1_AGENT_TEAM` already selected under **Switch Agent Team**.
 
-    ![Chat page with the prompt bar and the selected agent team](./../../chat-with-agents/images/02-chat-home-highlighted-1280.png)
+    ![Chat page with the prompt bar and the selected agent team](images/02-chat-home-highlighted-1280.png)
 
 ## Task 2: Ask questions
 
@@ -40,7 +40,7 @@ In this lab, you will:
 
     The supervisor sends the question to the question agent. The answer says the car is not compliant, because the graph holds a maximum wheelbase of 3,400 mm.
 
-    ![Answer to the wheelbase question](./../../chat-with-agents/images/03-compliance-question-highlighted-1280.png)
+    ![Answer to the wheelbase question](images/03-compliance-question-highlighted-1280.png)
 
 2. Ask a second question:
 
@@ -52,7 +52,7 @@ In this lab, you will:
 
     The answer names Overtake Mode and a minimum weight of 768 kg. Each answer is labeled **AGENT | F1_AGENT_TEAM**.
 
-    ![Answer about DRS and the minimum weight](./../../chat-with-agents/images/04-drs-weight-highlighted-1280.png)
+    ![Answer about DRS and the minimum weight](images/04-drs-weight-highlighted-1280.png)
 
 ## Task 3: Change the graph from the chat
 
@@ -66,7 +66,7 @@ In this lab, you will:
 
     Nothing is deleted yet. The reply names the exact fact and gives you a code, for example `confirm 2082`.
 
-    ![Delete request returns a confirmation code](./../../chat-with-agents/images/05-delete-code-highlighted-1280.png)
+    ![Delete request returns a confirmation code](images/05-delete-code-highlighted-1280.png)
 
 2. Wait at least 15 seconds. Then send `confirm` followed by your code, for example:
 
@@ -76,7 +76,7 @@ In this lab, you will:
 
     The reply confirms the delete. It can come back wrapped in JSON, for example `{"status":"success","result":"Deleted: Car2026 usesEnergyMode BoostMode."}`.
 
-    ![Delete confirmed with the code](./../../chat-with-agents/images/06-delete-confirmed-highlighted-1280.png)
+    ![Delete confirmed with the code](images/06-delete-confirmed-highlighted-1280.png)
 
 3. Put the fact back:
 
@@ -88,16 +88,15 @@ In this lab, you will:
 
     The reply says `Applied: added Car2026 usesEnergyMode BoostMode.` Both changes are now in `f1_rdf_change_audit`, with `F1_ANALYST via F1_CHANGE_AGENT` as the requester. You can check them with the audit query from Lab 4.
 
-    ![Fact added back](./../../chat-with-agents/images/07-fact-added-highlighted-1280.png)
+    ![Fact added back](images/07-fact-added-highlighted-1280.png)
 
 Congratulations! You built an RDF knowledge graph from two documents and put question and change agents on top of it.
 
 ## Learn More
 
-- [Select AI Agent](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/select-ai-agents.html)
 - [Oracle APEX](https://apex.oracle.com)
 
 ## Acknowledgements
 
-* **Author** - Ramu Murakami Gutierrez
+* **Author** - Ramu Murakami Gutierrez, Denise Myrick, Shreya Pandey, Matthew Perry
 * **Last Updated By/Date** - Ramu Murakami Gutierrez, October 2026
