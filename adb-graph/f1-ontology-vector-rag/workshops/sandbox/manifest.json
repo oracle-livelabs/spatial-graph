@@ -12,6 +12,11 @@
       "filename": "../../introduction/introduction.md"
     },
     {
+      "title": "Get Started",
+      "description": "Prerequisites for this workshop",
+      "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs.md"
+    },
+    {
       "title": "Lab 1: Load and Chunk the F1 Documents",
       "description": "Load two PDFs with DBMS_CLOUD and split them into chunks with DBMS_VECTOR_CHAIN.",
       "type": "livelabs",
