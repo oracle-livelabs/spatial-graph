@@ -2,15 +2,13 @@
 
 ## Introduction
 
+### About this Workshop
+
 Your job title describes where you work today. It does not show every role your experience can support. This workshop uses a career skills graph to connect skills, occupations, and open positions.
 
 You will use Oracle Autonomous AI Database, Database Actions, and an APEX Career Explorer. You will follow multi-hop paths, compare related skills with vector search, and review an AI explanation.
 
-## Get into LiveLabs
-
-1. On this workshop's LiveLabs page, select **Start** and choose **Run on LiveLabs Sandbox**.
-2. Select **Start Workshop Now**, accept the consent prompt, and submit the reservation.
-3. When the sandbox becomes available, select **Launch Workshop**, open **View Login Info**, and use **Launch OCI** or the provided Database Actions link.
+    ![Workshop flow.](images/career-skills-workshop-flow.png " ")
 
 ### Prerequisites
 
@@ -40,4 +38,4 @@ Estimated Workshop Time: 45 minutes
 
 ## Acknowledgements
 
-- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, September 2026
+- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, October 2026

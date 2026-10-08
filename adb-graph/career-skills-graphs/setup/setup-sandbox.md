@@ -15,7 +15,7 @@ In this lab, you will:
 
 ## Task 1: Download application from Github
 
-1. Navigate to [GitHub](https://github.com/oracle-samples/oracle-graph/tree/master/shared/demos) and download the Career Explorer application and career-skills-queries.sql to your desktop.
+1. Navigate to [GitHub](https://github.com/oracle-samples/oracle-graph/tree/master/shared/demos) and download the Career Explorer application to your desktop.
 
 ## Task 2: Log into APEX
 
@@ -39,7 +39,7 @@ In this lab, you will:
 
 1. Select **App Builder > Import**.
 
-    ![Click App builder](images/apex-login.png " ")
+    ![Click App builder](images/app-builder.png " ")
     ![Click import](images/apex-import.png " ")
 
 2. Upload the application that you downloaded in Task 1. Click **Next**. 

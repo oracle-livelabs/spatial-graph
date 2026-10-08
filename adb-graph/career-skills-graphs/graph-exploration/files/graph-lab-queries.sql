@@ -31,19 +31,44 @@ FROM   career_profile_task_history
 ORDER BY history_id DESC
 FETCH FIRST 12 ROWS ONLY;
 
--- Illustrative SQL Property Graph pattern.
--- Replace the graph name, labels, and property names with the values
--- supplied by the workshop instructor before executing this statement.
+-- Inspect the graph definition before writing a label-specific pattern.
+-- These dictionary views show the graph elements, labels, and properties
+-- visible to GHC_USER in this Oracle AI Database 26ai environment.
 
-SELECT *
+SELECT graph_name,
+       element_name,
+       element_kind,
+       object_owner,
+       object_name
+FROM   user_pg_elements
+ORDER BY graph_name, element_kind, element_name;
+
+SELECT graph_name,
+       element_name,
+       label_name
+FROM   user_pg_element_labels
+ORDER BY graph_name, element_name, label_name;
+
+SELECT graph_name,
+       label_name,
+       property_name,
+       data_type
+FROM   user_pg_label_properties
+ORDER BY graph_name, label_name, property_order;
+
+-- Generic one-to-three-hop traversal. It avoids assuming label or property
+-- names; VERTEX_ID returns each matched vertex's graph element and key.
+-- If your graph has a different name, use the name shown above.
+
+SELECT starting_vertex,
+       target_vertex
 FROM GRAPH_TABLE (
   career_skills_graph
   MATCH
-    (s IS skill)
-      ((x) -[e IS connects_to]-> (y)){1,3}
-    (r IS role)
+    (s) -[e]->{1,3} (r)
   COLUMNS (
-    s.skill_name AS starting_skill,
-    r.role_name  AS target_role
+    VERTEX_ID(s) AS starting_vertex,
+    VERTEX_ID(r) AS target_vertex
   )
-);
+)
+FETCH FIRST 25 ROWS ONLY;
