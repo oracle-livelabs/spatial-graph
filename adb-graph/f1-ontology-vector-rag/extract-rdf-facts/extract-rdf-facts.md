@@ -89,61 +89,79 @@ Review the prompt before you run it. An ontology captures knowledge about a doma
                                     AND e.chunk_id = c.chunk_id)
                 ORDER BY c.document_id, c.chunk_id)
       LOOP
-        l_prompt :=
-          'Extract only explicitly stated Formula 1 2026 facts. Do not infer or invent facts. '
-          || 'Return JSON only in this format: '
-          || '{"triples":[{"subject":"id","predicate":"term","object":"id or literal",'
-          || '"object_kind":"iri or literal","datatype":"xsd:decimal or null","unit":"unit or null"}]}. '
-          || 'If there are no facts, return {"triples":[]}. '
-          || q'~
-    Use only this ontology:
-    @prefix f1: <https://oracle.com/ontology/f1/> .
-    f1:Car rdf:type owl:Class .
-    f1:VehicleFeature rdf:type owl:Class .
-    f1:EnergyMode rdfs:subClassOf f1:VehicleFeature .
-    f1:AeroMode rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A selectable aerodynamic configuration" .
-    f1:Component rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A physical part: wing, floor, nose, roll structure" .
-    f1:System rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A technical system: power unit, hybrid system, active aero" .
-    f1:LegacySystem rdfs:subClassOf f1:VehicleFeature .
-    f1:Tyre rdf:type owl:Class . f1:FrontTyre rdfs:subClassOf f1:Tyre . f1:RearTyre rdfs:subClassOf f1:Tyre .
-    f1:Measurement rdf:type owl:Class .
-    f1:LengthMeasurement, f1:WidthMeasurement, f1:WeightMeasurement, f1:EnergyMeasurement,
-      f1:PowerMeasurement rdfs:subClassOf f1:Measurement .
-    f1:Unit rdf:type owl:Class . f1:MeasurementKind rdf:type owl:Class .
-    f1:Minimum, f1:Maximum, f1:Reduction rdf:type f1:MeasurementKind .
-    f1:DRS rdf:type f1:LegacySystem . f1:ActiveAero rdf:type f1:System .
-    f1:PowerUnit rdf:type f1:System . f1:HybridSystem rdf:type f1:System .
-    Object properties: f1:usesFeature, f1:usesEnergyMode (subPropertyOf usesFeature),
-      f1:usesAeroMode (subPropertyOf usesFeature), f1:replacesSystem, f1:disables,
-      f1:hasMeasurement, f1:hasUnit, f1:measurementKind.
-    Datatype property: f1:hasValue.
+      l_prompt :=
+      'Extract only explicitly stated Formula 1 2026 facts. Do not infer or invent facts. '
+      || 'Do not use your base knowledge about Formula 1 racing, but do use your base knowledge about units and measurements. '
+      || 'Standardize to Millimeter and Kilogram where applicable. '
+      || 'Only extract facts that are explicitly stated in the text to extract from. '
+      || 'Return JSON only in this format: '
+      || '{"triples":[{"subject":"id","predicate":"term","object":"id or literal",'
+      || '"object_kind":"iri or literal","datatype":"xsd:decimal or null","unit":"unit or null"}]}. '
+      || 'If there are no facts, return {"triples":[]}. '
+      || q'~
+        Use only this ontology:
+        @prefix f1: <https://oracle.com/ontology/f1/> .
+        f1:Car rdf:type owl:Class .
+        f1:VehicleFeature rdf:type owl:Class .
+        f1:EnergyMode rdfs:subClassOf f1:VehicleFeature .
+        f1:AeroMode rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A selectable aerodynamic configuration" .
+        f1:Component rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A physical part: wing, floor, nose, roll structure" .
+        f1:System rdfs:subClassOf f1:VehicleFeature ; rdfs:comment "A technical system: power unit, hybrid system, active aero" .
+        f1:LegacySystem rdfs:subClassOf f1:VehicleFeature .
+        f1:Tyre rdf:type owl:Class . f1:FrontTyre rdfs:subClassOf f1:Tyre . f1:RearTyre rdfs:subClassOf f1:Tyre .
+        f1:Measurement rdf:type owl:Class .
+        f1:LengthMeasurement, f1:WidthMeasurement, f1:WeightMeasurement, f1:EnergyMeasurement,
+          f1:PowerMeasurement rdfs:subClassOf f1:Measurement .
+        f1:Unit rdf:type owl:Class . f1:MeasurementKind rdf:type owl:Class .
+        f1:Minimum, f1:Maximum, f1:Reduction rdf:type f1:MeasurementKind .
+        f1:DRS rdf:type f1:LegacySystem . f1:ActiveAero rdf:type f1:System .
+        f1:PowerUnit rdf:type f1:System . f1:HybridSystem rdf:type f1:System .
+        Object properties: f1:usesFeature, f1:usesEnergyMode (subPropertyOf usesFeature),
+          f1:usesAeroMode (subPropertyOf usesFeature), f1:replacesSystem, f1:systemReplacedBy, f1:disables,
+          f1:hasMeasurement, f1:hasUnit, f1:measurementKind.
+        f1:systemReplacedBy owl:inverseOf f1:replacesSystem .
+        Datatype property: f1:hasValue.
 
-    Rules:
-    - Only use the properties above; never invent predicates. Use rdf:type for class membership.
-    - Use the most specific property: f1:usesEnergyMode for energy modes, f1:usesAeroMode for
-      aero modes, f1:usesFeature for components and systems. Never add both for the same object.
-    - Use f1:replacesSystem for a new system that replaces an old one. Never link a removed
-      system to f1:Car2026.
-    - The subject of f1:disables is the mode or technique that switches something off.
-    - Reuse these ids exactly: f1:Car2026 (any mention of the 2026 car), f1:DRS, f1:OvertakeMode,
-      f1:BoostMode, f1:RechargeMode, f1:ActiveAero, f1:StraightMode, f1:CornerMode, f1:PowerUnit,
-      f1:HybridSystem, f1:Kilogram, f1:Millimeter, f1:Meter, f1:Megajoule, f1:Kilowatt.
-    - New ids are f1: plus singular PascalCase, with no "2026" suffix. Give each new node one rdf:type.
-    - A measurement is its own node named f1:<Subject>_<Kind><Quantity>, for example
-      f1:Car2026_MinimumWeight. It gets rdf:type (a Measurement subclass), f1:hasValue with a
-      plain decimal, f1:hasUnit if the unit is stated, and f1:measurementKind for minimum,
-      maximum, or a change ("narrower by 25 mm" is f1:Reduction).
-    - A literal "object" is only the bare value, for example "768", with "xsd:decimal" in "datatype".
+        Rules:
+        - Use rdf:type to indicate a resource belongs to a type. Only use the properties above; never invent predicates.
+        - Use f1:replacesSystem, never f1:replacedBy (it is inferred).
+        - Use the most specific property: f1:usesEnergyMode for energy modes,
+          f1:usesAeroMode for aero modes, f1:usesFeature for components and systems.
+        - Use only the most specific property; never also add f1:usesFeature for the same object.
+        - Never give a node a second rdf:type, and never re-type the ids defined above.
+        - Never link a removed or replaced system to f1:Car2026; use f1:replacesSystem only.
+        - The subject of f1:disables is the mode or technique that switches something off, never f1:Car2026.
+        - Use prefixed names (f1:, rdf:, xsd:). One JSON item per triple; "object" is always a string.
+        - In JSON, a literal "object" is only the bare value (e.g. "768"); put xsd:decimal in "datatype", never ^^ inside "object".
+        - The same thing always uses the same id. Reuse these ids exactly:
+          f1:Car2026 (any mention of the 2026 car or cars), f1:DRS, f1:OvertakeMode,
+          f1:BoostMode, f1:RechargeMode, f1:ActiveAero, f1:StraightMode, f1:CornerMode,
+          f1:PowerUnit, f1:HybridSystem, f1:Kilogram, f1:Millimeter, f1:Meter,
+          f1:Megajoule, f1:Kilowatt.
+        - New ids are f1: + singular PascalCase, with no "2026" suffix.
+        - Give every new node an rdf:type from the classes above.
+        - A measurement is its own node: subject f1:hasMeasurement f1:<Subject>_<Kind><Quantity>,
+          where Kind is Minimum, Maximum, Previous or empty (e.g. f1:Car2026_MinimumWeight,
+          f1:OvertakeMode_EnergyRecovery), so the same value from different chunks gets the same id.
+          That node gets rdf:type (a Measurement subclass), f1:measures "<number>"^^xsd:decimal
+          (plain decimal, e.g. "0.5", no commas), f1:hasUnit only if the unit is stated,
+          and f1:measurementKind if the text says minimum, maximum, or a pre-2026 value.
+        - Attach a measurement to the thing it describes (e.g. f1:OvertakeMode f1:hasMeasurement
+          f1:OvertakeMode_MaximumEnergyRecovery), not to f1:Car2026.
+        - For changes ("narrower by 25 mm", "reduced by 30 kg"), use f1:measurementKind f1:Reduction.
+        - Link every component, system and mode of the 2026 car to f1:Car2026
+          (f1:usesFeature, f1:usesEnergyMode or f1:usesAeroMode).
+        - Punning is not allowed. A class cannot become rdf:type of another class.
 
-    Example (never output f1:ExampleCar):
-    f1:ExampleCar f1:hasMeasurement f1:ExampleCar_MinimumWeight .
-    f1:ExampleCar_MinimumWeight rdf:type f1:WeightMeasurement .
-    f1:ExampleCar_MinimumWeight f1:hasValue "999"^^xsd:decimal .
-    f1:ExampleCar_MinimumWeight f1:hasUnit f1:Kilogram .
-    f1:ExampleCar_MinimumWeight f1:measurementKind f1:Minimum .
+        Example (illustrative only; never output f1:ExampleCar):
+        f1:ExampleCar f1:hasMeasurement f1:ExampleCar_MinimumWeight .
+        f1:ExampleCar_MinimumWeight rdf:type f1:WeightMeasurement .
+        f1:ExampleCar_MinimumWeight f1:hasValue "999"^^xsd:decimal .
+        f1:ExampleCar_MinimumWeight f1:hasUnit f1:Kilogram .
+        f1:ExampleCar_MinimumWeight f1:measurementKind f1:Minimum .
 
-    Text to extract from:
-    ~' || r.chunk_text;
+        Text to extract from:
+        ~' || r.chunk_text;
 
         BEGIN
           l_response := DBMS_CLOUD_AI.GENERATE(prompt       => l_prompt,
@@ -193,7 +211,7 @@ Review the prompt before you run it. An ontology captures knowledge about a doma
 
 ## Task 3: Parse the JSON into triple rows
 
-1. Parse the JSON into RDF triples and insert into another table.  We will use the JSON_TABLE function.   LLMs sometimes write the word null as text, so the CASE expressions turn it into a real NULL.
+1. Run this block with **Run Script** to parse the JSON into RDF triples and insert them into another table. The `JSON_TABLE` function reads the JSON arrays. LLMs sometimes write the word null as text, so the CASE expressions turn it into a real NULL.
 
     ```sql
     <copy>

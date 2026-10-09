@@ -47,6 +47,12 @@
       "filename": "../../chat-with-agents/chat-with-agents.md"
     },
     {
+      "title": "Bonus Lab: Use OWL Inference to Classify a Hybrid Car",
+      "description": "Load the F1 ontology into the database and use OWL 2 RL inference to classify Car2026 as a HybridCar.",
+      "type": "livelabs",
+      "filename": "../../bonus-owl-inference/bonus-owl-inference.md"
+    },
+    {
       "title": "Need Help?",
       "description": "Template to link to Need Help lab at the end of workshop.",
       "filename": "https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
