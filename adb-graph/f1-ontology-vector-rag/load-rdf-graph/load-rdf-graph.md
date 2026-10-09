@@ -142,7 +142,7 @@ In this lab, you will:
 
     ![Graph Studio signed in as F1_ANALYST](images/11-graph-studio-signed-in-highlighted-1280.png)
 
-2. In the Graph Studio navigation pane, under **Graph Tools**, select **Graphs**. Open the **RDF Graph** tab, select `F1_2026_GRAPH`, and click **Query**.
+2. In the Graph Studio navigation panel, under **Graph Tools**, select **Graphs**. Open the **RDF Graph** tab, select `F1_2026_GRAPH`, and click **Query**.
 
     ![Graph Studio navigation menu with Graphs highlighted](images/12-graph-studio-graphs-menu-highlighted-1280.png)
 
@@ -151,20 +151,22 @@ In this lab, you will:
 3. In Query Playground, confirm that **Graph Name** is `F1_2026_GRAPH`. Replace the query editor contents with this SPARQL query, then click **Execute**:
 
     ```sparql
+    <copy>
     CONSTRUCT {?s ?p ?o}
     WHERE
       { ?s ?p ?o }
+    </copy>
     ```
 
     ![Query Playground with the graph name, SPARQL query, and Execute button highlighted](images/14-query-playground-highlighted-1280.png)
 
-4. The graph appears in the visualization pane below the query editor. If it is only partially visible, move the element slider to its maximum to show all vertices and edges. In the captured run, the visualization showed 63 vertices and 102 edges (165 of 165 elements); your counts may vary with the triples loaded. Explore the graph by dragging vertices, searching for a node, and using the legend to show or hide vertex and edge types.
+4. The graph appears in the visualization panel below the query editor. If it is only partially visible, move the element slider to its maximum to show all vertices and edges. In the captured run, the visualization showed 63 vertices and 102 edges (165 of 165 elements); your counts may vary with the triples loaded. Explore the graph by dragging vertices, searching for a node, and using the legend to show or hide vertex and edge types.
 
     ![RDF graph visualization with the graph and element count highlighted](images/15-rdf-graph-visualization-highlighted-1280.png)
 
-## Task 4: Query the graph with SPARQL
+## Task 4: Query the graph with SEM_MATCH and SPARQL
 
-SPARQL is a query language to query an RDF knowledge graph.  Using the SEM_MATCH table function you can wrap the SPARQL query in SQL. 
+Return to the SQL Worksheet tab you opened earlier and run the following queries. We will use the `SEM_MATCH` table function to run SPARQL against `F1_2026_GRAPH` from SQL.
 
 1. Count the facts in the graph.
 

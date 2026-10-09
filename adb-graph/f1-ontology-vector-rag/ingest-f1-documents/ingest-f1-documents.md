@@ -75,12 +75,9 @@ In this lab, you will:
 
 ## Task 3: Load the two PDFs
 
-1. Copy the two read-only document URLs:
+1. The read-only PAR links are available here: [Beginner's guide](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/f1_beginners_guide.pdf) and [expanded 2026 article](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/2026-f1-regulations-expanded-article.pdf).
 
-    - Beginner's guide: [](var:f1_guide_pdf_url)
-    - Expanded 2026 article: [](var:f1_article_pdf_url)
-
-2. Replace the two placeholders in the block below with those URLs, then run it with **Run**. `DBMS_CLOUD.GET_OBJECT` downloads each file straight into a BLOB column. The `NOT EXISTS` check makes the block safe to run again.
+2. Run the block below with **Run**. `DBMS_CLOUD.GET_OBJECT` downloads each PDF from its PAR URL into a BLOB column. The `NOT EXISTS` check makes the block safe to run again.
 
     ```sql
     <copy>
