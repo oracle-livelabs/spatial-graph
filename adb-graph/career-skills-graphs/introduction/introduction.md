@@ -17,8 +17,6 @@ You will use Oracle Autonomous AI Database, Database Actions, and an APEX Career
 - For the AI explanation in Lab 3, an enabled `GENAI_PROFILE` AI profile and provider access.
 - Basic SQL familiarity. No graph experience is required.
 
-The supplied APEX export installs application 100 only. It does not create the career data, graph, or task packages; ask the instructor to provision these before starting. The instructor should also confirm which AI profile the preloaded Career Explorer task packages use.
-
 ### Objectives
 
 In this workshop, you will:
