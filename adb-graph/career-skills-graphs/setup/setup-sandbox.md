@@ -19,19 +19,27 @@ In this lab, you will:
 
 ## Task 2: Log into APEX
 
-1. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
+1. On your reservation page, click View Login Info. Copy compartment name and the password. Click OCI.
+
+    ![Navigating to Autonomous AI Database.](images/reservation-information.png " ")
+
+2. Reset password to a custom password.
+
+    ![Change your account password.](images/change-password.png " ")
+
+3. Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database**, and select **Autonomous AI Database**.
 
     ![Navigating to Autonomous AI Database.](images/navigation-menu.png " ")
 
-2. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
+4. Select the compartment provided on **View Login Info**, and click on the **Display Name** for the **Autonomous AI Database**.
 
     ![Autonomous AI Database list with GHC Career Recommendation Graph selected.](images/select-autonomous-database.png " ")
 
-3. Click Tool configuration then **Copy** the Public access URL under Oracle APEX. Paste this link in a new tab in your browser.
+5. Click Tool configuration then **Copy** the Public access URL under Oracle APEX. Paste this link in a new tab in your browser.
 
     ![Copy link to APEX.](images/apex-link.png " ")
 
-4. Click **GHC_WORKSPACE** to log into the APEX workspace.
+6. Click **GHC_WORKSPACE** to log into the APEX workspace.
 
     ![Log in to APEX.](images/apex-login.png " ")
 
