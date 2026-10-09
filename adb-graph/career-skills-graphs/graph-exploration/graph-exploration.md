@@ -93,7 +93,7 @@ In this lab, you will:
 ## Learn More
 
 - [Graph Pattern in Oracle Database 26ai](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/graph-pattern.html)
-- [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?P0_REDIRECT=Y&wid=3978)
+- [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?wid=3978)
 
 ## Acknowledgements
 
