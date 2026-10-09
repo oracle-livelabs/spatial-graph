@@ -56,34 +56,11 @@ In this lab, you will:
     - Vector search finds related meaning even when labels differ.
     - A useful recommendation combines both signals with role and position filters.
 
-## Task 2: Check the AI profile
-
-1. Switch back to OCI and click Database actions -> SQL.
-
-    ![Database actions menu with SQL selected.](images/open-sql.png " ")
-
-2. Ensure you are logged in with your GHC_USER account. If you're logged in with ADMIN, log out and log back in using your GHC_USER account.
-
-3. Run the profile query.
-
-    ```sql
-    <copy>
-    SELECT profile_name,
-           status
-    FROM   user_cloud_ai_profiles
-    WHERE  UPPER(profile_name) = 'GENAI_PROFILE';
-    </copy>
-    ```
-
-4. Confirm that `GENAI_PROFILE` is enabled in the `GHC_USER` schema. `USER_CLOUD_AI_PROFILES` shows profiles in the connected user's schema.
-
-    ![Profile query result showing GENAI_PROFILE as ENABLED.](images/profile.png " ")
-
 ## Task 3: Explain one role with evidence
 
 1. Return to Career Explorer. In **AI Explanation**, review the evidence the AI profile receives: the target role, observed skills, graph path, and vector match.
 
-    ![AI Explanation evidence cards.](images/ai-explanation-evidence.png " ")
+    ![AI Explanation evidence cards.](images/explanation.png " ")
 
 2. Select **Generate explanation**, the sparkle icon at the top right of **AI Explanation**. The app sends this explanation request to `GENAI_PROFILE`:
 
