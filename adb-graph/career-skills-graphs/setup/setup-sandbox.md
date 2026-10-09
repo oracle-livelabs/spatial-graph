@@ -13,9 +13,9 @@ In this lab, you will:
 - Import the Career Explorer application into the enabled APEX workspace.
 - Open the Career Explorer entry page.
 
-## Task 1: Download application from Github
+## Task 1: Download application
 
-1. Navigate to [GitHub](https://github.com/oracle-samples/oracle-graph/tree/master/shared/demos) and download the Career Explorer application to your desktop.
+1. Download the [Career Explorer application](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/f101.sql) to your desktop.
 
 ## Task 2: Log into APEX
 
@@ -55,7 +55,7 @@ In this lab, you will:
 
     ![Upload the application file.](images/import-app.png " ")
 
-3. Review the settings. Use the `ghc_dev` application name, map the parsing schema to `GHC_USER`, under Build Status, click `Run Application`, and under Import As Application, select `Reuse Application ID 100 From Imported Application`. Click **Import Application**.
+3. Review the settings. Use the `ghc_dev` application name, map the parsing schema to `GHC_USER`, under Build Status, click `Run Application`, and under Import As Application, select `Reuse Application ID 101 From Imported Application`. Click **Import Application**.
 
     ![Import settings for the application.](images/import-app-step-2.png " ")
 
