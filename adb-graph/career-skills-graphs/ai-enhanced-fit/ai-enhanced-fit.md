@@ -60,7 +60,7 @@ In this lab, you will:
 
 1. Return to Career Explorer. In **AI Explanation**, review the evidence the AI profile receives: the target role, observed skills, graph path, and vector match.
 
-    ![AI Explanation evidence cards.](images/explanation.png " ")
+    ![AI Explanation evidence cards.](images/explaination.png " ")
 
 2. Select **Generate explanation**, the sparkle icon at the top right of **AI Explanation**. The app sends this explanation request to `GENAI_PROFILE`:
 
