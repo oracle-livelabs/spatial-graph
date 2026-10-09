@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Build an Ontology-Grounded F1 Rules Assistant with RDF Graph and Select AI Agents",
+  "workshoptitle": "Build an Ontology-Grounded F1 Rules Assistant with RDF Graph and AI Agents",
   "help": "livelabs-help-db_us@oracle.com",
   "variables": [
     "../../variables/variables.json"
@@ -12,13 +12,18 @@
       "filename": "../../introduction/introduction.md"
     },
     {
+      "title": "Get Started",
+      "description": "Prerequisites for this workshop",
+      "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs.md"
+    },
+    {
       "title": "Lab 1: Load and Chunk the F1 Documents",
       "description": "Load two PDFs with DBMS_CLOUD and split them into chunks with DBMS_VECTOR_CHAIN.",
       "type": "livelabs",
       "filename": "../../ingest-f1-documents/ingest-f1-documents.md"
     },
     {
-      "title": "Lab 2: Extract Ontology-Aligned Facts with Select AI",
+      "title": "Lab 2: Extract Ontology-Aligned Facts with an LLM",
       "description": "Extract JSON triples from every chunk with an ontology-constrained prompt.",
       "type": "livelabs",
       "filename": "../../extract-rdf-facts/extract-rdf-facts.md"
@@ -31,7 +36,7 @@
     },
     {
       "title": "Lab 4: Create the Question and Change Agents",
-      "description": "Build a read-only question agent and a guarded change agent with Select AI Agent.",
+      "description": "Build a read-only question agent and a guarded change agent with DBMS_CLOUD_AI_AGENT.",
       "type": "livelabs",
       "filename": "../../build-graph-agents/build-graph-agents.md"
     },

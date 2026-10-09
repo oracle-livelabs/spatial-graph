@@ -1,10 +1,10 @@
-# Extract Ontology-Aligned Facts with Select AI
+# Extract Ontology-Aligned Facts with an LLM
 
 ## Introduction
 
-In this lab, you send each chunk to a chat model with `DBMS_CLOUD_AI.GENERATE`. The model returns facts as JSON triples: subject, predicate, and object. On its own, a model invents a new name for the same thing in every chunk. The ontology in the prompt prevents that. It lists the classes, the relationships, the IDs to reuse, and one pattern for measurements.
+In this lab, you send each chunk to a chat LLM with `DBMS_CLOUD_AI.GENERATE`. The LLM returns facts as JSON triples: subject, predicate, and object. On its own, a LLM invents a new name for the same thing in every chunk. The ontology in the prompt prevents that. It lists the classes, the relationships, the IDs to reuse, and one pattern for measurements.
 
-You keep the raw model responses in their own table. You can inspect or reparse them later without calling the model again.
+You keep the raw LLM responses in their own table. You can inspect or reparse them later without calling the LLM again.
 
 Estimated Time: 15 minutes
 
@@ -18,10 +18,11 @@ In this lab, you will:
 
 ## Task 1: Create the staging tables
 
-1. Create the three staging tables with **Run Script** (F5).
+1. Create the three staging tables with **Run**.
 
     ```sql
     <copy>
+    -- -------------LAB 2 TASK 1 STEP 1-------------
     CREATE TABLE IF NOT EXISTS f1_rdf_extract_stg (
       document_id NUMBER NOT NULL,
       chunk_id    NUMBER NOT NULL,
@@ -52,20 +53,27 @@ In this lab, you will:
 
     The `IS JSON` check rejects a response that is not valid JSON. The block in the next task catches that case and writes the chunk to `f1_rdf_extract_errors` instead.
 
-    ![Staging tables created](./../../extract-rdf-facts/images/01-staging-tables-highlighted-1280.png)
+    ![Staging tables created](images/01-staging-tables-highlighted-1280.png)
 
 ## Task 2: Extract facts with the ontology
 
-1. Read the prompt before you run it. It has three parts:
+Review the prompt before you run it. An ontology captures knowledge about a domain and can be created using a variety of tools. In this lab, the ontology is supplied as part of the prompt.
 
-    - **The ontology**: classes such as `f1:EnergyMode`, `f1:AeroMode`, and `f1:Measurement`, and the only relationships the model may use, such as `f1:usesEnergyMode` and `f1:replacesSystem`.
-    - **Fixed IDs**: the same thing always gets the same ID. For example, any mention of the 2026 car becomes `f1:Car2026`.
-    - **The measurement pattern**: a number is never attached directly to the car. It becomes its own node with a value, a unit, and a kind (`Minimum`, `Maximum`, or `Reduction`). A limit such as "minimum weight 768 kg" stays one clear fact.
+  The ontology was developed with AI assistance and human supervision. An LLM generated the initial ontology, and human review refined its terms, classes, and relationships for quality and consistency. The diagram summarizes the main classes and permitted relationships.
 
-2. Run the block with **Run Script**. It calls the model once per chunk and takes about three to five minutes. Chunks that were already extracted are skipped, so if the session times out, run the block again.
+  ![Overview of the human-reviewed F1 ontology, its class groups, permitted relationships, and measurement pattern](images/f1-ontology-overview.svg)
+
+  The prompt has three parts:
+
+  - **The ontology**: classes such as `f1:EnergyMode`, `f1:AeroMode`, and `f1:Measurement`, and the only relationships the LLM may use, such as `f1:usesEnergyMode` and `f1:replacesSystem`.
+  - **Fixed IDs**: the same thing always gets the same ID. For example, any mention of the 2026 car becomes `f1:Car2026`.
+  - **The measurement pattern**: a number is never attached directly to the car. It becomes its own node with a value, a unit, and a kind (`Minimum`, `Maximum`, or `Reduction`). A limit such as "minimum weight 768 kg" states one clear fact.
+
+2. Run the block with **Run**. It calls the LLM once per chunk and takes about three to five minutes. Chunks that were already extracted are skipped, so if the session times out, run the block again.
 
     ```sql
     <copy>
+    -- -------------LAB 2 TASK 2 STEP 2-------------
     SET SERVEROUTPUT ON
     DECLARE
       l_prompt   CLOB;
@@ -141,7 +149,7 @@ In this lab, you will:
           l_response := DBMS_CLOUD_AI.GENERATE(prompt       => l_prompt,
                                                profile_name => 'GENAI_PROFILE',
                                                action       => 'chat');
-          -- Keep only the outermost {...}: models sometimes add code fences or a preamble
+          -- Keep only the outermost {...}: LLMs sometimes add code fences or a preamble
           l_response := NVL(REGEXP_SUBSTR(l_response, '\{.*\}', 1, 1, 'n'), l_response);
 
           IF JSON_EXISTS(l_response, '$.triples') THEN
@@ -168,28 +176,28 @@ In this lab, you will:
     </copy>
     ```
 
-    The block commits after every chunk, so progress is kept even if one call fails.
+    The block commits after each chunk, preserving progress even if a subsequent call fails.
 
-    ![Extraction finished with the extracted and skipped counts](./../../extract-rdf-facts/images/02-extract-facts-highlighted-1280.png)
+    ![Extraction finished with the extracted and skipped counts](images/02-extract-facts-highlighted-1280.png)
 
-3. Check the result. Most chunks land in `f1_rdf_extract_stg`. A few failures are normal, for example a chunk that holds only a page footer.
+3. Select from `f1_rdf_extract_stg` to examine a few rows. 
 
     ```sql
     <copy>
-    SELECT 'extracted' AS status, COUNT(*) AS chunks FROM f1_rdf_extract_stg
-    UNION ALL
-    SELECT 'skipped', COUNT(*) FROM f1_rdf_extract_errors;
+    -- -------------LAB 2 TASK 2 STEP 3-------------
+    SELECT * FROM f1_rdf_extract_stg;
     </copy>
     ```
 
-    ![Extracted and skipped chunk counts](./../../extract-rdf-facts/images/03-extract-status-highlighted-1280.png)
+    ![Extracted and skipped chunk counts](images/03-extract-status-highlighted-1280.png)
 
 ## Task 3: Parse the JSON into triple rows
 
-1. Turn each response into one row per triple with `JSON_TABLE`. Models sometimes write the word `null` as text, so the `CASE` expressions turn it into a real `NULL`.
+1. Parse the JSON into RDF triples and insert into another table.  We will use the JSON_TABLE function.   LLMs sometimes write the word null as text, so the CASE expressions turn it into a real NULL.
 
     ```sql
     <copy>
+    -- -------------LAB 2 TASK 3 STEP 1-------------
     INSERT INTO f1_rdf_triples_stg (document_id, chunk_id, subject_id, predicate,
                                     object_value, object_kind, datatype_uri, unit_value)
     SELECT DISTINCT e.document_id, e.chunk_id,
@@ -215,12 +223,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Triple rows inserted](./../../extract-rdf-facts/images/04-parse-triples-highlighted-1280.png)
+    ![Triple rows inserted](images/04-parse-triples-highlighted-1280.png)
 
-2. Look at the facts about the 2026 car. Every row still carries the document and chunk it came from.
+2. Look at the facts about the 2026 car. Each fact retains a reference to the document and chunk it came from. These facts form an RDF knowledge graph representation of the source documents.
 
     ```sql
     <copy>
+    -- -------------LAB 2 TASK 3 STEP 2-------------
     SELECT document_id, chunk_id, subject_id, predicate, object_value
     FROM f1_rdf_triples_stg
     WHERE subject_id = 'f1:Car2026'
@@ -228,14 +237,15 @@ In this lab, you will:
     </copy>
     ```
 
-    Expect relationships such as `f1:usesEnergyMode f1:OvertakeMode` and `f1:usesAeroMode f1:StraightMode`, plus `f1:hasMeasurement` links. The model's output varies a little between runs, so your rows can differ.
+    Expect relationships such as `f1:usesEnergyMode f1:OvertakeMode` and `f1:usesAeroMode f1:StraightMode`, plus `f1:hasMeasurement` links. The LLM's output varies a little between runs, so your rows can differ.
 
-    ![Facts about Car2026](./../../extract-rdf-facts/images/05-car2026-facts-highlighted-1280.png)
+    ![Facts about Car2026](images/05-car2026-facts-highlighted-1280.png)
 
 3. Look at one measurement and the facts that describe it.
 
     ```sql
     <copy>
+    -- -------------LAB 2 TASK 3 STEP 3-------------
     SELECT subject_id, predicate, object_value, datatype_uri
     FROM f1_rdf_triples_stg
     WHERE subject_id LIKE 'f1:Car2026\_%' ESCAPE '\'
@@ -245,16 +255,16 @@ In this lab, you will:
 
     Each measurement node, such as `f1:Car2026_MinimumWeight`, has a type, a value, a unit, and a kind.
 
-    ![Measurement facts with datatypes](./../../extract-rdf-facts/images/06-measurements-highlighted-1280.png)
+    ![Measurement facts with datatypes](images/06-measurements-highlighted-1280.png)
 
 You may now **proceed to the next lab**.
 
 ## Learn More
 
-- [DBMS_CLOUD_AI.GENERATE](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/dbms-cloud-ai-package.html)
+- [DBMS\_CLOUD\_AI.GENERATE](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/dbms-cloud-ai-package.html)
 - [JSON_TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/JSON_TABLE.html)
 
 ## Acknowledgements
 
-* **Author** - Ramu Murakami Gutierrez
+* **Author** - Ramu Murakami Gutierrez, Denise Myrick, Shreya Pandey, Matthew Perry
 * **Last Updated By/Date** - Ramu Murakami Gutierrez, September 2026
