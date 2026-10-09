@@ -39,26 +39,31 @@ In this lab, you will:
 
 1. Select **App Builder > Import**.
 
-    ![Click App builder](images/app-builder.png " ")
-    ![Click import](images/apex-import.png " ")
+    ![App Builder in the APEX workspace.](images/app-builder.png " ")
 
-2. Upload the application that you downloaded in Task 1. Click **Next**. 
+    ![Import in App Builder.](images/apex-import.png " ")
 
-    ![Import app](images/import-app.png " ")
+2. Upload the application that you downloaded in Task 1. Click **Next**.
 
-3. Review the settings. Use the `ghc_dev` application name, map the parsing schema to `GHC_USER`, under Build Status, click `Run and Build Application`, and under Import As Application, select `Reuse Application ID 100 From Imported Application`. Click **Import Application**.
+    ![Upload the application file.](images/import-app.png " ")
 
-    ![Import app](images/import-app-step-2.png " ")
+3. Review the settings. Use the `ghc_dev` application name, map the parsing schema to `GHC_USER`, under Build Status, click `Run Application`, and under Import As Application, select `Reuse Application ID 100 From Imported Application`. Click **Import Application**.
+
+    ![Import settings for the application.](images/import-app-step-2.png " ")
 
 4. Click **Run Application**.
 
-    ![Run app](images/run-application.png " ")
+    ![Run Application button.](images/run-application.png " ")
 
 5. Use your GHC_USER and password to log into the application
 
-    ![Log into application](images/sign-in.png " ")
+    ![Career Explorer sign-in page.](images/sign-in.png " ")
+
+6. Career Explorer opens on one page. The numbered steps in the banner map to the tasks in Labs 2 and 3. The **Lab 1** section confirms that setup is complete and shows the signed-in user.
+
+    ![Career Explorer home with the step banner and the completed Lab 1 section.](images/career-explorer-home.png " ")
 
 ## Acknowledgements
 
-- **Oracle documentation** - [Create a Graph User](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/create-graph-user.html).
-- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, September 2026
+- **Authors** - Denise Myrick, Ramu Murakami Gutierrez, Ruiqi Jiang
+- **Last Updated By/Date** - Denise Myrick, Oracle AI Database Product Management, October 2026
