@@ -2,8 +2,7 @@
 
 ## Introduction
 
-In this lab, you convert the triples to RDF terms, load them into the graph `F1_2026_GRAPH`, and query it with SPARQL. The model wrote short names such as `f1:Car2026`. RDF stores full IRIs such as `<https://oracle.com/ontology/f1/Car2026>`, and literals such as `"768"^^<http://www.w3.org/2001/XMLSchema#decimal>`. A small function does that conversion.
-
+In this lab, you convert the triples to RDF terms, load them into the graph `F1_2026_GRAPH`, and query it with SPARQL. The model wrote short names such as `f1:Car2026`. RDF terms are represented as full IRIs such as `<https://oracle.com/ontology/f1/Car2026>`, and literals such as
 Estimated Time: 10 minutes
 
 ### Objectives
@@ -13,7 +12,8 @@ In this lab, you will:
 - Convert short names into full RDF terms.
 - Stage the triples in the column layout that the RDF bulk loader expects.
 - Create and bulk load the RDF graph.
-- Query the graph with `SEM_MATCH`.
+- Query the graph with `SEM_MATCH` and SPARQL.
+- Visualize the RDF graph in Graph Studio.
 
 ## Task 1: Convert the triples to RDF terms
 
@@ -21,6 +21,7 @@ In this lab, you will:
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 1 STEP 1-------------
     CREATE OR REPLACE FUNCTION f1_term(p IN VARCHAR2) RETURN VARCHAR2 IS
       l VARCHAR2(4000) := TRIM(p);
     BEGIN
@@ -41,12 +42,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![F1_TERM compiled](./../../load-rdf-graph/images/01-f1-term-function-highlighted-1280.png)
+    ![F1_TERM compiled](images/01-f1-term-function-highlighted-1280.png)
 
-2. Create the loader staging table. The bulk loader reads the columns `RDF$STC_SUB`, `RDF$STC_PRED`, and `RDF$STC_OBJ`. The two `source_` columns keep the provenance.
+2. Create the staging table to load data into an RDF graph.  The bulk loader reads `RDF$STC_SUB`, `RDF$STC_PRED`, and `RDF$STC_OBJ` from this staging table. The `source_` columns keep the provenance.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 1 STEP 2-------------
     CREATE TABLE IF NOT EXISTS f1_rdf_load_stg (
       source_document_id NUMBER,
       source_chunk_id    NUMBER,
@@ -58,12 +60,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Loader staging table created](./../../load-rdf-graph/images/02-load-staging-table-highlighted-1280.png)
+    ![Loader staging table created](images/02-load-staging-table-highlighted-1280.png)
 
-3. Fill the staging table. IRIs go through `f1_term`. Literals are wrapped in double quotes with their special characters escaped, and get a datatype when the model gave one.
+3. Load the RDF terms into the staging table.  IRIs are given the full IRI and angle brackets using the F1_TERM function.  Literals are wrapped in double quotes with their special characters escaped, and have a datatype if the model provided one.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 1 STEP 3-------------
     INSERT INTO f1_rdf_load_stg (source_document_id, source_chunk_id,
                                  RDF$STC_SUB, RDF$STC_PRED, RDF$STC_OBJ, RDF$STC_GRAPH)
     SELECT t.document_id, t.chunk_id,
@@ -84,12 +87,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Staging table filled](./../../load-rdf-graph/images/03-fill-load-stg-highlighted-1280.png)
+    ![Staging table filled](images/03-fill-load-stg-highlighted-1280.png)
 
-4. See how many staged rows are duplicates. The same fact often appears in several overlapping chunks.
+4. See how many staged rows are duplicates. The RDF graph stores each distinct fact only once.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 1 STEP 4-------------
     SELECT COUNT(*) AS staged_rows,
            COUNT(DISTINCT RDF$STC_SUB || RDF$STC_PRED || RDF$STC_OBJ) AS distinct_facts
     FROM f1_rdf_load_stg;
@@ -98,7 +102,7 @@ In this lab, you will:
 
     The graph stores each distinct fact once. The staging table keeps every copy, so you can still see which chunks stated a fact.
 
-    ![Staged rows and distinct facts](./../../load-rdf-graph/images/04-distinct-facts-highlighted-1280.png)
+    ![Staged rows and distinct facts](images/04-distinct-facts-highlighted-1280.png)
 
 ## Task 2: Create and load the graph
 
@@ -106,19 +110,20 @@ In this lab, you will:
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 2 STEP 1-------------
     BEGIN
       SEM_APIS.CREATE_RDF_GRAPH(
         rdf_graph_name => 'F1_2026_GRAPH',
         table_name     => NULL,
         column_name    => NULL,
-        network_owner  => USER,
+        network_owner  => 'F1_ANALYST',
         network_name   => 'RDF_NETWORK');
 
       SEM_APIS.BULK_LOAD_RDF_GRAPH(
         rdf_graph_name => 'F1_2026_GRAPH',
-        table_owner    => USER,
+        table_owner    => 'F1_ANALYST',
         table_name     => 'F1_RDF_LOAD_STG',
-        network_owner  => USER,
+        network_owner  => 'F1_ANALYST',
         network_name   => 'RDF_NETWORK');
     END;
     /
@@ -127,16 +132,45 @@ In this lab, you will:
 
     If you get an error that the RDF graph already exists, an earlier attempt created it. Remove the `CREATE_RDF_GRAPH` call and run the block again.
 
-    ![Graph created and bulk loaded](./../../load-rdf-graph/images/05-create-load-graph-highlighted-1280.png)
+    ![Graph created and bulk loaded](images/05-create-load-graph-highlighted-1280.png)
 
-## Task 3: Query the graph with SPARQL
+## Task 3: Visualize the RDF graph in Graph Studio
 
-`SEM_MATCH` runs a SPARQL query inside SQL and returns the variables as columns. The last two arguments name the network owner and network. Pass the owner as a literal, `'F1_ANALYST'`. The query is compiled before `USER` is evaluated, so `USER` does not work in that position.
+1. On the reservation page, open **View Login Info** and select **Open Link** next to **Graph Studio**. Sign in with the `F1_ANALYST` username and the password listed for your environment.
+
+    ![LiveLabs reservation information with Graph Studio and the F1_ANALYST workshop user highlighted](images/10-graph-studio-login-info-highlighted-1280.png)
+
+    ![Graph Studio signed in as F1_ANALYST](images/11-graph-studio-signed-in-highlighted-1280.png)
+
+2. In the Graph Studio navigation pane, under **Graph Tools**, select **Graphs**. Open the **RDF Graph** tab, select `F1_2026_GRAPH`, and click **Query**.
+
+    ![Graph Studio navigation menu with Graphs highlighted](images/12-graph-studio-graphs-menu-highlighted-1280.png)
+
+    ![RDF Graph tab with F1_2026_GRAPH selected and Query highlighted](images/13-rdf-graph-tab-query-highlighted-1280.png)
+
+3. In Query Playground, confirm that **Graph Name** is `F1_2026_GRAPH`. Replace the query editor contents with this SPARQL query, then click **Execute**:
+
+    ```sparql
+    CONSTRUCT {?s ?p ?o}
+    WHERE
+      { ?s ?p ?o }
+    ```
+
+    ![Query Playground with the graph name, SPARQL query, and Execute button highlighted](images/14-query-playground-highlighted-1280.png)
+
+4. The graph appears in the visualization pane below the query editor. If it is only partially visible, move the element slider to its maximum to show all vertices and edges. In the captured run, the visualization showed 63 vertices and 102 edges (165 of 165 elements); your counts may vary with the triples loaded. Explore the graph by dragging vertices, searching for a node, and using the legend to show or hide vertex and edge types.
+
+    ![RDF graph visualization with the graph and element count highlighted](images/15-rdf-graph-visualization-highlighted-1280.png)
+
+## Task 4: Query the graph with SPARQL
+
+SPARQL is a query language to query an RDF knowledge graph.  Using the SEM_MATCH table function you can wrap the SPARQL query in SQL. 
 
 1. Count the facts in the graph.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 3 STEP 1-------------
     SELECT COUNT(*) AS facts
     FROM TABLE(SEM_MATCH(
       'SELECT ?s ?p ?o WHERE { ?s ?p ?o }',
@@ -147,12 +181,13 @@ In this lab, you will:
 
     Expect roughly 90 to 150 facts. The exact number depends on what the model extracted in Lab 2.
 
-    ![Fact count from SEM_MATCH](./../../load-rdf-graph/images/06-count-facts-highlighted-1280.png)
+    ![Fact count from SEM_MATCH](images/06-count-facts-highlighted-1280.png)
 
 2. List what the 2026 car uses: its energy modes, aero modes, and other features.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 3 STEP 2-------------
     SELECT REPLACE(relation, 'https://oracle.com/ontology/f1/') AS relation,
            REPLACE(feature,  'https://oracle.com/ontology/f1/') AS feature
     FROM TABLE(SEM_MATCH(
@@ -168,12 +203,13 @@ In this lab, you will:
 
     You see energy modes such as `BoostMode` and `RechargeMode`, and features such as `ActiveAero` and `PowerUnit`. The exact list depends on what the model extracted in Lab 2.
 
-    ![Features and modes of the 2026 car](./../../load-rdf-graph/images/07-car-features-highlighted-1280.png)
+    ![Features and modes of the 2026 car](images/07-car-features-highlighted-1280.png)
 
 3. List every measurement with its value, unit, and kind. This query follows two hops: from a thing to its measurement node, then to the value, unit, and kind.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 3 STEP 3-------------
     SELECT REPLACE(thing,      'https://oracle.com/ontology/f1/') AS thing,
            REPLACE(quantity,   'https://oracle.com/ontology/f1/') AS quantity,
            amount,
@@ -194,12 +230,13 @@ In this lab, you will:
 
     Look for rows such as `Car2026_MaximumWheelbase | 3400 | Millimeter | Maximum` and `Car2026_MinimumWeight | 768 | Kilogram | Minimum`. The question agent in the next lab uses these limits to judge compliance.
 
-    ![Measurements with value, unit and kind](./../../load-rdf-graph/images/08-measurements-highlighted-1280.png)
+    ![Measurements with value, unit and kind](images/08-measurements-highlighted-1280.png)
 
 4. Find what replaced DRS, and what each mode switches off.
 
     ```sql
     <copy>
+    -- -------------LAB 3 TASK 3 STEP 4-------------
     SELECT REPLACE(subj, 'https://oracle.com/ontology/f1/') AS subj,
            REPLACE(pred, 'https://oracle.com/ontology/f1/') AS pred,
            REPLACE(obj,  'https://oracle.com/ontology/f1/') AS obj
@@ -214,7 +251,7 @@ In this lab, you will:
 
     SPARQL variables become SQL column names, so avoid SQL reserved words such as `?mode`, `?value`, `?session`, or `?limit`. That is why these queries use names such as `?amount` and `?limit_kind`.
 
-    ![What replaced DRS](./../../load-rdf-graph/images/09-replaces-drs-highlighted-1280.png)
+    ![What replaced DRS](images/09-replaces-drs-highlighted-1280.png)
 
 You may now **proceed to the next lab**.
 
@@ -225,5 +262,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-* **Author** - Ramu Murakami Gutierrez
+* **Author** - Ramu Murakami Gutierrez, Denise Myrick, Shreya Pandey, Matthew Perry
 * **Last Updated By/Date** - Ramu Murakami Gutierrez, September 2026

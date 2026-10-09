@@ -2,11 +2,10 @@
 
 ## Introduction
 
-In this lab, you put two Select AI agents on top of the graph and join them in one team, `F1_AGENT_TEAM`. A supervisor agent reads each request and hands it to exactly one of them:
+In this lab, you put two AI agents on top of the graph and join them in one team, `F1_AGENT_TEAM`. A supervisor agent reads each request and hands it to exactly one of them:
 
 | Agent | Tool | What it does |
 | --- | --- | --- |
-| `F1_SUPERVISOR` | none | Routes questions to the question agent and change requests to the change agent. |
 | `F1_QA_AGENT` | `F1_QUERY_TOOL` calls `F1_ASK` | Answers questions from the graph. Read-only. |
 | `F1_CHANGE_AGENT` | `F1_CHANGE_TOOL` calls `F1_CHANGE` | Adds or deletes facts through a checked, audited API. |
 
@@ -25,12 +24,13 @@ In this lab, you will:
 
 ## Task 1: Create the question function
 
-1. Run this block with **Run Script** (F5). It creates two small tables and the function `F1_ASK`.
+1. Run this block with **Run**. It creates two small tables and the function `F1_ASK`.
 
-    `F1_ASK` reads every fact in the graph with `SEM_MATCH`, shortens the IRIs, and asks the model to answer from those facts only. The graph is small, so the whole graph fits in one prompt. Answers are cached for 10 minutes, and any change to the graph clears the cache.
+    F1_ASK takes as input a question in natural language, and asks the LLM to answer using the facts in the RDF knowledge graph that represents the documents.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 1 STEP 1-------------
     SET DEFINE OFF
 
     CREATE TABLE IF NOT EXISTS f1_rdf_change_audit (
@@ -131,12 +131,13 @@ In this lab, you will:
 
     Stored code uses `$$PLSQL_UNIT_OWNER` as the network owner instead of `USER`. When the APEX chatbot calls this function, `USER` is the web gateway account, not `F1_ANALYST`.
 
-    ![F1_ASK compiled](./../../build-graph-agents/images/01-f1-ask-compiled-highlighted-1280.png)
+    ![F1_ASK compiled](images/01-f1-ask-compiled-highlighted-1280.png)
 
 2. Ask a question directly, without an agent.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 1 STEP 2-------------
     SELECT F1_ASK('A 2026 car has a 3,500 mm wheelbase. Is it compliant?') AS answer
     FROM dual;
     </copy>
@@ -144,11 +145,11 @@ In this lab, you will:
 
     The answer says the car is **not compliant**, because the graph holds a maximum wheelbase of 3,400 mm. The grid shows only the start of the answer. Click the cell, then click the eye icon to read all of it.
 
-    ![F1_ASK answer for the wheelbase question](./../../build-graph-agents/images/02-f1-ask-answer-highlighted-1280.png)
+    ![F1_ASK answer for the wheelbase question](images/02-f1-ask-answer-highlighted-1280.png)
 
 ## Task 2: Create the change guardrails
 
-1. Run this block with **Run Script**. It creates:
+1. Run this block with **Run**. It creates the following tables::
 
     - `f1_allowed_term`: the only relationships, units, and measurement kinds a change may use.
     - `f1_pending_delete`: deletes waiting for the user to confirm.
@@ -157,6 +158,7 @@ In this lab, you will:
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 2 STEP 1-------------
     SET DEFINE OFF
 
     CREATE TABLE IF NOT EXISTS f1_allowed_term (
@@ -462,12 +464,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Change package and F1_CHANGE compiled](./../../build-graph-agents/images/03-guardrails-compiled-highlighted-1280.png)
+    ![Change package and F1_CHANGE compiled](images/03-guardrails-compiled-highlighted-1280.png)
 
 2. Confirm that everything compiled.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 2 STEP 2-------------
     SELECT object_name, object_type, status
     FROM user_objects
     WHERE object_name IN ('F1_ASK', 'F1_CHANGE', 'F1_GRAPH_CHANGE_API')
@@ -477,14 +480,15 @@ In this lab, you will:
 
     All four rows show `VALID`.
 
-    ![All objects valid](./../../build-graph-agents/images/04-objects-valid-highlighted-1280.png)
+    ![All objects valid](images/04-objects-valid-highlighted-1280.png)
 
 ## Task 3: Register the tools, agents, and team
 
-1. Run this block with **Run Script**. It removes any earlier version, then creates two tools, two tasks, the two agents, the supervisor, and the team.
+1. Run this block with **Run**. It removes any earlier version, then creates two tools, two tasks, the two agents, the supervisor, and the team.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 3 STEP 1-------------
     SET DEFINE OFF
 
     BEGIN
@@ -587,12 +591,13 @@ In this lab, you will:
 
     Keep `SET DEFINE OFF` at the top. SQL Worksheet treats an ampersand as a substitution variable and can silently skip a block that contains one.
 
-    ![Tools, agents and team created](./../../build-graph-agents/images/05-team-created-highlighted-1280.png)
+    ![Tools, agents and team created](images/05-team-created-highlighted-1280.png)
 
 2. Check that every object is `ENABLED`: one team, three agents, three tasks, and two tools. You created two of the tasks. The database creates the third one for the supervisor.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 3 STEP 2-------------
     SELECT 'TEAM' AS kind, agent_team_name AS name, status FROM user_ai_agent_teams
     UNION ALL SELECT 'AGENT', agent_name, status FROM user_ai_agents
     UNION ALL SELECT 'TASK',  task_name,  status FROM user_ai_agent_tasks
@@ -601,7 +606,7 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Team, agents, tasks and tools enabled](./../../build-graph-agents/images/06-agents-enabled-highlighted-1280.png)
+    ![Team, agents, tasks and tools enabled](images/06-agents-enabled-highlighted-1280.png)
 
 ## Task 4: Ask a question
 
@@ -609,6 +614,7 @@ In this lab, you will:
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 4 STEP 1-------------
     SET SERVEROUTPUT ON
     DECLARE
       l_conv VARCHAR2(64) := DBMS_CLOUD_AI.CREATE_CONVERSATION();
@@ -624,7 +630,7 @@ In this lab, you will:
 
     The answer names Overtake Mode or active aerodynamics and a minimum weight of 768 kg. It takes a few seconds.
 
-    ![Team answer to the question](./../../build-graph-agents/images/07-team-answer-highlighted-1280.png)
+    ![Team answer to the question](images/07-team-answer-highlighted-1280.png)
 
 ## Task 5: Change the graph with a confirmed delete
 
@@ -632,6 +638,7 @@ In this lab, you will:
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 5 STEP 1-------------
     SET SERVEROUTPUT ON
     DECLARE
       l_conv VARCHAR2(64) := DBMS_CLOUD_AI.CREATE_CONVERSATION();
@@ -647,19 +654,20 @@ In this lab, you will:
 
     Nothing is deleted yet. The reply names the exact fact and ends with a code, for example `reply with: confirm 8258`.
 
-    ![Delete request returns a confirmation code](./../../build-graph-agents/images/08-delete-code-highlighted-1280.png)
+    ![Delete request returns a confirmation code](images/08-delete-code-highlighted-1280.png)
 
 2. Wait at least 15 seconds. Replace `0000` with your code and run the block. Only a later message can confirm a delete, so the agent cannot confirm its own request.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 5 STEP 2-------------
     SET SERVEROUTPUT ON
     DECLARE
       l_conv VARCHAR2(64) := DBMS_CLOUD_AI.CREATE_CONVERSATION();
     BEGIN
       DBMS_OUTPUT.PUT_LINE(DBMS_CLOUD_AI_AGENT.RUN_TEAM(
         team_name   => 'F1_AGENT_TEAM',
-        user_prompt => 'confirm 0000',
+        user_prompt => 'confirm <your-code>',
         params      => '{"conversation_id":"' || l_conv || '"}'));
     END;
     /
@@ -668,12 +676,13 @@ In this lab, you will:
 
     The reply confirms the delete, for example `Deleted: Car2026 usesEnergyMode BoostMode.` The supervisor sometimes returns it wrapped in JSON, such as `{"status":"success","result":"Deleted: ..."}`.
 
-    ![Delete confirmed with the code](./../../build-graph-agents/images/09-delete-confirmed-highlighted-1280.png)
+    ![Delete confirmed with the code](images/09-delete-confirmed-highlighted-1280.png)
 
 3. Put the fact back, this time as an add, which needs no confirmation.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 5 STEP 3-------------
     SET SERVEROUTPUT ON
     DECLARE
       l_conv VARCHAR2(64) := DBMS_CLOUD_AI.CREATE_CONVERSATION();
@@ -687,12 +696,13 @@ In this lab, you will:
     </copy>
     ```
 
-    ![Fact added back](./../../build-graph-agents/images/10-add-fact-highlighted-1280.png)
+    ![Fact added back](images/10-add-fact-highlighted-1280.png)
 
 4. Review the audit trail. Every change records who asked, what they asked, and the exact SPARQL that ran.
 
     ```sql
     <copy>
+    -- -------------LAB 4 TASK 5 STEP 4-------------
     SELECT changed_at, requested_by, operation, status,
            DBMS_LOB.SUBSTR(sparql_update, 200, 1) AS sparql_update
     FROM f1_rdf_change_audit
@@ -702,17 +712,16 @@ In this lab, you will:
 
     You see one `DELETE_FACT` row and one `ADD_FACT` row, both `APPLIED`.
 
-    ![Audit trail with the delete and the add](./../../build-graph-agents/images/11-audit-trail-highlighted-1280.png)
+    ![Audit trail with the delete and the add](images/11-audit-trail-highlighted-1280.png)
 
 You may now **proceed to the next lab**.
 
 ## Learn More
 
-- [Select AI Agent](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/select-ai-agents.html)
-- [DBMS_CLOUD_AI_AGENT package](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/dbms-cloud-ai-agent-package.html)
-- [SEM_APIS.UPDATE_RDF_GRAPH](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/SEM_APIS-reference.html)
+- [DBMS\_CLOUD\_AI\_AGENT package](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/dbms-cloud-ai-agent-package.html)
+- [SEM\_APIS.UPDATE\_RDF\_GRAPH](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/SEM_APIS-reference.html)
 
 ## Acknowledgements
 
-* **Author** - Ramu Murakami Gutierrez
+* **Author** - Ramu Murakami Gutierrez, Denise Myrick, Shreya Pandey, Matthew Perry
 * **Last Updated By/Date** - Ramu Murakami Gutierrez, September 2026
