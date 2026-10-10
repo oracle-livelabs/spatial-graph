@@ -2,6 +2,10 @@
 
 ## Introduction
 
+### Watch the video
+
+[Load and Chunk the F1 Documents](videohub:1_lghn0kiy)
+
 In this lab, you store two F1 PDFs in the database and split their text into overlapping chunks. A chunk is a short, focused input for the LLM in the next lab. Each chunk keeps the ID of its source document, so you can trace every fact back to its source.
 
 Estimated Time: 8 minutes
@@ -15,6 +19,8 @@ In this lab, you will:
 - Load two PDFs from Object Storage.
 - Split the text into overlapping chunks and check the result.
 
+> **Note:** Run the blocks one at a time. Paste a block into an empty worksheet, select all of it (Ctrl+A or Cmd+A), click **Run**, and check the result before you move on to the next block.
+
 ## Task 1: Open SQL Worksheet
 
 1. On your reservation page, click **View Login Info**. Copy the **SQL Worksheet URL**, the database user `F1_ANALYST`, and its password.
@@ -25,7 +31,7 @@ In this lab, you will:
 
     ![SQL Worksheet sign-in screen with the username, password, and Sign in button highlighted](images/02-sql-worksheet-signin-highlighted-1280.png)
 
-3. Run this check with **Run Statement**. It confirms that your AI profile and RDF network are ready.
+3. Run this check with **Run**. It confirms that your AI profile and RDF network are ready.
 
     ```sql
     <copy>
@@ -75,7 +81,7 @@ In this lab, you will:
 
 ## Task 3: Load the two PDFs
 
-1. The read-only PAR links are available here: [Beginner's guide](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/f1_beginners_guide.pdf) and [expanded 2026 article](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/2026-f1-regulations-expanded-article.pdf).
+1. The read-only PAR links are available here: [Beginner's guide](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/f1_beginners_guide.pdf) and [expanded 2026 article](https://c4u02.objectstorage.us-ashburn-1.oci.customer-oci.com/p/9DEArLjsgbKXuJgQtSG95E8hMXRFtxgHR8jiHbqz4HgyVYXVnSo0SC_s-zq5CJA3/n/c4u02/b/hosted-files/o/2026-f1-regulations-expanded-article.pdf). If you’re interested, you can open either link to read the source PDF.
 
 2. Run the block below with **Run**. `DBMS_CLOUD.GET_OBJECT` downloads each PDF from its PAR URL into a BLOB column. The `NOT EXISTS` check makes the block safe to run again.
 
@@ -102,7 +108,7 @@ In this lab, you will:
 
     ![Two PDFs loaded, URLs blurred](images/03-load-pdfs-highlighted-1280.png)
 
-3. Confirm that both documents loaded.
+3. Run the query with **Run** to confirm that both documents loaded.
 
     ```sql
     <copy>
@@ -120,7 +126,7 @@ In this lab, you will:
 
 ## Task 4: Extract text and create chunks
 
-1. Preview the first 500 characters of text from each PDF. `DBMS_VECTOR_CHAIN.UTL_TO_TEXT` reads the PDF format inside the database.
+1. Run the query with **Run** to preview the first 500 characters of text from each PDF. `DBMS_VECTOR_CHAIN.UTL_TO_TEXT` reads the PDF format inside the database.
 
     ```sql
     <copy>
@@ -133,7 +139,7 @@ In this lab, you will:
 
     ![Text preview of each PDF](images/05-text-preview-highlighted-1280.png)
 
-2. Split every document into chunks of up to 750 characters. The 150-character overlap keeps a sentence that crosses a boundary whole in at least one chunk.
+2. Split every document into chunks of up to 750 characters with **Run**. The 150-character overlap keeps a sentence that crosses a boundary whole in at least one chunk.
 
     ```sql
     <copy>
@@ -161,7 +167,7 @@ In this lab, you will:
 
     ![Chunks inserted](images/06-create-chunks-highlighted-1280.png)
 
-3. Count the chunks per document.
+3. Run this query with **Run** to count the chunks per document.
 
     ```sql
     <copy>
@@ -174,7 +180,7 @@ In this lab, you will:
     </copy>
     ```
 
-    Expect about 30 chunks in total. The next lab sends each chunk to the LLM once.
+    Expect 31 chunks in total: 16 for `f1rules.pdf` and 15 for `f1text.pdf`. The next lab sends each chunk to the LLM once.
 
     ![Chunk count per document](images/07-chunk-count-highlighted-1280.png)
 

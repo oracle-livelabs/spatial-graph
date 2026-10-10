@@ -2,6 +2,10 @@
 
 ## Introduction
 
+### Watch the video
+
+[Ask the Agents from the Chatbot](videohub:1_eryevw49)
+
 In this lab, you use the agent team from Lab 4 through a chat application built with Oracle APEX. The application sends every message to `F1_AGENT_TEAM`, so you get the same answers, the same delete confirmation, and the same audit trail as in SQL Worksheet. You do not write any code in this lab.
 
 Estimated Time: 9 minutes
@@ -18,6 +22,8 @@ In this lab, you will:
 ## Task 1: Open the chatbot
 
 1. On your reservation page, click **View Login Info** and copy the **Chatbot app** URL.
+
+    ![LiveLabs reservation information with View Login Info and the APEX Chatbot row highlighted; private values obscured](images/00-chatbot-url-highlighted-1280.png)
 
 2. Open a new browser tab, paste the URL, and press Enter.
 
@@ -37,16 +43,7 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
 
     ![Agent Builder in the chat navigation menu](images/02a-agent-builder-highlighted.png)
 
-2. In the Settings navigation, under **AI Agents**, click **Agent Teams**.
-
-    <!-- Screenshot placeholder: capture Agent Teams under AI Agents in the Settings navigation. -->
-    ![Agent Teams under AI Agents in the Settings navigation](images/02b-agent-teams-menu-highlighted-1280.png)
-
-3. Under **Select Agent Team**, choose `F1_AGENT_TEAM` if it is not already selected.
-
-    ![Select Agent Team with F1_AGENT_TEAM selected](images/02c-select-agent-team-highlighted-1280.png)
-
-4. Review the **Agent Team Map**. Read it from left to right:
+2. Review the **Agent Team Map**. Read it from left to right:
 
     | Column | Objects | What it shows |
     | --- | --- | --- |
@@ -55,11 +52,13 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
     | **Task** | `F1_QA_TASK`, `F1_CHANGE_TASK` | The instructions each agent follows. |
     | **Tool** | `F1_QUERY_TOOL`, `F1_CHANGE_TOOL` | The one tool each agent can call. |
 
+    The supervisor, `F1_SUPERVISOR`, is not drawn on the map. It is part of the team and routes each message to one of the two agents.
+
     Each agent has exactly one task and one tool. The question path can only read the graph. The change path is the only one that can write to it.
 
     ![Agent Team Map showing F1_AGENT_TEAM, its two agents, their tasks, and their tools](images/02d-agent-team-map-highlighted-1280.png)
 
-5. To go back to the chat, click the Oracle logo at the top of the page.
+3. To go back to the chat, click the Oracle logo at the top of the page.
 
     ![Oracle logo at the top of the chatbot page](images/02f-back-to-chat-highlighted.png)
 
@@ -89,7 +88,7 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
     </copy>
     ```
 
-    The answer names Overtake Mode and a minimum weight of 768 kg. Each answer is labeled **AGENT | F1\_AGENT\_TEAM**.
+    The answer names Overtake Mode. For the weight, it gives 768 kg or reports conflicting values, such as 768 kg and 724 kg, if the LLM extracted more than one minimum weight in Lab 2. Each answer is labeled **AGENT | F1\_AGENT\_TEAM**.
 
     ![Answer about DRS and the minimum weight](images/04-drs-weight-highlighted-1280.png)
 
@@ -105,6 +104,7 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
 
     The answer should be yes while the fact is in the graph. The supporting fact is `Car2026 usesEnergyMode BoostMode`.
 
+    <!-- Screenshot placeholder: capture the answer before deleting the fact. -->
     ![The graph reports that the 2026 car uses Boost Mode before the change](images/05-boost-mode-before-highlighted-1280.png)
 
 2. Ask the team to delete the fact:
@@ -115,14 +115,16 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
     </copy>
     ```
 
-    Nothing is deleted yet. The reply names the exact fact and provides a confirmation code. In this screenshot, the code is `1655` and is valid for 10 minutes. Use the code from your own reply.
+    Nothing is deleted yet. The reply names the exact fact and gives you a code, for example `confirm 2082`.
 
     ![Delete request returns a confirmation code](images/06-delete-code-highlighted-1280.png)
 
-3. Wait at least 15 seconds. Then send `confirm` followed by your code:
+3. Wait at least 15 seconds. Then send `confirm` followed by your code, for example:
 
     ```text
+    <copy>
     confirm <your-code>
+    </copy>
     ```
 
     The reply confirms the delete. It can come back wrapped in JSON, for example `{"status":"success","result":"Deleted: Car2026 usesEnergyMode BoostMode."}`.
@@ -153,19 +155,6 @@ Before you chat with the team, look at how it is built. The **Agent Teams** page
     The reply says `Applied: added Car2026 usesEnergyMode BoostMode.` Both changes are now in `f1_rdf_change_audit`, with `F1_ANALYST via F1_CHANGE_AGENT` as the requester. You can check them with the audit query from Lab 4.
 
     ![Fact added back](images/09-fact-added-highlighted-1280.png)
-
-6. Ask the same question one last time:
-
-    ```text
-    <copy>
-    Does the 2026 car use Boost Mode as an energy mode?
-    </copy>
-    ```
-
-    The answer should say yes again, showing the fact was restored.
-
-    <!-- Screenshot placeholder: capture the answer after adding the fact back. -->
-    ![The same question after adding the fact back shows Boost Mode in the graph again](images/10-boost-mode-restored-highlighted-1280.png)
 
 Congratulations! You built an RDF knowledge graph from two documents and put question and change agents on top of it.
 
