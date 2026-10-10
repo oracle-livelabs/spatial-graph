@@ -2,6 +2,10 @@
 
 ## Introduction
 
+### Watch the video
+
+[Load and Query the RDF Graph](videohub:1_x6efpnvc)
+
 In this lab, you convert the triples to RDF terms, load them into the graph `F1_2026_GRAPH`, and query it with SPARQL. The model wrote short names such as `f1:Car2026`. RDF terms are represented as full IRIs such as `<https://oracle.com/ontology/f1/Car2026>`, and literals such as
 Estimated Time: 10 minutes
 
@@ -15,9 +19,11 @@ In this lab, you will:
 - Query the graph with `SEM_MATCH` and SPARQL.
 - Visualize the RDF graph in Graph Studio.
 
+> **Note:** Run the blocks one at a time. Paste a block into an empty worksheet, select all of it (Ctrl+A or Cmd+A), click **Run**, and check the result before you move on to the next block.
+
 ## Task 1: Convert the triples to RDF terms
 
-1. Create `f1_term`. It expands a prefixed name to a full IRI in angle brackets, and replaces characters that an IRI cannot contain.
+1. Create `f1_term` with **Run**. It expands a prefixed name to a full IRI in angle brackets, and replaces characters that an IRI cannot contain.
 
     ```sql
     <copy>
@@ -44,7 +50,7 @@ In this lab, you will:
 
     ![F1_TERM compiled](images/01-f1-term-function-highlighted-1280.png)
 
-2. Create the staging table to load data into an RDF graph.  The bulk loader reads `RDF$STC_SUB`, `RDF$STC_PRED`, and `RDF$STC_OBJ` from this staging table. The `source_` columns keep the provenance.
+2. Create the staging table with **Run**. The bulk loader reads `RDF$STC_SUB`, `RDF$STC_PRED`, and `RDF$STC_OBJ` from this staging table. The `source_` columns keep the provenance.
 
     ```sql
     <copy>
@@ -62,7 +68,7 @@ In this lab, you will:
 
     ![Loader staging table created](images/02-load-staging-table-highlighted-1280.png)
 
-3. Load the RDF terms into the staging table.  IRIs are given the full IRI and angle brackets using the F1_TERM function.  Literals are wrapped in double quotes with their special characters escaped, and have a datatype if the model provided one.
+3. Load the RDF terms into the staging table with **Run**. IRIs are given the full IRI and angle brackets using the F1_TERM function. Literals are wrapped in double quotes with their special characters escaped, and have a datatype if the model provided one.
 
     ```sql
     <copy>
@@ -89,7 +95,7 @@ In this lab, you will:
 
     ![Staging table filled](images/03-fill-load-stg-highlighted-1280.png)
 
-4. See how many staged rows are duplicates. The RDF graph stores each distinct fact only once.
+4. Run the query with **Run** to see how many staged rows are duplicates. The RDF graph stores each distinct fact only once.
 
     ```sql
     <copy>
@@ -106,7 +112,7 @@ In this lab, you will:
 
 ## Task 2: Create and load the graph
 
-1. Create the RDF graph in the network `RDF_NETWORK` and bulk load the staging table.
+1. Create the RDF graph in the network `RDF_NETWORK` and bulk load the staging table with **Run**.
 
     ```sql
     <copy>
@@ -130,7 +136,7 @@ In this lab, you will:
     </copy>
     ```
 
-    If you get an error that the RDF graph already exists, an earlier attempt created it. Remove the `CREATE_RDF_GRAPH` call and run the block again.
+    If you get an error that the RDF graph already exists, an earlier attempt created it. Remove the `CREATE_RDF_GRAPH` call and run the block again with **Run**.
 
     ![Graph created and bulk loaded](images/05-create-load-graph-highlighted-1280.png)
 
@@ -160,13 +166,13 @@ In this lab, you will:
 
     ![Query Playground with the graph name, SPARQL query, and Execute button highlighted](images/14-query-playground-highlighted-1280.png)
 
-4. The graph appears in the visualization panel below the query editor. If it is only partially visible, move the element slider to its maximum to show all vertices and edges. In the captured run, the visualization showed 63 vertices and 102 edges (165 of 165 elements); your counts may vary with the triples loaded. Explore the graph by dragging vertices, searching for a node, and using the legend to show or hide vertex and edge types.
+4. The graph appears in the visualization panel below the query editor. If it is only partially visible, move the element slider to its maximum to show all vertices and edges. In the captured run, the visualization showed 72 vertices and 123 edges (195 of 195 elements); your counts may vary with the triples loaded. Explore the graph by dragging vertices, searching for a node, and using the legend to show or hide vertex and edge types.
 
     ![RDF graph visualization with the graph and element count highlighted](images/15-rdf-graph-visualization-highlighted-1280.png)
 
 ## Task 4: Query the graph with SEM_MATCH and SPARQL
 
-Return to the SQL Worksheet tab you opened earlier and run the following queries. We will use the `SEM_MATCH` table function to run SPARQL against `F1_2026_GRAPH` from SQL.
+Return to the SQL Worksheet tab you opened earlier and run each query with **Run**. We will use the `SEM_MATCH` table function to run SPARQL against `F1_2026_GRAPH` from SQL.
 
 1. Count the facts in the graph.
 
@@ -260,7 +266,7 @@ You may now **proceed to the next lab**.
 ## Learn More
 
 - [Loading and Exporting RDF Data](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/loading-and-exporting-rdf-data.html)
-- [Using the SEM_MATCH Table Function](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/sparql-query-rdf-graphs.html)
+- [Using the SEM_MATCH Table Function to Query RDF Data](https://docs.oracle.com/en/database/oracle/oracle-database/26/rdfrm/using-sem_match-table-function-query-rdf-data.html)
 
 ## Acknowledgements
 

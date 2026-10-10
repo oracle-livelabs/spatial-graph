@@ -47,8 +47,8 @@
       "filename": "../../chat-with-agents/chat-with-agents.md"
     },
     {
-      "title": "Bonus Lab: Use OWL Inference to Classify a Hybrid Car",
-      "description": "Load the F1 ontology into the database and use OWL 2 RL inference to classify Car2026 as a HybridCar.",
+      "title": "Bonus Lab: Use OWL Inference to Classify an Electrified Car",
+      "description": "Load the F1 ontology and use OWL 2 RL inference to classify Car2026 as an ElectrifiedCar based on its use of RechargeMode.",
       "type": "livelabs",
       "filename": "../../bonus-owl-inference/bonus-owl-inference.md"
     },
