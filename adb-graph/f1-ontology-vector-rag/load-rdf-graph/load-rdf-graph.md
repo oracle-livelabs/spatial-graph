@@ -23,7 +23,7 @@ In this lab, you will:
 
 ## Task 1: Convert the triples to RDF terms
 
-1. Create `f1_term` with **Run**. It expands a prefixed name to a full IRI in angle brackets, and replaces characters that an IRI cannot contain.
+1. Create `f1_term` with **Run**. Terms are transformed into full IRIs with angle brackets using the F1_TERM function.
 
     ```sql
     <copy>
