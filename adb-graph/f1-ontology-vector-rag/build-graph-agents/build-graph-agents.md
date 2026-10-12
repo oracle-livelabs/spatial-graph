@@ -2,14 +2,19 @@
 
 ## Introduction
 
-In this lab, you put two AI agents on top of the graph and join them in one team, `F1_AGENT_TEAM`. A supervisor agent reads each request and hands it to exactly one of them:
+### Watch the video
+
+[Create the Question and Change Agents](videohub:1_wf1pmdyu)
+
+In this lab, you build a team, `F1_AGENT_TEAM`, with three agents: a supervisor, `F1_SUPERVISOR`, that reads each request and hands it to exactly one of two worker agents:
 
 | Agent | Tool | What it does |
 | --- | --- | --- |
+| `F1_SUPERVISOR` | None | Routes each request to one worker. Never touches the graph. |
 | `F1_QA_AGENT` | `F1_QUERY_TOOL` calls `F1_ASK` | Answers questions from the graph. Read-only. |
 | `F1_CHANGE_AGENT` | `F1_CHANGE_TOOL` calls `F1_CHANGE` | Adds or deletes facts through a checked, audited API. |
 
-One tool per agent keeps each agent fast and predictable. The change agent never writes SPARQL itself. It describes the change as JSON, and a PL/SQL package checks every name against an allow-list, builds the SPARQL update, and writes an audit row. A delete needs a one-time code that only the user can send back.
+One tool per worker agent keeps each worker fast and predictable. The change agent never writes SPARQL itself. It describes the change as JSON, and a PL/SQL package checks every name against an allow-list, builds the SPARQL update, and writes an audit row. A delete needs a one-time code that only the user can send back.
 
 Estimated Time: 12 minutes
 
@@ -21,6 +26,8 @@ In this lab, you will:
 - Create the change guardrails: allow-list, audit table, change API, and `F1_CHANGE`.
 - Register the tools, tasks, agents, and the team with `DBMS_CLOUD_AI_AGENT`.
 - Test a compliance question and a two-step delete.
+
+> **Note:** Run the blocks one at a time. Paste a block into an empty worksheet, select all of it (Ctrl+A or Cmd+A), click **Run**, and check the result before you move on to the next block.
 
 ## Task 1: Create the question function
 
@@ -133,7 +140,7 @@ In this lab, you will:
 
     ![F1_ASK compiled](images/01-f1-ask-compiled-highlighted-1280.png)
 
-2. Ask a question directly, without an agent.
+2. Ask a question directly, without an agent. Run the query with **Run**.
 
     ```sql
     <copy>
@@ -466,7 +473,7 @@ In this lab, you will:
 
     ![Change package and F1_CHANGE compiled](images/03-guardrails-compiled-highlighted-1280.png)
 
-2. Confirm that everything compiled.
+2. Run the query with **Run** to confirm that everything compiled.
 
     ```sql
     <copy>
@@ -593,7 +600,7 @@ In this lab, you will:
 
     ![Tools, agents and team created](images/05-team-created-highlighted-1280.png)
 
-2. Check that every object is `ENABLED`: one team, three agents, three tasks, and two tools. You created two of the tasks. The database creates the third one for the supervisor.
+2. Run the query with **Run** to check that every object is `ENABLED`: one team, three agents, three tasks, and two tools. You created two of the tasks. The database creates the third one for the supervisor.
 
     ```sql
     <copy>
@@ -610,7 +617,7 @@ In this lab, you will:
 
 ## Task 4: Ask a question
 
-1. Run the team with a question. The supervisor sends it to the question agent. `RUN_TEAM` needs a conversation ID, which `DBMS_CLOUD_AI.CREATE_CONVERSATION` creates.
+1. Run the team query with **Run** and a question. The supervisor sends it to the question agent. `RUN_TEAM` needs a conversation ID, which `DBMS_CLOUD_AI.CREATE_CONVERSATION` creates.
 
     ```sql
     <copy>
@@ -628,13 +635,13 @@ In this lab, you will:
     </copy>
     ```
 
-    The answer names Overtake Mode or active aerodynamics and a minimum weight of 768 kg. It takes a few seconds.
+    The answer names Overtake Mode or active aerodynamics. For the weight, it gives 768 kg or reports conflicting values, such as 768 kg and 724 kg, if the LLM extracted more than one minimum weight in Lab 2. It takes a few seconds.
 
     ![Team answer to the question](images/07-team-answer-highlighted-1280.png)
 
 ## Task 5: Change the graph with a confirmed delete
 
-1. Ask the same team to delete a fact. This time the supervisor sends the request to the change agent.
+1. Ask the same team to delete a fact by running the block with **Run**. This time the supervisor sends the request to the change agent.
 
     ```sql
     <copy>
@@ -656,7 +663,7 @@ In this lab, you will:
 
     ![Delete request returns a confirmation code](images/08-delete-code-highlighted-1280.png)
 
-2. Wait at least 15 seconds. Replace `0000` with your code and run the block. Only a later message can confirm a delete, so the agent cannot confirm its own request.
+2. Wait at least 15 seconds. Replace `0000` with your code and run the block with **Run**. Only a later message can confirm a delete, so the agent cannot confirm its own request.
 
     ```sql
     <copy>
@@ -678,7 +685,7 @@ In this lab, you will:
 
     ![Delete confirmed with the code](images/09-delete-confirmed-highlighted-1280.png)
 
-3. Put the fact back, this time as an add, which needs no confirmation.
+3. Put the fact back as an add, which needs no confirmation. Run the block with **Run**.
 
     ```sql
     <copy>
@@ -698,7 +705,7 @@ In this lab, you will:
 
     ![Fact added back](images/10-add-fact-highlighted-1280.png)
 
-4. Review the audit trail. Every change records who asked, what they asked, and the exact SPARQL that ran.
+4. Run the query with **Run** to review the audit trail. Every change records who asked, what they asked, and the exact SPARQL that ran.
 
     ```sql
     <copy>
