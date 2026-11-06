@@ -56,7 +56,7 @@ In this lab, you will:
     - Vector search finds related meaning even when labels differ.
     - A useful recommendation combines both signals with role and position filters.
 
-## Task 3: Explain one role with evidence
+## Task 2: Explain one role with evidence
 
 1. Return to Career Explorer. In **AI Explanation**, review the evidence the AI profile receives: the target role, observed skills, graph path, and vector match.
 

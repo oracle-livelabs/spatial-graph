@@ -86,9 +86,9 @@ In this lab, you will:
 
     ![Two-hop pattern and its results.](images/pattern-matching.png " ")
 
-2. Add `WHERE role.title LIKE '%Engineer%'` on a new line just before `COLUMNS`, then select **Run** again. Select **Reset** to restore the query.
+2. (Optional) Add `WHERE role.title LIKE '%Engineer%'` on a new line just before `COLUMNS`, then select **Run** again. Select **Reset** to restore the query.
 
-3. Return to the graph and answer: **Which role became visible because the graph followed an intermediate connection?**
+3. (Optional) Return to the graph and answer: **Which role became visible because the graph followed an intermediate connection?**
 
 ## Learn More
 
