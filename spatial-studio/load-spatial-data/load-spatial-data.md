@@ -25,7 +25,7 @@ Estimated Time: 15 minutes
 
 You begin by loading a set of traffic accident data from a GeoJSON file. The data are fictitious and were generated for random locations along roadways in South Africa.
 
-1. Download GeoJSON file to a convenient location: [accidents.geojson](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson).
+1. Download GeoJSON file to a convenient location: [accidents.geojson](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/accidents.geojson).
 
 2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and drag-and-drop accidents.geojson. You can also click on the upload region and navigate to select the file. Click **Create**.
 ![Create Dataset](images/create-dataset1.png)
@@ -45,7 +45,7 @@ Observe the ACCIDENTS dataset now listed with no warnings, meaning that is prepa
 
 Next you load South African Police Service (SAPS) Stations and Station Boundaries from Shapefiles stored in a single zip file.
 
-1. Download zip file containing Shapefiles to a convenient location: [SAPS_police.zip](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/SAPS_police.zip).
+1. Download zip file containing Shapefiles to a convenient location: [SAPS_police.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/SAPS_police.zip).
 
 2. Navigate to the Datasets page, click **Create Dataset**, and drag-and-drop SAPS_police.zip. Click **Create**. Spatial Studio will extract the Shapefiles from the zip file and process them individually.
 ![Create dataset](images/create-dataset2.png)
