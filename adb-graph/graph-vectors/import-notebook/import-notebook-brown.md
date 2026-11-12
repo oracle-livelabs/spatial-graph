@@ -1,11 +1,11 @@
+# Import Notebook
+
 <!--
     {
         "name":"Create Graph",
         "description":"Login to Graph Studio and create a moviestream graph for when running the tenancy the lab."
     }
 -->
-
-# Import Notebook
 
 ## Introduction
 
@@ -33,7 +33,7 @@ Learn how to
 
  1. Click the **Notebook** icon. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **Import** icon on the far right.
 
-    ![Click the notebook icon and import the notebook.](images/task3step1.png " ")
+    ![Click the notebook icon and import the notebook.](images/import-notebook.png " ")
     
      Select or drag and drop the notebook and click **Import**.
 

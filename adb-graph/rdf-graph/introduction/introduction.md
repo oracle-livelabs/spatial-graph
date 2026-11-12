@@ -23,7 +23,7 @@ This video featured below is a demo example using a similar dataset that will be
 
 In this lab, a semantic graph will be built using SPARQL, which is a standardized methodology for integrating different data sources. This procedure will teach you how to analyze the data using graph-based queries and visualization.  
 
-Estimated Time: 35 minutes
+Estimated Workshop Time: 35 minutes
 
 ### Objectives
 - Prepare the Environment

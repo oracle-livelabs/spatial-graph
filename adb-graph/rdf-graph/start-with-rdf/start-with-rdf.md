@@ -54,7 +54,7 @@ page. The uploaded file is listed under Objects as shown:
 ​
   ![Image showing the Object Menu displayed highlighting the View Object Details option](./images/object-details.png)
 ​
-2.   Note the URL path of the object. This is used in the RDF import wizard in Graph Studio.
+2. Note the URL path of the object. This is used in the RDF import wizard in Graph Studio.
 ​
   ![Image showing where to find the URL path to the object in the Bucket](./images/url-path.png)
 ​

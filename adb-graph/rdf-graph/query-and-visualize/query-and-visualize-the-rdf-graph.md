@@ -374,7 +374,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     A sequence of triple patterns that repeat the same subject can be written by specifying the first triple in the normal way followed by a semicolon rather than a period, and subsequent triples can be written as predicate object pairs separated by semicolons, with a period following the last triple in the sequence.
 
-   Execute the following in a SPARQL paragraph.
+    Execute the following in a SPARQL paragraph.
 
      ```
      <copy>%sparql-rdf
@@ -512,9 +512,9 @@ But, if your account has more than one RDF graph, a selection box is displayed w
     Query 6 finds names of writers and directors of movies with Carl Weathers.
     Note the use of nested graph patterns to identify the patterns that are part of the `UNION`.
 
-   SPARQL provides a `UNION` clause to match one or more of several alternative patterns
+    SPARQL provides a `UNION` clause to match one or more of several alternative patterns
 
-   Execute the following in a SPARQL paragraph.
+    Execute the following in a SPARQL paragraph.
 
      ```
      <copy>%sparql-rdf

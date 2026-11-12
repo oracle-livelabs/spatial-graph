@@ -175,7 +175,7 @@ The Getting Started notebook folder also has a tutorial on PGQL.
 
   We see that accounts **934** and **387** are high on the list.  
 
-6.  Now check if there are any **circular** transfers originating and terminating at account **934**.
+6. Now check if there are any **circular** transfers originating and terminating at account **934**.
   We start with the **number of hops equals 4** as specified as **[:TRANSFERS]->{4}**.
   **ONE ROW PER STEP** enables us to see all the vertices in the circles.  
 
@@ -401,7 +401,7 @@ higher the risk.
 
   Change the graph visualization layout to **Grid**.
 
-  ![shows how to pick grid as layout](images/grid-setting.png.png " ")    
+  ![shows how to pick grid as layout](images/grid-setting.png " ")    
 
   >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 
