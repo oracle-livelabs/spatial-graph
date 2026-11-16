@@ -34,17 +34,17 @@ Watch the video below for a quick walk-through of the lab.
 
 You begin by loading projected flood regions, parcels, schools and facilities from common formats.
 
-1. Download the zip file containing the data to a convenient location: [SpatialStudioSlrData.zip](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/SpatialStudioSlrData.zip). The zip file contains the following:
+1. Download the zip file containing the data to a convenient location: [SpatialStudioSlrData.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/labfiles/SpatialStudioSlrData.zip). The zip file contains the following:
 
-   ![Download and check sample data](images/load-data-01.png)
+    ![Download and check sample data](images/load-data-01.png)
 
 2. In Spatial Studio, from the left panel menu navigate to the Datasets page, click **Create Dataset**, and select **From file upload**. Click on the upload region, navigate to your download location, and select the zip file. You may also drag and drop the file onto the upload region. Then click **Create**.
 
-   ![Upload data in Spatial Studio to create data sets](images/load-data-02.png)
+    ![Upload data in Spatial Studio to create data sets](images/load-data-02.png)
 
 3. A preview of the 1st uploaded file will be displayed. Select the destination Connection for this upload. Select the **SPATIAL\_STUDIO** connection (the Spatial Studio metadata repository). In a production scenario you would have other connection(s) for such business data, separate from the metadata repository. Click **Submit** to initiate the 1st upload.
 
-   ![Create dataset dialog](images/load-data-03.png)
+    ![Create dataset dialog](images/load-data-03.png)
 
 4. Repeat for all datasets.
 
@@ -58,11 +58,11 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
 1. The datasets are listed with a small warning icon to indicate that 1 or more preparation steps is needed. Begin by clicking the warning badge for **SCHOOLS**. This dataset was loaded from a non-spatial format (csv) and requires preparation for mapping visualization. The dataset includes latitude/longitude columns, so select **Create Latitude/Longitude Index** and then click **Ok**.
 
-   ![Fix issue with missing lon/lat index](images/prep-data-01.png)
+    ![Fix issue with missing lon/lat index](images/prep-data-01.png)
 
 2. Populate the latitude and longitude columns for indexing and click **OK**.
 
-   ![Map longitude and latitude columns](images/prep-data-02.png)
+    ![Map longitude and latitude columns](images/prep-data-02.png)
 
 3. Repeat for **FACILITIES** by clicking on the warning badge and selecting **Create Latitude/Longitude Index**. When complete, observe that the SCHOOLS and FACILITIES icons changed from a table to a pin indicating that the datasets can be used for map visualization.
 
@@ -70,31 +70,31 @@ Data preparation includes operations that allow datasets to be used for spatial 
 
       ![Create a key column](images/prep-data-bldgs-00.png)  
     
-   Click  the **Create Key Column** button.  
+    Click  the **Create Key Column** button.  
       ![Create a key column](images/prep-data-bldgs-01.png)  
 
-   Name the key column **bldg_id** and click **Ok**.  
+    Name the key column **bldg_id** and click **Ok**.  
       ![Name the key column](images/prep-data-bldgs-02.png)  
 
-   Finally, click **Apply**.
+    Finally, click **Apply**.
       ![Specify the key column for the dataset](images/prep-data-bldgs-03.png)  
 
 5. Click on the warning icon for **FACILITIES** and click the link **Go to Dataset Columns**.
 
-   ![Fix issue with missing key column](images/prep-data-03.png)
+    ![Fix issue with missing key column](images/prep-data-03.png)
 
 6. Select **FACILITY\_ID** as the key, click **Validate key**, and then **Apply**.
 
-   ![Search for key column in dataset properties](images/prep-data-04.png)
+    ![Search for key column in dataset properties](images/prep-data-04.png)
 
 7. Repeat to add keys for your other datasets using the following columns:
 
-   | Dataset   | Column to use as Key |
-   | --------- | -------------------- |
-   | FLOOD2040 | FID                  |
-   | FLOOD2060 | FID                  |
-   | FLOOD2080 | FID                  |
-   | SCHOOLS   | OGR\_FID             |
+    | Dataset   | Column to use as Key |
+    | --------- | -------------------- |
+    | FLOOD2040 | FID                  |
+    | FLOOD2060 | FID                  |
+    | FLOOD2080 | FID                  |
+    | SCHOOLS   | OGR\_FID             |
 
 8. Observe that all of your datasets are fully prepared for mapping and spatial analysis.
 

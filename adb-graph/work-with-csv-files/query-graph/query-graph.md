@@ -26,7 +26,7 @@ Learn how to
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.
 
-1. Download the notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
+1. Download the notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb).
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.
 
@@ -184,7 +184,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
 
     We see that accounts **934** and **387** are high on the list.  
 
-6.  Now check if there are any **circular** transfers originating and terminating at account **934**.
+6. Now check if there are any **circular** transfers originating and terminating at account **934**.
     We start with the **number of hops equals 4** as specified as **[:TRANSFERS]->{4}**.
     **ONE ROW PER STEP** lets us see all the circles' vertices.  
 
@@ -251,7 +251,7 @@ If the compute environment is not ready as yet and the code cannot be executed t
     ![Query executing pagerank using python](images/pagerank-algorithm.png " ")  
 
 9. Now let's list the PageRank values in descending order to find the accounts with high PageRank values.
-A high PageRank value indicates that that account is important, which in the context of BANK_GRAPH means a high number of transfers have flown through that account, or the account is connected to accounts that have a high number of transfers flowing through them.
+    A high PageRank value indicates that that account is important, which in the context of BANK_GRAPH means a high number of transfers have flown through that account, or the account is connected to accounts that have a high number of transfers flowing through them.
 
      ```
      <copy>%pgql-pgx
@@ -535,7 +535,7 @@ We can use a graph machine learning algorithm like DeepWalk to find accounts tha
      learning_rate=0.002,
      num_epochs=30,
      seed=1,
-     )
+     )</copy>
      ```
 
     ![running query for deepwalk model](images/deepwalk-query-model.png " ")
@@ -548,7 +548,7 @@ We can use a graph machine learning algorithm like DeepWalk to find accounts tha
      import time
      start_ts = time.time()
      model.fit(graph)
-     print("DeepWalk model training completed in {:.4f} seconds".format(time.time() - start_ts))
+     print("DeepWalk model training completed in {:.4f} seconds".format(time.time() - start_ts))</copy>
      ```
 
     ![running query for deepwalk model training](images/deepwalk-query-model-time.png " ")
@@ -559,7 +559,7 @@ We can use a graph machine learning algorithm like DeepWalk to find accounts tha
      <copy>%python-pgx
      similars_934 = model.compute_similars("BANK_ACCOUNTS(934)", 10)
      print("List of nodes most similar to node 934.")
-     similars_934.print()
+     similars_934.print()</copy>
      ```
 
     ![running query for similar accounts to 934l](images/similar-to-934.png " ")
@@ -570,11 +570,11 @@ We can use a graph machine learning algorithm like DeepWalk to find accounts tha
      <copy>%python-pgx
      similars_387 = model.compute_similars("BANK_ACCOUNTS(387)", 10)
      print("List of nodes most similar to node 387.")
-     similars_387.print()
+     similars_387.print()</copy>
      ```
     ![running query for similar accounts to 934l](images/similar-to-387.png " ")
 
-We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
+    We see that 135 shows up as the account closest to 934 and 387, in terms of the structure of the connections that account is involved in.
 
 5. When we query for transactions 2 hops away from 934, 387, or 135, we see that their structures are similar. Run the following paragraph and add a highlight to see these accounts by giving them a 'star' icon. You can also right-click on them to check their account ids.
 
@@ -582,7 +582,7 @@ We see that 135 shows up as the account closest to 934 and 387, in terms of the 
      <copy>%pgql-pgx
      /* show 2-hop accounts from 934 and 387 */
      SELECT * FROM MATCH (a) -[e1]-> (m) -[e2]-> (d) ON bank_graph
-     WHERE a.acct_id in (934, 387, 135)
+     WHERE a.acct_id in (934, 387, 135)</copy>
      ```
 
     ![account 934, 387, abd 135 being highlighted](images/accounts-highlighted-v2.png " ")

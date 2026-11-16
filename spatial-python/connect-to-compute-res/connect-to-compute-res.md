@@ -23,7 +23,7 @@ Watch the video below for a quick walk-through of the lab.
 
 1. From the main menu, navigate to Compute > Instances
 
-  ![Open Cloud Shell](images/compute-01.png)
+    ![Open Cloud Shell](images/compute-01.png)
 
 2. In the workshop instructions page, click **View Login Info** at the top left and copy your Compartment name.
 
@@ -43,11 +43,11 @@ Watch the video below for a quick walk-through of the lab.
    
 1. Open cloud shell.
 
-   ![Open Cloud Shell](images/compute-04.png)
+    ![Open Cloud Shell](images/compute-04.png)
 
 1. If prompted to run tutorial, type N and enter.
 
-   ![Open Cloud Shell](images/compute-05.png)
+    ![Open Cloud Shell](images/compute-05.png)
    
 3. At the command line, run each of following to create and navigate to your SSH folder.
    
@@ -62,14 +62,14 @@ Watch the video below for a quick walk-through of the lab.
     </copy>
     ```
  
-  ![Create keys](images/compute-06.png)
+    ![Create keys](images/compute-06.png)
 
 
 1. At the command line, run the following to retrieve and list a zip file containing SSH keys.  
 
     ```bash
     <copy>
-    wget https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/ocw23-keys.zip
+    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/labfiles/ocw23-keys.zip
     </copy>
     ```
 
@@ -78,7 +78,7 @@ Watch the video below for a quick walk-through of the lab.
     ls
     </copy>
     ```
-   ![Create keys](images/compute-07.png)
+    ![Create keys](images/compute-07.png)
 
 
 2. At the command line, run the following to unzip and list the zip file contents.  
@@ -113,7 +113,7 @@ Watch the video below for a quick walk-through of the lab.
 
 3. Click the collapse icon to minimize Cloud Shell.
 
-   ![Collapse Cloud Shell](images/compute-10.png)
+    ![Collapse Cloud Shell](images/compute-10.png)
 
 4. Observe the Restore button to reopen Cloud Shell. You will reopen Cloud Shell in a subsequent Lab.
 

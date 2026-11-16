@@ -26,7 +26,7 @@ Learn how to
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 2.   
 
-1. Download the exported notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/labfiles/BANK_GRAPH.dsnb)
 
 2. Click the **Notebooks** menu icon and then on the **Import** notebook icon on the top right.  
 
@@ -175,7 +175,7 @@ The Getting Started notebook folder also has a tutorial on PGQL.
 
   We see that accounts **934** and **387** are high on the list.  
 
-6.  Now check if there are any **circular** transfers originating and terminating at account **934**.
+6. Now check if there are any **circular** transfers originating and terminating at account **934**.
   We start with the **number of hops equals 4** as specified as **[:TRANSFERS]->{4}**.
   **ONE ROW PER STEP** enables us to see all the vertices in the circles.  
 
@@ -401,7 +401,7 @@ higher the risk.
 
   Change the graph visualization layout to **Grid**.
 
-  ![shows how to pick grid as layout](images/grid-setting.png.png " ")    
+  ![shows how to pick grid as layout](images/grid-setting.png " ")    
 
   >**Note:** The colors and layout shown in the screenshots may differ from those in your results.
 

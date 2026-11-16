@@ -23,7 +23,7 @@ This video featured below is a demo example using a similar dataset that will be
 
 In this lab, a semantic graph will be built using SPARQL, which is a standardized methodology for integrating different data sources. This procedure will teach you how to analyze the data using graph-based queries and visualization.  
 
-Estimated Time: 35 minutes
+Estimated Workshop Time: 35 minutes
 
 ### Objectives
 - Prepare the Environment
@@ -35,7 +35,7 @@ Estimated Time: 35 minutes
   This lab assumes you have:
   * An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
   
-  - Download the MOVIESTREAM file (moviestream\_rdf.nt) using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt)
+  - Download the MOVIESTREAM file (moviestream\_rdf.nt) using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt)
 
 This concludes this lab. You may now *proceed to the next lab.*
 

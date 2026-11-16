@@ -28,31 +28,31 @@ This lab assumes you have:
 
 1. Click on Graphs on the navigation menu from the left to navigate the Graphs page.
 
-  ![The 'get started' page for Graph Studio. On the left-hand navigation bar, the button for 'Graphs' is highlighted](./images/graph-studio-home.png "")
+    ![The 'get started' page for Graph Studio. On the left-hand navigation bar, the button for 'Graphs' is highlighted](./images/graph-studio-home.png "")
 
 2. Select **RDF GRAPH** as the graph type, and click on **Create Graph**.
 
-  ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
+    ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
 3. **RDF Graph** will be selected by default. Click **Confirm**
 
-  ![Confirming RDF graphs as the RDF graph type](./images/rdf-graph-selection.png "")
+    ![Confirming RDF graphs as the RDF graph type](./images/rdf-graph-selection.png "")
 
 4. Create RDF Graph Wizard opens as shown:
 
-  ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
+    ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
 5. Enter the OCI Object Storage URI path:
 
     ```
-      <copy>https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
+      <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt</copy>
     ```
 
 6. Select **No Credential** and click **Next**.
 
 7. Enter **"MOVIESTREAM"** as the graph name. Then click **Create**.
 
-  ![Naming the RDF Graph.](./images/name-rdf-graph.png "")
+    ![Naming the RDF Graph.](./images/name-rdf-graph.png "")
 
 8. Click on **Create**.
 
@@ -74,11 +74,11 @@ You can execute SPARQL Queries on the RDF Graph from the **Query Playground** pa
 
 1. On the **Graphs** page select **RDF** as the graph type and click the **Query** button to navigate to the Query Playground page.
 
-  ![Graphs page with RDF graph type selected and the query button highlighted](./images/graph-type.png "")
+    ![Graphs page with RDF graph type selected and the query button highlighted](./images/graph-type.png "")
 
 2. If you have multiple graphs in graph studio, you will have to choose the graph to query. In the Graph Name menu, select the MOVIESTREAM from the dropdown menu.
 
-  ![Query playground displays the graph name 'MOVIESTREAM' selected from the dropdown menu](./images/query-playground.png "")
+    ![Query playground displays the graph name 'MOVIESTREAM' selected from the dropdown menu](./images/query-playground.png "")
 
 3. Execute the following query for the RDF Graph.
 
@@ -93,7 +93,7 @@ You can execute SPARQL Queries on the RDF Graph from the **Query Playground** pa
       ?movie ms:actor/ms:name "Keanu Reeves" ;
       ms:genre/ms:genreName ?gname .
     }
-    ORDER BY ASC(?gname)<copy>
+    ORDER BY ASC(?gname)</copy>
     ```
 
       When the query is executed successfully the query output will be displayed as shown:

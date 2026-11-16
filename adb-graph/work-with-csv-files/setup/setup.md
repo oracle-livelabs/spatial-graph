@@ -26,7 +26,7 @@ The instructions below will show you how to run a stack that will automatically 
 
 1. Login to the Oracle Cloud.
 
-2. Once logged in, use this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/database/26ai-property-graph.zip) to create and run the Stack.
+2. Once logged in, use this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/database/26ai-property-graph.zip) to create and run the Stack.
     > Note: the link will open in a new tab or window.
 
 3. You will be directed to this page:
@@ -70,7 +70,7 @@ The instructions below will show you how to run a stack that will automatically 
     The Home icon ![Home icon](images/home.svg "") takes you to the Home page.  
     The Graph page ![Graphs icon](images/radar-chart.svg "") lists existing graphs for use in notebooks.  
     The Notebook page ![Notebook icon](images/notebook.svg "") lists existing notebooks and lets you create a new one. 
-    The Templates page ![Template icon](images/template.svg "")  let's you create templates for the graph visualizations.
+    The Templates page lets you create templates for the graph visualizations.
     The Jobs page ![Jobs icon](images/server.svg "") lists the status of background jobs and lets you view the associated log if any.
 --->
 

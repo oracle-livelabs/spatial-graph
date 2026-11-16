@@ -28,24 +28,24 @@ Assuming that you have completed the previous labs and are currently logged in, 
 
 1. Click on **Graphs** on the navigation menu from the left to navigate the Graphs page.
 
-  ![The landing page after creating the environment is the jobs menu](./images/graph-studio-home.png "")
+    ![The landing page after creating the environment is the jobs menu](./images/graph-studio-home.png "")
 
 2. In the Graph Type dropdown menu select **RDF** and then click the **Create** button on the top-right corner of the interface.
 
-  ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
+    ![The Graph Studio page graph type dropdown menu displays PG and RDF graph options](./images/graph-studio-graphs.png "")
 
 3. Select **RDF graph** and then click the **Confirm** button.
 
-  ![confirm button to select rdf graph option](./images/click-confirm-rdf.png "")
+    ![confirm button to select rdf graph option](./images/click-confirm-rdf.png "")
 
 4. Create RDF Graph Wizard opens as shown:
 
-  ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
+    ![The 'create RDF graph' page.](./images/create-rdf-graph.png "")
 
 5. Enter the OCI Object Storage URI path:
 
     ```
-      <copy>https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt
+      <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt</copy>
     ```
 
 6. Click **No Credential**.
@@ -53,7 +53,7 @@ Assuming that you have completed the previous labs and are currently logged in, 
 7. Click **Next**.
     The following dialog should appear, enter "MOVIESTREAM" for Graph Name:
 
-  ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
+    ![The 'create RDF graph' second page](./images/create-rdf-graph-2.png "")
 
 8. Click **Create**.
 
@@ -104,7 +104,7 @@ You can explore and validate the newly created RDF graph on the **Graphs** page 
 
 1. Navigate to the **Graphs** page and set the **Graph Type** to RDF using the dropdown menu. Select the MOVIESTREAM graph row from the available RDF graphs, sample statements (triples or quads should appear), use the three horizontal dots to resize these statements, and bring them into view. Sample statements (triples or quads) from the RDF Graph are displayed on the bottom panel as shown:
 
-  ![Sample statements from the RDF graph 'MOVIESTREAM' are displayed in triplets](./images/graph-sample-statements.png "")
+    ![Sample statements from the RDF graph 'MOVIESTREAM' are displayed in triplets](./images/graph-sample-statements.png "")
 
 2. After selecting the MOVIESTREAM Graph, scroll to the bottom of the page and verify that you see 500 rows of RDF triples have been retrieved.
 
@@ -116,11 +116,11 @@ You can execute SPARQL Queries on the RDF Graph from the **Query Playground** pa
 
 1. On the **Graphs** page select the **RDF** from the Graph Type dropdown menu and click the **Query** button to navigate to the Query Playground page.
 
-  ![Graphs page with RDF graph type selected and the query button highlighted](./images/graph-type.png "")
+    ![Graphs page with RDF graph type selected and the query button highlighted](./images/graph-type.png "")
 
 2. If you have multiple graphs in graph studio, you will have to choose the graph to query. In the Graph Name menu, select the MOVIESTREAM from the dropdown menu.
 
-  ![Query playground displays the graph name 'MOVIESTREAM' selected from the dropdown menu](./images/query-playground.png "")
+    ![Query playground displays the graph name 'MOVIESTREAM' selected from the dropdown menu](./images/query-playground.png "")
 
 3. Execute the following query for the RDF Graph.
 
@@ -135,7 +135,7 @@ You can execute SPARQL Queries on the RDF Graph from the **Query Playground** pa
       ?movie ms:actor/ms:name "Keanu Reeves" ;
       ms:genre/ms:genreName ?gname .
     }
-    ORDER BY ASC(?gname)<copy>
+    ORDER BY ASC(?gname)</copy>
     ```
 
       When the query is executed successfully the query output will be displayed as shown:

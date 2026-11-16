@@ -23,7 +23,7 @@ Estimated Time: 10 minutes
 The instructions below show you how to create each notebook paragraph, execute it, and change default visualization settings as needed.  
 First **import** the sample notebook and then execute the relevant paragraph for each step in task 3.   
 
-1. Download the exported notebook using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/INTRO_SPARQL.dsnb).
+1. Download the exported notebook using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/INTRO_SPARQL.dsnb).
 
 2. Click the **Notebooks** menu icon and then on the **Import Notebook** icon on the top right.  
 
@@ -374,7 +374,7 @@ But, if your account has more than one RDF graph, a selection box is displayed w
 
     A sequence of triple patterns that repeat the same subject can be written by specifying the first triple in the normal way followed by a semicolon rather than a period, and subsequent triples can be written as predicate object pairs separated by semicolons, with a period following the last triple in the sequence.
 
-   Execute the following in a SPARQL paragraph.
+    Execute the following in a SPARQL paragraph.
 
      ```
      <copy>%sparql-rdf
@@ -512,9 +512,9 @@ But, if your account has more than one RDF graph, a selection box is displayed w
     Query 6 finds names of writers and directors of movies with Carl Weathers.
     Note the use of nested graph patterns to identify the patterns that are part of the `UNION`.
 
-   SPARQL provides a `UNION` clause to match one or more of several alternative patterns
+    SPARQL provides a `UNION` clause to match one or more of several alternative patterns
 
-   Execute the following in a SPARQL paragraph.
+    Execute the following in a SPARQL paragraph.
 
      ```
      <copy>%sparql-rdf

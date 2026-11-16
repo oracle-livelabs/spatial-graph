@@ -14,7 +14,7 @@ Estimated Time: 5 minutes
 ### Prerequisites
   This lab assumes you have:
   - Oracle Cloud Account
-  - Download the MOVIESTREAM file (moviestream\_rdf.nt) using this [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt)
+  - Download the MOVIESTREAM file (moviestream\_rdf.nt) using this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt)
 ​
 ​
 ## **Task 1:** Upload RDF Data into OCI Object Storage
@@ -44,7 +44,7 @@ Estimated Time: 5 minutes
 ​
 7. Click Upload in the Objects section. The Upload Objects slider opens.
 ​
-8. Select the downloaded RDF moviestream\_rdf.nt file [link](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt) on your local system and click Upload.
+8. Select the downloaded RDF moviestream\_rdf.nt file [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4Au3jJ-t8Wtw3LWyYsDMqQk2FdlXDvXCb1MYRS0J6P4QS-GCrv2YNOolWdtFMLZq/n/c4u04/b/livelabsfiles/o/data-management-library-files/moviestream_rdf.nt) on your local system and click Upload.
 The file gets uploaded successfully. Click Close to return to the Bucket Details
 page. The uploaded file is listed under Objects as shown:
 ​
@@ -54,7 +54,7 @@ page. The uploaded file is listed under Objects as shown:
 ​
   ![Image showing the Object Menu displayed highlighting the View Object Details option](./images/object-details.png)
 ​
-2.   Note the URL path of the object. This is used in the RDF import wizard in Graph Studio.
+2. Note the URL path of the object. This is used in the RDF import wizard in Graph Studio.
 ​
   ![Image showing where to find the URL path to the object in the Bucket](./images/url-path.png)
 ​
